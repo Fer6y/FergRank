@@ -1,0 +1,47 @@
+Fighter media coverage — generated 2026-06-14
+Registry fighters: 2693
+  with Commons photo : 578 (21%)  [licensed, reusable]
+  with nationality   : 1752 (65%)  [→ flag]
+  with UFC.com id    : 1574 (58%)  [→ UFC headshots, © — see note]
+
+Division                Tot   Photo    Flag   UFCid
+Lightweight             447  92/447 280/447 261/447
+Welterweight            430 102/430 300/430 260/430
+Middleweight            346  86/346 232/346 209/346
+Featherweight           263  45/263 161/263 139/263
+Heavyweight             262  70/262 181/262 168/262
+Bantamweight            257  39/257 165/257 138/257
+Light Heavyweight       197  52/197 135/197 125/197
+Flyweight               136  23/136  93/136  80/136
+Women's Strawweight     103  17/103  76/103  71/103
+Women's Bantamweight     74   27/74   55/74   52/74
+Women's Flyweight        74   18/74   49/74   48/74
+Unknown                  71    0/71   10/71    7/71
+Women's Featherweight     7     2/7     4/7     5/7
+Road to UFC 3 Flyweight Tournament    2     0/2     0/2     0/2
+Superfight Championship    2     2/2     2/2     2/2
+Ultimate Japan Heavyweight Tournament    2     0/2     0/2     0/2
+3 Tournament              2     0/2     2/2     2/2
+Interim Lightweight       1     1/1     1/1     1/1
+Ultimate Fighter 33 Welterweight Tournament    1     0/1     0/1     0/1
+Road to UFC 3 Bantamweight Tournament    1     0/1     0/1     0/1
+Road to UFC 3 Women's Strawweight Tournament    1     0/1     0/1     0/1
+Road to UFC 1 Flyweight Tournament    1     0/1     0/1     0/1
+Ultimate Fighter 28 Heavyweight Tournament    1     0/1     0/1     0/1
+Ultimate Fighter 27 Lightweight Tournament    1     0/1     0/1     0/1
+Ultimate Fighter 27 Featherweight Tournament    1     0/1     0/1     0/1
+Ultimate Fighter 25 Welterweight Tournament    1     0/1     0/1     0/1
+Ultimate Fighter China Featherweight Tournament    1     0/1     0/1     0/1
+Ultimate Japan 2 Heavyweight Tournament    1     0/1     1/1     1/1
+15 Heavyweight Tournament    1     0/1     0/1     0/1
+14 Heavyweight Tournament    1     0/1     1/1     1/1
+13 Heavyweight Tournament    1     0/1     0/1     0/1
+Ultimate Ultimate '96 Tournament    1     0/1     1/1     1/1
+7 Tournament              1     0/1     1/1     1/1
+Ultimate Ultimate '95 Tournament    1     1/1     1/1     1/1
+2 Tournament              1     1/1     1/1     1/1
+
+NOTE: photo_url points at Wikimedia Commons (CC/PD — safe to redisplay,
+but confirm the licence per file before public launch). ufc_id can drive a
+follow-on pass that pulls UFC.com's standardised headshots for broader
+coverage — higher quality but copyrighted, so private-use only.

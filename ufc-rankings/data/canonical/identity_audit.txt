@@ -1,0 +1,34 @@
+══════════════════════════════════════════════════════════════════
+  CANONICAL FIGHTER REGISTRY — INTEGRITY AUDIT
+══════════════════════════════════════════════════════════════════
+  canonical fighters (our Fighter_Id anchor): 2693
+  total name aliases collected               : 5998
+  review queue size                          : 84
+
+── 1. WITHIN-SOURCE DUPLICATES (same human, two ids) ──
+  same-name clusters: 0
+  SUSPECTED DUPLICATES (shared opponent@date): 0
+  ✓ none — no two same-name ids share a fight.
+
+── 1b. NAME-INDEPENDENT EDGE CHECK (two fighters claim same opponent@date) ──
+  modern-era collisions (≥2001, real flags): 0
+  pre-2001 tournament collisions (legit):    65
+  ✓ none — every modern fight edge has a single claimant.
+
+── 1c. CLEAN-SPLIT DUPLICATES (two of our ids → one Sherdog id) ──
+  split duplicates: 0
+  ✓ none — no Sherdog id maps to more than one of our ids.
+
+── 2. NAMESAKE SEPARATION (different humans, same name — kept apart) ──
+  namesake clusters kept separate: 0
+
+── 3. WIN-COUNT RECONCILIATION (stats W/L/D vs actual fight rows) ──
+  fighters with |stats − graph| > 5 fights: 0
+
+── 4. CROSS-SOURCE COVERAGE ──
+  our↔Sherdog linked: 2239  (low-conf corroborated by fight graph: 367, still-suspect queued: 4)
+  odds aliases folded: 117   official aliases folded: 8
+  our↔BFO linked: 939  (queued for review: 80)
+
+  Review queue → data/canonical/identity_review.csv
+  Registry     → data/canonical/fighter_registry.csv

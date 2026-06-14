@@ -1,0 +1,44 @@
+[bfo] BULK CRAWL — full UFC history
+[bfo] 728 search queries built from Events.csv
+[bfo] enumerated 25/728 queries → 64 unique slugs
+[bfo] enumerated 50/728 queries → 135 unique slugs
+[bfo] enumerated 75/728 queries → 155 unique slugs
+[bfo] enumerated 100/728 queries → 174 unique slugs
+[bfo] enumerated 125/728 queries → 227 unique slugs
+[bfo] enumerated 150/728 queries → 257 unique slugs
+[bfo] enumerated 175/728 queries → 278 unique slugs
+[bfo] enumerated 200/728 queries → 303 unique slugs
+[bfo] enumerated 225/728 queries → 317 unique slugs
+[bfo] enumerated 250/728 queries → 339 unique slugs
+[bfo] enumerated 275/728 queries → 354 unique slugs
+[bfo] enumerated 300/728 queries → 382 unique slugs
+[bfo] enumerated 325/728 queries → 396 unique slugs
+[bfo] enumerated 350/728 queries → 432 unique slugs
+[bfo] enumerated 375/728 queries → 460 unique slugs
+[bfo] enumerated 400/728 queries → 495 unique slugs
+[bfo] enumerated 425/728 queries → 516 unique slugs
+[bfo] enumerated 450/728 queries → 530 unique slugs
+[bfo] enumerated 475/728 queries → 537 unique slugs
+[bfo] enumerated 500/728 queries → 542 unique slugs
+[bfo] enumerated 525/728 queries → 546 unique slugs
+[bfo] enumerated 550/728 queries → 552 unique slugs
+[bfo] enumerated 575/728 queries → 556 unique slugs
+[bfo] enumerated 600/728 queries → 566 unique slugs
+[bfo] enumerated 625/728 queries → 584 unique slugs
+[bfo] enumerated 650/728 queries → 586 unique slugs
+[bfo] enumerated 675/728 queries → 586 unique slugs
+[bfo] enumerated 700/728 queries → 587 unique slugs
+[bfo] enumerated 725/728 queries → 587 unique slugs
+[bfo] 587 unique UFC event slugs to fetch
+[bfo] fetched 50/587 events → 191 fight rows
+[bfo] fetched 100/587 events → 344 fight rows
+[bfo] fetched 150/587 events → 574 fight rows
+[bfo] fetched 200/587 events → 823 fight rows
+[bfo] fetched 250/587 events → 1022 fight rows
+[bfo] fetched 300/587 events → 1232 fight rows
+[bfo] fetched 350/587 events → 1285 fight rows
+[bfo] fetched 400/587 events → 1312 fight rows
+[bfo] fetched 450/587 events → 1490 fight rows
+[bfo] fetched 500/587 events → 1629 fight rows
+[bfo] fetched 550/587 events → 1663 fight rows
+[bfo] DONE — 587 events, 1796 fight rows → /Users/scottferguson/Desktop/UFergCRankings/ufc-rankings/data/bfo_odds.csv

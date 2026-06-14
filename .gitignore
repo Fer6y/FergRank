@@ -1,0 +1,31 @@
+# ── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+
+# ── Dependencies / build output ──────────────────────────────────────────────
+# (ufc-rankings/.gitignore is authoritative for the app; these are a safety net)
+node_modules/
+ufc-rankings/.next/
+ufc-rankings/out/
+ufc-rankings/.vercel/
+*.tsbuildinfo
+
+# ── Private raw HTML scrape caches — NEVER commit (robots/redistribution) ─────
+**/.sherdog_cache/
+**/.cache/
+ufc-rankings/scripts/sherdog/fixtures/*.html
+
+# ── Local scratch / source-data dumps at repo root (not part of the app) ──────
+/UFC Data1/
+/scrape_ufc_stats-main/
+/archive.zip
+/pro_mma_fights.csv
+/Sherdog.com_*.html
+
+# ── Editor / Claude local config ─────────────────────────────────────────────
+.claude/settings.local.json
+.claude/launch.json
+
+# ── Secrets ──────────────────────────────────────────────────────────────────
+.env
+.env.*

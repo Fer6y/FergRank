@@ -1,0 +1,406 @@
+Loading data...
+[loadData] recency patch: +23 added, 1 duplicate-dropped, 23 stale-dropped, 5 ids name-resolved
+[loadData] identity merges: 2 ids collapsed, 1 duplicate bouts dropped
+Loaded 2693 fighters, 8723 fights, 774 events
+[fetchOfficialRankings] Loaded official rankings for 11 divisions
+
+Octagon API: 11 divisions returned.
+
+
+############ PART 1 — OFFICIAL NAME-MATCH AUDIT ############
+
+=== Heavyweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Tom Aspinall                  Tom Aspinall                  c84679ced7c8f6a2MATCHED
+1     Ciryl Gane                    Ciryl Gane                    d405f6e1594c44dbMATCHED
+2     Alexander Volkov              Alexander Volkov              65960493f529fc58MATCHED
+3     Sergei Pavlovich              Sergei Pavlovich              d38d32acdb6c8ac2MATCHED
+4     Curtis Blaydes                Curtis Blaydes                de831203e050cdafMATCHED
+5     Jailton Almeida               Jailton Almeida               c17b1fa1d28c1eeaMATCHED
+6     Waldo Cortes Acosta           Waldo Cortes Acosta           34808451782bc5eeMATCHED
+7     Marcin Tybura                 Marcin Tybura                 3a7dd104278b1800MATCHED
+8     Serghei Spivac                Serghei Spivac                e61d510091019852MATCHED
+9     Derrick Lewis                 Derrick Lewis                 957522be7ec72223MATCHED
+10    Tai Tuivasa                   Tai Tuivasa                   629bc2bb71d9f224MATCHED
+11    Shamil Gaziev                 Shamil Gaziev                 dcf805bf4b210fb9MATCHED
+12    Mick Parkin                   Mick Parkin                   a0cd4255eec2a5b8MATCHED
+13    Tallison Teixeira             Tallison Teixeira             395835d15985848eMATCHED
+14    Martin Buday                  Martin Buday                  04c3977524fb97e0MATCHED
+15    Rizvan Kuniev                 Rizvan Kuniev                 16862aff18bed355MATCHED
+
+=== Light Heavyweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Magomed Ankalaev              Magomed Ankalaev              69646a0ad3abb8c7MATCHED
+1     Alex Pereira                  Alex Pereira                  a38373934b735770MATCHED
+2     Jiří Procházka                Jiri Prochazka                d649fe1ea4499ea7MATCHED
+3     Carlos Ulberg                 Carlos Ulberg                 6a36f7b99dfc0313MATCHED
+4     Khalil Rountree Jr.           Khalil Rountree Jr.           2cc62c24e03e31f1MATCHED
+5     Jan Błachowicz                Jan Blachowicz                29a6a8a9d3847e14MATCHED
+6     Jamahal Hill                  Jamahal Hill                  fa92f349c2df714cMATCHED
+7     Aleksandar Rakić              Aleksandar Rakic              07d8dcdbf698e6e0MATCHED
+8     Dominick Reyes                Dominick Reyes                ae7ec1ba7a87231dMATCHED
+9     Volkan Oezdemir               Volkan Oezdemir               86c8b5612d28c278MATCHED
+10    Nikita Krylov                 Nikita Krylov                 9dd8a4f62f227cb4MATCHED
+11    Azamat Murzakanov             Azamat Murzakanov             75591a46f79bc859MATCHED
+12    Johnny Walker                 Johnny Walker                 f52a77241dedd0fdMATCHED
+13    Bogdan Guskov                 Bogdan Guskov                 aec9dc5aff9f4748MATCHED
+14    Zhang Mingyang                Zhang Mingyang                81d3fc0435cfe7acMATCHED
+15    Alonzo Menifield              Alonzo Menifield              990efe1105080c68MATCHED
+
+=== Middleweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Dricus Du Plessis             Dricus Du Plessis             7000b0fb9e20419aMATCHED
+1     Nassourdine Imavov            Nassourdine Imavov            4a39d90a99b006ddMATCHED
+2     Sean Strickland               Sean Strickland               4a637c0f4e711aa4MATCHED
+3     Khamzat Chimaev               Khamzat Chimaev               54c960e53549d612MATCHED
+4     Israel Adesanya               Israel Adesanya               5842f43eb1269085MATCHED
+5     Robert Whittaker              Robert Whittaker              40531c8f39f016feMATCHED
+6     Caio Borralho                 Caio Borralho                 b483569c9c54cfc6MATCHED
+7     Jared Cannonier               Jared Cannonier               fef78cb6d5f39398MATCHED
+8     Roman Dolidze                 Roman Dolidze                 900105052b1946b1MATCHED
+9     Anthony Hernandez             Anthony Hernandez             9583d6bf13318f23MATCHED
+10    Marvin Vettori                Marvin Vettori                e51574999ccf6b8fMATCHED
+11    Brendan Allen                 Brendan Allen                 58b6dee880eed3f4MATCHED
+12    Reinier de Ridder             Reinier de Ridder             db3f5063058ec38aMATCHED
+13    Paulo Costa                   Paulo Costa                   7b6300b29d5151e8MATCHED
+14    Roman Kopylov                 Roman Kopylov                 87802dddb1e85813MATCHED
+15    Abus Magomedov                Abus Magomedov                1be0a07a75aba8b6MATCHED
+
+=== Welterweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Jack Della Maddalena          Jack Della Maddalena          a265afb7b9f0a9ccMATCHED
+1     Belal Muhammad                Belal Muhammad                dd22fdf9ce2b85b6MATCHED
+2     Sean Brady                    Sean Brady                    25398aa8ac7d221bMATCHED
+3     Shavkat Rakhmonov             Shavkat Rakhmonov             04af9104a6d2ebbcMATCHED
+4     Leon Edwards                  Leon Edwards                  e3e2d12252710b60MATCHED
+5     Kamaru Usman                  Kamaru Usman                  09c4ebb55e8079b1MATCHED
+6     Ian Machado Garry             Ian Machado Garry             302c7dcb0fec325eMATCHED
+7     Joaquin Buckley               Joaquin Buckley               9af1cc34b9b919f0MATCHED
+8     Michael Morales               Michael Morales               5561fca8c897f0bfMATCHED
+9     Colby Covington               Colby Covington               b7f5a832b68bad95MATCHED
+10    Gilbert Burns                 Gilbert Burns                 68c94eeac2a44ac3MATCHED
+11    Geoff Neal                    Geoff Neal                    deee560a8bc1dd80MATCHED
+12    Stephen Thompson              Stephen Thompson              c5156b7a02344aa1MATCHED
+13    Carlos Prates                 Carlos Prates                 c72157b5062f45efMATCHED
+14    Kevin Holland                 Kevin Holland                 b577c6fa8060ff5cMATCHED
+15    Michael Page                  Michael Page                  de9b370a0b1c44a9MATCHED
+
+=== Lightweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Ilia Topuria                  Ilia Topuria                  875c9f59fc746b88MATCHED
+1     Islam Makhachev               Islam Makhachev               78f73bfd71449931MATCHED
+2     Arman Tsarukyan               Arman Tsarukyan               1c2caae133a1f406MATCHED
+3     Charles Oliveira              Charles Oliveira              01827249d3b138b8MATCHED
+4     Justin Gaethje                Justin Gaethje                d5ebb51288f99ceeMATCHED
+5     Max Holloway                  Max Holloway                  fe8d8a8c3b0afe3eMATCHED
+6     Dustin Poirier                Dustin Poirier                3831bcbeade5a335MATCHED
+7     Dan Hooker                    Dan Hooker                    fc949bd38e5955fcMATCHED
+8     Mateusz Gamrot                Mateusz Gamrot                6f8b8d1f2f3b7fccMATCHED
+9     Beneil Dariush                Beneil Dariush                07c24c4cb2af85edMATCHED
+10    Paddy Pimblett                Paddy Pimblett                3495d04b5c109550MATCHED
+11    Rafael Fiziev                 Rafael Fiziev                 4e08ff215f9a5fc0MATCHED
+12    Renato Moicano                Renato Moicano                f91a8fe9ad32751fMATCHED
+13    Michael Chandler              Michael Chandler              2ec8d26e4041f9fbMATCHED
+14    Benoît Saint Denis            Benoit Saint Denis            baf62b0c8795f506MATCHED
+15    Grant Dawson                  Grant Dawson                  4baf4a920856545fMATCHED
+
+=== Featherweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Alexander Volkanovski         Alexander Volkanovski         00ccd78f83230b09MATCHED
+1     Max Holloway                  Max Holloway                  fe8d8a8c3b0afe3eMATCHED
+2     Movsar Evloev                 Movsar Evloev                 eb764bb66e7f3030MATCHED
+3     Diego Lopes                   Diego Lopes                   bf14e890b46e0305MATCHED
+4     Yair Rodriguez                Yair Rodriguez                5a9c4dff8eee3cd8MATCHED
+5     Brian Ortega                  Brian Ortega                  3f3f90729e314479MATCHED
+6     Arnold Allen                  Arnold Allen                  7b2ab75a34942757MATCHED
+7     Lerone Murphy                 Lerone Murphy                 7468010a5070b907MATCHED
+8     Aljamain Sterling             Aljamain Sterling             9cbf77b62e6769c8MATCHED
+9     Josh Emmett                   Josh Emmett                   470ffc8f48859da9MATCHED
+10    Jean Silva                    Jean Silva                    fa859b94c8582c26MATCHED
+11    Youssef Zalal                 Youssef Zalal                 645456ef09c3ad72MATCHED
+12    Dan Ige                       Dan Ige                       217d1a9370550d41MATCHED
+13    David Onama                   David Onama                   5ae43941a38cb123MATCHED
+14    Calvin Kattar                 Calvin Kattar                 b015a1a954f587d1MATCHED
+15    Giga Chikadze                 Giga Chikadze                 3739a7ad389dcac5MATCHED
+
+=== Bantamweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Merab Dvalishvili             Merab Dvalishvili             5ea45965dcdfe486MATCHED
+1     Sean O'Malley                 Sean O'Malley                 bbcaf7b57144df14MATCHED
+2     Umar Nurmagomedov             Umar Nurmagomedov             6f151471dd180d1eMATCHED
+3     Petr Yan                      Petr Yan                      e5c5bf33b9961606MATCHED
+4     Cory Sandhagen                Cory Sandhagen                bf88971d31a1367bMATCHED
+5     Song Yadong                   Song Yadong                   6e8a5fe4993ba864MATCHED
+6     Deiveson Figueiredo           Deiveson Figueiredo           087d5e2b3912bfd6MATCHED
+7     Marlon Vera                   Marlon Vera                   8fef39098574c923MATCHED
+8     Mario Bautista                Mario Bautista                fb2821134f28cffdMATCHED
+9     Rob Font                      Rob Font                      deb2e9b4a9179872MATCHED
+10    Henry Cejudo                  Henry Cejudo                  fa09a52adc3f2384MATCHED
+11    Aiemann Zahabi                Aiemann Zahabi                a5430ac842baa304MATCHED
+12    Kyler Phillips                Kyler Phillips                ce34ff82b87a876aMATCHED
+13    Marcus McGhee                 Marcus McGhee                 3a70cd0ddb52f7f7MATCHED
+14    Montel Jackson                Montel Jackson                960a493831029685MATCHED
+15    Vinicius Oliveira             Vinicius Oliveira             aad8e24798f0a89fMATCHED
+
+=== Flyweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Alexandre Pantoja             Alexandre Pantoja             491c47c97570c365MATCHED
+1     Joshua Van                    Joshua Van                    eff3824cc383d8dbMATCHED
+2     Brandon Moreno                Brandon Moreno                37ac5668fa9f42aaMATCHED
+3     Brandon Royval                Brandon Royval                22c9882008036ba4MATCHED
+4     Amir Albazi                   Amir Albazi                   693be865c2fb6f37MATCHED
+5     Kai Kara-France               Kai Kara-France               f5f171343461fc38MATCHED
+6     Tatsuro Taira                 Tatsuro Taira                 8b558a8b79942698MATCHED
+7     Manel Kape                    Manel Kape                    0cdf094ed2a15c5eMATCHED
+8     Alex Perez                    Alex Perez                    245f661e52b116c7MATCHED
+9     Asu Almabayev                 Asu Almabayev                 31bcb5ce3debb8dfMATCHED
+10    Steve Erceg                   Steve Erceg                   d85578e821c6185fMATCHED
+11    Tim Elliott                   Tim Elliott                   eb6e138c10bb379cMATCHED
+12    Tagir Ulanbekov               Tagir Ulanbekov               b4e998ae245c303eMATCHED
+13    Ramazan Temirov               Ramazan Temirov               fea9efc9272d4900MATCHED
+14    Bruno Silva                   Bruno Silva                   0125dc31ba4e5f14MATCHED
+15    Kai Asakura                   Kai Asakura                   74bb53e7099cb5b9MATCHED
+
+=== Women's Strawweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Zhang Weili                   Zhang Weili                   934bd39fbb77e527MATCHED
+1     Virna Jandiroba               Virna Jandiroba               c677e653df81851aMATCHED
+2     Tatiana Suarez                Tatiana Suarez                950f97f606ad601fMATCHED
+3     Yan Xiaonan                   Yan Xiaonan                   c58c3a863045d224MATCHED
+4     Amanda Lemos                  Amanda Lemos                  deadb348f846ea90MATCHED
+5     Jéssica Andrade               Jessica Andrade               e2acd498178b7fbdMATCHED
+6     Mackenzie Dern                Mackenzie Dern                1868597de911ab05MATCHED
+7     Amanda Ribas                  Amanda Ribas                  60bc6c8b8e95bd3cMATCHED
+8     Iasmin Lucindo                Iasmin Lucindo                49c2ef91fb4491f6MATCHED
+9     Gillian Robertson             Gillian Robertson             bd86cff59cdab666MATCHED
+10    Tabatha Ricci                 Tabatha Ricci                 f27df41475ce0c44MATCHED
+11    Loopy Godinez                 Loopy Godinez                 b0959ad762762a12MATCHED
+12    Angela Hill                   Angela Hill                   dddaac197e3946caMATCHED
+13    Tecia Pennington              Tecia Pennington              b228d39d964f5931MATCHED
+14    Loma Lookboonmee              Loma Lookboonmee              2b4f0961dd196d20MATCHED
+15    Denise Gomes                  Denise Gomes                  092a12fbdcf12ad3MATCHED
+
+=== Women's Flyweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Valentina Shevchenko          Valentina Shevchenko          db8b8bd90a46f35fMATCHED
+1     Natalia Silva                 Natalia Silva                 a47925a4d8ea3a25MATCHED
+2     Manon Fiorot                  Manon Fiorot                  0084e6f1dce86e4cMATCHED
+3     Alexa Grasso                  Alexa Grasso                  2f089bd2b4bc0145MATCHED
+4     Erin Blanchfield              Erin Blanchfield              aaa797b5b8da777bMATCHED
+5     Jasmine Jasudavicius          Jasmine Jasudavicius          8652f0cd3584afd1MATCHED
+6     Maycee Barber                 Maycee Barber                 c9bce4b58587da90MATCHED
+7     Rose Namajunas                Rose Namajunas                41197a2ac800612cMATCHED
+8     Tracy Cortez                  Tracy Cortez                  f23f5caaf463e283MATCHED
+9     Jéssica Andrade               Jessica Andrade               e2acd498178b7fbdMATCHED
+10    Viviane Araújo                Viviane Araujo                3dc200641c5e5245MATCHED
+11    Miranda Maverick              Miranda Maverick              00cc7715cc0d4b51MATCHED
+12    Karine Silva                  Karine Silva                  06b4c878c2624c4dMATCHED
+13    Casey O'Neill                 Casey O'Neill                 357346d53e3f2652MATCHED
+14    Wang Cong                     Wang Cong                     58cfe90363989b8fMATCHED
+15    JJ Aldrich                    JJ Aldrich                    1fdd3b0f7c74e3b8MATCHED
+
+=== Women's Bantamweight ===
+Rank  Official Name                 CSV Name                      Fighter ID     Status
+-------------------------------------------------------------------------------------
+C     Kayla Harrison                Kayla Harrison                e8904c85658949e8MATCHED
+1     Julianna Peña                 Julianna Pena                 539a8690e6be156eMATCHED
+2     Raquel Pennington             Raquel Pennington             045c822cfbde9b37MATCHED
+3     Ketlen Vieira                 Ketlen Vieira                 34c605d6f3e6a96bMATCHED
+4     Norma Dumont                  Norma Dumont                  79c76b8be6876e54MATCHED
+5     Macy Chiasson                 Macy Chiasson                 882b8b96d9e44fdfMATCHED
+6     Irene Aldana                  Irene Aldana                  1b1d9afb92063b51MATCHED
+7     Ailin Perez                   Ailin Perez                   e7adbb01bdaae78cMATCHED
+8     Mayra Bueno Silva             Mayra Bueno Silva             45b16cfb5fe8e1ceMATCHED
+9     Yana Santos                   Yana Santos                   d8b0f82a920de5acMATCHED
+10    Karol Rosa                    Karol Rosa                    b9df3acc0fbdbbc3MATCHED
+11    Jacqueline Cavalcanti         Jacqueline Cavalcanti         6b78ac6d81912745MATCHED
+12    Nora Cornolle                 Nora Cornolle                 89d577014f06908aMATCHED
+13    Miesha Tate                   Miesha Tate                   adae0f478fafba7eMATCHED
+14    Joselyne Edwards              Joselyne Edwards              651799fdf8054334MATCHED
+15    Daria Zhelezniakova           Daria Zhelezniakova           d2806a494d582f8dMATCHED
+
+=== SUMMARY: 176 matched, 0 unmatched out of 176 total ===
+
+=== MUST-MATCH ASSERTION (Fix 2a.3) ===
+  Jack Della Maddalena       MATCHED
+  Belal Muhammad             MATCHED
+  Leon Edwards               MATCHED
+  Merab Dvalishvili          MATCHED
+  Islam Makhachev            MATCHED
+  Ilia Topuria               MATCHED
+  Petr Yan                   MATCHED
+  Shavkat Rakhmonov          MATCHED
+  ✅ ALL MUST-MATCH NAMES RESOLVED
+
+
+############ PART 2 — TOP 40 (ELO MODEL) ############
+[scoringEngine] FLOOR SUPPRESSED in Lightweight: Dustin Poirier (UFC #6) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Lightweight: Beneil Dariush (UFC #9) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Lightweight: Dan Hooker (UFC #7) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Lightweight: Michael Chandler (UFC #13) on a 3-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR APPLIED in Lightweight: Justin Gaethje lifted from #9 to #8 (rule: top5FloorRank)
+
+
+═══════════ LIGHTWEIGHT — TOP 40 ═══════════
+Rk  | Fighter                  | Record   |  Score |  FinalR |    Elo |   Peak |   Metr |   SoS+ |   Off | SoSelo | moOut | UFCrk
+----------------------------------------------------------------------------------------------------------------------------------
+  1 | Ilia Topuria             | 9-0-0    |  75.66 | 1699.69 | 1638.49 | 1643.92 |   2.29 |   8.91 |    50 | 1678.23 |  11.5 |     C
+  2 | Arman Tsarukyan          | 10-2-0   |  75.66 | 1696.19 | 1630.33 | 1630.98 |  19.64 |   3.71 |  42.5 | 1574.22 |   6.7 |     2
+  3 | Charles Oliveira         | 25-11-0  |  75.66 | 1729.61 | 1678.23 | 1689.93 |   3.87 |   5.01 |  42.5 | 1600.28 |   3.3 |     3
+  4 | Benoit Saint Denis       | 9-3-0    |  67.25 | 1670.76 | 1624.24 | 1624.24 |  13.41 |    2.1 |    31 | 1542.07 |   4.4 |    14
+  5 | Grant Dawson             | 12-2-1   |  66.35 | 1664.46 | 1626.61 | 1638.62 |   4.55 |   2.31 |    31 | 1546.14 |   1.2 |    15
+  6 | Mateusz Gamrot           | 9-4-0    |  66.26 | 1663.83 | 1609.37 | 1612.32 |  15.86 |    3.6 |    35 | 1571.97 |   2.1 |     8
+  7 | Max Holloway             | 23-9-0   |  65.19 | 1656.35 | 1606.63 | 1685.95 |   3.49 |   7.23 |    39 | 1644.58 |   3.3 |     5
+  8 | Justin Gaethje           | 10-5-0   |   64.3 | 1646.13 | 1606.31 | 1606.31 |  -3.02 |   3.85 |    39 | 1577.01 |  15.2 |     4
+  9 | Paddy Pimblett           | 7-1-0    |   64.3 | 1650.09 | 1606.6 | 1622.38 |   7.35 |   1.14 |    35 | 1522.72 |  14.1 |    10
+ 10 | Dustin Poirier           | 22-9-0   |   63.8 | 1646.57 | 1615.77 | 1675.98 |  -14.7 |   6.51 |    39 | 1630.12 |  10.8 |     6
+ 11 | Renato Moicano           | 13-7-0   |  61.54 | 1630.77 | 1593.16 | 1601.89 |   1.88 |   4.74 |    31 | 1594.7 |   2.3 |    12
+ 12 | Quillan Salkilld         | 5-0-0    |   61.3 | 1629.12 | 1614.71 | 1614.71 |   13.2 |   1.21 |     0 | 1524.18 |   1.4 |     -
+ 13 | Beneil Dariush           | 17-8-1   |  59.74 | 1618.19 | 1577.23 | 1645.76 |   0.26 |    5.7 |    35 | 1613.95 |   1.4 |     9
+ 14 | Manuel Torres            | 5-1-0    |  57.05 | 1599.36 | 1585.9 | 1586.05 |   9.56 |   3.91 |     0 | 1578.15 |   6.2 |     -
+ 15 | King Green               | 16-12-1  |  55.58 | 1589.03 | 1565.89 | 1577.83 |  21.47 |   1.66 |     0 | 1533.28 |   1.2 |     -
+ 16 | Fares Ziam               | 8-2-0    |  55.15 | 1586.06 | 1565.49 | 1578.25 |   18.1 |   2.47 |     0 | 1549.41 |   0.3 |     -
+ 17 | Chris Padilla            | 4-0-1    |  55.13 | 1585.93 | 1577.45 | 1579.06 |   6.36 |   0.19 |     0 | 1503.73 |   2.1 |     -
+ 18 | Rafael Fiziev            | 7-5-0    |  54.31 |  1580.2 | 1543.15 | 1593.92 |   2.19 |   3.86 |    31 | 1577.2 |   4.4 |    11
+ 19 | Jim Miller               | 28-18-0  |   54.1 | 1578.68 | 1587.72 | 1633.87 | -10.02 |   0.98 |     0 | 1519.65 |   1.2 |     -
+ 20 | Mauricio Ruffy           | 4-1-0    |  53.97 |  1577.8 | 1568.58 | 1568.58 |   3.13 |   3.16 |     0 | 1563.18 |   4.4 |     -
+ 21 | Drakkar Klose            | 10-3-0   |  53.75 | 1576.24 | 1578.57 | 1587.96 |   -4.4 |   2.07 |     0 | 1541.39 |   9.9 |     -
+ 22 | Tom Nolan                | 4-1-0    |  53.07 | 1571.49 | 1569.11 | 1569.11 |   1.96 |   0.41 |     0 | 1508.29 |   0.3 |     -
+ 23 | Kaue Fernandes           | 3-1-0    |  52.52 | 1567.63 | 1549.94 | 1551.07 |  15.29 |  -1.67 |     0 | 1466.59 |   9.2 |     -
+ 24 | Dan Hooker               | 14-10-0  |  52.51 | 1567.59 | 1543.91 | 1606.85 | -17.22 |   5.89 |    35 | 1617.79 |   4.4 |     7
+ 25 | Jalin Turner             | 8-6-0    |  52.36 | 1566.49 | 1559.79 | 1583.09 |   4.16 |   2.54 |     0 | 1550.73 |   6.2 |     -
+ 26 | Nazim Sadykhov           | 4-1-1    |  52.25 | 1565.77 | 1570.88 | 1589.21 |  -6.14 |   1.03 |     0 | 1520.63 |   6.2 |     -
+ 27 | Ludovit Klein            | 8-3-1    |  52.24 |  1565.7 | 1563.84 | 1565.92 |   0.27 |   1.59 |     0 | 1531.88 |   7.6 |     -
+ 28 | Chris Duncan             | 6-2-0    |  52.15 | 1565.03 | 1564.81 | 1581.22 |   -1.4 |   1.62 |     0 | 1532.45 |   2.3 |     -
+ 29 | Drew Dober               | 15-11-0  |  51.52 | 1560.61 | 1559.17 | 1584.28 |   0.23 |   1.22 |     0 | 1524.34 |   3.3 |     -
+ 30 | Nasrat Haqparast         | 10-5-0   |   51.5 | 1560.52 | 1552.13 | 1571.78 |   6.22 |   2.17 |     0 | 1543.48 |   7.6 |     -
+ 31 | Nurullo Aliev            | 3-0-0    |  51.39 | 1559.75 | 1548.49 | 1548.73 |   2.45 |  -0.56 |     0 | 1488.7 |   6.7 |     -
+ 32 | Rafa Garcia              | 7-4-0    |  51.25 | 1558.78 | 1548.49 | 1548.49 |   8.14 |   2.16 |     0 | 1543.15 |   1.6 |     -
+ 33 | Mike Davis               | 5-2-0    |  50.74 | 1555.17 | 1555.74 | 1558.14 |  -0.72 |   0.15 |     0 | 1503.06 |  11.1 |     -
+ 34 | MarQuel Mederos          | 3-0-1    |   50.7 | 1554.91 | 1545.87 | 1545.87 |   2.54 |   0.72 |     0 | 1514.32 |   2.1 |     -
+ 35 | Ignacio Bahamondes       | 6-4-0    |  50.69 | 1554.86 | 1552.28 | 1581.96 |   0.92 |   1.66 |     0 | 1533.15 |   2.6 |     -
+ 36 | Mason Jones              | 4-2-0    |  50.29 | 1552.05 | 1542.07 | 1542.07 |  10.86 |  -0.88 |     0 | 1482.4 |   2.8 |     -
+ 37 | Alexander Hernandez      | 10-8-0   |  49.61 | 1547.28 | 1544.34 | 1557.62 |   1.97 |   0.97 |     0 | 1519.31 |   1.6 |     -
+ 38 | Terrance McKinney        | 8-5-0    |  49.38 | 1545.66 | 1543.67 | 1548.35 |   1.64 |   0.35 |     0 | 1507.03 |   2.6 |     -
+ 39 | Chase Hooper             | 8-5-0    |  49.33 |  1545.3 | 1538.76 | 1579.19 |   5.23 |   1.32 |     0 | 1526.35 |   2.6 |     -
+ 40 | Diego Ferreira           | 10-7-0   |  49.19 | 1544.36 | 1542.83 | 1595.32 |  -1.72 |   3.25 |     0 | 1565.09 |     9 |     -
+  ⚠️  2 rating inversion(s) — expected only where H2H/floor logged above
+[scoringEngine] FLOOR SUPPRESSED in Welterweight: Joaquin Buckley (UFC #7) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Welterweight: Colby Covington (UFC #9) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Welterweight: Geoff Neal (UFC #11) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Welterweight: Gilbert Burns (UFC #10) on a 5-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Welterweight: Stephen Thompson (UFC #12) on a 3-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Welterweight: Jack Della Maddalena (UFC #1) on a 2-fight skid — top5FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Welterweight: Belal Muhammad (UFC #1) on a 3-fight skid — top5FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Welterweight: Leon Edwards (UFC #4) on a 3-fight skid — top5FloorRank not applied
+
+
+═══════════ WELTERWEIGHT — TOP 40 ═══════════
+Rk  | Fighter                  | Record   |  Score |  FinalR |    Elo |   Peak |   Metr |   SoS+ |   Off | SoSelo | moOut | UFCrk
+----------------------------------------------------------------------------------------------------------------------------------
+  1 | Islam Makhachev          | 17-1-0   |  78.98 | 1752.88 | 1694.19 | 1711.14 |   3.02 |   5.67 |    50 | 1613.37 |   6.9 |     C
+  2 | Ian Machado Garry        | 10-1-0   |  71.06 | 1697.44 | 1643.72 | 1644.43 |    9.4 |   5.32 |    39 | 1606.47 |   6.7 |     6
+  3 | Michael Morales          | 7-0-0    |  70.55 | 1693.87 | 1638.88 | 1639.78 |  16.03 |   3.96 |    35 | 1579.22 |   6.9 |     8
+  4 | Shavkat Rakhmonov        | 7-0-0    |  69.82 | 1688.76 | 1635.42 | 1647.4 |   5.44 |    5.4 |  42.5 | 1608.08 |  18.2 |     3
+  5 | Sean Brady               | 9-2-0    |  68.75 | 1681.22 | 1615.14 | 1621.42 |  18.92 |   4.66 |  42.5 | 1593.23 |   1.2 |     2
+  6 | Carlos Prates            | 7-1-0    |  68.66 | 1680.64 | 1639.21 | 1639.21 |   6.25 |   4.18 |    31 | 1583.55 |   1.4 |    13
+  7 | Kamaru Usman             | 16-3-0   |  66.92 | 1668.42 | 1622.32 | 1712.09 |    2.7 |    4.4 |    39 | 1587.92 |    12 |     5
+  8 | Jack Della Maddalena     | 8-2-0    |  65.63 | 1657.03 | 1613.37 | 1641.28 |  -7.46 |   6.12 |    45 | 1622.49 |   1.4 |     1
+  9 | Belal Muhammad           | 15-5-0   |  65.63 | 1659.44 | 1609.47 | 1651.5 |  -0.92 |    5.9 |    45 | 1618.04 |   0.3 |     1
+ 10 | Leon Edwards             | 14-5-0   |  62.64 |  1638.5 | 1598.81 | 1651.58 |  -5.21 |   5.89 |    39 | 1617.81 |   6.9 |     4
+ 11 | Gabriel Bonfim           | 6-1-0    |  60.38 | 1622.69 | 1608.41 | 1608.41 |  11.15 |   3.12 |     0 | 1562.41 |   0.3 |     -
+ 12 | Joaquin Buckley          | 11-6-0   |  59.89 | 1619.24 | 1587.92 | 1615.18 |  -8.13 |   4.45 |    35 | 1588.92 |   1.2 |     7
+ 13 | Mike Malott              | 7-1-0    |  59.38 | 1615.68 | 1603.26 | 1603.26 |  10.18 |   2.23 |     0 | 1544.69 |   1.9 |     -
+ 14 | Colby Covington          | 12-5-0   |  58.25 | 1607.78 | 1572.99 | 1630.11 |  -4.81 |    4.6 |    35 | 1591.9 |    18 |     9
+ 15 | Michael Page             | 4-1-0    |  58.04 | 1606.25 | 1564.42 | 1564.42 |   4.29 |   3.95 |    31 | 1579.01 |   2.8 |    15
+ 16 | Rinat Fakhretdinov       | 6-0-1    |     58 | 1605.97 | 1595.04 | 1597.21 |   9.91 |   1.01 |     0 | 1520.27 |   9.2 |     -
+ 17 | Kevin Holland            | 16-12-0  |  56.91 | 1598.38 | 1557.98 | 1587.85 |   5.16 |   4.23 |    31 | 1584.67 |   2.1 |    14
+ 18 | Bryan Battle             | 7-1-0    |  56.13 |  1592.9 | 1589.19 | 1597.08 |   2.87 |   0.84 |     0 | 1516.77 |  18.2 |     -
+ 19 | Michael Chiesa           | 15-7-0   |  56.08 | 1592.54 | 1593.48 | 1593.52 |   -0.5 |  -0.44 |     0 | 1491.16 |   2.6 |     -
+ 20 | Myktybek Orolbai         | 5-1-0    |  55.97 | 1591.78 | 1583.33 | 1583.33 |   6.47 |   1.98 |     0 | 1539.58 |     3 |     -
+ 21 | Neil Magny               | 24-13-0  |  55.94 |  1591.6 | 1585.42 | 1618.02 |   1.78 |    4.4 |     0 | 1588.07 |     6 |     -
+ 22 | Geoff Neal               | 8-6-0    |  55.83 | 1590.81 | 1557.48 | 1610.59 |  -2.35 |   4.68 |    31 | 1593.64 |   3.7 |    11
+ 23 | Jake Matthews            | 15-8-0   |  55.47 | 1588.26 | 1589.84 | 1597.25 |   -2.9 |   1.32 |     0 | 1526.49 |   0.5 |     -
+ 24 | Jacobe Smith             | 3-0-0    |  54.92 | 1584.46 | 1569.32 | 1569.32 |   7.01 |  -1.25 |     0 | 1474.96 |   3.7 |     -
+ 25 | Joel Alvarez             | 8-3-0    |  54.89 | 1584.21 | 1580.21 | 1600.16 |   0.07 |   3.93 |     0 | 1578.63 |   1.2 |     -
+ 26 | Randy Brown              | 14-8-0   |  54.79 | 1583.52 | 1578.98 | 1611.38 |   1.31 |   3.23 |     0 | 1564.68 |   2.1 |     -
+ 27 | Daniel Rodriguez         | 10-4-0   |  54.75 | 1583.28 | 1574.2 | 1595.3 |   6.82 |   2.26 |     0 | 1545.15 |  10.8 |     -
+ 28 | Gilbert Burns            | 15-10-0  |  54.47 |  1581.3 | 1553.47 | 1633.58 | -12.97 |    5.8 |    35 | 1615.92 |   1.9 |    10
+ 29 | Uros Medic               | 7-3-0    |  54.39 | 1580.73 | 1571.91 | 1571.91 |   7.17 |   1.64 |     0 | 1532.83 |   3.7 |     -
+ 30 | Stephen Thompson         | 12-9-1   |   54.2 | 1579.42 | 1546.78 | 1626.51 |  -3.73 |   5.37 |    31 | 1607.4 |  11.1 |    12
+ 31 | Punahele Soriano         | 7-4-0    |  51.83 | 1562.84 | 1551.03 | 1551.03 |  10.99 |   0.82 |     0 | 1516.38 |   3.7 |     -
+ 32 | Muslim Salikhov          | 9-5-0    |  51.81 | 1562.66 | 1560.56 | 1580.01 |  -0.09 |   2.19 |     0 | 1543.76 |   7.2 |     -
+ 33 | Sam Patterson            | 4-2-0    |  51.46 | 1560.22 | 1560.96 | 1574.18 |  -1.18 |   0.45 |     0 | 1509.03 |   2.8 |     -
+ 34 | Jeremiah Wells           | 5-2-0    |  51.24 |  1558.7 | 1554.53 | 1586.24 |   3.58 |    0.6 |     0 |   1512 |   7.4 |     -
+ 35 | Jonathan Micallef        | 3-0-0    |  51.22 | 1558.55 | 1557.44 | 1557.44 |   0.55 |   0.55 |     0 | 1511.02 |   1.4 |     -
+ 36 | Gunnar Nelson            | 10-6-0   |  51.19 | 1558.36 | 1556.13 | 1600.61 |  -0.67 |    2.9 |     0 | 1557.98 |  14.8 |     -
+ 37 | Khaos Williams           | 7-4-0    |  50.63 |  1554.4 | 1565.09 | 1587.48 | -11.46 |   0.77 |     0 | 1515.37 |     1 |     -
+ 38 | Santiago Ponzinibbio     | 12-8-0   |  50.47 | 1553.29 | 1549.88 | 1610.11 |   0.82 |   2.59 |     0 | 1551.86 |  13.4 |     -
+ 39 | Li Jingliang             | 11-7-0   |  50.15 | 1551.05 | 1546.53 | 1592.53 |  -2.44 |   6.96 |     0 | 1639.21 |  21.9 |     -
+ 40 | Charles Radtke           | 5-2-0    |  49.75 | 1548.25 | 1540.12 | 1540.51 |   8.02 |   0.11 |     0 | 1502.28 |   2.1 |     -
+  ⚠️  1 rating inversion(s) — expected only where H2H/floor logged above
+[scoringEngine] FLOOR SUPPRESSED in Bantamweight: Deiveson Figueiredo (UFC #6) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Bantamweight: Montel Jackson (UFC #14) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Bantamweight: Rob Font (UFC #9) on a 2-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Bantamweight: Marlon Vera (UFC #7) on a 4-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Bantamweight: Kyler Phillips (UFC #12) on a 3-fight skid — top15FloorRank not applied
+[scoringEngine] FLOOR SUPPRESSED in Bantamweight: Henry Cejudo (UFC #10) on a 4-fight skid — top15FloorRank not applied
+
+
+═══════════ BANTAMWEIGHT — TOP 40 ═══════════
+Rk  | Fighter                  | Record   |  Score |  FinalR |    Elo |   Peak |   Metr |   SoS+ |   Off | SoSelo | moOut | UFCrk
+----------------------------------------------------------------------------------------------------------------------------------
+  1 | Petr Yan                 | 12-4-0   |  71.69 |  1701.8 | 1636.71 | 1636.94 |   9.87 |   5.22 |    50 | 1604.38 |   6.2 |     C
+  2 | Merab Dvalishvili        | 14-3-0   |  71.65 | 1701.52 | 1641.93 | 1655.26 |   8.91 |   5.68 |    45 | 1613.65 |   6.2 |     1
+  3 | Umar Nurmagomedov        | 8-1-0    |  69.02 | 1683.14 | 1619.5 | 1619.5 |  16.48 |   4.66 |  42.5 | 1593.17 |   4.6 |     2
+  4 | Sean O'Malley            | 11-3-0   |  66.16 |  1663.1 | 1611.02 | 1630.94 |    1.1 |   5.98 |    45 | 1619.68 |   4.6 |     1
+  5 | Cory Sandhagen           | 11-5-0   |  65.11 |  1655.8 | 1615.79 | 1632.89 |  -4.81 |   5.81 |    39 | 1616.25 |   8.3 |     4
+  6 | Song Yadong              | 11-4-1   |  64.52 | 1651.63 | 1607.23 | 1611.83 |   1.04 |   4.35 |    39 | 1587.08 |   0.5 |     5
+  7 | Mario Bautista           | 11-3-0   |  63.06 | 1641.39 | 1602.26 | 1602.26 |   1.45 |   2.69 |    35 | 1553.71 |   4.2 |     8
+  8 | Deiveson Figueiredo      | 14-6-1   |  59.51 | 1616.59 | 1581.67 | 1642.89 |     -9 |   4.93 |    39 | 1598.65 |   0.5 |     6
+  9 | Raoni Barcelos           | 11-4-0   |  58.95 | 1612.68 | 1600.29 | 1600.29 |   9.59 |    2.8 |     0 | 1556.05 |   1.6 |     -
+ 10 | Aiemann Zahabi           | 8-2-0    |  58.87 | 1612.07 | 1570.13 | 1571.04 |   8.53 |   2.41 |    31 | 1548.17 |   7.9 |    11
+ 11 | Marcus McGhee            | 4-1-0    |  58.76 | 1611.29 | 1572.76 | 1582.33 |   5.86 |   1.67 |    31 | 1533.42 |   0.3 |    13
+ 12 | Montel Jackson           | 9-4-0    |  58.61 | 1610.24 | 1577.34 | 1596.58 |  -2.01 |   3.92 |    31 | 1578.36 |   1.6 |    14
+ 13 | Vinicius Oliveira        | 4-1-0    |  57.18 | 1600.23 | 1557.84 | 1582.22 |   5.43 |   3.14 |    31 | 1562.81 |   4.2 |    15
+ 14 | Rob Font                 | 12-9-0   |  56.99 | 1598.94 | 1565.31 | 1606.68 |  -4.82 |   3.45 |    35 | 1569.03 |   3.3 |     9
+ 15 | Payton Talbott           | 5-1-0    |  56.27 | 1593.89 | 1579.97 | 1580.1 |  12.55 |   1.38 |     0 | 1527.53 |   6.2 |     -
+ 16 | Marlon Vera              | 15-11-0  |  56.16 | 1593.11 |   1568 | 1621.81 | -13.47 |   3.58 |    35 | 1571.57 |   3.5 |     7
+ 17 | Farid Basharat           | 6-0-0    |  55.76 | 1590.32 | 1586.6 | 1586.6 |   1.97 |   1.75 |     0 | 1534.92 |   4.2 |     -
+ 18 | Raul Rosas Jr.           | 6-1-0    |  55.65 | 1589.53 | 1582.54 | 1582.54 |   6.82 |   0.18 |     0 | 1503.53 |   3.3 |     -
+ 19 | David Martinez           | 3-0-0    |  54.68 | 1582.76 | 1564.05 | 1564.05 |   8.29 |   1.48 |     0 | 1529.69 |   3.5 |     -
+ 20 | Daniel Marcos            | 5-1-0    |  53.83 | 1576.79 | 1567.13 | 1570.61 |   8.01 |   1.64 |     0 | 1532.9 |   7.2 |     -
+ 21 | Elijah Smith             | 3-0-0    |  53.52 | 1574.62 |   1564 |   1564 |   2.83 |  -0.75 |     0 | 1484.96 |     3 |     -
+ 22 | Kyler Phillips           | 6-4-0    |  53.34 | 1573.38 | 1540.45 | 1580.29 |  -1.05 |   2.99 |    31 | 1559.78 |   1.9 |    12
+ 23 | Henry Cejudo             | 10-6-0   |  53.12 | 1571.85 | 1545.1 | 1615.71 | -13.25 |      5 |    35 | 1600.04 |   6.2 |    10
+ 24 | Adrian Yanez             | 6-3-1    |  52.56 | 1567.92 | 1563.04 | 1604.51 |   2.87 |   2.01 |     0 | 1540.2 |   2.6 |     -
+ 25 | Chris Gutierrez          | 10-4-1   |   52.2 | 1565.39 | 1555.62 | 1581.09 |   7.16 |    2.6 |     0 | 1552.07 |   8.3 |     -
+ 26 | Rinya Nakamura           | 4-1-0    |  51.86 |    1563 | 1554.04 | 1555.86 |      8 |  -0.87 |     0 | 1482.57 |  10.4 |     -
+ 27 | Charles Jourdain         | 9-7-1    |  51.62 | 1561.36 | 1556.98 | 1556.98 |   2.55 |   1.84 |     0 | 1536.7 |   1.9 |     -
+ 28 | Jonathan Martinez        | 10-5-0   |  51.59 | 1561.14 | 1562.59 | 1594.22 |  -4.74 |   3.29 |     0 | 1565.73 |  18.9 |     -
+ 29 | Said Nurmagomedov        | 7-4-0    |  51.14 | 1557.95 | 1556.48 | 1591.75 |  -1.31 |   2.79 |     0 | 1555.74 |  10.6 |     -
+ 30 | Taylor Lapilus           | 6-2-0    |   50.3 | 1552.11 | 1544.9 | 1549.67 |   7.21 |      0 |     0 | 1500.02 |  20.5 |     -
+ 31 | Ricky Simon              | 10-6-1   |  50.08 | 1550.53 | 1550.9 | 1579.37 |   -2.8 |   2.44 |     0 | 1548.71 |   2.6 |     -
+ 32 | Brady Hiestand           | 3-1-0    |   49.9 | 1549.28 | 1546.22 | 1552.37 |   1.34 |  -0.72 |     0 | 1485.66 |    24 |     -
+ 33 | Davey Grant              | 9-7-0    |  49.44 | 1546.09 | 1536.06 | 1541.81 |   9.21 |   0.82 |     0 | 1516.41 |   1.6 |     -
+ 34 | Victor Henry             | 4-2-0    |   48.7 | 1538.37 | 1529.4 | 1547.33 |   8.14 |   0.84 |     0 | 1516.76 |  14.3 |     -
+ 35 | Rani Yahya               | 13-6-1   |   48.7 | 1540.93 | 1544.29 | 1600.52 |  -4.82 |   1.47 |     0 | 1529.4 |  25.6 |     -
+ 36 | Cody Garbrandt           | 10-7-0   |  48.28 | 1537.94 | 1542.93 | 1624.85 |  -6.43 |   1.44 |     0 | 1528.87 |   3.3 |     -
+ 37 | Santiago Luna            | 2-0-0    |  48.07 |  1536.5 | 1517.71 | 1540.22 |  13.84 |   0.57 |     0 | 1511.49 |   0.3 |     -
+ 38 | Javid Basharat           | 4-2-0    |  47.56 | 1532.89 | 1516.85 | 1552.64 |  15.04 |      1 |     0 | 1520.09 |   4.2 |     -
+ 39 | Jean Matsumoto           | 3-2-0    |  47.45 | 1532.18 | 1530.31 | 1543.27 |  -2.52 |   1.27 |     0 | 1525.42 |   4.2 |     -
+ 40 | SuYoung You              | 3-1-0    |  47.39 | 1531.76 | 1525.47 | 1550.83 |   5.68 |   0.61 |     0 | 1512.22 |     3 |     -
+  ⚠️  1 rating inversion(s) — expected only where H2H/floor logged above
+
+
+DONE.

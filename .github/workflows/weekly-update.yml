@@ -1,0 +1,75 @@
+name: Weekly UFC ingest
+
+# Pulls the past week's UFC fights into the Elo engine and commits the refreshed
+# data. The commit triggers Vercel's auto-deploy → a fresh process loads the new
+# CSV on boot → rankings go live. See scripts/sherdog/weeklyUpdate.ts.
+on:
+  schedule:
+    # Mondays 12:00 UTC (~early-morning US) — after the weekend card results are final.
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Discovery window in days (how far back to look for UFC cards)'
+        required: false
+        default: '8'
+
+# Never let two ingests overlap (they write the same data files).
+concurrency:
+  group: weekly-ufc-ingest
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # needed to commit + push the refreshed data
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ufc-rankings
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: ufc-rankings/package-lock.json
+
+      # Persist the Sherdog HTML cache between runs so re-runs don't re-fetch the
+      # same card. Starts empty on the very first run (cold start) — that's fine:
+      # buildRecencyPatch accumulates into the committed CSV, so nothing is lost.
+      - name: Restore Sherdog cache
+        uses: actions/cache@v4
+        with:
+          path: ufc-rankings/data/.sherdog_cache
+          key: sherdog-cache-${{ github.run_id }}
+          restore-keys: |
+            sherdog-cache-
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Run weekly ingest
+        env:
+          SHERDOG_CONTACT: ${{ secrets.SHERDOG_CONTACT }}
+        run: node_modules/.bin/jiti scripts/sherdog/weeklyUpdate.ts --days "${{ github.event.inputs.days || '8' }}"
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name  "ufc-rankings-bot"
+          git config user.email "actions@github.com"
+          git add data/recent_ufc_fights.csv \
+                  data/sherdog_crosswalk.csv \
+                  data/sherdog_crosswalk_review.csv \
+                  data/golden/rankings_snapshot.json
+          if git diff --cached --quiet; then
+            echo "No data changes this week — nothing to commit."
+          else
+            # No [skip ci]: this workflow only runs on schedule/dispatch (not push),
+            # so the commit can't loop — and [skip ci] would make Vercel skip the
+            # deploy we actually want.
+            git commit -m "chore(data): weekly UFC ingest $(date -u +%Y-%m-%d)"
+            git push
+          fi

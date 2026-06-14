@@ -1,0 +1,85 @@
+type,reason,idA,nameA,evidenceA,idB,nameB,evidenceB
+WEAK_SHERDOG_LINK,"confidence 28 < 60, overlap overlap 2/4, unique name — confirm or break",c9abda4e3d5582ad,Montse Rendon,our: Montse Rendon,Montserrat-Rendon-392870,Montse Rendon,"overlap 2/4, name=false, wt=false, exactName=0/1"
+WEAK_SHERDOG_LINK,"confidence 43 < 60, overlap overlap 2/4, unique name — confirm or break",d11e3f2e5deb833f,Xiao Long,our: Xiao Long,Long-Xiao-233007,Xiao Long,"overlap 2/4, name=false, wt=true, exactName=0/1"
+WEAK_SHERDOG_LINK,"confidence 43 < 60, overlap overlap 2/4, unique name — confirm or break",abec838c9b8cf79d,Kazula Vargas,our: Kazula Vargas,Rodrigo-Vargas-71577,Kazula Vargas,"overlap 2/4, name=false, wt=true, exactName=0/1"
+WEAK_SHERDOG_LINK,"confidence 28 < 60, overlap overlap 2/4, unique name — confirm or break",a6bcbd0364bf364e,Leonardo Mafra,our: Leonardo Mafra,Leonardo-Mafra-Teixeira-76653,Leonardo Mafra,"overlap 2/4, name=false, wt=false, exactName=0/1"
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",c2c7b0cf6428c50e,Elizeu Zaleski dos Santos,our,,Elizeu Zaleski Dos Santos,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",c91e400809d7f272,Aaron Pico,our,,Aaron Pico,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",b11335aacc3bb703,Joe Lauzon,our,,Joe Lauzon,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",d85a3bac3d978fe7,Deron Winn,our,,Deron Winn,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",31ff758863c6ad36,Jesus Aguilar,our,,Jesus Aguilar,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",abd8076120059678,Kyung Ho Kang,our,,Kyung Ho Kang,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",98007087a1199703,Julius Walker,our,,Julius Walker,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",c72157b5062f45ef,Carlos Prates,our,,Carlos Prates,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",d4d40a862922e25b,Malcolm Wellmaker,our,,Malcolm Wellmaker,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",9676911f60bd8e0e,Chepe Mariscal,our,,Chepe Mariscal,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",989a52c826c894ee,Fatima Kline,our,,Fatima Kline,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",1930fd17e9ee8a27,Jaqueline Amorim,our,,Jaqueline Amorim,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",1be0a07a75aba8b6,Abus Magomedov,our,,Abus Magomedov,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",1380bf7bbf61d6f1,Tre'ston Vines,our,,Treston Vines,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",0340977ba43f8013,JooSang Yoo,our,,Joosang Yoo,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",20c8eb11c1c160b9,Jakub Wiklacz,our,,Jakub Wiklacz,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",fe17d41e2b27900b,Patchy Mix,our,,Patchy Mix,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",de9b370a0b1c44a9,Michael Page,our,,Michael Page,bfo 3 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",74bb53e7099cb5b9,Kai Asakura,our,,Kai Asakura,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",9c88a670ebba5427,Eric Nolan,our,,Eric Nolan,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",f8fd3739aea24944,Luis Pena,our,,Luis Pena,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",f3a0ba27b6389def,Juan Espino,our,,Juan Espino,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",58445a4ff4f7d6d9,Shamil Gamzatov,our,,Shamil Gamzatov,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",ab48c02798b0519f,Joanna Jedrzejczyk,our,,Joanna Jedrzejczyk,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",d711c2758350cbf5,Victor Henry,our,,Victor Henry.,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",a7ea31deabd77a15,Al Iaquinta,our,,Al Iaquinta,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",b2fc49bb4703d084,TJ Laramie,our,,Tj Laramie,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",19898637e10ad33c,Chas Skelly,our,,Chas Skelly,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",aa41f7f0d38a67de,Vinicius Moreira,our,,Vinicius Moreira,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",908abe7c4aed1322,Cameron Else,our,,Cameron Else,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",fa859b94c8582c26,Jean Silva,our,,Jean Silva,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",2b3745a0444dcd17,Payton Talbott,our,,Payton Talbott,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",e8904c85658949e8,Kayla Harrison,our,,Kayla Harrison,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",e15e7b06572d49d5,Danny Henry,our,,Danny Henry,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",c9317300533eb973,Katlyn Cerminara,our,,Katlyn Cerminara,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",3fbed33ac7d823ae,Robelis Despaigne,our,,Robelis Despaigne,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",7331db060c1586eb,Carlos Vera,our,,Carlos Vera,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",81d3fc0435cfe7ac,Zhang Mingyang,our,,Zhang Mingyang,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",77f853c4d44cbe94,Danny Barlow,our,,Danny Barlow,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",574a92a70255439d,Oban Elliott,our,,Oban Elliott,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",9e3de4de1af35063,Val Woodburn,our,,Val Woodburn,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",9dd44108e3e1b102,Ramon Taveras,our,,Ramon Taveras,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",1f5d82279eb460df,Serhiy Sidey,our,,Serhiy Sidey,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",949e6bb465af017b,Sam Patterson,our,,Sam Patterson,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",d49758d4b92d2200,Felipe dos Santos,our,,Felipe Dos Santos,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",8a16937a5715022f,Da Woon Jung,our,,Da Woon Jung,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",1462bc5fa3cbce3c,Landon Quinones,our,,Landon Quinones,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",3efa6683f90baf91,Kennedy Nzechukwu,our,,Kennedy Nzechukwu.,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",a45448a6818f77fd,Shannon Ross,our,,Shannon Ross,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",880ed8d5af0c13b1,Raul Rosas Jr.,our,,Raul Rosas Jr,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",0054611c67a279b0,Don Shainis,our,,Don Shainis,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",07437ba38048dad7,Chad Anheliger,our,,Chad Anheliger,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",bd8ee82c2df0d588,Mauricio Ruffy,our,,Mauricio Ruffy,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",d2dc01dd351d55d6,Nick Fiore,our,,Nick Fiore.,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",a69391b7c397ed8f,Nick Aguirre,our,,Nick Aguirre,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",186b7b196c354140,Phil Hawes,our,,Phil Hawes.,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",0b43bf0acbd22ca3,Navajo Stirling,our,,Navajo Stirling,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",aad8e24798f0a89f,Vinicius Oliveira,our,,Vinicius Oliveira,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",e1601c0597a7b444,Andre Lima,our,,Andre Lima,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",531b1735dc9f2f60,Bia Mesquita,our,,Bia Mesquita,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",a11db5b1e98120ae,Melissa Mullins,our,,Melissa Mullins,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",c921a062105cb950,Kyoji Horiguchi,our,,Kyoji Horiguchi,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",60800421a8c78d84,Yuneisy Duben,our,,Yuneisy Duben,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",bd1074ae3ea8a76e,Juan Diaz,our,,Juan Diaz,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",1943e071abc00467,Christian Edwards,our,,Christian Edwards,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",501823539d83d4eb,Timmy Cuamba,our,,Timmy Cuamba,bfo 2 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",2c3c8b4851cc2a8e,Tommy Gantt,our,,Tommy Gantt,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",42e2a193b15ca106,Artur Minev,our,,Artur Minev,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",ee66f8d0ba75975e,Lucas Rocha,our,,Lucas Rocha,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",16862aff18bed355,Rizvan Kuniev,our,,Rizvan Kuniev,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",1dbb544d1b5ac196,Daniil Donchenko,our,,Daniil Donchenko,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",600dc8df28333450,Cesar Almeida,our,,Cesar Almeida,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",e180666d3423c42b,Cezary Oleksiejczuk,our,,Cezary Oleksiejczuk,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",60dd552a80e10dab,Lance Gibson Jr.,our,,Lance Gibson Jr,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",984bd4298fe632ae,Isaac Thomson,our,,Isaac Thomson,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",93fc17b97f4b66d2,Sean Sharaf,our,,Sean Sharaf,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",d2bf67f8a51c9545,Melissa Croden,our,,Melissa Croden,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",8207b4d862044632,Ante Delija,our,,Ante Delija,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",10a96d52c89b5469,Lone'er Kavanagh,our,,Loneer Kavanagh,bfo 1 fights
+BFO_UNCORROBORATED,"exact name, no shared fight to confirm",5ffade352e5b635f,Elisha Ellison,our,,Elisha Ellison,bfo 1 fights

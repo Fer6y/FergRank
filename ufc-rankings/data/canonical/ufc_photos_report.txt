@@ -1,0 +1,13 @@
+UFC.com photo coverage — 2026-06-14
+Targets (3+ UFC fights): 1868
+  resolved with an image : 1566 (58% of full 2693-fighter registry)
+    • headshot_url        : 1120
+    • full_body_url       : 1445
+    • via derived slug    : 344  (no Sherdog/Wikidata link — name-resolved)
+  status breakdown:
+    ok       : 1566
+    no_page  : 4   (no UFC.com page for any candidate slug)
+    no_match : 298  (page found but no confident name match — skipped, not guessed)
+    dead_url : 0  (image URL didn't serve — skipped)
+
+Re-run to resume; add --retry-failed to retry no_page/no_match/dead_url.

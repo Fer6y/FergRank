@@ -1,0 +1,3058 @@
+organisation,tier,tierMultiplier,needsReview,fightCount,sampleEvent
+UFC,tier1,1,false,7022,UFC 327 - Prochazka vs. Ulberg
+UFC Fight Night,tier1,1,false,5663,UFC Fight Night 264 - Bonfim vs. Brown
+UFC on ESPN,tier1,1,false,1442,UFC on ESPN 55 - Nicolau vs. Perez
+KOTC,tier3,0.55,false,771,KOTC - Warranted Aggression
+UFC on Fox,tier1,1,false,687,UFC on Fox 25 - Weidman vs. Gastelum
+Bellator,tier2_5,0.68,false,676,Bellator 192 - Jackson vs. Sonnen
+Pancrase,tier3,0.55,false,675,Pancrase - 255
+LFA,tier3,0.55,false,552,LFA 105 - Rodriguez vs. Gotsyk
+Professional Fighters League,tier2_5,0.68,false,542,Professional Fighters League - PFL 9: 2024 Playoffs
+WEC,historical,0.68,false,492,WEC 52 - Faber vs. Mizugaki
+EC,tier4,0.35,true,459,EC - Extreme Challenge 181
+Strikeforce,historical,0.68,false,453,Strikeforce - Marquardt vs. Saffiedine
+AFC,tier4,0.35,true,432,AFC 41 - Road to KSW
+Shooto,tier3,0.55,false,370,Shooto - 2nd Round 2013
+Pride,historical,0.68,false,332,Pride 32 - The Real Deal
+RITC,tier4,0.35,true,330,RITC - Rage in the Cage 161
+Invicta FC,tier2_5,0.68,false,321,Invicta FC 31 - Jandiroba vs. Morandin
+BFC,tier4,0.35,true,318,BFC 2 - Banzay Fight Championship 2
+CWFC,tier4,0.35,true,302,CWFC - Cage Warriors Unplugged
+Deep,tier3,0.55,false,286,Deep - Jewels 11
+Dana White's Contender Series,tier2,0.78,false,281,Dana White's Contender Series - Contender Series 2023: Week 10
+ROC,tier4,0.35,true,280,ROC 71 - Ring of Combat 71
+Jungle Fight,tier3,0.55,false,278,Jungle Fight 27 - Brasilia
+CFFC,tier3,0.55,false,269,CFFC 118 - Cage Fury Fighting Championships 118: Forest vs. Radtke
+LFC,tier4,0.35,true,262,LFC 59 - Legacy Fighting Championship 59
+Shooto Brazil,tier3,0.55,false,249,Shooto Brazil 18 - Inocente vs. Moia
+Titan FC,tier3,0.55,false,245,Titan FC 39 - Cavalcante vs. Healy
+MFC,tier4,0.35,true,244,MFC - Maringa Fight Combat: Gold Edition
+SF,tier4,0.35,true,241,SF - Shogun Fights 27
+M-1 Challenge,tier3,0.55,false,233,M-1 Challenge 89 - Buchinger vs. Krasnikov
+FFC,tier4,0.35,true,222,FFC 24 - Villefort vs. Rela
+IFL,tier4,0.35,true,222,"IFL 51 - No Guts, No Glory"
+UFC on Fuel TV,tier1,1,false,214,UFC on Fuel TV 8 - Silva vs. Stann
+WSOF,tier2_5,0.68,false,213,WSOF 1 - Arlovski vs. Cole
+Fury FC,tier4,0.35,true,206,Fury FC 80 - Fury Fighting Championship 80: Martinez vs. Efrain
+KSW,tier3,0.55,false,205,KSW 100 - Khalidov vs. Bartosinski
+Pride FC,historical,0.68,false,201,Pride FC - Shockwave 2006
+CFC,tier4,0.35,true,200,CFC - Camaragibe Fight Championship
+CW,tier4,0.35,true,199,CW 133 - Cage Warriors 133
+IFC,tier4,0.35,true,199,IFC 2 - Penini vs. Aliu
+VFC,tier4,0.35,true,196,VFC 4 - Velame Fight Combat 4
+Cage Rage,tier4,0.35,true,196,Cage Rage - Contenders: Dynamite
+RFA,tier4,0.35,true,195,RFA 38 - Moises vs. Emmers
+Bellator MMA,tier2_5,0.68,false,193,Bellator MMA - Bellator 128
+CES MMA,tier4,0.35,true,192,CES MMA 49 - Curtis vs. Norwood
+ACA,tier4,0.35,true,185,ACA 128 - Omielanczuk vs. Goncharov
+SB,tier4,0.35,true,183,SB 24 - Return of the Heavyweights 2
+UFC on ABC,tier1,1,false,179,UFC on ABC 6 - Whittaker vs. Aliskerov
+Brave CF,tier3,0.55,false,176,Brave CF 7 - Untamed
+XFC,tier4,0.35,true,176,XFC 47 - Xtreme Fighting Championships
+GC,tier4,0.35,true,174,GC 81 - Lights Out
+UFC on FX,tier1,1,false,173,UFC on FX 5 - Browne vs. Bigfoot
+ACB,tier4,0.35,true,169,ACB 88 - Brisbane
+PFC,tier4,0.35,true,169,PFC 2 - Pantanal Fight Champions 2
+Oktagon MMA,tier4,0.35,true,163,Oktagon MMA - Oktagon 71: Poppeck vs. Langer
+Rizin FF,tier2_5,0.68,false,160,Rizin FF - Landmark Vol. 7
+TPF,tier4,0.35,true,159,TPF 24 - Summer Brawl
+GFC,tier4,0.35,true,159,GFC 63 - Grand Fighting Championship 63
+EFC,tier4,0.35,true,159,EFC 15 - Eco Fight Championship 15
+BAMMA,tier4,0.35,true,154,BAMMA 24 - Kone vs. Phillips
+HOOKnSHOOT,tier4,0.35,true,153,HOOKnSHOOT - Bodog Fight Women's Tournament
+TKO,tier4,0.35,true,151,TKO 44 - Hunter vs. Barriault
+SFC,tier4,0.35,true,141,SFC - Sombra Fight Champions 8
+Rings,tier4,0.35,true,140,Rings - The Outsider 51: 10th Anniversary Road to Las Vegas
+WFC,tier4,0.35,true,136,WFC - The Legend Of Emei 3
+ROF,tier4,0.35,true,133,ROF 41 - Bragging Rights
+UFC Live,tier1,1,false,123,UFC Live 5 - Hardy vs. Lytle
+One Championship,tier2_5,0.68,false,121,One Championship - One 166: Qatar
+XFO,tier4,0.35,true,120,XFO 46 - Xtreme Fighting Organization 46
+FCC,tier4,0.35,true,120,FCC 23 - Full Contact Contender 23
+Gladiator Challenge,tier4,0.35,true,117,Gladiator Challenge  - Champions
+FF,tier4,0.35,true,115,FF - Fusion Fight
+TFC,tier4,0.35,true,112,TFC - Tanko Fighting Championships 3
+ROTR,tier4,0.35,true,109,ROTR 14 - Defiance
+K-1,tier4,0.35,true,109,K-1 - World Grand Prix 2009
+UAE Warriors,tier4,0.35,true,108,UAE Warriors 35 - Africa 4
+CC,tier4,0.35,true,108,CC - Cage Contender Fight Stars
+PXC,tier4,0.35,true,107,PXC 56 - Pacific Xtreme Combat 56
+WEF,tier4,0.35,true,106,WEF 73 - Selection 22
+Dream,tier4,0.35,true,105,Dream - Dream 14
+Combate Americas,tier4,0.35,true,102,Combate Americas - Combate Monterrey
+RFC,tier4,0.35,true,99,RFC 17 - Street Kings
+Bodog Fight,tier4,0.35,true,99,Bodog Fight - Vancouver
+Zst,tier4,0.35,true,98,Zst - Prestige
+Superior Challenge,tier4,0.35,true,97,Superior Challenge 18 - Fitness Festivalen
+MF,tier4,0.35,true,95,MF - Max Fight 23
+Sengoku,tier4,0.35,true,94,Sengoku - Ninth Battle
+TC,tier4,0.35,true,93,TC - Tridenium Combat
+WLF,tier4,0.35,true,92,WLF - W.A.R.S. 40
+NAAFS,tier4,0.35,true,92,NAAFS - Fight Night in the Flats 9
+GCM,tier4,0.35,true,91,GCM - D.O.G. 4
+XMMA,tier4,0.35,true,88,XMMA - Vick vs. Fialho
+XFL,tier4,0.35,true,88,XFL 36 - Xtreme Fighters Latino 36
+IFC WC,tier4,0.35,true,88,IFC WC 13 - Warriors Challenge 13
+ProFC,tier4,0.35,true,86,ProFC 64 - Tibilov vs. Shvets
+MCC,tier4,0.35,true,85,MCC 19 - The Return
+Road FC,tier4,0.35,true,85,Road FC 52 - Road Fighting Championship 52
+LOF,tier4,0.35,true,85,LOF 53 - Memorium
+NFC,tier4,0.35,true,84,NFC - Natal Fight Championship 19
+Cage Titans FC,tier4,0.35,true,81,Cage Titans FC - Cage Titans 68
+Dana White's Tuesday Night Contender Series,tier2,0.78,false,78,"Dana White's Tuesday Night Contender Series - Season 2, Episode 5"
+M-1 MFC,tier3,0.55,false,78,M-1 MFC - European Championship 2000
+FNG,tier4,0.35,true,75,FNG - Fight Nights Global 73
+UCC,tier4,0.35,true,74,UCC 10 - The X Fighter
+HFC,tier4,0.35,true,73,HFC 33 - Hoosier Fight Club 33
+BC,tier4,0.35,true,73,BC - Beltrao Combat 2
+EliteXC,tier4,0.35,true,73,EliteXC - Primetime
+UCMMA,tier4,0.35,true,72,UCMMA 27 - Ultimate Challenge MMA 27
+WOCS,tier4,0.35,true,69,WOCS 31 - Watch Out Combat Show 31
+AOW,tier4,0.35,true,68,AOW 11 - Art of War Cage Fighting 11
+WFCA,tier4,0.35,true,68,WFCA 48 - Zhamaldaev vs. Khasbulaev 2
+UWC Mexico,tier4,0.35,true,67,UWC Mexico 35 - Luna vs. Campos
+RCC,tier4,0.35,true,66,RCC 14 - Revolution Combat Championships 14
+CN,tier4,0.35,true,66,CN - Combat Night: Clash of the Titans
+FCF,tier4,0.35,true,66,FCF - First Class Fight 3
+WFF,tier4,0.35,true,66,WFF - World Fighting Federation 27
+Kunlun Fight,tier4,0.35,true,66,Kunlun Fight - Kunlun Fight MMA 15
+CF,tier4,0.35,true,65,CF - Capital Fight 5
+HFS,tier4,0.35,true,65,HFS - Hex Fight Series 12
+RF,tier4,0.35,true,65,RF 10 - Real Fight 10
+Square Ring Promotions,tier4,0.35,true,63,Square Ring Promotions - Island Fights 40
+IC,tier4,0.35,true,63,IC 2 - Iowa Challenge 2
+C3 Fights,tier4,0.35,true,61,C3 Fights - Slammin Jammin Weekend 6
+Fight Nights,tier4,0.35,true,60,Fight Nights - Battle of Moscow 19
+RSF,tier4,0.35,true,60,RSF - Reborn Strike Fight 5
+UWC,tier4,0.35,true,59,UWC 23 - Ultimate Warrior Challenge
+ISCF,tier4,0.35,true,57,ISCF - Invasion
+Cage,tier4,0.35,true,56,Cage - Cage 30
+LUX,tier4,0.35,true,53,LUX 027 - Puebla
+XKO,tier4,0.35,true,53,XKO 46 - Xtreme Knockout 46: Summer Bash
+WVC,tier4,0.35,true,53,WVC 13 - World Vale Tudo Championship 13
+BFL,tier4,0.35,true,52,BFL 7 - Battlefield Fight League: Invasion
+XFCI,tier4,0.35,true,52,XFCI - XFC International 6
+TWC,tier4,0.35,true,52,TWC 24 - The Warriors Cage 24
+WXC,tier4,0.35,true,50,WXC 69 - Illuminate
+CS,tier4,0.35,true,50,CS - CageSport 16
+CZ,tier4,0.35,true,50,CZ 44 - Steel Cage Fighters
+SFT,tier4,0.35,true,49,SFT 46 - Black Diamond vs. Peregrino
+WWFC,tier4,0.35,true,49,WWFC 13 - Kyiv
+PF,tier4,0.35,true,49,PF - Piemont Fight 2
+CFA,tier4,0.35,true,49,CFA 11 - Kyle vs. Wiuff
+IHC,tier4,0.35,true,49,IHC 9 - Purgatory
+Ares,tier4,0.35,true,48,Ares 25 - Sola vs. Gagloev
+One FC,tier2_5,0.68,false,48,One FC 24 - Dynasty of Champions
+UCE,tier4,0.35,true,48,UCE - Round 28 - Worlds Collide
+CG,tier4,0.35,true,47,CG 31 - Celtic Gladiator 31
+Ringside MMA,tier4,0.35,true,47,Ringside MMA 13 - The Saint Patrick's Day Beatdown
+ECC,tier4,0.35,true,47,ECC - Eco Combat Championship 20
+AMMA,tier4,0.35,true,47,AMMA 2 - Adrenaline MMA 2
+Eternal MMA,tier4,0.35,true,46,Eternal MMA 51 - Perth
+Combate Global,tier4,0.35,true,46,Combate Global - Graniel vs. Ibarra
+Euphoria,tier4,0.35,true,46,Euphoria - USA vs. World
+2H2H,tier4,0.35,true,46,2H2H - 2 Hot 2 Handle
+UW,tier4,0.35,true,46,UW - Minnesota
+Tuff-N-Uff,tier4,0.35,true,45,Tuff-N-Uff - Tuff-N-Uff 151
+AF,tier4,0.35,true,45,AF - Action Fight 16
+SBC,tier4,0.35,true,45,SBC 19 - Serbian Battle Championship 19
+Unified MMA,tier4,0.35,true,45,Unified MMA 43 - Unified MMA
+Shamrock FC,tier4,0.35,true,44,Shamrock FC - Shamrock 313
+SFS,tier4,0.35,true,44,SFS 6 - Score Fighting Series 6
+EF,tier4,0.35,true,44,EF - ExciteFight
+Thunder Fight,tier4,0.35,true,43,Thunder Fight 34 - Copa Thunder Fight 17
+M-1 Global,tier3,0.55,false,41,M-1 Global - M-1 Challenge 47
+100% Fight,tier4,0.35,true,41,100% Fight 41 - The Champ is Back
+Reality Fighting,tier4,0.35,true,41,Reality Fighting - Mohegan Sun
+GMC,tier4,0.35,true,41,GMC 5 - German MMA Championship 5
+EB,tier4,0.35,true,41,EB - Beatdown at 4 Bears 12
+BAMMA USA,tier4,0.35,true,41,BAMMA USA - Badbeat 10
+UFCF,tier1,1,false,41,UFCF - Night of Champions
+Xplode Fight Series,tier4,0.35,true,40,Xplode Fight Series - Taco
+DFC,tier4,0.35,true,40,DFC 5 - Desert Force 5
+Legend FC,tier4,0.35,true,40,Legend FC - Legend Fighting Championship 9
+CXF,tier4,0.35,true,40,CXF 8 - Cali Kings
+Spirit MC,tier4,0.35,true,40,Spirit MC 17 - All In
+IVC,tier4,0.35,true,40,IVC 13 - The New Generation of Lightweights
+MMAX,tier4,0.35,true,39,MMAX - Maximum Cage Fighting
+STFC,tier4,0.35,true,39,STFC 24 - Bad Blood
+Meca,tier4,0.35,true,39,Meca 12 - Meca World Vale Tudo 12
+XKK,tier4,0.35,true,39,XKK - Des Moines
+Fight Time,tier4,0.35,true,38,Fight Time 23 - Mayhem In Miami
+SHC,tier4,0.35,true,38,SHC - Striker's House Cup 27
+NAFC,tier4,0.35,true,38,NAFC - Super Brawl
+Inka,tier4,0.35,true,38,Inka 24 - Inka Fighting Championship 24
+WBFN,tier4,0.35,true,38,WBFN - Wild Bill's Fight Night 51
+WFA,tier4,0.35,true,38,WFA 4 - King of the Streets
+BRI,tier4,0.35,true,38,BRI 4 - Bas Rutten Invitational 4
+USWF,tier4,0.35,true,38,USWF 18 - Unified Shoot Wrestling Federation 18
+GKO,tier4,0.35,true,37,GKO 11 - Global Knockout 11
+X-1,tier4,0.35,true,37,X-1 - Temple of Boom 4
+ShoXC,tier4,0.35,true,37,ShoXC - Elite Challenger Series
+Rings USA,tier4,0.35,true,37,Rings USA - Battle of Champions
+Gladiators,tier4,0.35,true,37,Gladiators 20 - Gladiators 20
+KOK,tier4,0.35,true,36,KOK - World Series in Kaunas
+300 Sparta,tier4,0.35,true,36,300 Sparta 1 - MMA
+REF,tier4,0.35,true,36,REF - Renegades Extreme Fighting
+SFL,tier4,0.35,true,35,SFL 37 / CageSport 34 - SFL America 3
+GCF,tier4,0.35,true,35,GCF - Gladiator Combat Fight 2
+XFN,tier4,0.35,true,35,XFN 16 - X Fight Nights 16
+Top FC,tier4,0.35,true,35,Top FC 15 - Top Fighting Championship 15
+SC,tier4,0.35,true,35,SC - Strike Combat
+Showdown Fights,tier4,0.35,true,35,Showdown Fights 10 - Collard vs. Clements
+UNF,tier4,0.35,true,34,UNF 13 - Up Next Fighting 13
+FAC,tier4,0.35,true,34,FAC 18 - Fighting Alliance Championship 18
+OC,tier4,0.35,true,34,OC - Oplot Challenge 90
+Icon Sport,tier4,0.35,true,34,Icon Sport - Hard Times
+CFX,tier4,0.35,true,34,CFX 21 - Brockton Beatdown
+SCL,tier4,0.35,true,34,SCL 74 - King Of Sparta Heavyweight Series
+Mr. Cage Championship,tier4,0.35,true,34,Mr. Cage Championship - Mr. Cage 42
+Dangerzone,tier4,0.35,true,34,Dangerzone - Auburn
+LXF,tier4,0.35,true,33,LXF 5 - Lights Out Xtreme Fighting 5
+FNC,tier4,0.35,true,33,FNC - Armagedon 1 Finals
+FTW,tier4,0.35,true,33,FTW - Prize Fighting Championship 4
+OMMAC,tier4,0.35,true,33,OMMAC 17 - High Octane
+Caged Aggression,tier4,0.35,true,32,Caged Aggression 21 - The Champions: Day 2
+NCF,tier4,0.35,true,32,NCF - Nitrix Champion Fight 22
+AFL,tier4,0.35,true,32,AFL 17 - Coal and Blood
+The Zone FC,tier4,0.35,true,32,The Zone FC 7 - Warriors
+OFC,tier4,0.35,true,31,OFC 8 - Open Fighting Championship 8
+EFN,tier4,0.35,true,31,EFN - Elite Fight Night
+EFC Africa,tier4,0.35,true,31,EFC Africa - Extreme Fighting Championship Africa 27
+FT,tier4,0.35,true,31,FT 1 - Full Throttle 1
+Venator FC,tier4,0.35,true,30,Venator FC 12	 - Paterno vs. Hangs
+BTC,tier4,0.35,true,30,BTC 1 - Genesis
+RXF,tier4,0.35,true,30,RXF 26 - Brasov
+SCC,tier4,0.35,true,30,SCC 2 - Substance Cage Combat 2.0
+MFL,tier4,0.35,true,30,MFL - Midwest Fight League
+Heat,tier4,0.35,true,30,Heat - Heat 43
+PC MMA,tier4,0.35,true,30,PC MMA - Pinnacle Combat 22
+Strikeforce / M-1 Global,historical,0.68,false,30,Strikeforce / M-1 Global - Fedor vs. Henderson
+W-1 MMA,tier4,0.35,true,30,W-1 MMA 5 - Judgment Day
+MT,tier4,0.35,true,30,MT 22 - Madtown Throwdown 22
+RCF,tier4,0.35,true,30,RCF - Pride & Honor 4
+FCOC,tier4,0.35,true,29,FCOC - Fight Club OC
+WFE,tier4,0.35,true,29,WFE - Win Fight and Entertainment 1
+SWC,tier4,0.35,true,28,SWC 1 - Inception
+FEN,tier4,0.35,true,28,FEN 17 - Baltic Storm
+BFW,tier4,0.35,true,28,BFW 36 - Brace 36
+URCC,tier4,0.35,true,28,URCC 26 - Domination
+Affliction,tier4,0.35,true,28,Affliction - Day of Reckoning
+SRC,tier4,0.35,true,28,SRC - Sengoku Raiden Championship 12
+FEFoMP,tier4,0.35,true,28,FEFoMP - World Pankration Championship 2008
+Rings Holland,tier4,0.35,true,28,Rings Holland - There Can Only Be One Champion
+UVF,tier4,0.35,true,28,UVF 2 - Universal Vale Tudo Fighting 2
+Destiny MMA,tier4,0.35,true,27,Destiny MMA - Na Koa 6
+XK,tier4,0.35,true,27,XK 20 - Xtreme Kombat 20
+CFS,tier4,0.35,true,27,CFS 15 - Cage Fight Series 15
+WFL,tier4,0.35,true,27,WFL 4 - Warriors Fighter Life 4
+DF,tier4,0.35,true,26,DF - Demo Fight 6
+Fight Time Promotions,tier4,0.35,true,26,Fight Time Promotions - Fight Time 32
+LF,tier4,0.35,true,26,LF - Lion Fight
+NG,tier4,0.35,true,26,NG - Noc Gladiatora 9
+Vale Tudo Japan,tier4,0.35,true,26,Vale Tudo Japan - VTJ 2nd
+RUFF,tier4,0.35,true,26,RUFF 12 - Ranik Ultimate Fighting Federation 12
+League S-70,tier4,0.35,true,26,League S-70 - Plotforma S-70: 2018
+MFP,tier4,0.35,true,26,MFP 220 / KLF - Kunlun Fight vs. Modern Fighting Pankration
+M-1 Selection,tier3,0.55,false,26,M-1 Selection 2010 - Eastern Europe Finals
+UCW,tier4,0.35,true,26,UCW 12 - Heatwave
+WR,tier4,0.35,true,26,WR 9 - Warriors Realm 9
+DCS,tier4,0.35,true,25,DCS 71 - Summer Kick-Off Night 1
+ExciteFight,tier4,0.35,true,25,ExciteFight - Conquest of the Cage
+Wreck MMA,tier4,0.35,true,25,Wreck MMA - Unfinished Business
+HKFC,tier4,0.35,true,25,HKFC - Hard Knocks 54
+MD,tier4,0.35,true,25,MD 12 - Mass Destruction 12
+SFH,tier4,0.35,true,24,SFH 8 - Prado vs. Espindola
+Future MMA,tier4,0.35,true,24,Future MMA - Road to Future 3
+Urijah Faber's A1 Combat,tier4,0.35,true,24,Urijah Faber's A1 Combat 32 - Brand vs. Ewing
+JMMAS,tier4,0.35,true,24,JMMAS - Jackson's MMA Series 13
+Rizin,tier2_5,0.68,false,24,Rizin 5 - Rizin 2017 in Yokohama: Sakura
+UCS,tier4,0.35,true,24,UCS - Battle at the Barn 2
+UKMMAC,tier4,0.35,true,24,UKMMAC 7 - Rage & Fury
+UGC,tier4,0.35,true,23,UGC 32 - Moment de Verite
+CCFC,tier4,0.35,true,23,CCFC - The Return
+GFS,tier4,0.35,true,23,GFS - Gateway Fighting Series 9: Inferno
+EMMA,tier4,0.35,true,23,EMMA 2 - Extreme FC: Conflicto
+Aspera FC,tier4,0.35,true,23,Aspera FC 52 - Aspera Fighting Championship 52
+HRMMA,tier4,0.35,true,23,HRMMA - Hardrock MMA 77: Pro/Am
+Brutaal,tier4,0.35,true,23,Brutaal - Fight Night
+URC,tier4,0.35,true,23,URC 1 - Urban Rumble Championships 1
+MARS,tier4,0.35,true,23,MARS - MARS
+VTJ,tier4,0.35,true,23,VTJ 1999 - Vale Tudo Japan 1999
+UA,tier4,0.35,true,23,UA 4 - King of the Mountain
+Extreme Wars,tier4,0.35,true,23,Extreme Wars 3 - Bay Area Brawl
+Mainstream MMA,tier4,0.35,true,23,Mainstream MMA - Mehmen vs. Monaghan
+M4tC,tier4,0.35,true,22,M4tC 27 - Vendetta
+V3 Fights,tier4,0.35,true,22,V3 Fights - Sanders vs. Anders
+CWM MMA,tier4,0.35,true,22,"CWM MMA - Chin Woo Men: 2017-2018 Season, Stage 4"
+CITC,tier4,0.35,true,22,CITC 11 - Xtreme Couture vs. Southern California
+Alash Pride,tier4,0.35,true,22,Alash Pride - Royal Plaza Volume 2
+Grachan,tier4,0.35,true,22,Grachan - Grachan 66
+NEF,tier4,0.35,true,22,NEF - Lookin' for a Fight
+USA MMA,tier4,0.35,true,22,USA MMA - Night of Champions 2
+HFP,tier4,0.35,true,22,HFP - Hitman Fighting Productions
+IFF,tier4,0.35,true,22,IFF 1 - International Freestyle Fighting 1
+FFP,tier4,0.35,true,22,FFP - Untamed 26
+ICC,tier4,0.35,true,22,ICC - Trials 2
+WCF,tier4,0.35,true,21,WCF 1 - Warrior Championship Fighting 1
+Combat Zone,tier4,0.35,true,21,Combat Zone 76 - Combat Zone MMA
+LFL,tier4,0.35,true,21,LFL 11 - Levels Fight League 11
+Imortal FC,tier4,0.35,true,21,Imortal FC 4 - Dynamite
+CFP,tier4,0.35,true,21,CFP 3 - Curitiba Fight Pro 3
+Fierce FC,tier4,0.35,true,21,Fierce FC 15 - Hatch vs. Curtis
+WC,tier4,0.35,true,21,WC - Warriors Challenge 5
+Pinnacle FC,tier4,0.35,true,21,Pinnacle FC - Pittsburgh Challenge Series 7
+Cageside Promotions / KCFA,tier4,0.35,true,21,Cageside Promotions / KCFA - Kansas City Fighting Alliance 34: Fight 4 The Troops
+FX3,tier4,0.35,true,21,FX3 - Battle of Britain
+BB,tier4,0.35,true,21,BB - Bluegrass Brawl 8
+Nitro MMA,tier4,0.35,true,21,Nitro MMA - Nitro 13
+KK,tier4,0.35,true,21,KK 8 - Kombat Komplett
+MMA,tier4,0.35,true,21,MMA - Event
+HCF,tier4,0.35,true,21,HCF - Destiny
+CVFA,tier4,0.35,true,21,CVFA - Friday Night Fights
+Talent MMA Circuit,tier4,0.35,true,20,Talent MMA Circuit 6 - Curitiba 2014
+Z Promotions,tier4,0.35,true,20,Z Promotions - Fight Night 3: Medicine Hat
+Babilon MMA,tier4,0.35,true,20,Babilon MMA 51 - Kolecki vs. Mysiala
+Desert Force,tier4,0.35,true,20,Desert Force 17 - Homecoming
+Rizin Fighting World Grand Prix,tier2_5,0.68,false,20,Rizin Fighting World Grand Prix 2017 - Bantamweight Tournament: Final Round
+IGF,tier4,0.35,true,20,IGF - Inoki Genome Fight 4
+Combat,tier4,0.35,true,20,Combat - Do Fighting Challenge 4
+UAGF,tier4,0.35,true,20,UAGF - Kaos on the Kampus
+IMC,tier4,0.35,true,20,IMC - Extreme
+RW,tier4,0.35,true,20,RW 10 - Mayhem in the Mist 5
+IFO,tier4,0.35,true,20,IFO - Itajuba Freestyle Open
+UG,tier4,0.35,true,20,UG 11 - A Decade of Fights
+FCFF,tier4,0.35,true,19,FCFF - Rumble at the Roseland 80
+COTC,tier4,0.35,true,19,COTC - Conquest of the Cage 11
+DB,tier4,0.35,true,19,DB 10 - DesertBrawl 10
+Shooto Finland,tier3,0.55,false,19,Shooto Finland - Chicago Collision 3
+K-1 HERO's,tier4,0.35,true,19,K-1 HERO's - Tournament Final
+WCFC,tier4,0.35,true,19,WCFC - No Guts No Glory
+IAFC,tier4,0.35,true,19,IAFC - Stage of Russia Cup 3
+Driller Promotions,tier4,0.35,true,18,Driller Promotions - Mecca 16
+ECSF,tier4,0.35,true,18,ECSF - Battle of Bessarabia
+CCC,tier4,0.35,true,18,CCC 21 - Colorado Combat Club 21
+Combate,tier4,0.35,true,18,Combate 30 - Combate Baja
+PLMMA,tier4,0.35,true,18,PLMMA 44 - Biezun
+WXF,tier4,0.35,true,18,WXF - X-Impact World Championships 2005
+AC,tier4,0.35,true,18,AC - Araucaria Combat 4
+MMA Attack,tier4,0.35,true,18,MMA Attack 2 - Grabowski vs Sanchez
+Dacheng Wuyi,tier4,0.35,true,18,Dacheng Wuyi - Chinese MMA Super League Season 9: Day 5
+Warriors Quest,tier4,0.35,true,18,Warriors Quest 8 - Young Guns
+EFX,tier4,0.35,true,18,EFX - Myth in Maplewood
+MOTC,tier4,0.35,true,18,MOTC 16 - Masters of the Cage 16
+RUF MMA,tier4,0.35,true,17,RUF MMA - Cage Rage on the River 2
+UFL,tier4,0.35,true,17,UFL 8 - Ultimate Fight League 8
+Spartacus MMA,tier4,0.35,true,17,Spartacus MMA - Arnold Fest South America Day 2
+Octagon Promotion,tier4,0.35,true,17,Octagon Promotion - Octagon 36: Daudov vs. Abduvorisov
+GFA,tier4,0.35,true,17,GFA - Gladiator Fighting Arena 13
+PureCombat,tier4,0.35,true,17,PureCombat - Battle For The Brave
+Combat USA,tier4,0.35,true,17,Combat USA - Wisconsin vs. Illinois Championship
+Hoosier FC,tier4,0.35,true,17,Hoosier FC 7 - Validation
+FG,tier4,0.35,true,17,FG 25 - Fighter Gala 25
+Xtreme Fighting Championships,tier4,0.35,true,17,Xtreme Fighting Championships - XFC 54: Ascension
+Fresquez Productions,tier4,0.35,true,17,Fresquez Productions - Jackson-Wink Fight Night 5
+SCS,tier4,0.35,true,17,SCS 27 - Survival
+IF,tier4,0.35,true,17,IF 6 - Imperio Fight 6
+KOP,tier4,0.35,true,17,KOP 62 - KnockOut Promotions 62
+TCF,tier4,0.35,true,17,TCF - TriState Cage Fights
+Rebel FC,tier4,0.35,true,17,Rebel FC 4 - Battle Royale Ascension
+MFS,tier4,0.35,true,17,MFS - Midwest Fight Series 5
+ADW,tier4,0.35,true,17,ADW  - Abu Dhabi Warriors 3
+RITR,tier4,0.35,true,17,RITR - Rumble in the Rockies
+SS,tier4,0.35,true,17,SS - Sportfight Scotland 14
+TF,tier4,0.35,true,16,TF - Triton Fights 18
+PC,tier4,0.35,true,16,PC - Precol Combat 13
+NLFC,tier4,0.35,true,16,NLFC - Next Level Fight Club 7
+MEZ Sports,tier4,0.35,true,16,MEZ Sports - Pandemonium 9
+Samurai FC,tier4,0.35,true,16,Samurai FC 7 - Peace and War
+MMA Series,tier4,0.35,true,16,MMA Series 64 - Dyakonov vs. Solorzano
+WLMMA,tier4,0.35,true,16,WLMMA - We Love MMA 24
+Jewels,tier4,0.35,true,16,Jewels - 23rd Ring
+Throwdown Showdown,tier4,0.35,true,16,Throwdown Showdown 2 - The Return
+Crowbar MMA,tier4,0.35,true,16,Crowbar MMA - Fall Brawl
+BoB,tier4,0.35,true,16,BoB - Battle of Botnia 2015
+United Glory,tier4,0.35,true,16,United Glory - 2012 Glory World Series
+GF,tier4,0.35,true,16,GF - Golden Fighters 8
+UF,tier4,0.35,true,16,UF - Urkarakh Fights
+USMMA,tier4,0.35,true,16,USMMA 2 - Ring of Fury
+UCFC,tier4,0.35,true,16,UCFC 5 - Legends of MMA
+KnuckleUp MMA,tier4,0.35,true,16,KnuckleUp MMA 4 - Origins
+MB,tier4,0.35,true,16,MB 8 - Millennium Brawl 8
+APEX,tier4,0.35,true,16,APEX - Undisputed
+GR,tier4,0.35,true,16,GR 24 - Goshin Ryu 24
+AOF,tier4,0.35,true,16,AOF 7 - Support for Haiti
+Fight On MMA,tier4,0.35,true,15,Fight On MMA - Fight On 3
+FA,tier4,0.35,true,15,FA - Fatality Arena 10
+Fusion Fight League,tier4,0.35,true,15,Fusion Fight League - Season's Beatings
+Katana Fight,tier4,0.35,true,15,Katana Fight 10 - Roverso vs. Henrique
+Warfare,tier4,0.35,true,15,Warfare 19 - Warfare Fight Night
+RFP,tier4,0.35,true,15,RFP 53 - West Fight 23
+FFI,tier4,0.35,true,15,FFI - Blood and Sand 20
+iFF,tier4,0.35,true,15,iFF 6 - iKon Fighting Federation 6
+Disorderly Conduct,tier4,0.35,true,15,Disorderly Conduct 15 - Resolution
+FM,tier4,0.35,true,15,FM - Productions
+ICF,tier4,0.35,true,15,ICF 26 - The Perfect Storm
+VF,tier4,0.35,true,15,VF - Vila Fight
+MC,tier4,0.35,true,15,MC - Martial Combat 12
+WCC,tier4,0.35,true,15,WCC 2 - Memorial Day Combat
+SMMA,tier4,0.35,true,15,SMMA - Samourai MMA
+Shamrock Events,tier4,0.35,true,15,Shamrock Events - Kings of Kombat 12
+Fair FC,tier4,0.35,true,15,Fair FC 7 - Fair Fighting Championship 7
+Desafio,tier4,0.35,true,15,Desafio - Natal vs. Nordeste
+Atlas Fights,tier4,0.35,true,15,Atlas Fights - USA vs. Brazil
+IRFA,tier4,0.35,true,15,IRFA - International Ring Fight Arena 10
+FFF,tier4,0.35,true,15,FFF 2 - Girls Night Out
+MFA,tier4,0.35,true,15,MFA - There Will Be Blood
+PFE,tier4,0.35,true,15,PFE - Power Fight Extreme 12
+IE,tier4,0.35,true,15,IE - Independent Event
+Impact FC,tier4,0.35,true,15,Impact FC 2 - The Uprising: Sydney
+XFS,tier4,0.35,true,15,XFS - Night of Champions 3
+Smackgirl,tier4,0.35,true,15,Smackgirl - World ReMix 2004
+PFP,tier4,0.35,true,15,PFP - Ring of Fire
+CR,tier4,0.35,true,15,CR - Club Raw
+FCFS,tier4,0.35,true,15,FCFS 5 - Full Contact Fight Series 5
+F2N,tier4,0.35,true,14,F2N - Fight 2 Night 2
+JFL,tier4,0.35,true,14,JFL 18 - Jasaji Fighting League 18
+COGA,tier4,0.35,true,14,COGA 61 - Rumble on the Ridge 41
+ICE,tier4,0.35,true,14,ICE 46 - International Combat Events 46
+EBD,tier4,0.35,true,14,EBD 5 - European Beatdown 5
+WOW,tier4,0.35,true,14,WOW 20 - Madrid: La Noche de los Campeones
+Predador FC,tier4,0.35,true,14,Predador FC 9 - Welterweight Grand Prix
+Smash Global,tier4,0.35,true,14,Smash Global 9 - Black Tie Fight Night
+Gladiators of the Cage,tier4,0.35,true,14,Gladiators of the Cage - The North Shore's Rise to Power 4
+CKF,tier4,0.35,true,14,CKF - Fighting League Finals 5: Day 1
+Driller Promotions / SEG,tier4,0.35,true,14,Driller Promotions / SEG - Havoc at High Five 2
+Pure FC,tier4,0.35,true,14,Pure FC 10 - The Dark Knights Rise
+Future FC,tier4,0.35,true,14,Future FC 6  - Cado vs. Giacomo
+CCCW,tier4,0.35,true,14,CCCW - The Uprising
+IXFA,tier4,0.35,true,14,IXFA - International Xtreme Fight Association
+RMMA,tier4,0.35,true,14,RMMA - Renaissance MMA 16
+MFN,tier4,0.35,true,14,MFN - Mix Fight Night 8
+CKFC,tier4,0.35,true,14,CKFC - Chinese Kung Fu Championships
+Dana White's Tuesday Night Contender Series Brazil,tier2,0.78,false,14,"Dana White's Tuesday Night Contender Series Brazil - Season 1, Episode 3"
+HC,tier4,0.35,true,14,HC 30 - Hanuman Cup 30
+Alaska Fighting Championship,tier4,0.35,true,14,Alaska Fighting Championship 85 - Tortures & Takedowns
+G-Force Fights,tier4,0.35,true,14,G-Force Fights - Bad Blood 3
+Instinct MMA,tier4,0.35,true,14,Instinct MMA - Instinct Fighting 4
+It's Showtime,tier4,0.35,true,14,It's Showtime - Christmas Edition
+CFF,tier4,0.35,true,14,CFF - International MMA Tournament
+SAS,tier4,0.35,true,14,SAS 6 - Strike and Submit 6
+Shine Fights,tier4,0.35,true,14,Shine Fights 3 - 2010 Lightweight Grand Prix
+ZTFN,tier4,0.35,true,14,ZTFN 2 - ZT Fight Night 2
+UCC PG,tier4,0.35,true,14,UCC PG 9 - UCC Proving Ground 9
+MMA Big Show,tier4,0.35,true,14,MMA Big Show - A Prodigy Returns
+FFCC,tier4,0.35,true,14,FFCC - Finke's Full Contact Challenge
+WPC,tier4,0.35,true,14,WPC - World Pankration Championships 2
+MMASH,tier4,0.35,true,13,MMASH - MMA Super Heroes 7
+BFS,tier4,0.35,true,13,BFS 8 - Brazilian Fighting Series 8
+CTF,tier4,0.35,true,13,CTF - Curitiba Top Fight 12
+FSC,tier4,0.35,true,13,FSC 14 - FightStar Championship 14
+RFL,tier4,0.35,true,13,RFL - Maximum Impact
+FCR,tier4,0.35,true,13,FCR 19 - Fight Club Rush 19
+Superior FC,tier4,0.35,true,13,Superior FC 16 - Superior Fighting Championship 16
+Anthony Pettis FC,tier4,0.35,true,13,Anthony Pettis FC 16 - Milwaukee Fight Night 7
+Gladiator,tier4,0.35,true,13,Gladiator - Gladiator 021 in Osaka
+BSC,tier4,0.35,true,13,BSC 15 - Budo Sento Championship 15
+SPF,tier4,0.35,true,13,SPF - Super Pitbull Fight
+24/7 Entertainment,tier4,0.35,true,13,24/7 Entertainment 9 - Enemy of the State
+TFS,tier4,0.35,true,13,TFS - Tucuma Fighting Show 5
+Iron Boy Promotions,tier4,0.35,true,13,Iron Boy Promotions - Iron Boy MMA 6
+SFN,tier4,0.35,true,13,SFN 1 - Scandinavian Fight Nights
+Bushido Lithuania,tier4,0.35,true,13,Bushido Lithuania - MMA Bushido 84
+RC,tier4,0.35,true,13,RC 5 - Red Cage 5
+CFL,tier4,0.35,true,13,CFL - California Fight League 8
+COF,tier4,0.35,true,13,COF 8 - Centro Oeste Fight 8
+Bitetti Combat,tier4,0.35,true,13,Bitetti Combat 9 - Middleweight Combat Cup
+C3,tier4,0.35,true,13,C3 - Domination
+UFR,tier4,0.35,true,13,UFR 10 - Ultimate Fighting Revolution 10
+MMA Mexico,tier4,0.35,true,13,MMA Mexico 5 - De Poder a Poder
+Brasil Fight,tier4,0.35,true,13,Brasil Fight 8 - 360
+TCC,tier4,0.35,true,13,TCC 1 - Top Combat Championship 1
+XFE,tier4,0.35,true,13,XFE 46 - CFFC 42
+FLP,tier4,0.35,true,13,FLP - Fight Lab 45: MMA Cage Fights @ Grady Cole Center
+RFO,tier4,0.35,true,13,RFO - Big Guns 19
+PPKA,tier4,0.35,true,13,PPKA - Ultimate Fight Night 3
+NF,tier4,0.35,true,13,NF - Norofight 1
+HOP,tier4,0.35,true,13,HOP 7 - Cage Fever
+RR,tier4,0.35,true,13,RR 6 - Roadhouse Rumble 6
+EVT,tier4,0.35,true,13,EVT 5 - Phoenix
+AFA,tier4,0.35,true,13,AFA 6 - Uprising
+BONO,tier4,0.35,true,13,BONO 14 - Battle of New Orleans 14
+AKA,tier4,0.35,true,12,AKA - Rite of Passage 19
+MCF,tier4,0.35,true,12,MCF 18 - Midwest Championship Fighting 18
+TFL,tier4,0.35,true,12,TFL 19 - Christmas Time
+CEF,tier4,0.35,true,12,CEF 14 - Coliseu Extreme Fight 14
+Batalha MMA,tier4,0.35,true,12,Batalha MMA  - Batalha MMA 14
+FTF,tier4,0.35,true,12,FTF 13 - Face To Face 13 - Batista vs. Teixeira
+CRF,tier4,0.35,true,12,CRF 32 - Center Real Fights 32
+Eagles FC,tier4,0.35,true,12,Eagles FC - Eagles Fighting Championship
+United Combat League,tier4,0.35,true,12,United Combat League - Havoc in Hammond 4
+House of Fame,tier4,0.35,true,12,House of Fame 4 - Florida vs. Georgia
+XCC,tier4,0.35,true,12,XCC 20 - Xtreme Caged Combat 20
+CCW,tier4,0.35,true,12,CCW - California Cage Wars 13
+BF,tier4,0.35,true,12,BF - Brothers Fighting 2
+WUFC,tier4,0.35,true,12,WUFC - World Ultimate Full Contact 16
+Fight Star,tier4,0.35,true,12,Fight Star - Battle on Sura 6
+FS,tier4,0.35,true,12,FS - First Sunset
+DH,tier4,0.35,true,12,DH - Dragon House 27
+UC,tier4,0.35,true,12,UC - Union Combat 1
+PCF,tier4,0.35,true,12,PCF 12 - Poland vs. Slovakia
+Lights Out Championship,tier4,0.35,true,12,Lights Out Championship 16 - Bashi vs. Huskic
+Conflict MMA,tier4,0.35,true,12,Conflict MMA 43 - Conflict MMA Promotions
+K-Oz Entertainment,tier4,0.35,true,12,K-Oz Entertainment - Bragging Rights 7: Resurrection
+B2 Fighting Series,tier4,0.35,true,12,B2 Fighting Series 151 - Kansas
+LBFN,tier4,0.35,true,12,LBFN 8 - Long Beach Fight Night 8
+ProElite,tier4,0.35,true,12,ProElite 2 - Big Guns
+Dakota FC,tier4,0.35,true,12,Dakota FC 17 - Winter Brawl 2014
+NLF,tier4,0.35,true,12,NLF 8 - Next Level Fighting 8
+FWC,tier4,0.35,true,12,FWC 16 - FightWorld Cup 16
+Trench Warz,tier4,0.35,true,12,Trench Warz 18 - Rock and Rumble
+Ascend Combat,tier4,0.35,true,12,Ascend Combat - The Beginning
+BOTE,tier4,0.35,true,12,BOTE - Beast of the East
+JNI Promotions,tier4,0.35,true,12,JNI Promotions - Alone & Dangerous
+PWP,tier4,0.35,true,12,PWP - War on the Mainland
+WVF,tier4,0.35,true,12,WVF - Durango
+Freedom Fight,tier4,0.35,true,12,Freedom Fight - For Honor and Pride
+HHCF,tier4,0.35,true,12,HHCF 27 - Rumble at the Rodeo 2
+Shooto Australia,tier3,0.55,false,12,Shooto Australia - NHB
+DRFCF,tier4,0.35,true,11,DRFCF - Desert Rage Full Contact Fighting 10
+AMC,tier4,0.35,true,11,AMC - Fight Nights 109
+Glory of Heroes,tier4,0.35,true,11,Glory of Heroes 2 - Shenzhen
+NCE,tier4,0.35,true,11,NCE 27 - New Corpore Extreme 27
+PACF,tier4,0.35,true,11,PACF - PA Cage Fight 31
+Phoenix Fighting Championship,tier4,0.35,true,11,Phoenix Fighting Championship - Phoenix 1
+MMAC,tier4,0.35,true,11,MMAC - Conflict: The Beginning
+Valor Fights,tier4,0.35,true,11,Valor Fights 37 - Grun vs. Anders
+Premier FC,tier4,0.35,true,11,Premier FC - Premier Fighting Championship 8
+XCF,tier4,0.35,true,11,XCF 10 - Xtreme Cage Fighter 10
+RTP,tier4,0.35,true,11,RTP - Rumble Time Promotions
+Arena Fight,tier4,0.35,true,11,Arena Fight 8 - In Memory of Meire Cabral
+TAURA MMA,tier4,0.35,true,11,TAURA MMA - 1
+ASC,tier4,0.35,true,11,ASC - Arena Sport Combat
+SCF,tier4,0.35,true,11,SCF - Silva Combat Fight 3
+Lions FC,tier4,0.35,true,11,Lions FC 8 - Lions Fighting Championship 8
+UFN,tier4,0.35,true,11,UFN 15 - Urban Fight Night 15
+AFS,tier4,0.35,true,11,AFS - Aries Fight Series: Nashville Underground
+iFC,tier4,0.35,true,11,iFC 5 - Jorge Masvidal's iKon Fighting Championship 5
+WH,tier4,0.35,true,11,WH - Igor Vovchanchyn Cup 2
+OFS,tier4,0.35,true,11,OFS 11 - Octagon Fighting Sensation 11
+APFC,tier4,0.35,true,11,APFC 17 - American Predator Fighting Championships 17
+UWF,tier4,0.35,true,11,UWF - Tournament of Warriors Finale
+Absolute Championship Berkut,tier4,0.35,true,11,Absolute Championship Berkut - Grand Prix Berkut 9
+PFB,tier4,0.35,true,11,PFB - Platinum Fight Brazil 2
+864 Fighting Championship,tier4,0.35,true,11,864 Fighting Championship - Fight 9
+JHEFN,tier4,0.35,true,11,JHEFN - Jeremy Horn's Elite Fight Night 2
+One Pride MMA Fight Night,tier2_5,0.68,false,11,One Pride MMA Fight Night 58 - The Warriors Return
+XFFC,tier4,0.35,true,11,XFFC 13 - Future Stars
+Extreme Challenge,tier4,0.35,true,11,Extreme Challenge - Bad Blood
+Seconds Out / Vivid MMA,tier4,0.35,true,11,Seconds Out / Vivid MMA - Havoc at the Hyatt 2
+DC,tier4,0.35,true,11,DC 6 - Duneland Classic 6
+Adrenaline,tier4,0.35,true,11,Adrenaline 3 - Evolution
+AM,tier4,0.35,true,11,AM 14 - Ready For War
+Caged Steel,tier4,0.35,true,11,Caged Steel 25 - Caged Steel MMA
+RXMMA,tier4,0.35,true,11,RXMMA - Rocks Xtreme MMA 12
+The Cage Inc.,tier4,0.35,true,11,The Cage Inc. - Battle at the Border 7
+Vision FC,tier4,0.35,true,11,Vision FC 5 - Finale
+OT,tier4,0.35,true,11,OT - On Top 5
+Shogun,tier4,0.35,true,11,Shogun 1 - Shogun 1
+HTJ,tier4,0.35,true,11,HTJ - Hero's the Jungle 2
+SC1,tier4,0.35,true,11,SC1 - Super Challenge 1
+BVF,tier4,0.35,true,11,BVF 6 - Campeonato Brasileiro de Vale Tudo 1
+Inoki Bom-Ba-Ye,tier4,0.35,true,11,Inoki Bom-Ba-Ye 2003 - Inoki Festival
+MFDM,tier4,0.35,true,11,MFDM - Ballroom Brawl 2
+SCMMA,tier4,0.35,true,11,SCMMA - Steele Cage 2
+SRF,tier4,0.35,true,11,SRF 11 - Spartan Reality Fight 11
+Strikeforce-EliteXC,historical,0.68,false,11,Strikeforce-EliteXC - Shamrock vs. Baroni
+ES,tier4,0.35,true,11,ES - Extreme Shootout
+UTS,tier4,0.35,true,11,UTS 6 - Ultimate Texas Showdown 6
+NFA,tier4,0.35,true,11,NFA - Super Brawl
+YAMMA,tier4,0.35,true,11,YAMMA - Pit Fighting 1
+NC,tier4,0.35,true,10,NC - Nacao Cyborg 13
+LOTC,tier4,0.35,true,10,LOTC - Battle at the Bay
+Arena Global,tier4,0.35,true,10,Arena Global - Arena Global 12
+Juiz de Fora Fight,tier4,0.35,true,10,Juiz de Fora Fight - JF Fight Evolution 19
+United Fight League,tier4,0.35,true,10,United Fight League - UFL 4: Grand Prix Finals
+GEFC,tier4,0.35,true,10,GEFC - Battle on the Gold Mountain
+Xtreme Caged Combat,tier4,0.35,true,10,Xtreme Caged Combat - Reckless Abandon
+OCL,tier4,0.35,true,10,OCL - Ohio Combat League 39
+MMA Xplosion,tier4,0.35,true,10,MMA Xplosion - Vianna vs. Lacy
+BattleGrounds MMA,tier4,0.35,true,10,BattleGrounds MMA 5 - O.N.E.: One Night Elimination
+CMMA,tier4,0.35,true,10,CMMA - Conflict MMA 55
+ACF,tier4,0.35,true,10,ACF - Tribute to Veterans
+PRO Fighting,tier4,0.35,true,10,PRO Fighting - PRO FC 10
+Grandslam MMA,tier4,0.35,true,10,Grandslam MMA 2 - Way of the Cage
+NFAMMA,tier4,0.35,true,10,NFAMMA - Resurrection
+KZMMAF,tier4,0.35,true,10,KZMMAF - Battle of Nomads 11
+Arena Tour,tier4,0.35,true,10,Arena Tour 5 - Falcao vs. Taylor
+Action Fight League,tier4,0.35,true,10,Action Fight League - Rock-N-Rumble 1
+CATC,tier4,0.35,true,10,CATC 6 - Carnage at the Creek 6
+Superbrawl,tier4,0.35,true,10,Superbrawl - Icon
+PFA,tier4,0.35,true,10,PFA - Pride and Fury
+BP,tier4,0.35,true,10,BP 12 - Botnia Punishment 12
+ShoFight,tier4,0.35,true,10,ShoFight 20 - ShoFight 20
+ADFC,tier4,0.35,true,10,ADFC - Round 3
+MTL,tier4,0.35,true,10,MTL - Mo Team League 2
+RFN,tier4,0.35,true,10,RFN  - Racine Fight Night 2
+Maxfight,tier4,0.35,true,10,Maxfight - Warriors 13
+RWE,tier4,0.35,true,10,RWE - Just Scrap
+AFO,tier4,0.35,true,10,AFO - Halloween Havoc 3
+Heat FC,tier4,0.35,true,10,Heat FC 1 - Genesis
+247 FC,tier4,0.35,true,10,247 FC - Brawl in the Burgh 27
+X,tier4,0.35,true,10,X - Fight
+Shooto Holland,tier3,0.55,false,10,Shooto Holland - Knock-Out Gala 3
+5150 Combat League / Xtreme Fighting League,tier4,0.35,true,10,5150 Combat League / Xtreme Fighting League - New Year's Revolution
+TCI,tier4,0.35,true,10,TCI - Fight Hunger
+RM,tier4,0.35,true,10,RM 5 - Road to the Championship
+CFM,tier4,0.35,true,10,CFM - Ultimate Fighting Mexico
+BATB,tier4,0.35,true,10,BATB - Brawl at the Beach
+JKD,tier4,0.35,true,10,JKD - Challenge 2
+Jue Cheng King,tier4,0.35,true,9,Jue Cheng King - JCK Fight Night 94
+Adventure Fighters Tournament,tier4,0.35,true,9,Adventure Fighters Tournament - AFT 17
+SHP,tier4,0.35,true,9,SHP 59 - Strike Hard Productions 59
+FSF,tier4,0.35,true,9,FSF - Front Street Fights 19
+Elite,tier4,0.35,true,9,Elite 1  - Meltdown
+TCT,tier4,0.35,true,9,TCT - Texas City Throwdown 1
+AFN,tier4,0.35,true,9,AFN - Adrenalin Fight Nights
+AAMMA,tier4,0.35,true,9,AAMMA 44 - Absolute Action MMA 44
+NEC,tier4,0.35,true,9,NEC 17 - North Extreme Cagefighting 17
+FMP,tier4,0.35,true,9,FMP 16 - We Don't Stop
+BFN,tier4,0.35,true,9,BFN 3 - Bangkok Fight Night 3
+Synergy FC,tier4,0.35,true,9,Synergy FC 16 - Walker vs. Lewis
+Roshambo MMA,tier4,0.35,true,9,Roshambo MMA 3 - In the Cage
+VFN,tier4,0.35,true,9,VFN - Vegas Fight Night
+Tech-Krep FC,tier4,0.35,true,9,Tech-Krep FC - Prime Selection 10
+Hero FC,tier4,0.35,true,9,Hero FC - Best of the Best 4
+Triple A MMA,tier4,0.35,true,9,Triple A MMA 4 - Caged Hostility
+FFA,tier4,0.35,true,9,FFA - New Talents 15
+LFN,tier4,0.35,true,9,LFN 2 - Ladies Fight Night
+Trophy MMA,tier4,0.35,true,9,Trophy MMA 8 - Easter Bash 2
+Fight Party,tier4,0.35,true,9,Fight Party - Masquerade Fight Party
+Moosin,tier4,0.35,true,9,Moosin - God of Martial Arts
+Black Combat,tier4,0.35,true,9,Black Combat - BnD Black Cup: Eurasia vs. Korea Omega
+KC,tier4,0.35,true,9,KC - Katana Cagefighting
+Most Valuable Promotions,tier4,0.35,true,9,Most Valuable Promotions - Rousey vs. Carano
+FW,tier4,0.35,true,9,FW 4 - Fightworld 4
+UCM,tier4,0.35,true,9,UCM 12 - Roosters in the Hexagon
+Golden Boy MMA,tier4,0.35,true,9,Golden Boy MMA - Liddell vs. Ortiz 3: War's End
+CK,tier4,0.35,true,9,CK - Cage Kumite 2
+PAC,tier4,0.35,true,9,PAC - Pancration Atrium Cup 2
+Madtown Throwdown,tier4,0.35,true,9,Madtown Throwdown 26 - The Return
+The Cage Vol.,tier4,0.35,true,9,The Cage Vol. 4 - Redemption
+Battleground,tier4,0.35,true,9,Battleground - Perry vs. Mundell
+Nemesis Fighting,tier4,0.35,true,9,Nemesis Fighting - MMA Global Invasion
+EWC,tier4,0.35,true,9,EWC 1 - Elite Warriors Championship 1
+Heat XC,tier4,0.35,true,9,Heat XC 4 - Hysteria
+WCA,tier4,0.35,true,9,WCA - Pure Combat
+SuperFights MMA,tier4,0.35,true,9,SuperFights MMA - Night of Combat 2
+P & G,tier4,0.35,true,9,P & G 3 - Glory Days
+G5,tier4,0.35,true,9,G5 - Gimme Five
+Valor Fighting,tier4,0.35,true,9,Valor Fighting - 4th and B
+WCNHBC,tier4,0.35,true,9,WCNHBC - West Coast NHB Championships 2
+Real Rhythm,tier4,0.35,true,9,Real Rhythm - 4th Stage
+ZT Fight Night,tier4,0.35,true,9,ZT Fight Night - Heavyweights Collide
+VATV,tier4,0.35,true,9,VATV 9 - Vengeance at the Vanderbilt 9
+Lumax Cup,tier4,0.35,true,9,Lumax Cup - Tournament of J '97 Lightweight Tournament
+U,tier4,0.35,true,9,U - Japan
+Kickfest,tier4,0.35,true,9,Kickfest 11 - Fall Brawl
+OFFF,tier4,0.35,true,9,OFFF 3 - Oklahoma Free Fight Federation 3
+Smash,tier4,0.35,true,8,Smash - Smash Fight 2
+Alpha One Sports,tier4,0.35,true,8,Alpha One Sports - IT Fight Series 72
+BYE,tier4,0.35,true,8,BYE 8	 - Berkut Young Eagles: Grand-Prix Berkut Finals
+CageSport MMA,tier4,0.35,true,8,CageSport MMA - CageSport 60
+Triple X Cagefighting,tier4,0.35,true,8,Triple X Cagefighting - Legends 6
+XFMMA,tier4,0.35,true,8,XFMMA - XForce MMA 10
+CWA,tier4,0.35,true,8,CWA - Cage Warriors Academy Wales 2
+ICE FC,tier4,0.35,true,8,ICE FC - ICE Fighting Championships 17
+Ignite Fights,tier4,0.35,true,8,Ignite Fights - Mecca 20
+In Ya Face,tier4,0.35,true,8,In Ya Face - Caged Warrior Championship 16
+FTP,tier4,0.35,true,8,FTP - Global Showdown
+WMMAF,tier4,0.35,true,8,WMMAF - WMAC 2011 Finals
+WG,tier4,0.35,true,8,WG - Worldwide Gladiator
+BCMMA,tier4,0.35,true,8,BCMMA - Balloutta Combat MMA
+KOC,tier4,0.35,true,8,KOC - Knock Out Championship 8
+RWC,tier4,0.35,true,8,RWC 5 - Bez Przebaczenia
+AXS TV Fights,tier4,0.35,true,8,AXS TV Fights - RFA vs. Legacy Superfight
+SJSF,tier4,0.35,true,8,SJSF - Sao Jose Super Fight 2
+FTD,tier4,0.35,true,8,FTD - Face the Danger 23
+ACC,tier4,0.35,true,8,ACC 43 - Amateur Combat Club
+Demolidor Fight MMA,tier4,0.35,true,8,Demolidor Fight MMA 24 - Demolidor Fight 24
+Rise FC,tier4,0.35,true,8,Rise FC 5 - Rise Fighting Championship
+Vendetta Fighting Championship,tier4,0.35,true,8,Vendetta Fighting Championship - A Night of Vengeance
+ECSC,tier4,0.35,true,8,ECSC - Friday Night Fights 3
+Coalition of Combat,tier4,0.35,true,8,Coalition of Combat - Free 4 All
+Flawless FC,tier4,0.35,true,8,Flawless FC 3 - California Love
+NOW,tier4,0.35,true,8,NOW - Night of Warriors 15
+Prime,tier4,0.35,true,8,Prime - MMA Championship 3
+Battlefield FC,tier4,0.35,true,8,Battlefield FC 1 - The Great Beginning
+Fight Club,tier4,0.35,true,8,Fight Club 1 - Brazilian Stars
+PFL Super Fights,tier2_5,0.68,false,8,PFL Super Fights - PFL vs. Bellator Champs
+IMVT,tier4,0.35,true,8,IMVT - Iron Man Vale Tudo 29
+WMMA,tier4,0.35,true,8,WMMA 1 - Fighting for a Better World
+Pure MMA,tier4,0.35,true,8,Pure MMA 2 - Next Episode
+K-1 MMA,tier4,0.35,true,8,K-1 MMA - Romanex
+BCX,tier4,0.35,true,8,BCX 4 - Battle Cage Xtreme 4
+Brutaal Fight Night,tier4,0.35,true,8,Brutaal Fight Night - It's War
+HDNet Fights,tier4,0.35,true,8,HDNet Fights - Reckless Abandon
+Venom,tier4,0.35,true,8,Venom - First Strike
+TNF,tier4,0.35,true,8,TNF - Tuesday Night Fights
+UP,tier4,0.35,true,8,UP 1 - Ultimate Pankration 1
+X-1 Events,tier4,0.35,true,8,X-1 Events - Champions
+IFA,tier4,0.35,true,8,IFA - Ultimate Trials
+CFX / XKL,tier4,0.35,true,8,CFX / XKL - Mayhem in Minneapolis
+RITC Tucson,tier4,0.35,true,8,RITC Tucson 5 - Rage in the Cage Tucson 5
+BRB,tier4,0.35,true,8,BRB - Bar Room Brawl 10
+CT,tier4,0.35,true,8,CT - Cage Thug
+BOTM,tier4,0.35,true,8,BOTM 2 - Battle of the Masters 2
+RnB,tier4,0.35,true,8,RnB 2 - Bare Knuckle Brawl
+Imperium,tier4,0.35,true,7,Imperium - MMA Pro 2
+SMF,tier4,0.35,true,7,SMF - Salvaterra Marajo Fight 2
+Kombat League,tier4,0.35,true,7,Kombat League - Italian Extreme 10
+EFL,tier4,0.35,true,7,EFL - Elite Fight League 6
+FMMAMG,tier4,0.35,true,7,FMMAMG - Federacao Fight 8
+IPFC,tier4,0.35,true,7,IPFC - YunFeng Duel: Global Kung Fu Masters
+PMMAF,tier4,0.35,true,7,PMMAF - Polish MMA Championships Finals
+FK MMA,tier4,0.35,true,7,FK MMA - Favela Kombat 32: Pedra vs. Nogueira
+Panama Fight League,tier4,0.35,true,7,Panama Fight League - Ultimate Combat Challenge 48: Meza vs. Luna
+Hit-FC,tier4,0.35,true,7,Hit-FC - Hit Fighting Championship 4
+Alash Pride FC,tier4,0.35,true,7,Alash Pride FC - Fortress and Friendship of People
+LAMMQ,tier4,0.35,true,7,LAMMQ - Quebec Mixed Martial Arts League 5
+Dragon FC,tier4,0.35,true,7,Dragon FC - Dragon Fighting Championship
+Spartan Fight,tier4,0.35,true,7,Spartan Fight 9 - Browarski vs Kondraciuk
+CFN,tier4,0.35,true,7,CFN 5 - Coatza Fight Night 5
+Rize,tier4,0.35,true,7,Rize 4 - Crowning Glory
+BH Fight,tier4,0.35,true,7,BH Fight - BH Sparta 8
+FCP,tier4,0.35,true,7,FCP 3 - Khalidov vs. Troeng
+Liga Kavkaz,tier4,0.35,true,7,Liga Kavkaz - Dagestan Open Combat Sambo Championship
+RA,tier4,0.35,true,7,RA - Royal Arena 2
+M-1 Selection Ukraine,tier3,0.55,false,7,M-1 Selection Ukraine 2010 - The Finals
+Fight UK MMA,tier4,0.35,true,7,Fight UK MMA - Fight UK 6
+BFFC,tier4,0.35,true,7,BFFC - Bullet Fly Fighting Championship 3
+SFFN,tier4,0.35,true,7,SFFN 39 - Conquer
+DFD,tier4,0.35,true,7,DFD - Duel for Domination 7
+AT,tier4,0.35,true,7,AT - Amazon Talent 7
+OF,tier4,0.35,true,7,OF - Octagon Fight
+Imortal,tier4,0.35,true,7,Imortal - Imortal FC 6
+TFMMA,tier4,0.35,true,7,TFMMA - Top Fighter MMA 2
+TFA,tier4,0.35,true,7,TFA 12 - Total Fighting Alliance 12
+FMMMA,tier4,0.35,true,7,FMMMA - Fight Me MMA
+Real Fight Arena,tier4,0.35,true,7,Real Fight Arena - RFA 21 x ZHS
+fightFORCE,tier4,0.35,true,7,fightFORCE - Day of Anger
+La Onda,tier4,0.35,true,7,La Onda - MMA Gladiators
+Victory Fighting Championship,tier4,0.35,true,7,Victory Fighting Championship - VFC Fight Night Coco Key
+Rites of Passage,tier4,0.35,true,7,Rites of Passage 21 - Throwdown
+Black FC,tier4,0.35,true,7,Black FC 5 - Black Fighting Championships 5
+Challenge MMA,tier4,0.35,true,7,Challenge MMA 2 - Think Big
+EVO MMA,tier4,0.35,true,7,EVO MMA - Evolution MMA
+GUFF,tier4,0.35,true,7,GUFF - Determination
+PNRF,tier4,0.35,true,7,PNRF - Demolition
+RIE,tier4,0.35,true,7,RIE 2 - Brotherly Love Brawl
+GWC,tier4,0.35,true,7,GWC - The British Invasion: U.S. vs. U.K.
+Valor Fight,tier4,0.35,true,7,Valor Fight 9 - Potter vs. Dare
+FN,tier4,0.35,true,7,FN - Fight Night 3
+KE,tier4,0.35,true,7,KE - Kick Enterprises
+LITC,tier4,0.35,true,7,LITC 1 - Locked in the Cage 1
+Fury Fights,tier4,0.35,true,7,Fury Fights - Battle in Brookings 3
+NLE,tier4,0.35,true,7,NLE - No Love Entertainment
+Raw Combat,tier4,0.35,true,7,Raw Combat - Resurrection
+ROT,tier4,0.35,true,7,ROT - Ring of Truth 6
+MTXAFN,tier4,0.35,true,7,MTXAFN 2 - Evolution
+CSC,tier4,0.35,true,7,CSC - River City Rumble
+BG,tier4,0.35,true,7,BG 2 - Brazilian Gladiators 2
+Shido,tier4,0.35,true,7,Shido - This is Shido 5
+CLM,tier4,0.35,true,7,CLM 2 - Combate Libre Mexico 2
+GT,tier4,0.35,true,7,GT - Golden Trophy 2000
+UCC Hawaii,tier4,0.35,true,7,UCC Hawaii - Eruption in Hawaii
+Blueblood MMA,tier4,0.35,true,7,Blueblood MMA - Trials of a Gladiator 9
+CCCF,tier4,0.35,true,7,CCCF - Contenders
+WEFC,tier4,0.35,true,7,WEFC 1 - Bring It On
+Israel Fighting Championship,tier4,0.35,true,7,Israel Fighting Championship - Genesis
+IEF,tier4,0.35,true,7,IEF - Iowa Extreme Fighting
+BRFC,tier4,0.35,true,6,BRFC - Brazilian Fighting Championship 4
+Revelation FC,tier4,0.35,true,6,Revelation FC - Revelation Fighting Championship 5
+HDH,tier4,0.35,true,6,HDH 69 / Revelation FC - Hombres de Honor 69
+FMS,tier4,0.35,true,6,FMS 3 - Fight Music Show 3: Popo vs. Jr. Duble
+Prime Fighting,tier4,0.35,true,6,Prime Fighting 8 - Springer vs. Erosa
+Combate Extremo,tier4,0.35,true,6,Combate Extremo - Loco vs. Gallito
+THF,tier4,0.35,true,6,THF - The Hill Fighters 3
+Cage Titans,tier4,0.35,true,6,Cage Titans 11 - Victorious
+GFL,tier4,0.35,true,6,GFL 2 - Gladiadores Fight League 2
+CP,tier4,0.35,true,6,CP - Calvo Promotions 12
+Sicario MMA,tier4,0.35,true,6,Sicario MMA - Sicario 06
+Hybrid Combat,tier4,0.35,true,6,Hybrid Combat - Hybrid Pro Series 5
+CSYSL,tier4,0.35,true,6,CSYSL - Coari Champions
+HFN,tier4,0.35,true,6,HFN - Hipnose Fight Night 3
+FLC,tier4,0.35,true,6,FLC 5 - CUFA Fight Festival 5
+ITC,tier4,0.35,true,6,ITC - It's Time Combat 4
+Brace,tier4,0.35,true,6,Brace 51 - Mullarkey vs. Medina
+Samara MMA Federation,tier4,0.35,true,6,Samara MMA Federation - Battle on the Volga 4
+WAFC,tier4,0.35,true,6,WAFC - World Absolute FC
+Rod Fighting,tier4,0.35,true,6,Rod Fighting - Shield and Sword 4: Russia vs. Kazakhstan
+RDMMA,tier4,0.35,true,6,RDMMA - Battle in the South 10
+HG,tier4,0.35,true,6,HG - Heimgala 2
+Global Warriors FC,tier4,0.35,true,6,Global Warriors FC 2 - Coming Home
+Leal Combat,tier4,0.35,true,6,Leal Combat - Premium
+Golden Ticket Fight Promotions,tier4,0.35,true,6,Golden Ticket Fight Promotions - GTFP Fight Night 19
+Xian Sports University,tier4,0.35,true,6,Xian Sports University - Ultimate Wrestle
+BSB,tier4,0.35,true,6,BSB 3 - Bourbon Street Brawl 3
+KP,tier4,0.35,true,6,KP - Kickass Productions
+COT,tier4,0.35,true,6,COT 1 - Battle on the Bay
+SnA,tier4,0.35,true,6,SnA 23 - Shock n Awe 23
+LOP,tier4,0.35,true,6,LOP - Chaos at the Casino 4
+Draka,tier4,0.35,true,6,Draka 11 - Governor's Cup 2012
+Juiz de Fora,tier4,0.35,true,6,Juiz de Fora - Fight 4
+RMBB,tier4,0.35,true,6,RMBB - Caged Vengeance
+UMAC,tier4,0.35,true,6,UMAC - Ultimate Martial Arts Combat
+KFN,tier4,0.35,true,6,KFN - Karma Fight Nights
+AG,tier4,0.35,true,6,AG - Extreme Beat Down
+DCMMAS,tier4,0.35,true,6,DCMMAS - Duke City MMA Series 1
+SCA,tier4,0.35,true,6,SCA - Duke City Bike and Brawl 2
+Victory Fighting League,tier4,0.35,true,6,Victory Fighting League - Clash of the Champions
+MMAA,tier4,0.35,true,6,MMAA - MMAA Arena 3
+Ice Cage,tier4,0.35,true,6,Ice Cage 7 - Santalahti vs. Fialho
+Fight Me MMA,tier4,0.35,true,6,Fight Me MMA - Trujillo vs. Gwaltney
+WSOF Canada,tier2_5,0.68,false,6,WSOF Canada 2 - Loiseau vs. Lewis
+SRP,tier4,0.35,true,6,SRP - Square Ring Promotions
+Arena Rumble,tier4,0.35,true,6,Arena Rumble - Horn vs. Guida
+Union of Veterans of Sport,tier4,0.35,true,6,Union of Veterans of Sport - Cup of Champions
+Astra,tier4,0.35,true,6,Astra - Yoshida's Farewell
+GPG,tier4,0.35,true,6,GPG 22 - Legends and Rising Stars
+MMAAD,tier4,0.35,true,6,MMAAD - MMA Against Dengue
+New League Fights,tier4,0.35,true,6,New League Fights 9 - St. Valentine's Day Massacre
+FFL,tier4,0.35,true,6,FFL 9 - Northern Nightmare
+GCMMA,tier4,0.35,true,6,GCMMA - Gulf Coast MMA 19
+ECF,tier4,0.35,true,6,ECF - Beatdown At The Fairgrounds 5
+MBP,tier4,0.35,true,6,MBP - Sun City Battle 2
+Nashe Delo,tier4,0.35,true,6,Nashe Delo - Oliveira vs. Grozin
+Maxx FC,tier4,0.35,true,6,Maxx FC 4 - Maxximo Fighting Championship 4: Fighting Fathers
+UFO,tier4,0.35,true,6,UFO - Legend
+GP,tier4,0.35,true,6,GP - Night of the Gladiators 7
+IFN,tier4,0.35,true,6,IFN - Inevitable Fight Night
+Yarennoka,tier4,0.35,true,6,Yarennoka - New Years Eve 2007
+FHB,tier4,0.35,true,6,FHB - Full Heroes Battle 2
+CWC,tier4,0.35,true,6,CWC - Operation Fight Night
+SE,tier4,0.35,true,6,SE - Vale Tudo
+HDNF,tier4,0.35,true,6,HDNF 1 - HDNet Fights
+VFL,tier4,0.35,true,6,VFL 34 - The Beginning
+Brazil Open,tier4,0.35,true,6,Brazil Open - '97
+Iroquois,tier4,0.35,true,6,Iroquois - MMA Championships 5
+Called Out MMA,tier4,0.35,true,6,Called Out MMA - Called Out MMA 2
+Midwest Championship Fighting,tier4,0.35,true,6,Midwest Championship Fighting - Resurrection
+PRW,tier4,0.35,true,6,PRW - Power Ring Warriors
+G & S,tier4,0.35,true,6,G & S 5 - Grapple & Strike 5
+WITY,tier4,0.35,true,6,WITY - War in the Yard
+MSF,tier4,0.35,true,6,MSF - Night of Thunder
+Rings Australia,tier4,0.35,true,6,Rings Australia - Free Fight Battle
+QCU,tier4,0.35,true,6,QCU 2 - Quad City Ultimate 2
+Caged Combat,tier4,0.35,true,6,Caged Combat 1 - Australian Ultimate Fighting
+IVTC,tier4,0.35,true,6,IVTC 3 - Iowa Vale Tudo Championships 3
+PFL,tier2_5,0.68,false,5,PFL - Premier Fight League 10
+Big Shot Fight,tier4,0.35,true,5,Big Shot Fight 2 - Big Shot 2: Florianopolis vs. Curitiba
+HF,tier4,0.35,true,5,HF - Hard Fight
+FDAM,tier4,0.35,true,5,FDAM - Fusao de Artes Marciais 4
+Beatdown Promotions,tier4,0.35,true,5,Beatdown Promotions 6 - Nicoll vs. Kitano
+Legion Fighting Championship,tier4,0.35,true,5,Legion Fighting Championship - Universal Battle Among Professional
+FHC,tier4,0.35,true,5,FHC 3 - Fight Hard Championship 3
+CageSport,tier4,0.35,true,5,CageSport 48 - Erosa vs. Nuro
+NS,tier4,0.35,true,5,NS - New Stream
+Bellator London,tier2_5,0.68,false,5,Bellator London - MVP vs. Melillo
+PFN,tier4,0.35,true,5,PFN - Phoenix Fight Night 27
+Bellator Milan,tier2_5,0.68,false,5,Bellator Milan - Edwards vs. van Steenis
+PMMAC,tier4,0.35,true,5,PMMAC - Premier MMA Championship 3
+Fight King,tier4,0.35,true,5,Fight King - Xindu Ultimate Fight League
+HXMMA,tier4,0.35,true,5,HXMMA 6 - Hexagone MMA 6
+OR,tier4,0.35,true,5,OR 13 - Obracun Ringu 13
+HD MMA,tier4,0.35,true,5,HD MMA 15 - McKenzie vs. Huskic
+Bayou FC,tier4,0.35,true,5,Bayou FC 38 - Fightville 4
+KLF,tier4,0.35,true,5,KLF - Kunlun Fight 95
+Professional Combat Sambo,tier4,0.35,true,5,Professional Combat Sambo - Tajikistan vs. Belarus
+Curitiba Top Fight,tier4,0.35,true,5,Curitiba Top Fight 11 - Girls' Night
+Gold Fight,tier4,0.35,true,5,Gold Fight 9 - Gabriel vs. Escurr
+Extreme Beatdown,tier4,0.35,true,5,Extreme Beatdown - Beatdown 20
+WBK,tier4,0.35,true,5,WBK - WBK 3: Day 2
+Coalizao Fight,tier4,0.35,true,5,Coalizao Fight 4 - Mondragon vs. Gallotti
+North-West Power Alliance,tier4,0.35,true,5,North-West Power Alliance - Storm on the Neva
+CA Fight Syndicate,tier4,0.35,true,5,CA Fight Syndicate - Rivalry
+X-1 World Events,tier4,0.35,true,5,X-1 World Events 54 - Champions 4: Defenders of Hawaii
+GTC,tier4,0.35,true,5,GTC 03 - Golden Team Championship 3
+Sparta Championship Fighting,tier4,0.35,true,5,Sparta Championship Fighting - Sparta CF 1
+WKN,tier4,0.35,true,5,WKN - Valhalla: Battle of the Vikings
+Innferno,tier4,0.35,true,5,Innferno 5 - Innferno Fighting Championship 5
+EMC,tier4,0.35,true,5,EMC 5 - Elite MMA Championship 5
+SAH,tier4,0.35,true,5,SAH 14 - Strength And Honour 14
+Bison Kombat,tier4,0.35,true,5,Bison Kombat 1 - Almeida vs. Reborn
+Slamm,tier4,0.35,true,5,Slamm 1 - Garcia vs. Lamarche
+Fighting Spirit MMA,tier4,0.35,true,5,Fighting Spirit MMA - Under Fire
+FMD,tier4,0.35,true,5,FMD - Full Metal Dojo 16: Big Trouble in Little Bangkok
+HFR,tier4,0.35,true,5,HFR 3 - High Fight Rock 3
+CCMMA,tier4,0.35,true,5,CCMMA 1 - City Cage MMA 1
+GLFC,tier4,0.35,true,5,GLFC 22 - Global Legion FC 22
+GCF Challenge,tier4,0.35,true,5,GCF Challenge - Back in the Fight 4
+RDSC,tier4,0.35,true,5,RDSC - Rei da Selva Combat 12
+SA,tier4,0.35,true,5,SA - Superfight Australia 13
+AMC Fight Nights,tier4,0.35,true,5,AMC Fight Nights 105 - Mineev vs. Ismailov 2
+XC,tier4,0.35,true,5,XC - Xtreme Chaos 2
+BCP,tier4,0.35,true,5,BCP - Bush Cree Promotions
+Iron Tiger Fight Series / Alliance MMA,tier4,0.35,true,5,Iron Tiger Fight Series / Alliance MMA - IT Fight Series 79
+Real Fights,tier4,0.35,true,5,Real Fights 7 - Apocalypse Night
+PRVT,tier4,0.35,true,5,PRVT - Cascavel Top Fight 2
+Cageside Promotions,tier4,0.35,true,5,Cageside Promotions - Kansas City Fighting Alliance 14
+SFF,tier4,0.35,true,5,SFF - Sao Francisco Fight 6
+PPC,tier4,0.35,true,5,PPC 7 - Battle of Univa 2
+SOFC,tier4,0.35,true,5,SOFC - Strike Off 4
+Rumble Time Promotions,tier4,0.35,true,5,Rumble Time Promotions - Destruction
+TTP,tier4,0.35,true,5,TTP - Tommy Tran Promotions
+Maverick MMA,tier4,0.35,true,5,Maverick MMA 6 - Birchler vs. Hamill
+Pain Pit Fight Night,tier4,0.35,true,5,Pain Pit Fight Night 15 - Renegade
+WMMAA,tier4,0.35,true,5,WMMAA - European MMA Championships - Finals
+KOF,tier4,0.35,true,5,KOF - The Beginning of Legend
+Art of War,tier4,0.35,true,5,Art of War - Hero List: Dragon Transformation
+Rings of Dreams,tier4,0.35,true,5,Rings of Dreams - Fight Nght 17
+BOTB,tier4,0.35,true,5,BOTB - Best of the Best
+Samurai Pro Sports,tier4,0.35,true,5,Samurai Pro Sports - Samurai MMA Pro 4
+ACE,tier4,0.35,true,5,ACE - Alaska Combat Entertainment
+SportFight,tier4,0.35,true,5,SportFight - Brawl at the Barn
+RPC,tier4,0.35,true,5,RPC 9 - Collision
+A&A Fight Time Promotions,tier4,0.35,true,5,A&A Fight Time Promotions - A Night of Explosions
+BTF,tier4,0.35,true,5,BTF - Baixada Top Fight 5
+ROTK,tier4,0.35,true,5,ROTK - Rumble of the Kings 4
+XRW,tier4,0.35,true,5,XRW - Xtreme Ring Wars 2
+Sparta MMA,tier4,0.35,true,5,Sparta MMA 7 - Let's Do This
+Knockout Entertainment,tier4,0.35,true,5,Knockout Entertainment - MMA: The Reckoning
+Bear River FC,tier4,0.35,true,5,Bear River FC - HFC 1: Hard Fought Championships 1
+White Rex,tier4,0.35,true,5,White Rex - Tana Delle Tigri 1
+Gladiator Promotions,tier4,0.35,true,5,Gladiator Promotions - Heat Wave 2
+EFA,tier4,0.35,true,5,EFA - ExpoFight Amapa
+GOTC MMA,tier4,0.35,true,5,GOTC MMA 21 - Holt vs. Pope
+K,tier4,0.35,true,5,K - GRACE 1
+UT,tier4,0.35,true,5,UT - Ultimate Throwdown
+XCage,tier4,0.35,true,5,XCage 9 / PLMMA 65 - Torun
+Shooto Belgium,tier3,0.55,false,5,Shooto Belgium - Running Up Tournament
+TW,tier4,0.35,true,5,TW - The Warriors
+ProFC Grand Prix Global,tier4,0.35,true,5,ProFC Grand Prix Global - Russia I
+DDG,tier4,0.35,true,5,DDG - Desafio de Gigantes
+Pro MMA Challenge,tier4,0.35,true,5,Pro MMA Challenge 1 - Drwal vs. Heleno
+Gladiator FC,tier4,0.35,true,5,Gladiator FC - Day 2
+Battlequest,tier4,0.35,true,5,Battlequest 8 - Battlequest 8
+R2F,tier4,0.35,true,5,R2F - Casino Fight Night 3
+World Best Fighter,tier4,0.35,true,5,World Best Fighter - USA vs. Asia
+Cagemasters,tier4,0.35,true,5,Cagemasters - Gifford vs. Lindsey 2
+BCF,tier4,0.35,true,5,BCF 3 - Battle on the Beach
+AON,tier4,0.35,true,5,AON - All or Nothing 6
+KO,tier4,0.35,true,5,KO - Arena 4
+Euro FC,tier4,0.35,true,5,Euro FC 1 - The New Era
+MTC,tier4,0.35,true,5,MTC - In the Beginning
+HRP,tier4,0.35,true,5,HRP - Fight Night
+UN,tier4,0.35,true,5,UN 1 - Ultimate Nokaut 1
+SO,tier4,0.35,true,5,SO - Seconds Out
+War Gods,tier4,0.35,true,5,War Gods - War Gods 5
+Cage Gladiators,tier4,0.35,true,5,Cage Gladiators 2 - The Next Generation
+Raw Power,tier4,0.35,true,5,Raw Power - MMA
+Pro Battle MMA,tier4,0.35,true,5,Pro Battle MMA - Immediate Impact
+IMA,tier4,0.35,true,5,IMA - Mix Fight
+FNE,tier4,0.35,true,5,FNE - Round 16: Combat at the Cabaret
+MMA Fight Pit,tier4,0.35,true,5,MMA Fight Pit - Genesis
+Moon Management,tier4,0.35,true,5,Moon Management - Ubersmash 4
+Almogavers,tier4,0.35,true,5,Almogavers - The Chance 4
+XVT,tier4,0.35,true,5,XVT 5 - Franca vs. Kheder
+Impact Fighting Championship,tier4,0.35,true,5,Impact Fighting Championship - Armageddon
+CDL,tier4,0.35,true,5,CDL - Clube da Luta 1
+Perm Regional MMA Federation,tier4,0.35,true,5,Perm Regional MMA Federation - MMA Professional Cup
+Bushido Challenge,tier4,0.35,true,5,Bushido Challenge 2 - A New Dawn
+Bushido,tier4,0.35,true,5,Bushido 1 - Bushido 1
+GOF,tier4,0.35,true,5,GOF - Goiania Open Fight 1
+GOW,tier4,0.35,true,5,GOW 3 - Into The Storm
+KOTR,tier4,0.35,true,5,KOTR - King of the Rockies 1
+5150 Combat League,tier4,0.35,true,5,5150 Combat League - Seasons Beatings
+Armageddon,tier4,0.35,true,5,Armageddon - Armageddon 2
+DD,tier4,0.35,true,5,DD 2 - Downtown Destruction 2
+UK,tier4,0.35,true,5,UK - Storm
+BIB,tier4,0.35,true,5,BIB - Beatdown in Bakersfield
+Shooto USA,tier3,0.55,false,5,Shooto USA - Warrior Spirit: Evolution
+MKOTR,tier4,0.35,true,5,MKOTR 44 - Midwest King of the Ring 44
+Cagefest Xtreme,tier4,0.35,true,5,Cagefest Xtreme - All In
+MS,tier4,0.35,true,5,MS 1 - Midwest Shootfighting 1
+Shidokan Jitsu,tier4,0.35,true,5,Shidokan Jitsu - Warriors War 1
+XXX,tier4,0.35,true,5,XXX - Extreme Fighting
+AAC,tier4,0.35,true,5,AAC 2 - Amsterdam Absolute Championship 2
+FCB,tier4,0.35,true,5,FCB 9 - Fight Club Berlin 9
+Pentagon Combat,tier4,0.35,true,5,Pentagon Combat - Pentagon Combat
+RG,tier4,0.35,true,5,RG - Rochester Gladiators
+Strike FC,tier4,0.35,true,5,Strike FC 3 - Noaptea Demonilor
+Spartan MMA,tier4,0.35,true,4,Spartan MMA - Spartan MMA 2012
+FMC,tier4,0.35,true,4,FMC 1 - Macaco vs. Galeto
+Khan Fight,tier4,0.35,true,4,Khan Fight 2 - Blood for Gold
+TGC,tier4,0.35,true,4,TGC - The Golden Cage 2
+Counterattack-9,tier4,0.35,true,4,Counterattack-9 - K-9 International Tournament
+Peak Fighting,tier4,0.35,true,4,Peak Fighting 10 - Hope vs. Connors
+RXF MMA,tier4,0.35,true,4,RXF MMA 32 - Konecke vs. Negumereanu
+URF,tier4,0.35,true,4,URF - Ultimate Reborn Fight 3
+Main Event Sports,tier4,0.35,true,4,Main Event Sports - Main Event MMA 3
+Warfare FC,tier4,0.35,true,4,Warfare FC - Warfare MMA 18
+Contenders East Anglia,tier4,0.35,true,4,Contenders East Anglia - Contenders Norwich 31
+Vilsao Team,tier4,0.35,true,4,Vilsao Team - Fight Club MMA 8
+Full House,tier4,0.35,true,4,Full House - Battle Home 9
+Probellum MMA,tier4,0.35,true,4,Probellum MMA - Dubai: Lazzez vs. Murati
+JOF,tier4,0.35,true,4,JOF - Jurunense Open Fight MMA 8
+Freedom Fight Night,tier4,0.35,true,4,Freedom Fight Night 3 - Team Bader vs. Team Henderson
+AP,tier4,0.35,true,4,AP - Grand Prix 2013
+FHMMA,tier4,0.35,true,4,FHMMA - Fight Hard MMA
+MMA Xtreme,tier4,0.35,true,4,MMA Xtreme - Fists Will Fly
+TWEF,tier4,0.35,true,4,TWEF - Heavy Hitters
+Rocktagon MMA,tier4,0.35,true,4,Rocktagon MMA - Elite Series 6
+Bellator Champions Series Belfast,tier2_5,0.68,false,4,Bellator Champions Series Belfast - Anderson vs. Moore
+Amazon Fight,tier4,0.35,true,4,Amazon Fight 14 - Salinopolis
+KF,tier4,0.35,true,4,KF 1 - Korea Fight 1
+KA,tier4,0.35,true,4,KA 1 - Kawai Arena 1
+MGL-1 Fighting Championship,tier4,0.35,true,4,MGL-1 Fighting Championship - MGL-1 FC 18
+1° Round Combat,tier4,0.35,true,4,1° Round Combat - 1° Round Combat 2
+TSC,tier4,0.35,true,4,TSC 6 - The Supreme Cage 6
+WBG,tier4,0.35,true,4,WBG 7 - World Best Gladiators 7
+FCM,tier4,0.35,true,4,FCM - Fight Club Mexico 3
+Iron Man MMA,tier4,0.35,true,4,Iron Man MMA - Iron Man MMA 18
+Samurai FC / PFE,tier4,0.35,true,4,Samurai FC / PFE 13 - Bushido
+BGMMA,tier4,0.35,true,4,BGMMA - Battleground MMA
+TFN,tier4,0.35,true,4,TFN - Tymex Boxing Night
+Huya FC,tier4,0.35,true,4,Huya FC - Huya Fighting Championship 6
+WW,tier4,0.35,true,4,WW 4 - Wollongong Wars 4
+SFMMA,tier4,0.35,true,4,SFMMA - Superfight MMA 11
+LDH Martial Arts,tier4,0.35,true,4,LDH Martial Arts - ExFight 7
+FTW / KOC,tier4,0.35,true,4,FTW / KOC - Worlds Collide
+UPC Unlimited,tier4,0.35,true,4,UPC Unlimited - Up & Comers 6
+FirePower Promotions MMA,tier4,0.35,true,4,FirePower Promotions MMA 4 - Sudden Impact
+ID MMA Promotion,tier4,0.35,true,4,ID MMA Promotion - ID MMA 8
+MFE,tier4,0.35,true,4,MFE - Mix Fight Events
+USFFC,tier4,0.35,true,4,USFFC 18 - Metal and Mayhem
+ZFN,tier4,0.35,true,4,ZFN - Z-Fight Night 2
+Samurai Fight,tier4,0.35,true,4,Samurai Fight 2 - Bonfim x Samuray
+WCT,tier4,0.35,true,4,WCT 2 - Eguiluz vs. Ferreira
+TKO MMA,tier4,0.35,true,4,TKO MMA - TKO Fight Night 1
+AFCA / Fight Club,tier4,0.35,true,4,AFCA / Fight Club 777 - Fight Show 777
+Prestige FC,tier4,0.35,true,4,Prestige FC 2 - Queen City Coronation
+EFWC,tier4,0.35,true,4,EFWC - The Untamed 2
+FBC,tier4,0.35,true,4,FBC  - Fight Brazil Combat
+BA,tier4,0.35,true,4,BA - Baltic Arena
+Minotaur,tier4,0.35,true,4,Minotaur 4 - Demolition
+AK Entertainment,tier4,0.35,true,4,AK Entertainment - AK Tuesday Night Fights
+HCC,tier4,0.35,true,4,HCC 13 - Haidar Capixaba Combat 13
+XCFL,tier4,0.35,true,4,XCFL - Xtreme Championship Fight League 2
+SteelFist Fight Night,tier4,0.35,true,4,SteelFist Fight Night - March Madness
+UK-1,tier4,0.35,true,4,UK-1 - Fight Night
+RMMAC,tier4,0.35,true,4,RMMAC - Rio MMA Challenge 1
+Shooto Americas,tier3,0.55,false,4,Shooto Americas - Shooto Brazil 7
+Havoc Fighting Championship,tier4,0.35,true,4,Havoc Fighting Championship - HFC 11
+MBC,tier4,0.35,true,4,MBC - Monster Black Combat
+XKL,tier4,0.35,true,4,XKL - Evolution 1
+MCS,tier4,0.35,true,4,MCS - Minnesota Combat Sports
+FB,tier4,0.35,true,4,FB - First Blood
+AFT,tier4,0.35,true,4,AFT 4 - Adventure Fighters Tournament 4
+Shinobi War,tier4,0.35,true,4,Shinobi War 9 - Winter Warfare
+MMA Pro Ukraine,tier4,0.35,true,4,MMA Pro Ukraine 18 - The Way of the Unconquered 4
+Katana Cagefighting,tier4,0.35,true,4,Katana Cagefighting - Conquest
+SCP,tier4,0.35,true,4,SCP - South Coast Promotions
+Washington Combat,tier4,0.35,true,4,Washington Combat - Battle of the Legends
+Combat FC,tier4,0.35,true,4,Combat FC 3 - Grigoriou vs. Disonell
+TPFP,tier4,0.35,true,4,TPFP - Premier Fight Series 4
+PMMAL,tier4,0.35,true,4,PMMAL - Hungarian Fight Championship 9
+NCC,tier4,0.35,true,4,NCC - Nordeste Combat Championship
+Professional Fight Union,tier4,0.35,true,4,Professional Fight Union - Bukovel Free Fight Cup 8
+Max Sport,tier4,0.35,true,4,Max Sport - 13.1
+Triumph FC,tier4,0.35,true,4,Triumph FC 1 - Inception
+OMMAF,tier4,0.35,true,4,OMMAF - Scythian Gold 2015
+Zhekpe Zhek,tier4,0.35,true,4,Zhekpe Zhek - Bantamweight Grand Prix
+Sochi Star Club,tier4,0.35,true,4,Sochi Star Club - Sochi Star Tournament 1
+Conviction MMA,tier4,0.35,true,4,Conviction MMA 3 - Argentina vs. Peru
+BKF,tier4,0.35,true,4,BKF 2 - Brazilian King Fighter 2
+VHTHFF,tier4,0.35,true,4,VHTHFF - Stalingrad Cup
+PBSC,tier4,0.35,true,4,PBSC - Pancration Black Sea Cup
+Dubai FC,tier4,0.35,true,4,Dubai FC - Fight Night
+FFW,tier4,0.35,true,4,FFW - Fight for Wrestling 1
+SITH,tier4,0.35,true,4,SITH - Slammer in the Hammer
+Magnum FC,tier4,0.35,true,4,Magnum FC 4 - Magnum Fighting Championship 4
+MITC,tier4,0.35,true,4,MITC - Milano in the Cage 4
+CCS,tier4,0.35,true,4,CCS - Carden Combat Sports 2
+Geran Haga,tier4,0.35,true,4,Geran Haga - Blood Wars 2
+Legend,tier4,0.35,true,4,Legend - Emelianenko vs. Sapp
+Fury MMA,tier4,0.35,true,4,Fury MMA 7 - Bad Blood
+BEP,tier4,0.35,true,4,BEP 4 - BlackEye Promotions 4
+URCC Baguio,tier4,0.35,true,4,URCC Baguio 3 - Invasion
+ICFO,tier4,0.35,true,4,ICFO 1 - Stockton
+K.O.,tier4,0.35,true,4,K.O. - The Fight Before Christmas 1
+Fightstar Promotions,tier4,0.35,true,4,Fightstar Promotions - Rage In The Cage 2
+HFL,tier4,0.35,true,4,HFL - Hawaii Fight League 4
+SportFight X,tier4,0.35,true,4,SportFight X 3 - Undefeated
+OMMA,tier4,0.35,true,4,OMMA - Oktagon MMA 1
+TAC,tier4,0.35,true,4,TAC - Top Alliance Combat 3
+HP,tier4,0.35,true,4,HP - The Patriot Act
+Rings Russia,tier4,0.35,true,4,Rings Russia - Russia vs. The World
+National Fight Alliance,tier4,0.35,true,4,National Fight Alliance - Valley Invasion 2
+MAC,tier4,0.35,true,4,MAC 3 - Espartano vs. Garotao
+CSFU,tier4,0.35,true,4,CSFU - Champions League
+GFN,tier4,0.35,true,4,GFN - Gentlemen Fight Night
+WAFF,tier4,0.35,true,4,WAFF 2 - World Absolute Fight 2
+Rogue Fights,tier4,0.35,true,4,Rogue Fights 26 - Fight Night 3
+Ring XF,tier4,0.35,true,4,Ring XF 3 - Double Battle
+3RT,tier4,0.35,true,4,3RT - 3 River Throwdown 4
+Peru FC,tier4,0.35,true,4,Peru FC - Peru Fighting Championship 18
+SFE,tier4,0.35,true,4,SFE 2 - Show Fighting Enterprise 2
+Fight Night at the Island,tier4,0.35,true,4,Fight Night at the Island - Saunders vs. Volkmann
+CM,tier4,0.35,true,4,CM - Garra Fight
+Nitrix,tier4,0.35,true,4,Nitrix - Show Fight 2
+PIP,tier4,0.35,true,4,PIP - East vs. West
+CDMMA,tier4,0.35,true,4,CDMMA - Complete Devastation 2
+Thunder & Lightning,tier4,0.35,true,4,Thunder & Lightning - Pro-Am MMA
+DesertBrawl,tier4,0.35,true,4,DesertBrawl 19 - Oregon vs. Texas
+FNITC,tier4,0.35,true,4,FNITC - Fight Night in the Cage 1
+UEP,tier4,0.35,true,4,UEP - New Year Knockout
+VEF,tier4,0.35,true,4,VEF 1 - Vitoria Extreme Fighting 1
+IFS,tier4,0.35,true,4,IFS 13 - Ultimate Conquest
+WSOF-GC,tier2_5,0.68,false,4,WSOF-GC 2 - World Series of Fighting Global Championship: Japan 1
+MCVT,tier4,0.35,true,4,MCVT - Mega Combat Vale Tudo
+LGIO MMA,tier4,0.35,true,4,LGIO MMA 1 - MacDonald vs. Horwich
+MFW,tier4,0.35,true,4,MFW - Made For War 1
+FFFC,tier4,0.35,true,4,FFFC  - Full Force Fighting 1
+Team Lakay Wushu Xanda,tier4,0.35,true,4,Team Lakay Wushu Xanda - MMA Eliminations 5: Machines
+WXCF,tier4,0.35,true,4,WXCF 7 - Wisconsin Xtreme Cage Fighting 7
+GEOC,tier4,0.35,true,4,GEOC 4 - Gracie Evolution of Combat 4
+Ultimate Fight,tier4,0.35,true,4,Ultimate Fight - Cacak
+UMMAXX,tier4,0.35,true,4,UMMAXX 7 - Out of the Cage
+King of Champions,tier4,0.35,true,4,King of Champions - Rage
+Rocky Mountain Nationals,tier4,0.35,true,4,Rocky Mountain Nationals - Demolition
+Bushido Europe,tier4,0.35,true,4,Bushido Europe - Rotterdam Rumble
+Heroes,tier4,0.35,true,4,Heroes - Heroes 1
+Real,tier4,0.35,true,4,Real - Real Fight MMA Championship 1
+BS,tier4,0.35,true,4,BS - Baltic Storm 4
+Titov Boxing Promotion,tier4,0.35,true,4,Titov Boxing Promotion - Shtyrkov vs. Silva
+Champion Promotions,tier4,0.35,true,4,Champion Promotions - Clash of the Gladiators 2
+Call To Arms,tier4,0.35,true,4,Call To Arms - Call To Arms 1
+FMF,tier4,0.35,true,4,FMF - Full Moon Fighting
+Kumite,tier4,0.35,true,4,Kumite 2 - Kumite
+Ichigeki,tier4,0.35,true,4,Ichigeki - Brazil 2006
+IMMA,tier4,0.35,true,4,IMMA 1 - Ironman MMA
+FAL,tier4,0.35,true,4,FAL 3 - The Return
+Kam Lung,tier4,0.35,true,4,Kam Lung - Only the Strongest Survive 5
+EP,tier4,0.35,true,4,EP - XXXtreme Impact
+ROMAN,tier4,0.35,true,4,ROMAN - Roots of Martial Arts Network 2
+PCL,tier4,0.35,true,4,PCL - Cage Madness
+Northeast MMA,tier4,0.35,true,4,Northeast MMA - Cage Fight 6
+UFS,tier4,0.35,true,4,UFS - Universidade Fight Show 1
+Shooto Sweden,tier3,0.55,false,4,Shooto Sweden - Second Impact
+YTYT,tier4,0.35,true,4,YTYT - Ground Um and Pound Um
+Greensparks,tier4,0.35,true,4,Greensparks - Full Contact Fighting 5
+XF,tier4,0.35,true,4,XF - X-Treme Fight 1
+LOTR,tier4,0.35,true,4,LOTR - Schilt vs. Guelmino
+IMAC,tier4,0.35,true,4,IMAC 3 - Indiana Martial Arts Challenge 3
+FNF,tier4,0.35,true,4,FNF 2 - Fight Night Freiburg 2
+LI,tier4,0.35,true,4,LI - Lionheart Invitational
+FSG,tier4,0.35,true,4,FSG - Coliseum Carnage
+Raze MMA,tier4,0.35,true,4,Raze MMA - Fight Night
+LIP,tier4,0.35,true,4,LIP 1 - Lockdown in Paradise 1
+Bullet Fight Gear,tier4,0.35,true,4,Bullet Fight Gear - Battle of Rome 8
+WOTNM,tier4,0.35,true,4,WOTNM - Warriors of the New Millennium 1
+Quixada Open Vale Tudo,tier4,0.35,true,4,Quixada Open Vale Tudo - Grand Prix
+Colosseum,tier4,0.35,true,4,Colosseum - Colosseum 3
+HHFN,tier4,0.35,true,4,HHFN - Hammer House Fight Night
+Daidojuku,tier4,0.35,true,4,Daidojuku - WARS 4
+C2K,tier4,0.35,true,4,C2K - Colosseum 2000
+PSDA,tier4,0.35,true,4,PSDA - PSDA
+Coliseum,tier4,0.35,true,4,Coliseum - Coliseum 2
+SHB,tier4,0.35,true,4,SHB 4 - Sokol Hall Brawl 4
+SIUF,tier4,0.35,true,4,SIUF 2 - Southern Iowa Ultimate Fighting 2
+LAW,tier4,0.35,true,3,LAW 1 - Heatwave
+CPMMAF,tier4,0.35,true,3,CPMMAF - Champion Fights
+TG,tier4,0.35,true,3,TG - The Gladiators 2
+MNA MMA Circuit,tier4,0.35,true,3,MNA MMA Circuit 2 - MNA MMA Circuit 2016
+ACA YE,tier4,0.35,true,3,ACA YE 27 - ACA Young Eagles 27
+Wieczor Walk,tier4,0.35,true,3,Wieczor Walk 6 - Wieczor Walk
+TSE,tier4,0.35,true,3,TSE - Rocky Mountain Rubicon 2
+Kamikaze Fight League,tier4,0.35,true,3,Kamikaze Fight League - Kamikaze Fight League 2
+Shuriken MMA,tier4,0.35,true,3,Shuriken MMA - Best of the Best
+GEX,tier4,0.35,true,3,GEX - Old Jack's Fight Night
+Jonathan Ogden Foundation,tier4,0.35,true,3,Jonathan Ogden Foundation - 18th Annual 'An Evening Ringside'
+Azerbaijan MMA Federation,tier4,0.35,true,3,Azerbaijan MMA Federation - Azerbaijan vs. Iran
+MMA Star in the Ring,tier4,0.35,true,3,MMA Star in the Ring - Guseinov vs. Kalych
+Dominate FC,tier4,0.35,true,3,Dominate FC - Dominate Fighting Championship
+GA,tier4,0.35,true,3,GA - Gladiator Arena 4
+Killacam Fight Night,tier4,0.35,true,3,Killacam Fight Night 15 - Survivor
+Qualify Combat,tier4,0.35,true,3,Qualify Combat - Qualify Combat 14
+CAGE,tier4,0.35,true,3,CAGE 61 - Cage MMA Finland 61
+RFC Way Of The Dragon,tier4,0.35,true,3,RFC Way Of The Dragon - Championships 3
+Capitol Fighting Championships,tier4,0.35,true,3,Capitol Fighting Championships - Fall Classic
+Rebel Fighter,tier4,0.35,true,3,Rebel Fighter - Domination
+CIS,tier4,0.35,true,3,CIS - Cup
+The King of Fighters,tier4,0.35,true,3,The King of Fighters 1 - KOF 1
+GMC Fight Night,tier4,0.35,true,3,GMC Fight Night - Grabinski vs. Stoimenov
+Spartan FC,tier4,0.35,true,3,Spartan FC 6 - Spartan Fighting Championship 6
+Fearless,tier4,0.35,true,3,Fearless 6 - Fearless Woman MMA
+WAR MMA,tier4,0.35,true,3,WAR MMA 4 - Madrid
+Dragon House MMA,tier4,0.35,true,3,Dragon House MMA - Dragon House 28
+EXF,tier4,0.35,true,3,EXF 4 - Ensenada Xtreme Fighting 4
+Eagle FC,tier4,0.35,true,3,Eagle FC 50 - Nurgozhay vs. Andreitsev
+Naciones MMA,tier4,0.35,true,3,Naciones MMA 3 - Tijuana
+UWC EVT,tier4,0.35,true,3,UWC EVT - Sanchez vs. Castillo
+King of Kings,tier4,0.35,true,3,King of Kings 69 - World Series 2019 in Vilnius
+Xtreme Combat Productions,tier4,0.35,true,3,Xtreme Combat Productions - Blood & Glory
+AFC MMA,tier4,0.35,true,3,AFC MMA - Americas Fighting Championship 5
+Caveam,tier4,0.35,true,3,Caveam - Bitva Roku 2015
+Fight Pro Championship,tier4,0.35,true,3,Fight Pro Championship - FPC 2: Special Edition
+PFMMA,tier4,0.35,true,3,PFMMA - Pro Fight MMA Brasil 41
+Acesso Show,tier4,0.35,true,3,Acesso Show - The Dog Tower FC 1
+War of Titans,tier4,0.35,true,3,War of Titans - War of Titans 2
+JF,tier4,0.35,true,3,JF - Jardim Fight 4
+TFC Danghara,tier4,0.35,true,3,TFC Danghara 2016 - Battle for the Title of Ismoil Somoni 5
+MMAGP,tier4,0.35,true,3,MMAGP - Mixed Martial Arts Grand Prix: Kouadja vs. Maalem
+W.I.N. FC,tier4,0.35,true,3,W.I.N. FC - W.I.N. Fighting Championship
+BTT MMA,tier4,0.35,true,3,BTT MMA 2 - Genesis
+IMKF,tier4,0.35,true,3,IMKF - Immortal Kombat Fighting
+Kick Down MMA,tier4,0.35,true,3,Kick Down MMA 104 - Boom
+IPC,tier4,0.35,true,3,IPC 7 - International Pro Combat 7
+Invictus,tier4,0.35,true,3,Invictus - Pro MMA League 2
+Luxury Fighter,tier4,0.35,true,3,Luxury Fighter 2 - La Finale
+GDFC,tier4,0.35,true,3,GDFC - Guerreiros da Fe Combat
+AMC Fight Nights Global,tier4,0.35,true,3,AMC Fight Nights Global - Winter Cup
+Club Hardcore Fighter,tier4,0.35,true,3,Club Hardcore Fighter - Hardcore Fighter 4
+BDMMA,tier4,0.35,true,3,BDMMA 3 - Beat Down MMA 3: Grand Prix
+BAMMA Badbeat,tier4,0.35,true,3,BAMMA Badbeat 20 - Saunders vs. Culley
+Spartanos Fight MMA,tier4,0.35,true,3,Spartanos Fight MMA 2 - Lima vs. Souza
+MMA Brutus,tier4,0.35,true,3,MMA Brutus - 1
+WFS,tier4,0.35,true,3,WFS - Warrior Fight Series 4
+LK,tier4,0.35,true,3,LK - Liga Kavkaz 2012
+Bushido Kazakhstan,tier4,0.35,true,3,Bushido Kazakhstan - Grand Prix of Bushido Qazaqstan
+Aggrelin,tier4,0.35,true,3,Aggrelin 14 - Cage Fight Salzburg
+Bartoszyce Fight Night,tier4,0.35,true,3,Bartoszyce Fight Night 5 - BFN 5
+Lion's Fights,tier4,0.35,true,3,Lion's Fights 2 - Battle of Two Capitals
+KFK,tier4,0.35,true,3,KFK - Kyrgyz Federation of Kulatuu
+ABG,tier4,0.35,true,3,ABG - Promotions
+Elite FC,tier4,0.35,true,3,Elite FC 5 - Night of Champions
+War MMA,tier4,0.35,true,3,War MMA 1 - Roberts vs. Baesman
+Supreme FC,tier4,0.35,true,3,Supreme FC - Supreme Fight Championship
+Fight Club Slam,tier4,0.35,true,3,Fight Club Slam - Fight Club Slam 2017
+Bellator Champions Series Paris,tier2_5,0.68,false,3,Bellator Champions Series Paris - Mix vs. Magomedov 2
+ICFC / Tech-Krep FC,tier4,0.35,true,3,ICFC / Tech-Krep FC - International Caucasian Fight Championship
+Fightspirit Championship,tier4,0.35,true,3,Fightspirit Championship 6 - Horwich vs. Vasilevsky
+Tayta FC,tier4,0.35,true,3,Tayta FC 3 - Tayta Fighting Championship 3
+Impact Championship,tier4,0.35,true,3,Impact Championship - IC 3
+RDC MMA,tier4,0.35,true,3,RDC MMA - Reto de Campeones 1
+CFC Malta,tier4,0.35,true,3,CFC Malta 2 - Centurion Fight Championship 2
+No.,tier4,0.35,true,3,No. 1 Martial Arts Club - Beginning of the Road: Finals
+Fight Nights Global,tier4,0.35,true,3,Fight Nights Global 46 - Mokhnatkin vs. Kudin
+MMA Bushido / King of Kings,tier4,0.35,true,3,MMA Bushido / King of Kings - Vol. 35: KOK Hero's World Series 2018 in Vilnius
+Mr.Cage Championship,tier4,0.35,true,3,Mr.Cage Championship - Mr. Cage 22
+Liga Monstro Combate,tier4,0.35,true,3,Liga Monstro Combate - LMC 1
+Bellator Birmingham,tier2_5,0.68,false,3,Bellator Birmingham - Primus vs. Wilde
+MIMMA,tier4,0.35,true,3,MIMMA - Malaysian Invasion: Mixed Martial A'rr
+NP Fight,tier4,0.35,true,3,NP Fight - NP Fight Brazil 6
+ND,tier4,0.35,true,3,ND - Natural Disaster 3
+FCI,tier4,0.35,true,3,FCI - Fight Club Inc.
+IMMAC,tier4,0.35,true,3,IMMAC 2 - Attack
+Fight Club OC,tier4,0.35,true,3,Fight Club OC - Rumble on the Range
+Fighten,tier4,0.35,true,3,Fighten - Decagon MMA Championship 2
+KFC,tier4,0.35,true,3,KFC 2 - Kariri Fight Championship 2
+MTK MMA,tier4,0.35,true,3,MTK MMA - Probellum London
+AFP,tier4,0.35,true,3,AFP 102 - American Fight Promotions
+Cage Combat,tier4,0.35,true,3,Cage Combat - Pro MMA 7
+PFO,tier4,0.35,true,3,PFO - Round 1
+GCFC MMA,tier4,0.35,true,3,GCFC MMA 8 - Golden Coat Fighting Championship
+CSFU / ProFC Ukraine,tier4,0.35,true,3,CSFU / ProFC Ukraine - SPS 5
+Blue Corner Promotions,tier4,0.35,true,3,Blue Corner Promotions - Ultimate Blue Corner Battles
+Capone's Productions,tier4,0.35,true,3,Capone's Productions - Mid-Pac: Mid-Pacific Championships 5
+FFIT,tier4,0.35,true,3,FFIT - Fight For It 9
+Chinese Kung Fu Championships,tier4,0.35,true,3,Chinese Kung Fu Championships - CKF 4: Day 1
+Core FC,tier4,0.35,true,3,Core FC 2 - Dincer vs. Tifiev
+Legends of Combat,tier4,0.35,true,3,Legends of Combat 5 - At Trinity Health Arena
+CUFF,tier4,0.35,true,3,CUFF 10 - Caribbean Ultimate Fist Fighting 10
+Warrior FC,tier4,0.35,true,3,Warrior FC 140 - Warrior Fighting Challenge
+Diamondback Fighting Championship,tier4,0.35,true,3,Diamondback Fighting Championship - DFC 7
+WPCF,tier4,0.35,true,3,WPCF 4 - War Party Cage Fighting 4
+Danish MMA Night,tier4,0.35,true,3,Danish MMA Night - Vol. 1
+MMA Raju,tier4,0.35,true,3,MMA Raju - MMA Raju 9
+All Star Boxing,tier4,0.35,true,3,All Star Boxing - Caged in the Cannon
+TNT,tier4,0.35,true,3,TNT - Vale Tudo 2
+PBFN,tier4,0.35,true,3,PBFN - Playboy Fight Night 5
+Honor FC,tier4,0.35,true,3,Honor FC 6 - Fight Night Nautica
+Bad Boy,tier4,0.35,true,3,Bad Boy - Vale Tudo Open
+CLIP,tier4,0.35,true,3,CLIP - Motor City Cagefights 7
+NATO Promotions,tier4,0.35,true,3,NATO Promotions - Extreme Warriors 2
+Simons Promotions,tier4,0.35,true,3,Simons Promotions - Caged Power 11
+IMAT,tier4,0.35,true,3,IMAT - Moroz vs. Avdeeva
+MMA Cup Dmitrov,tier4,0.35,true,3,MMA Cup Dmitrov - Fight Challenge
+Global Knockout,tier4,0.35,true,3,Global Knockout - The Return
+UOC,tier4,0.35,true,3,UOC - University of Champions 7
+ACL,tier4,0.35,true,3,ACL 4 - Absolute Combat League 4
+OFN,tier4,0.35,true,3,OFN - Olympian Fight Night
+Shoot Boxing,tier4,0.35,true,3,Shoot Boxing - Girls S-Cup 2016
+ICNZ,tier4,0.35,true,3,ICNZ - ICNZ 18 / Grassroots 4
+Korea FC,tier4,0.35,true,3,Korea FC - Tournament Series
+Raw,tier4,0.35,true,3,Raw 1 - Enter Colosseum
+Galaxy MMA,tier4,0.35,true,3,Galaxy MMA - Worlds Collide
+Big John's MMA,tier4,0.35,true,3,Big John's MMA - Northern Chaos
+BXC,tier4,0.35,true,3,BXC - Destroyer
+Mosley Showdown / Swarm Entertainment,tier4,0.35,true,3,Mosley Showdown / Swarm Entertainment - Super Brawl 1
+Alash Pride / Zhekpe Zhek,tier4,0.35,true,3,Alash Pride / Zhekpe Zhek - Alash Pride
+CMMAT,tier4,0.35,true,3,CMMAT - Chekhov MMA Tournament
+H2H,tier4,0.35,true,3,H2H - Hand 2 Hand Combat
+TQP,tier4,0.35,true,3,TQP - Sport Fight: Second Coming
+M-1 Global / Angel Fight Promotions,tier3,0.55,false,3,M-1 Global / Angel Fight Promotions - Road to M-1: USA
+Elite Warrior Challenge,tier4,0.35,true,3,Elite Warrior Challenge 9 - Takeover
+IMPI World Series,tier4,0.35,true,3,IMPI World Series - Asia 6
+FNM,tier4,0.35,true,3,FNM 5 - Fight Night Merseburg
+ZSSC,tier4,0.35,true,3,ZSSC - Martial Arts Night 4
+Midwest Fight League,tier4,0.35,true,3,Midwest Fight League - Battle At Fairgrounds Sedalia
+CE,tier4,0.35,true,3,CE - Chihuahua Extremo
+Unconquered,tier4,0.35,true,3,Unconquered 1 - November Reign
+SDS,tier4,0.35,true,3,SDS - Samurai da Selva 1
+CTP,tier4,0.35,true,3,CTP - Cage Time Production
+BOS,tier4,0.35,true,3,BOS - Battle of Stars 2
+Explosive Fight Promotions,tier4,0.35,true,3,Explosive Fight Promotions - Caged Madness 40
+USFL,tier4,0.35,true,3,USFL - War in the Woods 5
+Nemesis Fighting Alliance,tier4,0.35,true,3,Nemesis Fighting Alliance - Nemesis 19
+DFS,tier4,0.35,true,3,DFS  - Dispute Fight Series By WSP
+BSB Fight,tier4,0.35,true,3,BSB Fight - BSB Fight 1
+Soldado Combat,tier4,0.35,true,3,Soldado Combat 3 - Moreira vs. Machado
+Romani Fight Brasil,tier4,0.35,true,3,Romani Fight Brasil 1 - Romani Fight
+Governors Cup,tier4,0.35,true,3,Governors Cup - Saint Petersburg
+SVT,tier4,0.35,true,3,SVT - Super Vale Tudo Ananindeua
+AOS10,tier4,0.35,true,3,AOS10 - Art of Scrap 10: Moore vs. Almeida
+PCG,tier4,0.35,true,3,PCG - Cowboys Extreme Cagefighting
+UFP,tier4,0.35,true,3,UFP - Supremacy
+AFGC,tier4,0.35,true,3,AFGC - Arzalet Fighting Globe Championship 1
+UDC Internacional,tier4,0.35,true,3,UDC Internacional - Duelo de Leones 3
+KOE,tier4,0.35,true,3,KOE - Tough Is Not Enough
+MG,tier4,0.35,true,3,MG - Mixfight Gala
+M-1,tier3,0.55,false,3,M-1 - International Fight Night 6
+TFF,tier4,0.35,true,3,TFF - True Fight Fans
+Rebel Combat Sports,tier4,0.35,true,3,Rebel Combat Sports - RCS: Caldwell vs. Lozano
+CB,tier4,0.35,true,3,CB - Fight Night
+Fight Game,tier4,0.35,true,3,Fight Game - Premier Event
+OBF,tier4,0.35,true,3,OBF - Original Bairros Fight 7
+M-1 Global / Absolute Championship Berkut,tier3,0.55,false,3,M-1 Global / Absolute Championship Berkut - M-1 Challenge 54 / ACB 12
+Storm MMA,tier4,0.35,true,3,Storm MMA - Storm Damage 7
+Gladiators Cage Fighting,tier4,0.35,true,3,Gladiators Cage Fighting - Gladiators 2
+FEFoMP and Russian MMA Union,tier4,0.35,true,3,FEFoMP and Russian MMA Union - Russia's MMA Amateur Supercup
+CFE,tier4,0.35,true,3,CFE - Cage Fighting Events
+Undisputed MMA,tier4,0.35,true,3,Undisputed MMA - Undisputed MMA 1
+PFMMAC,tier4,0.35,true,3,PFMMAC - PrizeFight MMA Championships
+Sledgehammer Promotions,tier4,0.35,true,3,Sledgehammer Promotions - Legend MMA 1
+Valiant FC,tier4,0.35,true,3,Valiant FC - Valiant Fighters Championship 22
+AOS3,tier4,0.35,true,3,AOS3 - Art of Scrap 3: Filho vs. Brooks
+FCFN,tier4,0.35,true,3,FCFN 8 - Full Contact Fight Night 8
+Kingdom Ehrgeiz,tier4,0.35,true,3,Kingdom Ehrgeiz - Tokyo University Flight
+DCP,tier4,0.35,true,3,DCP - Battle at the Nation's Capital
+North Iowa Fights,tier4,0.35,true,3,North Iowa Fights - Hatch vs. Ottow
+3F,tier4,0.35,true,3,3F - Extreme Fight Cage
+QFGC,tier4,0.35,true,3,QFGC 1 - The Quest Begins
+CLFC,tier4,0.35,true,3,CLFC 22 - Cage Legacy 22
+BFF,tier4,0.35,true,3,BFF - Beach Fight Festival
+Fire Cage FC,tier4,0.35,true,3,Fire Cage FC 1 - Fire Cage Fighting Championship
+PK,tier4,0.35,true,3,PK - Pro Kumite
+Master Fighters Championship,tier4,0.35,true,3,Master Fighters Championship 10 - La Conquista
+NJPW,tier4,0.35,true,3,NJPW - Ultimate Crush
+Shooto Lithuania,tier3,0.55,false,3,Shooto Lithuania - King of Bushido Stage 1
+Fate MMA,tier4,0.35,true,3,Fate MMA - Beyond Human Control
+Impact MMA,tier4,0.35,true,3,Impact MMA - Recognition
+Shooto Poland,tier3,0.55,false,3,Shooto Poland - Held vs. Lasota
+SFBR,tier4,0.35,true,3,SFBR 1 - Super Fight Brazil
+Double G FC,tier4,0.35,true,3,Double G FC 1 - Double G Fighting Championship 1
+JEG,tier4,0.35,true,3,JEG - MMA Live 1
+GOTJ,tier4,0.35,true,3,GOTJ - Gladiator of the Jungle 1
+Bellator Newcastle,tier2_5,0.68,false,3,Bellator Newcastle - Pitbull vs. Scope
+FE,tier4,0.35,true,3,FE - Arctic Combat 2
+XG,tier4,0.35,true,3,XG 3 - Xtreme Gladiators 3
+Together Productions,tier4,0.35,true,3,Together Productions - Fight Gala
+UVC,tier4,0.35,true,3,UVC 9 - Revolution
+ZarMMA,tier4,0.35,true,3,ZarMMA - Fight Night
+VCS,tier4,0.35,true,3,VCS - Winters vs. Manley
+PRB FCF-MMA,tier4,0.35,true,3,PRB FCF-MMA - Eurasian Professional Championship
+AFC / Kunlun Fight,tier4,0.35,true,3,AFC / Kunlun Fight - Kunlun Fight MMA 16
+USC,tier4,0.35,true,3,USC - Upper Sport Combat
+EcoPride,tier4,0.35,true,3,EcoPride - GP
+Fury Fight Promotions,tier4,0.35,true,3,Fury Fight Promotions - The Storm
+Yamabushi,tier4,0.35,true,3,Yamabushi - Combat Sport Night 5
+Fight Fiesta,tier4,0.35,true,3,Fight Fiesta - de Luxe 3
+Sin City Fight Club,tier4,0.35,true,3,Sin City Fight Club - Redline Grand Prix Round 2
+X-plosion,tier4,0.35,true,3,X-plosion - X-plosion
+ECS,tier4,0.35,true,3,ECS - Evolution
+BUCB,tier4,0.35,true,3,BUCB - Stars and Stripes
+TAP Entertainment,tier4,0.35,true,3,TAP Entertainment - Fight Night
+TEKWISE,tier4,0.35,true,3,TEKWISE - Night Of The Condor 2
+RIR,tier4,0.35,true,3,RIR  - Rumble in Rush 2
+U-Spirits,tier4,0.35,true,3,U-Spirits - Again
+Moab Combat Sports,tier4,0.35,true,3,Moab Combat Sports - Red Rock Rumble 4
+Black and Blue Entertainment,tier4,0.35,true,3,Black and Blue Entertainment - Rebel Invasion 2
+UPN,tier4,0.35,true,3,UPN - Uptown Fight Night 3
+CFO,tier4,0.35,true,3,CFO - Championship Fighting Organization 1
+Triumph Fighter,tier4,0.35,true,3,Triumph Fighter 3 - Havoc
+Sprawl 'N Brawl,tier4,0.35,true,3,Sprawl 'N Brawl - Revelation
+Viva Nicaragua Canal,tier4,0.35,true,3,Viva Nicaragua Canal 13 - MMA War
+XC-1,tier4,0.35,true,3,XC-1 - Xtreme MMA Championship
+NDC,tier4,0.35,true,3,NDC 1 - Peru vs. American Top Team
+8ME,tier4,0.35,true,3,8ME - Night of Bang 3
+Omega MMA,tier4,0.35,true,3,Omega MMA  - WSOF Central America
+XFG,tier4,0.35,true,3,XFG - X Fight Games
+Millennium Events,tier4,0.35,true,3,Millennium Events - MMA Xplosion
+Tru-Form Entertainment,tier4,0.35,true,3,Tru-Form Entertainment - TFE MMA: Vengeance
+K-1 MAX,tier4,0.35,true,3,K-1 MAX - World Grand Prix 2004 Final
+Knuckle Up Productions,tier4,0.35,true,3,Knuckle Up Productions - Fight Night
+Team WR,tier4,0.35,true,3,Team WR - WR Fight 3
+GPP,tier4,0.35,true,3,GPP - Grand Prix Planaltina
+TM,tier4,0.35,true,3,TM - Total Mayhem 2
+Extreme Combat Challenge,tier4,0.35,true,3,Extreme Combat Challenge - Season's Beatings
+RSP,tier4,0.35,true,3,RSP - Rock & Sock Promotions
+Shooto Hawaii,tier3,0.55,false,3,Shooto Hawaii - Soljah Fight Night
+DFL,tier4,0.35,true,3,DFL 1 - The Big Bang
+MZI,tier4,0.35,true,3,MZI - Combat 2
+PEF,tier4,0.35,true,3,PEF - Pernambuco Extreme Fight
+WhiteApe MMA,tier4,0.35,true,3,WhiteApe MMA - Gorilla Warfare 2
+XFA,tier4,0.35,true,3,XFA 5 - Redemption
+LRDC,tier4,0.35,true,3,LRDC 6 - La Resa Dei Conti 6
+WPFC,tier4,0.35,true,3,WPFC 1 - World Pro Fighting Championships
+FFCF,tier4,0.35,true,3,FFCF 5 - Unleashed
+Southern Fight League,tier4,0.35,true,3,Southern Fight League - Smoky Mountain Brawl
+KTK,tier4,0.35,true,3,KTK 26 - Konquer the Kage 26
+EEFC,tier4,0.35,true,3,EEFC 11 - Excalibur Fighting 11
+PB MMA,tier4,0.35,true,3,PB MMA - Live Saturday Night
+Pain and Glory,tier4,0.35,true,3,Pain and Glory - ExCeL London
+AMMO Fight League,tier4,0.35,true,3,AMMO Fight League 7 - Night of Champions
+Grachan / WCF,tier4,0.35,true,3,Grachan / WCF - Grachan 33 / Wardog Cage Fight 16
+KSP,tier4,0.35,true,3,KSP - Shamrock Smackdown
+UB,tier4,0.35,true,3,UB - Ultimate Battle
+XP,tier4,0.35,true,3,XP 2 - Xtreme Pankration 2
+Gladiator Cage Fights,tier4,0.35,true,3,Gladiator Cage Fights - Knockout Night 1
+IFBL,tier4,0.35,true,3,IFBL - Fight Night 11
+ESF,tier4,0.35,true,3,ESF - Empire One
+American Bushido,tier4,0.35,true,3,American Bushido - 2007 Grand Prix Final
+Heartland,tier4,0.35,true,3,Heartland  - Ground n Pound
+WCS,tier4,0.35,true,3,WCS - World Class Shootfighting
+JN,tier4,0.35,true,3,JN 2 - Judgment Night 2
+Xp3,tier4,0.35,true,3,Xp3 - The Proving Ground
+10th Legion,tier4,0.35,true,3,10th Legion 9 - Victorious
+Wargods/Ken Shamrock Productions,tier4,0.35,true,3,Wargods/Ken Shamrock Productions - The Valentine's Eve Massacre
+FCS,tier4,0.35,true,3,FCS 4 - Full Contact Showdown 4
+ETFN,tier4,0.35,true,3,ETFN - Extreme Tuesday Night Fights
+UE,tier4,0.35,true,3,UE - Ultimate Explosion
+BGP,tier4,0.35,true,3,BGP - British Grand Prix '99
+Premium Challenge,tier4,0.35,true,3,Premium Challenge 1 - Guardian vs. Explorer
+Club Fight,tier4,0.35,true,3,Club Fight - Club Fight Nagoya
+White Dragon,tier4,0.35,true,3,White Dragon - Day Three
+LAF,tier4,0.35,true,2,LAF 1 - Border Wars
+ADJF,tier4,0.35,true,2,ADJF - Acai do Japa Fight
+CAM,tier4,0.35,true,2,CAM 2 - Circuito Argentino de MMA 2
+On Top,tier4,0.35,true,2,On Top - 21
+Unity FC,tier4,0.35,true,2,Unity FC - Unity Fighting Championship
+O Rei da Arena Fight,tier4,0.35,true,2,O Rei da Arena Fight - The King of Arena Fight 2
+FIGMMA,tier4,0.35,true,2,FIGMMA - Mazara Combat in the Cage
+Italian Cage Fighting,tier4,0.35,true,2,Italian Cage Fighting 6 - Verona
+Max Fights,tier4,0.35,true,2,Max Fights - Battle on the Beach
+NP,tier4,0.35,true,2,NP - High Altitude Face Off 7
+MWC,tier4,0.35,true,2,MWC 2 - Mescalero Warrior Challenge 2
+Beastmode Productions,tier4,0.35,true,2,Beastmode Productions - War In Rudd 2
+Tru Rev MMA,tier4,0.35,true,2,Tru Rev MMA - True Revelation MMA 32
+UMMA,tier4,0.35,true,2,UMMA - Alania Battle
+MPF,tier4,0.35,true,2,MPF - Moscow Rumble Open Cup 5
+Spartacus Academy,tier4,0.35,true,2,Spartacus Academy - Spartacus Circuit 9
+PFC TX,tier4,0.35,true,2,PFC TX - Peak Fighting Texas
+CWFL,tier4,0.35,true,2,CWFL - Chinese Wushu Fight League
+Primus FC,tier4,0.35,true,2,Primus FC - Alexander vs. Cleveland
+OEF,tier4,0.35,true,2,OEF - Carphatian Primus Belt Round 2
+MMC,tier4,0.35,true,2,MMC 5 - MMA Maringa Combat 5
+Show Combat,tier4,0.35,true,2,Show Combat - MMA 2
+Celtic Gladiator,tier4,0.35,true,2,Celtic Gladiator 22 - Manchester
+Fusion Fighting Championship,tier4,0.35,true,2,Fusion Fighting Championship - Reality Check
+WS Fighting,tier4,0.35,true,2,WS Fighting 6 - WS Fighting 6
+WOC,tier4,0.35,true,2,WOC - War of Champions 2
+Full House Battle Home,tier4,0.35,true,2,Full House Battle Home 6 - Brasil Fight Selections
+Golden Warriors FC,tier4,0.35,true,2,Golden Warriors FC - The Golden Fight
+LKC,tier4,0.35,true,2,LKC 5 - Liberty Kombat Champion 5
+Olympus FC,tier4,0.35,true,2,Olympus FC 2 - Olympus Fighting Championships 2
+TBC,tier4,0.35,true,2,TBC - Ultimate Blue Corner Battles
+CSF,tier4,0.35,true,2,CSF - Campina Show Fight 3
+Bellator Champions Series London,tier2_5,0.68,false,2,Bellator Champions Series London - McCourt vs. Collins
+EPF,tier4,0.35,true,2,EPF 1 - European Pro Fighting 1
+WTE FC,tier4,0.35,true,2,WTE FC 9 - WTE Fight Championship 9
+Arena Combat,tier4,0.35,true,2,Arena Combat - Fight Night 2
+Bradar Fight,tier4,0.35,true,2,Bradar Fight - Bradar Fight 3
+Evocke Fight,tier4,0.35,true,2,Evocke Fight - Gods Of War
+Jaguar Combat,tier4,0.35,true,2,Jaguar Combat 1 - Crocota vs. Robocop
+Maktub Fight Pro,tier4,0.35,true,2,Maktub Fight Pro - Maktub
+NIF MMA,tier4,0.35,true,2,NIF MMA 21 - North Iowa Fights 21
+Mongol FC,tier4,0.35,true,2,Mongol FC - Fight Night 02
+Metanoia Fight Combat,tier4,0.35,true,2,Metanoia Fight Combat - MFC 2022
+LLC,tier4,0.35,true,2,LLC - Leoes da Luta 5
+Leoes da Luta,tier4,0.35,true,2,Leoes da Luta - War Heroes
+Huff Entertainment,tier4,0.35,true,2,Huff Entertainment - Bud Brawl 2
+CFU,tier4,0.35,true,2,CFU 12 - Arena
+CBF MMA,tier4,0.35,true,2,CBF MMA 1 - Dana White: Lookin' for a Fight
+Super Pitbull Fight,tier4,0.35,true,2,Super Pitbull Fight - King of the Ring
+OFVT,tier4,0.35,true,2,OFVT - Open Fight de Vale Tudo 2
+GCS,tier4,0.35,true,2,GCS 1 - The Commencement
+Invicta on AXS TV,tier2_5,0.68,false,2,Invicta on AXS TV - Rodriguez vs. Torquato
+X-Fest,tier4,0.35,true,2,X-Fest 9 - X-Fest MMA 9
+Bellator MMA x Rizin,tier2_5,0.68,false,2,Bellator MMA x Rizin 2 - Pitbull vs. de Souza
+Gorets FC,tier4,0.35,true,2,Gorets FC - For The Prizes Of V. Zolotov
+VMC,tier4,0.35,true,2,VMC - Voronezh Mixfight Cup
+Triple A,tier4,0.35,true,2,Triple A - Promotions
+TB,tier4,0.35,true,2,TB 1 - Top Brights 1
+Mr. Cage Championship vs. Rei da Selva,tier4,0.35,true,2,Mr. Cage Championship vs. Rei da Selva - Champions vs. Champions
+WCSA Combat League,tier4,0.35,true,2,WCSA Combat League - Combat Ring 5: Steel Heart
+BWF,tier4,0.35,true,2,BWF - Big Way Fight 3
+APM,tier4,0.35,true,2,APM - Arena Pride MMA 4
+Poundout,tier4,0.35,true,2,Poundout - Poundout 1
+PCMMA,tier4,0.35,true,2,PCMMA - Patao Combat MMA 1
+MTK,tier4,0.35,true,2,MTK  - MTK MMA 6
+MF Fighters,tier4,0.35,true,2,MF Fighters - MF Fighters 1
+Battle on Volga,tier4,0.35,true,2,Battle on Volga 10 - Nurmagomedov vs Lima
+Rogue Promotions,tier4,0.35,true,2,Rogue Promotions - Arena Wars: Total Kombat
+Cage Fighters,tier4,0.35,true,2,Cage Fighters - Challengers Norte 2
+Prime Show MMA,tier4,0.35,true,2,Prime Show MMA 10 - Juz Jutro
+Cut Throat MMA,tier4,0.35,true,2,Cut Throat MMA - Supremacy
+MMA Fight Show,tier4,0.35,true,2,MMA Fight Show - Summer Edition
+Crixus MMA,tier4,0.35,true,2,Crixus MMA - 01
+The Art of Fighting,tier4,0.35,true,2,The Art of Fighting - In Search of Glory
+WSFC,tier4,0.35,true,2,WSFC 3 - The Third Strike
+Impera FC,tier4,0.35,true,2,Impera FC 3 - Caruso vs. Spallitta
+Only Men Stuff,tier4,0.35,true,2,Only Men Stuff - European MMA League 1
+NGT,tier4,0.35,true,2,NGT 6 - Para Bellum
+DC Fighters,tier4,0.35,true,2,DC Fighters 3 - DC Pro 3: Cyborg vs. Verner
+Blood Fight League,tier4,0.35,true,2,Blood Fight League - 8 Man MMA Tournament
+EFC / AMC,tier4,0.35,true,2,EFC / AMC - Abdulmanap Nurmagomedov In Memory Tournament
+ODFC,tier4,0.35,true,2,ODFC - Open Dag Fighting Championship 5
+Climent Club,tier4,0.35,true,2,Climent Club - Climent Show MMA 4
+WCW,tier4,0.35,true,2,WCW - West Coast Warriors
+FNL,tier4,0.35,true,2,FNL - Fight Night Leonding
+USWM,tier4,0.35,true,2,USWM 36 - Podlasie Grajewo 2025
+Strife,tier4,0.35,true,2,Strife 1 - Gawryjolek vs. Konkel
+KF-1,tier4,0.35,true,2,KF-1 - MMA World Competition
+KFP,tier4,0.35,true,2,KFP - Kazakhstan Federation of Pankration
+Barbarians,tier4,0.35,true,2,Barbarians 5 - BFL 5: Machala
+LFC / LK,tier4,0.35,true,2,LFC / LK - Legacy Kickboxing 2
+Cage Fighting,tier4,0.35,true,2,Cage Fighting - Dagestan
+FGC,tier4,0.35,true,2,FGC - Federal Gladiators Combat 2
+Tatya FC,tier4,0.35,true,2,Tatya FC 7 - Huachin vs. Dapello
+Fight Net,tier4,0.35,true,2,Fight Net - Italian Extreme 12
+FNED,tier4,0.35,true,2,FNED - Fight Night Enjoy Drinking 3
+CGBS,tier4,0.35,true,2,CGBS 10 - Coliseo Gladiadores Black Samurai 10
+Ravage,tier4,0.35,true,2,Ravage - Ravage Series 2
+MCF Productions,tier4,0.35,true,2,MCF Productions - MCFP 2
+AMF,tier4,0.35,true,2,AMF - Attitude MMA Fights 26
+Woman's Fight,tier4,0.35,true,2,Woman's Fight - 1
+EFS,tier4,0.35,true,2,EFS 2 - Extreme Fighting Sports 2
+Paramount MMA,tier4,0.35,true,2,Paramount MMA - Paramount MMA 2016
+Tempel Fight School,tier4,0.35,true,2,Tempel Fight School - Mix Fight Gala 18
+Prodigy MMA,tier4,0.35,true,2,Prodigy MMA - Resurrection
+X-Fight MMA,tier4,0.35,true,2,X-Fight MMA 12 - 2015 Brazil Grand Prix: Semifinals
+Redemption Fighters,tier4,0.35,true,2,Redemption Fighters 3 - Verona vs. Pinedo 2
+RDF,tier4,0.35,true,2,RDF 2 - Moran vs. Villafane
+African Knockout,tier4,0.35,true,2,African Knockout - AKO 3: Musasa vs. Saber
+Fight of Gladiators,tier4,0.35,true,2,Fight of Gladiators - Night of Champions 2
+First Fighting Championship,tier4,0.35,true,2,First Fighting Championship - Resurgance
+UXC,tier4,0.35,true,2,UXC  - Underdog Xtreme Championships 2
+IPFC / LKC,tier4,0.35,true,2,IPFC / LKC - YunFeng Showdown 8: Kings Championship
+Full Fight,tier4,0.35,true,2,Full Fight 1 - Slovakia and Czech vs. Russia
+Rise Fighting Championship,tier4,0.35,true,2,Rise Fighting Championship - Cowboy vs. Kiefer
+TCMMA,tier4,0.35,true,2,TCMMA - The Clash MMA 13
+Ring of Fire,tier4,0.35,true,2,Ring of Fire 4 - In the Faive
+Victorious FC,tier4,0.35,true,2,Victorious FC 2 - Victorious Fighting Championship 2
+Action Fight,tier4,0.35,true,2,Action Fight 9 - Duarte vs. Sales
+Sparta,tier4,0.35,true,2,Sparta - MMA
+G1,tier4,0.35,true,2,G1 - Open Fight 7
+Goat Promotions,tier4,0.35,true,2,Goat Promotions - Cajuns vs. Cowboys 3
+FECALUMA,tier4,0.35,true,2,FECALUMA - MMA-K1-BJJ
+FSLB,tier4,0.35,true,2,FSLB - Fight Ship Looking Boy 1
+NFT Gym,tier4,0.35,true,2,NFT Gym - National Fighting Championship 1
+Fight K,tier4,0.35,true,2,Fight K - Aguia
+Kraze in the Cage,tier4,0.35,true,2,"Kraze in the Cage - Chapter 7, Vol. 2"
+One Pride MMA Fight,tier2_5,0.68,false,2,One Pride MMA Fight 13 - Part 1
+Knock-Out MMA,tier4,0.35,true,2,Knock-Out MMA - KNO World Tour 2
+DCC,tier4,0.35,true,2,DCC 9 - Desert Combat Challenge
+FLABBP,tier4,0.35,true,2,FLABBP - Round 2: Tournament of Champions
+Hooligan Fight Show,tier4,0.35,true,2,Hooligan Fight Show - Battle for Tula 3
+Insano Empalux,tier4,0.35,true,2,Insano Empalux - Grand Prix
+HK,tier4,0.35,true,2,HK - Hero Kombat 1
+CDM,tier4,0.35,true,2,CDM - Cupide del MMA 2
+MMA Battle Arena,tier4,0.35,true,2,MMA Battle Arena - Battle Arena 62
+FP,tier4,0.35,true,2,FP - Fighter Physique
+IWFC,tier4,0.35,true,2,IWFC - Beat365: Changbai Mountain Hero List
+UFT,tier4,0.35,true,2,UFT - Ultimate Fighting Tournament 3
+WL,tier4,0.35,true,2,WL 3 - Warriors League 3
+All Star Promotions,tier4,0.35,true,2,All Star Promotions - Civic Disobedience 4
+Santa Ynez,tier4,0.35,true,2,Santa Ynez - MMA
+RAC,tier4,0.35,true,2,RAC 10 - Rise and Conquer 10
+Striker's House Cup,tier4,0.35,true,2,Striker's House Cup 31 - Fight Against Drugs
+WCSA Combat Ring,tier4,0.35,true,2,WCSA Combat Ring 29 - Steel Heart 10
+MMAPU,tier4,0.35,true,2,MMAPU - MMA Pro Ukraine 11
+KFL,tier4,0.35,true,2,KFL 3 - Khiza Fight League
+Rizin Fighting Federation,tier2_5,0.68,false,2,Rizin Fighting Federation - Iza no Mai
+Rkena FC,tier4,0.35,true,2,Rkena FC 2 - Rkena Fighting Championship
+Fist Fight League,tier4,0.35,true,2,Fist Fight League - Fist Fight Night 2
+Rio Fight,tier4,0.35,true,2,Rio Fight - Rio Fight Championship 5
+Fist Series,tier4,0.35,true,2,Fist Series - WinterFist 2008
+OCF,tier4,0.35,true,2,OCF - Orlando City Fights
+RMBB / TB,tier4,0.35,true,2,RMBB / TB - A Champion's Quest
+Fight Circuit MMA,tier4,0.35,true,2,Fight Circuit MMA - Victorious
+SJW,tier4,0.35,true,2,SJW 2 - Slammin Jammin Weekend 2
+Industrials,tier4,0.35,true,2,Industrials - Siberian Division 2
+971 Fighting Championship,tier4,0.35,true,2,971 Fighting Championship - 971 FC 2
+Vex,tier4,0.35,true,2,Vex - Vex Combat 4
+Costa Combat,tier4,0.35,true,2,Costa Combat - MMA Costa Combat 5
+WCMMA,tier4,0.35,true,2,WCMMA 1 - Portugal vs. USA
+JB Sports / Live Nation,tier4,0.35,true,2,JB Sports / Live Nation - Rock Out Knock Out
+Sprawl & Brawl,tier4,0.35,true,2,Sprawl & Brawl - Sprawl & Brawl FC 4
+Tajikistan MMA Federation,tier4,0.35,true,2,Tajikistan MMA Federation - Battle of Champions 3
+Heroine FC,tier4,0.35,true,2,Heroine FC 2 - Heroine Fighting Championship 2
+Made Men Promotions,tier4,0.35,true,2,Made Men Promotions - Rivers Rumble MMA
+JCK Bounty Challenge Series,tier4,0.35,true,2,JCK Bounty Challenge Series - 2020 Trials Championship
+Kingway & Beijing Combat,tier4,0.35,true,2,Kingway & Beijing Combat - Kingway & Beijing Combat
+K-1 Brazil,tier4,0.35,true,2,K-1 Brazil - Next Generation
+NDG,tier4,0.35,true,2,NDG - Noche de Gladiadores
+TWC Pro Series,tier4,0.35,true,2,TWC Pro Series - Anderson vs. Veerella
+Elite Fight Night,tier4,0.35,true,2,Elite Fight Night 7 - Balada Fight Campinas
+Ukraine MMA Federation,tier4,0.35,true,2,Ukraine MMA Federation - MMA Cup of Sumy
+Fair Fight,tier4,0.35,true,2,Fair Fight - MMA Edition
+CMTA,tier4,0.35,true,2,CMTA - Pardal Gladidators Night Cage 3
+Buddy Gym,tier4,0.35,true,2,Buddy Gym - Buddy MMA Clash 3
+AFG,tier4,0.35,true,2,AFG - Arena Fighting Games
+AOS4,tier4,0.35,true,2,AOS4 - Art of Scrap 4: Brooks vs. Bastos
+MMA Galla,tier4,0.35,true,2,MMA Galla - Vol. 4
+KMMAC,tier4,0.35,true,2,KMMAC - Kumite MMA Combate
+SSF,tier4,0.35,true,2,SSF - Super Sambo Festival
+Deep & Pancrase,tier3,0.55,false,2,Deep & Pancrase - Osaka Tournament 2020
+ECFP,tier4,0.35,true,2,ECFP - Resurgence
+Combate Americas: Mexico vs. Spain,tier4,0.35,true,2,Combate Americas: Mexico vs. Spain - Capella vs. Herrera
+FSF MMA,tier4,0.35,true,2,FSF MMA - New Beginning
+Scythian Gold,tier4,0.35,true,2,Scythian Gold - MMA Fight Night
+FFN,tier4,0.35,true,2,FFN - Fighters Fight Night
+A&FC,tier4,0.35,true,2,A&FC - Angels & Fight Contest
+Russian MMA Union,tier4,0.35,true,2,Russian MMA Union - St. Petersburg MMA Championship 1
+OctagonMMA Warriors,tier4,0.35,true,2,OctagonMMA Warriors - Nurmagomedov vs. Akinin
+SMMAI,tier4,0.35,true,2,SMMAI - Tornado
+MFT,tier4,0.35,true,2,MFT - Fedor Emelianenko Cup
+Tribe Tokyo Fight,tier4,0.35,true,2,Tribe Tokyo Fight - TTF Challenge 03
+UCU,tier4,0.35,true,2,UCU 2 - Unarmed Combat Unleashed 2
+Night of Champions,tier4,0.35,true,2,Night of Champions - Night of Champions 4
+CHF,tier4,0.35,true,2,CHF - Crazy Horse Fights
+Fight for Glory,tier4,0.35,true,2,Fight for Glory - First Round
+StandUpWar,tier4,0.35,true,2,StandUpWar 3 - Rising Stars
+Xtreme Fight Promotions,tier4,0.35,true,2,Xtreme Fight Promotions - XFP: The Holiday Fight Fest
+Lights Out / Bash Entertainment,tier4,0.35,true,2,Lights Out / Bash Entertainment - Fight Night at Sportsmen's Lodge 2
+Lenox FC,tier4,0.35,true,2,Lenox FC - Lenox Fight Competition 3
+MSC,tier4,0.35,true,2,MSC - MMA Sanda Combat 2
+Ultra Elite Fighters,tier4,0.35,true,2,Ultra Elite Fighters 4 - Limited Edition
+UCL,tier4,0.35,true,2,UCL - Underground Combat League
+ArcticNorFights,tier4,0.35,true,2,ArcticNorFights - Middleweight Grand Prix
+Fight Club Promotion,tier4,0.35,true,2,Fight Club Promotion - Peresvet Shield Challenge 2
+Voronezh MMA Federation,tier4,0.35,true,2,Voronezh MMA Federation - Fight Riot 2
+559 Fights,tier4,0.35,true,2,559 Fights 115 - 559 Fights
+FCT,tier4,0.35,true,2,FCT - Fight Club Tournament 3
+FCK,tier4,0.35,true,2,FCK - Koszalin
+Black Dragon,tier4,0.35,true,2,Black Dragon - Fight Show
+Storm FC,tier4,0.35,true,2,Storm FC 5 - Storm Fighting Championship 5
+Ronin FC,tier4,0.35,true,2,Ronin FC 2 - Ronin Fighting Championships
+RNC,tier4,0.35,true,2,RNC - Martial Arts Gala
+MOTM,tier4,0.35,true,2,MOTM - Melee on the Mountain
+Fighting China,tier4,0.35,true,2,Fighting China - Fighting China
+MOF,tier4,0.35,true,2,MOF - Marajo Open Fight 2
+Epic Fight Night,tier4,0.35,true,2,Epic Fight Night 2 - Norwood vs. Marriott
+Eco Fight,tier4,0.35,true,2,Eco Fight 16 - Expo Fight
+Gladiadores MMA,tier4,0.35,true,2,Gladiadores MMA 4 - Simao vs. Roberto
+Shogun Fights,tier4,0.35,true,2,Shogun Fights - Fort Lauderdale
+TMAC,tier4,0.35,true,2,TMAC 2 - Total Martial Arts Challenge 2
+WAM,tier4,0.35,true,2,WAM - Fabinski vs. Herb
+GB,tier4,0.35,true,2,GB - Global Battle
+URCC: BETS,tier4,0.35,true,2,URCC: BETS - Battle Extreme Tournament of Superstars
+OPFA,tier4,0.35,true,2,OPFA - Safari Fight Night
+European Fight League,tier4,0.35,true,2,European Fight League 2 - Spartans
+Max Fight,tier4,0.35,true,2,Max Fight 15 - Ilha Comprida
+WPFL,tier4,0.35,true,2,WPFL - World Pan Fighting League
+LMI,tier4,0.35,true,2,LMI 13 - Lutador MMA Invictus 13
+CBC,tier4,0.35,true,2,CBC - Colosseum Battles Champions
+Top Fight,tier4,0.35,true,2,Top Fight - Battle of the Gyms
+Luta Contra o Crack,tier4,0.35,true,2,Luta Contra o Crack - Fight Against Crack
+Vicosa MMA,tier4,0.35,true,2,Vicosa MMA - Vicosa Fight 2
+SKC,tier4,0.35,true,2,SKC 4 - Supreme Kombat Challenge 4
+Dare Fight Sports,tier4,0.35,true,2,Dare Fight Sports - Dare 2/12
+Duel for Domination,tier4,0.35,true,2,Duel for Domination - MMA Extravaganza
+Frontline Fight Series,tier4,0.35,true,2,Frontline Fight Series 1 - Vina vs. Junior Abedi
+BOC,tier4,0.35,true,2,BOC - Battle of Champions 2
+Fort MMA,tier4,0.35,true,2,Fort MMA 2 - Higo vs. Kevin
+Fightor,tier4,0.35,true,2,Fightor 1 - Lister vs. Knaap
+CJF,tier4,0.35,true,2,CJF - Campos de Jordao Freestyle
+TKF,tier4,0.35,true,2,TKF 1 - The King Fight 1
+PML,tier4,0.35,true,2,PML 15 - Professional Muaythai League 15
+GMA,tier4,0.35,true,2,GMA 7 - Germany vs. Lithuania
+Circuito de Lutas,tier4,0.35,true,2,Circuito de Lutas - Fight Night
+Inner Strength MMA,tier4,0.35,true,2,Inner Strength MMA 18 - Legacy Lives On
+Triple Threat,tier4,0.35,true,2,Triple Threat - Fight Night 1
+Ural FC X Ozon,tier4,0.35,true,2,Ural FC X Ozon - Akhmedov vs. Cavaleiro
+OGC,tier4,0.35,true,2,OGC - Odessa Golden Cup
+Bellator Champions Series San Diego,tier2_5,0.68,false,2,Bellator Champions Series San Diego - Nurmagomedov vs. Shabliy
+Brawl,tier4,0.35,true,2,Brawl - Brawl International 2
+HEF,tier4,0.35,true,2,HEF - Hess Extreme Fighting
+Power Plant Productions,tier4,0.35,true,2,Power Plant Productions - Metal & Mayhem 2
+Titan Channel,tier3,0.55,false,2,Titan Channel - War of Titans
+GFSP,tier4,0.35,true,2,GFSP - Gladiador Fight 3
+Bring it On,tier4,0.35,true,2,Bring it On - Under Destruction
+BOK,tier4,0.35,true,2,BOK - Battle of Kings
+RTR,tier4,0.35,true,2,RTR 2 - Ready To Rage
+GFP,tier4,0.35,true,2,GFP - Golden Fist Russia
+SOP,tier4,0.35,true,2,SOP - Star of Peresvit
+IM,tier4,0.35,true,2,IM 1 - Team Saint Petersburg vs. Team France
+PGM,tier4,0.35,true,2,PGM - Russia vs. Novgorod
+CQC,tier4,0.35,true,2,CQC - Close Quarters Combat
+Budo,tier4,0.35,true,2,Budo 16 - Round vs. James
+Trojan MMA,tier4,0.35,true,2,Trojan MMA - Trojan Warfare
+MedVid,tier4,0.35,true,2,MedVid - Anno Domini 1
+POA,tier4,0.35,true,2,POA - Pride of Albuquerque
+Sokol Fighting,tier4,0.35,true,2,Sokol Fighting - Sokol 2
+Olympic Platform Foundation,tier4,0.35,true,2,Olympic Platform Foundation - Friendship of Peoples Grand Prix 2017
+PCS,tier4,0.35,true,2,PCS 3 - Paradigm Combat Sports 3
+Last Man Standing,tier4,0.35,true,2,Last Man Standing - The Prodigy
+EMS,tier4,0.35,true,2,EMS - Middleweight Tournament Opening Round
+Tear Up,tier4,0.35,true,2,Tear Up 7 - Murch vs. Paul
+PPFN,tier4,0.35,true,2,PPFN - Pain Pit Fight Night 3
+Cabo Xtreme Combat,tier4,0.35,true,2,Cabo Xtreme Combat - Battle at the Beach
+WKG & M-1 Challenge,tier4,0.35,true,2,WKG & M-1 Challenge 100 - Bogatov vs. Silva
+Time of Masters,tier4,0.35,true,2,Time of Masters 1 - First Blood
+DWTC,tier4,0.35,true,2,DWTC - Dominion Warrior Tri Combat
+FOTN,tier4,0.35,true,2,FOTN - Fight of the Night 2011
+MMADU,tier4,0.35,true,2,MMADU - MMA Down Under 4
+Brute Force,tier4,0.35,true,2,Brute Force 15 - In the Line of Fire
+Xtreme Fighting League,tier4,0.35,true,2,Xtreme Fighting League - Vengeance
+LMMA,tier4,0.35,true,2,LMMA - Lightning at Legends
+Alliance Fights,tier4,0.35,true,2,Alliance Fights - Counterstrike
+Fera Championship,tier4,0.35,true,2,Fera Championship - Fight Night
+RDC,tier4,0.35,true,2,RDC 12 - La Resa dei Conti 12
+Kingdom Promotions,tier4,0.35,true,2,Kingdom Promotions - Valentines Day Massacre
+MMA Italy,tier4,0.35,true,2,MMA Italy - Battle in the Cage
+Strike Off,tier4,0.35,true,2,Strike Off 6 - Battle of Warriors
+Cage Fight Nights,tier4,0.35,true,2,Cage Fight Nights - CFN MMA League 1
+Duelo De Giagantes,tier4,0.35,true,2,Duelo De Giagantes - Round 2
+Fight Night Finland,tier4,0.35,true,2,Fight Night Finland - Turku Fight Night
+Cage Kings,tier4,0.35,true,2,Cage Kings - Total Domination
+CAVEMMA,tier4,0.35,true,2,CAVEMMA 3 - Rave in the Cave
+Team Nogueira,tier4,0.35,true,2,Team Nogueira - MMA Circuit 1
+FCA,tier4,0.35,true,2,FCA - Kaliningrad Challenge
+VIP,tier4,0.35,true,2,VIP - Stage 3
+K.O. Martial Arts,tier4,0.35,true,2,K.O. Martial Arts - Adrenalin-Unleashed
+AXFC,tier4,0.35,true,2,AXFC 11 - Impact
+AMMAFL,tier4,0.35,true,2,AMMAFL 4 - Fight Night
+Trophee des Etoiles,tier4,0.35,true,2,Trophee des Etoiles 15 - Arena Goliath MMA
+Dojo KO,tier4,0.35,true,2,Dojo KO - Second Elimination
+BTB,tier4,0.35,true,2,BTB - Border Town Brawl
+UI,tier4,0.35,true,2,UI 15 - White vs. Cook
+All or Nothing,tier4,0.35,true,2,All or Nothing - Head to Head
+BOF,tier4,0.35,true,2,BOF 2 - Belem Open Fight 2
+Iron Man Championship,tier4,0.35,true,2,Iron Man Championship - Champions
+Cage Fight Event,tier4,0.35,true,2,Cage Fight Event - Rumble in the Jungle
+XCUMMA,tier4,0.35,true,2,XCUMMA - X-Combat Ultra MMA
+Vipers MMA,tier4,0.35,true,2,Vipers MMA - Venom at the Snakepit
+SCR,tier4,0.35,true,2,SCR - Steel City Rumble 7
+Ox MMA,tier4,0.35,true,2,Ox MMA - Ox MMA
+Ruckus Entertainment,tier4,0.35,true,2,Ruckus Entertainment - Ruckus 4
+Jake the Snake Promotions,tier4,0.35,true,2,Jake the Snake Promotions - Cage Time 1
+COVT,tier4,0.35,true,2,COVT - Ceara Open Vale Tudo 2
+MOVT,tier4,0.35,true,2,MOVT 3 - Mossoro Open de Vale Tudo 3
+EKE,tier4,0.35,true,2,EKE - Extreme Kumite Evolution 3
+UAF,tier4,0.35,true,2,UAF - Ultimate Alliance Fights 1
+Killacam Promotions,tier4,0.35,true,2,Killacam Promotions 6 - Mercenaries
+808 Battleground,tier4,0.35,true,2,808 Battleground - Dropping Jaws
+KCM,tier4,0.35,true,2,KCM 7 - Kauai Cage Match 7
+MMA Berlin,tier4,0.35,true,2,MMA Berlin - Tournament 33
+Golden Lion Promotions,tier4,0.35,true,2,Golden Lion Promotions - Christmas Bash 2010
+Submission,tier4,0.35,true,2,Submission 4 - Submission Fight Night
+CMFC,tier4,0.35,true,2,CMFC - Chiang Mai Fighting Championship 4
+NFF,tier4,0.35,true,2,NFF - Norcal Fight Fest
+Champions Night,tier4,0.35,true,2,Champions Night - Qualyfighter
+MK,tier4,0.35,true,2,MK - Mega Kombat
+ROFE,tier4,0.35,true,2,ROFE - Ring of Fire Europe 2/3
+Real Fight Combat,tier4,0.35,true,2,Real Fight Combat - Sao Jose dos Campos
+KJC,tier4,0.35,true,2,KJC - The King of Jungle Championship 2
+GSF,tier4,0.35,true,2,GSF - Gringo Super Fight 8
+Kongs Fighting Championship,tier4,0.35,true,2,Kongs Fighting Championship - Kongs FC 2
+VTC,tier4,0.35,true,2,VTC - Brazil vs. USA
+WF,tier4,0.35,true,2,WF - Wild Fight 1
+Kickdown,tier4,0.35,true,2,Kickdown 74 - Grudge
+Rocky Mountain MMA,tier4,0.35,true,2,Rocky Mountain MMA 2 - World's Toughest
+II,tier4,0.35,true,2,II - Iowa Insanity
+Powergate,tier4,0.35,true,2,Powergate - Octave
+COW,tier4,0.35,true,2,COW 7 - No Way Out
+CWFC USA,tier4,0.35,true,2,CWFC USA - Battle Royale
+CSL,tier4,0.35,true,2,CSL - CamSoda Legends
+Golden Ring,tier4,0.35,true,2,Golden Ring - Wallberg vs. Prazak
+Sambo-70 / M-1 Global,tier4,0.35,true,2,Sambo-70 / M-1 Global - Sochi Open European Championships
+Total Combat,tier4,0.35,true,2,Total Combat - Nevada
+Intense Fighting,tier4,0.35,true,2,Intense Fighting - Caged
+Fight Force,tier4,0.35,true,2,Fight Force 1 - Armageddon
+COR,tier4,0.35,true,2,COR - Cage of Rage
+NACC,tier4,0.35,true,2,NACC - North American Combat Challenge 2
+Aggression Session,tier4,0.35,true,2,Aggression Session 2 - The Aggression Era Continues
+TE,tier4,0.35,true,2,TE - Tropa de Elite 2
+UFF,tier4,0.35,true,2,UFF - Ultimate Finus Fighting 2
+WOTNS,tier4,0.35,true,2,WOTNS - War on the North Shore 15
+EFG,tier4,0.35,true,2,EFG - Elite Fight Night 8
+PG,tier4,0.35,true,2,PG 1 - Proving Grounds 1
+Megdan Fighting,tier4,0.35,true,2,Megdan Fighting 9 - Under the Bright Sky
+FOG,tier4,0.35,true,2,FOG - Fists of Glory
+ECFC,tier4,0.35,true,2,ECFC - East Coast Fighting Championship 2
+K1L,tier4,0.35,true,2,K1L - Kumite 1 League
+SPC,tier4,0.35,true,2,SPC - Super Power Combat
+Battle in the Ballroom,tier4,0.35,true,2,Battle in the Ballroom - SummerFist 3
+Blufight MMA,tier4,0.35,true,2,Blufight MMA - Blufight 12
+Infinity MMA,tier4,0.35,true,2,Infinity MMA - Infinity 3
+No Mercy MMA,tier4,0.35,true,2,No Mercy MMA 1 - No Mercy MMA 1
+WWCF,tier4,0.35,true,2,WWCF - Blood War
+Reality Combat Championship,tier4,0.35,true,2,Reality Combat Championship 2 - The Second Encounter
+ROA,tier4,0.35,true,2,ROA 3 - Rumble Of Amsterdam 3
+UFI,tier4,0.35,true,2,UFI - Ultimate Fight Imperatriz 2
+Combat Games MMA,tier4,0.35,true,2,Combat Games MMA - Battle at the Bay 9
+ASF,tier4,0.35,true,2,ASF - Alvorada Show Fight 2
+WKG MMA,tier4,0.35,true,2,WKG MMA - World Kings Glory
+Fight Fiesta de Luxe,tier4,0.35,true,2,Fight Fiesta de Luxe - Unstoppable
+BE,tier4,0.35,true,2,BE 2 - Boxing Explosion 2
+Trboulje,tier4,0.35,true,2,Trboulje 2 - Croatia vs. Slovenia
+UFD,tier4,0.35,true,2,UFD - Ultimate Fight Dubravc
+HT,tier4,0.35,true,2,HT - Fight Night 5
+MMA Rocks,tier4,0.35,true,2,MMA Rocks - MMA Rocks
+QF,tier4,0.35,true,2,QF - Qualifight
+Fearless Fighting Championship,tier4,0.35,true,2,Fearless Fighting Championship - Qualifiying
+Mega Fight Sao Paulo,tier4,0.35,true,2,Mega Fight Sao Paulo - Mega Fight 3
+FAME,tier4,0.35,true,2,FAME 20 - The Celebration
+Cowboy MMA,tier4,0.35,true,2,Cowboy MMA - Caged Cowboys
+King of the West,tier4,0.35,true,2,King of the West - Rage Against the Ropes
+CRMMA,tier4,0.35,true,2,CRMMA - Costa Rica MMA 1
+IFC MMA,tier4,0.35,true,2,IFC MMA - Integra FC 23
+Ural FC,tier4,0.35,true,2,Ural FC 1 - Ural Fighting Championship
+Shooto Estonia,tier3,0.55,false,2,Shooto Estonia - Bushido
+NAC,tier4,0.35,true,2,NAC 23 - North American Challenge 23
+Paul Vandale Promotions,tier4,0.35,true,2,Paul Vandale Promotions - The Beast Comes East
+TNP,tier4,0.35,true,2,TNP - Redemption
+LB,tier4,0.35,true,2,LB 2 - Lonestar Beatdown 2
+No Love Entertainment,tier4,0.35,true,2,No Love Entertainment - War and Wheels
+ECO,tier4,0.35,true,2,ECO  - Extreme Cagefighting Organization 7
+RMFC,tier4,0.35,true,2,RMFC - Rocky Mountain Fight Championships 3
+Flash Academy MMA,tier4,0.35,true,2,Flash Academy MMA - Fight Night Explosion 8
+Thunderdome,tier4,0.35,true,2,Thunderdome - Thunderdome
+MMAFC,tier4,0.35,true,2,MMAFC - MMA Fighters Club
+TSP,tier4,0.35,true,2,TSP - Sport Center Gala 2
+KCB,tier4,0.35,true,2,KCB 4 - Klash Champion Battlefield
+XFF,tier4,0.35,true,2,XFF 7 - Xtreme Freestyle Fighting 7
+NSFC,tier4,0.35,true,2,NSFC - NW Submission Fighting 1
+GVT,tier4,0.35,true,2,GVT - Gladiators Vale Tudo
+CVTM,tier4,0.35,true,2,CVTM - Ceara Vale Tudo Meeting
+Europa MMA,tier4,0.35,true,2,Europa MMA - Coga vs. Backstrom
+CNG Promotions,tier4,0.35,true,2,CNG Promotions - Queen City Meltdown
+Ilha Combat,tier4,0.35,true,2,Ilha Combat 2 - Araujo vs. Zuluzinho
+CGF,tier4,0.35,true,2,CGF 1 - Campo Grande Fight 1
+TTCW,tier4,0.35,true,2,TTCW 2 - North vs. South
+KOTCA,tier3,0.55,false,2,KOTCA - King of the Cage Australia 2
+HBUP,tier4,0.35,true,2,HBUP - Huntington Beach Underground Pancrase
+Extreme Fighter,tier4,0.35,true,2,Extreme Fighter - Nordeste
+Oiapoque,tier4,0.35,true,2,Oiapoque - Fighter 2
+MMABG,tier4,0.35,true,2,MMABG - MMA Bulgaria
+NOF,tier4,0.35,true,2,NOF - Night of Fight 1
+WSW,tier4,0.35,true,2,WSW - World Shoot Wrestling 1
+FNW,tier4,0.35,true,2,FNW - Fight Night West 4
+BITB,tier4,0.35,true,2,BITB - Battle in the Ballroom
+Revolution Fight League,tier4,0.35,true,2,Revolution Fight League - Relentless
+Fight King Gold Belt Contest,tier4,0.35,true,2,Fight King Gold Belt Contest - Lightweight Grand Prix
+CBVT,tier4,0.35,true,2,CBVT - Campeonato Brasileiro de Vale-Tudo
+TTP / PCL,tier4,0.35,true,2,TTP / PCL - Warriors Collide
+WSOR,tier4,0.35,true,2,WSOR - World Series of Rumble
+Allegiance,tier4,0.35,true,2,Allegiance - Allegiance 2
+KZ,tier4,0.35,true,2,KZ 5 - Kombat Zone 5
+TLF,tier4,0.35,true,2,TLF - Tan Lan Fight 9
+CCF,tier4,0.35,true,2,CCF 4 - Colloseo Championship Fighting
+AM Ford,tier4,0.35,true,2,AM Ford - Fight Night 2010
+Sobral Extreme,tier4,0.35,true,2,Sobral Extreme - Evolution
+S&H,tier4,0.35,true,2,S&H - Strength and Honour 10
+SD,tier4,0.35,true,2,SD - Staredown
+BOA,tier4,0.35,true,2,BOA - The Battle of Akersloot
+Kokoro,tier4,0.35,true,2,Kokoro - Kill Or Be Killed
+Gladiator MMA,tier4,0.35,true,2,Gladiator MMA - Gladiator Challenge
+Hamburger Kafig,tier4,0.35,true,2,Hamburger Kafig - Second Strike
+DBE,tier4,0.35,true,2,DBE - Rumble In Wyoming
+Alliance,tier4,0.35,true,2,Alliance - The Uprising
+RPR,tier4,0.35,true,2,RPR - River Plex Rumble
+Invincible,tier4,0.35,true,2,Invincible - MMA
+AAF,tier4,0.35,true,2,AAF 4 - Absolute Ada Fights 4
+RTT,tier4,0.35,true,2,RTT - Road to Tokyo
+Grachan / One More Chance,tier4,0.35,true,2,Grachan / One More Chance - Grachan 30 / 1MC Vol. 4
+SR,tier4,0.35,true,2,SR - Spiritual Road 1st
+HIP,tier4,0.35,true,2,HIP 2 - Harmful Intent Promotions 2
+WP,tier4,0.35,true,2,WP - Warpath
+APC,tier4,0.35,true,2,APC 1 - All Powers Combat 1
+Macto Championships,tier4,0.35,true,2,Macto Championships - Osipczak vs. Redfearn
+Pride and Honor,historical,0.68,false,2,Pride and Honor - Pride and Honor
+Banner Promotions,tier4,0.35,true,2,Banner Promotions - Night of Combat
+ETB,tier4,0.35,true,2,ETB - Enter the Beast
+Iron Horse,tier4,0.35,true,2,Iron Horse - Bike and Music Festival 2007
+Ring Style,tier4,0.35,true,2,Ring Style - Bad Blood 2
+TFC FightZone,tier4,0.35,true,2,TFC FightZone - Back in the Zone
+TS,tier4,0.35,true,2,TS - Tae Sho
+Griggs Entertainment,tier4,0.35,true,2,Griggs Entertainment - Conquest FC 1
+MM,tier4,0.35,true,2,MM - Meskwaki Mayhem
+BBC,tier4,0.35,true,2,BBC - Bad Boy Competition
+TIBF,tier4,0.35,true,2,TIBF - Take it by Force
+RT,tier4,0.35,true,2,RT - Ringside Ticket
+JG and TKT Promotions,tier4,0.35,true,2,JG and TKT Promotions - Fighting 4 Kidz
+Ready to Rumble,tier4,0.35,true,2,Ready to Rumble - Let's Get Ready to Rumble
+RDFF,tier4,0.35,true,2,RDFF 2 - Red Devil Free Fight 2
+ETC,tier4,0.35,true,2,ETC - July 2002
+RAR,tier4,0.35,true,2,RAR - Rumble at Raxx 22
+UFA,tier4,0.35,true,2,UFA 1 - Clash at the Coliseum
+IWW,tier4,0.35,true,2,IWW - Iowa Winter Warriors
+ARCF,tier4,0.35,true,2,ARCF 7 - American Reality Combat 7
+WCO,tier4,0.35,true,2,WCO - Kerr vs. Gavin
+RnR,tier4,0.35,true,2,RnR - Rock 'N' Rumble 1
+RICV,tier4,0.35,true,2,RICV 2 - Rumble in Chula Vista 2
+Gleat MMA,tier4,0.35,true,2,Gleat MMA - Ver.Mega
+NYEK,tier4,0.35,true,2,NYEK - New Year's Eve Knockout 1
+AXC,tier4,0.35,true,2,AXC 10 - War of the Machines
+KSBO,tier4,0.35,true,2,KSBO - International
+10-4,tier4,0.35,true,2,10-4 - Thunder
+BVC,tier4,0.35,true,2,BVC - Boa Vista Combat 3
+SUF,tier4,0.35,true,2,SUF - Sky UTE Fighting
+SAMP,tier4,0.35,true,2,SAMP - Showdown at McGee Park
+AVT,tier4,0.35,true,2,AVT - Australia Vale Tudo
+Grabaka Live,tier4,0.35,true,2,Grabaka Live - 1st Cage Attack
+Savage Fight Promotions,tier4,0.35,true,2,Savage Fight Promotions - Savage Fights 2
+Respect in the Cage,tier4,0.35,true,2,Respect in the Cage 1 - Expo & Fight
+Shidokan,tier4,0.35,true,2,Shidokan - New Combat Festival
+WVT,tier4,0.35,true,2,WVT - Wisconsin Vale Tudo
+ROH,tier4,0.35,true,2,ROH 1 - Ring of Honor 1
+MEF,tier4,0.35,true,2,MEF 2 - Minnesota Extreme Fight 2
+ECT,tier4,0.35,true,2,ECT - Eau Claire Throwdown 2
+Tennessee Shooto,tier4,0.35,true,2,Tennessee Shooto - Conquest
+NOTK,tier4,0.35,true,2,NOTK - Night of the Knockout 2
+FFAA,tier4,0.35,true,2,FFAA - Fight Night Championships 4
+BVT,tier4,0.35,true,2,BVT - British Vale Tudo
+PCR,tier4,0.35,true,2,PCR - Pancration Cup of Russia 1
+Pancrase / Deep,tier3,0.55,false,2,Pancrase / Deep - Pancrase vs. Deep: Osaka
+TP,tier4,0.35,true,2,TP - Calm Before the Storm
+RCFC,tier4,0.35,true,2,RCFC - River City Fight Club
+TK,tier4,0.35,true,2,TK - The Khan 1
+FC300,tier4,0.35,true,1,FC300 - Fight Club 300
+Parana Strike,tier4,0.35,true,1,Parana Strike - MMA Professional
+Fighting Champions,tier4,0.35,true,1,Fighting Champions 1 - Dominguez vs. Robledo
+Power Fight,tier4,0.35,true,1,Power Fight - La Batalla del Puente 5
+The Iron Fight,tier4,0.35,true,1,The Iron Fight 2.0 - MMA Tournament
+Combate Para,tier4,0.35,true,1,Combate Para  - Fein vs. Escorpiao
+Fight1 Promotion,tier4,0.35,true,1,Fight1 Promotion - Street Fight Party 2
+Fight Network,tier4,0.35,true,1,Fight Network - Mad Gym Fight Night
+Octagon No Mercy,tier4,0.35,true,1,Octagon No Mercy 8 - Jurassic Army
+XFM,tier4,0.35,true,1,XFM 5 - Fight Night
+Uzbekistan MMA Association,tier4,0.35,true,1,Uzbekistan MMA Association - International Murod Khanturaev Memorial Tournament
+Bonito Eco Fight Combat,tier4,0.35,true,1,Bonito Eco Fight Combat 2 - Negao x Slin
+Aspera FC Asia,tier4,0.35,true,1,Aspera FC Asia - Aspera FC Asia 2
+FPF,tier4,0.35,true,1,FPF - Fair Pay Fighting 1
+PS MMA,tier4,0.35,true,1,PS MMA 1 - Pilsen Submission MMA 1
+CNC,tier4,0.35,true,1,CNC 3 - Champions Nights Challengers 3
+Guerra Campal,tier4,0.35,true,1,Guerra Campal 3 - Bahamondes vs. Carolino
+Orion Fight Arena,tier4,0.35,true,1,Orion Fight Arena - Spectacular Kickboxing-MMA Gala
+IKFC,tier4,0.35,true,1,IKFC - TKF: Matan Tesco Cup
+SOW,tier4,0.35,true,1,SOW - Selection of Warriors
+Siberian League,tier4,0.35,true,1,Siberian League - Pankration in Yugra
+Mamba MMA,tier4,0.35,true,1,Mamba MMA - Mamba Fight Night 6
+Prime FC,tier4,0.35,true,1,Prime FC 1 - Bajor vs. Tybura
+ISFA,tier4,0.35,true,1,ISFA - Final Conflict 2019
+011 MMA Team,tier4,0.35,true,1,011 MMA Team - 011 MMA Challenge 1
+Maximun Fight MMA,tier4,0.35,true,1,Maximun Fight MMA - 3rd Edition
+Evolution Of Combat,tier4,0.35,true,1,Evolution Of Combat - Fight Night 2
+Jua Fight,tier4,0.35,true,1,Jua Fight - Jua Fight
+Candeias MMA Experience,tier4,0.35,true,1,Candeias MMA Experience  	 - Candeias MMA Experience
+Imperium MMA Pro,tier4,0.35,true,1,Imperium MMA Pro 11 - Grand Prix 2014: Final Round
+Contenders,tier4,0.35,true,1,Contenders - Contenders 33
+MC Fight,tier4,0.35,true,1,MC Fight 1 - Encontro de Campeoes
+Crococombat,tier4,0.35,true,1,Crococombat - Crococombat 2
+SW,tier4,0.35,true,1,SW 6 - Supreme Warriors 6
+Northwest Fight Promotions,tier4,0.35,true,1,Northwest Fight Promotions - CageWarriors NorthWest 5
+M4TC,tier4,0.35,true,1,M4TC 29 - Immortals
+CCNE,tier4,0.35,true,1,CCNE - Combat Challenge North East 2
+CSA FC,tier4,0.35,true,1,CSA FC - Adrenaline
+TBFR,tier4,0.35,true,1,TBFR - The Battle For Ruse
+Eagles Fighting Championship,tier4,0.35,true,1,Eagles Fighting Championship - EFC 1
+Crajubar Fight,tier4,0.35,true,1,Crajubar Fight - MMA 2013
+Xoperia Fight,tier4,0.35,true,1,Xoperia Fight 2 - Revenge
+Carpina FC,tier4,0.35,true,1,Carpina FC 2 - Carpina Fighting Championship 2
+PFRN,tier4,0.35,true,1,PFRN - Paradise Fighting RN
+Coveted Fighting Championship,tier4,0.35,true,1,Coveted Fighting Championship 3 - MMA Cage Fights
+Universal Cage Combat,tier4,0.35,true,1,"Universal Cage Combat - Lights, Camera, Maximum Action"
+RFCH,tier4,0.35,true,1,RFCH 6 - Road Fighting Championship Russia 6
+PFL KG,tier2_5,0.68,false,1,PFL KG - Professional Fighters League Kyrgyzstan
+Battle,tier4,0.35,true,1,Battle 12 - Battle MMA Championships
+NVP,tier4,0.35,true,1,NVP - Niko Vitale Promotions
+Excitefight,tier4,0.35,true,1,Excitefight - Battle at the Bay 15
+UIC,tier4,0.35,true,1,UIC 4 - War on the Valley Isle
+Vikings Fight Club,tier4,0.35,true,1,Vikings Fight Club 2 - Return of the Warriors
+WFL MMA,tier4,0.35,true,1,WFL MMA - World Fighting League MMA
+360 Promotion,tier4,0.35,true,1,360 Promotion - Volition
+Rostocker & Benefiz Fight Night,tier4,0.35,true,1,Rostocker & Benefiz Fight Night - 2 in 1 Fight Night
+SibForce,tier4,0.35,true,1,SibForce 2 - Battle of Bagaturs
+112 Fight Academy,tier4,0.35,true,1,112 Fight Academy - Grand Opening
+TKO Palmas,tier4,0.35,true,1,TKO Palmas - TKO Palmasnet 3
+Fighter Stars,tier4,0.35,true,1,Fighter Stars - Fighter Stars 3
+Castro Fight,tier4,0.35,true,1,Castro Fight - Castro Fight Night
+CWB Fight League,tier4,0.35,true,1,CWB Fight League - CWBFL 28
+Leoes da Luta Championship,tier4,0.35,true,1,Leoes da Luta Championship - Ibiuna Edition
+Impacto Fight,tier4,0.35,true,1,Impacto Fight - Impacto Fight Night
+Punisher,tier4,0.35,true,1,Punisher 4 - Punisher Machala 4
+QFC,tier4,0.35,true,1,QFC 3 - Quito Fight Club 3
+Lutador MMA,tier4,0.35,true,1,Lutador MMA 2 - Lutador Expertos del Combate 2
+FOC,tier4,0.35,true,1,FOC - Fight of Champions 1
+ULLAMP,tier4,0.35,true,1,ULLAMP - Liga Sudamericana
+MV Promotions,tier4,0.35,true,1,MV Promotions - Glory Fight 2
+CCGF,tier4,0.35,true,1,CCGF - Carmen Casca-Grossa Fight
+MMA Bushido,tier4,0.35,true,1,MMA Bushido 77 - Fighting Championship in Vilnius
+SEC,tier4,0.35,true,1,SEC - Star Elite Cage Fighting
+N1 Pro,tier4,0.35,true,1,N1 Pro - MMA Nomad
+FFV,tier4,0.35,true,1,FFV 1 - Fight for Victory
+OFF,tier4,0.35,true,1,OFF - Opatija Fight Night 4
+The Green Fight,tier4,0.35,true,1,The Green Fight - Paragominas
+MMADF,tier4,0.35,true,1,MMADF - MMA Dragon Fighters
+IMMAF,tier4,0.35,true,1,IMMAF - Imbituba MMA Fight 2014
+Fight Planet,tier4,0.35,true,1,Fight Planet - Rota de Colisao
+Fight Planet Juquia,tier4,0.35,true,1,Fight Planet Juquia - Nocauteando as Drogas
+Benin FC,tier4,0.35,true,1,Benin FC 7 - Benin Fighting Championship
+FFAC,tier4,0.35,true,1,FFAC - FFA Challenge 2
+BCM Promotions,tier4,0.35,true,1,BCM Promotions - Fight Night 8
+Circuito World Combat,tier4,0.35,true,1,Circuito World Combat - CWC 4: Samurai Edition
+MFN Brazil,tier4,0.35,true,1,MFN Brazil - Major Fight Night
+Jorge Velho Team,tier4,0.35,true,1,Jorge Velho Team - JVT Championship 12
+Copa do Brasil,tier4,0.35,true,1,Copa do Brasil - Professional The Best Fighter
+BFQ MMA,tier4,0.35,true,1,BFQ MMA - Beach Fight Quintao
+Warriors Fighters,tier4,0.35,true,1,Warriors Fighters - 2nd Edition
+CKC,tier4,0.35,true,1,CKC - Conquista Kombat Championship
+Nocaute,tier4,0.35,true,1,Nocaute - MMA Fight 2
+UMC,tier4,0.35,true,1,UMC 1 - Ciumac vs. Ngeleka
+Vale Tudo Promotions,tier4,0.35,true,1,Vale Tudo Promotions - Vale Tudo Cup 1
+Naiza FC,tier4,0.35,true,1,Naiza FC 69 - Naiza Fighter Championship 69: Donchenko vs. Kudaibergenov
+B1 MMA,tier4,0.35,true,1,B1 MMA - Mad Cage
+TDT,tier4,0.35,true,1,TDT 1 - The Dice Team 1
+Star Combat,tier4,0.35,true,1,Star Combat 1 - Evento de MMA
+Back Fish MMA,tier4,0.35,true,1,Back Fish MMA - Back Fish MMA 2
+Luta Tribal,tier4,0.35,true,1,Luta Tribal 1 - Pacquiao vs. Capoeira
+JPFN,tier4,0.35,true,1,JPFN - Jovem Pan Fight Night 1
+VEC,tier4,0.35,true,1,VEC - Valhalla Extreme Challenger
+World Championship Pankration,tier4,0.35,true,1,World Championship Pankration - World Championship Pankration Kaliningrad
+TMC,tier4,0.35,true,1,TMC - Tajikistan Mixfight Championship 1
+YC,tier4,0.35,true,1,YC - Your Chance 1
+Southern Fight Promotions,tier4,0.35,true,1,Southern Fight Promotions - Cage Conquest 2
+Revolution Promotions,tier4,0.35,true,1,Revolution Promotions - Revolution at the Roxy
+Vic Fight,tier4,0.35,true,1,Vic Fight - French Championship 2019
+Primal FC,tier4,0.35,true,1,Primal FC - Dark Moon Rising
+MMA Kyrgyzstan,tier4,0.35,true,1,MMA Kyrgyzstan - Boroda MMA
+Dominium Fighter Championship,tier4,0.35,true,1,Dominium Fighter Championship - DFC 20: Ladies Of Steel
+Pantanal Fight Championship,tier4,0.35,true,1,Pantanal Fight Championship 26 - PFC 26 Edition
+MFF,tier4,0.35,true,1,MFF 6 - MF Fighters 6
+NFC x Ares FC x Conflict MMA,tier4,0.35,true,1,NFC x Ares FC x Conflict MMA - Macon Fight Night
+HH,tier4,0.35,true,1,HH - Heavy Hitters
+FightForce,tier4,0.35,true,1,FightForce - Ofli vs. Baily
+Grachan / Kiwami,tier4,0.35,true,1,Grachan / Kiwami - J-MMA Rookies Cup
+Intense Championship Fighting,tier4,0.35,true,1,Intense Championship Fighting - Fight Night
+RUFF Fu,tier4,0.35,true,1,RUFF Fu - Ranik Ultimate Fighting Federation Fu
+Spartacus HCC,tier4,0.35,true,1,Spartacus HCC - Champions Challenge
+RFC Caratinga,tier4,0.35,true,1,RFC Caratinga - Ratinho Fighting Championship 2
+Combat Night Fight,tier4,0.35,true,1,Combat Night Fight 2 - Brenner vs. Rubiano
+Fire Cage MMA,tier4,0.35,true,1,Fire Cage MMA - National League
+Cidade da Luta,tier4,0.35,true,1,Cidade da Luta - Cidade da Luta 5
+Sao Jose Super Fight Qualifying,tier4,0.35,true,1,Sao Jose Super Fight Qualifying - SJSF
+Blackout FC,tier4,0.35,true,1,Blackout FC 5 - Blackout Fight Championship 5
+LDPF,tier4,0.35,true,1,LDPF - Lago da Pedra Fight
+KOCI,tier4,0.35,true,1,KOCI 3 - Knock Out Combat Icoaraci 3
+Kuzbass MMA Federation,tier4,0.35,true,1,Kuzbass MMA Federation - ASI Championship 6: The Power of Siberia
+Donbass Association of Combat Sports,tier4,0.35,true,1,Donbass Association of Combat Sports - United Donbass
+BBF,tier4,0.35,true,1,BBF - Big Boys Fights
+ASV,tier4,0.35,true,1,ASV 6 - Diouf vs. Benzha
+SDVF,tier4,0.35,true,1,SDVF - Strike do Vale Fight 2
+Araca Fight Combat,tier4,0.35,true,1,Araca Fight Combat - Araca Fight 2017
+Arena Kombat FC,tier4,0.35,true,1,Arena Kombat FC 2 - Arena Kombat Fighting Championship 2
+CFV,tier4,0.35,true,1,CFV - Clube Fight Vitória
+Irkutsk Pankration Sports Center,tier4,0.35,true,1,Irkutsk Pankration Sports Center - Baikal Storm 2013: Irkutsk VS Omsk
+Muradov Professional League,tier4,0.35,true,1,Muradov Professional League - MPL 1: Mirzamatov vs. Jankovic
+Alliance Fighting Championships,tier4,0.35,true,1,Alliance Fighting Championships - Battle of Titans
+Zolotoy Vityaz MMA,tier4,0.35,true,1,Zolotoy Vityaz MMA - Golden Knight
+RMMAF,tier4,0.35,true,1,RMMAF - Federation Cup 2015
+RRR Promotions,tier4,0.35,true,1,RRR Promotions - Rico vs. Torres
+Tosan Martial Arts Center,tier4,0.35,true,1,Tosan Martial Arts Center - Tosan Fight Night
+Braga Pro,tier4,0.35,true,1,Braga Pro - Showtime Fights 4
+GMMA,tier4,0.35,true,1,GMMA - Gods of War World MMA Championship
+ECFF,tier4,0.35,true,1,ECFF - Impact
+Pride Fighting Show,historical,0.68,false,1,Pride Fighting Show - The Stars of World MMA
+Night of Warriors,tier4,0.35,true,1,Night of Warriors - Night of Warriors 5.0
+FNR1,tier4,0.35,true,1,FNR1 - Fight Night Round 1 Traiskirchen
+KHFN,tier4,0.35,true,1,KHFN - KraftHerr Fight Night
+Cage Fight Events Europe,tier4,0.35,true,1,Cage Fight Events Europe - Salzburger MMA Challenge
+TKB,tier4,0.35,true,1,TKB - Fight Night Linz
+KOTR Austria,tier4,0.35,true,1,KOTR Austria - King of the Ring
+MMAFT,tier4,0.35,true,1,MMAFT - Ismoili Somoni Fighting Championship
+Masurian Fighting Championship,tier4,0.35,true,1,Masurian Fighting Championship - MFC 1
+PFF,tier4,0.35,true,1,PFF - Professional Free Fight
+Rebels / KF,tier4,0.35,true,1,Rebels / KF - Rebels 45 / Kunlun Fight 49
+CMMAL,tier4,0.35,true,1,CMMAL - China MMA League
+Pasaje Underground Combat,tier4,0.35,true,1,Pasaje Underground Combat 1 - Morales vs. Zambrano
+MTT,tier4,0.35,true,1,MTT 2 - Salazar vs. Morales
+Lutadores MMA,tier4,0.35,true,1,Lutadores MMA 4 - Lutador Expertos del Combate 4
+Socam Fight MMA,tier4,0.35,true,1,Socam Fight MMA 1 - Fernandes vs. Souza
+BMMAL,tier4,0.35,true,1,BMMAL - Brazilian MMA League 11
+CKF World Federation,tier4,0.35,true,1,CKF World Federation - Zhong Wu Ultimate Fighting
+Beirut Elite Fighting Championship,tier4,0.35,true,1,Beirut Elite Fighting Championship - First Blood
+Paranoa Fight,tier4,0.35,true,1,Paranoa Fight - MMA
+Rockstrike,tier4,0.35,true,1,Rockstrike - MMA 4
+Big Dawg Promotions,tier4,0.35,true,1,Big Dawg Promotions - In the Cage I Trust
+O Rei da Luta,tier4,0.35,true,1,O Rei da Luta 3 - Betao vs Rudney
+K2S Combat,tier4,0.35,true,1,K2S Combat - 100K Lightweight Grand Prix
+Svperba,tier4,0.35,true,1,Svperba - Svperba Fight Night
+MMA Fighter,tier4,0.35,true,1,MMA Fighter 3 - Orellana vs. Frunza
+PDA,tier4,0.35,true,1,PDA 6 - Punho de Aco 6
+MMAM,tier4,0.35,true,1,MMAM - MMA Madness 6
+Champions Fight,tier4,0.35,true,1,Champions Fight - Costa vs. Tche
+Coliseu MMA,tier4,0.35,true,1,Coliseu MMA - Coliseu Fight Night
+MMA Versus UK,tier4,0.35,true,1,MMA Versus UK 1 - Empire Rises
+Vendetta,tier4,0.35,true,1,Vendetta - Rookies 2
+RTC,tier4,0.35,true,1,RTC - Rock the Cage 2
+Dark Night Nove Zamky,tier4,0.35,true,1,Dark Night Nove Zamky - Dark Night Vol. 2
+A-Fight MMA,tier4,0.35,true,1,A-Fight MMA - A-Fight 5
+FoG,tier4,0.35,true,1,FoG - Fight of Gladiators 5
+GOR MMA,tier4,0.35,true,1,GOR MMA - Ignacio vs. Kazakov
+Studsport,tier4,0.35,true,1,Studsport - St. George Cup 5
+Asian Warriors in OFC,tier4,0.35,true,1,Asian Warriors in OFC - Grand Prix OFC
+Triumph Fights,tier4,0.35,true,1,Triumph Fights - Bantamweight Grand Prix
+ZZ Promotions,tier4,0.35,true,1,ZZ Promotions - Zhekpe Zhek
+MMAFN,tier4,0.35,true,1,MMAFN - MMA Fight Night 1
+EOF,tier4,0.35,true,1,EOF - Evolution of Fighters 8
+WTKF,tier4,0.35,true,1,WTKF - World Total Kombat Federation
+TJCM,tier4,0.35,true,1,TJCM - Titans Jungle Combat MMA
+TBCF,tier4,0.35,true,1,TBCF - The Best Coari Fight 3
+Zone FC,tier4,0.35,true,1,Zone FC - Zone Fight 4
+Secutor MMA,tier4,0.35,true,1,Secutor MMA - Secutor Challenge Fighter
+GP Fight Show,tier4,0.35,true,1,GP Fight Show - Blasius vs. Schulte
+Merseburger Fight Night,tier4,0.35,true,1,Merseburger Fight Night 8 - MMA Tournament
+Kiru,tier4,0.35,true,1,Kiru - In The Spirit Of The Knights
+Bushido FC,tier4,0.35,true,1,Bushido FC - Legends
+B&G Promotions,tier4,0.35,true,1,B&G Promotions - Battle at the Fort 9
+Ring Rulers,tier4,0.35,true,1,Ring Rulers - Spa City Stomp Out Hunger
+Beatdown MMA Peru Championship,tier4,0.35,true,1,Beatdown MMA Peru Championship 1 - Huerto vs. Navarrete
+Nightmare FC,tier4,0.35,true,1,Nightmare FC - Nightmare 006
+The AKO Show,tier4,0.35,true,1,The AKO Show - Face Off Fight Night 3
+Casa Branca Fight,tier4,0.35,true,1,Casa Branca Fight 2 - Casa Branca Fight MMA 2015
+Fighting Force Championships,tier4,0.35,true,1,Fighting Force Championships 3 - Jones vs. Roundstone
+AOC,tier4,0.35,true,1,AOC 4 - Age of Cage 4
+BMAT,tier4,0.35,true,1,BMAT - Budokukai Martial Arts Tournament
+Hot Fight,tier4,0.35,true,1,Hot Fight - Vale Tudo
+Devil's Cage,tier4,0.35,true,1,Devil's Cage - La Gabbia del Diavolo
+FN1,tier4,0.35,true,1,FN1 - Fight Night One 4
+Animalistic MMA,tier4,0.35,true,1,Animalistic MMA - Rise of the Alpha
+Red City Fights / Samara MMA Federation,tier4,0.35,true,1,Red City Fights / Samara MMA Federation - Battle on the Volga 7
+Prosperity Fight Promo,tier4,0.35,true,1,Prosperity Fight Promo - Battle for Samara
+Tatfight,tier4,0.35,true,1,Tatfight 9 - China vs. Tatarstan
+Sunkin International Fight Club,tier4,0.35,true,1,Sunkin International Fight Club - 2016 Oriental Summit International MMA Tournament
+Cage Fighting Championships,tier4,0.35,true,1,Cage Fighting Championships - G-Vegas Fight Night
+FQ,tier4,0.35,true,1,FQ 2 - Fight Quest 2
+MTF,tier4,0.35,true,1,MTF 16 - Mountain Force MMA 16
+Jingle Bells Promotions,tier4,0.35,true,1,Jingle Bells Promotions - Gladiator Cage Fighting 4
+Total Mayhem,tier4,0.35,true,1,Total Mayhem - 20TwentyFifteen15
+Midnight Sun Mayhem,tier4,0.35,true,1,Midnight Sun Mayhem 1 - Final Word
+WGP,tier4,0.35,true,1,WGP - Wako Grand Prix 3
+BrazilMMA -,tier4,0.35,true,1,BrazilMMA -
+IKC,tier4,0.35,true,1,IKC 1 - Invictus Kombat Championship
+Punch Fight,tier4,0.35,true,1,Punch Fight - Punch Fight
+Big,tier4,0.35,true,1,Big - Fight
+WCC Natural Selection,tier4,0.35,true,1,WCC Natural Selection - Continuation 2
+The Start Combat,tier4,0.35,true,1,The Start Combat - The Start 4
+BBN,tier4,0.35,true,1,BBN - Big Bold's Night
+LFS,tier4,0.35,true,1,LFS - Londrina Fight Show 1
+B33F,tier4,0.35,true,1,B33F - B33 Fight 8
+FD,tier4,0.35,true,1,FD - Fighting Dreamers
+Bangla Fights,tier4,0.35,true,1,Bangla Fights - Sunday Night Super Fights: Magomedov vs. Vyas
+The King FC,tier4,0.35,true,1,The King FC - The King Fighting Championship
+VT,tier4,0.35,true,1,VT - Vale Tudo 3
+Eric Favre Sport Games,tier4,0.35,true,1,Eric Favre Sport Games - Dubai Fight 2017
+SFG,tier4,0.35,true,1,SFG - Night of Champions 5
+BNC,tier4,0.35,true,1,BNC - Brazil Nordeste Combat
+FCDH,tier4,0.35,true,1,FCDH - Fight Club Den Haag 2014
+World Team USA,tier4,0.35,true,1,World Team USA - Fight for Peace
+Rage in the Cage,tier4,0.35,true,1,Rage in the Cage - MMA Fighting Championship
+The Cage,tier4,0.35,true,1,The Cage 2 - USA vs. New Zealand
+EGF,tier4,0.35,true,1,EGF - EnerGym Fight
+Captains Fight Club,tier4,0.35,true,1,Captains Fight Club - CFC 2: Cold War
+Team Martins,tier4,0.35,true,1,Team Martins - Martigny Fight Night
+Bali MMA,tier4,0.35,true,1,Bali MMA - Canggu Fight Night 27
+Soma Fight Series,tier4,0.35,true,1,Soma Fight Series - SFS 8
+MIF,tier4,0.35,true,1,MIF -  Maximum Impacto Fight 14-In Memorian Leide Popo
+WEF Global,tier4,0.35,true,1,WEF Global 17 and Kingdom Professional Fight NWPA - Battle on the Neva
+Octagon Promotion & U1,tier4,0.35,true,1,Octagon Promotion & U1 - Octagon 27
+ATFC,tier4,0.35,true,1,ATFC 3 - Amir Temur Fighting Championship 3
+PCT,tier4,0.35,true,1,PCT - Professional Combat Turon 4
+AFC / Ratiborets,tier4,0.35,true,1,AFC / Ratiborets - Ambitions Fighting Championship 21 / Ratiborets 11
+City Innovative Technologies / Sech Pro,tier4,0.35,true,1,City Innovative Technologies / Sech Pro - GIT Crimea 2017
+N1 Pro Nomad MMA,tier4,0.35,true,1,N1 Pro Nomad MMA - Asian Fighter Tournament 2016
+Asian Fighting Championship Akhmat,tier4,0.35,true,1,Asian Fighting Championship Akhmat 2  - Battle in Samarkand
+Seven Fight Promotion,tier4,0.35,true,1,Seven Fight Promotion - Seven Fight 2015
+R1 Uzbekistan,tier4,0.35,true,1,R1 Uzbekistan - Grand Prix Heavyweights
+Scorpion Figths Promotions,tier4,0.35,true,1,Scorpion Figths Promotions - Batalla en Las Fuentes: Mexico vs. America
+Mercenary Combat League,tier4,0.35,true,1,Mercenary Combat League - MCL 1
+CD,tier4,0.35,true,1,CD - Copa Desafio
+PAKMMA Fighting Alliance,tier4,0.35,true,1,PAKMMA Fighting Alliance 7 - Legends
+Floripa Fight Championship,tier4,0.35,true,1,Floripa Fight Championship - The Big Challenge
+TriState Cage Fights,tier4,0.35,true,1,TriState Cage Fights - Island Warfare
+Torment,tier4,0.35,true,1,Torment - MMA
+PP,tier4,0.35,true,1,PP - Pugilistic Productions
+ZC,tier4,0.35,true,1,ZC - Zhenghanfeng Cup
+WKF,tier4,0.35,true,1,WKF - Zhong Wu Fight Night
+3FC,tier4,0.35,true,1,3FC - 3 Frontier Challenge
+BFC Combat,tier4,0.35,true,1,BFC Combat - Brazilians Fighters Champions
+AFC Combat,tier4,0.35,true,1,AFC Combat - Andrade vs. Falcao
+JFC,tier4,0.35,true,1,JFC - Jarutas Fight Combat 7
+Guerra en Veracruz,tier4,0.35,true,1,Guerra en Veracruz - GEV 6
+ASP,tier4,0.35,true,1,ASP - All Stars
+Yuzhniy Rubezh,tier4,0.35,true,1,Yuzhniy Rubezh - Yuzhniy Rubezh 8
+Face The Danger,tier4,0.35,true,1,Face The Danger - Gold
+Countdown Cup,tier4,0.35,true,1,Countdown Cup - MMA Fighters
+Empire Promotions,tier4,0.35,true,1,Empire Promotions - Empire FC
+M-1 Georgia,tier3,0.55,false,1,M-1 Georgia - M-1 Georgia 2010
+Parana Vale Tudo,tier4,0.35,true,1,Parana Vale Tudo - PRVT Goioere 4
+R1 Fighting Series,tier4,0.35,true,1,R1 Fighting Series 2 - Brito vs. De Lara
+Forze MMA,tier4,0.35,true,1,Forze MMA 1 - Josiane vs Quezia
+Uniao FC,tier4,0.35,true,1,Uniao FC - Uniao Fight Combat
+Colosseum MMA,tier4,0.35,true,1,Colosseum MMA - Battle of Champions 22
+Team Yvel,tier4,0.35,true,1,Team Yvel - Fearless 3
+Fighting with the Stars,tier4,0.35,true,1,"Fighting with the Stars - Bloed, Zweet & Tranen 3"
+AIF,tier4,0.35,true,1,AIF 1 - Aruba International Fighting Championship 1
+IPMO,tier4,0.35,true,1,IPMO 4 - Invictus Pro MMA 4
+Borroka Promotions,tier4,0.35,true,1,Borroka Promotions - Borroka Presents XFC 53
+Maximus Fight Club,tier4,0.35,true,1,Maximus Fight Club - Maximus Fighting Championship Pro 3
+UPLH,tier4,0.35,true,1,UPLH - Fighting Together 2
+BFC: Contender Series,tier4,0.35,true,1,BFC: Contender Series 7 - Belarusian Fighting Championship
+Midtown Productions,tier4,0.35,true,1,Midtown Productions - Midtown Throwdown 3
+MMA Revolution: Iron Kick vs. Red Cage,tier4,0.35,true,1,MMA Revolution: Iron Kick vs. Red Cage - Team Durango vs. Team Chihuahua
+Superstar Fight,tier4,0.35,true,1,Superstar Fight 2 - China vs. Japan
+WMA,tier4,0.35,true,1,WMA - Worldwide MMA Alliance Championship
+Jungle Strike Championship,tier4,0.35,true,1,Jungle Strike Championship - JSC 4
+GCP XII,tier4,0.35,true,1,GCP XII - Llontop vs. Pedro
+WS,tier4,0.35,true,1,WS - War Sports 1
+Dead Serious MMA,tier4,0.35,true,1,Dead Serious MMA - Dead Serious 17
+Local Kombat,tier4,0.35,true,1,Local Kombat - New Begininnigs
+Kings Championship,tier4,0.35,true,1,"Kings Championship 1 - MMA, Muay Thai, Jiu Jitsu and NOGI"
+ProFC Ukraine,tier4,0.35,true,1,ProFC Ukraine - Brave Hearts
+FHFN,tier4,0.35,true,1,FHFN - Full House Fight Night
+Walkout FC,tier4,0.35,true,1,Walkout FC 13 - New Era
+Saturday Night Fights,tier4,0.35,true,1,Saturday Night Fights - Round 11
+Arena,tier4,0.35,true,1,Arena - BH Combat
+Arena BH,tier4,0.35,true,1,Arena BH - Arena Belo Horizonte
+QC,tier4,0.35,true,1,QC 13 - Qualify Combat 13
+Ad Astra per Aspera,tier4,0.35,true,1,Ad Astra per Aspera - Ad Astra per Aspera 1
+UNIVERSE MMA,tier4,0.35,true,1,UNIVERSE MMA - Universe MMA 01
+CCMM,tier4,0.35,true,1,CCMM - Circuito Combate Mix Marcial 14
+Rio FC,tier4,0.35,true,1,Rio FC - Rio Fight 2
+ORF,tier4,0.35,true,1,ORF - Octagon Rounds Fight
+Wild FC,tier4,0.35,true,1,Wild FC - Wild Fight Championship 4
+Rockstrike Fighting Tournament,tier4,0.35,true,1,Rockstrike Fighting Tournament - Trials 2
+PLEF,tier4,0.35,true,1,PLEF - Pedro Leopoldo Extreme Fight
+IAF,tier4,0.35,true,1,IAF - Fight Night 1
+ECSS,tier4,0.35,true,1,ECSS - Evolution Combat Sports Series 2
+Fight Card Entertainment,tier4,0.35,true,1,Fight Card Entertainment - Supremacy 2019
+GTOCF,tier4,0.35,true,1,GTOCF - GTO Cage Fights
+NMEF / RMBB,tier4,0.35,true,1,NMEF / RMBB - Ladies Night: Clash of the Titans 8
+RITD,tier4,0.35,true,1,RITD - Rumble in the Desert
+Honneur et Gloire,tier4,0.35,true,1,Honneur et Gloire - Honor and Glory Fight Night 3
+Gulf Coast MMA,tier4,0.35,true,1,Gulf Coast MMA - Brawlroom Beatdown 2
+Only FC,tier4,0.35,true,1,Only FC - Only Fight Championship
+CMMAF,tier4,0.35,true,1,CMMAF - 1st Pancyprian MMA Championship
+German Boxing Association,tier4,0.35,true,1,German Boxing Association - EFC Arena 5
+Big Game,tier4,0.35,true,1,Big Game 2 - Finest MMA & Kickboxing Gala
+MMA Bundesliga,tier4,0.35,true,1,MMA Bundesliga - Heroic Battle 17: Rage of Ring
+FVE,tier4,0.35,true,1,FVE - Fight Vision Europe 1
+Leon Warriors Fighting League,tier4,0.35,true,1,Leon Warriors Fighting League - Stage 1
+King of Warriors MMA,tier4,0.35,true,1,King of Warriors MMA - King of Warriors 3 / Strike Fighting Championship 4
+FitS,tier4,0.35,true,1,FitS - Fight in the Sun
+DiamondBoxing,tier4,0.35,true,1,DiamondBoxing - Turneul MMA
+Parma Fights,tier4,0.35,true,1,Parma Fights 4 - Ragnaryok
+Autumn Draft,tier4,0.35,true,1,Autumn Draft - Mix Fight
+Pride MMA Irkutsk,historical,0.68,false,1,Pride MMA Irkutsk - Pride MMA
+MMAU3,tier4,0.35,true,1,MMAU3 - MMA University 3
+Xtreme Fight Events,tier4,0.35,true,1,Xtreme Fight Events - Cage Wars 5
+Pro-League Fighting,tier4,0.35,true,1,Pro-League Fighting - Karlsruhe Fight Night Live
+Clash FC,tier4,0.35,true,1,Clash FC - Clash of the Titans
+MMA Imatra,tier4,0.35,true,1,MMA Imatra - Carelia Fight 12
+Lyon Fighting Championship,tier4,0.35,true,1,Lyon Fighting Championship - Apash Tournament 2
+SFIT,tier4,0.35,true,1,SFIT - Super Fight at International Tournament
+ICKF,tier4,0.35,true,1,ICKF - World Combat Championship Macau
+WKG,tier4,0.35,true,1,WKG - International MMA Tournament 3
+Gorilla Fights,tier4,0.35,true,1,Gorilla Fights - Gorilla Fight Promotions: Rumble at the Revelry
+GCSC,tier4,0.35,true,1,GCSC - The Colosseum
+Savage Entertainment,tier4,0.35,true,1,Savage Entertainment - Oktoberfist 4
+Gringo Fight,tier4,0.35,true,1,Gringo Fight - Fight Pavilion Special Edition 2
+Lux Combat,tier4,0.35,true,1,Lux Combat 2 - Tony Fox vs. Jiboia
+OKC Fight Night,tier4,0.35,true,1,OKC Fight Night - Charity Fight Night 2016
+KVT,tier4,0.35,true,1,KVT - Kallifas Vale Tudo
+Raged UK MMA,tier4,0.35,true,1,Raged UK MMA - Raged UK MMA 11
+Krwawy Sport,tier4,0.35,true,1,Krwawy Sport 1 - Southampton
+DHC,tier4,0.35,true,1,DHC - 2016 WKF China vs. Egypt Christmas Fight Night
+IMDET,tier4,0.35,true,1,IMDET - No Way Out
+John Pena Promotions,tier4,0.35,true,1,John Pena Promotions - Battle at Fox Theatre
+Bulldog Media,tier4,0.35,true,1,Bulldog Media - Fight Night 2.0
+Sul Fluminense Fight Night,tier4,0.35,true,1,Sul Fluminense Fight Night - SFFN 6 - Pantera Vs Macfer
+Samurai Fight Contest,tier4,0.35,true,1,Samurai Fight Contest 2 - Galindo vs. Bazan
+Smuggler's Run,tier4,0.35,true,1,Smuggler's Run - Rumble on the River
+ZMMMA,tier4,0.35,true,1,ZMMMA - The Truth Event
+Charity Fight,tier4,0.35,true,1,Charity Fight - Round 1
+Triangle Promotions,tier4,0.35,true,1,Triangle Promotions - Conflick Cage Fighting
+Reis Do Combat,tier4,0.35,true,1,Reis Do Combat - RDC 1
+Pindare Fight Championship,tier4,0.35,true,1,Pindare Fight Championship - PFC - Bocao Vs Jones
+ATS Kombat,tier4,0.35,true,1,ATS Kombat - Fight Night: The Rematch
+Guanambi Combat,tier4,0.35,true,1,Guanambi Combat 2 - Leal vs Nishuichi
+ACMMA,tier4,0.35,true,1,ACMMA - Ares Chaos MMA
+Knockout Events,tier4,0.35,true,1,Knockout Events - Battle at the Chip
+MMA Cup Moscow,tier4,0.35,true,1,MMA Cup Moscow - Big Final
+Mix Fighter,tier4,0.35,true,1,Mix Fighter - New Horizons Qualifying
+STB,tier4,0.35,true,1,STB - Simply the Best 14
+Fighting Zone,tier4,0.35,true,1,Fighting Zone - Cage Time 1
+Fight Explosion,tier4,0.35,true,1,Fight Explosion - Return Of Kings
+TNG,tier4,0.35,true,1,TNG - Trutnovs Night Of Gladiators
+Cage XFC,tier4,0.35,true,1,Cage XFC - International Lake Constance Cup 2
+K1EL,tier4,0.35,true,1,K1EL - Round 2
+Nitro,tier4,0.35,true,1,Nitro 14 - Reloaded
+Glory,tier4,0.35,true,1,Glory 2 - The Struggle Within
+Throne MMA,tier4,0.35,true,1,Throne MMA - Bender vs. Aguirre
+MMATC,tier4,0.35,true,1,MMATC - MMA Total Combat 55
+K1M,tier4,0.35,true,1,K1M - K1 Maximum
+Universal Combat League,tier4,0.35,true,1,Universal Combat League - The Battle for All Hallows Eve
+Brave FC,tier4,0.35,true,1,Brave FC 4 - Explosion
+Noxii,tier4,0.35,true,1,Noxii - Noxii Combat 1
+MMA Total Combat,tier4,0.35,true,1,MMA Total Combat 2 - Carvalho vs. Simetti
+Southside Boxing,tier4,0.35,true,1,Southside Boxing - War on the Valley Isle 6
+Sitpholek,tier4,0.35,true,1,Sitpholek - International Thai Boxing Charity Gala 2013
+Muchzhima MMA,tier4,0.35,true,1,Muchzhima MMA - Cage Wars 1
+RMAU,tier4,0.35,true,1,RMAU - Musail Alaudinov Selection
+Genesis Desert Combat Legion,tier4,0.35,true,1,Genesis Desert Combat Legion - Rocky Point Fight Night
+WTC,tier4,0.35,true,1,WTC 5 - Welcome to the Cage 5
+Gladiadores del Sur -,tier4,0.35,true,1,Gladiadores del Sur -
+Raging Warrior Cage Combat,tier4,0.35,true,1,Raging Warrior Cage Combat - Battle at the Ballroom
+Grant's Martial Arts,tier4,0.35,true,1,Grant's Martial Arts - Cage Time 5: Fight for the Troops
+White Night Fighting Championship,tier4,0.35,true,1,White Night Fighting Championship - Elets Battle
+Altay Republik MMA League,tier4,0.35,true,1,Altay Republik MMA League - Altay vs. Siberia
+CUBU,tier4,0.35,true,1,CUBU - Night of Masters 11
+NBR,tier4,0.35,true,1,NBR - Nord Bohemia Ring
+FightFest,tier4,0.35,true,1,FightFest - Black and Blues Tour
+Gracie Fighting League,tier4,0.35,true,1,Gracie Fighting League - Brawl at the Buckeye
+2 Piece Promotions,tier4,0.35,true,1,2 Piece Promotions - War at the Wex 7
+Baikal Fighting Championship,tier4,0.35,true,1,Baikal Fighting Championship - Selection 5: Steel Battle
+MGL-1,tier4,0.35,true,1,MGL-1 - MGL-1 FC 7
+Slay Marketing,tier4,0.35,true,1,Slay Marketing - Fight Night Returns
+SM,tier4,0.35,true,1,SM - Slay Marketing
+Latin American Championship,tier4,0.35,true,1,Latin American Championship - The One
+Eye,tier4,0.35,true,1,Eye 4N Eye Fighting Championships - MMA Throwdown
+PMMA,tier4,0.35,true,1,PMMA - Pugilatus MMA
+GOV,tier4,0.35,true,1,GOV 2 - Total Elimination Absolute
+Contest MMA,tier4,0.35,true,1,Contest MMA - Argentina vs. Chile
+Sin Piedad,tier4,0.35,true,1,Sin Piedad - Argentina vs. Mexico
+ROD,tier4,0.35,true,1,ROD - Cage Rage at the Mirage 4
+Evolution FC,tier4,0.35,true,1,Evolution FC - Evolution Fight Combat 3
+IVT,tier4,0.35,true,1,IVT - Icoaraci Vale Tudo
+Zero,tier4,0.35,true,1,Zero 2 Fight - Vale Tudo
+IRY,tier4,0.35,true,1,IRY - Icoaraci Rematch of the Year
+Odense Fight Night,tier4,0.35,true,1,Odense Fight Night 5 - Last Call
+MMACC,tier4,0.35,true,1,MMACC - MMA Corona Cup 20
+Astana Fight Club,tier4,0.35,true,1,Astana Fight Club 2 - Kazakhstan Mix Fight Championship
+PMFC,tier4,0.35,true,1,PMFC 2 - Profi Mix Fight Championship
+CAMGFC,tier4,0.35,true,1,CAMGFC - Curitibanos AMG Fight Champion 6
+Encontro dos Espartanos,tier4,0.35,true,1,Encontro dos Espartanos 1 - Encounter of the Spartans
+Sao Joao Super Fight,tier4,0.35,true,1,Sao Joao Super Fight - Forja de Campeoes
+HSC,tier4,0.35,true,1,HSC - Hualsur Sport Combat
+NDLS,tier4,0.35,true,1,NDLS 2 - Argentina vs. Brazil
+IB,tier4,0.35,true,1,IB - International Boxing
+KOCP,tier4,0.35,true,1,KOCP - Knock Out Club 12
+Fight Factory Gym,tier4,0.35,true,1,Fight Factory Gym - E-1 World Championship
+Golden Team,tier4,0.35,true,1,Golden Team - Mytishchi Arena Cup
+King of the Ring,tier4,0.35,true,1,King of the Ring - VI
+AM Ford Fight Night,tier4,0.35,true,1,AM Ford Fight Night 2012 - Demolition
+Cage Warrior,tier4,0.35,true,1,Cage Warrior 3 - Knockout in the Cage Selection
+Slam FC,tier4,0.35,true,1,Slam FC 7 - Nemesis
+FIKBMS,tier4,0.35,true,1,FIKBMS - Memorial Fabio Arbeia 7
+MMAB,tier4,0.35,true,1,MMAB - MMA Bundesliga 2
+Brutaal Genesis Iowa,tier4,0.35,true,1,Brutaal Genesis Iowa - Fight Night at Hy-Vee Hall
+SBBF,tier4,0.35,true,1,SBBF - Super Bad Boy's Fight 3
+Boxe Thai Belem,tier4,0.35,true,1,Boxe Thai Belem - Super Fight
+Zak Cummings Promotions,tier4,0.35,true,1,Zak Cummings Promotions - Stronger Men's Conference 2018
+Racine Fight Night,tier4,0.35,true,1,Racine Fight Night 5 - Thanksgiving Thrash
+Wisconsin Cage Fighting,tier4,0.35,true,1,Wisconsin Cage Fighting 1 - Battle at the Bleachers
+LeLeo Code MMA,tier4,0.35,true,1,LeLeo Code MMA - Winter Fightfest Pro
+Mach Matsuri,tier4,0.35,true,1,Mach Matsuri - Mach Festival 2018
+Pezao Combate,tier4,0.35,true,1,Pezao Combate - Raulian vs. Miojo
+MMA Experience,tier4,0.35,true,1,MMA Experience 5 - Game Edition
+LM,tier4,0.35,true,1,LM - Tournament 3
+KTAF,tier4,0.35,true,1,KTAF - KTA Fight 1
+Cage Fighting Promotion MMA,tier4,0.35,true,1,Cage Fighting Promotion MMA - Kletka Fight Night 6
+KapiranGoat / UGB MMA,tier4,0.35,true,1,KapiranGoat / UGB MMA - KapiranGoat Fight Nights 4
+Fox Fight Joacaba,tier4,0.35,true,1,Fox Fight Joacaba - Fox Fight 1
+NOVA FC,tier4,0.35,true,1,NOVA FC 1 - A Star is Born
+Hype FC,tier4,0.35,true,1,Hype FC 8 - Rumble in the Cage
+Magdeburger Cage,tier4,0.35,true,1,Magdeburger Cage 1 - MMA & Caged Muay Thai
+Cage Survivor,tier4,0.35,true,1,Cage Survivor - The Battle 17
+SWMMA,tier4,0.35,true,1,SWMMA - Spartan Warriors MMA
+RadMer,tier4,0.35,true,1,RadMer 1  - 2 Round
+TKO Fight Alliance,tier4,0.35,true,1,TKO Fight Alliance - Knockout Nights
+World MMA Council,tier4,0.35,true,1,World MMA Council - Mexican Standoff
+Warfare Xtreme Cagefighting,tier4,0.35,true,1,Warfare Xtreme Cagefighting - Caged Controversy
+Hulett Productions,tier4,0.35,true,1,Hulett Productions - First Blood
+Khasavyurt Fight,tier4,0.35,true,1,Khasavyurt Fight - Dagestan MMA Open Cup 2014
+Sparta Martial Arts Club,tier4,0.35,true,1,Sparta Martial Arts Club - Team Sosnovy Bor vs. Team Leningrad Oblast
+S&S,tier4,0.35,true,1,S&S - Shoot & Sprawl 2
+MMASC,tier4,0.35,true,1,MMASC - MMA Sports Combat 2
+Futhar MMA,tier4,0.35,true,1,Futhar MMA - FMMA 5
+ATS,tier4,0.35,true,1,ATS 1 - ATS Kombat 1
+Gladiadores Extremos,tier4,0.35,true,1,Gladiadores Extremos - Dark Night
+G-Shooto,tier4,0.35,true,1,G-Shooto - G-Shooto 05
+KO Boxing,tier4,0.35,true,1,KO Boxing - Warzone 2
+Shogun Team,tier4,0.35,true,1,Shogun Team - Fight Day 1
+KHK MMA National Tryouts,tier4,0.35,true,1,KHK MMA National Tryouts - Finale 2015
+Ainofea,tier4,0.35,true,1,Ainofea - Cage Fights
+Melee,tier4,0.35,true,1,Melee 5 - Melee Combat Championship 5
+Emir Fighting Championship,tier4,0.35,true,1,Emir Fighting Championship - EFC Selection 1
+Student League MMA,tier4,0.35,true,1,Student League MMA - Ivanov vs. Karapetyan
+MuscleBoss,tier4,0.35,true,1,MuscleBoss - Bope Fight
+Prime Fights,tier4,0.35,true,1,Prime Fights - TFO - Prime Fights #01
+Quality FC,tier4,0.35,true,1,Quality FC - Quality Fighting Championship
+Nomad MMA / N1 Pro / WFN,tier4,0.35,true,1,Nomad MMA / N1 Pro / WFN - 2014 Championship of Asia
+Warriors Honor,tier4,0.35,true,1,Warriors Honor - Mayor's Cup
+FoPoKC,tier4,0.35,true,1,FoPoKC - Cup of Friendship
+Ultimatum MMA,tier4,0.35,true,1,Ultimatum MMA - 2K9 Unlimited
+P5,tier4,0.35,true,1,P5 - Punishers 5
+P4,tier4,0.35,true,1,P4 - Punishers 4
+LPFC,tier4,0.35,true,1,LPFC - La Plata Fight Club
+GAMMA Championship,tier4,0.35,true,1,GAMMA Championship - Caucasian Rage 2
+Bokum FC,tier4,0.35,true,1,Bokum FC - Bokum Fight Championship
+First Fight,tier4,0.35,true,1,First Fight - Revelations
+MMA Championship,tier4,0.35,true,1,MMA Championship - MMA Championship 1
+Global Fight Club,tier4,0.35,true,1,Global Fight Club - GFC Challenge
+BRTL,tier4,0.35,true,1,BRTL 4 - Bryan vs. Cangaty
+Para Fight,tier4,0.35,true,1,Para Fight 1 - Mondragon vs. Tourun
+SCS Fights,tier4,0.35,true,1,SCS Fights 33 - Sugar Creek Showdown 33
+SMMAC,tier4,0.35,true,1,SMMAC - Swiss MMA Championship 1
+Inhumas Fight Championship,tier4,0.35,true,1,Inhumas Fight Championship - IFC MMA Combat 6
+Combat FC / WMMAL,tier4,0.35,true,1,Combat FC / WMMAL - Combat FC 1: Inception
+Just MMA,tier4,0.35,true,1,Just MMA 3 - Just CKF: Hong Kong 2
+MVVT,tier4,0.35,true,1,MVVT - Macapa Verdadeiro Vale Tudo
+UNU,tier4,0.35,true,1,UNU 1 - Seek and Destroy
+PXC Live,tier4,0.35,true,1,PXC Live 1 - PXC Live
+Tormenta en el Ring,tier4,0.35,true,1,Tormenta en el Ring - Tormenta en el Ring
+SAARFC,tier4,0.35,true,1,SAARFC 8 - Solid as a Rock Fighting Championships
+WCK Muay Thai,tier4,0.35,true,1,WCK Muay Thai - Team WCK vs. Team Wu Lin Feng
+Sparta Combat League,tier4,0.35,true,1,Sparta Combat League - SCL: Sparta 95
+Valor Fights x Conflict MMA,tier4,0.35,true,1,Valor Fights x Conflict MMA - Worlds Collide
+Lanzarote Arena,tier4,0.35,true,1,Lanzarote Arena 2 - Mixed Martial Arts
+Jet Global Fitness Center,tier4,0.35,true,1,Jet Global Fitness Center - Jet Challenge
+GWF,tier4,0.35,true,1,GWF 2 - Gladiator World Fight
+BOC (PL),tier4,0.35,true,1,BOC (PL) - Battle of Champions
+FC,tier4,0.35,true,1,FC - Battle of Warsaw
+Xtreme Combat Promotions,tier4,0.35,true,1,Xtreme Combat Promotions - Burlington Beatdown
+BOMAC,tier4,0.35,true,1,BOMAC - Bahamas Open Martial Arts Championship 2
+Golden Fights,tier4,0.35,true,1,Golden Fights - Cage Wars 33
+OFP,tier4,0.35,true,1,OFP - Warrior Games 17
+CCP,tier4,0.35,true,1,CCP - Complete Cage Promotions
+Great Lakes Combat Association,tier4,0.35,true,1,Great Lakes Combat Association - The Battle At Bad River
+Alfenas Balada Fight,tier4,0.35,true,1,Alfenas Balada Fight 1 - Almeida vs. Viana
+Dollar D Promotions,tier4,0.35,true,1,Dollar D Promotions - Rattler Rumble
+Golden Lotus Productions,tier4,0.35,true,1,Golden Lotus Productions - Fostoria Fight Night
+Fam Fight,tier4,0.35,true,1,Fam Fight - Fam Fight Night
+Interior Fight,tier4,0.35,true,1,Interior Fight - Fight For Your Destiny
+Pegada Magazine,tier4,0.35,true,1,Pegada Magazine - Desafio Revista Pegada
+Golden Boy Promotions,tier4,0.35,true,1,Golden Boy Promotions - Bally's Fight Night
+MSA,tier4,0.35,true,1,MSA 3 - Mixed Submission and Strike Arts 3
+Force FC,tier4,0.35,true,1,Force FC - Force Fighting Championship 1
+MMA International,tier4,0.35,true,1,MMA International 2018 - Reyno vs. Kakiuchi
+RXC,tier4,0.35,true,1,RXC 2 - Rivera Xtreme Challenge 2
+ITS,tier4,0.35,true,1,ITS - International Thai Stadium 2
+VOK,tier4,0.35,true,1,VOK 1 - Valley of Kings
+W4W,tier4,0.35,true,1,W4W - Warriors 4 Warriors 1
+ProFC / GM Fight,tier4,0.35,true,1,ProFC / GM Fight - Ukraine Cup 3
+BSCF,tier4,0.35,true,1,BSCF - Siberian Challenge 1
+Shooto Russia,tier3,0.55,false,1,Shooto Russia - Against The War
+UMMAP,tier4,0.35,true,1,UMMAP - Union MMA Pro
+Northwest League of Combat Sambo,tier4,0.35,true,1,Northwest League of Combat Sambo - Road to China 3
+Suvorov FC,tier4,0.35,true,1,Suvorov FC - Suvorov Fighting Championship
+Mushin Fighting,tier4,0.35,true,1,Mushin Fighting 3 - Open Golden Cup 3
+MAX FC,tier4,0.35,true,1,MAX FC - Max Monster 2
+Thailand Ring Wars,tier4,0.35,true,1,Thailand Ring Wars - TRW 3
+FCE,tier4,0.35,true,1,FCE - Collision
+Dead Serious MMA / XCC,tier4,0.35,true,1,Dead Serious MMA / XCC - Defiant
+DE,tier4,0.35,true,1,DE - Desert Extreme
+Tattoo Monkey Promotions / LHC Promotions,tier4,0.35,true,1,Tattoo Monkey Promotions / LHC Promotions - Bad Blood Fight Night 2
+Battle in the Cage,tier4,0.35,true,1,Battle in the Cage - Young Blood
+Global Fighting Promotions,tier4,0.35,true,1,Global Fighting Promotions - Dominant Knockout 1
+West Combat,tier4,0.35,true,1,West Combat 1 - Dos Santos vs. Lazart
+Fenix Combat Mixed,tier4,0.35,true,1,Fenix Combat Mixed - FC1 Combat MMA
+DOC,tier4,0.35,true,1,DOC 1 - Dynasty of Combat 1
+RMP,tier4,0.35,true,1,RMP - Ultimate Rage 1
+KSW Epic,tier3,0.55,false,1,KSW Epic - Khalidov vs. Adamek
+NCVT,tier4,0.35,true,1,NCVT - Natal Cage Vale Tudo
+BBVT,tier4,0.35,true,1,BBVT - Black Bull Vale Tudo
+Open Fighting Championship,tier4,0.35,true,1,Open Fighting Championship - MFP 254 x Open FC 52
+COH,tier4,0.35,true,1,COH 85 - Cage of Honor 85
+OTCMMA,tier4,0.35,true,1,OTCMMA - Vengence
+Eglin Air Force Base,tier4,0.35,true,1,Eglin Air Force Base - Strike Fight
+CGC,tier4,0.35,true,1,CGC 1 - Cage Gladiators Championship 1
+Fights Factory,tier4,0.35,true,1,Fights Factory - Sabori vs. Enriquez
+Galan Lord of the Cage,tier4,0.35,true,1,Galan Lord of the Cage - Lord of the Cage 1
+Super League MMA,tier4,0.35,true,1,Super League MMA 3 - Le Normand Is Back!
+The Golden Cage,tier4,0.35,true,1,The Golden Cage 3 - Damiani vs. Saccaro
+Praedator FC,tier4,0.35,true,1,Praedator FC 4 - Praedator Is Back!
+KGFF,tier4,0.35,true,1,KGFF - Kickboxing Gala Free-Fight
+PXFC,tier4,0.35,true,1,PXFC - Pro XFC 1
+Baja Cage Fighting,tier4,0.35,true,1,Baja Cage Fighting - Beach Fights
+AMA,tier4,0.35,true,1,AMA 5 - Altitude Martial Arts 5
+Argos MMA,tier4,0.35,true,1,Argos MMA - Argos MMA Fighting
+ANFC,tier4,0.35,true,1,ANFC 2 - Alianza National Full Contact 2
+AOS6,tier4,0.35,true,1,AOS6 - Art of Scrap 6: Stirn vs. MacDonald
+LCS,tier4,0.35,true,1,LCS 21 - Legion Combat Sports: Relentless
+GFF,tier4,0.35,true,1,GFF 7 - Gladiators Free Fight 7
+SUW,tier4,0.35,true,1,SUW - StandUpWar 4
+EOTT,tier4,0.35,true,1,EOTT - Eye of the Tiger
+BoW (KR),tier4,0.35,true,1,BoW (KR) - Battle of Warriors 2
+Soul FC,tier4,0.35,true,1,Soul FC 2 - The Next Battle
+SDC MMA,tier4,0.35,true,1,SDC MMA - Samurais do Cerrado
+AFF,tier4,0.35,true,1,AFF - Arena Fire Fight Championship 5
+NP Fight Night,tier4,0.35,true,1,NP Fight Night - Felicio vs. Frota
+Go Yang MMA,tier4,0.35,true,1,Go Yang MMA - Go Yang MMA
+MKC,tier4,0.35,true,1,MKC - Mortal Kombat Championship 1
+Warriors Combat -,tier4,0.35,true,1,Warriors Combat -
+Smash Fight,tier4,0.35,true,1,Smash Fight 3 - Rising Stars
+CM System,tier4,0.35,true,1,CM System - Challenger
+AGF,tier4,0.35,true,1,AGF - Arena Gold Fights 2
+Camp Lejeune,tier4,0.35,true,1,Camp Lejeune - For The Leathernecks 4
+Fabriq MMA,tier4,0.35,true,1,Fabriq MMA - Fabriq 2
+Backstreet Fights,tier4,0.35,true,1,Backstreet Fights 2 - Rematch
+Baltic Fights,tier4,0.35,true,1,Baltic Fights - Baltic Challenge 8
+Xtreme Warfare,tier4,0.35,true,1,Xtreme Warfare - Inauguration
+IKombat / Ichigeki,tier4,0.35,true,1,IKombat / Ichigeki - Ichiban Kombat Championship
+Iquitos Combat Championship,tier4,0.35,true,1,Iquitos Combat Championship - ICC 6
+Fight or Nothing,tier4,0.35,true,1,Fight or Nothing - Road to Bellator
+Hells Angels Eternal City,tier4,0.35,true,1,Hells Angels Eternal City - 2nd Bikes and Fights Night
+Storm,tier4,0.35,true,1,Storm 9 - Pennese vs. Sircu
+Deathroll MMA,tier4,0.35,true,1,Deathroll MMA - There's Gonna Be A Fight Tonight 2
+Punisher Promotions,tier4,0.35,true,1,Punisher Promotions - Victory One Championships
+Aftershock,tier4,0.35,true,1,Aftershock 26 - Girdham vs. Moses
+T2T,tier4,0.35,true,1,T2T - Toe 2 Toe Fights 2
+Coliseum To The Cage,tier4,0.35,true,1,Coliseum To The Cage - Ruckus
+Cherokee Street,tier4,0.35,true,1,Cherokee Street - United MMA Bash
+IFP,tier4,0.35,true,1,IFP - Immortals Fight Promotions 1
+FI,tier4,0.35,true,1,FI - Fight Impact
+The Conqueror Fight,tier4,0.35,true,1,The Conqueror Fight - The Conqueror 2
+The Lion Fight Series,tier4,0.35,true,1,The Lion Fight Series - TFS 2: KLB vs. Lucas
+Wocs,tier4,0.35,true,1,Wocs 55 -  Watch Out Combat Show 55
+Serbia,tier4,0.35,true,1,Serbia - Australia
+Ultimate Promotions,tier4,0.35,true,1,Ultimate Promotions - Total Termination
+Cage Warriors,tier3,0.55,false,1,Cage Warriors - Unplugged 2
+Strength & Honour,tier4,0.35,true,1,Strength & Honour - Contenders 1
+TVT,tier4,0.35,true,1,TVT - Tribus de Vale Tudo
+FEMMAESP,tier4,0.35,true,1,FEMMAESP - Cup 1
+Stigado,tier4,0.35,true,1,Stigado - Pro Fight 2010
+Gorilla Warfare,tier4,0.35,true,1,Gorilla Warfare 3 - Confrontation
+TFB,tier4,0.35,true,1,TFB - Top Fight Brasil
+FBMMA,tier4,0.35,true,1,FBMMA 1 - Colorado vs. New Mexico
+EC / Conflict MMA,tier4,0.35,true,1,EC / Conflict MMA - Extreme Challenge 211
+LAFL,tier4,0.35,true,1,LAFL - Fight Champions Cup
+Muso Shinden Ryu,tier4,0.35,true,1,Muso Shinden Ryu - Warriors Challenge
+Fite Nite,tier4,0.35,true,1,Fite Nite - Noche de Peleas
+JMAE,tier4,0.35,true,1,JMAE - Japan Martial Arts Expo Prologue
+ABC,tier4,0.35,true,1,ABC - Fight Festival 1
+Nemesis MMA,tier4,0.35,true,1,Nemesis MMA - MMA Wars: New Blood
+SEF,tier4,0.35,true,1,SEF 6 - Sobral Extreme Fight 6
+CFK,tier4,0.35,true,1,CFK - Cage Fighting Komarno 1
+Xtreme Gladiator Challenge,tier4,0.35,true,1,Xtreme Gladiator Challenge - St. Patty's Day Beatdown
+WNC,tier4,0.35,true,1,WNC 3 - Warriors Night Championship 3
+Warriors Night MMA,tier4,0.35,true,1,Warriors Night MMA - Warriors Night MMA 1
+MCM,tier4,0.35,true,1,MCM - Mega Combate Mossoro
+CNVTO,tier4,0.35,true,1,CNVTO - Currais Novos Vale Tudo Open
+SOMMA,tier4,0.35,true,1,SOMMA 2 - Duarte vs. Burnell
+Octagon Athletes,tier4,0.35,true,1,Octagon Athletes - Octagon Athletes 2
+Club Maya,tier4,0.35,true,1,Club Maya - Briones vs. Velasco
+Explosion MMA,tier4,0.35,true,1,Explosion MMA 5 - Lopez vs. Ribeiro
+UFG,tier4,0.35,true,1,UFG - Ultimate Fighting Greece 1
+Complete Cage Promotions,tier4,0.35,true,1,Complete Cage Promotions - MMA Fight Night in Danbury
+Head to Head,tier4,0.35,true,1,Head to Head - The Big Guns
+SWFC,tier4,0.35,true,1,SWFC - South West Fighting Championships 1
+Bristol Fight Club,tier4,0.35,true,1,Bristol Fight Club - Fight Night
+Star Elite Cage Fighting,tier4,0.35,true,1,Star Elite Cage Fighting - The Comeback
+X-1 /,tier4,0.35,true,1,X-1 / 808 Battleground - Domination
+Roundhouse MMA,tier4,0.35,true,1,Roundhouse MMA - The Beginning
+NZFC,tier4,0.35,true,1,NZFC 1 - A New Beginning
+SMMAF,tier4,0.35,true,1,SMMAF - Songkran MMA Festival
+Inferno,tier4,0.35,true,1,Inferno - MMA
+Xtreme Promotions,tier4,0.35,true,1,Xtreme Promotions - Throwdown in Jamestown 2
+SV,tier4,0.35,true,1,SV - Superfight Vitoria
+UGB MMA Championship,tier4,0.35,true,1,UGB MMA Championship - Predator Fight Series 14
+UGB,tier4,0.35,true,1,UGB 39 - NCR
+Top Fighter,tier4,0.35,true,1,Top Fighter - Santa Cruz
+CITR,tier4,0.35,true,1,CITR - The New Generation
+CMF,tier4,0.35,true,1,CMF - Ground & Pound
+Supreme Fighting Championship,tier4,0.35,true,1,Supreme Fighting Championship 1 - Balkan Fighter Night
+WITW,tier4,0.35,true,1,WITW - War in the West 2
+6RAR,tier4,0.35,true,1,6RAR - Fight for the Troops
+RRMC,tier4,0.35,true,1,RRMC  - RadRok MMA Championship
+Bytomska,tier4,0.35,true,1,Bytomska - Gala MMA 2
+World Best Gladiator,tier4,0.35,true,1,World Best Gladiator 1 - WBG 202-Pound MMA Grand Prix
+KMF,tier4,0.35,true,1,KMF - King Master Fighters
+Choc Dojo,tier4,0.35,true,1,Choc Dojo - MMA
+Bazara,tier4,0.35,true,1,Bazara 0 Fight Club 3 - Kuzoma vs. Bukovskis
+SPF / PFC,tier4,0.35,true,1,SPF / PFC -  Pit Bull Fight Championship 59
+Redencao Fight,tier4,0.35,true,1,Redencao Fight - Redencao Fight 01 -Trator Vs Guinu
+Brutality MMA,tier4,0.35,true,1,Brutality MMA - Fight Championship
+TMMA,tier4,0.35,true,1,TMMA - Territory MMA
+Team Nogueira Para,tier4,0.35,true,1,Team Nogueira Para - Team Nogueira MMA Circuit
+XCWFC,tier4,0.35,true,1,XCWFC - Extreme Cage Warz
+Copa Norte de MMA,tier4,0.35,true,1,Copa Norte de MMA - Copa Norte de MMA 2021
+RK,tier4,0.35,true,1,RK - Roraima Kombat
+AUF,tier4,0.35,true,1,AUF - Amazon Ultimate Fight
+MMA Novi Sad,tier4,0.35,true,1,MMA Novi Sad - Open 2014
+IFT,tier4,0.35,true,1,IFT 2 - International Fighting Tournament 2
+Combate Americas: Stockton,tier4,0.35,true,1,Combate Americas: Stockton - Sanchez vs. Velasco
+GS,tier4,0.35,true,1,GS - Gladiators Series
+Rings Ireland,tier4,0.35,true,1,Rings Ireland - Reborn
+Adrenalin Fight Nights,tier4,0.35,true,1,Adrenalin Fight Nights - Adrenalin Blast
+TEF,tier4,0.35,true,1,TEF - Total Extreme Fighting 1
+VAC,tier4,0.35,true,1,VAC - Victory and Glory
+Fight on the East,tier4,0.35,true,1,Fight on the East - Poland vs. Ukraine
+SportFighting,tier4,0.35,true,1,SportFighting 4 - Battle for the Belts
+Ambition Promotions,tier4,0.35,true,1,Ambition Promotions - The Crucible
+NOTG,tier4,0.35,true,1,NOTG 4 - Night of the Gladiators 4
+Double R,tier4,0.35,true,1,Double R - 3rd Stage
+RMBB & PCF,tier4,0.35,true,1,RMBB & PCF 1 - HellRazor
+TOS,tier4,0.35,true,1,TOS - Tap or Snap
+X-Fight FC,tier4,0.35,true,1,X-Fight FC - X-Fight 1
+G,tier4,0.35,true,1,G - Gladiators 2
+MFU,tier4,0.35,true,1,MFU - Mix Fight Ufa
+JE,tier4,0.35,true,1,JE - Holland vs. Russia
+BAMMA Fight Night,tier4,0.35,true,1,BAMMA Fight Night - Askham vs. Nunes
+Fight-Pro UK,tier4,0.35,true,1,Fight-Pro UK - Barnsley Fight Night 3
+PPF,tier4,0.35,true,1,PPF - Piaui Pro Fighter 04
+Hawk FC,tier4,0.35,true,1,Hawk FC - Hawk Fight Championship 1
+NMFVT,tier4,0.35,true,1,NMFVT - Nordeste Mega Fight Vale Tudo 2
+XFC Africa,tier4,0.35,true,1,XFC Africa - Fight Club
+Ringside Ticket,tier4,0.35,true,1,Ringside Ticket - Caged Conflict
+ZF,tier4,0.35,true,1,ZF - Zhonglong Fight
+Ragnarok,tier4,0.35,true,1,Ragnarok 13 - Caicai vs. El Paisa
+Conquest FC,tier4,0.35,true,1,Conquest FC - Conquest Fight 2
+FFR,tier4,0.35,true,1,FFR 1 - Fight for Respect 1
+HD Boxing,tier4,0.35,true,1,HD Boxing - Rampage at Remington
+FFABY,tier4,0.35,true,1,FFABY - Fighting for a Better Youth
+WN,tier4,0.35,true,1,WN - Warrior Night 3
+Empire MMA,tier4,0.35,true,1,Empire MMA 1 - Colombia vs. The World
+NBF,tier4,0.35,true,1,NBF - New Breed Fighters 28
+Pro Cagefighting,tier4,0.35,true,1,Pro Cagefighting 1 - Gladiators
+F4P Championship,tier4,0.35,true,1,F4P Championship - Fight4Pride Championship 3
+FWR,tier4,0.35,true,1,FWR - Fights With Rules 2
+Art of War Productions,tier4,0.35,true,1,Art of War Productions - Yakuza Moon
+Revolta,tier4,0.35,true,1,Revolta 3 - WAITW Fight Night
+Coliseum FC,tier4,0.35,true,1,Coliseum FC - New History 3
+Shaolin Ryu,tier4,0.35,true,1,Shaolin Ryu - Fight Club Den Haag 2013
+Mielno Gala,tier4,0.35,true,1,Mielno Gala - Noc Wojownikow
+CBS,tier4,0.35,true,1,CBS 2 - Chojnicki Boxing Show 2
+Jackson Wink MMA,tier4,0.35,true,1,Jackson Wink MMA - JW Fight Night 6
+Kingdom Fighting,tier4,0.35,true,1,Kingdom Fighting - Kingdom 1: Silva vs. El Ouassaidi
+Purgatory FS,tier4,0.35,true,1,Purgatory FS 10 - Purgatory Fight Series 10
+GCA,tier4,0.35,true,1,GCA - Gladiator Combat Arena
+SMTF,tier4,0.35,true,1,SMTF - Segundo Muay Thai Festival
+Awada Combat Club,tier4,0.35,true,1,Awada Combat Club - ERA Fight Night
+Red Canvas,tier4,0.35,true,1,Red Canvas - Art of Submission 2
+Valhalla FC,tier4,0.35,true,1,Valhalla FC - Valhalla Fighting Championships
+Paraguay Fighting Championship,tier4,0.35,true,1,Paraguay Fighting Championship 4 - International
+IFAVIS,tier4,0.35,true,1,IFAVIS - Crimea Rush: Piraev vs. Alers
+RCWC,tier4,0.35,true,1,RCWC - Throwdown Showdown 11
+Noche de Gloria,tier4,0.35,true,1,Noche de Gloria - Night of Glory 2013
+CO,tier4,0.35,true,1,CO - Muay Thai & Vale Tudo
+LA Entertainment,tier4,0.35,true,1,LA Entertainment - Airlie Fight Night 2
+Manowar,tier4,0.35,true,1,Manowar - MMA Combat Series
+ASB,tier4,0.35,true,1,ASB - All Star Boxing
+RRF,tier4,0.35,true,1,RRF - Rio Recreio Fighting
+AK,tier4,0.35,true,1,AK - Amazon Kombat 1.0
+FLA,tier4,0.35,true,1,FLA 15 - Fight League Atlantic
+Friday Night Fights,tier4,0.35,true,1,Friday Night Fights - Backlash
+K.O. Kings,tier4,0.35,true,1,K.O. Kings - King of the Ring 3
+SDB,tier4,0.35,true,1,SDB - Soco de Boss
+Martial Entertainment,tier4,0.35,true,1,Martial Entertainment - Fight Night Champions 5: Escudero vs. Smith Jr.
+OB-Gula,tier4,0.35,true,1,OB-Gula - Fight Night
+Bilic-Eric Security,tier4,0.35,true,1,Bilic-Eric Security - Fight Night
+Salford Fight Factory,tier4,0.35,true,1,Salford Fight Factory - Fight Ikon 10
+HMMA,tier4,0.35,true,1,HMMA - Headhunters MMA 2
+Supremacia Fight,tier4,0.35,true,1,Supremacia Fight - Duelo de Titas
+OctoFight,tier4,0.35,true,1,OctoFight 4 - Duelo de Titas
+URCC Cebu,tier4,0.35,true,1,URCC Cebu 4 - Proving Ground
+Sambo Combat Championship,tier4,0.35,true,1,Sambo Combat Championship 1 -
+Dragon Fight Sao Paulo,tier4,0.35,true,1,Dragon Fight Sao Paulo - Dragon Fight
+VVFC,tier4,0.35,true,1,VVFC - Vila Velha Fight Combat
+FOB,tier4,0.35,true,1,FOB - Frontier Open Battle 6
+Pretorian,tier4,0.35,true,1,Pretorian - Pretorian Hard Sports Grand Opening
+Blaze FC,tier4,0.35,true,1,Blaze FC - Beginning
+AOWCF,tier4,0.35,true,1,AOWCF - Art of War Cage Fights
+WFT,tier4,0.35,true,1,WFT 7 - World Fight Tour 7: Road to Bellator
+XCage FC,tier4,0.35,true,1,XCage FC - MMA Fight Night
+ATK,tier4,0.35,true,1,ATK 1 - Amazon Tribal Kombat 1
+MMF,tier4,0.35,true,1,MMF - Manaus Moderna Fight
+Barrera Promotions,tier4,0.35,true,1,Barrera Promotions - Fightfest
+DWT,tier4,0.35,true,1,DWT 4 - Dogfight Wild Tournament 4: Tokyo Blood
+F4L,tier4,0.35,true,1,F4L 1 - Fight 4 Life
+HMF,tier4,0.35,true,1,HMF - Hummer Man Fight
+MMAV,tier4,0.35,true,1,MMAV - MMA Vitoria 1
+CFX / Crowbar MMA,tier4,0.35,true,1,CFX / Crowbar MMA - Winter Brawl
+WMF,tier4,0.35,true,1,WMF - Wolfman Fighting
+EIE,tier4,0.35,true,1,EIE - Extreme International Evolution
+Club Tequilas,tier4,0.35,true,1,Club Tequilas - Fight Night
+Fight Night,tier4,0.35,true,1,Fight Night 2 - Montgomery vs. Carroll
+Pure Adrenaline Events,tier4,0.35,true,1,Pure Adrenaline Events - Domination 13
+Ringside & Shamrock,tier4,0.35,true,1,Ringside & Shamrock - Heavyweight Eliminator
+5SB,tier4,0.35,true,1,5SB - Dust Up '09
+ETK,tier4,0.35,true,1,ETK - Nemesis 2
+Battle Collossal,tier4,0.35,true,1,Battle Collossal 1 - Kennedy vs. Van Der Merwe
+Boxing Night,tier4,0.35,true,1,Boxing Night 14 - National Boxing Event
+Slava Republic,tier4,0.35,true,1,Slava Republic 1 - Bojano
+R1,tier4,0.35,true,1,R1 - Round 1
+Brothers Fight Champion,tier4,0.35,true,1,Brothers Fight Champion - Golden Edition
+CPC,tier4,0.35,true,1,CPC - Combat Power Championship
+MMMAC,tier4,0.35,true,1,MMMAC - Mariliense MMA Circuit 2
+Global Battle,tier4,0.35,true,1,Global Battle - Legion Rostov-on-Don vs. Perm
+OctoFight France,tier4,0.35,true,1,OctoFight France	 - Volume 4
+Octogone,tier4,0.35,true,1,Octogone - Octogone 1
+Shockwave Combat,tier4,0.35,true,1,Shockwave Combat - At the Party
+Strabane Fight Team,tier4,0.35,true,1,Strabane Fight Team - Fight Night 2
+MMA Fight Force,tier4,0.35,true,1,MMA Fight Force - The Final Chapter
+LTD,tier4,0.35,true,1,LTD - Rumble in Richmond
+WCSC,tier4,0.35,true,1,WCSC - The Awakening
+Grachan / Brave,tier4,0.35,true,1,Grachan / Brave - Grachan 59 / Brave Fight 27
+Rings Lithuania,tier4,0.35,true,1,Rings Lithuania - Bushido Rings 7: Adrenalinas
+WNXFA,tier4,0.35,true,1,WNXFA - Warrior Nation XFA 4
+Fight Kings,tier4,0.35,true,1,Fight Kings 7 - No Mercy
+Hugs Combat,tier4,0.35,true,1,Hugs Combat 2 - Fight Night
+Fight Show,tier4,0.35,true,1,Fight Show - MMA 1
+MCP,tier4,0.35,true,1,MCP 7 - Christodoulou vs Tahtampas
+Xplosion,tier4,0.35,true,1,Xplosion - Xplosion Corfu
+HOMA,tier4,0.35,true,1,HOMA - Clash of the Titans
+ADFN,tier4,0.35,true,1,ADFN 3 - After Dark Fight Night 3
+A,tier4,0.35,true,1,A - ArMMAgeddon 1
+Strefa Walk,tier4,0.35,true,1,Strefa Walk - Krysztofiak vs. Bandel
+K.O. Fight,tier4,0.35,true,1,K.O. Fight  - GZero
+AMMA FC,tier4,0.35,true,1,AMMA FC - Amateur MMA Fighting Championships 2
+NNB,tier4,0.35,true,1,NNB - Ring of Honor 3
+Time for Action,tier4,0.35,true,1,Time for Action - Team Super Pro 10th Anniversary
+IR,tier4,0.35,true,1,IR - Iron Ring
+CTR,tier4,0.35,true,1,CTR - Coliseu Tres Rios
+SAF Combat,tier4,0.35,true,1,SAF Combat - South America Fighters Combat 1: Marajo vs. Borges
+Champions Fight Combat,tier4,0.35,true,1,Champions Fight Combat 14 - CFC Fight Night
+World Kombat Challenge,tier4,0.35,true,1,World Kombat Challenge 48  - WKC Apu Thai 2
+HB,tier4,0.35,true,1,HB - Hiro Belem
+KOW,tier4,0.35,true,1,KOW - Knights of War
+LGIOP,tier4,0.35,true,1,LGIOP - Van Diemen's Caged Mayhem
+BEFC,tier4,0.35,true,1,BEFC 2 - Big Easy Fighting 2
+Extreme IT Challenge,tier4,0.35,true,1,Extreme IT Challenge - Extreme IT Challenge
+TNX,tier4,0.35,true,1,TNX 226 - Tough N Xtreme
+One vs. One,tier2_5,0.68,false,1,One vs. One - Nicaragua vs. Centroamerica
+Pinolero Mortal Kombat,tier4,0.35,true,1,Pinolero Mortal Kombat 2 - Por el Orgullo Pinolero
+Omega MMA / WSOF Central America,tier4,0.35,true,1,Omega MMA / WSOF Central America - La Revancha
+Fatality Arena vs. Gringo Super Fight,tier4,0.35,true,1,Fatality Arena vs. Gringo Super Fight - Negao vs. Merenda
+CTOF,tier4,0.35,true,1,CTOF - Cage Tech Open Fight 1
+LBLA,tier4,0.35,true,1,LBLA - Liga Brasileira de Lutas Associadas
+TICFT,tier4,0.35,true,1,TICFT - Tai'an International Cage Fighting Tounament
+Coeur d'Alene Casino,tier4,0.35,true,1,Coeur d'Alene Casino - Fight Night
+All Styles Grappling,tier4,0.35,true,1,All Styles Grappling - MMA Fight Night 3
+TPW,tier4,0.35,true,1,TPW 2 - Tribal Punishment Warrior 2
+FightForce Promotions,tier4,0.35,true,1,FightForce Promotions - Chelsea Under Fire 15
+BattlArts,tier4,0.35,true,1,BattlArts - BattlArts vs. the World
+Eminent Domain Productions,tier4,0.35,true,1,Eminent Domain Productions - Vindication
+MASS,tier4,0.35,true,1,MASS - Inauguration
+NWFA,tier4,0.35,true,1,NWFA 1 - Retribution
+WFF MX,tier4,0.35,true,1,WFF MX - World Fighting Federation Mexico
+RFC Way of the Dragon,tier4,0.35,true,1,RFC Way of the Dragon 2 - Taiwan Pro Combat Championship
+JM,tier4,0.35,true,1,JM 2 - Jungle Madness 2
+Twilight Fight Night,tier4,0.35,true,1,Twilight Fight Night - Numero Uno
+TGK,tier4,0.35,true,1,TGK - The Gladiator King
+War Fighting Championship,tier4,0.35,true,1,War Fighting Championship - Fight Night 1
+VTT,tier4,0.35,true,1,VTT - Vale Todo Tartagal
+VTE,tier4,0.35,true,1,VTE - Vale Todo Xtreme
+XCP / ABG Promotions,tier4,0.35,true,1,XCP / ABG Promotions - Rocks Extreme MMA 2
+Eye Win,tier4,0.35,true,1,Eye Win - Devastation
+Extreme Kombat MMA,tier4,0.35,true,1,Extreme Kombat MMA -  Extreme Kombat 7
+BPTC,tier4,0.35,true,1,BPTC - K-1 Super Kombat 2
+No Boundary,tier4,0.35,true,1,No Boundary - The Awakening
+DOTC,tier4,0.35,true,1,DOTC - Day of the Champions
+Red Dragon Promotions,tier4,0.35,true,1,Red Dragon Promotions - Enter the Septagon
+Punch Promotions,tier4,0.35,true,1,Punch Promotions - Midwest Massacre
+X-1 and Destiny,tier4,0.35,true,1,X-1 and Destiny - Crossfire
+Gods of War,tier4,0.35,true,1,Gods of War - Gods of War
+BSP,tier4,0.35,true,1,BSP - Britto System Promotions
+WFH,tier4,0.35,true,1,WFH - Warriors for Heroes
+Union Of Veterans,tier4,0.35,true,1,Union Of Veterans - Cup Of Friendship 2018
+EFB,tier4,0.35,true,1,EFB - Extreme Fight Brasilia
+BFFC / Kunlun Fight,tier4,0.35,true,1,BFFC / Kunlun Fight - Bullet Fly Fighting Championship 14
+Wenwu Cup,tier4,0.35,true,1,Wenwu Cup - Combat China
+Inferno Promotions,tier4,0.35,true,1,Inferno Promotions - Meltdown
+Apocalypse Fights,tier4,0.35,true,1,Apocalypse Fights 4 - War
+ECL,tier4,0.35,true,1,ECL - Brawl For A Cause
+DDC,tier4,0.35,true,1,DDC - Defi des Champions
+Twins MMA,tier4,0.35,true,1,Twins MMA 10 - Dipchikov vs. Mitchell
+FFMMA,tier4,0.35,true,1,FFMMA - Fight First MMA
+Pride and Glory,historical,0.68,false,1,Pride and Glory - Drop Zone 4
+AA,tier4,0.35,true,1,AA - Game Over
+OCFN,tier4,0.35,true,1,OCFN - Honoring America's Warriors 2016
+IGC,tier4,0.35,true,1,IGC - International Gladiator Championships
+EFP,tier4,0.35,true,1,EFP - Extreme Fight Production
+ISKA,tier4,0.35,true,1,ISKA - Armageddon
+AOS5,tier4,0.35,true,1,AOS5 - Art of Scrap 5: Lapsley vs. Huckbody
+Iron Fight,tier4,0.35,true,1,Iron Fight 1 - Iron Fight Championship 1
+DPP,tier4,0.35,true,1,DPP - September to Remember
+Big Dog Promotions,tier4,0.35,true,1,Big Dog Promotions - Bricktown Brawl 6
+Costa Rica Fights,tier4,0.35,true,1,Costa Rica Fights - MMA Costa Rica
+SEAFC,tier4,0.35,true,1,SEAFC - South East Asia Fighting Championship: Empire
+Ring FC,tier4,0.35,true,1,Ring FC 2 - Ring Fighting Championship 2
+Chakuriki,tier4,0.35,true,1,Chakuriki 6 - Branko Cikatic Memorial
+GFG,tier4,0.35,true,1,GFG 1 - Global Fightingsports Game 1
+Battle for the Border,tier4,0.35,true,1,Battle for the Border 3 - Nations Collide
+Rumble on the Ridge,tier4,0.35,true,1,Rumble on the Ridge 6 - Regeneration
+Caged Rage,tier4,0.35,true,1,Caged Rage 2 - Armageddon
+Cage Life,tier4,0.35,true,1,Cage Life - Ultimate Freedom Throwdown
+BFV,tier4,0.35,true,1,BFV - Battle of Fort Vancouver
+F21,tier4,0.35,true,1,F21 2 - Fight 2 One 2
+Limo Fight,tier4,0.35,true,1,Limo Fight 16 - LFC Morada Nova
+JFN,tier4,0.35,true,1,JFN - Jaguaretama Fight Night
+Nocaute Fight,tier4,0.35,true,1,Nocaute Fight - MMA Edition 1
+ODMMMA,tier4,0.35,true,1,ODMMMA - Open Dragao do Mar de MMA 1
+MAD,tier4,0.35,true,1,MAD - Martial Arts Day
+Battle Events,tier4,0.35,true,1,Battle Events - Amersfoort
+L2F,tier4,0.35,true,1,L2F - Live 2 Fight
+Ultimate Takedown,tier4,0.35,true,1,Ultimate Takedown 2 - Brazil vs. Belgium
+OG2F,tier4,0.35,true,1,OG2F - One Gate 2 Far
+Hoyer's Productions,tier4,0.35,true,1,Hoyer's Productions - Battle of the South 7
+X-plosion Super Fight,tier4,0.35,true,1,X-plosion Super Fight 2004 - Oceania vs. The World
+APF,tier4,0.35,true,1,APF - Azerbaijan vs. Europe
+The Victorium,tier4,0.35,true,1,The Victorium - Episode 3
+TAA,tier4,0.35,true,1,TAA - The Arena Assault
+Inkosi Promotions,tier4,0.35,true,1,Inkosi Promotions - It's Time
+Black Fear,tier4,0.35,true,1,Black Fear - Fight Night
+TGM,tier4,0.35,true,1,TGM - Lords of the Ring
+SLV,tier4,0.35,true,1,SLV - Thaibox Gala Night
+BBFC,tier4,0.35,true,1,BBFC - Bad Boy Fight Challenge 1
+JFS,tier4,0.35,true,1,JFS 2 - Jaragua Fight Samurai 2
+NOTD,tier4,0.35,true,1,NOTD - Night of the Diamonds
+PXF,tier4,0.35,true,1,PXF - Premier X-treme Fighting
+NOP,tier4,0.35,true,1,NOP - Night of Pain 2nd
+SIS,tier4,0.35,true,1,SIS - Winter Warriors
+King's Arena,tier4,0.35,true,1,King's Arena - King's Arena 2
+Fight On,tier4,0.35,true,1,Fight On 8 - Fight On 8
+Kakidamisi,tier4,0.35,true,1,Kakidamisi 1 - Samurai Challenge
+Guy Promotions,tier4,0.35,true,1,Guy Promotions - Knockouts and Tapouts 1
+Fighting Venkon / Legio's Team Bergamo,tier4,0.35,true,1,Fighting Venkon / Legio's Team Bergamo - Venkon Fight Night 2
+Fusion Fight Night Series,tier4,0.35,true,1,Fusion Fight Night Series 1 - Vemola vs. Marcina
+Richmond Rumble MMA,tier4,0.35,true,1,Richmond Rumble MMA - Richmond Rumble
+SMT,tier4,0.35,true,1,SMT - Shivirli Mixfight Tournament
+PitC,tier4,0.35,true,1,PitC - Pancration in the Cage
+Palace Fighting Championship,tier4,0.35,true,1,Palace Fighting Championship - Bias vs. Blood
+EFM Show,tier4,0.35,true,1,EFM Show 2 - Materla vs. Rimbon
+GCE,tier4,0.35,true,1,GCE - Grand Combat Entertainment
+EKH,tier4,0.35,true,1,EKH - MMA Action
+STG,tier4,0.35,true,1,STG - Submit to Glory
+ICE Fighter,tier4,0.35,true,1,ICE Fighter - ICE Fighter
+Costa Rica,tier4,0.35,true,1,Costa Rica - Fights 3
+Cagemania,tier4,0.35,true,1,Cagemania - Carnage on the Costa
+The One,tier4,0.35,true,1,The One - VIP Fighting
+Falcon MMA,tier4,0.35,true,1,Falcon MMA 2 - Ceiro vs. Nunes
+No Limits,tier4,0.35,true,1,No Limits - Proving Ground
+Shakedown,tier4,0.35,true,1,Shakedown - Maui vs. Oahu
+Fighters Nation,tier4,0.35,true,1,Fighters Nation - Urban Conflict
+Fist Fight Combat,tier4,0.35,true,1,Fist Fight Combat - King of Ring MMA 2
+FC UK,tier4,0.35,true,1,FC UK 1 - Fight Club UK 1
+AS,tier4,0.35,true,1,AS - Aspen Slammer
+Durham Fight Series,tier4,0.35,true,1,Durham Fight Series - Rise of the Phoenix
+Let's Get It On,tier4,0.35,true,1,Let's Get It On - Rural Rumble 3
+LGIO,tier4,0.35,true,1,LGIO - Let's Get It On
+Indiana Xtreme Fighting,tier4,0.35,true,1,Indiana Xtreme Fighting 1 - Wildcard
+St. Paddy's Day,tier4,0.35,true,1,St. Paddy's Day - Smackdown 2
+TPIFC,tier4,0.35,true,1,TPIFC 11 - TPI Fighting Championship 11
+Ren TV Fight Club,tier4,0.35,true,1,Ren TV Fight Club - Super Series: Oleynik vs. Thompson
+CSMMA,tier4,0.35,true,1,CSMMA - Ultimate Conflict 3
+SOS,tier4,0.35,true,1,SOS - Showcase of Strength
+PS,tier4,0.35,true,1,PS - Premier Sports
+Bushi,tier4,0.35,true,1,Bushi 3 - Fight for a Cure
+LFFC,tier4,0.35,true,1,LFFC - La Familia Fight Night 4
+Rockford Cage Fights,tier4,0.35,true,1,Rockford Cage Fights - Stateline Warriors 51
+Championship Fighting Alliance,tier4,0.35,true,1,Championship Fighting Alliance - The Title
+Gladiador,tier4,0.35,true,1,Gladiador - Gladiador 5
+Cage Fight,tier4,0.35,true,1,Cage Fight - MMA 2
+Proud Warriors Productions,tier4,0.35,true,1,Proud Warriors Productions - Into The Future
+Empire FC,tier4,0.35,true,1,Empire FC - A Night of Reckoning 2
+CA,tier4,0.35,true,1,CA - Battlegrounds
+Cage Assault,tier4,0.35,true,1,Cage Assault - On Edge
+Kingdom MMA,tier4,0.35,true,1,Kingdom MMA - Miller vs. Hose
+NLO,tier4,0.35,true,1,NLO - Northern Lights Out
+International Alliance of MMA,tier4,0.35,true,1,International Alliance of MMA - Brawl at the Bowl
+Glory Fighting Championships,tier4,0.35,true,1,Glory Fighting Championships - Maximum Glory
+EODV,tier4,0.35,true,1,EODV  - El Orgullo del Valle
+JJL Promotions,tier4,0.35,true,1,JJL Promotions - Sudden Impact 1
+SBP,tier4,0.35,true,1,SBP - Boxing at the Beach
+Champion Xtreme Combat,tier4,0.35,true,1,Champion Xtreme Combat - Cage Certified
+Southeastern Fighting Champions,tier4,0.35,true,1,Southeastern Fighting Champions - Quest of the Best
+TIM,tier4,0.35,true,1,TIM - Throwdown in Mo-Town
+Champions Quest,tier4,0.35,true,1,Champions Quest - Fighting Challenge
+Champion Fight Promotions,tier4,0.35,true,1,Champion Fight Promotions - Savannah Fights
+AEFN,tier4,0.35,true,1,AEFN - Augusta Extreme Fight Night
+Pure Force V,tier4,0.35,true,1,Pure Force V - Vendetta
+Evolution,tier4,0.35,true,1,Evolution 2  - Evolution 2
+COTK,tier4,0.35,true,1,COTK - Clash of the Kings
+DTP,tier4,0.35,true,1,DTP - Disturbing the Peace
+EITC,tier4,0.35,true,1,EITC 2 - Evening in the Cage 2
+RAW,tier4,0.35,true,1,RAW 2 - Meltdown
+WIW,tier4,0.35,true,1,WIW - War in Workington 1
+LOW,tier4,0.35,true,1,LOW - Lords of War 1
+GMAP,tier4,0.35,true,1,GMAP - GMAP
+BRFS,tier4,0.35,true,1,BRFS 1 - Budo Reality Fight Series 1
+PCFN,tier4,0.35,true,1,PCFN - Pheasant City Fight Night 7
+XXX Extreme Fighting,tier4,0.35,true,1,XXX Extreme Fighting - Proving Ground
+WFN,tier4,0.35,true,1,WFN - Walsall Fight Night
+UD,tier4,0.35,true,1,UD 1 - Urban Destruction 1
+MMA Live,tier4,0.35,true,1,MMA Live 7 - MMA Live Championship 7
+Yamal Fighter Championship,tier4,0.35,true,1,Yamal Fighter Championship - Governor's Cup
+Shooto Kings,tier3,0.55,false,1,Shooto Kings 5 - Critical Mass
+The Glory,tier4,0.35,true,1,The Glory 2 - Saturday Night Fights
+Fatality,tier4,0.35,true,1,Fatality - Muay Thai and MMA
+FCFP,tier4,0.35,true,1,FCFP - Friday Night Fights
+MMAX FC,tier4,0.35,true,1,MMAX FC 9 - High Stakes 2
+XFI,tier4,0.35,true,1,XFI 14 - Xtreme Fighting Inc. 14
+WOTC,tier4,0.35,true,1,WOTC 1 - Warriors of the Cage 1
+Extreme Fighters MMA,tier4,0.35,true,1,Extreme Fighters MMA - Ready for War
+Mannheimer Hafenkeilerei,tier4,0.35,true,1,Mannheimer Hafenkeilerei - Mannheim Harbor Brawl 6
+PEC,tier4,0.35,true,1,PEC - Paranagua Extreme Combate
+Gym Alkmaar,tier4,0.35,true,1,Gym Alkmaar - Fight Gala
+UEF,tier4,0.35,true,1,UEF - Ultra Elite Fighters 5
+UCF,tier4,0.35,true,1,UCF - Night of Champions
+MM1,tier4,0.35,true,1,MM1 - Midevils Mayhem 1
+Ultimate Event Promotions,tier4,0.35,true,1,Ultimate Event Promotions - Vendetta
+Selva MMA,tier4,0.35,true,1,Selva MMA - ExpoAcre 2013
+Scrap Live,tier4,0.35,true,1,Scrap Live - Fight Night 7
+28,tier4,0.35,true,1,28 - Productions
+Supreme,tier4,0.35,true,1,Supreme - Fighting Challenge
+Vibe Fight,tier4,0.35,true,1,Vibe Fight 1 - Vibe Fight 1
+MMACL,tier4,0.35,true,1,MMACL - MMA Champions League
+TBMMA,tier4,0.35,true,1,TBMMA - The Best MMA 2
+JECVTO,tier4,0.35,true,1,JECVTO - Japan Extreme Challenge Vale Tudo Open
+Federation of MMA of Russia,tier4,0.35,true,1,Federation of MMA of Russia - Star Fight 15
+VMAU,tier4,0.35,true,1,VMAU - Headhunting
+Rumble at Raxx,tier4,0.35,true,1,Rumble at Raxx - Rumble at the Rodeo
+MMA Fight Series,tier4,0.35,true,1,MMA Fight Series - Alexander vs. Green
+Psychout MMA,tier4,0.35,true,1,Psychout MMA - Caged in the Coliseum
+South Georgia Fighting Championship,tier4,0.35,true,1,South Georgia Fighting Championship - Backwoods Brawl
+Kickass Productions,tier4,0.35,true,1,Kickass Productions - River City MMA Battle
+Bonecrunch Fighting,tier4,0.35,true,1,Bonecrunch Fighting - Tampa Terrors vs. Port St. Lucie Devils
+Ultra Pure Productions,tier4,0.35,true,1,Ultra Pure Productions - Graveyard Smash
+Cage Fighting Xtreme,tier4,0.35,true,1,Cage Fighting Xtreme - Gladiators
+NKFC,tier4,0.35,true,1,NKFC - Northern Kentucky FC
+Valor Fighting Championships,tier4,0.35,true,1,Valor Fighting Championships - San Manuel
+UFO Europe,tier4,0.35,true,1,UFO Europe - Free Fight Gala
+BST,tier4,0.35,true,1,"BST - Blood, Sweat and Tears"
+WLCF,tier4,0.35,true,1,WLCF - West Liberty Cage Fights
+RMT,tier4,0.35,true,1,RMT - Rings Muay Thai
+PCB MMA,tier4,0.35,true,1,PCB MMA - Brawl on the Beach
+Victory Promotions,tier4,0.35,true,1,Victory Promotions - Clementi vs. Rogers
+FOE,tier4,0.35,true,1,FOE - Fists of Explosions
+PVT,tier4,0.35,true,1,PVT 3 - Portugal Vale Tudo 3
+Sportfight X,tier4,0.35,true,1,Sportfight X - Middle Tennessee Mayhem
+RMS,tier4,0.35,true,1,RMS 2 - Rocky Mountain Slammer 2
+MEFC,tier4,0.35,true,1,MEFC 1 - Moore Extreme Fighting Challenge
+Vengeance Fighting Alliance,tier4,0.35,true,1,Vengeance Fighting Alliance - Round 4
+Sherman Cage Rage,tier4,0.35,true,1,Sherman Cage Rage - MMA 4
+Arena Fight Mossoro,tier4,0.35,true,1,Arena Fight Mossoro - Thomas vs. Puma
+Dragons Cage,tier4,0.35,true,1,Dragons Cage - Marion
+Eiko,tier4,0.35,true,1,Eiko - Eiko 7
+KMMA,tier4,0.35,true,1,KMMA - MMA & Muay Thai Grand Extreme
+SFFC,tier4,0.35,true,1,SFFC - Shoot Fighting FC
+UZI,tier4,0.35,true,1,UZI 1 - Cage Combat Evolution
+VTFC,tier4,0.35,true,1,VTFC - Vale Tudo FC
+FO,tier4,0.35,true,1,FO - French Open
+POI,tier4,0.35,true,1,POI - Point of Impact
+King Kaz Fight,tier4,0.35,true,1,King Kaz Fight - Fukuyama
+YVT,tier4,0.35,true,1,YVT - Ybor Vale Tudo
+EDP,tier4,0.35,true,1,EDP - Breaking Point
+MFG,tier4,0.35,true,1,MFG - Mix Fight Gala
+MMA Nemesis,tier4,0.35,true,1,MMA Nemesis  - Fight Night 1
+SAO,tier4,0.35,true,1,SAO - South American Open
+UIC MMA,tier4,0.35,true,1,UIC MMA - Wang vs. Rincon
+Extreme Shootout,tier4,0.35,true,1,Extreme Shootout - The Underground
+MMAFS,tier4,0.35,true,1,MMAFS - Champion vs. Champion
+P&P MMA,tier4,0.35,true,1,P&P MMA - Pride & Pain MMA
+Full Contact Promotions,tier4,0.35,true,1,Full Contact Promotions - Bakken Blizzard Brawl
+SDTC,tier4,0.35,true,1,SDTC 7 - SD Total Combat
+ECBO,tier4,0.35,true,1,ECBO - Extremo Combate Bahia Open
+HS,tier4,0.35,true,1,HS - Heat Sports 2
+TMT MMA,tier4,0.35,true,1,TMT MMA - Too Much Talent: Fight Night
+BDCT,tier4,0.35,true,1,BDCT 1 - Beat Down in Cow Town 1
+NOC,tier4,0.35,true,1,NOC - Night of Champions
+FNMMA,tier4,0.35,true,1,FNMMA - Fight Night MMA
+UGFC,tier4,0.35,true,1,UGFC - Bad Blood
+ISCF / Kevy Boy Productions,tier4,0.35,true,1,ISCF / Kevy Boy Productions - Fight 2 the Finish 2
+Tropicana D'Cache Club Fights -,tier4,0.35,true,1,Tropicana D'Cache Club Fights -
+Ring Warriors,tier4,0.35,true,1,Ring Warriors - Xtreme Fight Night
+Draka MMA,tier4,0.35,true,1,Draka MMA - Governor's Cup 19
+Jash-Kuch Fighting Championship,tier4,0.35,true,1,Jash-Kuch Fighting Championship - JFC 2015 Fight Night
+FEFoFP,tier4,0.35,true,1,FEFoFP - Mayor's Cup
+Eurasian Fighting Championship,tier4,0.35,true,1,Eurasian Fighting Championship - Altay Great Battle
+Fight Alliance Promotions,tier4,0.35,true,1,Fight Alliance Promotions - Gladiator Fighting 2
+IADF,tier4,0.35,true,1,IADF - International Association Diamond Fight
+SMA,tier4,0.35,true,1,SMA - Shootfighting Martial Arts
+P,tier4,0.35,true,1,P 4 P - Pound 4 Pound
+EFI,tier4,0.35,true,1,EFI - Battle in the Field
+Intimidation Cage Fighting,tier4,0.35,true,1,Intimidation Cage Fighting - Redemption
+Warrior MMA,tier4,0.35,true,1,Warrior MMA - Consequences
+Horsepower Promotions,tier4,0.35,true,1,Horsepower Promotions - Fists of Fury 10
+VTX,tier4,0.35,true,1,VTX - Vale Todo Xtremeo 1
+NIFN,tier4,0.35,true,1,NIFN - North Idaho Fight Night
+Nationals,tier4,0.35,true,1,Nationals - MMA Nationals 2002
+ICB,tier4,0.35,true,1,ICB - International Cage Brawl
+FVFN,tier4,0.35,true,1,FVFN - Fox Valley Fight Night
+MEC,tier4,0.35,true,1,MEC - Midwest Extreme Challenge
+ICS,tier4,0.35,true,1,ICS - Cage Rage
+FATF,tier4,0.35,true,1,FATF - Fast and the Furious
+RATR,tier4,0.35,true,1,RATR - Rumble at the Reservation
+Valhalla Cage Fighting,tier4,0.35,true,1,Valhalla Cage Fighting - Countdown to War
+RWR,tier4,0.35,true,1,RWR - Red Wing Rumble
+X-1 vs. Destiny MMA,tier4,0.35,true,1,X-1 vs. Destiny MMA - Showdown in Waipahu 3
+Dawghouse Promotions,tier4,0.35,true,1,Dawghouse Promotions - Dugout Summer Throwdown
+Unleashed Fight,tier4,0.35,true,1,Unleashed Fight 2 - Showdown in Cali
+Reality Combat,tier4,0.35,true,1,Reality Combat - The Return
+ECFA,tier4,0.35,true,1,ECFA - Colosseum
+TFKRG,tier4,0.35,true,1,TFKRG 5 - Total Fight KRG 5
+EFC Marica,tier4,0.35,true,1,EFC Marica 5 - Elite Fighting Championship 5
+Caged,tier4,0.35,true,1,Caged - Caged 2000
+SSP,tier4,0.35,true,1,SSP - Battle of the Rising Stars
+Premier Combat League,tier4,0.35,true,1,Premier Combat League - Bad Intentions
+TPA,tier4,0.35,true,1,TPA - Tom Proctor's Absolute
+BSF,tier4,0.35,true,1,BSF - Brazil Super Fight
+IVTCG,tier4,0.35,true,1,IVTCG - Internacional Vale Tudo Campo Grande
+BVTF,tier4,0.35,true,1,BVTF - Circuit of Fights
+PCNC,tier4,0.35,true,1,PCNC - Pankration Cup of North Caucasus
+MillenniumSports,tier4,0.35,true,1,MillenniumSports - Veni Vidi Vici
+Mach Dojo / Gladiator,tier4,0.35,true,1,Mach Dojo / Gladiator - Mach Matsuri
+Ismos,tier4,0.35,true,1,Ismos 1 - Kitaoka vs. Kogane
+UGP,tier4,0.35,true,1,UGP - Ultimate Ground and Pound
+Grabaka,tier4,0.35,true,1,Grabaka - Grabaka Live! 2
+LA EFN,tier4,0.35,true,1,LA EFN - Executive Fight Night
+EC Trials,tier4,0.35,true,1,EC Trials - 2000 US MMA National Championships
+BlueBlood MMA / QCFC,tier4,0.35,true,1,BlueBlood MMA / QCFC - Fight Legends of the Quad Cities
+TOTP,tier4,0.35,true,1,TOTP  - Titans of the Pentagon
+Deep South Entertainment,tier3,0.55,false,1,Deep South Entertainment - Rumble in the Cage 2
+AWE,tier4,0.35,true,1,AWE - Action Wrestling Entertainment
+Warrior,tier4,0.35,true,1,Warrior  - MMA 4
+WATS,tier4,0.35,true,1,WATS - War at the Shore
+BITBH,tier4,0.35,true,1,BITBH - Brawl in the Black Hills 1
+CBB,tier4,0.35,true,1,CBB - Coco Beach Brawl
+VTOL,tier4,0.35,true,1,"VTOL - Rio De Janeiro, Vale Tudo O Lutador"
+BTBB,tier4,0.35,true,1,BTBB - Born to be Bad
+X Fights Promotions,tier4,0.35,true,1,X Fights Promotions - War of the Heroes
+RVT,tier4,0.35,true,1,RVT - Ruas Vale Tudo
+JJ vs. MA,tier4,0.35,true,1,JJ vs. MA - Jiu-Jitsu vs. Martial Arts
+Iowa Challenge,tier4,0.35,true,1,Iowa Challenge 53 - Kickfest in the Cage
+Battle of Champions,tier4,0.35,true,1,Battle of Champions - Round 2
+FCU,tier4,0.35,true,1,FCU - Fight Club Underground
+IDS,tier4,0.35,true,1,IDS - Independence Day Showdown
+SNF,tier4,0.35,true,1,SNF - Sunday Night Fights
+PA,tier4,0.35,true,1,PA - Pure Action 2
+GCVT,tier4,0.35,true,1,GCVT 2 - Gaisei Challenge Vale Tudo 2
+USVTO,tier4,0.35,true,1,USVTO - US Vale Tudo Open 1996
+Oklahoma KO,tier4,0.35,true,1,Oklahoma KO - Nightmare in the Jungle 1
+GCP,tier4,0.35,true,1,GCP - Greater Champion Podgorica
+S-1,tier4,0.35,true,1,S-1 - European Grand Prix 2005

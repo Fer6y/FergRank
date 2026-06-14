@@ -1,0 +1,48 @@
+fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source
+ab48c02798b0519f,Joanna Jedrzejczyk,934bd39fbb77e527,Zhang Weili,2022-06-12,L,W,KO/TKO,2,Women's Strawweight,UFC 275 - Teixeira vs. Prochazka,sherdog
+c24cabb430a22ffc,Ramazan Emeev,sd:Jack-Della-Maddalena-208155,Jack Della Maddalena,2022-06-12,L,W,KO/TKO,1,Welterweight,UFC 275 - Teixeira vs. Prochazka,sherdog
+74ddb1f1670a7b9e,Ben Sosoli,b6c51b7cbb426717,Marcos Rogerio de Lima,2020-02-23,L,W,KO/TKO,1,Heavyweight,UFC Fight Night 168 - Felder vs. Hooker,sherdog
+d219545977df6023,Magomed Mustafaev,6bd0d703c648d687,Brad Riddell,2020-02-23,L,W,S-DEC,3,Lightweight,UFC Fight Night 168 - Felder vs. Hooker,sherdog
+a0597d768b454501,Emil Meek,be2f4c42148aaa0d,Jake Matthews,2020-02-23,L,W,U-DEC,3,Welterweight,UFC Fight Night 168 - Felder vs. Hooker,sherdog
+647818b879ec50f1,Callan Potter,cae5d7218cbc2994,Song Kenan,2020-02-23,L,W,KO/TKO,1,Welterweight,UFC Fight Night 168 - Felder vs. Hooker,sherdog
+cb03fa3d2085a037,Hatsu Hioki,fc949bd38e5955fc,Dan Hooker,2015-05-10,L,W,KO/TKO,2,Featherweight,UFC Fight Night 65 - Miocic vs. Hunt,sherdog
+eb0a363b83ad35ad,Lisa Ellis,4599b5344efcb99b,Bec Rawlings,2015-05-10,L,W,SUB,1,Women's Strawweight,UFC Fight Night 65 - Miocic vs. Hunt,sherdog
+1a7027a0c72834f2,Dylan Andrews,eee2c24a46982135,Brad Scott,2015-05-10,L,W,SUB,2,Middleweight,UFC Fight Night 65 - Miocic vs. Hunt,sherdog
+7e835647628c96d3,Vik Grujic,16a3914296cb06fa,Brendan O'Reilly,2015-05-10,L,W,U-DEC,3,Welterweight,UFC Fight Night 65 - Miocic vs. Hunt,sherdog
+f63571bbe054f49c,Alptekin Ozkilic,39da821538e62fdf,Ben Nguyen,2015-05-10,L,W,KO/TKO,1,Flyweight,UFC Fight Night 65 - Miocic vs. Hunt,sherdog
+238251dae9d57051,Pat Barry,a6a1b31d9da931bd,Soa Palelei,2013-12-07,L,W,KO/TKO,1,Heavyweight,UFC Fight Night 33 - Hunt vs. Bigfoot,sherdog
+0562e7dccffbb28a,Julie Kedzie,7f2d4f1e239cd7b0,Bethe Correia,2013-12-07,L,W,S-DEC,3,Women's Bantamweight,UFC Fight Night 33 - Hunt vs. Bigfoot,sherdog
+5ab44bdfb61803a9,Nick Ring,a988230b4b29d271,Caio Magalhaes,2013-12-07,L,W,U-DEC,3,Middleweight,UFC Fight Night 33 - Hunt vs. Bigfoot,sherdog
+94a939862c496c87,Azamat Gashimov,sd:Zhenhong-Lu-109059,Zhenhong Lu,2014-03-29,W,L,U-DEC,3,Flyweight,RUFF 12 - Ranik Ultimate Fighting Federation 12,sherdog
+9a5c0ed7297948f0,Wanderlei Silva,a51f98cc3f3bf3a2,Brian Stann,2013-03-03,W,L,KO/TKO,2,Light Heavyweight,UFC on Fuel TV 8 - Silva vs. Stann,sherdog
+4124eaf50ca32b70,Riki Fukuda,d22abf14634b6e90,Brad Tavares,2013-03-03,L,W,U-DEC,3,Middleweight,UFC on Fuel TV 8 - Silva vs. Stann,sherdog
+6f57fae77184f745,Nick Penner,59741062e95fad31,Cody Donovan,2012-12-15,L,W,KO/TKO,1,Light Heavyweight,UFC on FX 6 - Sotiropoulos vs. Pearson,sherdog
+f7f357927a0e95d1,Aaron Rosa,5dcf91b79fd2a39b,James Te Huna,2012-03-03,L,W,KO/TKO,1,Light Heavyweight,UFC on FX 2 - Alves vs. Kampmann,sherdog
+0cc95f3d65ef1f09,Mackens Semerzier,e0506c372c3a8916,Daniel Pineda,2012-03-03,L,W,SUB,1,Featherweight,UFC on FX 2 - Alves vs. Kampmann,sherdog
+5d4c92bff66911d0,Steve Cantwell,4124eaf50ca32b70,Riki Fukuda,2012-02-26,L,W,U-DEC,3,Light Heavyweight,UFC 144 - Edgar vs. Henderson,sherdog
+74c19e9aa7595e68,Tom Blackledge,549dd84099b6efee,Anthony Perosh,2011-02-27,L,W,SUB,1,Light Heavyweight,UFC 127 - Penn vs. Fitch,sherdog
+fac7689da2e7bba2,Chris Tuchscherer,c0c1a09b5e1b46a3,Mark Hunt,2011-02-27,L,W,KO/TKO,2,Heavyweight,UFC 127 - Penn vs. Fitch,sherdog
+14a2fa2dd23e71d3,Alessandro Costa,f1bfcaa7394010b5,Matt Schnell,2026-06-06,W,L,KO/TKO,1,Flyweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+62c22d8f8fd6a0fc,Kai Kamaka,598430d5dbee5664,Dakota Hope,2026-04-04,W,L,S-DEC,3,Featherweight,UFC Fight Night 272 - Moicano vs. Duncan,sherdog
+f7012ef25547fc99,Iwo Baraniewski,sd:Junior-Tafa-408471,Junior Tafa,2026-06-06,W,L,KO/TKO,1,Light Heavyweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+60f31fb96a24723a,Edgar Chairez,sd:Bruno-Silva-118601,Bruno Silva,2026-06-06,W,L,SUB,1,Flyweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+40a4d73f3a51ca65,Santiago Luna,b28df5607a6b1db8,Bryce Mitchell,2026-06-06,L,W,SUB,3,Bantamweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+12c6b847f7f28593,Jordan Leavitt,5817d60924c7a7e0,Joanderson Brito,2026-06-06,L,W,SUB,1,Featherweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+987a31b24ac333ea,Ketlen Souza,ede82a372dc9444c,Ariane Carnelossi,2026-06-06,W,L,KO/TKO,1,Women's Strawweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+29f2d5ce1eef7082,Priscila Cachoeira,4068eabd52a7fa93,Chelsea Chandler,2026-06-06,L,W,SUB,1,Women's Bantamweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+395835d15985848e,Tallison Teixeira,d38d32acdb6c8ac2,Sergei Pavlovich,2026-05-30,L,W,KO/TKO,1,Heavyweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+6e8a5fe4993ba864,Song Yadong,087d5e2b3912bfd6,Deiveson Figueiredo,2026-05-30,W,L,SUB,2,Bantamweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+72d51391d67206b8,Fares Ziam,23819db9f489592d,Tom Nolan,2026-06-06,L,W,U-DEC,3,Lightweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+dd22fdf9ce2b85b6,Belal Muhammad,03b527306e0b57c8,Gabriel Bonfim,2026-06-06,L,W,U-DEC,5,Welterweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+990efe1105080c68,Alonzo Menifield,81d3fc0435cfe7ac,Zhang Mingyang,2026-05-30,W,L,KO/TKO,1,Light Heavyweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+dddaac197e3946ca,Angela Hill,sd:Jingnan-Xiong-176083,Jingnan Xiong,2026-05-30,W,L,U-DEC,3,Women's Strawweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+1930fd17e9ee8a27,Jaqueline Amorim,2b4f0961dd196d20,Loma Lookboonmee,2026-05-30,W,L,SUB,1,Women's Strawweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+58b6dee880eed3f4,Brendan Allen,f4544d57a0c93b7c,Edmen Shahbazyan,2026-06-06,W,L,U-DEC,3,Middleweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+be2f4c42148aaa0d,Jake Matthews,2e98f3a31b40b58f,Carlston Harris,2026-05-30,W,L,U-DEC,3,Welterweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+74bb53e7099cb5b9,Kai Asakura,6fe6a57990709869,Cameron Smotherman,2026-05-30,W,L,KO/TKO,1,Flyweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+3a70cd0ddb52f7f7,Marcus McGhee,sd:John-Yannis-249443,John Yannis,2026-06-06,W,L,U-DEC,3,Bantamweight,UFC Fight Night 278 - Muhammad vs. Bonfim,sherdog
+fd67143f447281de,Patricio Freire,sd:Aaron-Pico-191127,Aaron Pico,2026-04-11,L,W,U-DEC,3,Featherweight,UFC 327 - Prochazka vs. Ulberg,sherdog
+7915c978759b49fb,Puja Tomar,sd:Ming-Shi-257533,Ming Shi,2026-05-29,L,W,SUB,1,Women's Strawweight,UFC - Road to UFC Season 5: Macau Quarterfinals 2,sherdog
+0488ce27e1b8bb1d,Rei Tsuruya,sd:Luis-Gurule-390304,Luis Gurule,2026-05-30,W,L,SUB,1,Flyweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+8a1aa5c3cd50dedf,Cody Haddon,sd:Qileng-Aori-222519,Qileng Aori,2026-05-30,W,L,KO/TKO,2,Bantamweight,UFC Fight Night 277 - Song vs. Figueiredo,sherdog
+c54bce0af7e7b01b,Victor Martinez,sd:Zhu-Rong-233823,Zhu Rong,2026-05-28,L,W,KO/TKO,1,Lightweight,UFC - Road to UFC Season 5: Macau Quarterfinals 1,sherdog
