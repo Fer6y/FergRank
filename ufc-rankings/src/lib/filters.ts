@@ -45,8 +45,6 @@ export interface EloParams {
   inactivityRetentionPerYear: number;
   inactivityGraceMonths: number;
   moveDecayPenalty: number;
-  displayEloFloor: number;
-  displayEloCeil: number;
 }
 
 export interface EffectiveEngine {

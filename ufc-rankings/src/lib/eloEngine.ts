@@ -28,6 +28,7 @@ export interface EloState {
   fights: number;          // Decisive/draw fights processed
   lastFightDate: Date | null;
   lastWeightClass: string | null; // Normalized weight class of most recent fight
+  discountedAtBoundary: boolean;  // Has the one-time current-form boundary discount been applied?
 }
 
 export type EloMap = Map<string, EloState>;
@@ -87,6 +88,19 @@ function regressForInactivity(rating: number, months: number, E: EloParams): num
   return E.initialRating + (rating - E.initialRating) * retention;
 }
 
+// One-time "current-form" discount. The first time a fighter competes inside the
+// recent window (on/after boundaryDate), the rating they CARRY IN is regressed
+// once toward the mean by boundaryRegressionToMean — heavily discounting their
+// pre-window form without the spread-destroying full reset of a hard cutoff.
+// Applied once per fighter; brand-new fighters (rating already at the mean) are
+// unaffected but still flagged so it never re-fires.
+function applyBoundaryDiscount(state: EloState, fightDate: Date, boundaryDate: Date, E: EloParams): void {
+  if (state.discountedAtBoundary || fightDate < boundaryDate) return;
+  const frac = RANKING_CONFIG.elo.boundaryRegressionToMean;
+  state.rating = E.initialRating + (state.rating - E.initialRating) * (1 - frac);
+  state.discountedAtBoundary = true;
+}
+
 function newState(E: EloParams): EloState {
   return {
     rating: E.initialRating,
@@ -95,6 +109,7 @@ function newState(E: EloParams): EloState {
     fights: 0,
     lastFightDate: null,
     lastWeightClass: null,
+    discountedAtBoundary: false,
   };
 }
 
@@ -146,12 +161,23 @@ function runEloSweep(
     return s;
   };
 
-  // Chronological order (oldest first). Fights without a date can't be placed
-  // on the timeline, so they're skipped. The era filter drops fights before the
-  // chosen start year entirely (so the rating reflects only that era).
+  // Chronological order (oldest first). Fights without a date can't be placed on
+  // the timeline, so they're skipped. The Era filter (engine.eraStartYear), when
+  // set, is a HARD window — drops fights before the chosen year for a pure
+  // historical lens. The house default (no era) keeps the FULL history (so the
+  // rating spread + opponent calibration are intact) and instead applies the
+  // one-time current-form boundary discount below.
   const ordered = data.fights
     .filter((f) => f.eventDate && (engine.eraStartYear == null || f.eventDate.getFullYear() >= engine.eraStartYear))
     .sort((a, b) => a.eventDate!.getTime() - b.eventDate!.getTime());
+
+  // Current-form boundary discount applies only in house mode (no explicit era);
+  // an explicit era is already its own hard recency window.
+  const maxAge = RANKING_CONFIG.elo.maxFightAgeYears;
+  const boundaryDate =
+    engine.eraStartYear == null && maxAge != null
+      ? new Date(Date.now() - maxAge * 365.25 * 24 * 60 * 60 * 1000)
+      : null;
 
   for (const fight of ordered) {
     const result = decisiveResult(fight);
@@ -164,6 +190,10 @@ function runEloSweep(
 
     prepareForFight(a, date, normWC, E);
     prepareForFight(b, date, normWC, E);
+    if (boundaryDate) {
+      applyBoundaryDiscount(a, date, boundaryDate, E);
+      applyBoundaryDiscount(b, date, boundaryDate, E);
+    }
 
     const ea = expectedScore(a.rating, b.rating);
     const eb = 1 - ea;
@@ -279,9 +309,20 @@ export function getElo(map: EloMap, fighterId: string): EloState {
 // Raw Elo → 0–100 display score (linear, clamped). Monotonic, so it never
 // changes the ordering — purely for readable bars/numbers in the UI.
 export function eloToDisplayScore(elo: number): number {
-  // Display mapping is fixed (not filtered) so the 0–100 scale stays comparable.
-  const { displayEloFloor: lo, displayEloCeil: hi } = RANKING_CONFIG.elo;
-  return Math.max(0, Math.min(100, ((elo - lo) / (hi - lo)) * 100));
+  // Monotonic piecewise-linear map (anchors in rankingConfig). Fixed (not
+  // filtered) so the scale stays comparable across divisions/filters.
+  const curve = RANKING_CONFIG.elo.displayCurve;
+  if (elo <= curve[0][0]) return curve[0][1];
+  const last = curve[curve.length - 1];
+  if (elo >= last[0]) return last[1];
+  for (let i = 1; i < curve.length; i++) {
+    const [e1, s1] = curve[i];
+    if (elo <= e1) {
+      const [e0, s0] = curve[i - 1];
+      return s0 + ((elo - e0) / (e1 - e0)) * (s1 - s0);
+    }
+  }
+  return last[1]; // unreachable (elo < last[0] handled above)
 }
 
 // Calibrated head-to-head win probability for DISPLAY (e.g. the Compare page).

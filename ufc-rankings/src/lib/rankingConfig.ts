@@ -37,7 +37,30 @@ export const RANKING_CONFIG = {
     // rating = mean + (rating - mean) * retentionPerYear^(yearsInactive)
     // Gentle on purpose so injured elites (e.g. ~18mo out) aren't nuked.
     inactivityRetentionPerYear: 0.92,
-    inactivityGraceMonths: 6,   // No regression for layoffs shorter than this
+    inactivityGraceMonths: 12,  // No regression for layoffs shorter than this. Set to 12mo
+                                // so a normal ELITE cadence (champs defend ~1–2×/yr, often
+                                // 10–14mo between bouts) is treated as fully current and pays
+                                // NO activity penalty. Decay (the 0.92 slope) still fades a
+                                // genuinely inactive veteran past the 1yr mark — a fighter
+                                // years out (e.g. last bout 2017) still bleeds toward the mean.
+
+    // CURRENT-FORM BOUNDARY: how old "old form" is. The full fight history is
+    // still swept (so opponent quality / SoS stays calibrated and the rating
+    // SPREAD is preserved), but the FIRST time a fighter competes inside this
+    // recent window their carried-in rating is regressed once toward the mean by
+    // `boundaryRegressionToMean` — a heavy DISCOUNT on pre-window form, not a
+    // reset. So a distant-past prime cannot prop up today's number, yet a
+    // genuinely elite resume isn't wiped to 1500 (which would reward fight VOLUME
+    // as everyone re-climbs from the mean — the opposite of SoS-first). The
+    // user-facing Era filter OVERRIDES this: an explicit era is a hard window
+    // (drops older fights, no discount) for the historical lens. Set to null to
+    // disable the boundary entirely (pure full-history Elo).
+    maxFightAgeYears: 5,
+    // Fraction toward the mean applied once at the boundary. 0.5 = halve the
+    // accumulated above/below-mean rating (heavy discount); 1.0 ≈ the old hard
+    // reset; 0 = no discount. The chosen middle keeps the spread (SoS intact)
+    // while making recent form dominate.
+    boundaryRegressionToMean: 0.5,
 
     // Weight-class move decay (user decision: "carry with decay/penalty").
     // On a detected division change, the rating regresses toward the mean by
@@ -45,15 +68,29 @@ export const RANKING_CONFIG = {
     // rating = mean + (rating - mean) * (1 - moveDecayPenalty)
     moveDecayPenalty: 0.10,
 
-    // Display mapping: raw Elo → 0–100 "RankScore" shown in the UI.
-    // Linear, clamped. Keeps bars/stat boxes readable; order is identical to Elo.
-    // Band is tuned to the population that actually appears in rankings (ranked
-    // fighters live ~1500–1830) so the 0–100 scale is used, not compressed into
-    // its upper-middle. Floor stays below the weakest ranked fighter (no zeroing
-    // out a ranked name); ceil sits at the elite tier so only P4P-level champs
-    // approach 100. Purely cosmetic — order and accuracy are unchanged.
-    displayEloFloor: 1400,      // → 0
-    displayEloCeil: 1850,       // → 100
+    // Display mapping: raw Elo → "RankScore" shown in the UI. MONOTONIC PIECEWISE
+    // curve (purely cosmetic — order and accuracy are identical to raw Elo).
+    // Reads as a ~25–100 scale: the elite tier SATURATES near 99 (so the very
+    // best — Makhachev, Topuria, Pereira — all read 98–99 despite small Elo gaps),
+    // the contender mid-pack carries the most spread, and the bottom of the
+    // rankings floors at ~25 (no ranked name reads near 0). Anchors are
+    // [rawElo, displayScore], ascending; values between anchors are linearly
+    // interpolated, outside the ends are clamped. Tune the anchors here — nothing
+    // else needs to change. (Ranked pool today spans Elo ~1425–1753.)
+    // Recalibrated for the post-boundary-discount spread (ranked pool now spans
+    // finalRating ~1427–1725; median ~1561, p95 ~1663). The heavy current-form
+    // discount tightened the elite band, so anchors were pulled in to keep
+    // champions saturating near 96–99 and the floor at ~25.
+    displayCurve: [
+      [1427, 25],   // bottom of the ranked pool → ~25 (scale floor)
+      [1500, 42],
+      [1560, 62],   // ~median ranked fighter
+      [1610, 80],
+      [1645, 91],   // strong champions / top contenders
+      [1680, 97],   // Topuria tier
+      [1715, 99],   // Makhachev (clear P4P #1) tier
+      [1760, 100],  // headroom ceiling
+    ] as [number, number][],
 
     // Head-to-head win-PROBABILITY scale (display only, for the Compare page).
     // VALIDATED: a symmetric reliability check over all ~17k UFC fights (point-in-
