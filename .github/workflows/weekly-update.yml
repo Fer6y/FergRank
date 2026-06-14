@@ -5,8 +5,8 @@ name: Weekly UFC ingest
 # CSV on boot → rankings go live. See scripts/sherdog/weeklyUpdate.ts.
 on:
   schedule:
-    # Mondays 12:00 UTC (~early-morning US) — after the weekend card results are final.
-    - cron: '0 12 * * 1'
+    # Tuesdays 12:00 UTC (~early-morning US) — after the weekend card results are final.
+    - cron: '0 12 * * 2'
   workflow_dispatch:
     inputs:
       days:
