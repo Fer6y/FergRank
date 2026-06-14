@@ -1,0 +1,129 @@
+{
+  "_meta": {
+    "description": "UFC championship reign ledger. Compiled from UFC title history (knowledge to 2026-01) and validated against Fights.csv by scripts/buildTitleFights.ts. A title fight = a 5-round bout where a participant is a reigning (or interim) champion within the padded reign window. start = title-winning event date; end = date the belt was lost/vacated (null = current). Reigns before our odds window (pre-2014) are included for completeness but matter less.",
+    "coverage": "Modern era, ~2010-2026, all current divisions. interim=true entries are interim-title reigns.",
+    "padDays": 21
+  },
+  "Heavyweight": [
+    { "champion": "Cain Velasquez", "start": "2010-10-23", "end": "2011-11-12" },
+    { "champion": "Junior dos Santos", "start": "2011-11-12", "end": "2012-12-29" },
+    { "champion": "Cain Velasquez", "start": "2012-12-29", "end": "2015-06-13" },
+    { "champion": "Fabricio Werdum", "start": "2015-06-13", "end": "2016-05-14" },
+    { "champion": "Stipe Miocic", "start": "2016-05-14", "end": "2018-07-07" },
+    { "champion": "Daniel Cormier", "start": "2018-07-07", "end": "2019-08-17" },
+    { "champion": "Stipe Miocic", "start": "2019-08-17", "end": "2021-03-27" },
+    { "champion": "Ciryl Gane", "start": "2021-08-07", "end": "2022-01-22", "interim": true },
+    { "champion": "Francis Ngannou", "start": "2021-03-27", "end": "2023-01-14", "note": "Vacated/left UFC Jan 2023; last fight UFC 270 2022-01-22" },
+    { "champion": "Jon Jones", "start": "2023-03-04", "end": null, "note": "Won vacant title; status uncertain late 2025" },
+    { "champion": "Tom Aspinall", "start": "2023-11-11", "end": null, "interim": true, "note": "Interim; possibly promoted to undisputed 2025" }
+  ],
+  "Light Heavyweight": [
+    { "champion": "Jon Jones", "start": "2011-03-19", "end": "2015-04-27", "note": "Stripped Apr 2015" },
+    { "champion": "Daniel Cormier", "start": "2015-05-23", "end": "2017-07-29", "note": "Won vacant; lost to Jones UFC 214 (later overturned to NC)" },
+    { "champion": "Daniel Cormier", "start": "2017-09-15", "end": "2018-12-29", "note": "Reinstated after Jones NC; vacated when moved to HW" },
+    { "champion": "Jon Jones", "start": "2018-12-29", "end": "2020-08-17", "note": "Won vacant UFC 232; vacated Aug 2020" },
+    { "champion": "Jan Blachowicz", "start": "2020-09-26", "end": "2021-10-30" },
+    { "champion": "Glover Teixeira", "start": "2021-10-30", "end": "2022-06-11" },
+    { "champion": "Jiri Prochazka", "start": "2022-06-11", "end": "2022-11-23", "note": "Vacated due to injury Nov 2022" },
+    { "champion": "Jamahal Hill", "start": "2023-01-21", "end": "2023-07-15", "note": "Won vacant UFC 283; vacated (Achilles) Jul 2023" },
+    { "champion": "Alex Pereira", "start": "2023-11-11", "end": "2025-03-08", "note": "Won vacant UFC 295 vs Prochazka" },
+    { "champion": "Magomed Ankalaev", "start": "2025-03-08", "end": null, "note": "Pereira rematch late 2025 uncertain" }
+  ],
+  "Middleweight": [
+    { "champion": "Anderson Silva", "start": "2006-10-14", "end": "2013-07-06" },
+    { "champion": "Chris Weidman", "start": "2013-07-06", "end": "2015-12-12" },
+    { "champion": "Luke Rockhold", "start": "2015-12-12", "end": "2016-06-04" },
+    { "champion": "Michael Bisping", "start": "2016-06-04", "end": "2017-11-04" },
+    { "champion": "Robert Whittaker", "start": "2017-07-08", "end": "2019-10-06", "note": "Interim at UFC 213, promoted to undisputed Dec 2017" },
+    { "champion": "Israel Adesanya", "start": "2019-04-13", "end": "2022-11-12", "note": "Interim at UFC 236, unified UFC 243 2019-10-06" },
+    { "champion": "Alex Pereira", "start": "2022-11-12", "end": "2023-04-08" },
+    { "champion": "Israel Adesanya", "start": "2023-04-08", "end": "2023-09-09" },
+    { "champion": "Sean Strickland", "start": "2023-09-09", "end": "2024-01-20" },
+    { "champion": "Dricus du Plessis", "start": "2024-01-20", "end": "2025-08-16" },
+    { "champion": "Khamzat Chimaev", "start": "2025-08-16", "end": null }
+  ],
+  "Welterweight": [
+    { "champion": "Georges St-Pierre", "start": "2008-04-19", "end": "2013-12-13", "note": "Vacated Dec 2013" },
+    { "champion": "Johny Hendricks", "start": "2014-03-15", "end": "2014-12-06", "note": "Won vacant UFC 171" },
+    { "champion": "Robbie Lawler", "start": "2014-12-06", "end": "2016-07-30" },
+    { "champion": "Tyron Woodley", "start": "2016-07-30", "end": "2019-03-02" },
+    { "champion": "Kamaru Usman", "start": "2019-03-02", "end": "2022-08-20" },
+    { "champion": "Leon Edwards", "start": "2022-08-20", "end": "2024-07-27" },
+    { "champion": "Belal Muhammad", "start": "2024-07-27", "end": "2025-05-10" },
+    { "champion": "Jack Della Maddalena", "start": "2025-05-10", "end": null }
+  ],
+  "Lightweight": [
+    { "champion": "Anthony Pettis", "start": "2013-08-31", "end": "2015-03-14" },
+    { "champion": "Rafael dos Anjos", "start": "2015-03-14", "end": "2016-07-07" },
+    { "champion": "Eddie Alvarez", "start": "2016-07-07", "end": "2016-11-12" },
+    { "champion": "Conor McGregor", "start": "2016-11-12", "end": "2018-04-07", "note": "Stripped 2018" },
+    { "champion": "Dustin Poirier", "start": "2019-04-13", "end": "2019-09-07", "interim": true },
+    { "champion": "Justin Gaethje", "start": "2020-05-09", "end": "2020-10-24", "interim": true },
+    { "champion": "Khabib Nurmagomedov", "start": "2018-04-07", "end": "2021-03-19", "note": "Won vacant UFC 223; retired/vacated Mar 2021; last fight 2020-10-24" },
+    { "champion": "Charles Oliveira", "start": "2021-05-15", "end": "2022-10-22", "note": "Won vacant UFC 262; stripped on scale May 2022 but reign continued in cage to UFC 280" },
+    { "champion": "Islam Makhachev", "start": "2022-10-22", "end": "2025-06-01", "note": "Won vacant UFC 280; vacated 2025 to move to WW" },
+    { "champion": "Ilia Topuria", "start": "2025-06-28", "end": null, "note": "Won vacant UFC 317 vs Oliveira" }
+  ],
+  "Featherweight": [
+    { "champion": "Jose Aldo", "start": "2013-02-02", "end": "2015-12-12", "note": "UFC-era unification; WEC champ from 2009" },
+    { "champion": "Conor McGregor", "start": "2015-12-12", "end": "2016-11-26", "note": "Stripped Nov 2016" },
+    { "champion": "Jose Aldo", "start": "2016-07-09", "end": "2017-06-03", "note": "Reinstated as champ 2016" },
+    { "champion": "Max Holloway", "start": "2017-06-03", "end": "2019-12-14", "note": "Interim UFC 212, undisputed same night" },
+    { "champion": "Alexander Volkanovski", "start": "2019-12-14", "end": "2024-02-17" },
+    { "champion": "Ilia Topuria", "start": "2024-02-17", "end": "2025-02-01", "note": "Vacated 2025 to move to LW" },
+    { "champion": "Alexander Volkanovski", "start": "2025-04-12", "end": null, "note": "Won vacant UFC 314 vs Lopes" }
+  ],
+  "Bantamweight": [
+    { "champion": "Dominick Cruz", "start": "2010-12-16", "end": "2014-01-06", "note": "Stripped due to injury Jan 2014" },
+    { "champion": "TJ Dillashaw", "start": "2014-05-24", "end": "2016-01-17" },
+    { "champion": "Dominick Cruz", "start": "2016-01-17", "end": "2016-12-30" },
+    { "champion": "Cody Garbrandt", "start": "2016-12-30", "end": "2017-11-04" },
+    { "champion": "TJ Dillashaw", "start": "2017-11-04", "end": "2019-03-20", "note": "Vacated Mar 2019 (USADA)" },
+    { "champion": "Henry Cejudo", "start": "2019-06-08", "end": "2020-05-09", "note": "Won vacant UFC 238; retired/vacated May 2020" },
+    { "champion": "Petr Yan", "start": "2020-07-12", "end": "2021-03-06", "note": "Won vacant UFC 251; DQ loss to Sterling" },
+    { "champion": "Aljamain Sterling", "start": "2021-03-06", "end": "2023-08-19" },
+    { "champion": "Petr Yan", "start": "2021-10-30", "end": "2022-04-09", "interim": true },
+    { "champion": "Sean O'Malley", "start": "2023-08-19", "end": "2024-09-14" },
+    { "champion": "Merab Dvalishvili", "start": "2024-09-14", "end": null }
+  ],
+  "Flyweight": [
+    { "champion": "Demetrious Johnson", "start": "2012-09-22", "end": "2018-08-04", "note": "Inaugural champ" },
+    { "champion": "Henry Cejudo", "start": "2018-08-04", "end": "2020-05-09", "note": "Vacated May 2020" },
+    { "champion": "Deiveson Figueiredo", "start": "2020-07-18", "end": "2021-06-12", "note": "Won vacant; failed weight vs Benavidez Feb 2020 (no title)" },
+    { "champion": "Brandon Moreno", "start": "2021-06-12", "end": "2022-01-22" },
+    { "champion": "Deiveson Figueiredo", "start": "2022-01-22", "end": "2023-01-21" },
+    { "champion": "Brandon Moreno", "start": "2023-01-21", "end": "2023-07-08", "note": "Undisputed" },
+    { "champion": "Alexandre Pantoja", "start": "2023-07-08", "end": null }
+  ],
+  "Women's Bantamweight": [
+    { "champion": "Ronda Rousey", "start": "2012-12-06", "end": "2015-11-14", "note": "Inaugural champ; first UFC defense 2013-02-23" },
+    { "champion": "Holly Holm", "start": "2015-11-14", "end": "2016-03-05" },
+    { "champion": "Miesha Tate", "start": "2016-03-05", "end": "2016-07-09" },
+    { "champion": "Amanda Nunes", "start": "2016-07-09", "end": "2021-12-11" },
+    { "champion": "Julianna Pena", "start": "2021-12-11", "end": "2022-07-30" },
+    { "champion": "Amanda Nunes", "start": "2022-07-30", "end": "2023-06-06", "note": "Retired/vacated Jun 2023" },
+    { "champion": "Raquel Pennington", "start": "2024-01-20", "end": "2025-06-07", "note": "Won vacant UFC 297" },
+    { "champion": "Kayla Harrison", "start": "2025-06-07", "end": null }
+  ],
+  "Women's Flyweight": [
+    { "champion": "Nicco Montano", "start": "2017-12-01", "end": "2018-09-01", "note": "Inaugural; stripped Sep 2018" },
+    { "champion": "Valentina Shevchenko", "start": "2018-12-08", "end": "2023-03-04", "note": "Won vacant UFC 231" },
+    { "champion": "Alexa Grasso", "start": "2023-03-04", "end": "2024-09-14", "note": "Draw rematch 2023-09-16 (retained)" },
+    { "champion": "Valentina Shevchenko", "start": "2024-09-14", "end": null }
+  ],
+  "Women's Strawweight": [
+    { "champion": "Carla Esparza", "start": "2014-12-12", "end": "2015-03-14", "note": "Inaugural champ" },
+    { "champion": "Joanna Jedrzejczyk", "start": "2015-03-14", "end": "2017-11-04" },
+    { "champion": "Rose Namajunas", "start": "2017-11-04", "end": "2019-05-11" },
+    { "champion": "Jessica Andrade", "start": "2019-05-11", "end": "2019-08-31" },
+    { "champion": "Zhang Weili", "start": "2019-08-31", "end": "2021-04-24" },
+    { "champion": "Rose Namajunas", "start": "2021-04-24", "end": "2022-05-07" },
+    { "champion": "Carla Esparza", "start": "2022-05-07", "end": "2022-11-12" },
+    { "champion": "Zhang Weili", "start": "2022-11-12", "end": null }
+  ],
+  "Women's Featherweight": [
+    { "champion": "Germaine de Randamie", "start": "2017-02-11", "end": "2017-09-01", "note": "Inaugural; stripped Sep 2017" },
+    { "champion": "Cristiane Justino", "start": "2017-07-29", "end": "2018-12-29", "note": "Cris Cyborg; won vacant-ish UFC 214 vs Evinger" },
+    { "champion": "Amanda Nunes", "start": "2018-12-29", "end": "2023-06-06", "note": "Division effectively closed after Nunes retired" }
+  ]
+}

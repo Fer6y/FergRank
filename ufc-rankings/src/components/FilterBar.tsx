@@ -8,13 +8,19 @@ interface FilterBarProps {
   onChange: (next: FilterParams) => void;
 }
 
+// Era lens. The neutral/default (null) is the house "current form" window — the
+// Elo sweep already drops fights older than RANKING_CONFIG.elo.maxFightAgeYears
+// (5yr). Picking an explicit year OVERRIDES that cutoff: "Since 2023" tightens
+// the window, the older years widen it, and "All-time" (pre-data sentinel) lifts
+// the cutoff entirely for a full-history lens.
 const ERA_OPTIONS: { label: string; value: number | null }[] = [
-  { label: 'All-time', value: null },
-  { label: 'Since 2010', value: 2010 },
-  { label: 'Since 2015', value: 2015 },
-  { label: 'Since 2018', value: 2018 },
-  { label: 'Since 2021', value: 2021 },
+  { label: 'Current form', value: null },
   { label: 'Since 2023', value: 2023 },
+  { label: 'Since 2021', value: 2021 },
+  { label: 'Since 2018', value: 2018 },
+  { label: 'Since 2015', value: 2015 },
+  { label: 'Since 2010', value: 2010 },
+  { label: 'All-time', value: 1994 },
 ];
 
 export default function FilterBar({ filters, onChange }: FilterBarProps) {

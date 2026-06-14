@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { winProbability } from '@/lib/eloEngine';
 import OddsValue from '@/components/OddsValue';
 import { getFighterProfile, type FighterProfile } from '@/lib/fighterProfile';
-import { initials } from '@/lib/fighterDisplay';
 import { shortDivision } from '@/lib/divisions';
 import ComparePicker from '@/components/ComparePicker';
 import ProfileRadar from '@/components/ProfileRadar';
+import FighterAvatar from '@/components/FighterAvatar';
 
 export const revalidate = 86400;
 
@@ -155,19 +155,22 @@ function FighterHead({ p }: { p: FighterProfile }) {
       className="rounded-xl p-4 flex flex-col items-center text-center gap-2 fighter-row"
       style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)' }}
     >
-      <div
-        className="w-14 h-14 rounded-full flex items-center justify-center text-base font-medium"
-        style={{
-          backgroundColor: 'var(--bg-elevated)',
-          color: p.isChampion ? 'var(--accent-gold)' : 'var(--text-secondary)',
-          border: p.isChampion ? '2px solid var(--accent-gold)' : 'none',
-        }}
-        aria-hidden
-      >
-        {initials(p.fullName)}
-      </div>
-      <div className="font-medium text-sm" style={{ color: 'var(--text-primary)' }}>
-        {p.fullName}
+      <FighterAvatar
+        src={p.avatarUrl ?? undefined}
+        name={p.fullName}
+        sizeClass="w-14 h-14"
+        initialsClass="text-base"
+        bg="var(--bg-elevated)"
+        initialsColor={p.isChampion ? 'var(--accent-gold)' : 'var(--text-secondary)'}
+        border={p.isChampion ? '2px solid var(--accent-gold)' : undefined}
+      />
+      <div className="font-medium text-sm flex items-center justify-center gap-1.5" style={{ color: 'var(--text-primary)' }}>
+        {p.flag && (
+          <span className="shrink-0 leading-none" title={p.nationality ?? undefined}>
+            {p.flag}
+          </span>
+        )}
+        <span>{p.fullName}</span>
       </div>
       <div className="flex items-center gap-2">
         <span className="text-[10px] px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--bg-elevated)', color: 'var(--text-secondary)' }}>

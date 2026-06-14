@@ -1,0 +1,274 @@
+date,division,fighter_1,fighter_2,champion,challenger,interim,method,result_fighter1,challenger_decimal_odds,challenger_is_underdog,odds_outcome
+2006-10-14,Middleweight,Anderson Silva,Rich Franklin,Anderson Silva,Rich Franklin,0,KO/TKO,W,,,
+2007-07-07,Middleweight,Anderson Silva,Nate Marquardt,Anderson Silva,Nate Marquardt,0,KO/TKO,W,,,
+2007-10-20,Middleweight,Anderson Silva,Rich Franklin,Anderson Silva,Rich Franklin,0,KO/TKO,W,,,
+2008-03-01,Middleweight,Anderson Silva,Dan Henderson,Anderson Silva,Dan Henderson,0,SUB,W,,,
+2008-04-19,Welterweight,Georges St-Pierre,Matt Serra,Georges St-Pierre,Matt Serra,0,KO/TKO,W,,,
+2008-08-09,Welterweight,Georges St-Pierre,Jon Fitch,Georges St-Pierre,Jon Fitch,0,U-DEC,W,,,
+2008-10-25,Middleweight,Anderson Silva,Patrick Cote,Anderson Silva,Patrick Cote,0,KO/TKO,W,,,
+2009-01-31,Welterweight,Georges St-Pierre,BJ Penn,Georges St-Pierre,BJ Penn,0,KO/TKO,W,,,
+2009-04-18,Middleweight,Anderson Silva,Thales Leites,Anderson Silva,Thales Leites,0,U-DEC,W,,,
+2009-07-11,Welterweight,Georges St-Pierre,Thiago Alves,Georges St-Pierre,Thiago Alves,0,U-DEC,W,,,
+2010-03-27,Welterweight,Georges St-Pierre,Dan Hardy,Georges St-Pierre,Dan Hardy,0,U-DEC,W,,,
+2010-04-10,Middleweight,Anderson Silva,Demian Maia,Anderson Silva,Demian Maia,0,U-DEC,W,,,
+2010-08-07,Middleweight,Anderson Silva,Chael Sonnen,Anderson Silva,Chael Sonnen,0,SUB,W,,,
+2010-10-23,Heavyweight,Brock Lesnar,Cain Velasquez,Cain Velasquez,Brock Lesnar,0,KO/TKO,L,,,
+2010-12-11,Welterweight,Georges St-Pierre,Josh Koscheck,Georges St-Pierre,Josh Koscheck,0,U-DEC,W,,,
+2011-02-05,Middleweight,Anderson Silva,Vitor Belfort,Anderson Silva,Vitor Belfort,0,KO/TKO,W,,,
+2011-03-19,Light Heavyweight,Mauricio Rua,Jon Jones,Jon Jones,Mauricio Rua,0,KO/TKO,L,,,
+2011-04-30,Welterweight,Georges St-Pierre,Jake Shields,Georges St-Pierre,Jake Shields,0,U-DEC,W,,,
+2011-07-02,Bantamweight,Dominick Cruz,Urijah Faber,Dominick Cruz,Urijah Faber,0,U-DEC,W,,,
+2011-08-27,Middleweight,Anderson Silva,Yushin Okami,Anderson Silva,Yushin Okami,0,KO/TKO,W,,,
+2011-09-24,Light Heavyweight,Jon Jones,Quinton Jackson,Jon Jones,Quinton Jackson,0,SUB,W,,,
+2011-10-01,Bantamweight,Dominick Cruz,Demetrious Johnson,Dominick Cruz,Demetrious Johnson,0,U-DEC,W,,,
+2011-11-12,Heavyweight,Cain Velasquez,Junior Dos Santos,Cain Velasquez,Junior Dos Santos,0,KO/TKO,L,,,
+2011-12-10,Light Heavyweight,Jon Jones,Lyoto Machida,Jon Jones,Lyoto Machida,0,SUB,W,,,
+2012-04-21,Light Heavyweight,Jon Jones,Rashad Evans,Jon Jones,Rashad Evans,0,U-DEC,W,,,
+2012-05-26,Heavyweight,Junior Dos Santos,Frank Mir,Junior Dos Santos,Frank Mir,0,KO/TKO,W,,,
+2012-07-07,Middleweight,Anderson Silva,Chael Sonnen,Anderson Silva,Chael Sonnen,0,KO/TKO,W,,,
+2012-09-22,Light Heavyweight,Jon Jones,Vitor Belfort,Jon Jones,Vitor Belfort,0,SUB,W,,,
+2012-09-22,Flyweight,Joseph Benavidez,Demetrious Johnson,Demetrious Johnson,Joseph Benavidez,0,S-DEC,L,,,
+2012-11-17,Welterweight,Georges St-Pierre,Carlos Condit,Georges St-Pierre,Carlos Condit,0,U-DEC,W,,,
+2012-12-29,Heavyweight,Junior Dos Santos,Cain Velasquez,Junior Dos Santos,Cain Velasquez,0,U-DEC,L,,,
+2013-01-26,Flyweight,Demetrious Johnson,John Dodson,Demetrious Johnson,John Dodson,0,U-DEC,W,,,
+2013-02-02,Featherweight,Jose Aldo,Frankie Edgar,Jose Aldo,Frankie Edgar,0,U-DEC,W,,,
+2013-02-23,Women's Bantamweight,Ronda Rousey,Liz Carmouche,Ronda Rousey,Liz Carmouche,0,SUB,W,,,
+2013-03-16,Welterweight,Georges St-Pierre,Nick Diaz,Georges St-Pierre,Nick Diaz,0,U-DEC,W,,,
+2013-04-27,Light Heavyweight,Jon Jones,Chael Sonnen,Jon Jones,Chael Sonnen,0,KO/TKO,W,,,
+2013-05-25,Heavyweight,Cain Velasquez,Antonio Silva,Cain Velasquez,Antonio Silva,0,KO/TKO,W,,,
+2013-07-06,Middleweight,Anderson Silva,Chris Weidman,Anderson Silva,Chris Weidman,0,KO/TKO,L,,,
+2013-07-27,Flyweight,Demetrious Johnson,John Moraga,Demetrious Johnson,John Moraga,0,SUB,W,,,
+2013-08-03,Featherweight,Jose Aldo,Chan Sung Jung,Jose Aldo,Chan Sung Jung,0,KO/TKO,W,,,
+2013-08-31,Lightweight,Benson Henderson,Anthony Pettis,Anthony Pettis,Benson Henderson,0,SUB,L,,,
+2013-09-21,Light Heavyweight,Jon Jones,Alexander Gustafsson,Jon Jones,Alexander Gustafsson,0,U-DEC,W,,,
+2013-10-19,Heavyweight,Cain Velasquez,Junior Dos Santos,Cain Velasquez,Junior Dos Santos,0,KO/TKO,W,,,
+2013-11-16,Welterweight,Georges St-Pierre,Johny Hendricks,Georges St-Pierre,Johny Hendricks,0,S-DEC,W,,,
+2013-12-14,Flyweight,Demetrious Johnson,Joseph Benavidez,Demetrious Johnson,Joseph Benavidez,0,KO/TKO,W,,,
+2013-12-28,Middleweight,Chris Weidman,Anderson Silva,Chris Weidman,Anderson Silva,0,KO/TKO,W,,,
+2013-12-28,Women's Bantamweight,Ronda Rousey,Miesha Tate,Ronda Rousey,Miesha Tate,0,SUB,W,,,
+2014-02-01,Featherweight,Jose Aldo,Ricardo Lamas,Jose Aldo,Ricardo Lamas,0,U-DEC,W,,,
+2014-02-22,Women's Bantamweight,Ronda Rousey,Sara McMann,Ronda Rousey,Sara McMann,0,KO/TKO,W,,,
+2014-03-15,Welterweight,Johny Hendricks,Robbie Lawler,Johny Hendricks,Robbie Lawler,0,U-DEC,W,,,
+2014-04-26,Light Heavyweight,Jon Jones,Glover Teixeira,Jon Jones,Glover Teixeira,0,U-DEC,W,,,
+2014-05-24,Bantamweight,Renan Barao,TJ Dillashaw,TJ Dillashaw,Renan Barao,0,KO/TKO,L,,,
+2014-06-14,Flyweight,Demetrious Johnson,Ali Bagautinov,Demetrious Johnson,Ali Bagautinov,0,U-DEC,W,,,
+2014-07-05,Middleweight,Chris Weidman,Lyoto Machida,Chris Weidman,Lyoto Machida,0,U-DEC,W,,,
+2014-07-05,Women's Bantamweight,Ronda Rousey,Alexis Davis,Ronda Rousey,Alexis Davis,0,KO/TKO,W,,,
+2014-08-30,Bantamweight,TJ Dillashaw,Joe Soto,TJ Dillashaw,Joe Soto,0,KO/TKO,W,,,
+2014-09-27,Flyweight,Demetrious Johnson,Chris Cariaso,Demetrious Johnson,Chris Cariaso,0,SUB,W,,,
+2014-10-25,Featherweight,Jose Aldo,Chad Mendes,Jose Aldo,Chad Mendes,0,U-DEC,W,,,
+2014-12-06,Welterweight,Johny Hendricks,Robbie Lawler,Johny Hendricks,Robbie Lawler,0,S-DEC,L,2.94,1,underdog
+2014-12-06,Lightweight,Anthony Pettis,Gilbert Melendez,Anthony Pettis,Gilbert Melendez,0,SUB,W,3.13,1,favourite
+2014-12-12,Women's Strawweight,Carla Esparza,Rose Namajunas,Carla Esparza,Rose Namajunas,0,SUB,W,1.56,0,underdog
+2015-01-03,Light Heavyweight,Jon Jones,Daniel Cormier,Jon Jones,Daniel Cormier,0,U-DEC,W,2.5,1,favourite
+2015-02-28,Women's Bantamweight,Ronda Rousey,Cat Zingano,Ronda Rousey,Cat Zingano,0,SUB,W,7.14,1,favourite
+2015-03-14,Lightweight,Anthony Pettis,Rafael Dos Anjos,Anthony Pettis,Rafael Dos Anjos,0,U-DEC,L,4.9,1,underdog
+2015-03-14,Women's Strawweight,Carla Esparza,Joanna Jedrzejczyk,Carla Esparza,Joanna Jedrzejczyk,0,KO/TKO,L,2.48,1,underdog
+2015-04-25,Flyweight,Demetrious Johnson,Kyoji Horiguchi,Demetrious Johnson,Kyoji Horiguchi,0,SUB,W,7.69,1,favourite
+2015-05-23,Light Heavyweight,Anthony Johnson,Daniel Cormier,Daniel Cormier,Anthony Johnson,0,SUB,L,1.96,1,favourite
+2015-05-23,Middleweight,Chris Weidman,Vitor Belfort,Chris Weidman,Vitor Belfort,0,KO/TKO,W,5,1,favourite
+2015-06-13,Heavyweight,Cain Velasquez,Fabricio Werdum,Cain Velasquez,Fabricio Werdum,0,SUB,L,5.26,1,underdog
+2015-06-20,Women's Strawweight,Joanna Jedrzejczyk,Jessica Penne,Joanna Jedrzejczyk,Jessica Penne,0,KO/TKO,W,7.14,1,favourite
+2015-07-11,Welterweight,Robbie Lawler,Rory MacDonald,Robbie Lawler,Rory MacDonald,0,KO/TKO,W,1.62,0,underdog
+2015-07-25,Bantamweight,TJ Dillashaw,Renan Barao,TJ Dillashaw,Renan Barao,0,KO/TKO,W,2.95,1,favourite
+2015-08-01,Women's Bantamweight,Ronda Rousey,Bethe Correia,Ronda Rousey,Bethe Correia,0,KO/TKO,W,12.82,1,favourite
+2015-09-05,Flyweight,Demetrious Johnson,John Dodson,Demetrious Johnson,John Dodson,0,U-DEC,W,5.75,1,favourite
+2015-10-03,Light Heavyweight,Daniel Cormier,Alexander Gustafsson,Daniel Cormier,Alexander Gustafsson,0,S-DEC,W,3.45,1,favourite
+2015-11-14,Women's Bantamweight,Ronda Rousey,Holly Holm,Ronda Rousey,Holly Holm,0,KO/TKO,L,12.99,1,underdog
+2015-11-14,Women's Strawweight,Joanna Jedrzejczyk,Valerie Letourneau,Joanna Jedrzejczyk,Valerie Letourneau,0,U-DEC,W,12.82,1,favourite
+2015-12-12,Featherweight,Jose Aldo,Conor McGregor,Jose Aldo,Conor McGregor,0,KO/TKO,L,2.05,1,underdog
+2015-12-12,Middleweight,Chris Weidman,Luke Rockhold,Chris Weidman,Luke Rockhold,0,KO/TKO,L,2.25,1,underdog
+2015-12-19,Lightweight,Rafael Dos Anjos,Donald Cerrone,Rafael Dos Anjos,Donald Cerrone,0,KO/TKO,W,2.7,1,favourite
+2016-01-02,Welterweight,Robbie Lawler,Carlos Condit,Robbie Lawler,Carlos Condit,0,S-DEC,W,1.95,1,favourite
+2016-01-17,Bantamweight,TJ Dillashaw,Dominick Cruz,TJ Dillashaw,Dominick Cruz,0,S-DEC,L,2.33,1,underdog
+2016-03-05,Women's Bantamweight,Holly Holm,Miesha Tate,Holly Holm,Miesha Tate,0,SUB,L,3.5,1,underdog
+2016-04-23,Flyweight,Demetrious Johnson,Henry Cejudo,Demetrious Johnson,Henry Cejudo,0,KO/TKO,W,4.55,1,favourite
+2016-05-14,Heavyweight,Fabricio Werdum,Stipe Miocic,Fabricio Werdum,Stipe Miocic,0,KO/TKO,L,2.5,1,underdog
+2016-06-04,Middleweight,Luke Rockhold,Michael Bisping,Luke Rockhold,Michael Bisping,0,KO/TKO,L,6.4,1,underdog
+2016-06-04,Bantamweight,Dominick Cruz,Urijah Faber,Dominick Cruz,Urijah Faber,0,U-DEC,W,4.7,1,favourite
+2016-07-07,Lightweight,Rafael Dos Anjos,Eddie Alvarez,Rafael Dos Anjos,Eddie Alvarez,0,KO/TKO,L,3.6,1,underdog
+2016-07-08,Women's Strawweight,Joanna Jedrzejczyk,Claudia Gadelha,Joanna Jedrzejczyk,Claudia Gadelha,0,U-DEC,W,2.1,1,favourite
+2016-07-09,Women's Bantamweight,Miesha Tate,Amanda Nunes,Miesha Tate,Amanda Nunes,0,SUB,L,3.25,1,underdog
+2016-07-09,Featherweight,Jose Aldo,Frankie Edgar,Jose Aldo,Frankie Edgar,0,U-DEC,W,1.94,0,underdog
+2016-07-30,Welterweight,Robbie Lawler,Tyron Woodley,Robbie Lawler,Tyron Woodley,0,KO/TKO,L,2.2,1,underdog
+2016-09-10,Heavyweight,Stipe Miocic,Alistair Overeem,Stipe Miocic,Alistair Overeem,0,KO/TKO,W,2.05,1,favourite
+2016-10-08,Middleweight,Michael Bisping,Dan Henderson,Michael Bisping,Dan Henderson,0,U-DEC,W,3.2,1,favourite
+2016-11-12,Lightweight,Eddie Alvarez,Conor McGregor,Eddie Alvarez,Conor McGregor,0,KO/TKO,L,1.8,0,favourite
+2016-11-12,Welterweight,Tyron Woodley,Stephen Thompson,Tyron Woodley,Stephen Thompson,0,M-DEC,D,1.53,0,nan
+2016-11-12,Women's Strawweight,Joanna Jedrzejczyk,Karolina Kowalkiewicz,Joanna Jedrzejczyk,Karolina Kowalkiewicz,0,U-DEC,W,4.95,1,favourite
+2016-12-03,Flyweight,Demetrious Johnson,Tim Elliott,Demetrious Johnson,Tim Elliott,0,U-DEC,W,9,1,favourite
+2016-12-30,Women's Bantamweight,Amanda Nunes,Ronda Rousey,Amanda Nunes,Ronda Rousey,0,KO/TKO,W,1.67,0,underdog
+2016-12-30,Bantamweight,Dominick Cruz,Cody Garbrandt,Dominick Cruz,Cody Garbrandt,0,U-DEC,L,2.95,1,underdog
+2017-02-11,Women's Featherweight,Holly Holm,Germaine de Randamie,Germaine de Randamie,Holly Holm,0,U-DEC,L,2.15,1,favourite
+2017-03-04,Welterweight,Tyron Woodley,Stephen Thompson,Tyron Woodley,Stephen Thompson,0,M-DEC,W,1.71,0,underdog
+2017-04-08,Light Heavyweight,Daniel Cormier,Anthony Johnson,Daniel Cormier,Anthony Johnson,0,SUB,W,1.83,0,underdog
+2017-04-15,Flyweight,Demetrious Johnson,Wilson Reis,Demetrious Johnson,Wilson Reis,0,SUB,W,8.6,1,favourite
+2017-05-13,Heavyweight,Stipe Miocic,Junior Dos Santos,Stipe Miocic,Junior Dos Santos,0,KO/TKO,W,2.25,1,favourite
+2017-05-13,Women's Strawweight,Joanna Jedrzejczyk,Jessica Andrade,Joanna Jedrzejczyk,Jessica Andrade,0,U-DEC,W,2.8,1,favourite
+2017-06-03,Featherweight,Jose Aldo,Max Holloway,Jose Aldo,Max Holloway,0,KO/TKO,L,2.3,1,underdog
+2017-07-08,Middleweight,Yoel Romero,Robert Whittaker,Robert Whittaker,Yoel Romero,0,U-DEC,L,2.1,1,favourite
+2017-07-29,Light Heavyweight,Daniel Cormier,Jon Jones,Daniel Cormier,Jon Jones,0,OVERTURNED,NC,1.4,0,favourite
+2017-07-29,Welterweight,Tyron Woodley,Demian Maia,Tyron Woodley,Demian Maia,0,U-DEC,W,2.77,1,favourite
+2017-07-29,Women's Featherweight,Cristiane Justino,Tonya Evinger,Cristiane Justino,Tonya Evinger,0,KO/TKO,W,10,1,favourite
+2017-09-09,Women's Bantamweight,Amanda Nunes,Valentina Shevchenko,Amanda Nunes,Valentina Shevchenko,0,S-DEC,W,1.83,0,underdog
+2017-10-07,Flyweight,Demetrious Johnson,Ray Borg,Demetrious Johnson,Ray Borg,0,SUB,W,10,1,favourite
+2017-11-04,Middleweight,Michael Bisping,Georges St-Pierre,Michael Bisping,Georges St-Pierre,0,SUB,L,2,0,favourite
+2017-11-04,Bantamweight,Cody Garbrandt,TJ Dillashaw,Cody Garbrandt,TJ Dillashaw,0,KO/TKO,L,2.75,1,underdog
+2017-11-04,Women's Strawweight,Joanna Jedrzejczyk,Rose Namajunas,Joanna Jedrzejczyk,Rose Namajunas,0,KO/TKO,L,7,1,underdog
+2017-11-25,Middleweight,Michael Bisping,Kelvin Gastelum,Michael Bisping,Kelvin Gastelum,0,KO/TKO,L,1.38,0,favourite
+2017-12-01,Women's Flyweight,Nicco Montano,Roxanne Modafferi,Nicco Montano,Roxanne Modafferi,0,U-DEC,W,,,
+2017-12-02,Featherweight,Max Holloway,Jose Aldo,Max Holloway,Jose Aldo,0,KO/TKO,W,3.47,1,favourite
+2017-12-30,Women's Featherweight,Cristiane Justino,Holly Holm,Cristiane Justino,Holly Holm,0,U-DEC,W,3.75,1,favourite
+2018-01-20,Heavyweight,Stipe Miocic,Francis Ngannou,Stipe Miocic,Francis Ngannou,0,U-DEC,W,1.61,0,underdog
+2018-01-20,Light Heavyweight,Daniel Cormier,Volkan Oezdemir,Daniel Cormier,Volkan Oezdemir,0,KO/TKO,W,4,1,favourite
+2018-03-03,Women's Featherweight,Cristiane Justino,Yana Santos,Cristiane Justino,Yana Santos,0,KO/TKO,W,9.8,1,favourite
+2018-04-07,Lightweight,Khabib Nurmagomedov,Al Iaquinta,Khabib Nurmagomedov,Al Iaquinta,0,U-DEC,W,6.8,1,favourite
+2018-04-07,Women's Strawweight,Rose Namajunas,Joanna Jedrzejczyk,Rose Namajunas,Joanna Jedrzejczyk,0,U-DEC,W,1.93,0,underdog
+2018-05-12,Women's Bantamweight,Amanda Nunes,Raquel Pennington,Amanda Nunes,Raquel Pennington,0,KO/TKO,W,7.65,1,favourite
+2018-06-09,Middleweight,Robert Whittaker,Yoel Romero,Robert Whittaker,Yoel Romero,0,S-DEC,W,3.7,1,favourite
+2018-07-07,Heavyweight,Stipe Miocic,Daniel Cormier,Stipe Miocic,Daniel Cormier,0,KO/TKO,L,2.77,1,underdog
+2018-08-04,Bantamweight,TJ Dillashaw,Cody Garbrandt,TJ Dillashaw,Cody Garbrandt,0,KO/TKO,W,2.15,1,favourite
+2018-08-04,Flyweight,Demetrious Johnson,Henry Cejudo,Demetrious Johnson,Henry Cejudo,0,S-DEC,L,5,1,underdog
+2018-09-08,Welterweight,Tyron Woodley,Darren Till,Tyron Woodley,Darren Till,0,SUB,W,1.95,0,underdog
+2018-10-06,Lightweight,Khabib Nurmagomedov,Conor McGregor,Khabib Nurmagomedov,Conor McGregor,0,SUB,W,2.7,1,favourite
+2018-11-03,Heavyweight,Daniel Cormier,Derrick Lewis,Daniel Cormier,Derrick Lewis,0,SUB,W,4.7,1,favourite
+2018-12-08,Featherweight,Max Holloway,Brian Ortega,Max Holloway,Brian Ortega,0,TKO - Doctor's Stoppage,W,2.02,1,favourite
+2018-12-08,Women's Flyweight,Valentina Shevchenko,Joanna Jedrzejczyk,Valentina Shevchenko,Joanna Jedrzejczyk,0,U-DEC,W,3.65,1,favourite
+2018-12-29,Light Heavyweight,Jon Jones,Alexander Gustafsson,Jon Jones,Alexander Gustafsson,0,KO/TKO,W,3.65,1,favourite
+2018-12-29,Women's Featherweight,Cristiane Justino,Amanda Nunes,Cristiane Justino,Amanda Nunes,0,KO/TKO,L,2.8,1,underdog
+2019-01-19,Flyweight,Henry Cejudo,TJ Dillashaw,Henry Cejudo,TJ Dillashaw,0,KO/TKO,W,1.48,0,underdog
+2019-03-02,Light Heavyweight,Jon Jones,Anthony Smith,Jon Jones,Anthony Smith,0,U-DEC,W,6.87,1,favourite
+2019-03-02,Welterweight,Tyron Woodley,Kamaru Usman,Tyron Woodley,Kamaru Usman,0,U-DEC,L,2.75,1,underdog
+2019-04-13,Lightweight,Max Holloway,Dustin Poirier,Dustin Poirier,Max Holloway,1,U-DEC,L,1.48,0,underdog
+2019-04-13,Middleweight,Kelvin Gastelum,Israel Adesanya,Israel Adesanya,Kelvin Gastelum,0,U-DEC,L,2.65,1,favourite
+2019-05-11,Women's Strawweight,Rose Namajunas,Jessica Andrade,Rose Namajunas,Jessica Andrade,0,KO/TKO,L,1.87,0,favourite
+2019-06-08,Bantamweight,Henry Cejudo,Marlon Moraes,Henry Cejudo,Marlon Moraes,0,KO/TKO,W,1.81,0,underdog
+2019-06-08,Women's Flyweight,Valentina Shevchenko,Jessica Eye,Valentina Shevchenko,Jessica Eye,0,KO/TKO,W,9.3,1,favourite
+2019-07-06,Light Heavyweight,Jon Jones,Thiago Santos,Jon Jones,Thiago Santos,0,S-DEC,W,6.13,1,favourite
+2019-07-06,Women's Bantamweight,Amanda Nunes,Holly Holm,Amanda Nunes,Holly Holm,0,KO/TKO,W,4.63,1,favourite
+2019-07-27,Featherweight,Max Holloway,Frankie Edgar,Max Holloway,Frankie Edgar,0,U-DEC,W,3.84,1,favourite
+2019-08-10,Women's Flyweight,Valentina Shevchenko,Liz Carmouche,Valentina Shevchenko,Liz Carmouche,0,U-DEC,W,9.75,1,favourite
+2019-08-17,Heavyweight,Daniel Cormier,Stipe Miocic,Daniel Cormier,Stipe Miocic,0,KO/TKO,L,2.39,1,underdog
+2019-08-31,Women's Strawweight,Jessica Andrade,Zhang Weili,Jessica Andrade,Zhang Weili,0,KO/TKO,L,,,
+2019-09-07,Lightweight,Khabib Nurmagomedov,Dustin Poirier,Khabib Nurmagomedov,Dustin Poirier,0,SUB,W,4.55,1,favourite
+2019-10-05,Middleweight,Robert Whittaker,Israel Adesanya,Israel Adesanya,Robert Whittaker,0,KO/TKO,L,2.13,1,favourite
+2019-12-14,Welterweight,Kamaru Usman,Colby Covington,Kamaru Usman,Colby Covington,0,KO/TKO,W,2.75,1,favourite
+2019-12-14,Featherweight,Max Holloway,Alexander Volkanovski,Max Holloway,Alexander Volkanovski,0,U-DEC,L,,,
+2019-12-14,Women's Bantamweight,Amanda Nunes,Germaine de Randamie,Amanda Nunes,Germaine de Randamie,0,U-DEC,W,4.79,1,favourite
+2020-02-08,Light Heavyweight,Jon Jones,Dominick Reyes,Jon Jones,Dominick Reyes,0,U-DEC,W,4.75,1,favourite
+2020-02-08,Women's Flyweight,Valentina Shevchenko,Katlyn Cerminara,Valentina Shevchenko,Katlyn Cerminara,0,KO/TKO,W,,,
+2020-03-07,Middleweight,Israel Adesanya,Yoel Romero,Israel Adesanya,Yoel Romero,0,U-DEC,W,3.4,1,favourite
+2020-03-07,Women's Strawweight,Zhang Weili,Joanna Jedrzejczyk,Zhang Weili,Joanna Jedrzejczyk,0,S-DEC,W,,,
+2020-05-09,Lightweight,Tony Ferguson,Justin Gaethje,Justin Gaethje,Tony Ferguson,1,KO/TKO,L,1.53,0,underdog
+2020-05-09,Bantamweight,Henry Cejudo,Dominick Cruz,Henry Cejudo,Dominick Cruz,0,KO/TKO,W,3.05,1,favourite
+2020-06-06,Women's Featherweight,Amanda Nunes,Felicia Spencer,Amanda Nunes,Felicia Spencer,0,U-DEC,W,5.5,1,favourite
+2020-07-11,Welterweight,Kamaru Usman,Jorge Masvidal,Kamaru Usman,Jorge Masvidal,0,U-DEC,W,3.31,1,favourite
+2020-07-11,Featherweight,Alexander Volkanovski,Max Holloway,Alexander Volkanovski,Max Holloway,0,S-DEC,W,,,
+2020-07-11,Bantamweight,Petr Yan,Jose Aldo,Petr Yan,Jose Aldo,0,KO/TKO,W,3,1,favourite
+2020-07-18,Flyweight,Deiveson Figueiredo,Joseph Benavidez,Deiveson Figueiredo,Joseph Benavidez,0,SUB,W,3.05,1,favourite
+2020-08-15,Heavyweight,Stipe Miocic,Daniel Cormier,Stipe Miocic,Daniel Cormier,0,U-DEC,W,1.93,0,underdog
+2020-09-26,Middleweight,Israel Adesanya,Paulo Costa,Israel Adesanya,Paulo Costa,0,KO/TKO,W,2.65,1,favourite
+2020-09-26,Light Heavyweight,Dominick Reyes,Jan Blachowicz,Jan Blachowicz,Dominick Reyes,0,KO/TKO,L,1.42,0,underdog
+2020-10-24,Lightweight,Khabib Nurmagomedov,Justin Gaethje,Khabib Nurmagomedov,Justin Gaethje,0,SUB,W,3.79,1,favourite
+2020-11-21,Flyweight,Deiveson Figueiredo,Alex Perez,Deiveson Figueiredo,Alex Perez,0,SUB,W,3.95,1,favourite
+2020-11-21,Women's Flyweight,Valentina Shevchenko,Jennifer Maia,Valentina Shevchenko,Jennifer Maia,0,U-DEC,W,10.96,1,favourite
+2020-12-12,Flyweight,Deiveson Figueiredo,Brandon Moreno,Deiveson Figueiredo,Brandon Moreno,0,M-DEC,D,3.95,1,nan
+2021-02-13,Welterweight,Kamaru Usman,Gilbert Burns,Kamaru Usman,Gilbert Burns,0,KO/TKO,W,3.46,1,favourite
+2021-03-06,Light Heavyweight,Jan Blachowicz,Israel Adesanya,Jan Blachowicz,Israel Adesanya,0,U-DEC,W,1.44,0,underdog
+2021-03-06,Women's Featherweight,Amanda Nunes,Megan Anderson,Amanda Nunes,Megan Anderson,0,SUB,W,8.02,1,favourite
+2021-03-06,Bantamweight,Petr Yan,Aljamain Sterling,Petr Yan,Aljamain Sterling,0,DQ,L,2,1,underdog
+2021-03-27,Heavyweight,Stipe Miocic,Francis Ngannou,Stipe Miocic,Francis Ngannou,0,KO/TKO,L,1.77,0,favourite
+2021-04-24,Welterweight,Kamaru Usman,Jorge Masvidal,Kamaru Usman,Jorge Masvidal,0,KO/TKO,W,4.48,1,favourite
+2021-04-24,Women's Strawweight,Zhang Weili,Rose Namajunas,Zhang Weili,Rose Namajunas,0,KO/TKO,L,,,
+2021-04-24,Women's Flyweight,Valentina Shevchenko,Jessica Andrade,Valentina Shevchenko,Jessica Andrade,0,KO/TKO,W,4.3,1,favourite
+2021-05-15,Lightweight,Charles Oliveira,Michael Chandler,Charles Oliveira,Michael Chandler,0,KO/TKO,W,2.18,1,favourite
+2021-06-12,Middleweight,Israel Adesanya,Marvin Vettori,Israel Adesanya,Marvin Vettori,0,U-DEC,W,3.25,1,favourite
+2021-06-12,Flyweight,Deiveson Figueiredo,Brandon Moreno,Deiveson Figueiredo,Brandon Moreno,0,SUB,L,3,1,underdog
+2021-08-07,Heavyweight,Derrick Lewis,Ciryl Gane,Ciryl Gane,Derrick Lewis,1,KO/TKO,L,4.05,1,favourite
+2021-09-25,Featherweight,Alexander Volkanovski,Brian Ortega,Alexander Volkanovski,Brian Ortega,0,U-DEC,W,,,
+2021-09-25,Women's Flyweight,Valentina Shevchenko,Lauren Murphy,Valentina Shevchenko,Lauren Murphy,0,KO/TKO,W,10.8,1,favourite
+2021-10-30,Light Heavyweight,Jan Blachowicz,Glover Teixeira,Jan Blachowicz,Glover Teixeira,0,SUB,L,3.7,1,underdog
+2021-10-30,Bantamweight,Petr Yan,Cory Sandhagen,Petr Yan,Cory Sandhagen,1,U-DEC,W,3,1,favourite
+2021-11-06,Welterweight,Kamaru Usman,Colby Covington,Kamaru Usman,Colby Covington,0,U-DEC,W,3.5,1,favourite
+2021-11-06,Women's Strawweight,Rose Namajunas,Zhang Weili,Rose Namajunas,Zhang Weili,0,S-DEC,W,,,
+2021-12-11,Lightweight,Charles Oliveira,Dustin Poirier,Charles Oliveira,Dustin Poirier,0,SUB,W,1.77,0,underdog
+2021-12-11,Women's Bantamweight,Amanda Nunes,Julianna Pena,Amanda Nunes,Julianna Pena,0,SUB,L,8.5,1,underdog
+2022-01-22,Heavyweight,Francis Ngannou,Ciryl Gane,Francis Ngannou,Ciryl Gane,0,U-DEC,W,1.75,0,underdog
+2022-01-22,Flyweight,Brandon Moreno,Deiveson Figueiredo,Brandon Moreno,Deiveson Figueiredo,0,U-DEC,L,2.65,1,underdog
+2022-02-12,Middleweight,Israel Adesanya,Robert Whittaker,Israel Adesanya,Robert Whittaker,0,U-DEC,W,3.65,1,favourite
+2022-04-09,Featherweight,Alexander Volkanovski,Chan Sung Jung,Alexander Volkanovski,Chan Sung Jung,0,KO/TKO,W,,,
+2022-04-09,Bantamweight,Aljamain Sterling,Petr Yan,Aljamain Sterling,Petr Yan,0,S-DEC,W,1.27,0,underdog
+2022-05-07,Lightweight,Charles Oliveira,Justin Gaethje,Charles Oliveira,Justin Gaethje,0,SUB,W,2.36,1,favourite
+2022-05-07,Women's Strawweight,Rose Namajunas,Carla Esparza,Rose Namajunas,Carla Esparza,0,S-DEC,L,3,1,underdog
+2022-06-11,Light Heavyweight,Glover Teixeira,Jiri Prochazka,Glover Teixeira,Jiri Prochazka,0,SUB,L,1.51,0,favourite
+2022-06-11,Women's Flyweight,Valentina Shevchenko,Taila Santos,Valentina Shevchenko,Taila Santos,0,S-DEC,W,6.5,1,favourite
+2022-07-02,Middleweight,Israel Adesanya,Jared Cannonier,Israel Adesanya,Jared Cannonier,0,U-DEC,W,5.6,1,favourite
+2022-07-02,Featherweight,Alexander Volkanovski,Max Holloway,Alexander Volkanovski,Max Holloway,0,U-DEC,W,,,
+2022-07-30,Women's Bantamweight,Julianna Pena,Amanda Nunes,Julianna Pena,Amanda Nunes,0,U-DEC,L,1.41,0,favourite
+2022-08-20,Welterweight,Kamaru Usman,Leon Edwards,Kamaru Usman,Leon Edwards,0,KO/TKO,L,4,1,underdog
+2022-10-22,Lightweight,Charles Oliveira,Islam Makhachev,Charles Oliveira,Islam Makhachev,0,SUB,L,1.6,0,favourite
+2022-10-22,Bantamweight,Aljamain Sterling,TJ Dillashaw,Aljamain Sterling,TJ Dillashaw,0,KO/TKO,W,2.65,1,favourite
+2022-11-12,Middleweight,Israel Adesanya,Alex Pereira,Israel Adesanya,Alex Pereira,0,KO/TKO,L,5.6,1,underdog
+2022-11-12,Women's Strawweight,Carla Esparza,Zhang Weili,Carla Esparza,Zhang Weili,0,SUB,L,,,
+2023-01-21,Light Heavyweight,Glover Teixeira,Jamahal Hill,Jamahal Hill,Glover Teixeira,0,U-DEC,L,2.25,1,favourite
+2023-01-21,Flyweight,Deiveson Figueiredo,Brandon Moreno,Deiveson Figueiredo,Brandon Moreno,0,TKO - Doctor's Stoppage,L,1.7,0,favourite
+2023-02-11,Lightweight,Islam Makhachev,Alexander Volkanovski,Islam Makhachev,Alexander Volkanovski,0,U-DEC,W,,,
+2023-03-04,Heavyweight,Jon Jones,Ciryl Gane,Jon Jones,Ciryl Gane,0,SUB,W,2.55,1,favourite
+2023-03-04,Women's Flyweight,Valentina Shevchenko,Alexa Grasso,Valentina Shevchenko,Alexa Grasso,0,SUB,L,8.5,1,underdog
+2023-03-18,Welterweight,Leon Edwards,Kamaru Usman,Leon Edwards,Kamaru Usman,0,M-DEC,W,1.43,0,underdog
+2023-04-08,Middleweight,Alex Pereira,Israel Adesanya,Alex Pereira,Israel Adesanya,0,KO/TKO,L,1.74,0,favourite
+2023-05-06,Bantamweight,Aljamain Sterling,Henry Cejudo,Aljamain Sterling,Henry Cejudo,0,S-DEC,W,2,0,underdog
+2023-06-10,Women's Bantamweight,Amanda Nunes,Irene Aldana,Amanda Nunes,Irene Aldana,0,U-DEC,W,3.55,1,favourite
+2023-07-08,Featherweight,Alexander Volkanovski,Yair Rodriguez,Alexander Volkanovski,Yair Rodriguez,0,KO/TKO,W,,,
+2023-07-08,Flyweight,Brandon Moreno,Alexandre Pantoja,Brandon Moreno,Alexandre Pantoja,0,S-DEC,L,2.66,1,underdog
+2023-08-19,Bantamweight,Aljamain Sterling,Sean O'Malley,Aljamain Sterling,Sean O'Malley,0,KO/TKO,L,3.1,1,underdog
+2023-08-19,Women's Strawweight,Zhang Weili,Amanda Lemos,Zhang Weili,Amanda Lemos,0,U-DEC,W,,,
+2023-09-09,Middleweight,Israel Adesanya,Sean Strickland,Israel Adesanya,Sean Strickland,0,U-DEC,L,5.8,1,underdog
+2023-09-16,Women's Flyweight,Alexa Grasso,Valentina Shevchenko,Alexa Grasso,Valentina Shevchenko,0,S-DEC,D,1.67,0,nan
+2023-10-21,Lightweight,Islam Makhachev,Alexander Volkanovski,Islam Makhachev,Alexander Volkanovski,0,KO/TKO,W,,,
+2023-11-11,Light Heavyweight,Jiri Prochazka,Alex Pereira,Alex Pereira,Jiri Prochazka,0,KO/TKO,L,2.05,1,favourite
+2023-11-11,Heavyweight,Sergei Pavlovich,Tom Aspinall,Tom Aspinall,Sergei Pavlovich,1,KO/TKO,L,,,
+2023-12-16,Welterweight,Leon Edwards,Colby Covington,Leon Edwards,Colby Covington,0,U-DEC,W,2.4,1,favourite
+2023-12-16,Flyweight,Alexandre Pantoja,Brandon Royval,Alexandre Pantoja,Brandon Royval,0,U-DEC,W,2.9,1,favourite
+2024-01-20,Middleweight,Sean Strickland,Dricus Du Plessis,Sean Strickland,Dricus Du Plessis,0,S-DEC,L,,,
+2024-01-20,Women's Bantamweight,Raquel Pennington,Mayra Bueno Silva,Raquel Pennington,Mayra Bueno Silva,0,U-DEC,W,,,
+2024-02-17,Featherweight,Alexander Volkanovski,Ilia Topuria,Alexander Volkanovski,Ilia Topuria,0,KO/TKO,L,,,
+2024-03-09,Bantamweight,Sean O'Malley,Marlon Vera,Sean O'Malley,Marlon Vera,0,U-DEC,W,,,
+2024-04-13,Light Heavyweight,Alex Pereira,Jamahal Hill,Alex Pereira,Jamahal Hill,0,KO/TKO,W,,,
+2024-04-13,Women's Strawweight,Zhang Weili,Yan Xiaonan,Zhang Weili,Yan Xiaonan,0,U-DEC,W,,,
+2024-05-04,Flyweight,Alexandre Pantoja,Steve Erceg,Alexandre Pantoja,Steve Erceg,0,U-DEC,W,,,
+2024-06-01,Lightweight,Islam Makhachev,Dustin Poirier,Islam Makhachev,Dustin Poirier,0,SUB,W,,,
+2024-06-29,Light Heavyweight,Alex Pereira,Jiri Prochazka,Alex Pereira,Jiri Prochazka,0,KO/TKO,W,,,
+2024-07-27,Welterweight,Leon Edwards,Belal Muhammad,Leon Edwards,Belal Muhammad,0,U-DEC,L,,,
+2024-07-27,Heavyweight,Tom Aspinall,Curtis Blaydes,Tom Aspinall,Curtis Blaydes,1,KO/TKO,W,,,
+2024-08-17,Middleweight,Dricus Du Plessis,Israel Adesanya,Dricus Du Plessis,Israel Adesanya,0,SUB,W,,,
+2024-09-14,Bantamweight,Sean O'Malley,Merab Dvalishvili,Sean O'Malley,Merab Dvalishvili,0,U-DEC,L,,,
+2024-09-14,Women's Flyweight,Alexa Grasso,Valentina Shevchenko,Alexa Grasso,Valentina Shevchenko,0,U-DEC,L,,,
+2024-10-05,Light Heavyweight,Alex Pereira,Khalil Rountree Jr.,Alex Pereira,Khalil Rountree Jr.,0,KO/TKO,W,,,
+2024-10-05,Women's Bantamweight,Raquel Pennington,Julianna Pena,Raquel Pennington,Julianna Pena,0,S-DEC,L,,,
+2024-10-26,Featherweight,Ilia Topuria,Max Holloway,Ilia Topuria,Max Holloway,0,KO/TKO,W,,,
+2024-11-16,Heavyweight,Jon Jones,Stipe Miocic,Jon Jones,Stipe Miocic,0,KO/TKO,W,,,
+2024-12-07,Flyweight,Alexandre Pantoja,Kai Asakura,Alexandre Pantoja,Kai Asakura,0,SUB,W,,,
+2025-01-18,Lightweight,Islam Makhachev,Renato Moicano,Islam Makhachev,Renato Moicano,0,SUB,W,,,
+2025-01-18,Bantamweight,Merab Dvalishvili,Umar Nurmagomedov,Merab Dvalishvili,Umar Nurmagomedov,0,U-DEC,W,,,
+2025-02-08,Middleweight,Dricus Du Plessis,Sean Strickland,Dricus Du Plessis,Sean Strickland,0,U-DEC,W,,,
+2025-02-08,Women's Strawweight,Zhang Weili,Tatiana Suarez,Zhang Weili,Tatiana Suarez,0,U-DEC,W,,,
+2025-03-08,Light Heavyweight,Alex Pereira,Magomed Ankalaev,Alex Pereira,Magomed Ankalaev,0,U-DEC,L,,,
+2025-04-12,Featherweight,Alexander Volkanovski,Diego Lopes,Alexander Volkanovski,Diego Lopes,0,U-DEC,W,,,
+2025-05-10,Welterweight,Belal Muhammad,Jack Della Maddalena,Belal Muhammad,Jack Della Maddalena,0,U-DEC,L,,,
+2025-05-10,Women's Flyweight,Valentina Shevchenko,Manon Fiorot,Valentina Shevchenko,Manon Fiorot,0,U-DEC,W,,,
+2025-06-07,Bantamweight,Merab Dvalishvili,Sean O'Malley,Merab Dvalishvili,Sean O'Malley,0,SUB,W,,,
+2025-06-07,Women's Bantamweight,Julianna Pena,Kayla Harrison,Kayla Harrison,Julianna Pena,0,SUB,L,,,
+2025-06-28,Lightweight,Ilia Topuria,Charles Oliveira,Ilia Topuria,Charles Oliveira,0,KO/TKO,W,,,
+2025-06-28,Flyweight,Alexandre Pantoja,Kai Kara-France,Alexandre Pantoja,Kai Kara-France,0,SUB,W,,,
+2025-08-16,Middleweight,Dricus Du Plessis,Khamzat Chimaev,Dricus Du Plessis,Khamzat Chimaev,0,U-DEC,L,,,
+2025-10-04,Light Heavyweight,Magomed Ankalaev,Alex Pereira,Magomed Ankalaev,Alex Pereira,0,KO/TKO,L,,,
+2025-10-04,Bantamweight,Merab Dvalishvili,Cory Sandhagen,Merab Dvalishvili,Cory Sandhagen,0,U-DEC,W,,,
+2025-10-25,Heavyweight,Tom Aspinall,Ciryl Gane,Tom Aspinall,Ciryl Gane,1,CNC,NC,,,
+2025-11-15,Welterweight,Jack Della Maddalena,Islam Makhachev,Jack Della Maddalena,Islam Makhachev,0,U-DEC,L,,,
+2025-11-15,Women's Flyweight,Valentina Shevchenko,Zhang Weili,Valentina Shevchenko,Zhang Weili,0,U-DEC,W,,,
+2025-12-06,Bantamweight,Merab Dvalishvili,Petr Yan,Merab Dvalishvili,Petr Yan,0,U-DEC,L,,,
+2025-12-06,Flyweight,Alexandre Pantoja,Joshua Van,Alexandre Pantoja,Joshua Van,0,KO/TKO,L,,,
+2026-01-31,Featherweight,Alexander Volkanovski,Diego Lopes,Alexander Volkanovski,Diego Lopes,0,U-DEC,W,,,
+2026-05-02,Welterweight,Jack Della Maddalena,Carlos Prates,Jack Della Maddalena,Carlos Prates,0,KO/TKO,L,,,
+2026-05-09,Middleweight,Khamzat Chimaev,Sean Strickland,Khamzat Chimaev,Sean Strickland,0,S-DEC,L,,,
