@@ -60,7 +60,7 @@ function monthsBetween(d1: Date, d2: Date): number {
 // Strip interim/championship qualifiers so "Interim Lightweight" doesn't read
 // as a different division than "Lightweight" and trigger a bogus move penalty.
 // Catch/open weight and blanks return null → treated as "no move" (neutral).
-function normalizeWeightClassForMove(wc: string): string | null {
+export function normalizeWeightClassForMove(wc: string): string | null {
   if (!wc) return null;
   const w = wc.trim();
   if (/catch ?weight|open ?weight|tournament|superfight/i.test(w)) return null;

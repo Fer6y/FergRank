@@ -172,6 +172,29 @@ export const RANKING_CONFIG = {
   // rewarded by Elo carrying no loss drag.)
   championTiebreakerBand: 8,
 
+  // Head-to-head leapfrog: a fighter who RECENTLY and DECISIVELY beat someone
+  // ranked above them is lifted to directly above that opponent — even when the
+  // two are NOT adjacent (pairwise leapfrog). The winner passes anyone in between
+  // (whom they may not have fought) to sit just above the specific fighter they
+  // beat. Elo is gap-preserving, so a single decision win narrows the gap without
+  // flipping the order; this correction enforces the in-cage result. Guard rails
+  // keep one result from overriding the rating wholesale:
+  //   • recencyMonths — the meeting must be within this window of "today"; a
+  //     stale win can't override years of divergence.
+  //   • negateOnLossAfter — if the winner has lost to ANYONE after that meeting,
+  //     their form has already turned, so the win no longer proves superiority
+  //     and the leapfrog is cancelled.
+  //   • decisiveOnly — split decisions / draws don't qualify (a razor-thin split
+  //     shouldn't reorder the division).
+  //   • eloGapCap — only applies when the two are within this many Elo points, so
+  //     a lone upset can't vault someone over half the division.
+  headToHead: {
+    recencyMonths: 18,
+    negateOnLossAfter: true,
+    decisiveOnly: true,
+    eloGapCap: 50,
+  },
+
   // ═══ ELIGIBILITY ══════════════════════════════════════════════════════
   minUFCFights: 3,              // Minimum UFC fights to appear at all
   rankingsDepth: 40,            // Fighters ranked per division

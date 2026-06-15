@@ -15,7 +15,7 @@
 import { RANKING_CONFIG } from './rankingConfig';
 import { fetchOfficialRankings, getOfficialRankingsForDivision } from './fetchOfficialRankings';
 import { buildNameIndex, resolveNameToId } from './nameResolver';
-import { buildEloRatings, getElo, eloToDisplayScore } from './eloEngine';
+import { buildEloRatings, getElo, eloToDisplayScore, normalizeWeightClassForMove } from './eloEngine';
 import { getRegistry } from './registry';
 import { effectiveEngine, DEFAULT_FILTERS, type FilterParams } from './filters';
 import { loadPedigreeStrength } from './pedigreeSeed';
@@ -343,8 +343,8 @@ export async function generateDivisionRankings(
     return b.sosElo - a.sosElo;
   });
 
-  // 5. Head-to-head correction: if A is ranked directly above B but B beat A
-  //    in-division within the window (and scores are close), swap them.
+  // 5. Head-to-head leapfrog: a fighter who recently + decisively beat someone
+  //    ranked above them is lifted to directly above that opponent (guard-railed).
   applyHeadToHead(rankedFighters, data, division, now, eraStartYear);
 
   // 6. Champion tiebreaker: a reigning champ in a near-tie wins the top slot.
@@ -446,6 +446,12 @@ function applyChampionTiebreaker(rankedFighters: RankedFighter[], division: stri
 
 // ─── Head-to-head correction ─────────────────────────────────
 
+// A split decision is not a clean enough result to reorder the division.
+// (Draws / no-contests never set a winner below, so they're excluded already.)
+function isIndecisive(method: string): boolean {
+  return /S-DEC/i.test(method);
+}
+
 function applyHeadToHead(
   rankedFighters: RankedFighter[],
   data: LoadedData,
@@ -453,29 +459,85 @@ function applyHeadToHead(
   now: Date,
   eraStartYear: number | null
 ): void {
-  const divFights = data.fights.filter(
-    (f) => f.weightClass === division && !isBeyondCutoff(f.eventDate, now) && inEra(f.eventDate, eraStartYear)
-  );
-  // Most-recent result between any pair wins.
-  const h2hWinner = new Map<string, string>();
-  const sorted = [...divFights].sort((a, b) => (a.eventDate?.getTime() || 0) - (b.eventDate?.getTime() || 0));
-  for (const fight of sorted) {
-    const k1 = `${fight.fighterId1}|${fight.fighterId2}`;
-    const k2 = `${fight.fighterId2}|${fight.fighterId1}`;
-    if (fight.result1 === 'W') { h2hWinner.set(k1, fight.fighterId1); h2hWinner.set(k2, fight.fighterId1); }
-    else if (fight.result2 === 'W') { h2hWinner.set(k1, fight.fighterId2); h2hWinner.set(k2, fight.fighterId2); }
+  const cfg = RANKING_CONFIG.headToHead;
+
+  // In-division fights inside the active window/era, oldest→newest so the LATEST
+  // meeting between any pair overwrites earlier ones. Normalize the label so an
+  // interim title fight ("Interim Lightweight") counts as the division — without
+  // this, title fights (exactly where head-to-head matters most) are skipped.
+  const divFights = data.fights
+    .filter(
+      (f) =>
+        normalizeWeightClassForMove(f.weightClass) === division &&
+        !isBeyondCutoff(f.eventDate, now) &&
+        inEra(f.eventDate, eraStartYear)
+    )
+    .sort((a, b) => (a.eventDate?.getTime() || 0) - (b.eventDate?.getTime() || 0));
+
+  // Latest qualifying meeting per ordered pair: who won and when.
+  type Meeting = { winnerId: string; date: Date };
+  const lastMeeting = new Map<string, Meeting>();
+  for (const f of divFights) {
+    if (!f.eventDate) continue;
+    if (cfg.decisiveOnly && isIndecisive(f.method)) continue;
+    let winnerId: string | null = null;
+    if (f.result1 === 'W') winnerId = f.fighterId1;
+    else if (f.result2 === 'W') winnerId = f.fighterId2;
+    if (!winnerId) continue;
+    const m: Meeting = { winnerId, date: f.eventDate };
+    lastMeeting.set(`${f.fighterId1}|${f.fighterId2}`, m);
+    lastMeeting.set(`${f.fighterId2}|${f.fighterId1}`, m);
   }
 
-  for (let i = 0; i < rankedFighters.length - 1; i++) {
-    const a = rankedFighters[i];
-    const b = rankedFighters[i + 1];
-    const winner = h2hWinner.get(`${a.fighterId}|${b.fighterId}`);
-    if (winner && winner === b.fighterId) {
-      const diff = a.finalRating > 0 ? Math.abs(a.finalRating - b.finalRating) / a.finalRating : 0;
-      if (diff < 0.5) {
-        rankedFighters[i] = b;
-        rankedFighters[i + 1] = a;
-      }
+  // Each fighter's most-recent LOSS date across ALL divisions (a form signal):
+  // a loss after the head-to-head negates the leapfrog.
+  const lastLoss = new Map<string, number>();
+  if (cfg.negateOnLossAfter) {
+    for (const f of data.fights) {
+      if (!f.eventDate || !inEra(f.eventDate, eraStartYear)) continue;
+      const t = f.eventDate.getTime();
+      if (f.result1 === 'L') lastLoss.set(f.fighterId1, Math.max(lastLoss.get(f.fighterId1) ?? 0, t));
+      if (f.result2 === 'L') lastLoss.set(f.fighterId2, Math.max(lastLoss.get(f.fighterId2) ?? 0, t));
     }
+  }
+
+  // Gather qualifying leapfrog edges (winner currently ranked BELOW loser),
+  // then apply them victim-topmost-first so a winner lands just above the
+  // highest-ranked opponent they've earned it against.
+  type Edge = { winnerId: string; loserId: string; loserIdx: number; date: Date };
+  const edges: Edge[] = [];
+  for (let i = 0; i < rankedFighters.length; i++) {
+    const loser = rankedFighters[i]; // potential victim (higher rank)
+    for (let j = i + 1; j < rankedFighters.length; j++) {
+      const winner = rankedFighters[j]; // ranked below the victim
+      const meeting = lastMeeting.get(`${winner.fighterId}|${loser.fighterId}`);
+      if (!meeting || meeting.winnerId !== winner.fighterId) continue;
+      if (monthsBetween(meeting.date, now) > cfg.recencyMonths) continue; // stale win
+      if (cfg.negateOnLossAfter) {
+        const wl = lastLoss.get(winner.fighterId);
+        if (wl !== undefined && wl > meeting.date.getTime()) continue; // lost since → form turned
+      }
+      if (loser.finalRating - winner.finalRating > cfg.eloGapCap) continue; // too far below
+      edges.push({ winnerId: winner.fighterId, loserId: loser.fighterId, loserIdx: i, date: meeting.date });
+    }
+  }
+  edges.sort((a, b) => a.loserIdx - b.loserIdx);
+
+  const idxOf = (id: string) => rankedFighters.findIndex((rf) => rf.fighterId === id);
+  const moved = new Set<string>(); // each fighter relocates at most once (cycle guard)
+  for (const e of edges) {
+    if (moved.has(e.winnerId)) continue;
+    const wi = idxOf(e.winnerId);
+    const li = idxOf(e.loserId);
+    if (wi < 0 || li < 0 || wi <= li) continue; // already above the victim
+    const [w] = rankedFighters.splice(wi, 1);
+    rankedFighters.splice(li, 0, w); // insert directly above the victim
+    moved.add(e.winnerId);
+    const victim = rankedFighters[li + 1];
+    console.log(
+      `[scoringEngine] H2H LEAPFROG in ${division}: ${w.fullName} lifted above ` +
+      `${victim.fullName} (beat them ${e.date.toISOString().slice(0, 10)}, ` +
+      `gap ${(victim.finalRating - w.finalRating).toFixed(1)} Elo)`
+    );
   }
 }
