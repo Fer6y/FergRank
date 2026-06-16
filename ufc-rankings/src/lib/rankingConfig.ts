@@ -223,6 +223,11 @@ export const RANKING_CONFIG = {
     'Dricus Du Plessis': { division: 'Middleweight', rank: '1' },
     'Joshua Van': { division: 'Flyweight', rank: 'C' },
     'Alexandre Pantoja': { division: 'Flyweight', rank: '1' },
+    // Gaethje KO'd Topuria (R4) at UFC White House / Freedom 250 (2026-06-14) to
+    // take the Lightweight belt; the API still lists Topuria as champ. Gaethje
+    // holds "C", Topuria — now off his undefeated run — is seeded top contender.
+    'Justin Gaethje': { division: 'Lightweight', rank: 'C' },
+    'Ilia Topuria': { division: 'Lightweight', rank: '1' },
     // W-Strawweight: Zhang vacated the 115 belt to move up to flyweight (lost
     // to Shevchenko there). Dern won the vacant title. The API still lists Zhang
     // as WSW "C", so we crown Dern and evict Zhang to flyweight.
