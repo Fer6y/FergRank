@@ -4,24 +4,34 @@
       "rank": 1,
       "id": "c84679ced7c8f6a2",
       "name": "Tom Aspinall",
-      "score": 94.3,
-      "finalRating": 1664.25,
-      "elo": 1608.94,
+      "score": 95.43,
+      "finalRating": 1664.92,
+      "elo": 1608.9,
       "officialRank": "C",
       "record": "8-1-0"
     },
     {
       "rank": 2,
+      "id": "d405f6e1594c44db",
+      "name": "Ciryl Gane",
+      "score": 95.43,
+      "finalRating": 1670.85,
+      "elo": 1610.8,
+      "officialRank": "1",
+      "record": "10-2-0"
+    },
+    {
+      "rank": 3,
       "id": "65960493f529fc58",
       "name": "Alexander Volkov",
-      "score": 94.02,
-      "finalRating": 1662.62,
+      "score": 94.05,
+      "finalRating": 1662.77,
       "elo": 1608.87,
       "officialRank": "2",
       "record": "14-5-0"
     },
     {
-      "rank": 3,
+      "rank": 4,
       "id": "d38d32acdb6c8ac2",
       "name": "Sergei Pavlovich",
       "score": 92.98,
@@ -31,31 +41,21 @@
       "record": "8-3-0"
     },
     {
-      "rank": 4,
+      "rank": 5,
       "id": "34808451782bc5ee",
       "name": "Waldo Cortes Acosta",
-      "score": 92.31,
-      "finalRating": 1652.62,
+      "score": 92.29,
+      "finalRating": 1652.51,
       "elo": 1606.42,
       "officialRank": "6",
       "record": "10-3-0"
     },
     {
-      "rank": 5,
-      "id": "d405f6e1594c44db",
-      "name": "Ciryl Gane",
-      "score": 92.25,
-      "finalRating": 1652.29,
-      "elo": 1592.41,
-      "officialRank": "1",
-      "record": "10-2-0"
-    },
-    {
       "rank": 6,
       "id": "c17b1fa1d28c1eea",
       "name": "Jailton Almeida",
-      "score": 90.78,
-      "finalRating": 1644.31,
+      "score": 90.76,
+      "finalRating": 1644.24,
       "elo": 1600.37,
       "officialRank": "5",
       "record": "8-3-0"
@@ -64,9 +64,9 @@
       "rank": 7,
       "id": "d39a1677910874e9",
       "name": "Josh Hokit",
-      "score": 83.54,
-      "finalRating": 1578.18,
-      "elo": 1569.97,
+      "score": 83.73,
+      "finalRating": 1604.45,
+      "elo": 1593.63,
       "officialRank": null,
       "record": "3-0-0"
     },
@@ -74,8 +74,8 @@
       "rank": 8,
       "id": "de831203e050cdaf",
       "name": "Curtis Blaydes",
-      "score": 83.54,
-      "finalRating": 1621.26,
+      "score": 83.73,
+      "finalRating": 1621.87,
       "elo": 1577.09,
       "officialRank": "4",
       "record": "14-6-0"
@@ -84,9 +84,9 @@
       "rank": 9,
       "id": "4675830a8d994d0e",
       "name": "Jon Jones",
-      "score": 82.04,
-      "finalRating": 1616.5,
-      "elo": 1605.13,
+      "score": 82.03,
+      "finalRating": 1616.45,
+      "elo": 1605.09,
       "officialRank": null,
       "record": "22-1-0"
     },
@@ -104,9 +104,9 @@
       "rank": 11,
       "id": "a0cd4255eec2a5b8",
       "name": "Mick Parkin",
-      "score": 73.72,
-      "finalRating": 1592.56,
-      "elo": 1553.59,
+      "score": 73.71,
+      "finalRating": 1592.54,
+      "elo": 1553.57,
       "officialRank": "12",
       "record": "4-1-0"
     },
@@ -142,26 +142,16 @@
     },
     {
       "rank": 15,
-      "id": "957522be7ec72223",
-      "name": "Derrick Lewis",
-      "score": 68.28,
-      "finalRating": 1577.45,
-      "elo": 1548.65,
-      "officialRank": "9",
-      "record": "20-11-0"
-    },
-    {
-      "rank": 16,
       "id": "e61d510091019852",
       "name": "Serghei Spivac",
-      "score": 68.21,
-      "finalRating": 1577.24,
+      "score": 68.24,
+      "finalRating": 1577.32,
       "elo": 1543.58,
       "officialRank": "8",
       "record": "9-6-0"
     },
     {
-      "rank": 17,
+      "rank": 16,
       "id": "d04b8d5ce7a65c4f",
       "name": "Vitor Petrino",
       "score": 66.7,
@@ -169,6 +159,16 @@
       "elo": 1568.24,
       "officialRank": null,
       "record": "7-2-0"
+    },
+    {
+      "rank": 17,
+      "id": "957522be7ec72223",
+      "name": "Derrick Lewis",
+      "score": 62.81,
+      "finalRating": 1562.26,
+      "elo": 1532.88,
+      "officialRank": "9",
+      "record": "20-11-0"
     },
     {
       "rank": 18,
@@ -184,9 +184,9 @@
       "rank": 19,
       "id": "f18236a4cfbcb1d5",
       "name": "Alexandr Romanov",
-      "score": 61.85,
-      "finalRating": 1559.54,
-      "elo": 1547.94,
+      "score": 61.84,
+      "finalRating": 1559.52,
+      "elo": 1547.92,
       "officialRank": null,
       "record": "7-3-0"
     },
@@ -194,8 +194,8 @@
       "rank": 20,
       "id": "395835d15985848e",
       "name": "Tallison Teixeira",
-      "score": 58.27,
-      "finalRating": 1548.81,
+      "score": 58.21,
+      "finalRating": 1548.64,
       "elo": 1501.22,
       "officialRank": "13",
       "record": "2-1-0"
@@ -204,9 +204,9 @@
       "rank": 21,
       "id": "b6c51b7cbb426717",
       "name": "Marcos Rogerio de Lima",
-      "score": 57.69,
-      "finalRating": 1547.07,
-      "elo": 1539.23,
+      "score": 57.57,
+      "finalRating": 1546.72,
+      "elo": 1539.21,
       "officialRank": null,
       "record": "11-7-0"
     },
@@ -215,8 +215,8 @@
       "id": "bc712336ca186386",
       "name": "Jairzinho Rozenstruik",
       "score": 57.25,
-      "finalRating": 1545.76,
-      "elo": 1536.85,
+      "finalRating": 1545.74,
+      "elo": 1536.83,
       "officialRank": null,
       "record": "9-6-0"
     },
@@ -225,8 +225,8 @@
       "id": "3a626ef8b2524507",
       "name": "Karl Williams",
       "score": 55.38,
-      "finalRating": 1540.15,
-      "elo": 1528.79,
+      "finalRating": 1540.14,
+      "elo": 1528.78,
       "officialRank": null,
       "record": "3-1-0"
     },
@@ -284,9 +284,9 @@
       "rank": 29,
       "id": "5de030e625a4928c",
       "name": "Rodrigo Nascimento",
-      "score": 45.21,
-      "finalRating": 1509.62,
-      "elo": 1516.53,
+      "score": 45.12,
+      "finalRating": 1509.36,
+      "elo": 1516.52,
       "officialRank": null,
       "record": "4-3-0"
     },
@@ -335,7 +335,7 @@
       "id": "419200e8de9e524f",
       "name": "Andrei Arlovski",
       "score": 41.84,
-      "finalRating": 1499.31,
+      "finalRating": 1499.32,
       "elo": 1492.4,
       "officialRank": null,
       "record": "23-18-0"
@@ -404,16 +404,6 @@
   "Light Heavyweight": [
     {
       "rank": 1,
-      "id": "a38373934b735770",
-      "name": "Alex Pereira",
-      "score": 98.54,
-      "finalRating": 1706.93,
-      "elo": 1638.89,
-      "officialRank": "C",
-      "record": "10-2-0"
-    },
-    {
-      "rank": 2,
       "id": "6a36f7b99dfc0313",
       "name": "Carlos Ulberg",
       "score": 98.53,
@@ -423,11 +413,21 @@
       "record": "10-1-0"
     },
     {
+      "rank": 2,
+      "id": "a38373934b735770",
+      "name": "Alex Pereira",
+      "score": 98.53,
+      "finalRating": 1674.67,
+      "elo": 1606.63,
+      "officialRank": "C",
+      "record": "10-2-0"
+    },
+    {
       "rank": 3,
       "id": "69646a0ad3abb8c7",
       "name": "Magomed Ankalaev",
-      "score": 92.6,
-      "finalRating": 1654.33,
+      "score": 92.44,
+      "finalRating": 1653.41,
       "elo": 1604.92,
       "officialRank": "1",
       "record": "12-2-1"
@@ -446,8 +446,8 @@
       "rank": 5,
       "id": "d649fe1ea4499ea7",
       "name": "Jiri Prochazka",
-      "score": 81.07,
-      "finalRating": 1613.4,
+      "score": 80.97,
+      "finalRating": 1613.08,
       "elo": 1564.3,
       "officialRank": "2",
       "record": "6-3-0"
@@ -476,8 +476,8 @@
       "rank": 8,
       "id": "29a6a8a9d3847e14",
       "name": "Jan Blachowicz",
-      "score": 74.87,
-      "finalRating": 1582.72,
+      "score": 74.76,
+      "finalRating": 1582.5,
       "elo": 1538.65,
       "officialRank": "5",
       "record": "12-8-2"
@@ -486,8 +486,8 @@
       "rank": 9,
       "id": "2cc62c24e03e31f1",
       "name": "Khalil Rountree Jr.",
-      "score": 74.87,
-      "finalRating": 1595.75,
+      "score": 74.76,
+      "finalRating": 1595.45,
       "elo": 1553.47,
       "officialRank": "4",
       "record": "10-7-0"
@@ -556,8 +556,8 @@
       "rank": 16,
       "id": "fa92f349c2df714c",
       "name": "Jamahal Hill",
-      "score": 68.56,
-      "finalRating": 1578.21,
+      "score": 68.43,
+      "finalRating": 1577.85,
       "elo": 1540.11,
       "officialRank": "6",
       "record": "6-4-0"
@@ -576,9 +576,9 @@
       "rank": 18,
       "id": "b44d9aa783723762",
       "name": "Philipe Lins",
-      "score": 60.62,
-      "finalRating": 1555.86,
-      "elo": 1549.83,
+      "score": 60.61,
+      "finalRating": 1555.84,
+      "elo": 1549.81,
       "officialRank": null,
       "record": "4-2-0"
     },
@@ -606,9 +606,9 @@
       "rank": 21,
       "id": "0ecdf0e50055dbdc",
       "name": "Nicolae Negumereanu",
-      "score": 53.53,
-      "finalRating": 1534.58,
-      "elo": 1536.3,
+      "score": 53.52,
+      "finalRating": 1534.56,
+      "elo": 1536.29,
       "officialRank": null,
       "record": "4-2-0"
     },
@@ -647,8 +647,8 @@
       "id": "63794d4370198ec0",
       "name": "Tyson Pedro",
       "score": 50.12,
-      "finalRating": 1524.37,
-      "elo": 1519.8,
+      "finalRating": 1524.36,
+      "elo": 1519.79,
       "officialRank": null,
       "record": "6-5-0"
     },
@@ -678,7 +678,7 @@
       "name": "Ovince Saint Preux",
       "score": 41.62,
       "finalRating": 1498.38,
-      "elo": 1492.46,
+      "elo": 1492.47,
       "officialRank": null,
       "record": "15-13-0"
     },
@@ -708,7 +708,7 @@
       "name": "Anthony Smith",
       "score": 39.41,
       "finalRating": 1488.88,
-      "elo": 1502.2,
+      "elo": 1502.19,
       "officialRank": null,
       "record": "13-12-0"
     },
@@ -767,8 +767,8 @@
       "id": "f6b8314c88557af7",
       "name": "Zac Pauga",
       "score": 34.96,
-      "finalRating": 1469.77,
-      "elo": 1455.95,
+      "finalRating": 1469.79,
+      "elo": 1455.97,
       "officialRank": null,
       "record": "1-3-0"
     },
@@ -777,7 +777,7 @@
       "id": "38942375bcbe06a6",
       "name": "Devin Clark",
       "score": 34.91,
-      "finalRating": 1469.55,
+      "finalRating": 1469.56,
       "elo": 1480.2,
       "officialRank": null,
       "record": "8-9-0"
@@ -916,6 +916,16 @@
     },
     {
       "rank": 12,
+      "id": "9a841327b5d824c6",
+      "name": "Bo Nickal",
+      "score": 75.8,
+      "finalRating": 1598.33,
+      "elo": 1585.07,
+      "officialRank": null,
+      "record": "5-1-0"
+    },
+    {
+      "rank": 13,
       "id": "ba40e07b06503a8c",
       "name": "Christian Leroy Duncan",
       "score": 75.06,
@@ -925,17 +935,17 @@
       "record": "7-2-0"
     },
     {
-      "rank": 13,
+      "rank": 14,
       "id": "db3f5063058ec38a",
       "name": "Reinier de Ridder",
-      "score": 74.85,
-      "finalRating": 1595.71,
+      "score": 74.89,
+      "finalRating": 1595.81,
       "elo": 1558.46,
       "officialRank": "12",
       "record": "4-2-0"
     },
     {
-      "rank": 14,
+      "rank": 15,
       "id": "7b6300b29d5151e8",
       "name": "Paulo Costa",
       "score": 73.36,
@@ -945,7 +955,7 @@
       "record": "8-4-0"
     },
     {
-      "rank": 15,
+      "rank": 16,
       "id": "87802dddb1e85813",
       "name": "Roman Kopylov",
       "score": 73.36,
@@ -955,7 +965,7 @@
       "record": "7-5-0"
     },
     {
-      "rank": 16,
+      "rank": 17,
       "id": "331d3f58e32980ad",
       "name": "Ikram Aliskerov",
       "score": 71.06,
@@ -963,16 +973,6 @@
       "elo": 1570.82,
       "officialRank": null,
       "record": "4-1-0"
-    },
-    {
-      "rank": 17,
-      "id": "9a841327b5d824c6",
-      "name": "Bo Nickal",
-      "score": 70.73,
-      "finalRating": 1584.24,
-      "elo": 1570.85,
-      "officialRank": null,
-      "record": "5-1-0"
     },
     {
       "rank": 18,
@@ -1048,9 +1048,9 @@
       "rank": 25,
       "id": "37962e622840843a",
       "name": "Nursulton Ruziboev",
-      "score": 65.8,
-      "finalRating": 1570.56,
-      "elo": 1563.11,
+      "score": 65.79,
+      "finalRating": 1570.53,
+      "elo": 1563.09,
       "officialRank": null,
       "record": "4-1-0"
     },
@@ -1106,26 +1106,16 @@
     },
     {
       "rank": 31,
-      "id": "adc254e5ba385928",
-      "name": "Kyle Daukaus",
-      "score": 54.01,
-      "finalRating": 1525.88,
-      "elo": 1517.09,
-      "officialRank": null,
-      "record": "4-4-0"
-    },
-    {
-      "rank": 32,
       "id": "b2d0ed4e270b49dc",
       "name": "Michel Pereira",
-      "score": 54.01,
-      "finalRating": 1536.04,
+      "score": 53.97,
+      "finalRating": 1535.9,
       "elo": 1547.26,
       "officialRank": null,
       "record": "10-5-0"
     },
     {
-      "rank": 33,
+      "rank": 32,
       "id": "3a0f7fd1dbd0ce0b",
       "name": "Ismail Naurdiev",
       "score": 53.18,
@@ -1135,7 +1125,7 @@
       "record": "4-3-0"
     },
     {
-      "rank": 34,
+      "rank": 33,
       "id": "600dc8df28333450",
       "name": "Cesar Almeida",
       "score": 52.92,
@@ -1145,7 +1135,7 @@
       "record": "3-2-0"
     },
     {
-      "rank": 35,
+      "rank": 34,
       "id": "b9562bf0e19e971a",
       "name": "Mansur Abdul-Malik",
       "score": 52.58,
@@ -1155,7 +1145,7 @@
       "record": "3-1-1"
     },
     {
-      "rank": 36,
+      "rank": 35,
       "id": "e51574999ccf6b8f",
       "name": "Marvin Vettori",
       "score": 51.92,
@@ -1165,17 +1155,17 @@
       "record": "9-8-1"
     },
     {
-      "rank": 37,
+      "rank": 36,
       "id": "27647a7f19ee4c1d",
       "name": "Cody Brundage",
       "score": 51.49,
-      "finalRating": 1496.39,
+      "finalRating": 1496.43,
       "elo": 1490.94,
       "officialRank": null,
       "record": "6-8-1"
     },
     {
-      "rank": 38,
+      "rank": 37,
       "id": "805498e3922258c7",
       "name": "Andre Petroski",
       "score": 51.49,
@@ -1185,7 +1175,7 @@
       "record": "8-5-0"
     },
     {
-      "rank": 39,
+      "rank": 38,
       "id": "f5e2ac299e039054",
       "name": "Eryk Anders",
       "score": 47.94,
@@ -1195,14 +1185,24 @@
       "record": "10-9-0"
     },
     {
-      "rank": 40,
+      "rank": 39,
       "id": "cfceff9b0a52347d",
       "name": "Eric McConico",
-      "score": 47.88,
+      "score": 47.93,
       "finalRating": 1492.66,
       "elo": 1492.88,
       "officialRank": null,
       "record": "2-2-0"
+    },
+    {
+      "rank": 40,
+      "id": "09d3fd4e11dd462b",
+      "name": "Rodolfo Vieira",
+      "score": 47.93,
+      "finalRating": 1517.8,
+      "elo": 1515.79,
+      "officialRank": null,
+      "record": "6-5-0"
     }
   ],
   "Welterweight": [
@@ -1240,9 +1240,9 @@
       "rank": 4,
       "id": "04af9104a6d2ebbc",
       "name": "Shavkat Rakhmonov",
-      "score": 97.29,
-      "finalRating": 1685.03,
-      "elo": 1632.37,
+      "score": 97.28,
+      "finalRating": 1684.98,
+      "elo": 1632.32,
       "officialRank": "3",
       "record": "7-0-0"
     },
@@ -1281,8 +1281,8 @@
       "id": "09c4ebb55e8079b1",
       "name": "Kamaru Usman",
       "score": 85.51,
-      "finalRating": 1616.01,
-      "elo": 1570.25,
+      "finalRating": 1615.98,
+      "elo": 1570.22,
       "officialRank": "5",
       "record": "16-3-0"
     },
@@ -1350,9 +1350,9 @@
       "rank": 15,
       "id": "64779053fdf01be7",
       "name": "Bryan Battle",
-      "score": 75.76,
-      "finalRating": 1598.22,
-      "elo": 1594.83,
+      "score": 75.75,
+      "finalRating": 1598.18,
+      "elo": 1594.79,
       "officialRank": null,
       "record": "7-1-0"
     },
@@ -1411,8 +1411,8 @@
       "id": "b7f5a832b68bad95",
       "name": "Colby Covington",
       "score": 66.03,
-      "finalRating": 1571.2,
-      "elo": 1537.37,
+      "finalRating": 1571.19,
+      "elo": 1537.35,
       "officialRank": "9",
       "record": "12-5-0"
     },
@@ -1470,8 +1470,8 @@
       "rank": 27,
       "id": "139240f3f69c1af6",
       "name": "Randy Brown",
-      "score": 63.13,
-      "finalRating": 1563.13,
+      "score": 63.12,
+      "finalRating": 1563.12,
       "elo": 1559.13,
       "officialRank": null,
       "record": "14-8-0"
@@ -1570,9 +1570,9 @@
       "rank": 37,
       "id": "6e78fc11797303ec",
       "name": "Gunnar Nelson",
-      "score": 56.42,
-      "finalRating": 1543.26,
-      "elo": 1542.02,
+      "score": 56.41,
+      "finalRating": 1543.24,
+      "elo": 1542.01,
       "officialRank": null,
       "record": "10-6-0"
     },
@@ -1610,16 +1610,6 @@
   "Lightweight": [
     {
       "rank": 1,
-      "id": "875c9f59fc746b88",
-      "name": "Ilia Topuria",
-      "score": 97.46,
-      "finalRating": 1687.98,
-      "elo": 1629.52,
-      "officialRank": "C",
-      "record": "9-0-0"
-    },
-    {
-      "rank": 2,
       "id": "1c2caae133a1f406",
       "name": "Arman Tsarukyan",
       "score": 96.65,
@@ -1629,41 +1619,51 @@
       "record": "10-2-0"
     },
     {
+      "rank": 2,
+      "id": "875c9f59fc746b88",
+      "name": "Ilia Topuria",
+      "score": 96.65,
+      "finalRating": 1668.8,
+      "elo": 1610.34,
+      "officialRank": "C",
+      "record": "9-0-0"
+    },
+    {
       "rank": 3,
       "id": "01827249d3b138b8",
       "name": "Charles Oliveira",
-      "score": 95.95,
-      "finalRating": 1673.89,
+      "score": 95.9,
+      "finalRating": 1673.6,
       "elo": 1623.44,
       "officialRank": "3",
       "record": "25-11-0"
     },
     {
       "rank": 4,
+      "id": "d5ebb51288f99cee",
+      "name": "Justin Gaethje",
+      "score": 94.33,
+      "finalRating": 1637.73,
+      "elo": 1599.25,
+      "officialRank": "4",
+      "record": "10-5-0"
+    },
+    {
+      "rank": 5,
       "id": "baf62b0c8795f506",
       "name": "Benoit Saint Denis",
-      "score": 94.31,
-      "finalRating": 1664.3,
+      "score": 94.33,
+      "finalRating": 1664.41,
       "elo": 1618.58,
       "officialRank": "14",
       "record": "9-3-0"
     },
     {
-      "rank": 5,
-      "id": "d5ebb51288f99cee",
-      "name": "Justin Gaethje",
-      "score": 92.48,
-      "finalRating": 1618.55,
-      "elo": 1580.07,
-      "officialRank": "4",
-      "record": "10-5-0"
-    },
-    {
       "rank": 6,
       "id": "3495d04b5c109550",
       "name": "Paddy Pimblett",
-      "score": 92.48,
-      "finalRating": 1653.62,
+      "score": 92.43,
+      "finalRating": 1653.32,
       "elo": 1610.97,
       "officialRank": "10",
       "record": "7-1-0"
@@ -1683,7 +1683,7 @@
       "id": "fe8d8a8c3b0afe3e",
       "name": "Max Holloway",
       "score": 88.55,
-      "finalRating": 1619.9,
+      "finalRating": 1620.06,
       "elo": 1572.53,
       "officialRank": "5",
       "record": "23-9-0"
@@ -1732,8 +1732,8 @@
       "rank": 13,
       "id": "3831bcbeade5a335",
       "name": "Dustin Poirier",
-      "score": 76.05,
-      "finalRating": 1599.01,
+      "score": 76.09,
+      "finalRating": 1599.15,
       "elo": 1569.5,
       "officialRank": "6",
       "record": "22-9-0"
@@ -1750,6 +1750,16 @@
     },
     {
       "rank": 15,
+      "id": "bd8ee82c2df0d588",
+      "name": "Mauricio Ruffy",
+      "score": 70.78,
+      "finalRating": 1584.4,
+      "elo": 1579.09,
+      "officialRank": null,
+      "record": "4-1-0"
+    },
+    {
+      "rank": 16,
       "id": "23819db9f489592d",
       "name": "Tom Nolan",
       "score": 69.67,
@@ -1759,7 +1769,7 @@
       "record": "4-1-0"
     },
     {
-      "rank": 16,
+      "rank": 17,
       "id": "72d51391d67206b8",
       "name": "Fares Ziam",
       "score": 69.67,
@@ -1769,24 +1779,14 @@
       "record": "8-2-0"
     },
     {
-      "rank": 17,
+      "rank": 18,
       "id": "70838bdc207b5308",
       "name": "King Green",
-      "score": 67.46,
-      "finalRating": 1575.17,
+      "score": 67.49,
+      "finalRating": 1575.26,
       "elo": 1552.37,
       "officialRank": null,
       "record": "16-12-1"
-    },
-    {
-      "rank": 18,
-      "id": "bd8ee82c2df0d588",
-      "name": "Mauricio Ruffy",
-      "score": 67.38,
-      "finalRating": 1574.95,
-      "elo": 1566.24,
-      "officialRank": null,
-      "record": "4-1-0"
     },
     {
       "rank": 19,
@@ -1832,8 +1832,8 @@
       "rank": 23,
       "id": "4e08ff215f9a5fc0",
       "name": "Rafael Fiziev",
-      "score": 63.85,
-      "finalRating": 1565.15,
+      "score": 64.02,
+      "finalRating": 1565.62,
       "elo": 1528.45,
       "officialRank": "11",
       "record": "7-5-0"
@@ -2002,8 +2002,8 @@
       "rank": 40,
       "id": "debe6f0d96121434",
       "name": "Evan Elder",
-      "score": 52.03,
-      "finalRating": 1530.08,
+      "score": 52.02,
+      "finalRating": 1530.07,
       "elo": 1519.9,
       "officialRank": null,
       "record": "3-2-0"
@@ -2015,7 +2015,7 @@
       "id": "00ccd78f83230b09",
       "name": "Alexander Volkanovski",
       "score": 92.25,
-      "finalRating": 1648.61,
+      "finalRating": 1649.12,
       "elo": 1576.07,
       "officialRank": "C",
       "record": "15-3-0"
@@ -2032,6 +2032,16 @@
     },
     {
       "rank": 3,
+      "id": "bf14e890b46e0305",
+      "name": "Diego Lopes",
+      "score": 91.7,
+      "finalRating": 1649.07,
+      "elo": 1602.56,
+      "officialRank": "3",
+      "record": "6-3-0"
+    },
+    {
+      "rank": 4,
       "id": "7468010a5070b907",
       "name": "Lerone Murphy",
       "score": 90.88,
@@ -2041,7 +2051,7 @@
       "record": "9-1-1"
     },
     {
-      "rank": 4,
+      "rank": 5,
       "id": "9cbf77b62e6769c8",
       "name": "Aljamain Sterling",
       "score": 90.64,
@@ -2051,31 +2061,21 @@
       "record": "18-5-0"
     },
     {
-      "rank": 5,
+      "rank": 6,
       "id": "fa859b94c8582c26",
       "name": "Jean Silva",
-      "score": 89.79,
-      "finalRating": 1641.14,
+      "score": 89.85,
+      "finalRating": 1641.33,
       "elo": 1600.26,
       "officialRank": "10",
       "record": "6-1-0"
     },
     {
-      "rank": 6,
-      "id": "bf14e890b46e0305",
-      "name": "Diego Lopes",
-      "score": 86.62,
-      "finalRating": 1631.06,
-      "elo": 1584.8,
-      "officialRank": "3",
-      "record": "6-3-0"
-    },
-    {
       "rank": 7,
       "id": "fe8d8a8c3b0afe3e",
       "name": "Max Holloway",
-      "score": 85.3,
-      "finalRating": 1626.87,
+      "score": 85.11,
+      "finalRating": 1626.24,
       "elo": 1572.53,
       "officialRank": "1",
       "record": "23-9-0"
@@ -2084,24 +2084,14 @@
       "rank": 8,
       "id": "5a9c4dff8eee3cd8",
       "name": "Yair Rodriguez",
-      "score": 83.6,
-      "finalRating": 1595.24,
-      "elo": 1548.28,
+      "score": 83.3,
+      "finalRating": 1595.22,
+      "elo": 1548.26,
       "officialRank": "4",
       "record": "11-4-0"
     },
     {
       "rank": 9,
-      "id": "a49129adb0dad63b",
-      "name": "Steve Garcia",
-      "score": 83.6,
-      "finalRating": 1621.44,
-      "elo": 1604.65,
-      "officialRank": null,
-      "record": "8-2-0"
-    },
-    {
-      "rank": 10,
       "id": "7b2ab75a34942757",
       "name": "Arnold Allen",
       "score": 83.3,
@@ -2111,7 +2101,7 @@
       "record": "12-3-0"
     },
     {
-      "rank": 11,
+      "rank": 10,
       "id": "f82c365cb6b6a2e8",
       "name": "Kevin Vallejos",
       "score": 78.97,
@@ -2121,11 +2111,21 @@
       "record": "4-0-0"
     },
     {
+      "rank": 11,
+      "id": "a49129adb0dad63b",
+      "name": "Steve Garcia",
+      "score": 78.28,
+      "finalRating": 1605.22,
+      "elo": 1586.89,
+      "officialRank": null,
+      "record": "8-2-0"
+    },
+    {
       "rank": 12,
       "id": "40b55b6c6b38eb80",
       "name": "Pat Sabatini",
-      "score": 76.47,
-      "finalRating": 1600.2,
+      "score": 76.5,
+      "finalRating": 1600.27,
       "elo": 1589.02,
       "officialRank": null,
       "record": "9-2-0"
@@ -2184,8 +2184,8 @@
       "rank": 18,
       "id": "5ae43941a38cb123",
       "name": "David Onama",
-      "score": 67.76,
-      "finalRating": 1576.01,
+      "score": 67.63,
+      "finalRating": 1575.65,
       "elo": 1547.81,
       "officialRank": "13",
       "record": "6-3-0"
@@ -2214,8 +2214,8 @@
       "rank": 21,
       "id": "3f3f90729e314479",
       "name": "Brian Ortega",
-      "score": 64.15,
-      "finalRating": 1565.98,
+      "score": 64.34,
+      "finalRating": 1566.5,
       "elo": 1529.8,
       "officialRank": "5",
       "record": "8-5-0"
@@ -2234,9 +2234,9 @@
       "rank": 23,
       "id": "a238e2e4c9670e90",
       "name": "Sean Woodson",
-      "score": 62.69,
-      "finalRating": 1561.92,
-      "elo": 1551.68,
+      "score": 62.68,
+      "finalRating": 1561.9,
+      "elo": 1551.66,
       "officialRank": null,
       "record": "7-2-1"
     },
@@ -2285,8 +2285,8 @@
       "id": "c62d07b2a13212ac",
       "name": "Jonathan Pearce",
       "score": 57.61,
-      "finalRating": 1546.83,
-      "elo": 1531.18,
+      "finalRating": 1546.82,
+      "elo": 1531.17,
       "officialRank": null,
       "record": "5-4-0"
     },
@@ -2314,8 +2314,8 @@
       "rank": 31,
       "id": "470ffc8f48859da9",
       "name": "Josh Emmett",
-      "score": 55.98,
-      "finalRating": 1541.94,
+      "score": 55.96,
+      "finalRating": 1541.87,
       "elo": 1513.5,
       "officialRank": "9",
       "record": "10-7-0"
@@ -2345,8 +2345,8 @@
       "id": "297d71e3e51e67fc",
       "name": "Darren Elkins",
       "score": 53.21,
-      "finalRating": 1533.64,
-      "elo": 1539.59,
+      "finalRating": 1533.62,
+      "elo": 1539.58,
       "officialRank": null,
       "record": "19-11-0"
     },
@@ -2385,8 +2385,8 @@
       "id": "ce7d7ddb1d8b6120",
       "name": "Alex Caceres",
       "score": 50.96,
-      "finalRating": 1526.89,
-      "elo": 1524.77,
+      "finalRating": 1526.88,
+      "elo": 1524.76,
       "officialRank": null,
       "record": "16-13-0"
     },
@@ -2405,8 +2405,8 @@
       "id": "0651190a213d45b2",
       "name": "Jack Shore",
       "score": 50.55,
-      "finalRating": 1525.65,
-      "elo": 1521.24,
+      "finalRating": 1525.64,
+      "elo": 1521.23,
       "officialRank": null,
       "record": "6-3-0"
     }
@@ -2416,7 +2416,7 @@
       "rank": 1,
       "id": "e5c5bf33b9961606",
       "name": "Petr Yan",
-      "score": 96.44,
+      "score": 96.48,
       "finalRating": 1658.46,
       "elo": 1594.3,
       "officialRank": "C",
@@ -2426,8 +2426,8 @@
       "rank": 2,
       "id": "5ea45965dcdfe486",
       "name": "Merab Dvalishvili",
-      "score": 96.44,
-      "finalRating": 1676.74,
+      "score": 96.48,
+      "finalRating": 1676.98,
       "elo": 1618.65,
       "officialRank": "1",
       "record": "14-3-0"
@@ -2444,6 +2444,16 @@
     },
     {
       "rank": 4,
+      "id": "bbcaf7b57144df14",
+      "name": "Sean O'Malley",
+      "score": 92.65,
+      "finalRating": 1654.64,
+      "elo": 1604.44,
+      "officialRank": "1",
+      "record": "11-3-0"
+    },
+    {
+      "rank": 5,
       "id": "fb2821134f28cffd",
       "name": "Mario Bautista",
       "score": 90.58,
@@ -2453,21 +2463,11 @@
       "record": "11-3-0"
     },
     {
-      "rank": 5,
-      "id": "bbcaf7b57144df14",
-      "name": "Sean O'Malley",
-      "score": 89.25,
-      "finalRating": 1639.42,
-      "elo": 1588.58,
-      "officialRank": "1",
-      "record": "11-3-0"
-    },
-    {
       "rank": 6,
       "id": "6e8a5fe4993ba864",
       "name": "Song Yadong",
-      "score": 85.47,
-      "finalRating": 1627.39,
+      "score": 85.54,
+      "finalRating": 1627.62,
       "elo": 1584.57,
       "officialRank": "5",
       "record": "11-4-1"
@@ -2494,16 +2494,6 @@
     },
     {
       "rank": 9,
-      "id": "a5430ac842baa304",
-      "name": "Aiemann Zahabi",
-      "score": 80.01,
-      "finalRating": 1610.04,
-      "elo": 1569.21,
-      "officialRank": "11",
-      "record": "8-2-0"
-    },
-    {
-      "rank": 10,
       "id": "aad8e24798f0a89f",
       "name": "Vinicius Oliveira",
       "score": 75.79,
@@ -2513,7 +2503,7 @@
       "record": "4-1-0"
     },
     {
-      "rank": 11,
+      "rank": 10,
       "id": "960a493831029685",
       "name": "Montel Jackson",
       "score": 75.49,
@@ -2521,6 +2511,16 @@
       "elo": 1565.67,
       "officialRank": "14",
       "record": "9-4-0"
+    },
+    {
+      "rank": 11,
+      "id": "a5430ac842baa304",
+      "name": "Aiemann Zahabi",
+      "score": 74.89,
+      "finalRating": 1595.82,
+      "elo": 1553.34,
+      "officialRank": "11",
+      "record": "8-2-0"
     },
     {
       "rank": 12,
@@ -2606,8 +2606,8 @@
       "rank": 20,
       "id": "8fef39098574c923",
       "name": "Marlon Vera",
-      "score": 64.36,
-      "finalRating": 1566.54,
+      "score": 64.31,
+      "finalRating": 1566.41,
       "elo": 1542.07,
       "officialRank": "7",
       "record": "15-11-0"
@@ -2636,9 +2636,9 @@
       "rank": 23,
       "id": "b7b781c36eec84ca",
       "name": "Jonathan Martinez",
-      "score": 60.77,
-      "finalRating": 1556.3,
-      "elo": 1558.15,
+      "score": 60.76,
+      "finalRating": 1556.28,
+      "elo": 1558.13,
       "officialRank": null,
       "record": "10-5-0"
     },
@@ -2686,9 +2686,9 @@
       "rank": 28,
       "id": "222714af832f4c52",
       "name": "Brady Hiestand",
-      "score": 58.99,
-      "finalRating": 1550.96,
-      "elo": 1547.97,
+      "score": 58.98,
+      "finalRating": 1550.94,
+      "elo": 1547.95,
       "officialRank": null,
       "record": "3-1-0"
     },
@@ -2707,8 +2707,8 @@
       "id": "64f842aa46e8b2d6",
       "name": "Taylor Lapilus",
       "score": 57.16,
-      "finalRating": 1545.49,
-      "elo": 1538.26,
+      "finalRating": 1545.47,
+      "elo": 1538.24,
       "officialRank": null,
       "record": "6-2-0"
     },
@@ -2737,8 +2737,8 @@
       "id": "d711c2758350cbf5",
       "name": "Victor Henry",
       "score": 53.69,
-      "finalRating": 1535.07,
-      "elo": 1526.48,
+      "finalRating": 1535.06,
+      "elo": 1526.47,
       "officialRank": null,
       "record": "4-2-0"
     },
@@ -2766,8 +2766,8 @@
       "rank": 36,
       "id": "7192b50e701bd23e",
       "name": "Javid Basharat",
-      "score": 53.25,
-      "finalRating": 1533.75,
+      "score": 53.21,
+      "finalRating": 1533.62,
       "elo": 1517.94,
       "officialRank": null,
       "record": "4-2-0"
@@ -2807,8 +2807,8 @@
       "id": "1f5d82279eb460df",
       "name": "Serhiy Sidey",
       "score": 51.19,
-      "finalRating": 1527.57,
-      "elo": 1519.27,
+      "finalRating": 1527.56,
+      "elo": 1519.26,
       "officialRank": null,
       "record": "2-1-0"
     }
@@ -2858,9 +2858,9 @@
       "rank": 5,
       "id": "5cb64276b6b9ea55",
       "name": "Muhammad Mokaev",
-      "score": 84.54,
-      "finalRating": 1624.45,
-      "elo": 1613.77,
+      "score": 84.53,
+      "finalRating": 1624.4,
+      "elo": 1613.73,
       "officialRank": null,
       "record": "7-0-0"
     },
@@ -2928,9 +2928,9 @@
       "rank": 12,
       "id": "e1601c0597a7b444",
       "name": "Andre Lima",
-      "score": 69,
-      "finalRating": 1579.44,
-      "elo": 1567.12,
+      "score": 68.99,
+      "finalRating": 1579.41,
+      "elo": 1567.1,
       "officialRank": null,
       "record": "4-0-0"
     },
@@ -3028,9 +3028,9 @@
       "rank": 22,
       "id": "02a12331a51dc780",
       "name": "Nate Maness",
-      "score": 50.89,
-      "finalRating": 1526.66,
-      "elo": 1521.63,
+      "score": 50.88,
+      "finalRating": 1526.65,
+      "elo": 1521.62,
       "officialRank": null,
       "record": "5-2-0"
     },
@@ -3059,8 +3059,8 @@
       "id": "59fcc641cfc67b7d",
       "name": "Ronaldo Rodriguez",
       "score": 47.48,
-      "finalRating": 1516.44,
-      "elo": 1514.93,
+      "finalRating": 1516.43,
+      "elo": 1514.92,
       "officialRank": null,
       "record": "2-1-0"
     },
@@ -3090,7 +3090,7 @@
       "name": "Matheus Nicolau",
       "score": 45.58,
       "finalRating": 1510.75,
-      "elo": 1508.59,
+      "elo": 1508.58,
       "officialRank": null,
       "record": "7-4-0"
     },
@@ -3148,9 +3148,9 @@
       "rank": 34,
       "id": "edf83b64bd3557d4",
       "name": "Victor Altamirano",
-      "score": 38.3,
-      "finalRating": 1484.13,
-      "elo": 1479.58,
+      "score": 38.31,
+      "finalRating": 1484.14,
+      "elo": 1479.59,
       "officialRank": null,
       "record": "2-4-0"
     },
@@ -3158,8 +3158,8 @@
       "rank": 35,
       "id": "7f23574923bc2c13",
       "name": "David Dvorak",
-      "score": 38.03,
-      "finalRating": 1482.97,
+      "score": 38.04,
+      "finalRating": 1482.98,
       "elo": 1484.76,
       "officialRank": null,
       "record": "3-3-0"
@@ -3189,8 +3189,8 @@
       "id": "d49758d4b92d2200",
       "name": "Felipe dos Santos",
       "score": 34.53,
-      "finalRating": 1467.92,
-      "elo": 1468.08,
+      "finalRating": 1467.93,
+      "elo": 1468.09,
       "officialRank": null,
       "record": "1-3-0"
     },
@@ -3198,9 +3198,9 @@
       "rank": 39,
       "id": "daa8caf6878b4796",
       "name": "CJ Vergara",
-      "score": 34.4,
-      "finalRating": 1467.37,
-      "elo": 1468.62,
+      "score": 34.41,
+      "finalRating": 1467.39,
+      "elo": 1468.64,
       "officialRank": null,
       "record": "3-5-0"
     },
@@ -3209,8 +3209,8 @@
       "id": "6cc637cd5f5cb08b",
       "name": "Malcolm Gordon",
       "score": 34.24,
-      "finalRating": 1466.68,
-      "elo": 1469.25,
+      "finalRating": 1466.69,
+      "elo": 1469.27,
       "officialRank": null,
       "record": "2-5-0"
     }
@@ -3290,9 +3290,9 @@
       "rank": 8,
       "id": "c58c3a863045d224",
       "name": "Yan Xiaonan",
-      "score": 73.51,
-      "finalRating": 1591.96,
-      "elo": 1543.29,
+      "score": 73.5,
+      "finalRating": 1591.95,
+      "elo": 1543.27,
       "officialRank": "3",
       "record": "9-4-0"
     },
@@ -3442,7 +3442,7 @@
       "name": "Josefine Knutsson",
       "score": 50.84,
       "finalRating": 1526.53,
-      "elo": 1514.25,
+      "elo": 1514.24,
       "officialRank": null,
       "record": "2-1-0"
     },
@@ -3482,7 +3482,7 @@
       "name": "Carla Esparza",
       "score": 45.71,
       "finalRating": 1511.13,
-      "elo": 1514.16,
+      "elo": 1514.15,
       "officialRank": null,
       "record": "10-6-0"
     },
@@ -3522,7 +3522,7 @@
       "name": "Viktoriia Dudakova",
       "score": 41.24,
       "finalRating": 1496.75,
-      "elo": 1492.32,
+      "elo": 1492.33,
       "officialRank": null,
       "record": "2-2-0"
     },
@@ -3531,7 +3531,7 @@
       "id": "623bd6b0fd789a01",
       "name": "Emily Ducote",
       "score": 40.67,
-      "finalRating": 1494.29,
+      "finalRating": 1494.3,
       "elo": 1487.73,
       "officialRank": null,
       "record": "2-3-0"
@@ -3610,9 +3610,9 @@
       "rank": 40,
       "id": "09efcf1044196013",
       "name": "Maria Oliveira",
-      "score": 34.45,
-      "finalRating": 1467.6,
-      "elo": 1467.37,
+      "score": 34.46,
+      "finalRating": 1467.61,
+      "elo": 1467.38,
       "officialRank": null,
       "record": "1-3-0"
     }
@@ -3722,9 +3722,9 @@
       "rank": 11,
       "id": "00cc7715cc0d4b51",
       "name": "Miranda Maverick",
-      "score": 71.82,
-      "finalRating": 1587.28,
-      "elo": 1549.97,
+      "score": 71.81,
+      "finalRating": 1587.26,
+      "elo": 1549.95,
       "officialRank": "11",
       "record": "8-4-0"
     },
@@ -3732,7 +3732,7 @@
       "rank": 12,
       "id": "41197a2ac800612c",
       "name": "Rose Namajunas",
-      "score": 71.6,
+      "score": 71.59,
       "finalRating": 1586.65,
       "elo": 1546.47,
       "officialRank": "7",
@@ -3823,8 +3823,8 @@
       "id": "c9317300533eb973",
       "name": "Katlyn Cerminara",
       "score": 50.32,
-      "finalRating": 1524.96,
-      "elo": 1526.72,
+      "finalRating": 1524.95,
+      "elo": 1526.71,
       "officialRank": null,
       "record": "11-6-0"
     },
@@ -3852,8 +3852,8 @@
       "rank": 24,
       "id": "cf9572aa5a2a4ee3",
       "name": "Jennifer Maia",
-      "score": 46.84,
-      "finalRating": 1514.51,
+      "score": 46.83,
+      "finalRating": 1514.5,
       "elo": 1511.24,
       "officialRank": null,
       "record": "6-6-0"
@@ -3883,7 +3883,7 @@
       "id": "7155981bfdf4c28b",
       "name": "Joanne Wood",
       "score": 41.84,
-      "finalRating": 1499.29,
+      "finalRating": 1499.3,
       "elo": 1494.7,
       "officialRank": null,
       "record": "9-8-0"
@@ -3893,8 +3893,8 @@
       "id": "a5bcb9a27bbe7cef",
       "name": "Mandy Bohm",
       "score": 40.43,
-      "finalRating": 1493.24,
-      "elo": 1480.9,
+      "finalRating": 1493.25,
+      "elo": 1480.91,
       "officialRank": null,
       "record": "1-2-0"
     },
@@ -3913,7 +3913,7 @@
       "id": "05af8dd8adafc68a",
       "name": "Maryna Moroz",
       "score": 38.85,
-      "finalRating": 1486.46,
+      "finalRating": 1486.47,
       "elo": 1492.66,
       "officialRank": null,
       "record": "6-6-0"
@@ -3923,8 +3923,8 @@
       "id": "f1ab1276d646f580",
       "name": "Ariane da Silva",
       "score": 37.66,
-      "finalRating": 1481.36,
-      "elo": 1488.38,
+      "finalRating": 1481.37,
+      "elo": 1488.39,
       "officialRank": null,
       "record": "6-8-0"
     },
@@ -3952,9 +3952,9 @@
       "rank": 34,
       "id": "9a0d9b9d8c551d65",
       "name": "Ivana Petrovic",
-      "score": 35.46,
-      "finalRating": 1471.93,
-      "elo": 1470.17,
+      "score": 35.47,
+      "finalRating": 1471.94,
+      "elo": 1470.18,
       "officialRank": null,
       "record": "1-3-0"
     },
@@ -3963,8 +3963,8 @@
       "id": "52626334298457ab",
       "name": "Mariya Agapova",
       "score": 34.4,
-      "finalRating": 1467.37,
-      "elo": 1465,
+      "finalRating": 1467.38,
+      "elo": 1465.01,
       "officialRank": null,
       "record": "2-4-0"
     },
@@ -3972,9 +3972,9 @@
       "rank": 36,
       "id": "d64eea071f4c4273",
       "name": "Andrea Lee",
-      "score": 33.1,
-      "finalRating": 1461.79,
-      "elo": 1468.31,
+      "score": 33.11,
+      "finalRating": 1461.8,
+      "elo": 1468.33,
       "officialRank": null,
       "record": "5-9-0"
     },
@@ -4002,9 +4002,9 @@
       "rank": 39,
       "id": "d77d7e2d8258cc82",
       "name": "Victoria Leonardo",
-      "score": 29,
-      "finalRating": 1444.2,
-      "elo": 1443.53,
+      "score": 29.01,
+      "finalRating": 1444.22,
+      "elo": 1443.55,
       "officialRank": null,
       "record": "1-4-0"
     },
@@ -4013,8 +4013,8 @@
       "id": "0797fc8692d8f81a",
       "name": "Liang Na",
       "score": 25.03,
-      "finalRating": 1427.11,
-      "elo": 1427.01,
+      "finalRating": 1427.14,
+      "elo": 1427.04,
       "officialRank": null,
       "record": "0-4-0"
     }
@@ -4024,9 +4024,9 @@
       "rank": 1,
       "id": "e8904c85658949e8",
       "name": "Kayla Harrison",
-      "score": 89.12,
-      "finalRating": 1639.01,
-      "elo": 1568.3,
+      "score": 89.11,
+      "finalRating": 1638.99,
+      "elo": 1568.27,
       "officialRank": "C",
       "record": "3-0-0"
     },
@@ -4064,9 +4064,9 @@
       "rank": 5,
       "id": "045c822cfbde9b37",
       "name": "Raquel Pennington",
-      "score": 78.16,
-      "finalRating": 1604.89,
-      "elo": 1559.13,
+      "score": 78.15,
+      "finalRating": 1604.87,
+      "elo": 1559.11,
       "officialRank": "2",
       "record": "13-6-0"
     },
@@ -4095,8 +4095,8 @@
       "id": "539a8690e6be156e",
       "name": "Julianna Pena",
       "score": 67.72,
-      "finalRating": 1567.59,
-      "elo": 1524.95,
+      "finalRating": 1567.58,
+      "elo": 1524.94,
       "officialRank": "1",
       "record": "8-4-0"
     },
@@ -4114,9 +4114,9 @@
       "rank": 10,
       "id": "011485d53d482aca",
       "name": "Amanda Nunes",
-      "score": 66.28,
-      "finalRating": 1571.89,
-      "elo": 1560.81,
+      "score": 66.27,
+      "finalRating": 1571.87,
+      "elo": 1560.78,
       "officialRank": null,
       "record": "16-2-0"
     },
@@ -4134,9 +4134,9 @@
       "rank": 12,
       "id": "1b1d9afb92063b51",
       "name": "Irene Aldana",
-      "score": 63.99,
-      "finalRating": 1565.52,
-      "elo": 1535.25,
+      "score": 63.98,
+      "finalRating": 1565.51,
+      "elo": 1535.23,
       "officialRank": "6",
       "record": "8-6-0"
     },
@@ -4275,8 +4275,8 @@
       "id": "623decd8a3a04ba3",
       "name": "Julia Avila",
       "score": 39.33,
-      "finalRating": 1488.54,
-      "elo": 1491.46,
+      "finalRating": 1488.55,
+      "elo": 1491.47,
       "officialRank": null,
       "record": "3-3-0"
     },
@@ -4305,8 +4305,8 @@
       "id": "f9a5ee6982ab08de",
       "name": "Pannie Kianzad",
       "score": 35.92,
-      "finalRating": 1473.89,
-      "elo": 1477.41,
+      "finalRating": 1473.9,
+      "elo": 1477.42,
       "officialRank": null,
       "record": "5-6-0"
     },
@@ -4315,8 +4315,8 @@
       "id": "67d0649cbcca4b0d",
       "name": "Jessica-Rose Clark",
       "score": 35.39,
-      "finalRating": 1471.61,
-      "elo": 1473.84,
+      "finalRating": 1471.62,
+      "elo": 1473.85,
       "officialRank": null,
       "record": "4-5-0"
     },
@@ -4324,9 +4324,9 @@
       "rank": 31,
       "id": "0dbc2b27f95b406a",
       "name": "Lina Lansberg",
-      "score": 33.13,
-      "finalRating": 1461.93,
-      "elo": 1466,
+      "score": 33.14,
+      "finalRating": 1461.94,
+      "elo": 1466.01,
       "officialRank": null,
       "record": "4-7-0"
     },
@@ -4344,9 +4344,9 @@
       "rank": 33,
       "id": "90ac0050b15a98ba",
       "name": "Tamires Vidal",
-      "score": 31.91,
-      "finalRating": 1456.69,
-      "elo": 1461.77,
+      "score": 31.92,
+      "finalRating": 1456.7,
+      "elo": 1461.78,
       "officialRank": null,
       "record": "1-3-0"
     },
