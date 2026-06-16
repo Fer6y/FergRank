@@ -13,12 +13,23 @@ import type { FetchResult } from './types';
 const CACHE_DIR = path.join(process.cwd(), 'data', '.sherdog_cache');
 const BASE = 'https://www.sherdog.com';
 
+// HTTP header values must be ASCII with no CR/LF or control chars. A secret
+// pasted into CI with a trailing newline (or any control char) makes undici's
+// Headers.append throw "invalid header value" — failing the fetch before it
+// even hits the network. Sanitize so a messy SHERDOG_CONTACT can't break the
+// crawl: drop control chars and anything non-ASCII, then trim.
+function sanitizeHeaderValue(v: string): string {
+  // eslint-disable-next-line no-control-regex
+  return v.replace(/[^\x20-\x7e]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
 const CONFIG = {
   // Identify yourself. Override via env if you like.
-  userAgent:
+  userAgent: sanitizeHeaderValue(
     process.env.SHERDOG_UA ??
-    'UFergCRankings-research/1.0 (personal MMA ranking project; ' +
-      (process.env.SHERDOG_CONTACT ?? 'set SHERDOG_CONTACT env') + ')',
+      'UFergCRankings-research/1.0 (personal MMA ranking project; ' +
+        (process.env.SHERDOG_CONTACT ?? 'set SHERDOG_CONTACT env') + ')'
+  ),
   minDelayMs: 2500,      // polite gap between requests
   jitterMs: 800,         // randomized extra delay
   maxRetries: 4,
