@@ -48,8 +48,9 @@ export function paramsToEngine(p: SearchParams): EffectiveEngine {
     inactivityRetentionPerYear: p.inactivityRetentionPerYear,
     inactivityGraceMonths: BASE.inactivityGraceMonths,
     moveDecayPenalty: p.moveDecayPenalty,
-    displayEloFloor: BASE.displayEloFloor,
-    displayEloCeil: BASE.displayEloCeil,
+    // Display scaling (RANKING_CONFIG.elo.displayCurve) is NOT part of EloParams —
+    // eloToDisplayScore reads it directly from the global config, so it isn't
+    // engine-parameterized and the backtest never needs to thread it through here.
   };
   const finishMultipliers: Record<string, number> = {};
   for (const [k, v] of Object.entries(RANKING_CONFIG.finishMultipliers)) {
