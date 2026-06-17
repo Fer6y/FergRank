@@ -215,12 +215,15 @@ export const RANKING_CONFIG = {
     'Merab Dvalishvili': { division: 'Bantamweight', rank: '1' },
     // Title changes the API hasn't caught up to, confirmed by the champion audit
     // (scripts/sherdog/championAudit.ts) against current Sherdog results:
-    // Pereira beat Ankalaev (LHW), Chimaev beat Du Plessis (MW), Van beat
-    // Pantoja (FLW). Old champ seeded as top contender (#1).
+    // Pereira beat Ankalaev (LHW), Van beat Pantoja (FLW). Old champ seeded as
+    // top contender (#1).
     'Alex Pereira': { division: 'Light Heavyweight', rank: 'C' },
     'Magomed Ankalaev': { division: 'Light Heavyweight', rank: '1' },
-    'Khamzat Chimaev': { division: 'Middleweight', rank: 'C' },
-    'Dricus Du Plessis': { division: 'Middleweight', rank: '1' },
+    // MW: Strickland beat Chimaev to take the undisputed belt (API still stale).
+    // Strickland holds "C"; Chimaev (just dethroned) seeded #1; Du Plessis #2.
+    'Sean Strickland': { division: 'Middleweight', rank: 'C' },
+    'Khamzat Chimaev': { division: 'Middleweight', rank: '1' },
+    'Dricus Du Plessis': { division: 'Middleweight', rank: '2' },
     'Joshua Van': { division: 'Flyweight', rank: 'C' },
     'Alexandre Pantoja': { division: 'Flyweight', rank: '1' },
     // Gaethje KO'd Topuria (R4) at UFC White House / Freedom 250 (2026-06-14) to
