@@ -236,6 +236,12 @@ export const RANKING_CONFIG = {
     // as WSW "C", so we crown Dern and evict Zhang to flyweight.
     'Mackenzie Dern': { division: "Women's Strawweight", rank: 'C' },
     'Zhang Weili': { division: "Women's Flyweight", rank: '1', removeFrom: "Women's Strawweight" },
+    // MW→LHW: Costa moved up permanently and KO'd Murzakanov (UFC 327,
+    // 2026-04-11). The API still ranks him at MW #13, which would pin him to the
+    // MW pool; evict him there and rank him at LHW. 'NR' = no official seed/floor
+    // (he's genuinely unranked at 205) — his Elo, lifted by the Murzakanov KO,
+    // places him. Bump the rank here if/when the UFC officially ranks him at LHW.
+    'Paulo Costa': { division: 'Light Heavyweight', rank: 'NR', removeFrom: 'Middleweight' },
   } as Record<string, { division: string; rank: string; removeFrom?: string }>,
 
   // ═══ PROMOTION TIERS ══════════════════════════════════════════════════
