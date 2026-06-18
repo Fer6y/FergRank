@@ -214,6 +214,13 @@ export async function generateDivisionRankings(
     console.warn('[scoringEngine] Could not fetch official rankings, proceeding without seed');
   }
 
+  // A fight's effective division FOR A GIVEN fighter: its normalized weight class,
+  // or — for a divisionless bout (catch/open weight) — the fighter's home division.
+  // A short-notice or opponent-missed-weight catch-weight fight is NOT a division
+  // change, so it still counts toward the division the fighter actually competes in.
+  const effectiveDivision = (wc: string, home: string): string =>
+    normalizeWeightClassForMove(wc) ?? home;
+
   // 2. Eligibility — official membership OR fight history says this is the division.
   const eligibleFighters = fighters.filter((f) => {
     if (removedFromDivision.has(f.fighterId)) return false;
@@ -225,13 +232,13 @@ export async function generateDivisionRankings(
     const recentFights = allFights.filter(
       (fight) => !isBeyondCutoff(fight.eventDate, now) && inEra(fight.eventDate, eraStartYear)
     );
-    const divFightsInWindow = recentFights.filter((fight) => fight.weightClass === division);
+    const divFightsInWindow = recentFights.filter((fight) => effectiveDivision(fight.weightClass, division) === division);
     if (divFightsInWindow.length < 2) return false;
 
     const mostRecent = recentFights
       .filter((x) => x.eventDate)
       .sort((a, b) => b.eventDate!.getTime() - a.eventDate!.getTime())[0];
-    if (mostRecent && mostRecent.weightClass !== division) return false;
+    if (mostRecent && effectiveDivision(mostRecent.weightClass, division) !== division) return false;
     return true;
   });
 
@@ -243,7 +250,7 @@ export async function generateDivisionRankings(
     const eloState = getElo(elo, fighter.fighterId);
 
     const divFights = fights
-      .filter((f) => !isBeyondCutoff(f.eventDate, now) && inEra(f.eventDate, eraStartYear) && f.weightClass === division)
+      .filter((f) => !isBeyondCutoff(f.eventDate, now) && inEra(f.eventDate, eraStartYear) && effectiveDivision(f.weightClass, division) === division)
       .sort((a, b) => (b.eventDate?.getTime() || 0) - (a.eventDate?.getTime() || 0));
 
     // ── Strength of schedule: recency-weighted avg opponent Elo in window ──
@@ -468,7 +475,9 @@ function applyHeadToHead(
   const divFights = data.fights
     .filter(
       (f) =>
-        normalizeWeightClassForMove(f.weightClass) === division &&
+        // null (catch/open weight) counts toward THIS division; edges still only
+        // form between two fighters both ranked here, so this can't leak across.
+        (normalizeWeightClassForMove(f.weightClass) ?? division) === division &&
         !isBeyondCutoff(f.eventDate, now) &&
         inEra(f.eventDate, eraStartYear)
     )
@@ -489,17 +498,27 @@ function applyHeadToHead(
     lastMeeting.set(`${f.fighterId2}|${f.fighterId1}`, m);
   }
 
-  // Each fighter's most-recent LOSS date across ALL divisions (a form signal):
-  // a loss after the head-to-head negates the leapfrog.
-  const lastLoss = new Map<string, number>();
+  // Each fighter's LOSSES (opponent + date) across ALL divisions — a form signal
+  // used to decide whether a post-H2H loss should negate the leapfrog (see below).
+  const lossEvents = new Map<string, { oppId: string; t: number }[]>();
   if (cfg.negateOnLossAfter) {
+    const addLoss = (id: string, oppId: string, t: number) => {
+      const arr = lossEvents.get(id);
+      if (arr) arr.push({ oppId, t });
+      else lossEvents.set(id, [{ oppId, t }]);
+    };
     for (const f of data.fights) {
       if (!f.eventDate || !inEra(f.eventDate, eraStartYear)) continue;
       const t = f.eventDate.getTime();
-      if (f.result1 === 'L') lastLoss.set(f.fighterId1, Math.max(lastLoss.get(f.fighterId1) ?? 0, t));
-      if (f.result2 === 'L') lastLoss.set(f.fighterId2, Math.max(lastLoss.get(f.fighterId2) ?? 0, t));
+      if (f.result1 === 'L') addLoss(f.fighterId1, f.fighterId2, t);
+      if (f.result2 === 'L') addLoss(f.fighterId2, f.fighterId1, t);
     }
   }
+
+  // Current (pre-leapfrog) sorted position of each fighter, for rank-aware
+  // negation. Stable during edge gathering; we only reorder in the apply loop.
+  const rankIndexById = new Map<string, number>();
+  rankedFighters.forEach((rf, idx) => rankIndexById.set(rf.fighterId, idx));
 
   // Gather qualifying leapfrog edges (winner currently ranked BELOW loser),
   // then apply them victim-topmost-first so a winner lands just above the
@@ -514,8 +533,24 @@ function applyHeadToHead(
       if (!meeting || meeting.winnerId !== winner.fighterId) continue;
       if (monthsBetween(meeting.date, now) > cfg.recencyMonths) continue; // stale win
       if (cfg.negateOnLossAfter) {
-        const wl = lastLoss.get(winner.fighterId);
-        if (wl !== undefined && wl > meeting.date.getTime()) continue; // lost since → form turned
+        // A post-H2H loss negates the leapfrog ONLY when it signals the winner's
+        // form genuinely turned: a rematch loss to this same victim, or a loss to
+        // someone NOT clearly better than the victim (ranked at/below them). A loss
+        // to a HIGHER-ranked fighter (e.g. losing the title to the champ) does not
+        // erase a clean, recent win over a lower-ranked opponent.
+        const losses = lossEvents.get(winner.fighterId) ?? [];
+        const formTurned = losses.some((L) => {
+          if (L.t <= meeting.date.getTime()) return false;  // loss predates the H2H — irrelevant
+          if (L.oppId === loser.fighterId) return true;     // lost the rematch to the victim
+          const oppIdx = rankIndexById.get(L.oppId);
+          if (oppIdx === undefined) return false;           // loss outside this division — ignore
+          // Losing to the reigning champ never negates a win over a contender. The
+          // champ may sit BELOW the victim here by raw rating (the champ floor that
+          // lifts them runs later, step 7), so check the belt explicitly, not order.
+          if (rankedFighters[oppIdx].officialRank === 'C') return false;
+          return oppIdx >= i;                               // lost to someone at/below the victim
+        });
+        if (formTurned) continue;
       }
       if (loser.finalRating - winner.finalRating > cfg.eloGapCap) continue; // too far below
       edges.push({ winnerId: winner.fighterId, loserId: loser.fighterId, loserIdx: i, date: meeting.date });

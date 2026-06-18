@@ -149,7 +149,11 @@ export const RANKING_CONFIG = {
   // current UFC rank. With Elo doing the heavy lifting, this is a small seed +
   // a post-sort safety floor — NOT the main driver. If floors fire for more
   // than ~1–2 fighters per division, the Elo model isn't landing — investigate.
-  officialBonusScaleElo: 0.5,   // officialBonus(Elo pts) = seedScore * this (champ seed 100 → +50)
+  officialBonusScaleElo: 0.4,   // officialBonus(Elo pts) = seedScore * this (champ seed 100 → +40).
+                                // Lowered 0.5→0.4 (2026-06-18): at 0.5 a #12–15 seed (+31) could
+                                // override a real ~27-Elo gap, floating UFC-ranked-but-fading fighters
+                                // (e.g. Walker 1-3) above higher-Elo movers (e.g. Costa). Seed is a
+                                // nudge/tiebreaker, not an override — Elo must dominate.
   officialRankScores: {
     'C': 100, '1': 90, '2': 85, '3': 85, '4': 78, '5': 78, '6': 78,
     '7': 70, '8': 70, '9': 70, '10': 70,
