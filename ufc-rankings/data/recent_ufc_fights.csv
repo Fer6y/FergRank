@@ -1,4 +1,14 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source
+0b43bf0acbd22ca3,Navajo Stirling,4b69b3ef64951c28,Ion Cutelaba,2026-06-20,W,L,KO/TKO,2,Light Heavyweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+37965f5e8d73ed22,Andre Fili,aad8e24798f0a89f,Vinicius Oliveira,2026-06-20,L,W,KO/TKO,2,Featherweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+c9689833e730c077,Kevin Borjas,e1601c0597a7b444,Andre Lima,2026-06-20,W,L,U-DEC,3,Flyweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+c921a062105cb950,Kyoji Horiguchi,0cdf094ed2a15c5e,Manel Kape,2026-06-20,L,W,KO/TKO,3,Flyweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+a01276e067ddc553,Luana Santos,b9df3acc0fbdbbc3,Karol Rosa,2026-06-20,W,L,U-DEC,3,Women's Bantamweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+44b3eeff33faf035,Hyder Amil,a8cd76e59b7c49ab,Christian Rodriguez,2026-06-20,L,W,SUB,1,Featherweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+5138742df3096e35,Allan Nascimento,018e6efa6f1415a9,Mitch Raposo,2026-06-20,L,W,S-DEC,3,Flyweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+a11db5b1e98120ae,Melissa Mullins,sd:Beatriz-Mesquita-451242,Beatriz Mesquita,2026-06-20,L,W,SUB,1,Women's Bantamweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+9ffda31f36b02c95,Gaston Bolanos,bbad8cc98783fae1,Michael Aswell Jr.,2026-06-20,W,L,U-DEC,3,Bantamweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
+7a88ea78c1ad646f,Melsik Baghdasaryan,sd:Murtazali-Magomedov-417141,Murtazali Magomedov,2026-06-20,L,W,SUB,1,Featherweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog
 bf14e890b46e0305,Diego Lopes,a49129adb0dad63b,Steve Garcia,2026-06-14,W,L,KO/TKO,2,Featherweight,UFC White House - Freedom 250: Topuria vs. Gaethje,sherdog
 bd8ee82c2df0d588,Mauricio Ruffy,2ec8d26e4041f9fb,Michael Chandler,2026-06-14,W,L,KO/TKO,1,Lightweight,UFC White House - Freedom 250: Topuria vs. Gaethje,sherdog
 d5ebb51288f99cee,Justin Gaethje,875c9f59fc746b88,Ilia Topuria,2026-06-14,W,L,KO/TKO,4,Interim Lightweight,UFC White House - Freedom 250: Topuria vs. Gaethje,sherdog
