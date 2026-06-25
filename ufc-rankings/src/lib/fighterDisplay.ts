@@ -93,7 +93,7 @@ const MS_PER_MONTH = 1000 * 60 * 60 * 24 * 30.44;
 const DIVISION_ORDER: Record<string, number> = {
   Flyweight: 1, Bantamweight: 2, Featherweight: 3, Lightweight: 4,
   Welterweight: 5, Middleweight: 6, 'Light Heavyweight': 7, Heavyweight: 8,
-  "Women's Strawweight": 1, "Women's Flyweight": 2, "Women's Bantamweight": 3, "Women's Featherweight": 4,
+  "Women's Strawweight": 1, "Women's Flyweight": 2, "Women's Bantamweight": 3,
 };
 
 function monthsAgo(iso: string): number {

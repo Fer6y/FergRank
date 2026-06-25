@@ -179,7 +179,6 @@ export const WOMENS_DIVISIONS = [
   "Women's Strawweight",
   "Women's Flyweight",
   "Women's Bantamweight",
-  "Women's Featherweight",
 ] as const;
 
 export const ALL_DIVISIONS = [...MENS_DIVISIONS, ...WOMENS_DIVISIONS] as const;

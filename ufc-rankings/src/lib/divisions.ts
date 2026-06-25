@@ -11,7 +11,6 @@ export const DIVISION_SHORT: Record<string, string> = {
   "Women's Strawweight": 'WSW',
   "Women's Flyweight": 'WFLW',
   "Women's Bantamweight": 'WBW',
-  "Women's Featherweight": 'WFW',
 };
 
 export const shortDivision = (d: string) => DIVISION_SHORT[d] || d;

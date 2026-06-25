@@ -104,7 +104,6 @@ const API_TO_INTERNAL_NAME: Record<string, string> = {
   "Women's Strawweight": "Women's Strawweight",
   "Women's Flyweight": "Women's Flyweight",
   "Women's Bantamweight": "Women's Bantamweight",
-  "Women's Featherweight": "Women's Featherweight",
 };
 
 export function getOfficialRankingsForDivision(
