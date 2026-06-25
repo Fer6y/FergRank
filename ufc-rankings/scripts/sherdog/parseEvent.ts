@@ -12,6 +12,7 @@
 //     synthetic-HTML unit tests in parseEvent.test.ts. To finalize: save one real
 //     org page + one real event page into fixtures/ and add them to the test.
 import * as cheerio from 'cheerio';
+import type { UpcomingBout, UpcomingEvent } from './types';
 
 type Cheerio = ReturnType<typeof cheerio.load>;
 
@@ -149,4 +150,88 @@ export function parseEventCard(html: string): EventCard {
     toISODate($('.authors_info .date').first().text());
 
   return { eventId, name, date, fighterIds };
+}
+
+// A clean display name from a Sherdog slug-id: strip the trailing numeric id and
+// turn dashes into spaces. "Alex-Pereira-224511" → "Alex Pereira". Apostrophes/
+// accents the slug drops (Sean-OMalley) are restored downstream from the
+// registry once the id resolves — this is only the build-time fallback label.
+function nameFromSlug(slugId: string): string {
+  return slugId.replace(/-\d+$/, '').replace(/-/g, ' ').trim();
+}
+
+// Read one fighter (id + fallback name) from a container holding a /fighter/ link.
+function fighterFromScope($: Cheerio, scope: ReturnType<Cheerio>): { id: string; name: string } | null {
+  const id = idFromHref(scope.find('a[href*="/fighter/"]').attr('href'), 'fighter');
+  if (!id) return null;
+  return { id, name: nameFromSlug(id) };
+}
+
+// Parse an UPCOMING event card → its scheduled bouts (pairings), NOT a flat
+// fighter list. Verified against a real Sherdog event page (see
+// parseUpcomingCard.test.ts + the saved fixture): the main event lives in a
+// `.fighter.left_side` / `.fighter.right_side` header block, and the rest of the
+// card is one `<tr>` per bout with `.fighter_list.left` / `.fighter_list.right`.
+// The first `.weight_class` on the page is the main event's; each undercard row
+// carries its own. Bouts with a result are not special-cased here — callers only
+// feed this future-dated cards, where every bout is "yet to come".
+export function parseUpcomingCard(html: string): UpcomingEvent {
+  const $ = cheerio.load(html);
+
+  const canon =
+    $('meta[property="og:url"]').attr('content') ??
+    $('link[rel="canonical"]').attr('href') ??
+    '';
+  const eventId = idFromHref(canon, 'events');
+  const name =
+    $('[itemprop="name"]').first().text().trim() ||
+    $('h1').first().text().trim();
+  const date =
+    toISODate($('meta[itemprop="startDate"]').attr('content')) ??
+    toISODate($('[itemprop="startDate"]').first().text()) ??
+    toISODate($('.authors_info .date').first().text());
+
+  const bouts: UpcomingBout[] = [];
+  const seenPair = new Set<string>(); // guard against a bout listed twice
+
+  const pushBout = (
+    f1: { id: string; name: string },
+    f2: { id: string; name: string },
+    weightClass: string,
+    isMainEvent: boolean
+  ): void => {
+    const key = [f1.id, f2.id].sort().join('|');
+    if (seenPair.has(key)) return;
+    seenPair.add(key);
+    bouts.push({
+      order: bouts.length + 1,
+      isMainEvent,
+      weightClass: weightClass.trim(),
+      fighter1Id: f1.id,
+      fighter1Name: f1.name,
+      fighter2Id: f2.id,
+      fighter2Name: f2.name,
+    });
+  };
+
+  // 1. Main event header block (optional — far-out cards may lack one).
+  const me1 = fighterFromScope($, $('.fighter.left_side').first());
+  const me2 = fighterFromScope($, $('.fighter.right_side').first());
+  if (me1 && me2) {
+    pushBout(me1, me2, $('.weight_class').first().text(), true);
+  }
+
+  // 2. Undercard table: one row per bout, left vs right.
+  $('tr').each((_, tr) => {
+    const $tr = $(tr);
+    const left = $tr.find('.fighter_list.left');
+    const right = $tr.find('.fighter_list.right');
+    if (!left.length || !right.length) return;
+    const f1 = fighterFromScope($, left);
+    const f2 = fighterFromScope($, right);
+    if (!f1 || !f2) return;
+    pushBout(f1, f2, $tr.find('.weight_class').text(), false);
+  });
+
+  return { eventId, name, date, bouts };
 }

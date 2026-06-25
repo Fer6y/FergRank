@@ -91,6 +91,45 @@ export default async function FighterPage({
         </div>
       </div>
 
+      {/* Next scheduled bout (display-only; never affects the rank) */}
+      {p.nextFight && (
+        <div
+          className="rounded-xl px-4 py-3 flex items-center gap-3 flex-wrap"
+          style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--accent-red)' }}
+        >
+          <span
+            className="text-[10px] tracking-widest font-medium px-2 py-1 rounded shrink-0"
+            style={{ backgroundColor: 'rgba(210,10,10,0.14)', color: 'var(--accent-red-light)' }}
+          >
+            NEXT FIGHT
+          </span>
+          <span className="text-sm" style={{ color: 'var(--text-primary)' }}>
+            vs{' '}
+            {p.nextFight.opponentId ? (
+              <Link
+                href={`/fighter/${p.nextFight.opponentId}`}
+                className="font-medium underline"
+                style={{ textDecorationColor: 'var(--border-light)', textUnderlineOffset: '3px' }}
+              >
+                {p.nextFight.opponentName}
+              </Link>
+            ) : (
+              <span className="font-medium">{p.nextFight.opponentName}</span>
+            )}
+          </span>
+          <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
+            {p.nextFight.isMainEvent && (
+              <span style={{ color: 'var(--accent-gold)' }}>Main event · </span>
+            )}
+            {p.nextFight.weightClass}
+          </span>
+          <span className="text-xs font-mono ml-auto shrink-0" style={{ color: 'var(--text-secondary)' }}>
+            {p.nextFight.eventName}
+            {p.nextFight.eventDate ? ` · ${formatEventDate(p.nextFight.eventDate)}` : ''}
+          </span>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
         {/* Left: why this rank + fight history */}
         <div className="lg:col-span-3 space-y-5">
@@ -310,6 +349,12 @@ function Stat({ label, value }: { label: string; value: string }) {
       </dd>
     </div>
   );
+}
+
+function formatEventDate(iso: string): string {
+  const d = new Date(iso + 'T00:00:00');
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 function formatMethod(method: string): string {

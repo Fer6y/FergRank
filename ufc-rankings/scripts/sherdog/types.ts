@@ -34,6 +34,28 @@ export interface SherdogProfile {
   fights: SherdogFight[];      // PRO fights only (amateur tables skipped)
 }
 
+// ── Upcoming (scheduled, not-yet-fought) bouts ──
+// Parsed from an upcoming Sherdog event card. These have NO result and must
+// NEVER enter the Elo sweep — they are display-only context (see loadUpcoming.ts
+// on the app side). Ids here are Sherdog slug-ids; resolution to our canonical
+// ids happens downstream in buildUpcoming.ts via the crosswalk.
+export interface UpcomingBout {
+  order: number;            // 1 = main event, then card order (co-main first)
+  isMainEvent: boolean;
+  weightClass: string;
+  fighter1Id: string;       // Sherdog slug-id, e.g. "Alex-Pereira-224511"
+  fighter1Name: string;     // de-slugged from the id (clean name comes downstream)
+  fighter2Id: string;
+  fighter2Name: string;
+}
+
+export interface UpcomingEvent {
+  eventId: string | null;   // "UFC-329-...-111889"
+  name: string;             // "UFC 329 - McGregor vs. Holloway 2"
+  date: string | null;      // ISO "YYYY-MM-DD"
+  bouts: UpcomingBout[];
+}
+
 // Result of fetching one profile (cache-aware).
 export interface FetchResult {
   sherdogId: string;

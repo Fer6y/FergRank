@@ -61,6 +61,7 @@ jobs:
           git config user.name  "ufc-rankings-bot"
           git config user.email "actions@github.com"
           git add data/recent_ufc_fights.csv \
+                  data/upcoming_fights.csv \
                   data/sherdog_crosswalk.csv \
                   data/sherdog_crosswalk_review.csv \
                   data/golden/rankings_snapshot.json

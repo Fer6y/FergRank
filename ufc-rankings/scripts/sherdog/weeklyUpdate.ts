@@ -4,9 +4,10 @@
 //   1. fetchEvent       discover the past week's UFC card(s), refresh roster     [NETWORK]
 //   2. extendCrosswalk  map any new card fighters → our ids                      [offline]
 //   3. buildRecencyPatch regenerate data/recent_ufc_fights.csv from cache        [offline]
-//   4. validate         name-match audit + LW/WW/BW sanity (informational)       [NETWORK]
-//   5. goldenMaster     diff vs baseline = "what changed this week" report       [NETWORK]
-//   6. goldenMaster --update  re-bless the baseline so git diff is the audit     [NETWORK]
+//   4. buildUpcoming    snapshot the next 3 cards → upcoming_fights.csv (display) [NETWORK, non-fatal]
+//   5. validate         name-match audit + LW/WW/BW sanity (informational)       [NETWORK]
+//   6. goldenMaster     diff vs baseline = "what changed this week" report       [NETWORK]
+//   7. goldenMaster --update  re-bless the baseline so git diff is the audit     [NETWORK]
 //
 // The steps communicate via the on-disk Sherdog cache + the CSVs, not in-process
 // state, so this is honest sequential glue (each step is also runnable alone).
@@ -49,14 +50,17 @@ function buildPlan(args: Args): Step[] {
   if (!args.skipFetch)
     steps.push({ label: '1/6 fetchEvent (discover + refresh roster)', cmd: `${JITI} scripts/sherdog/fetchEvent.ts --days ${args.days}`, network: true, fatal: true });
   steps.push({ label: '2/6 extendCrosswalk (map new fighters)', cmd: `${JITI} scripts/sherdog/extendCrosswalk.ts`, network: false, fatal: true });
-  steps.push({ label: '3/6 buildRecencyPatch (regenerate recency CSV)', cmd: `${JITI} scripts/sherdog/buildRecencyPatch.ts`, network: false, fatal: true });
+  steps.push({ label: '3/7 buildRecencyPatch (regenerate recency CSV)', cmd: `${JITI} scripts/sherdog/buildRecencyPatch.ts`, network: false, fatal: true });
+  // Display-only upcoming-fights snapshot. NON-FATAL: a schedule-scrape hiccup
+  // must never block the core results ingest (upcoming bouts don't affect Elo).
+  steps.push({ label: '4/7 buildUpcoming (next 3 cards, display-only)', cmd: `${JITI} scripts/sherdog/buildUpcoming.ts --cards 3`, network: true, fatal: false });
   // Informational — a bad name-match audit shouldn't block the data update.
-  steps.push({ label: '4/6 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
+  steps.push({ label: '5/7 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
   // The diff IS the report: new fights are EXPECTED to move rankings, so a
   // non-zero exit here is normal — never fatal in the weekly context.
-  steps.push({ label: '5/6 goldenMaster (what-changed report)', cmd: `${JITI} scripts/goldenMaster.ts`, network: true, fatal: false });
+  steps.push({ label: '6/7 goldenMaster (what-changed report)', cmd: `${JITI} scripts/goldenMaster.ts`, network: true, fatal: false });
   if (!args.noBless)
-    steps.push({ label: '6/6 goldenMaster --update (re-bless baseline)', cmd: `${JITI} scripts/goldenMaster.ts --update`, network: true, fatal: true });
+    steps.push({ label: '7/7 goldenMaster --update (re-bless baseline)', cmd: `${JITI} scripts/goldenMaster.ts --update`, network: true, fatal: true });
   return steps;
 }
 

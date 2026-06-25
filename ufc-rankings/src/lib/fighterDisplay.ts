@@ -258,10 +258,13 @@ export function buildWhyThisRank(ranked: RankedFighter, history: FightTrace[] = 
   }
 
   if (!used.has('finishes') && recentFinishes.length >= 1) {
-    const names = recentFinishes.slice(0, 3).map((f) => f.opponentName);
-    const kos = recentFinishes.filter((f) => finishKind(f.method) === 'ko').length;
-    const subs = recentFinishes.length - kos;
-    const breakdown = kos && subs ? `${kos} by KO/TKO, ${subs} by submission` : kos ? `all by KO/TKO` : `all by submission`;
+    const shown = recentFinishes.slice(0, 3);
+    const names = shown.map((f) => f.opponentName);
+    const kos = shown.filter((f) => finishKind(f.method) === 'ko').length;
+    const subs = shown.length - kos;
+    // "by KO/TKO" for a single finish; "all by …" only when there are several.
+    const all = shown.length > 1 ? 'all ' : '';
+    const breakdown = kos && subs ? `${kos} by KO/TKO, ${subs} by submission` : kos ? `${all}by KO/TKO` : `${all}by submission`;
     insights.push({
       kind: 'positive',
       text: `Active and dangerous — recently finished ${joinNames(names)} (${breakdown}). Stoppages swing the rating more than decisions do.`,

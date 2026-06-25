@@ -3,6 +3,7 @@ import { generateDivisionRankings } from './scoringEngine';
 import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, type FightTrace } from './eloEngine';
 import { computeRadarAxes } from './fighterRadar';
 import { getFighterMedia } from './fighterMedia';
+import { getNextFight, type NextFight } from './loadUpcoming';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { Fighter } from './types';
@@ -24,6 +25,10 @@ export interface FighterProfile {
   fullBodyUrl: string | null;  // UFC transparent full-body (if available)
   nationality: string | null;
   flag: string | null;         // emoji flag
+
+  // Next scheduled bout (loadUpcoming.ts; display-only, never feeds the algorithm).
+  // null when the fighter has no booked fight in data/upcoming_fights.csv.
+  nextFight: NextFight | null;
 
   // Ranking context. `ranked` is the full RankedFighter (score decomposition,
   // SoS, official rank…) when the fighter is ranked in a division; null if not.
@@ -137,6 +142,7 @@ export async function getFighterProfile(
     fullBodyUrl: media?.fullBodyUrl || null,
     nationality: media?.nationality || null,
     flag: media?.flag || null,
+    nextFight: getNextFight(fighterId) ?? null,
     division: ranked ? division : null,
     displayRank,
     isChampion: champion,
