@@ -19,8 +19,14 @@ export default async function FighterPage({
   const p = await getFighterProfile(id, d);
   if (!p) notFound();
 
+  // Where "back" goes: to the division the user came from (the `d` hint, or the
+  // fighter's own division) rather than the all-divisions homepage. Keeps
+  // navigation linear — you return to the list you left.
+  const backDivision = d || p.division;
+  const backHref = backDivision ? `/division/${encodeURIComponent(backDivision)}` : '/';
+
   const ranked = p.ranked;
-  const why = ranked ? buildWhyThisRank(ranked) : null;
+  const why = ranked ? buildWhyThisRank(ranked, p.history) : null;
   const officialNum = ranked && ranked.officialRank && ranked.officialRank !== 'C'
     ? parseInt(ranked.officialRank, 10)
     : null;
@@ -29,8 +35,8 @@ export default async function FighterPage({
   return (
     <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
       {/* Breadcrumb */}
-      <Link href="/" className="text-xs" style={{ color: 'var(--text-muted)' }}>
-        ← Rankings{p.division ? ` · ${p.division}` : ''}
+      <Link href={backHref} className="text-xs" style={{ color: 'var(--text-muted)' }}>
+        ← {backDivision ? `${backDivision} rankings` : 'Rankings'}
       </Link>
 
       {/* Hero band */}
@@ -90,9 +96,35 @@ export default async function FighterPage({
         <div className="lg:col-span-3 space-y-5">
           {why ? (
             <Section title="WHY THIS RANK">
-              <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-primary)' }}>
-                {why.sentence}
+              <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-primary)' }}>
+                {why.headline}
               </p>
+              {why.insights.length > 0 && (
+                <ul className="space-y-2 mb-4">
+                  {why.insights.map((ins, i) => (
+                    <li key={i} className="flex gap-2.5 text-sm leading-snug">
+                      <span
+                        className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
+                        style={{
+                          backgroundColor:
+                            ins.kind === 'positive'
+                              ? 'var(--accent-green)'
+                              : ins.kind === 'negative'
+                                ? 'var(--accent-red-light)'
+                                : 'var(--text-muted)',
+                        }}
+                      />
+                      <span style={{ color: 'var(--text-secondary)' }}>{ins.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <div
+                className="text-[10px] tracking-widest mb-2 pt-1"
+                style={{ color: 'var(--text-muted)', borderTop: '1px solid var(--border)' }}
+              >
+                SCORE BREAKDOWN
+              </div>
               <div className="space-y-2">
                 <DecompRow label="Base Elo" value={why.parts[0].value} color={why.parts[0].color} isBase />
                 {why.parts.slice(1).filter((pt) => pt.value !== 0).map((pt) => (
