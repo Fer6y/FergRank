@@ -4,7 +4,7 @@ import { getFighterProfile } from '@/lib/fighterProfile';
 import { buildWhyThisRank } from '@/lib/fighterDisplay';
 import ProfileRadar from '@/components/ProfileRadar';
 import FighterAvatar from '@/components/FighterAvatar';
-import { FormOutputSection, DurabilitySection } from '@/components/AdvancedAnalytics';
+import AdvancedAnalyticsSection from '@/components/AdvancedAnalytics';
 
 export const revalidate = 86400;
 
@@ -193,8 +193,6 @@ export default async function FighterPage({
             </Section>
           )}
 
-          {p.advanced && <FormOutputSection advanced={p.advanced} />}
-
           <Section title="FIGHT HISTORY">
             {p.history.length === 0 ? (
               <p className="text-sm" style={{ color: 'var(--text-muted)' }}>No dated fights on record.</p>
@@ -269,8 +267,6 @@ export default async function FighterPage({
             <ProfileRadar radar={p.radar} />
           </Section>
 
-          {p.advanced && <DurabilitySection advanced={p.advanced} />}
-
           <Section title="SNAPSHOT">
             <dl className="space-y-2 text-sm">
               <Stat label="Strength of schedule" value={p.sos != null ? p.sos.toFixed(1) : '—'} />
@@ -295,6 +291,17 @@ export default async function FighterPage({
           </div>
         </div>
       </div>
+
+      {/* Advanced analytics — one unified band: trend read, form timeline,
+          ratio vs the division's ranked pool, pace, durability, finish
+          anatomy. Display-only; "why this rank" above stays the authority. */}
+      {p.advanced && (
+        <AdvancedAnalyticsSection
+          advanced={p.advanced}
+          trendRead={p.trendRead}
+          benchmark={p.divisionBenchmark}
+        />
+      )}
     </div>
   );
 }

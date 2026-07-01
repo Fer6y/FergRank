@@ -4,7 +4,14 @@ import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, type Fig
 import { computeRadarAxes } from './fighterRadar';
 import { getFighterMedia } from './fighterMedia';
 import { getNextFight, type NextFight } from './loadUpcoming';
-import { getAdvancedStats, type AdvancedStats } from './advancedStats';
+import {
+  getAdvancedStats,
+  buildTrendRead,
+  divisionRatioBenchmark,
+  type AdvancedStats,
+  type TrendInsight,
+  type RatioBenchmark,
+} from './advancedStats';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { Fighter } from './types';
@@ -65,6 +72,10 @@ export interface FighterProfile {
   // Deep, display-only analytics (advancedStats.ts): pace-normalized rates,
   // form timeline, durability, finish anatomy. Never feeds the algorithm.
   advanced: AdvancedStats | null;
+  // Cautious plain-English macro read of the numbers (mileage/opposition-aware).
+  trendRead: TrendInsight[];
+  // Median ratio among this division's ranked fighters — the peer yardstick.
+  divisionBenchmark: RatioBenchmark | null;
 }
 
 function isChampion(f: RankedFighter): boolean {
@@ -97,9 +108,11 @@ export async function getFighterProfile(
   let ranked: RankedFighter | null = null;
   let displayRank: number | null = null;
   let champion = false;
+  let rankedIds: string[] = [];
 
   if (division) {
     const rankings = await generateDivisionRankings(division, data);
+    rankedIds = rankings.fighters.map((f) => f.fighterId);
     const contenders = rankings.fighters.filter((f) => !isChampion(f));
     const found = rankings.fighters.find((f) => f.fighterId === fighterId);
     if (found) {
@@ -124,6 +137,25 @@ export async function getFighterProfile(
   // portrait, so a recent division-mover (e.g. Topuria) keeps the striking
   // signature of their fights at the old weight instead of being judged on a
   // thin 1–2 fight sample in the new division.
+  // Deep analytics + the cautious macro read (UFC tenure is the aging proxy —
+  // the data has no DOB). Benchmark = median ratio of the division's ranked pool.
+  const advanced = getAdvancedStats(data, fighterId);
+  const tenureYears = history.length
+    ? (Date.now() - new Date(history[history.length - 1].date).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
+    : 0;
+  const trendRead = advanced
+    ? buildTrendRead(advanced, {
+        tenureYears,
+        monthsSinceLastFight: monthsSince,
+        eloRating: elo.rating,
+        eloPeak: elo.peakRating,
+        history,
+      })
+    : [];
+  const divisionBenchmark = division && rankedIds.length
+    ? divisionRatioBenchmark(data, division, rankedIds)
+    : null;
+
   const radar = computeRadarAxes(data, fighterId, null, {
     sos,
     eloDisplay,
@@ -165,6 +197,8 @@ export async function getFighterProfile(
     },
     radar,
     history,
-    advanced: getAdvancedStats(data, fighterId),
+    advanced,
+    trendRead,
+    divisionBenchmark,
   };
 }

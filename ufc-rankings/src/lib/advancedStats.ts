@@ -19,9 +19,11 @@
 
 import type { Fight } from './types';
 import type { LoadedData } from './loadData';
+import type { FightTrace } from './eloEngine';
 
 const RECENT_WINDOW = 5;      // "recent form" = last 5 metric-bearing fights
 const MIN_RECENT_FIGHTS = 3;  // fewer than this → no recent window / no drift
+const TREND_WINDOW = 3;       // the macro trend read looks at the last 3 fights
 
 // One fighter's side of one fight, pace-normalized. Chart + table fuel.
 export interface FormPoint {
@@ -80,12 +82,184 @@ export interface AdvancedStats {
   totalMinutes: number;
   career: PaceWindow;
   recent: PaceWindow | null;   // null until MIN_RECENT_FIGHTS metric fights
+  last3: PaceWindow | null;    // the macro-trend window (last 3 metric fights)
   drift: FormDrift | null;
+  // Landed:absorbed strike ratio — the margin metric. >1 = out-landing opponents.
+  ratioCareer: number | null;
+  ratioLast3: number | null;
   timeline: FormPoint[];       // ascending by date
   rollingLanded: number[];     // rolling-3 mean of landedPer15, aligned to timeline
   durability: Durability;
   finishWins: FinishBreakdownEntry[]; // how they finish opponents
   finishedBy: FinishBreakdownEntry[]; // how they have been finished
+}
+
+// ── Macro trend read ─────────────────────────────────────────────────────
+// Plain-English interpretation of the numbers, written deliberately cautious:
+// fights are rare events and stat lines are matchup-dependent, so a "trend"
+// only gets called when the macro picture supports it (mileage, opposition
+// level, damage history) — and even then it's phrased as a lean for the next
+// fight, not a verdict.
+
+export interface TrendInsight {
+  kind: 'positive' | 'negative' | 'caution' | 'neutral';
+  text: string;
+}
+
+export interface TrendContext {
+  tenureYears: number;          // years since UFC debut (our aging proxy — no DOB in the data)
+  monthsSinceLastFight: number;
+  eloRating: number;
+  eloPeak: number;
+  history: FightTrace[];        // newest first (for opponent-quality context)
+}
+
+export function buildTrendRead(a: AdvancedStats, ctx: TrendContext): TrendInsight[] {
+  const out: TrendInsight[] = [];
+  const { career, last3, ratioCareer, ratioLast3 } = a;
+
+  if (!last3 || ratioCareer == null || ratioLast3 == null) {
+    return [{ kind: 'neutral', text: 'Fewer than 3 charted fights — not enough for a trend read yet.' }];
+  }
+
+  // Opposition context: was the last-3 schedule a step up from the career norm?
+  const traced = ctx.history.filter((h) => h.opponentRating > 0);
+  const oppRecent = traced.slice(0, TREND_WINDOW);
+  const mean = (xs: number[]) => (xs.length ? xs.reduce((s, x) => s + x, 0) / xs.length : 0);
+  const oppRecentElo = mean(oppRecent.map((h) => h.opponentRating));
+  const oppCareerElo = mean(traced.map((h) => h.opponentRating));
+  const oppStep = Math.round(oppRecentElo - oppCareerElo);
+  const stepUp = oppStep >= 40;
+
+  const ratioChange = ratioLast3 / ratioCareer - 1;           // margin trend
+  const outputChange = career.landedPer15 >= 5 ? last3.landedPer15 / career.landedPer15 - 1 : 0;
+  const deepMileage = ctx.tenureYears >= 9 || a.sampleFights >= 18;
+  const mileageNote = ctx.tenureYears >= 1
+    ? `${Math.round(ctx.tenureYears)} years and ${a.sampleFights} charted fights into the UFC run`
+    : `${a.sampleFights} charted fights in`;
+  const pctFmt = (x: number) => `${Math.abs(Math.round(x * 100))}%`;
+
+  // Margin tightening — the aging-pattern read, but opposition-aware.
+  if (ratioChange <= -0.15) {
+    if (stepUp) {
+      out.push({
+        kind: 'caution',
+        text: `Landed:absorbed ratio has tightened ${pctFmt(ratioChange)} over the last 3 (${ratioLast3.toFixed(2)} vs ${ratioCareer.toFixed(2)} career), but the opposition also stepped up (~+${oppStep} Elo vs career average). Read it as context first, decline second — the next fight against level competition is the real test.`,
+      });
+    } else if (deepMileage) {
+      out.push({
+        kind: 'negative',
+        text: `Landed:absorbed ratio has tightened ${pctFmt(ratioChange)} over the last 3 (${ratioLast3.toFixed(2)} vs ${ratioCareer.toFixed(2)} career) against similar-level opposition, ${mileageNote} — the classic wear pattern. For the next fight it means thinner margins for error, especially if the pace holds into later rounds.`,
+      });
+    } else {
+      out.push({
+        kind: 'caution',
+        text: `Landed:absorbed ratio is down ${pctFmt(ratioChange)} across the last 3, but with a short career sample and no mileage red flags this is a lean, not a pattern — one more fight decides.`,
+      });
+    }
+  }
+
+  // Margin widening — ascending read, sample-aware.
+  if (ratioChange >= 0.15 && outputChange >= -0.05) {
+    out.push({
+      kind: 'positive',
+      text: stepUp
+        ? `Margins are widening (${ratioLast3.toFixed(2)} landed per absorbed over the last 3, vs ${ratioCareer.toFixed(2)} career) while the opposition stepped up ~+${oppStep} Elo — the strongest version of an ascending signal.`
+        : `Margins are widening — ${ratioLast3.toFixed(2)} landed per absorbed over the last 3, vs ${ratioCareer.toFixed(2)} career. Trajectory points up, with the usual 3-fight caveat.`,
+    });
+  }
+
+  // Output falling with the margin holding → pace, not damage.
+  if (outputChange <= -0.2 && ratioChange > -0.15) {
+    out.push({
+      kind: 'caution',
+      text: `Volume is down ${pctFmt(outputChange)} over the last 3 but the strike ratio is holding — slower fights, not one-sided ones. Style of recent opponents matters here; expect the number to swing back against a pressure matchup.`,
+    });
+  }
+
+  // Durability: heavy damage history on a worn fighter.
+  if (a.durability.timesFinished >= 4 || (a.durability.kdAbsorbedPer15 >= 0.3 && deepMileage)) {
+    out.push({
+      kind: 'negative',
+      text: `Damage history is real: finished ${a.durability.timesFinished} times${a.durability.lastFinishedYear ? ` (last ${a.durability.lastFinishedYear})` : ''}, absorbing ${a.durability.kdAbsorbedPer15.toFixed(2)} knockdowns/15 for the career. Late-career chins rarely improve — factor it against heavy hitters.`,
+    });
+  }
+
+  // Layoff.
+  if (ctx.monthsSinceLastFight >= 12) {
+    out.push({
+      kind: 'caution',
+      text: `${Math.round(ctx.monthsSinceLastFight)} months since the last fight — the rating already regresses for inactivity, but first-fight-back rust is a real pattern on top of it.`,
+    });
+  }
+
+  // Far below peak — the chart usually shows why.
+  if (ctx.eloPeak - ctx.eloRating >= 120 && deepMileage) {
+    out.push({
+      kind: 'neutral',
+      text: `Current rating sits ${Math.round(ctx.eloPeak - ctx.eloRating)} Elo below the career peak — the engine has already priced the slide; the timeline above shows when it started.`,
+    });
+  }
+
+  if (out.length === 0) {
+    out.push({
+      kind: 'neutral',
+      text: 'Output, margins and durability are all tracking near the career baseline — no macro trend worth pricing into the next fight.',
+    });
+  }
+  return out.slice(0, 4);
+}
+
+// ── Division benchmark ───────────────────────────────────────────────────
+// Median landed:absorbed ratio (and per-15 rates) across a division's RANKED
+// fighters — the "what's normal at this level" yardstick shown next to a
+// fighter's own ratio. Memoized per division (the ranked pool only changes
+// when the data reloads).
+
+export interface RatioBenchmark {
+  ratio: number;          // median landed:absorbed among ranked fighters
+  landedPer15: number;    // median
+  absorbedPer15: number;  // median
+  sample: number;         // how many ranked fighters had chartable data
+}
+
+const benchCache = new Map<string, RatioBenchmark | null>();
+
+export function divisionRatioBenchmark(
+  data: LoadedData,
+  division: string,
+  rankedIds: string[],
+): RatioBenchmark | null {
+  const hit = benchCache.get(division);
+  if (hit !== undefined) return hit;
+
+  const ratios: number[] = [];
+  const landed: number[] = [];
+  const absorbed: number[] = [];
+  for (const id of rankedIds) {
+    const a = getAdvancedStats(data, id);
+    const r = a ? ratioOf(a.career) : null;
+    if (a && r != null) {
+      ratios.push(r);
+      landed.push(a.career.landedPer15);
+      absorbed.push(a.career.absorbedPer15);
+    }
+  }
+  const median = (xs: number[]) => {
+    if (!xs.length) return 0;
+    const s = [...xs].sort((a, b) => a - b);
+    return s[Math.floor(s.length / 2)];
+  };
+  const result = ratios.length >= 10
+    ? {
+        ratio: Math.round(median(ratios) * 100) / 100,
+        landedPer15: Math.round(median(landed) * 10) / 10,
+        absorbedPer15: Math.round(median(absorbed) * 10) / 10,
+        sample: ratios.length,
+      }
+    : null;
+  benchCache.set(division, result);
+  return result;
 }
 
 // Recent-form drift → bounded Elo nudge, for the DISPLAY-ONLY "form-adjusted"
@@ -219,6 +393,14 @@ function topFinishes(entries: string[]): FinishBreakdownEntry[] {
     .slice(0, 5);
 }
 
+// Landed:absorbed ratio of a window. Capped so a near-untouched run (absorbed
+// ≈ 0) reads as "9.99+" instead of infinity.
+function ratioOf(w: PaceWindow | null): number | null {
+  if (!w || w.landedPer15 <= 0) return null;
+  if (w.absorbedPer15 < 1) return 9.99;
+  return Math.round((w.landedPer15 / w.absorbedPer15) * 100) / 100;
+}
+
 // ── main ─────────────────────────────────────────────────────────────────
 
 export function getAdvancedStats(data: LoadedData, fighterId: string): AdvancedStats | null {
@@ -242,6 +424,7 @@ export function getAdvancedStats(data: LoadedData, fighterId: string): AdvancedS
   const career = buildWindow(samples);
   const recentSamples = samples.slice(-RECENT_WINDOW);
   const recent = recentSamples.length >= MIN_RECENT_FIGHTS ? buildWindow(recentSamples) : null;
+  const last3 = samples.length >= TREND_WINDOW ? buildWindow(samples.slice(-TREND_WINDOW)) : null;
 
   let drift: FormDrift | null = null;
   if (recent) {
@@ -307,7 +490,10 @@ export function getAdvancedStats(data: LoadedData, fighterId: string): AdvancedS
     totalMinutes: career.minutes,
     career,
     recent,
+    last3,
     drift,
+    ratioCareer: ratioOf(career),
+    ratioLast3: ratioOf(last3),
     timeline,
     rollingLanded,
     durability: {
