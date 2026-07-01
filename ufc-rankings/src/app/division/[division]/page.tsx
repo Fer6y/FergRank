@@ -35,11 +35,14 @@ export default function DivisionPage() {
   const [error, setError] = useState<string | null>(null);
 
   // Keep local selection in sync if the user navigates to a different
-  // /division/[division] URL (e.g. via browser back/forward).
-  useEffect(() => {
+  // /division/[division] URL (e.g. via browser back/forward). Render-time
+  // adjustment (not an effect) so the stale division never paints.
+  const [prevRouteDivision, setPrevRouteDivision] = useState(routeDivision);
+  if (prevRouteDivision !== routeDivision) {
+    setPrevRouteDivision(routeDivision);
     setSelectedDivision(routeDivision);
     setGender(genderOf(routeDivision));
-  }, [routeDivision]);
+  }
 
   useEffect(() => {
     let cancelled = false;

@@ -132,7 +132,14 @@ function joinNames(names: string[]): string {
 }
 
 // Plain-English style identity from career rates. Display only.
-export function describeStyle(f: RankedFighter): string {
+// Accepts any object carrying the four rate fields, so it works for a full
+// RankedFighter or a bare Fighter (e.g. an unranked fighter on an upcoming card).
+export function describeStyle(f: {
+  koRate: number;
+  subRate: number;
+  sigStrikeAccuracy: number;
+  finishRate: number;
+}): string {
   const ko = f.koRate, sub = f.subRate, acc = f.sigStrikeAccuracy, finish = f.finishRate;
   if (ko >= 0.5 && ko >= sub * 1.5) return 'a knockout artist';
   if (sub >= 0.4 && sub >= ko) return 'a submission specialist';

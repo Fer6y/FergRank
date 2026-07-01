@@ -19,7 +19,6 @@ const BASE = 'https://www.sherdog.com';
 // even hits the network. Sanitize so a messy SHERDOG_CONTACT can't break the
 // crawl: drop control chars and anything non-ASCII, then trim.
 function sanitizeHeaderValue(v: string): string {
-  // eslint-disable-next-line no-control-regex
   return v.replace(/[^\x20-\x7e]/g, ' ').replace(/\s+/g, ' ').trim();
 }
 

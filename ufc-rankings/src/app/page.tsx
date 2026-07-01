@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import DivisionCard from '@/components/DivisionCard';
+import DepthHeatmap from '@/components/DepthHeatmap';
 import type { DashboardDivision } from '@/app/api/dashboard/route';
 import { WOMENS_DIVISIONS } from '@/lib/types';
 
@@ -122,6 +123,9 @@ export default function HomePage() {
           ))}
         </div>
       )}
+
+      {/* Depth heatmap — same gender filter as the grid */}
+      {!loading && !error && visible.length > 0 && <DepthHeatmap divisions={visible} />}
 
       <div className="text-center py-6 text-xs space-y-1" style={{ color: 'var(--text-muted)' }}>
         <p>Rankings generated algorithmically from UFC fight data.</p>

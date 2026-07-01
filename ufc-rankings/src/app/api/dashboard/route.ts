@@ -15,6 +15,10 @@ export interface DashboardDivision {
   gender: string;
   champion: RankedFighter | null;
   fighters: RankedFighter[]; // top-N contenders (champion excluded)
+  // Full ranked list (champion first) as name + raw core Elo, for the depth
+  // heatmap. Raw Elo is one global pool, so cells are comparable ACROSS
+  // divisions — that's the whole point of the visual.
+  depth: { name: string; elo: number }[];
 }
 
 export async function GET(request: NextRequest) {
@@ -37,6 +41,10 @@ export async function GET(request: NextRequest) {
         gender: rankings.gender,
         champion,
         fighters: contenders,
+        depth: rankings.fighters.map((f) => ({
+          name: f.fullName,
+          elo: Math.round(f.eloRating),
+        })),
       };
     })
   );

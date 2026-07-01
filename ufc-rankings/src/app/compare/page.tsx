@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { winProbability } from '@/lib/eloEngine';
+import { formEloNudge } from '@/lib/advancedStats';
 import OddsValue from '@/components/OddsValue';
 import { getFighterProfile, type FighterProfile } from '@/lib/fighterProfile';
 import { shortDivision } from '@/lib/divisions';
@@ -66,8 +67,16 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
   const provB = pb.fightCount <= PROSPECT_MAX;
   const prospectAny = provA || provB;
   const prospectNames = [provA ? pa.fullName : null, provB ? pb.fullName : null].filter(Boolean).join(' & ');
+  // Form-adjusted variant: each fighter's Elo shaded by their bounded recent-form
+  // nudge (advancedStats.formEloNudge — experimental, display-only). Shown only
+  // when at least one side has enough charted fights to carry a form read.
+  const nudgeA = formEloNudge(pa.advanced?.drift);
+  const nudgeB = formEloNudge(pb.advanced?.drift);
+  const haveForm = haveElo && (nudgeA !== 0 || nudgeB !== 0);
+
   const rows: { label: string; a: number | null; b: number | null; fmt: (v: number) => string }[] = [
     { label: 'Win probability', a: haveElo ? winProbability(pa.eloRating, pb.eloRating) : null, b: haveElo ? winProbability(pb.eloRating, pa.eloRating) : null, fmt: pctFmt },
+    { label: 'Form-adjusted win %', a: haveForm ? winProbability(pa.eloRating + nudgeA, pb.eloRating + nudgeB) : null, b: haveForm ? winProbability(pb.eloRating + nudgeB, pa.eloRating + nudgeA) : null, fmt: pctFmt },
     { label: 'Final rating', a: pa.ranked?.finalRating ?? null, b: pb.ranked?.finalRating ?? null, fmt: (v) => v.toFixed(1) },
     { label: 'Core Elo', a: pa.eloRating, b: pb.eloRating, fmt: (v) => v.toFixed(0) },
     { label: 'Peak Elo', a: pa.eloPeak, b: pb.eloPeak, fmt: (v) => v.toFixed(0) },
@@ -121,6 +130,14 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
           );
         })}
       </div>
+
+      {haveForm && (
+        <p className="text-[10px] leading-snug px-1" style={{ color: 'var(--text-muted)' }}>
+          Form-adjusted win % shades each fighter&apos;s Elo by their recent output vs their own career
+          baseline ({nudgeA >= 0 ? '+' : ''}{nudgeA.toFixed(0)} / {nudgeB >= 0 ? '+' : ''}{nudgeB.toFixed(0)} Elo,
+          bounded ±45). Experimental and display-only — the headline win probability is the validated, pure-Elo number.
+        </p>
+      )}
 
       {/* Prospect flag — the model still gives its read, framed as upside */}
       {prospectAny && (

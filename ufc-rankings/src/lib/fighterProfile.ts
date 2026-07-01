@@ -4,6 +4,7 @@ import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, type Fig
 import { computeRadarAxes } from './fighterRadar';
 import { getFighterMedia } from './fighterMedia';
 import { getNextFight, type NextFight } from './loadUpcoming';
+import { getAdvancedStats, type AdvancedStats } from './advancedStats';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { Fighter } from './types';
@@ -60,6 +61,10 @@ export interface FighterProfile {
   };
 
   history: FightTrace[];
+
+  // Deep, display-only analytics (advancedStats.ts): pace-normalized rates,
+  // form timeline, durability, finish anatomy. Never feeds the algorithm.
+  advanced: AdvancedStats | null;
 }
 
 function isChampion(f: RankedFighter): boolean {
@@ -160,5 +165,6 @@ export async function getFighterProfile(
     },
     radar,
     history,
+    advanced: getAdvancedStats(data, fighterId),
   };
 }

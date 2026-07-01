@@ -55,13 +55,22 @@ interface Reign {
   matched: number; // # title fights matched to this reign
 }
 
+// Shape of one reign entry in champions.json (per-division arrays).
+interface LedgerReign {
+  champion: string;
+  start: string;
+  end: string | null; // null = current reign
+  interim?: boolean;
+  note?: string;
+}
+
 const ledger = JSON.parse(readFileSync(join(DATA, 'champions.json'), 'utf8'));
 const PAD = (ledger._meta?.padDays ?? 21) * 86400_000;
 
 const reigns: Reign[] = [];
 for (const [division, arr] of Object.entries(ledger)) {
   if (division === '_meta') continue;
-  for (const r of arr as any[]) {
+  for (const r of arr as LedgerReign[]) {
     reigns.push({
       champion: r.champion,
       champNorm: norm(r.champion),

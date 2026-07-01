@@ -4,6 +4,7 @@ import { getFighterProfile } from '@/lib/fighterProfile';
 import { buildWhyThisRank } from '@/lib/fighterDisplay';
 import ProfileRadar from '@/components/ProfileRadar';
 import FighterAvatar from '@/components/FighterAvatar';
+import { FormOutputSection, DurabilitySection } from '@/components/AdvancedAnalytics';
 
 export const revalidate = 86400;
 
@@ -192,6 +193,8 @@ export default async function FighterPage({
             </Section>
           )}
 
+          {p.advanced && <FormOutputSection advanced={p.advanced} />}
+
           <Section title="FIGHT HISTORY">
             {p.history.length === 0 ? (
               <p className="text-sm" style={{ color: 'var(--text-muted)' }}>No dated fights on record.</p>
@@ -265,6 +268,8 @@ export default async function FighterPage({
           <Section title="ATTRIBUTES">
             <ProfileRadar radar={p.radar} />
           </Section>
+
+          {p.advanced && <DurabilitySection advanced={p.advanced} />}
 
           <Section title="SNAPSHOT">
             <dl className="space-y-2 text-sm">

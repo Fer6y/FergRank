@@ -96,7 +96,7 @@ function main(): void {
   let namesakeClusters = 0;
   const dupeLines: string[] = [];
   const namesakeLines: string[] = [];
-  for (const [nm, ids] of byNorm) {
+  for (const ids of byNorm.values()) {
     if (ids.length < 2) continue;
     const keys = ids.map((id) => fightKeys(data, id));
     // Any pair sharing a fight (opponent@date) = the SAME fight twice = duplicate.
@@ -346,7 +346,7 @@ function main(): void {
   P('');
   P('── 4. CROSS-SOURCE COVERAGE ──');
   P(`  our↔Sherdog linked: ${sherLinked}  (low-conf corroborated by fight graph: ${sherCorroborated}, still-suspect queued: ${sherWeak})`);
-  P(`  odds aliases folded: ${oddsAliases}   official aliases folded: ${officialAliases}`);
+  P(`  odds aliases folded: ${oddsAliases}   official aliases folded: ${officialAliases}   merge aliases folded: ${mergeAliases}`);
   P(bfoPresent ? `  our↔BFO linked: ${bfoLinked}  (queued for review: ${bfoReview})`
               : '  our↔BFO: bfo_odds.csv not present yet (crawl running) — re-run after it lands.');
   P('');

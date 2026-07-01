@@ -31,10 +31,16 @@ export interface WithNextFight {
   nextFight?: NextFight;
 }
 
+// Both caches are keyed by the calendar day: the "has this card passed?"
+// filter bakes today's date into the result, so a long-lived process must
+// rebuild after midnight or it keeps serving fights that already happened.
 let cache: Map<string, NextFight> | null = null;
+let cacheDay = '';
 
 function load(): Map<string, NextFight> {
-  if (cache) return cache;
+  const today = new Date().toISOString().slice(0, 10);
+  if (cache && cacheDay === today) return cache;
+  cacheDay = today;
   const map = new Map<string, NextFight>();
   if (!fs.existsSync(FILE)) { cache = map; return map; }
 
@@ -42,8 +48,6 @@ function load(): Map<string, NextFight> {
     header: true,
     skipEmptyLines: true,
   }).data;
-
-  const today = new Date().toISOString().slice(0, 10);
 
   // Index a bout under each side that resolved to one of our fighters. A fighter
   // keeps only their EARLIEST still-upcoming bout (rows can arrive in any order).
@@ -81,6 +85,72 @@ function load(): Map<string, NextFight> {
 
 export function getNextFight(fighterId: string): NextFight | undefined {
   return load().get(fighterId);
+}
+
+// ── Full card listing (for the /upcoming tab) ────────────────────────────────
+// Unlike the per-fighter NextFight map above, this preserves every bout and its
+// card position so the page can render events in date order, bouts in bout_order.
+// Display-only, like everything else here.
+
+export interface UpcomingBout {
+  boutOrder: number;          // 1 = main event, ascending down the card
+  isMainEvent: boolean;
+  weightClass: string;
+  fighter1Id: string | null;  // our canonical id, null if not in our data
+  fighter1Name: string;
+  fighter2Id: string | null;
+  fighter2Name: string;
+}
+
+export interface UpcomingCard {
+  eventId: string | null;
+  eventName: string;
+  eventDate: string;          // ISO "YYYY-MM-DD"
+  bouts: UpcomingBout[];      // sorted by boutOrder ascending
+}
+
+let cardsCache: UpcomingCard[] | null = null;
+let cardsCacheDay = '';
+
+export function getUpcomingCards(): UpcomingCard[] {
+  const today = new Date().toISOString().slice(0, 10);
+  if (cardsCache && cardsCacheDay === today) return cardsCache;
+  cardsCacheDay = today;
+  const cards: UpcomingCard[] = [];
+  if (!fs.existsSync(FILE)) { cardsCache = cards; return cards; }
+
+  const rows = Papa.parse<Record<string, string>>(fs.readFileSync(FILE, 'utf-8'), {
+    header: true,
+    skipEmptyLines: true,
+  }).data;
+  const byEvent = new Map<string, UpcomingCard>();
+
+  for (const r of rows) {
+    const eventDate = r.event_date || '';
+    if (eventDate && eventDate < today) continue; // drop cards already passed
+    const eventName = r.event_name || '';
+    const key = (r.event_id || eventName) || 'unknown';
+
+    let card = byEvent.get(key);
+    if (!card) {
+      card = { eventId: r.event_id || null, eventName, eventDate, bouts: [] };
+      byEvent.set(key, card);
+    }
+    card.bouts.push({
+      boutOrder: Number(r.bout_order) || 999,
+      isMainEvent: r.is_main_event === '1',
+      weightClass: r.weight_class || '',
+      fighter1Id: (r.fighter1_ourId || '').trim() || null,
+      fighter1Name: r.fighter1_name || '',
+      fighter2Id: (r.fighter2_ourId || '').trim() || null,
+      fighter2Name: r.fighter2_name || '',
+    });
+  }
+
+  cardsCache = Array.from(byEvent.values())
+    .map((c) => ({ ...c, bouts: c.bouts.sort((a, b) => a.boutOrder - b.boutOrder) }))
+    .sort((a, b) => a.eventDate.localeCompare(b.eventDate));
+  return cardsCache;
 }
 
 // Attach the next-fight field to ranked-fighter payloads in place at the API

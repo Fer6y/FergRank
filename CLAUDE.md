@@ -24,8 +24,13 @@ The core product and the first discovery/personalization layers are **built and 
 | Compare (Phase 2) | ✅ | Two fighters side-by-side, winner-highlighted stats + radars |
 | Data-source alignment | ✅ | Recency patch is contract-guarded at load (de-dup + stale-drop + id-resolve) |
 | Fighter photos + flags | ✅ | Build-time media pipeline (Wikidata + UFC.com) → registry; rendered with initials fallback |
+| Upcoming cards `/upcoming` | ✅ | Announced cards bout-by-bout (rank chip, style, last-2 results, **model win-probability strip**); per-fighter next-fight attached at API boundary. Display-only — never touches scoring |
+| Advanced analytics (profile) | ✅ | `advancedStats.ts` (2026-07-01): per-15-min pace rates, **form timeline chart** (declining-output story), durability, finish anatomy, recent-vs-career drift. Display-only; ranking-input signals badged in the UI |
+| Form-adjusted win % | ✅ | Compare + Upcoming: validated pure-Elo probability headline + experimental variant shading each side's Elo by bounded (±45) recent-form drift (`formEloNudge`) |
+| Division depth heatmap | ✅ | Homepage: per-division top-40 Elo heat strips on one global scale; hover = fighter, click = division |
+| Prospect watch `/prospects` | ✅ | Provisional-window (≤5 fights) risers: climb rate, last-2, booked next fight, pre-UFC record |
 
-**Not yet built / known gaps:** community layer (Phase 3, Supabase), rank-history sparkline on the profile, division heatmap, prospect watchlist UI, all-time snapshots, and Iron-Chin board (no strike-absorption data). Pre-UFC pedigree seed is wired but toggled **off**.
+**Not yet built / known gaps:** community layer (Phase 3, Supabase), rank-history sparkline on the profile (the form timeline charts *output*, not rank), and all-time snapshots. Pre-UFC pedigree seed is still toggled **off** for scoring (the prospects page reads it for display only). The old "no strike-absorption data" blocker was wrong — `STR_1/2` covers both corners; the profile durability panel now shows absorption.
 
 **Fighter photos + country flags are now BUILT** (2026-06-14): a build-time media pipeline joins Wikidata (nationality → flag, licensed Commons portrait) and UFC.com (standardised photos, name-derived slugs) to the registry by `canonical_id`. Display only — attached at the API boundary (`src/lib/fighterMedia.ts`), never in the scoring path. Combined ~63% photo / ~65% flag coverage (higher for ranked fighters); initials avatar is the fallback. See `data/SOURCES.md` §5.
 
@@ -86,9 +91,12 @@ UFergCRankings/                ← repo root
         │   ├── p4p/               ← cross-division pound-for-pound
         │   ├── leaderboards/      ← Finishers/Knockouts/Submissions/Strikers/Grapplers
         │   ├── compare/           ← two-fighter side-by-side
+        │   ├── upcoming/          ← announced cards, bout by bout (event tabs, win-prob strips)
+        │   ├── prospects/         ← prospect watch: provisional-window risers + context
         │   └── api/
         │       ├── rankings/      ← runs the scoring engine (accepts live filter params)
         │       ├── fighter/[id]/  ← single-fighter profile payload
+        │       ├── upcoming/      ← enriched upcoming cards (ranks + style + last-2 results)
         │       └── search/        ← fighter name search (⌘K palette)
         ├── lib/
         │   ├── dataCache.ts           ← memoized single CSV load shared app-wide
@@ -100,6 +108,9 @@ UFergCRankings/                ← repo root
         │   ├── fighterProfile.ts      ← assembles the profile payload (rank + decomposition + radar + history)
         │   ├── fighterDisplay.ts      ← presentation helpers (trend chip, why-this-rank, highlights)
         │   ├── fighterMedia.ts        ← photo + nationality/flag lookup (Wikidata + UFC.com), attached at API boundary; display only
+        │   ├── loadUpcoming.ts        ← scheduled bouts (upcoming_fights.csv): per-fighter next fight + full card list; display only
+        │   ├── advancedStats.ts       ← deep analytics: per-15 pace, form timeline, durability, finish anatomy, formEloNudge; display only
+        │   ├── prospects.ts           ← prospect watchlist builder (provisional-window risers); display only
         │   ├── divisions.ts           ← shared division short codes
         │   ├── pedigreeSeed.ts        ← pre-UFC pedigree loader (disabled by default)
         │   ├── fetchOfficialRankings.ts ← Octagon API client (the only RUNTIME external call)
@@ -117,6 +128,9 @@ UFergCRankings/                ← repo root
             ├── FighterCard.tsx    ← dense contender row (rank, trend chip, stats, score)
             ├── FighterAvatar.tsx  ← photo avatar w/ initials-behind fallback (rows, hero, profile)
             ├── ProfileRadar.tsx   ← 5-axis SVG radar
+            ├── FormTimeline.tsx   ← per-fight output chart (landed/15 dots + rolling trend), pure SVG
+            ├── AdvancedAnalytics.tsx ← profile FORM & OUTPUT + DURABILITY & FINISHES sections
+            ├── DepthHeatmap.tsx   ← homepage division-depth heat strips (global Elo scale)
             ├── ComparePicker.tsx  ← inline mini-search for the compare page
             └── ScoreBar.tsx       ← visual score bar
 ```
@@ -409,8 +423,8 @@ Ranking integrity is the entire product. Everything else is secondary.
 
 ### Phase 2 — Discovery & Depth (partial)
 - ✅ **Head-to-head comparison** (`/compare`) — two fighters, side-by-side
-- ⬜ **Prospect watchlist** — `sherdog_prospects.csv` exists; UI not built
-- ⬜ **Division heatmap** — deep vs shallow
+- ✅ **Prospect watchlist** (`/prospects`, 2026-07-01) — ≤5-fight fighters with winning records: Elo climb rate, last-2, next fight, pre-UFC pedigree context (display-only read of `pedigreeSeed`)
+- ✅ **Division heatmap** (homepage, 2026-07-01) — top-40 core-Elo heat strips per division, one global colour scale (`DepthHeatmap`, fed by `/api/dashboard`)
 - ⬜ **"Slept on" tag** — needs community scores
 
 ### Phase 3 — Community Layer ⬜ NOT STARTED
@@ -422,7 +436,7 @@ The four sliders **re-run the real algorithm** server-side (`filters.ts` → eff
 ### Phase 5 — Specialty Leaderboards (mostly done)
 - ✅ **P4P** — cross-division (one global Elo pool makes this valid)
 - ✅ **Strikers / Grapplers / Submission aces / Finishers / Knockouts** (`/leaderboards`, sample-weighted)
-- ⬜ **Iron Chin** — blocked: no strike-absorption data in our CSVs
+- ✅ **Durability (was "Iron Chin")** — absorption IS derivable (`STR_1/2` both corners); shipped as the profile durability panel (2026-07-01) rather than a leaderboard
 - ⬜ **All-time rankings** — algorithm on historical snapshots (2010/2015/2018/2020)
 
 ### Phase 6 — Broader Data (in progress)

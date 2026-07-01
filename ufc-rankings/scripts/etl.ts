@@ -52,12 +52,6 @@ function parseCtrlTime(val: string): number {
   return parseInt(val) || 0;
 }
 
-// Parse "100%" → 1.0, "60%" → 0.6
-function parsePct(val: string): number {
-  if (!val || val === '---') return 0;
-  return (parseInt(val) || 0) / 100;
-}
-
 // Parse date "May 16, 2026" → "2026-05-16"
 function parseDate(val: string): string {
   if (!val) return '';
@@ -68,7 +62,7 @@ function parseDate(val: string): string {
 
 // Normalize weight class: strip "Bout", "UFC", "Title", tournament prefixes
 function normalizeWeightClass(wc: string): string {
-  let normalized = wc
+  const normalized = wc
     .replace(/\s*Bout\s*$/i, '')
     .replace(/^UFC\s+/i, '')
     .replace(/\s+Title$/i, '')
