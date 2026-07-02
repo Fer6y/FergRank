@@ -237,14 +237,18 @@ export interface RatioBenchmark {
   sample: number;         // how many ranked fighters had chartable data
 }
 
-const benchCache = new Map<string, RatioBenchmark | null>();
+// Keyed by LoadedData (not just division) so a data reload — e.g. dev HMR or a
+// future in-process refresh — can never serve a benchmark from the old dataset.
+const benchCache = new WeakMap<LoadedData, Map<string, RatioBenchmark | null>>();
 
 export function divisionRatioBenchmark(
   data: LoadedData,
   division: string,
   rankedIds: string[],
 ): RatioBenchmark | null {
-  const hit = benchCache.get(division);
+  let perData = benchCache.get(data);
+  if (!perData) { perData = new Map(); benchCache.set(data, perData); }
+  const hit = perData.get(division);
   if (hit !== undefined) return hit;
 
   const ratios: number[] = [];
@@ -272,7 +276,7 @@ export function divisionRatioBenchmark(
         sample: ratios.length,
       }
     : null;
-  benchCache.set(division, result);
+  perData.set(division, result);
   return result;
 }
 
@@ -498,7 +502,23 @@ function ratioOf(w: PaceWindow | null): number | null {
 
 // ── main ─────────────────────────────────────────────────────────────────
 
+// Memoized per (LoadedData, fighter): the full-history walk below is pure, and
+// hot paths hit it repeatedly (upcoming cards call it per corner per bout, the
+// division benchmark per ranked fighter). WeakMap keying means a data reload
+// naturally drops the cache.
+const statsCache = new WeakMap<LoadedData, Map<string, AdvancedStats | null>>();
+
 export function getAdvancedStats(data: LoadedData, fighterId: string): AdvancedStats | null {
+  let perData = statsCache.get(data);
+  if (!perData) { perData = new Map(); statsCache.set(data, perData); }
+  const hit = perData.get(fighterId);
+  if (hit !== undefined) return hit;
+  const result = computeAdvancedStats(data, fighterId);
+  perData.set(fighterId, result);
+  return result;
+}
+
+function computeAdvancedStats(data: LoadedData, fighterId: string): AdvancedStats | null {
   const all = (data.fighterFights.get(fighterId) ?? [])
     .filter((f) => f.eventDate)
     .sort((a, b) => a.eventDate!.getTime() - b.eventDate!.getTime());

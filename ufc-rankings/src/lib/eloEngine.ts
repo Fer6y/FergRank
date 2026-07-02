@@ -299,7 +299,9 @@ export function buildEloWithTraces(
 export function getFighterHistory(data: LoadedData, fighterId: string): FightTrace[] {
   buildEloRatings(data);
   const arr = historyCache.get(data)?.get(fighterId) ?? [];
-  return [...arr].sort((x, y) => new Date(y.date).getTime() - new Date(x.date).getTime());
+  // ISO dates compare lexicographically — a stable string sort keeps same-day
+  // (tournament-era) fights in sweep order without allocating Dates.
+  return [...arr].sort((x, y) => (y.date < x.date ? -1 : y.date > x.date ? 1 : 0));
 }
 
 // Returns [scoreA, scoreB] or null if the fight shouldn't affect ratings.

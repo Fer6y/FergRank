@@ -270,6 +270,19 @@ async function computeDivisionRankings(
   const effectiveDivision = (wc: string, home: string): string =>
     normalizeWeightClassForMove(wc) ?? home;
 
+  // In-window, in-division fights per fighter (newest first), computed once and
+  // shared by the eligibility check and the scoring loop below.
+  const divFightsById = new Map<string, Fight[]>();
+  const getDivFights = (fighterId: string): Fight[] => {
+    let df = divFightsById.get(fighterId);
+    if (df) return df;
+    df = (fighterFights.get(fighterId) || [])
+      .filter((f) => !isBeyondCutoff(f.eventDate, now) && inEra(f.eventDate, eraStartYear) && effectiveDivision(f.weightClass, division) === division)
+      .sort((a, b) => (b.eventDate?.getTime() || 0) - (a.eventDate?.getTime() || 0));
+    divFightsById.set(fighterId, df);
+    return df;
+  };
+
   // 2. Eligibility — official membership OR fight history says this is the division.
   const eligibleFighters = fighters.filter((f) => {
     if (removedFromDivision.has(f.fighterId)) return false;
@@ -278,15 +291,14 @@ async function computeDivisionRankings(
     if (officiallyInDivision.has(f.fighterId)) return true;
     if (f.weightClass !== division) return false;
 
-    const recentFights = allFights.filter(
-      (fight) => !isBeyondCutoff(fight.eventDate, now) && inEra(fight.eventDate, eraStartYear)
-    );
-    const divFightsInWindow = recentFights.filter((fight) => effectiveDivision(fight.weightClass, division) === division);
-    if (divFightsInWindow.length < 2) return false;
+    if (getDivFights(f.fighterId).length < 2) return false;
 
-    const mostRecent = recentFights
-      .filter((x) => x.eventDate)
-      .sort((a, b) => b.eventDate!.getTime() - a.eventDate!.getTime())[0];
+    // Most recent in-window fight across ALL divisions — a max-scan, no sort.
+    let mostRecent: Fight | null = null;
+    for (const fight of allFights) {
+      if (!fight.eventDate || isBeyondCutoff(fight.eventDate, now) || !inEra(fight.eventDate, eraStartYear)) continue;
+      if (!mostRecent || fight.eventDate.getTime() > mostRecent.eventDate!.getTime()) mostRecent = fight;
+    }
     if (mostRecent && effectiveDivision(mostRecent.weightClass, division) !== division) return false;
     return true;
   });
@@ -298,9 +310,7 @@ async function computeDivisionRankings(
     const fights = fighterFights.get(fighter.fighterId) || [];
     const eloState = getElo(elo, fighter.fighterId);
 
-    const divFights = fights
-      .filter((f) => !isBeyondCutoff(f.eventDate, now) && inEra(f.eventDate, eraStartYear) && effectiveDivision(f.weightClass, division) === division)
-      .sort((a, b) => (b.eventDate?.getTime() || 0) - (a.eventDate?.getTime() || 0));
+    const divFights = getDivFights(fighter.fighterId);
 
     // ── Strength of schedule: recency-weighted avg opponent Elo in window ──
     let sosWeighted = 0;

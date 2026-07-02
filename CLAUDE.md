@@ -32,7 +32,7 @@ The core product and the first discovery/personalization layers are **built and 
 | Fighter ages | ✅ | `buildAges.ts` (2026-07-02): Wikidata P569 via Sherdog-ID join + guarded alias match + Sherdog-profile fill, career-validated. 89% registry / ~96% ranked. Weekly-refreshed; display + trend-read only (`fighterAges.ts`). See `data/SOURCES.md` §6 |
 | Ask the Analyst `/api/chat` | ✅ | Built 2026-07-02 (phase 1 of `AGENT_PLAN.md`); promoted 2026-07-02 to a **site-wide floating dock** — chat bubble bottom-right on every page + "Analyst" entry in the header nav, mounted in the root layout so chat history survives navigation; page-aware via `AnalystContext` — `/upcoming` sets the selected card, `/fighter/[id]` sets the fighter (subtitle "Talking <name>", fighter-specific suggested questions, and the fighter_id rides the request so the agent skips the name lookup). `claude-sonnet-5` starts with zero fight facts and grounds every claim via tools over the display path (`src/lib/agent/`). Needs `ANTHROPIC_API_KEY` in `.env.local` (graceful 503 without). Web search / odds discourse = **phase 2, not built**. See `data/SOURCES.md` §7 |
 
-**Not yet built / known gaps:** community layer (Phase 3, Supabase), rank-history sparkline on the profile (the form timeline charts *output*, not rank), and all-time snapshots. Pre-UFC pedigree seed is still toggled **off** for scoring (the prospects page reads it for display only). The old "no strike-absorption data" blocker was wrong — `STR_1/2` covers both corners; the profile durability panel now shows absorption.
+**Not yet built / known gaps:** community layer (Phase 3, Supabase), rank-history sparkline on the profile (the form timeline charts *output*, not rank), and all-time snapshots. Pre-UFC pedigree seed is **ENABLED for scoring** (trust pass, golden-master-blessed): bounded ≤25 Elo, thin-sample only (tapers to zero by 6 UFC fights) — see §5 under THE ALGORITHM. The old "no strike-absorption data" blocker was wrong — `STR_1/2` covers both corners; the profile durability panel now shows absorption.
 
 **Fighter photos + country flags are now BUILT** (2026-06-14): a build-time media pipeline joins Wikidata (nationality → flag, licensed Commons portrait) and UFC.com (standardised photos, name-derived slugs) to the registry by `canonical_id`. Display only — attached at the API boundary (`src/lib/fighterMedia.ts`), never in the scoring path. Combined ~63% photo / ~65% flag coverage (higher for ranked fighters); initials avatar is the fallback. See `data/SOURCES.md` §5.
 
@@ -79,7 +79,7 @@ UFergCRankings/                ← repo root
     │   ├── recent_ufc_fights.csv  ← ACTIVE Sherdog recency top-up (loaded, contract-guarded)
     │   ├── sherdog_*.csv          ← Sherdog scrape outputs (fights/orgs/prospects/crosswalk)
     │   ├── canonical/             ← identity registry + media + ages: fighter_registry.csv, fighter_media.csv (Wikidata), ufc_photos.csv (UFC.com), fighter_dob.csv (ages)
-    │   ├── pro_mma_fights.csv     ← pre-UFC pedigree (Kaggle/Sherdog ~2021); seed DISABLED
+    │   ├── pro_mma_fights.csv     ← pre-UFC pedigree (Kaggle/Sherdog ~2021); seed ENABLED (bounded, thin-sample only)
     │   └── raw_*.csv              ← supplementary fallbacks (mostly unused at runtime)
     ├── scripts/
     │   ├── validate.ts            ← name-match audit + LW/WW/BW top-40 breakdown (run after algo changes)
@@ -121,7 +121,7 @@ UFergCRankings/                ← repo root
         │   ├── fighterPhysical.ts     ← reach lookup (Fighters.csv), attached at API boundary; display only
         │   ├── prospects.ts           ← prospect watchlist builder (provisional-window risers); display only
         │   ├── divisions.ts           ← shared division short codes
-        │   ├── pedigreeSeed.ts        ← pre-UFC pedigree loader (disabled by default)
+        │   ├── pedigreeSeed.ts        ← pre-UFC pedigree loader + seed (ENABLED; ≤25 Elo, tapers out by 6 UFC fights)
         │   ├── fetchOfficialRankings.ts ← Octagon API client (runtime external call #1; #2 is the Anthropic API in /api/chat)
         │   ├── nameResolver.ts        ← fuzzy UFC.com-name → CSV-id matching
         │   ├── auditOfficialMatches.ts ← diagnostic: which official names resolve
@@ -300,11 +300,11 @@ The internal official-rankings route supplies each fighter's current UFC rank. W
 
 ---
 
-### 5. Pre-UFC pedigree (supplementary seed — in progress)
+### 5. Pre-UFC pedigree (supplementary seed — ENABLED)
 
-A bounded signal describing the quality of a fighter's record in **other promotions before they reached the UFC**, sourced from `data/pro_mma_fights.csv` / `sherdog_fights.csv` (Kaggle/Sherdog) via `src/lib/pedigreeSeed.ts`. It exists so a newcomer arriving from Bellator/ONE/Cage Warriors isn't treated as a blank slate by their thin early-UFC Elo. **Currently toggled OFF** (`RANKING_CONFIG.preUFCPedigree.seedEnabled = false`) — contributes 0 to `finalRating` until enabled.
+A bounded signal describing the quality of a fighter's record in **other promotions before they reached the UFC**, sourced from `data/pro_mma_fights.csv` / `sherdog_fights.csv` (Kaggle/Sherdog) via `src/lib/pedigreeSeed.ts`. It exists so a newcomer arriving from Bellator/ONE/Cage Warriors isn't treated as a blank slate by their thin early-UFC Elo. **Toggled ON** (`RANKING_CONFIG.preUFCPedigree.seedEnabled = true`, enabled in the trust pass and golden-master-blessed): `pedigreeBonus = strength × seedMaxElo (25) × taper` is added to `finalRating`, tapering linearly from full at 0 UFC fights to **zero at 6 UFC fights** — once a fighter has a real UFC sample, their own Elo speaks and the pedigree fades out entirely.
 
-Strictly scoped: UFC fights in that file are dropped (they duplicate our primary data), only non-UFC fights *before the UFC debut* count, it is weighted by the promotion-tier multiplier, and it is **frozen-in-time reference data, never current form**. It must never outweigh in-cage UFC results. See `RANKING_CONFIG.preUFCPedigree` and the `PreUFCPedigree` types. (Wiring this into `finalRating` as a seed step is the active follow-on; the Elo core does not depend on it.)
+Strictly scoped: UFC fights in that file are dropped (they duplicate our primary data), only non-UFC fights *before the UFC debut* count, it is weighted by the promotion-tier multiplier (defunct elite orgs like Pride/Strikeforce/WEC are excluded from the seed), and it is **frozen-in-time reference data, never current form**. It must never outweigh in-cage UFC results — the ≤25-Elo cap keeps it below even the official-rank seed (≤50). See `RANKING_CONFIG.preUFCPedigree` and the `PreUFCPedigree` types.
 
 ---
 
@@ -327,7 +327,7 @@ Strictly scoped: UFC fights in that file are dropped (they duplicate our primary
 
 ## Build Order — all ✅ complete
 
-1. ✅ **Data layer** — `loadData.ts`: load + join CSVs, name-resolve fight IDs, recency-patch guard. (`pedigreeSeed.ts` loads the disabled pre-UFC pedigree.)
+1. ✅ **Data layer** — `loadData.ts`: load + join CSVs, name-resolve fight IDs, recency-patch guard. (`pedigreeSeed.ts` loads the pre-UFC pedigree seed.)
 2. ✅ **Elo engine** — `eloEngine.ts`: chronological sweep → one rating per fighter, plus per-fight trace + filter-aware caching.
 3. ✅ **Scoring engine** — `scoringEngine.ts`: eligibility + bounded adjustments → ranked array per division (filter-parameterized).
 4. ✅ **Validation** — `scripts/validate.ts`: name-match audit + LW/WW/BW top-40 breakdown. Run via `node_modules/.bin/jiti scripts/validate.ts` (needs network for Octagon). **Re-run + diff after any algo/data change.** Current reference: `validation_elo_2026-06-13_postdedup.txt`.
@@ -454,7 +454,7 @@ The four sliders **re-run the real algorithm** server-side (`filters.ts` → eff
 
 ### Phase 6 — Broader Data (in progress)
 - ⚙️ Sherdog scrape pipeline built (`scripts/sherdog/`, `SHERDOG_BACKFILL_PLAN.md`); recency top-up active.
-- ⬜ Activate Tier 2–4 promotion multipliers / pre-UFC pedigree seed (wired, toggled off).
+- ✅ Pre-UFC pedigree seed activated (trust pass; bounded ≤25 Elo, thin-sample taper). Tier 2–4 promotion multipliers feed it via `orgTierMatchers`.
 - ⬜ Promotion sub-ranking for new UFC entrants.
 
 ---

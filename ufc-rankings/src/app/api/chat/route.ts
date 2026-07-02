@@ -34,6 +34,13 @@ const rateBuckets = new Map<string, { count: number; resetAt: number }>();
 
 function rateLimited(ip: string): boolean {
   const now = Date.now();
+  // Opportunistic sweep: expired buckets otherwise accumulate one per IP for
+  // the life of the process. Only bothers once the map is non-trivially sized.
+  if (rateBuckets.size > 500) {
+    for (const [key, b] of rateBuckets) {
+      if (b.resetAt < now) rateBuckets.delete(key);
+    }
+  }
   const bucket = rateBuckets.get(ip);
   if (!bucket || bucket.resetAt < now) {
     rateBuckets.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });

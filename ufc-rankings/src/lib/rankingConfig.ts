@@ -315,10 +315,10 @@ export const RANKING_CONFIG = {
     maxStrength: 0.75,
 
     // ── Ranking seed (Sherdog-sourced, scoring side) ──────────────────────
-    // MASTER TOGGLE. When false (default), pre-UFC pedigree contributes ZERO to
-    // finalRating — rankings are identical to having no Sherdog data. Flip to
-    // true to let it nudge thin-sample fighters. Deliberately off so the data is
-    // pure context until we choose to lean on it.
+    // MASTER TOGGLE — currently ON (enabled in the trust pass, golden-master-
+    // blessed). Lets pedigree nudge thin-sample fighters only; set false to
+    // make pre-UFC pedigree contribute ZERO to finalRating (rankings identical
+    // to having no Sherdog data).
     seedEnabled: true,
     seedSourceFile: 'sherdog_fights.csv',   // built by scripts/sherdog/buildContext.ts
     // Max Elo points the pedigree can add (bounded + small — it should refine
