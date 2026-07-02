@@ -3,9 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import FighterAvatar from '@/components/FighterAvatar';
+import FormPips, { resultColor } from '@/components/FormPips';
 import type { UpcomingEvent, CardFighter, CardBout } from '@/app/api/upcoming/route';
-
-type RecentFight = CardFighter['recentFights'][number];
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -31,55 +30,6 @@ function splitEventName(name: string): { title: string; subtitle: string | null 
   return idx === -1
     ? { title: name, subtitle: null }
     : { title: name.slice(0, idx), subtitle: name.slice(idx + 3) };
-}
-
-const resultColor = (r: 'W' | 'L' | 'D') =>
-  r === 'W' ? 'var(--accent-green)' : r === 'L' ? 'var(--accent-red-light)' : 'var(--text-muted)';
-
-const pipBg = (r: 'W' | 'L' | 'D') =>
-  r === 'W' ? 'rgba(45,212,126,0.15)' : r === 'L' ? 'rgba(255,45,45,0.13)' : 'rgba(160,160,181,0.12)';
-
-function pipTitle(rf: RecentFight): string {
-  const when = rf.date
-    ? new Date(rf.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-    : '';
-  return `${rf.result} · ${rf.label}${rf.isTitle ? ' · TITLE FIGHT' : ''}${when ? ` · ${when}` : ''}`;
-}
-
-// Last-5 form squares, newest first. Title fights get the gold underline so a
-// loss to the champ reads differently from a loss to a mid-carder.
-function FormPips({ fights, compact = false, justifyEnd = false }: {
-  fights: RecentFight[];
-  compact?: boolean;
-  justifyEnd?: boolean;
-}) {
-  if (fights.length === 0) {
-    return compact ? (
-      <span className="font-mono text-[10px]" style={{ color: 'var(--text-muted)' }}>–</span>
-    ) : (
-      <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>No UFC fights on record</span>
-    );
-  }
-  return (
-    <div className={`flex items-center gap-1.5 ${justifyEnd ? 'sm:justify-end' : ''}`}>
-      {fights.map((rf, i) => (
-        <span
-          key={i}
-          title={pipTitle(rf)}
-          className={`inline-flex items-center justify-center rounded-[3px] font-mono ${
-            compact ? 'w-3.5 h-3.5' : 'w-4 h-4'
-          } text-[10px]`}
-          style={{
-            color: resultColor(rf.result),
-            backgroundColor: pipBg(rf.result),
-            boxShadow: rf.isTitle ? 'inset 0 -2px 0 0 var(--accent-gold)' : undefined,
-          }}
-        >
-          {rf.result}
-        </span>
-      ))}
-    </div>
-  );
 }
 
 function RankChip({ f, compact = false }: { f: CardFighter; compact?: boolean }) {
@@ -220,6 +170,87 @@ function ProbabilitySpine({ bout }: { bout: CardBout }) {
   );
 }
 
+// Per-row accent: schedule → blue (SoS), finish → red, reach → neutral.
+const TAPE_ACCENT: Record<string, string> = {
+  schedule: 'var(--accent-blue)',
+  finish: 'var(--accent-red-light)',
+  reach: 'var(--text-primary)',
+};
+
+// Middle band of the hero: the VS diamond, a short tale-of-the-tape, and a
+// link to the full compare page. A row only shows when both corners have the
+// stat; the tape as a whole is dropped below two rows (diamond + link remain).
+function TaleOfTape({ bout }: { bout: CardBout }) {
+  const { fighter1: f1, fighter2: f2 } = bout;
+  type Row = { key: string; label: string; v1: number; v2: number; fmt: (n: number) => string };
+  const rows: Row[] = [];
+  if (f1.reach != null && f2.reach != null)
+    rows.push({ key: 'reach', label: 'Reach', v1: f1.reach, v2: f2.reach, fmt: (n) => `${n}"` });
+  if (f1.scheduleStrength != null && f2.scheduleStrength != null)
+    rows.push({ key: 'schedule', label: 'Sched str', v1: f1.scheduleStrength, v2: f2.scheduleStrength, fmt: (n) => `${Math.round(n)}` });
+  if (f1.finishRate != null && f2.finishRate != null)
+    rows.push({ key: 'finish', label: 'Finish', v1: f1.finishRate, v2: f2.finishRate, fmt: (n) => `${Math.round(n * 100)}%` });
+
+  const compareHref =
+    f1.fighterId && f2.fighterId ? `/compare?a=${f1.fighterId}&b=${f2.fighterId}` : null;
+
+  const qualityTip = (q: number | null) =>
+    q != null ? `Opponent quality ${Math.round(q)} of 100, discounted for activity` : undefined;
+
+  return (
+    <div className="flex flex-col items-center px-2 py-2 sm:py-0">
+      <div
+        className="w-8 h-8 flex items-center justify-center rounded shrink-0 sm:mt-7"
+        style={{ transform: 'rotate(45deg)', border: '1px solid var(--accent-red)', backgroundColor: 'var(--bg-primary)' }}
+      >
+        <span className="block font-display text-xs leading-none" style={{ transform: 'rotate(-45deg)', color: 'var(--text-primary)' }}>
+          VS
+        </span>
+      </div>
+
+      {rows.length >= 2 && (
+        <div className="w-full mt-3.5 flex flex-col gap-1.5">
+          {rows.map((r) => {
+            const accent = TAPE_ACCENT[r.key] ?? 'var(--text-primary)';
+            const tie = r.v1 === r.v2;
+            return (
+              <div key={r.key} className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                <span
+                  className="font-mono text-xs text-left"
+                  title={r.key === 'schedule' ? qualityTip(f1.scheduleQuality) : undefined}
+                  style={{ color: !tie && r.v1 > r.v2 ? accent : 'var(--text-muted)' }}
+                >
+                  {r.fmt(r.v1)}
+                </span>
+                <span className="text-[9px] tracking-widest uppercase text-center whitespace-nowrap" style={{ color: 'var(--text-muted)' }}>
+                  {r.label}
+                </span>
+                <span
+                  className="font-mono text-xs text-right"
+                  title={r.key === 'schedule' ? qualityTip(f2.scheduleQuality) : undefined}
+                  style={{ color: !tie && r.v2 > r.v1 ? accent : 'var(--text-muted)' }}
+                >
+                  {r.fmt(r.v2)}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {compareHref && (
+        <Link
+          href={compareHref}
+          className="mt-3 pt-2.5 w-full text-center text-[11px] hover:underline border-t"
+          style={{ color: 'var(--text-muted)', borderColor: 'var(--border)' }}
+        >
+          Full comparison →
+        </Link>
+      )}
+    </div>
+  );
+}
+
 function MainEventBout({ bout }: { bout: CardBout }) {
   return (
     <div
@@ -240,25 +271,9 @@ function MainEventBout({ bout }: { bout: CardBout }) {
           {bout.weightClass} · 5 rounds
         </span>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_72px_minmax(0,1fr)] items-start">
+      <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_200px_minmax(0,1fr)] items-start">
         <MainSide f={bout.fighter1} align="left" />
-        <div className="flex items-center justify-center py-1 sm:pt-7">
-          <div
-            className="w-8 h-8 flex items-center justify-center rounded"
-            style={{
-              transform: 'rotate(45deg)',
-              border: '1px solid var(--accent-red)',
-              backgroundColor: 'var(--bg-primary)',
-            }}
-          >
-            <span
-              className="block font-display text-xs leading-none"
-              style={{ transform: 'rotate(-45deg)', color: 'var(--text-primary)' }}
-            >
-              VS
-            </span>
-          </div>
-        </div>
+        <TaleOfTape bout={bout} />
         <MainSide f={bout.fighter2} align="right" />
       </div>
       <ProbabilitySpine bout={bout} />

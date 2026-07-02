@@ -51,6 +51,23 @@ function clamp(v: number, lo: number, hi: number): number {
   return Math.max(lo, Math.min(hi, v));
 }
 
+// Display-only: how CURRENT a fighter's résumé is, in [0,1]. Blends recency
+// (months since last fight, past a grace window) with cadence (fights per year
+// over the SoS window). Feeds the schedule-strength display composite ONLY —
+// never the rating (the Elo core already handles inactivity via regression).
+function scheduleActivityFactor(monthsSinceLastFight: number, fightsInWindow: number): number {
+  const {
+    activityGraceMonths, activityFullDecayMonths, activityTargetFightsPerYear,
+    activityCadenceWeight, sosWindowYears,
+  } = RANKING_CONFIG;
+  const recency = clamp(
+    1 - (monthsSinceLastFight - activityGraceMonths) / (activityFullDecayMonths - activityGraceMonths),
+    0, 1,
+  );
+  const cadence = clamp(fightsInWindow / (sosWindowYears * activityTargetFightsPerYear), 0, 1);
+  return (1 - activityCadenceWeight) * recency + activityCadenceWeight * cadence;
+}
+
 // A fighter's view of a single fight (self vs opponent), used for metrics.
 export interface Perspective {
   isWin: boolean;
@@ -314,6 +331,14 @@ export async function generateDivisionRankings(
     const monthsSinceLastFight = lastDivFightDate ? monthsBetween(lastDivFightDate, now) : 999;
     const finishRate = fighter.koRate + fighter.subRate;
 
+    // Schedule-strength display composite: opponent quality discounted by how
+    // current the résumé is. Display only — does NOT enter finalRating above.
+    const sosQualityScore = eloToDisplayScore(sosElo);
+    const scheduleActivity = scheduleActivityFactor(monthsSinceLastFight, divFights.length);
+    const scheduleStrength =
+      sosQualityScore *
+      (RANKING_CONFIG.activityFloor + (1 - RANKING_CONFIG.activityFloor) * scheduleActivity);
+
     rankedFighters.push({
       rank: 0,
       fighterId: fighter.fighterId,
@@ -332,7 +357,9 @@ export async function generateDivisionRankings(
       pedigreeBonus: Math.round(pedigreeBonus * 100) / 100,
       pedigreeStrength: Math.round(pedigreeStrength * 1000) / 1000,
       officialRank,
-      strengthOfSchedule: Math.round(eloToDisplayScore(sosElo) * 100) / 100,
+      strengthOfSchedule: Math.round(sosQualityScore * 100) / 100,
+      scheduleStrength: Math.round(scheduleStrength * 100) / 100,
+      scheduleActivity: Math.round(scheduleActivity * 1000) / 1000,
       sosElo: Math.round(sosElo * 100) / 100,
       monthsSinceLastFight: Math.round(monthsSinceLastFight * 10) / 10,
       recentFightCount: divFights.length,

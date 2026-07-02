@@ -144,6 +144,21 @@ export const RANKING_CONFIG = {
   sosSlopePerElo: 0.05,         // Elo points of nudge per Elo point of schedule above/below anchor
   sosAdjustCap: 30,             // Clamp the SoS nudge to ± this many Elo points
 
+  // ── Schedule-strength ACTIVITY dampener (DISPLAY ONLY) ────────────────────
+  // The displayed "schedule strength" combines opponent quality (sosElo) with
+  // how CURRENT that résumé is: scheduleStrength = qualityScore × dampener,
+  // dampener = activityFloor + (1 − activityFloor) × activity, where
+  // activity = (1 − cadenceWeight)·recency + cadenceWeight·cadence, all in [0,1].
+  // This is a presentation composite ONLY — it never touches finalRating. The
+  // Elo core already regresses inactive ratings toward the mean (see the
+  // inactivity block above), so folding activity into sosNudge would double-
+  // count a layoff. Keep this out of the rating path.
+  activityGraceMonths: 12,        // Layoffs shorter than this take no discount (matches Elo grace)
+  activityFullDecayMonths: 33,    // Recency contribution hits 0 at this many months out
+  activityFloor: 0.7,             // A fully stale/thin résumé keeps this fraction of its quality score
+  activityTargetFightsPerYear: 2, // Cadence hits 1.0 at this pace over the window
+  activityCadenceWeight: 0.3,     // activity = 0.7·recency + 0.3·cadence (recency-led)
+
   // ═══ OFFICIAL RANKINGS SEED ═══════════════════════════════════════════
   // The internal /api/official-rankings route (Octagon API) supplies the
   // current UFC rank. With Elo doing the heavy lifting, this is a small seed +
