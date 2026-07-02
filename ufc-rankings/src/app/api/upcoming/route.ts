@@ -7,6 +7,7 @@ import { describeStyle } from '@/lib/fighterDisplay';
 import { getFighterMedia } from '@/lib/fighterMedia';
 import { getUpcomingCards } from '@/lib/loadUpcoming';
 import { getFighterAge } from '@/lib/fighterAges';
+import { isTitleFight } from '@/lib/titleFights';
 import { shortDivision } from '@/lib/divisions';
 import { ALL_DIVISIONS } from '@/lib/types';
 import type { RankedFighter } from '@/lib/types';
@@ -23,7 +24,9 @@ export interface CardFighter {
   isChampion: boolean;
   age: number | null;
   description: string | null; // style + UFC record, e.g. "A knockout artist · 8-0 UFC"
-  recentFights: { result: 'W' | 'L' | 'D'; label: string }[]; // up to 2, newest first
+  // Up to 5, newest first. isTitle = the bout was for a belt (champion-reign
+  // ledger match, weight-class label fallback for recency-patch fights).
+  recentFights: { result: 'W' | 'L' | 'D'; label: string; date: string; isTitle: boolean }[];
 }
 
 export interface CardBout {
@@ -126,9 +129,12 @@ export async function GET() {
       description = history.length ? `${cap} · ${rec} UFC` : cap;
     }
 
-    const recentFights = history.slice(0, 2).map((h) => ({
+    const ownName = fighter?.fullName ?? name;
+    const recentFights = history.slice(0, 5).map((h) => ({
       result: h.result,
       label: `${formatMethod(h.method, h.round)} vs. ${h.opponentName}`,
+      date: h.date.slice(0, 10),
+      isTitle: isTitleFight(ownName, h.opponentName, h.date, h.weightClass),
     }));
 
     return {
