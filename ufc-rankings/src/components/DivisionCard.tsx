@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { DashboardDivision } from '@/app/api/dashboard/route';
+import type { DashboardDivision } from '@/lib/dashboard';
 import { shortDivision } from '@/lib/divisions';
 import FighterPill from './FighterPill';
 

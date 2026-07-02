@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { shortDivision } from '@/lib/divisions';
-import type { DashboardDivision } from '@/app/api/dashboard/route';
+import type { DashboardDivision } from '@/lib/dashboard';
 
 // Division depth heatmap: one row per division, one cell per ranked slot
 // (champion first), coloured by raw core Elo on a scale shared across ALL
