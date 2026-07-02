@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import FighterAvatar from '@/components/FighterAvatar';
-import AnalystChat from '@/components/AnalystChat';
+import { useAnalyst } from '@/components/AnalystContext';
 import FormPips, { resultColor } from '@/components/FormPips';
 import type { UpcomingEvent, CardFighter, CardBout } from '@/app/api/upcoming/route';
 
@@ -382,6 +382,7 @@ export default function UpcomingPage() {
   const [active, setActive] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { setOpen: setAnalystOpen, setPageContext: setAnalystContext } = useAnalyst();
 
   useEffect(() => {
     let cancelled = false;
@@ -405,6 +406,13 @@ export default function UpcomingPage() {
   const event = events?.[active];
   const evParts = event ? splitEventName(event.eventName) : null;
   const hero = event ? event.bouts.find((b) => b.isMainEvent) ?? event.bouts[0] : null;
+
+  // Point the site-wide analyst dock at the selected card while on this page.
+  const eventName = event?.eventName;
+  useEffect(() => {
+    setAnalystContext(eventName ? { eventName } : {});
+    return () => setAnalystContext({});
+  }, [eventName, setAnalystContext]);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6 space-y-5">
@@ -525,7 +533,23 @@ export default function UpcomingPage() {
                   {b === hero ? <MainEventBout bout={b} /> : <DenseBout bout={b} />}
                 </div>
               ))}
-              <AnalystChat eventName={event.eventName} />
+              <button
+                onClick={() => setAnalystOpen(true)}
+                className="w-full flex items-center justify-between rounded-xl border px-4 py-3 text-left cursor-pointer transition-colors hover:border-[var(--accent-red)]"
+                style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-light)' }}
+              >
+                <span className="flex items-baseline gap-2.5">
+                  <span className="font-display text-sm uppercase tracking-wide" style={{ color: 'var(--text-primary)' }}>
+                    Ask the Analyst
+                  </span>
+                  <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
+                    Talking {evParts.title} — grounded in our numbers, not vibes
+                  </span>
+                </span>
+                <span className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>
+                  →
+                </span>
+              </button>
             </div>
           )}
         </>

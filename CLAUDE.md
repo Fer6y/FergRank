@@ -30,7 +30,7 @@ The core product and the first discovery/personalization layers are **built and 
 | Division depth heatmap | ✅ | Homepage: per-division top-40 Elo heat strips on one global scale; hover = fighter, click = division |
 | Prospect watch `/prospects` | ✅ | Provisional-window (≤5 fights) risers: climb rate, last-2, booked next fight, pre-UFC record, age (colour-coded runway) |
 | Fighter ages | ✅ | `buildAges.ts` (2026-07-02): Wikidata P569 via Sherdog-ID join + guarded alias match + Sherdog-profile fill, career-validated. 89% registry / ~96% ranked. Weekly-refreshed; display + trend-read only (`fighterAges.ts`). See `data/SOURCES.md` §6 |
-| Ask the Analyst `/api/chat` | ✅ | Built 2026-07-02 (phase 1 of `AGENT_PLAN.md`): streaming chat panel on `/upcoming`; `claude-sonnet-5` starts with zero fight facts and grounds every claim via tools over the display path (`src/lib/agent/`). Needs `ANTHROPIC_API_KEY` in `.env.local` (graceful 503 without). Web search / odds discourse = **phase 2, not built**. See `data/SOURCES.md` §7 |
+| Ask the Analyst `/api/chat` | ✅ | Built 2026-07-02 (phase 1 of `AGENT_PLAN.md`); promoted 2026-07-02 to a **site-wide floating dock** — chat bubble bottom-right on every page + "Analyst" entry in the header nav, mounted in the root layout so chat history survives navigation; page-aware via `AnalystContext` — `/upcoming` sets the selected card, `/fighter/[id]` sets the fighter (subtitle "Talking <name>", fighter-specific suggested questions, and the fighter_id rides the request so the agent skips the name lookup). `claude-sonnet-5` starts with zero fight facts and grounds every claim via tools over the display path (`src/lib/agent/`). Needs `ANTHROPIC_API_KEY` in `.env.local` (graceful 503 without). Web search / odds discourse = **phase 2, not built**. See `data/SOURCES.md` §7 |
 
 **Not yet built / known gaps:** community layer (Phase 3, Supabase), rank-history sparkline on the profile (the form timeline charts *output*, not rank), and all-time snapshots. Pre-UFC pedigree seed is still toggled **off** for scoring (the prospects page reads it for display only). The old "no strike-absorption data" blocker was wrong — `STR_1/2` covers both corners; the profile durability panel now shows absorption.
 
@@ -128,8 +128,11 @@ UFergCRankings/                ← repo root
         │   ├── rankingConfig.ts       ← ALL tunables (single source of truth)
         │   └── types.ts               ← TypeScript interfaces
         └── components/
-            ├── SiteHeader.tsx     ← top nav (Rankings/P4P/Leaderboards/Compare + ⌘K search)
-            ├── AnalystChat.tsx    ← "Ask the Analyst" chat panel on /upcoming (streams /api/chat, shows tool activity)
+            ├── SiteHeader.tsx     ← top nav (Rankings/P4P/Leaderboards/Compare + Analyst + ⌘K search; inline nav ≥md, scrollable row below)
+            ├── AnalystDock.tsx    ← "Ask the Analyst" site-wide floating dock (bubble bottom-right → chat window; streams /api/chat, shows tool activity)
+            ├── AnalystContext.tsx ← layout-level provider: dock open state + page context (event or fighter; chat survives navigation)
+            ├── AnalystPageContext.tsx ← effect-only bridge so server pages (fighter profile) can set the dock's context
+            ├── AnalystNavButton.tsx ← header "Analyst" entry (opens the dock)
             ├── SearchTrigger.tsx  ← ⌘K command-palette fighter search
             ├── DivisionSelector.tsx ← Men/Women toggle + division tabs
             ├── FilterBar.tsx      ← live era/finish/recency/activity sliders

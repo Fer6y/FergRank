@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 //  /api/chat — the "Ask the Analyst" agent loop.
 //
-//  POST { messages: [{role, content}], eventName? } → NDJSON stream:
+//  POST { messages: [{role, content}], eventName?, fighter?: {id, name} } → NDJSON stream:
 //    {"type":"text","text":"…"}   incremental answer tokens
 //    {"type":"tool","label":"…"}  a tool fired (UI activity affordance)
 //    {"type":"done"}              turn complete
@@ -47,6 +47,7 @@ function rateLimited(ip: string): boolean {
 interface ChatRequest {
   messages: { role: 'user' | 'assistant'; content: string }[];
   eventName?: string;
+  fighter?: { id: string; name: string };
 }
 
 function parseBody(body: unknown): ChatRequest | null {
@@ -64,7 +65,20 @@ function parseBody(body: unknown): ChatRequest | null {
   }
   if (messages.length === 0 || messages[messages.length - 1].role !== 'user') return null;
   const eventName = (body as Record<string, unknown>).eventName;
-  return { messages, eventName: typeof eventName === 'string' ? eventName.slice(0, 120) : undefined };
+  const rawFighter = (body as Record<string, unknown>).fighter;
+  let fighter: ChatRequest['fighter'];
+  if (rawFighter && typeof rawFighter === 'object') {
+    const id = (rawFighter as Record<string, unknown>).id;
+    const name = (rawFighter as Record<string, unknown>).name;
+    if (typeof id === 'string' && id.trim() && typeof name === 'string' && name.trim()) {
+      fighter = { id: id.slice(0, 60), name: name.slice(0, 80) };
+    }
+  }
+  return {
+    messages,
+    eventName: typeof eventName === 'string' ? eventName.slice(0, 120) : undefined,
+    fighter,
+  };
 }
 
 export async function POST(request: NextRequest) {
@@ -93,18 +107,26 @@ export async function POST(request: NextRequest) {
   if (!parsed) {
     return NextResponse.json({ error: 'Invalid request body.' }, { status: 400 });
   }
-  const { messages: history, eventName } = parsed;
+  const { messages: history, eventName, fighter } = parsed;
 
   const client = new Anthropic({ apiKey });
 
-  // Chat history → API messages. The card the user is looking at rides along
-  // as a context line on the latest user turn (volatile content stays at the
-  // very end of the prompt, after the cache breakpoint on the system block).
+  // Chat history → API messages. What the user is looking at (card and/or
+  // fighter profile) rides along as context lines on the latest user turn
+  // (volatile content stays at the very end of the prompt, after the cache
+  // breakpoint on the system block). The fighter_id lets the model call
+  // get_fighter directly without a search_fighter round-trip.
+  const contextLines = [
+    eventName ? `(Context: the user is currently viewing the card "${eventName}".)` : null,
+    fighter
+      ? `(Context: the user is currently viewing the profile page of "${fighter.name}", fighter_id "${fighter.id}" — pronouns and bare references like "their next fight" refer to this fighter.)`
+      : null,
+  ].filter(Boolean);
   const messages: Anthropic.MessageParam[] = history.map((m, i) => {
     const isLast = i === history.length - 1;
     const text =
-      isLast && m.role === 'user' && eventName
-        ? `${m.content}\n\n(Context: the user is currently viewing the card "${eventName}".)`
+      isLast && m.role === 'user' && contextLines.length
+        ? `${m.content}\n\n${contextLines.join('\n')}`
         : m.content;
     return { role: m.role, content: [{ type: 'text' as const, text }] };
   });

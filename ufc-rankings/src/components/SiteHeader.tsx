@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SearchTrigger from './SearchTrigger';
+import AnalystNavButton from './AnalystNavButton';
 
 // Top nav per DESIGN_VISION §3. Rankings is live; P4P / Leaderboards / Compare
 // are vision-stage routes shown muted until built.
@@ -22,7 +23,7 @@ export default function SiteHeader() {
               FERGRANK
             </span>
           </Link>
-          <nav className="hidden sm:flex items-center gap-5 text-sm">
+          <nav className="hidden md:flex items-center gap-4 text-sm">
             <Link href="/" style={{ color: 'var(--text-secondary)' }}>
               Rankings
             </Link>
@@ -44,16 +45,18 @@ export default function SiteHeader() {
             <Link href="/odds" style={{ color: 'var(--text-secondary)' }}>
               Odds
             </Link>
+            <AnalystNavButton />
           </nav>
         </div>
 
         <SearchTrigger />
       </div>
 
-      {/* Mobile: the desktop nav is hidden below sm, so give phones a scrollable
-          link row — otherwise these pages are unreachable without typing a URL. */}
+      {/* Mobile/tablet: the desktop nav is hidden below md (8 items overflow
+          narrower viewports), so give small screens a scrollable link row —
+          otherwise these pages are unreachable without typing a URL. */}
       <nav
-        className="sm:hidden flex items-center gap-5 overflow-x-auto whitespace-nowrap px-4 pb-2.5 text-sm"
+        className="md:hidden flex items-center gap-5 overflow-x-auto whitespace-nowrap px-4 pb-2.5 text-sm"
         style={{ scrollbarWidth: 'none' }}
       >
         <Link href="/" style={{ color: 'var(--text-secondary)' }}>
@@ -77,6 +80,7 @@ export default function SiteHeader() {
         <Link href="/odds" style={{ color: 'var(--text-secondary)' }}>
           Odds
         </Link>
+        <AnalystNavButton />
       </nav>
     </header>
   );

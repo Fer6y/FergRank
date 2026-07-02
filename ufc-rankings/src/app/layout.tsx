@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Oswald } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
+import { AnalystProvider } from "@/components/AnalystContext";
+import AnalystDock from "@/components/AnalystDock";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,8 +39,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <AnalystProvider>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <AnalystDock />
+        </AnalystProvider>
       </body>
     </html>
   );

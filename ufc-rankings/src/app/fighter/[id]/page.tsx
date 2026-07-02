@@ -7,6 +7,7 @@ import ProfileRadar from '@/components/ProfileRadar';
 import FighterAvatar from '@/components/FighterAvatar';
 import FormPips from '@/components/FormPips';
 import AdvancedAnalyticsSection from '@/components/AdvancedAnalytics';
+import AnalystPageContext from '@/components/AnalystPageContext';
 
 export const revalidate = 86400;
 
@@ -45,6 +46,9 @@ export default async function FighterPage({
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
+      {/* Point the analyst dock at this fighter while the profile is open. */}
+      <AnalystPageContext fighterId={p.fighterId} fighterName={p.fullName} />
+
       {/* Breadcrumb */}
       <Link href={backHref} className="text-xs" style={{ color: 'var(--text-muted)' }}>
         ← {backDivision ? `${backDivision} rankings` : 'Rankings'}
