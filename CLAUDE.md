@@ -24,7 +24,7 @@ The core product and the first discovery/personalization layers are **built and 
 | Compare (Phase 2) | ✅ | Two fighters side-by-side, winner-highlighted stats + radars |
 | Data-source alignment | ✅ | Recency patch is contract-guarded at load (de-dup + stale-drop + id-resolve) |
 | Fighter photos + flags | ✅ | Build-time media pipeline (Wikidata + UFC.com) → registry; rendered with initials fallback |
-| Upcoming cards `/upcoming` | ✅ | Announced cards bout-by-bout (rank chip, style, last-2 results, **model win-probability strip**); per-fighter next-fight attached at API boundary. Display-only — never touches scoring |
+| Upcoming cards `/upcoming` | ✅ | Redesigned 2026-07-02: date-first event tabs, main-event hero + dense prelim rows, **last-5 form pips (gold underline = title fight**, via `titleFights.ts` ← `data/title_fights.csv`), **win-probability spine**; per-fighter next-fight attached at API boundary. Display-only — never touches scoring |
 | Advanced analytics (profile) | ✅ | `advancedStats.ts` (2026-07-01): ONE unified band below the profile grid — cautious **macro TREND READ** (opposition/mileage-aware; UFC tenure = aging proxy, no DOB in data), **form timeline chart**, **landed:absorbed ratio vs division ranked-pool median**, per-15 pace rates, durability, finish anatomy. Display-only; ranking-input signals badged |
 | Form-adjusted win % | ✅ | Compare + Upcoming: validated pure-Elo probability headline + experimental variant shading each side's Elo by bounded (±45) recent-form drift (`formEloNudge`) |
 | Division depth heatmap | ✅ | Homepage: per-division top-40 Elo heat strips on one global scale; hover = fighter, click = division |
@@ -97,7 +97,7 @@ UFergCRankings/                ← repo root
         │   └── api/
         │       ├── rankings/      ← runs the scoring engine (accepts live filter params)
         │       ├── fighter/[id]/  ← single-fighter profile payload
-        │       ├── upcoming/      ← enriched upcoming cards (ranks + style + last-2 results)
+        │       ├── upcoming/      ← enriched upcoming cards (ranks + style + last-5 w/ title flags)
         │       └── search/        ← fighter name search (⌘K palette)
         ├── lib/
         │   ├── dataCache.ts           ← memoized single CSV load shared app-wide
@@ -112,6 +112,7 @@ UFergCRankings/                ← repo root
         │   ├── loadUpcoming.ts        ← scheduled bouts (upcoming_fights.csv): per-fighter next fight + full card list; display only
         │   ├── advancedStats.ts       ← deep analytics: per-15 pace, form timeline, durability, finish anatomy, formEloNudge; display only
         │   ├── fighterAges.ts         ← DOB/age lookup (fighter_dob.csv); display + trend-read context only
+        │   ├── titleFights.ts         ← "was this fight for a belt?" lookup (title_fights.csv); display only
         │   ├── prospects.ts           ← prospect watchlist builder (provisional-window risers); display only
         │   ├── divisions.ts           ← shared division short codes
         │   ├── pedigreeSeed.ts        ← pre-UFC pedigree loader (disabled by default)
