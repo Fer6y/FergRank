@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import FighterAvatar from '@/components/FighterAvatar';
+import AnalystChat from '@/components/AnalystChat';
 import FormPips, { resultColor } from '@/components/FormPips';
 import type { UpcomingEvent, CardFighter, CardBout } from '@/app/api/upcoming/route';
 
@@ -491,6 +492,7 @@ export default function UpcomingPage() {
                   {b === hero ? <MainEventBout bout={b} /> : <DenseBout bout={b} />}
                 </div>
               ))}
+              <AnalystChat eventName={event.eventName} />
             </div>
           )}
         </>

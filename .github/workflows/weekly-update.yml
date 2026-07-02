@@ -5,8 +5,11 @@ name: Weekly UFC ingest
 # CSV on boot → rankings go live. See scripts/sherdog/weeklyUpdate.ts.
 on:
   schedule:
-    # Tuesdays 12:00 UTC (~early-morning US) — after the weekend card results are final.
-    - cron: '0 12 * * 2'
+    # Sundays 11:00 UTC — 6am EST (7am EDT in summer; GitHub cron is UTC-only,
+    # no DST awareness). Cards are always done by then (~1am ET); if a one-off
+    # card runs late or Sherdog posts slowly, that week's results simply land
+    # on the NEXT run — buildRecencyPatch accumulates, nothing is lost.
+    - cron: '0 11 * * 0'
   workflow_dispatch:
     inputs:
       days:

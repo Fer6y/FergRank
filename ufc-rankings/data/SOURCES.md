@@ -167,7 +167,24 @@ context only, never in the scoring path**.
 
 ---
 
-## 7. One-line summary
+## 7. Ask-the-Analyst chat — *Anthropic API* (BUILT 2026-07-02, runtime)
+
+`/api/chat` (`src/app/api/chat/route.ts`) is the app's **second external
+runtime call**, alongside the Octagon rankings fetch. It streams a
+conversation with `claude-sonnet-5` via `@anthropic-ai/sdk`; the model starts
+with zero fight facts and grounds every claim through tools
+(`src/lib/agent/tools.ts`) that wrap the same display-path accessors the UI
+reads (`enrichCards`, `getFighterProfile`, `getAdvancedStats`, Elo win
+probability, fighter search). **Read-only over our data**: nothing flows back
+into Elo/scoring, and `rankingConfig` tunables are never exposed to the model
+or the user. Requires `ANTHROPIC_API_KEY` in `.env.local` (missing key →
+graceful 503; the chat panel explains itself). Guardrails: in-memory rate
+limit (20 req / 5 min / IP), ≤8 tool round-trips per turn, capped history.
+Prompt caching (system + tool definitions) keeps per-message cost low.
+
+---
+
+## 8. One-line summary
 
 | Layer | Source | Type | In the running app? |
 |-------|--------|------|---------------------|
@@ -178,3 +195,4 @@ context only, never in the scoring path**.
 | Nationality / flags | Wikidata (P27) | external (build) | ✅ ~65% (initials/none fallback) |
 | Photos | Wikidata Commons + UFC.com | external (build) | ✅ ~63% combined (initials fallback) |
 | Ages / DOB | Wikidata (P569) + Sherdog profiles | external (build, weekly) | ✅ 89% (~96% ranked); display only |
+| Analyst chat | Anthropic API (`claude-sonnet-5`) | external | ✅ runtime (`/api/chat`, needs `ANTHROPIC_API_KEY`) |

@@ -16,7 +16,7 @@ The core product and the first discovery/personalization layers are **built and 
 |------|--------|-------|
 | Elo engine + scoring | ✅ | v2 Elo core; one global rating pool; per-fight trace for profiles |
 | Homepage rankings | ✅ | Editorial redesign: Oswald banners, champion hero, dense rows, **trend-vs-UFC chips**, semantic stat colours |
-| Fighter profile `/fighter/[id]` | ✅ | Hero, **"why this rank"** decomposition (leads the page), 5-axis radar, fight history with per-fight Elo deltas, snapshot |
+| Fighter profile `/fighter/[id]` | ✅ | Hero (incl. last-5 pips + span timeline via shared `FormPips`), **"why this rank"** decomposition (leads the page), 5-axis radar, fight history with per-fight Elo deltas, snapshot |
 | ⌘K fighter search | ✅ | `/api/search` + command palette |
 | Live filter bar (Phase 4) | ✅ | Era / Finish / Recency / Activity sliders **re-run the real algorithm** server-side; neutral = house algorithm |
 | P4P (Phase 5) | ✅ | Cross-division, valid because Elo is one global pool |
@@ -24,12 +24,13 @@ The core product and the first discovery/personalization layers are **built and 
 | Compare (Phase 2) | ✅ | Two fighters side-by-side, winner-highlighted stats + radars |
 | Data-source alignment | ✅ | Recency patch is contract-guarded at load (de-dup + stale-drop + id-resolve) |
 | Fighter photos + flags | ✅ | Build-time media pipeline (Wikidata + UFC.com) → registry; rendered with initials fallback |
-| Upcoming cards `/upcoming` | ✅ | Redesigned 2026-07-02: date-first event tabs, main-event hero + dense prelim rows, **last-5 form pips (gold underline = title fight**, via `titleFights.ts` ← `data/title_fights.csv`), **win-probability spine**; per-fighter next-fight attached at API boundary. Display-only — never touches scoring |
+| Upcoming cards `/upcoming` | ✅ | Redesigned 2026-07-02: date-first event tabs, main-event hero + dense prelim rows, **last-5 form pips (gold underline = title fight**, via `titleFights.ts` ← `data/title_fights.csv`; shared `FormPips` component with a light span timeline — newest-fight year → 5th-fight year — as an activity read), **win-probability spine**, main-event **tale-of-the-tape** (reach ← `fighterPhysical.ts`, activity-adjusted `scheduleStrength`, finish rate; links to `/compare`); per-fighter next-fight attached at API boundary. Display-only — never touches scoring |
 | Advanced analytics (profile) | ✅ | `advancedStats.ts` (2026-07-01): ONE unified band below the profile grid — cautious **macro TREND READ** (opposition/mileage-aware; UFC tenure = aging proxy, no DOB in data), **form timeline chart**, **landed:absorbed ratio vs division ranked-pool median**, per-15 pace rates, durability, finish anatomy. Display-only; ranking-input signals badged |
 | Form-adjusted win % | ✅ | Compare + Upcoming: validated pure-Elo probability headline + experimental variant shading each side's Elo by bounded (±45) recent-form drift (`formEloNudge`) |
 | Division depth heatmap | ✅ | Homepage: per-division top-40 Elo heat strips on one global scale; hover = fighter, click = division |
 | Prospect watch `/prospects` | ✅ | Provisional-window (≤5 fights) risers: climb rate, last-2, booked next fight, pre-UFC record, age (colour-coded runway) |
 | Fighter ages | ✅ | `buildAges.ts` (2026-07-02): Wikidata P569 via Sherdog-ID join + guarded alias match + Sherdog-profile fill, career-validated. 89% registry / ~96% ranked. Weekly-refreshed; display + trend-read only (`fighterAges.ts`). See `data/SOURCES.md` §6 |
+| Ask the Analyst `/api/chat` | ✅ | Built 2026-07-02 (phase 1 of `AGENT_PLAN.md`): streaming chat panel on `/upcoming`; `claude-sonnet-5` starts with zero fight facts and grounds every claim via tools over the display path (`src/lib/agent/`). Needs `ANTHROPIC_API_KEY` in `.env.local` (graceful 503 without). Web search / odds discourse = **phase 2, not built**. See `data/SOURCES.md` §7 |
 
 **Not yet built / known gaps:** community layer (Phase 3, Supabase), rank-history sparkline on the profile (the form timeline charts *output*, not rank), and all-time snapshots. Pre-UFC pedigree seed is still toggled **off** for scoring (the prospects page reads it for display only). The old "no strike-absorption data" blocker was wrong — `STR_1/2` covers both corners; the profile durability panel now shows absorption.
 
@@ -92,13 +93,14 @@ UFergCRankings/                ← repo root
         │   ├── p4p/               ← cross-division pound-for-pound
         │   ├── leaderboards/      ← Finishers/Knockouts/Submissions/Strikers/Grapplers
         │   ├── compare/           ← two-fighter side-by-side
-        │   ├── upcoming/          ← announced cards, bout by bout (event tabs, win-prob strips)
+        │   ├── upcoming/          ← announced cards, bout by bout (event tabs, win-prob strips, analyst chat)
         │   ├── prospects/         ← prospect watch: provisional-window risers + context
         │   └── api/
         │       ├── rankings/      ← runs the scoring engine (accepts live filter params)
         │       ├── fighter/[id]/  ← single-fighter profile payload
-        │       ├── upcoming/      ← enriched upcoming cards (ranks + style + last-5 w/ title flags)
-        │       └── search/        ← fighter name search (⌘K palette)
+        │       ├── upcoming/      ← enriched upcoming cards (thin wrapper over lib/upcomingEnrich)
+        │       ├── chat/          ← "Ask the Analyst" streaming agent loop (Anthropic API, tool-grounded)
+        │       └── search/        ← fighter name search (thin wrapper over lib/searchFighters)
         ├── lib/
         │   ├── dataCache.ts           ← memoized single CSV load shared app-wide
         │   ├── loadData.ts            ← CSV ingestion, name-based fight-ID re-resolution, recency-patch guard
@@ -110,19 +112,24 @@ UFergCRankings/                ← repo root
         │   ├── fighterDisplay.ts      ← presentation helpers (trend chip, why-this-rank, highlights)
         │   ├── fighterMedia.ts        ← photo + nationality/flag lookup (Wikidata + UFC.com), attached at API boundary; display only
         │   ├── loadUpcoming.ts        ← scheduled bouts (upcoming_fights.csv): per-fighter next fight + full card list; display only
+        │   ├── upcomingEnrich.ts      ← bout enrichment (ranks/last-5/win-prob), shared by /api/upcoming + agent get_card
+        │   ├── searchFighters.ts      ← fuzzy name search, shared by /api/search + agent search_fighter
+        │   ├── agent/                 ← "Ask the Analyst": tools.ts (5 grounding tools over the display path) + systemPrompt.ts (frozen persona)
         │   ├── advancedStats.ts       ← deep analytics: per-15 pace, form timeline, durability, finish anatomy, formEloNudge; display only
         │   ├── fighterAges.ts         ← DOB/age lookup (fighter_dob.csv); display + trend-read context only
         │   ├── titleFights.ts         ← "was this fight for a belt?" lookup (title_fights.csv); display only
+        │   ├── fighterPhysical.ts     ← reach lookup (Fighters.csv), attached at API boundary; display only
         │   ├── prospects.ts           ← prospect watchlist builder (provisional-window risers); display only
         │   ├── divisions.ts           ← shared division short codes
         │   ├── pedigreeSeed.ts        ← pre-UFC pedigree loader (disabled by default)
-        │   ├── fetchOfficialRankings.ts ← Octagon API client (the only RUNTIME external call)
+        │   ├── fetchOfficialRankings.ts ← Octagon API client (runtime external call #1; #2 is the Anthropic API in /api/chat)
         │   ├── nameResolver.ts        ← fuzzy UFC.com-name → CSV-id matching
         │   ├── auditOfficialMatches.ts ← diagnostic: which official names resolve
         │   ├── rankingConfig.ts       ← ALL tunables (single source of truth)
         │   └── types.ts               ← TypeScript interfaces
         └── components/
             ├── SiteHeader.tsx     ← top nav (Rankings/P4P/Leaderboards/Compare + ⌘K search)
+            ├── AnalystChat.tsx    ← "Ask the Analyst" chat panel on /upcoming (streams /api/chat, shows tool activity)
             ├── SearchTrigger.tsx  ← ⌘K command-palette fighter search
             ├── DivisionSelector.tsx ← Men/Women toggle + division tabs
             ├── FilterBar.tsx      ← live era/finish/recency/activity sliders
@@ -467,7 +474,7 @@ The dedicated design pass happened (2026-06-13). Decisions are locked and implem
 ## What We Are NOT Doing
 
 - No web scraping at **runtime** (Sherdog scraping is a build-time pipeline only; data is static CSV in the app)
-- No external API calls **except** the one Octagon official-rankings fetch (cached 24h, graceful fallback)
+- No external API calls **except** the Octagon official-rankings fetch (cached 24h, graceful fallback) and the Anthropic API behind `/api/chat` (Ask the Analyst; rate-limited, graceful 503 without a key)
 - No user accounts or persistence (yet — Phase 3)
 - No betting odds integration (yet)
 - Not ranking fighters outside their primary weight class
@@ -583,6 +590,8 @@ Every fighter gets a **Strength of Schedule (SoS)** score — the recency-weight
 - A key stat in the "Why this rank" explainer
 
 > Note: because Elo already rewards beating strong opponents, SoS is intentionally *not* a large additive term — that would double-count. The nudge only catches cases where the schedule and the rating disagree.
+
+**`scheduleStrength` — the activity-adjusted DISPLAY composite (2026-07-02).** Alongside the pure-quality `strengthOfSchedule`, the engine emits a **display-only** `scheduleStrength = qualityScore × dampener`, where `dampener = activityFloor + (1−activityFloor)·activity` and `activity = 0.7·recency + 0.3·cadence` (recency from `monthsSinceLastFight` past a 12-mo grace; cadence from fights-in-window vs. a 2/yr target). This is what the `/upcoming` tale-of-the-tape shows: "how good was your schedule, kept honest by whether it's current." It **never enters `finalRating`** — the Elo core already regresses inactive ratings, so folding activity into `sosNudge` would double-count a layoff. Tunables live under the SoS block in `rankingConfig.ts` (`activity*`); the raw quality stays available (tooltip + `strengthOfSchedule`). Display-only, like everything on the upcoming page.
 
 ---
 
