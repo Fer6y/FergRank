@@ -115,14 +115,14 @@ export default function Gauntlet({ gauntlet }: Props) {
           </text>
         ))}
 
-        {/* own-Elo trajectory: faint area + line */}
-        <path d={ownArea} fill="var(--accent-blue)" opacity="0.05" />
-        <path d={ownLine} fill="none" stroke="var(--accent-blue)" strokeWidth="1.75" opacity="0.65" />
+        {/* own-Elo trajectory: faint area + line (neutral slate — context, not a hue) */}
+        <path d={ownArea} fill="var(--elo-line)" opacity="0.05" />
+        <path d={ownLine} fill="none" stroke="var(--elo-line)" strokeWidth="1.75" opacity="0.7" />
 
         {/* per-fight opponent dots. Ring marks a finish: neon orange = KO/TKO,
             blue = submission. Gold is reserved for champion/title elsewhere. */}
         {points.map((p, i) => {
-          const ringColor = p.finishType === 'ko' ? 'var(--accent-orange)' : p.finishType === 'sub' ? 'var(--accent-blue)' : null;
+          const ringColor = p.finishType === 'ko' ? 'var(--accent-magenta)' : p.finishType === 'sub' ? 'var(--accent-cyan)' : null;
           const finishLabel = p.finishType === 'ko' ? ' · KO/TKO' : p.finishType === 'sub' ? ' · submission' : '';
           return (
             <g key={p.date + i}>
@@ -154,13 +154,13 @@ export default function Gauntlet({ gauntlet }: Props) {
           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--accent-red-light)' }} /> loss
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full border-2" style={{ borderColor: 'var(--accent-orange)' }} /> KO/TKO
+          <span className="w-2.5 h-2.5 rounded-full border-2" style={{ borderColor: 'var(--accent-magenta)' }} /> KO/TKO
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full border-2" style={{ borderColor: 'var(--accent-blue)' }} /> submission
+          <span className="w-2.5 h-2.5 rounded-full border-2" style={{ borderColor: 'var(--accent-cyan)' }} /> submission
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-4 h-0.5" style={{ backgroundColor: 'var(--accent-blue)', opacity: 0.65 }} /> own Elo
+          <span className="w-4 h-0.5" style={{ backgroundColor: 'var(--elo-line)', opacity: 0.7 }} /> own Elo
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-4 h-0.5" style={{ backgroundColor: 'var(--accent-gold)', opacity: 0.5 }} /> vs expected

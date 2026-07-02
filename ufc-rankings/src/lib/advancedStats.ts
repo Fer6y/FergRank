@@ -288,8 +288,8 @@ export interface GauntletPoint {
   opponentName: string;
   result: 'W' | 'L' | 'D';
   method: string;
-  // Finish type drives the dot ring: 'ko' = neon-orange, 'sub' = blue, null =
-  // decision (no ring). Deliberately NOT gold — gold means champion/title here.
+  // Finish type drives the dot ring: 'ko' = magenta, 'sub' = cyan, null =
+  // decision (no ring). Deliberately NOT gold (champion/title) or red (loss).
   finishType: 'ko' | 'sub' | null;
   opponentElo: number;     // opponent's rating at fight time (the dot height)
   ownElo: number;          // fighter's rating AFTER the fight (trajectory line)
