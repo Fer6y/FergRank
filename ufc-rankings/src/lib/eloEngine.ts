@@ -252,18 +252,28 @@ function runEloSweep(
   return { states, history };
 }
 
+// Cache entries are keyed by (filter signature, UTC day): the sweep's final
+// regression brings every rating up to "now", so a map built yesterday is
+// stale today — day-keying lets a long-lived process refresh daily instead of
+// serving boot-time ratings forever. Oldest entries are evicted so distinct
+// filter combos (and passing days) can't grow the cache unbounded.
+const ELO_CACHE_MAX = 24;
+
 export function buildEloRatings(data: LoadedData, eng?: EffectiveEngine): EloMap {
   const engine = eng ?? effectiveEngine(DEFAULT_FILTERS);
 
   let perData = eloCache.get(data);
   if (!perData) { perData = new Map(); eloCache.set(data, perData); }
-  const cached = perData.get(engine.signature);
+  const key = `${engine.signature}|${new Date().toISOString().slice(0, 10)}`;
+  const cached = perData.get(key);
   if (cached) return cached;
 
   const { states, history } = runEloSweep(data, engine);
 
-  perData.set(engine.signature, states);
+  if (perData.size >= ELO_CACHE_MAX) perData.delete(perData.keys().next().value as string);
+  perData.set(key, states);
   // History is only needed for the (un-filtered) profile page — record it once.
+  // (Per-fight traces are historical, not regressed to "now", so no day key.)
   if (engine.isDefault) historyCache.set(data, history);
   return states;
 }

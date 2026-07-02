@@ -17,7 +17,7 @@ import { fetchOfficialRankings, getOfficialRankingsForDivision } from './fetchOf
 import { buildNameIndex, resolveNameToId } from './nameResolver';
 import { buildEloRatings, getElo, eloToDisplayScore, normalizeWeightClassForMove } from './eloEngine';
 import { getRegistry } from './registry';
-import { effectiveEngine, DEFAULT_FILTERS, type FilterParams } from './filters';
+import { effectiveEngine, DEFAULT_FILTERS, type FilterParams, type EffectiveEngine } from './filters';
 import { loadPedigreeStrength } from './pedigreeSeed';
 import type { Fight, RankedFighter, DivisionRankings } from './types';
 import type { LoadedData } from './loadData';
@@ -169,16 +169,48 @@ function applyOfficialFloors(
 
 // ─── Main ────────────────────────────────────────────────────
 
-export async function generateDivisionRankings(
+// Memoized entry point: one scoring pass per (data, division, filter
+// signature, UTC day). The Elo sweep was already cached, but the scoring layer
+// on top (eligibility, SoS/metrics loops, head-to-head) re-ran on every call —
+// and every surface fans out over all 12 divisions. The PROMISE is cached so
+// concurrent cold requests share one compute; a rejected compute is evicted so
+// a transient failure isn't served for the rest of the day. Day in the key
+// because the pass bakes in "now" (recency windows, activity, inactivity).
+const rankingsCache = new WeakMap<LoadedData, Map<string, Promise<DivisionRankings>>>();
+const RANKINGS_CACHE_MAX = 64;
+
+export function generateDivisionRankings(
   division: string,
   data: LoadedData,
   filters: FilterParams = DEFAULT_FILTERS
 ): Promise<DivisionRankings> {
+  // Effective engine from the user filters; neutral filters === RANKING_CONFIG.
+  const engine = effectiveEngine(filters);
+
+  let perData = rankingsCache.get(data);
+  if (!perData) { perData = new Map(); rankingsCache.set(data, perData); }
+  const cacheMap = perData;
+  const key = `${division}|${engine.signature}|${new Date().toISOString().slice(0, 10)}`;
+  const hit = cacheMap.get(key);
+  if (hit) return hit;
+
+  const pending = computeDivisionRankings(division, data, engine).catch((err) => {
+    cacheMap.delete(key); // never cache a failure
+    throw err;
+  });
+  if (cacheMap.size >= RANKINGS_CACHE_MAX) cacheMap.delete(cacheMap.keys().next().value as string);
+  cacheMap.set(key, pending);
+  return pending;
+}
+
+async function computeDivisionRankings(
+  division: string,
+  data: LoadedData,
+  engine: EffectiveEngine
+): Promise<DivisionRankings> {
   const now = new Date();
   const { fighters, fighterFights } = data;
 
-  // Effective engine from the user filters; neutral filters === RANKING_CONFIG.
-  const engine = effectiveEngine(filters);
   const eraStartYear = engine.eraStartYear;
   const halfLife = engine.recencyHalfLifeMonths;
 
