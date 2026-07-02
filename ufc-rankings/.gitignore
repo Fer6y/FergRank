@@ -44,3 +44,4 @@ next-env.d.ts
 data/.sherdog_cache/
 scripts/sherdog/fixtures/*.html
 .next-preview/
+/.next-preview2/

@@ -1,7 +1,0 @@
-{
-  "/api/dashboard/route": "app/api/dashboard/route.js",
-  "/api/upcoming/route": "app/api/upcoming/route.js",
-  "/compare/page": "app/compare/page.js",
-  "/page": "app/page.js",
-  "/upcoming/page": "app/upcoming/page.js"
-}
