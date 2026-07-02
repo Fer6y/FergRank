@@ -16,8 +16,8 @@
   --accent-gold: #d4a843;
   --accent-green: #2dd47e;
   --accent-blue: #4a9eff;
-  --accent-magenta: #ff4d9d;  /* KO/TKO finish ring (Gauntlet) — not red, high-impact */
-  --accent-cyan: #22d3ee;     /* submission finish ring (Gauntlet) — cool/technical */
+  --accent-magenta: #ff4d9d;  /* high-impact accent (unused since the Gauntlet redesign dropped finish rings) */
+  --accent-cyan: #22d3ee;     /* cool/technical accent (unused since the Gauntlet redesign dropped finish rings) */
   --elo-line: #8a8aa0;        /* neutral slate for the own-Elo trajectory (context, not a hue) */
   --score-bar-bg: #2a2a3a;
 }
