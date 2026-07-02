@@ -20,6 +20,7 @@
 import type { Fight } from './types';
 import type { LoadedData } from './loadData';
 import type { FightTrace } from './eloEngine';
+import { isTitleFight } from './titleFights';
 
 const RECENT_WINDOW = 5;      // "recent form" = last 5 metric-bearing fights
 const MIN_RECENT_FIGHTS = 3;  // fewer than this → no recent window / no drift
@@ -281,26 +282,27 @@ export function divisionRatioBenchmark(
 }
 
 // ── The Gauntlet ───────────────────────────────────────────────────────────
-// Every fight plotted at the OPPONENT's Elo the night it happened, against the
-// fighter's own Elo trajectory. This is the career-story chart: level of
-// competition (dots), where the fighter's own rating sat (line), and how often
-// they beat the number (overperformance). All derived from the Elo trace — no
-// engine or loader changes. Display-only, like everything in this file.
+// The career-trajectory chart (redesigned 2026-07-02 per the Gauntlet brief):
+// the chart itself draws ONLY the fighter's own Elo line, with one node per
+// fight sitting on it. Everything else — opponent, method, expectancy, swing —
+// lives in the persistent info panel the nodes drive on hover. All derived
+// from the Elo trace — no engine or loader changes. Display-only.
 
 export interface GauntletPoint {
   date: string;            // ISO "YYYY-MM-DD"
   opponentName: string;
   result: 'W' | 'L' | 'D';
   method: string;
-  // Finish type drives the dot ring: 'ko' = magenta, 'sub' = cyan, null =
-  // decision (no ring). Deliberately NOT gold (champion/title) or red (loss).
+  // Finish type → a text badge in the info panel ('ko' / 'sub'); decisions null.
   finishType: 'ko' | 'sub' | null;
-  opponentElo: number;     // opponent's rating at fight time (the dot height)
+  opponentElo: number;     // opponent's rating at fight time (node size tier)
+  ownEloBefore: number;    // fighter's rating ENTERING the fight (panel)
   ownElo: number;          // fighter's rating AFTER the fight (trajectory line)
-  delta: number;           // per-fight Elo swing (dot size = |delta|)
+  delta: number;           // per-fight Elo swing (panel: rating change)
   expected: number;        // pre-fight win expectancy vs this opponent (0–1)
   overUnder: number;       // actual − expected for this fight (+ = upset win)
   cumOverperf: number;     // running Σ(actual − expected) — "wins above expected"
+  titleFight: boolean;     // championship bout → gold halo on the node
 }
 
 export interface Gauntlet {
@@ -317,7 +319,7 @@ function winExpectancy(ratingFor: number, ratingAgainst: number): number {
   return 1 / (1 + Math.pow(10, (ratingAgainst - ratingFor) / 400));
 }
 
-export function buildGauntlet(history: FightTrace[]): Gauntlet | null {
+export function buildGauntlet(history: FightTrace[], fighterName: string): Gauntlet | null {
   // Trace is newest-first; the chart reads left→right in time. Only fights
   // against a RATED opponent can be placed (opponentRating 0 = unrated/Sherdog).
   const traced = history.filter((h) => h.opponentRating > 0);
@@ -341,11 +343,13 @@ export function buildGauntlet(history: FightTrace[]): Gauntlet | null {
       method: h.method,
       finishType,
       opponentElo: Math.round(h.opponentRating),
+      ownEloBefore: Math.round(h.ratingBefore),
       ownElo: Math.round(h.ratingAfter),
       delta: Math.round(h.delta),
       expected: Math.round(expected * 100) / 100,
       overUnder: Math.round(ou * 100) / 100,
       cumOverperf: Math.round(cum * 100) / 100,
+      titleFight: isTitleFight(fighterName, h.opponentName, h.date, h.weightClass),
     };
     if (h.result === 'W' && (!biggest || ou > biggest.overUnder)) biggest = pt;
     return pt;

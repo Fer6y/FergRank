@@ -215,6 +215,6 @@ export async function getFighterProfile(
     advanced,
     trendRead,
     divisionBenchmark,
-    gauntlet: buildGauntlet(history),
+    gauntlet: buildGauntlet(history, fighter.fullName),
   };
 }
