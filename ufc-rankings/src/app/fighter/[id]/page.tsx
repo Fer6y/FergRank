@@ -67,6 +67,11 @@ export default async function FighterPage({
           <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
             {p.nickname && <span style={{ color: 'var(--text-muted)' }}>&quot;{p.nickname}&quot; · </span>}
             {p.division || p.weightClass} · <span className="font-mono">{p.record}</span> · {p.fightCount} UFC
+            {p.age != null && (
+              <span title={p.ageApproximate ? 'Approximate (year-precision date of birth)' : undefined}>
+                {' '}· {p.ageApproximate ? '~' : ''}{p.age} yrs
+              </span>
+            )}
           </p>
         </div>
 
@@ -272,6 +277,7 @@ export default async function FighterPage({
               <Stat label="Strength of schedule" value={p.sos != null ? p.sos.toFixed(1) : '—'} />
               <Stat label="Peak Elo" value={`${p.eloPeak}`} />
               <Stat label="Current Elo" value={`${p.eloRating}`} />
+              <Stat label="Age" value={p.age != null ? `${p.ageApproximate ? '~' : ''}${p.age}` : '—'} />
               <Stat label="Months since last fight" value={`${p.monthsSinceLastFight}`} />
               <Stat label="Stance" value={p.stance || '—'} />
               <Stat label="Height" value={p.height || '—'} />

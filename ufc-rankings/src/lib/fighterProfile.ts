@@ -4,6 +4,7 @@ import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, type Fig
 import { computeRadarAxes } from './fighterRadar';
 import { getFighterMedia } from './fighterMedia';
 import { getNextFight, type NextFight } from './loadUpcoming';
+import { getFighterAge } from './fighterAges';
 import {
   getAdvancedStats,
   buildTrendRead,
@@ -27,6 +28,9 @@ export interface FighterProfile {
   height: string;
   stance: string;
   fightCount: number;
+  // From the DOB pipeline (fighterAges.ts) — display + trend-read context only.
+  age: number | null;
+  ageApproximate: boolean;   // true when the DOB is year/month precision
 
   // Presentation media (fighterMedia.ts; display only — never feeds the algorithm).
   avatarUrl: string | null;    // head-framed photo for the hero avatar
@@ -137,14 +141,17 @@ export async function getFighterProfile(
   // portrait, so a recent division-mover (e.g. Topuria) keeps the striking
   // signature of their fights at the old weight instead of being judged on a
   // thin 1–2 fight sample in the new division.
-  // Deep analytics + the cautious macro read (UFC tenure is the aging proxy —
-  // the data has no DOB). Benchmark = median ratio of the division's ranked pool.
+  // Deep analytics + the cautious macro read. Real age (DOB pipeline) leads;
+  // UFC tenure is the fallback aging proxy where no DOB resolved.
+  // Benchmark = median ratio of the division's ranked pool.
   const advanced = getAdvancedStats(data, fighterId);
+  const ageInfo = getFighterAge(fighterId);
   const tenureYears = history.length
     ? (Date.now() - new Date(history[history.length - 1].date).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
     : 0;
   const trendRead = advanced
     ? buildTrendRead(advanced, {
+        age: ageInfo?.age ?? null,
         tenureYears,
         monthsSinceLastFight: monthsSince,
         eloRating: elo.rating,
@@ -175,6 +182,8 @@ export async function getFighterProfile(
     height: fighter.height,
     stance: fighter.stance,
     fightCount: (data.fighterFights.get(fighterId) || []).length,
+    age: ageInfo?.age ?? null,
+    ageApproximate: ageInfo?.approximate ?? false,
     avatarUrl: media?.avatarUrl || null,
     fullBodyUrl: media?.fullBodyUrl || null,
     nationality: media?.nationality || null,

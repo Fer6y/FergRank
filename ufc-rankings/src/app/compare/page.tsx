@@ -196,6 +196,11 @@ function FighterHead({ p }: { p: FighterProfile }) {
         <span className="text-xs font-mono" style={{ color: 'var(--text-secondary)' }}>
           {p.record}
         </span>
+        {p.age != null && (
+          <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
+            {p.ageApproximate ? '~' : ''}{p.age} yrs
+          </span>
+        )}
       </div>
       <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
         {p.isChampion ? 'Champion' : p.displayRank != null ? `Our #${p.displayRank}` : 'Unranked'}

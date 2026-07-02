@@ -6,6 +6,7 @@ import { getAdvancedStats, formEloNudge } from '@/lib/advancedStats';
 import { describeStyle } from '@/lib/fighterDisplay';
 import { getFighterMedia } from '@/lib/fighterMedia';
 import { getUpcomingCards } from '@/lib/loadUpcoming';
+import { getFighterAge } from '@/lib/fighterAges';
 import { shortDivision } from '@/lib/divisions';
 import { ALL_DIVISIONS } from '@/lib/types';
 import type { RankedFighter } from '@/lib/types';
@@ -20,6 +21,7 @@ export interface CardFighter {
   avatarUrl: string | null;
   rankLabel: string | null;   // "C", "#6 LW", or null when unranked / not in our data
   isChampion: boolean;
+  age: number | null;
   description: string | null; // style + UFC record, e.g. "A knockout artist · 8-0 UFC"
   recentFights: { result: 'W' | 'L' | 'D'; label: string }[]; // up to 2, newest first
 }
@@ -93,7 +95,7 @@ export async function GET() {
     if (!id) {
       return {
         fighterId: null, name, flag: null, avatarUrl: null,
-        rankLabel: null, isChampion: false, description: null, recentFights: [],
+        rankLabel: null, isChampion: false, age: null, description: null, recentFights: [],
       };
     }
 
@@ -136,6 +138,7 @@ export async function GET() {
       avatarUrl: media?.avatarUrl || null,
       rankLabel,
       isChampion: info?.isChampion ?? false,
+      age: getFighterAge(id)?.age ?? null,
       description,
       recentFights,
     };

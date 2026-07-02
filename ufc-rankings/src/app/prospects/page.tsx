@@ -74,6 +74,15 @@ function ProspectCard({ p, index }: { p: ProspectEntry; index: number }) {
             <span className="font-mono text-xs" style={{ color: 'var(--text-secondary)' }}>
               {p.ufcRecord} UFC
             </span>
+            {p.age != null && (
+              <span
+                className="font-mono text-xs"
+                style={{ color: p.age <= 27 ? 'var(--accent-green)' : p.age >= 33 ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
+                title={p.age <= 27 ? 'Young for the level — projection upside' : p.age >= 33 ? 'Old for a prospect — shorter runway' : undefined}
+              >
+                {p.age} yrs
+              </span>
+            )}
             {p.ourRank != null && p.ourRank <= 40 && (
               <span
                 className="font-mono text-[10px] px-1.5 py-0.5 rounded"

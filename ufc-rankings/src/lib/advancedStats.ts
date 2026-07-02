@@ -107,7 +107,8 @@ export interface TrendInsight {
 }
 
 export interface TrendContext {
-  tenureYears: number;          // years since UFC debut (our aging proxy — no DOB in the data)
+  age: number | null;           // real age from the DOB pipeline, when resolved
+  tenureYears: number;          // years since UFC debut (the fallback aging proxy)
   monthsSinceLastFight: number;
   eloRating: number;
   eloPeak: number;
@@ -133,10 +134,14 @@ export function buildTrendRead(a: AdvancedStats, ctx: TrendContext): TrendInsigh
 
   const ratioChange = ratioLast3 / ratioCareer - 1;           // margin trend
   const outputChange = career.landedPer15 >= 5 ? last3.landedPer15 / career.landedPer15 - 1 : 0;
-  const deepMileage = ctx.tenureYears >= 9 || a.sampleFights >= 18;
-  const mileageNote = ctx.tenureYears >= 1
-    ? `${Math.round(ctx.tenureYears)} years and ${a.sampleFights} charted fights into the UFC run`
-    : `${a.sampleFights} charted fights in`;
+  // Real age leads the mileage judgement (34+ is where MMA age curves bend);
+  // tenure/fight-count carry it when no DOB resolved.
+  const deepMileage = (ctx.age != null && ctx.age >= 34) || ctx.tenureYears >= 9 || a.sampleFights >= 18;
+  const mileageNote = ctx.age != null
+    ? `at age ${ctx.age} with ${a.sampleFights} charted fights`
+    : ctx.tenureYears >= 1
+      ? `${Math.round(ctx.tenureYears)} years and ${a.sampleFights} charted fights into the UFC run`
+      : `${a.sampleFights} charted fights in`;
   const pctFmt = (x: number) => `${Math.abs(Math.round(x * 100))}%`;
 
   // Margin tightening — the aging-pattern read, but opposition-aware.
@@ -166,6 +171,14 @@ export function buildTrendRead(a: AdvancedStats, ctx: TrendContext): TrendInsigh
       text: stepUp
         ? `Margins are widening (${ratioLast3.toFixed(2)} landed per absorbed over the last 3, vs ${ratioCareer.toFixed(2)} career) while the opposition stepped up ~+${oppStep} Elo — the strongest version of an ascending signal.`
         : `Margins are widening — ${ratioLast3.toFixed(2)} landed per absorbed over the last 3, vs ${ratioCareer.toFixed(2)} career. Trajectory points up, with the usual 3-fight caveat.`,
+    });
+  }
+
+  // Age risk that the stat line hasn't shown yet — MMA age curves bend fast.
+  if (ctx.age != null && ctx.age >= 36 && ratioChange > -0.15) {
+    out.push({
+      kind: 'caution',
+      text: `At ${ctx.age}, age risk is live even while the numbers hold — MMA age curves bend quickly past the mid-30s, and the drop tends to arrive suddenly rather than gradually.`,
     });
   }
 

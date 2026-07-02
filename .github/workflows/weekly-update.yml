@@ -56,6 +56,15 @@ jobs:
           SHERDOG_CONTACT: ${{ secrets.SHERDOG_CONTACT }}
         run: node_modules/.bin/jiti scripts/sherdog/weeklyUpdate.ts --days "${{ github.event.inputs.days || '8' }}"
 
+      # Self-healing DOB coverage: new debutants enter the crosswalk above, so
+      # this pass picks up their ages (Wikidata + Sherdog). Non-fatal — if
+      # Wikidata is down this week, fighter_dob.csv just stays as-is.
+      - name: Refresh fighter ages
+        continue-on-error: true
+        env:
+          SHERDOG_CONTACT: ${{ secrets.SHERDOG_CONTACT }}
+        run: node_modules/.bin/jiti scripts/registry/buildAges.ts --fetch
+
       - name: Commit refreshed data
         run: |
           git config user.name  "ufc-rankings-bot"
@@ -64,6 +73,8 @@ jobs:
                   data/upcoming_fights.csv \
                   data/sherdog_crosswalk.csv \
                   data/sherdog_crosswalk_review.csv \
+                  data/canonical/fighter_dob.csv \
+                  data/canonical/ages_coverage.txt \
                   data/golden/rankings_snapshot.json
           if git diff --cached --quiet; then
             echo "No data changes this week — nothing to commit."

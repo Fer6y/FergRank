@@ -61,6 +61,11 @@ function FighterSide({ f, align }: { f: CardFighter; align: 'left' | 'right' }) 
                 Unranked
               </span>
             )}
+            {f.age != null && (
+              <span className="font-mono text-[10px] ml-1.5" style={{ color: 'var(--text-muted)' }}>
+                {f.age} yrs
+              </span>
+            )}
           </div>
         </div>
       </div>

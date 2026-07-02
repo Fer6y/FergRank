@@ -12,6 +12,7 @@ import { generateDivisionRankings } from './scoringEngine';
 import { buildEloRatings, getElo, getFighterHistory } from './eloEngine';
 import { loadPedigreeStrength } from './pedigreeSeed';
 import { getFighterMedia } from './fighterMedia';
+import { getFighterAge } from './fighterAges';
 import { getNextFight, type NextFight } from './loadUpcoming';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
@@ -28,6 +29,7 @@ export interface ProspectEntry {
   avatarUrl: string | null;
   ufcRecord: string;            // decisive UFC record, e.g. "4-0"
   ufcFights: number;
+  age: number | null;           // real age — central to prospect projection
   elo: number;                  // rounded core Elo
   climbPerFight: number;        // (Elo − 1500) / fights — speed of the rise
   ourRank: number | null;       // display rank if already cracking a division
@@ -90,6 +92,7 @@ export async function buildProspectWatchlist(limit = 20): Promise<ProspectEntry[
       avatarUrl: media?.avatarUrl || null,
       ufcRecord: `${w}-${l}`,
       ufcFights: n,
+      age: getFighterAge(fighter.fighterId)?.age ?? null,
       elo: Math.round(elo),
       climbPerFight: Math.round(((elo - 1500) / n) * 10) / 10,
       ourRank: rankMap.get(fighter.fighterId) ?? null,
