@@ -8,10 +8,12 @@ import { getFighterAge } from './fighterAges';
 import {
   getAdvancedStats,
   buildTrendRead,
+  buildGauntlet,
   divisionRatioBenchmark,
   type AdvancedStats,
   type TrendInsight,
   type RatioBenchmark,
+  type Gauntlet,
 } from './advancedStats';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
@@ -80,6 +82,10 @@ export interface FighterProfile {
   trendRead: TrendInsight[];
   // Median ratio among this division's ranked fighters — the peer yardstick.
   divisionBenchmark: RatioBenchmark | null;
+  // Career-story chart data: every fight at the opponent's Elo + own trajectory
+  // + overperformance. Derived from the Elo trace; display-only. Null if <2
+  // fights against rated opponents.
+  gauntlet: Gauntlet | null;
 }
 
 function isChampion(f: RankedFighter): boolean {
@@ -209,5 +215,6 @@ export async function getFighterProfile(
     advanced,
     trendRead,
     divisionBenchmark,
+    gauntlet: buildGauntlet(history),
   };
 }

@@ -1,5 +1,5 @@
-import type { AdvancedStats, TrendInsight, RatioBenchmark } from '@/lib/advancedStats';
-import FormTimeline from './FormTimeline';
+import type { AdvancedStats, TrendInsight, RatioBenchmark, Gauntlet as GauntletData } from '@/lib/advancedStats';
+import Gauntlet from './Gauntlet';
 
 // Unified advanced-analytics section for the fighter profile: the cautious
 // macro TREND READ leads, then the form timeline, the landed:absorbed ratio
@@ -21,12 +21,14 @@ export default function AdvancedAnalyticsSection({
   advanced,
   trendRead,
   benchmark,
+  gauntlet,
 }: {
   advanced: AdvancedStats;
   trendRead: TrendInsight[];
   benchmark: RatioBenchmark | null;
+  gauntlet: GauntletData | null;
 }) {
-  const { career, recent, drift, timeline, rollingLanded } = advanced;
+  const { career, recent, drift } = advanced;
 
   return (
     <section>
@@ -64,11 +66,11 @@ export default function AdvancedAnalyticsSection({
         {/* Timeline + ratio/durability */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
           <div className="lg:col-span-3">
-            {timeline.length >= 2 ? (
-              <FormTimeline timeline={timeline} rolling={rollingLanded} careerAvg={career.landedPer15} />
+            {gauntlet ? (
+              <Gauntlet gauntlet={gauntlet} />
             ) : (
               <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                Not enough charted fights to draw a form timeline.
+                Not enough fights against rated opponents to draw the Gauntlet.
               </p>
             )}
           </div>

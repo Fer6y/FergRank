@@ -1,0 +1,49 @@
+name: CI
+
+# Code gate: typecheck + production build + golden-master ranking diff on every
+# code change. Complements the weekly ingest workflow (which validates DATA
+# changes and re-blesses the golden baseline): this one proves CODE changes
+# compile, build, and don't silently move the rankings.
+#
+# The golden-master step needs network (Octagon official rankings) and compares
+# against the committed baseline in ufc-rankings/data/golden/. Its comparison is
+# drift-tolerant on scores but exact on order/membership — if it fails on a
+# change that SHOULD move rankings, re-bless locally with
+# `node_modules/.bin/jiti scripts/goldenMaster.ts --update` and commit the
+# snapshot alongside the code.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ufc-rankings
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: ufc-rankings/package-lock.json
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Build
+        run: npm run build
+
+      - name: Golden-master ranking regression
+        run: node_modules/.bin/jiti scripts/goldenMaster.ts

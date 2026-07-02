@@ -27,6 +27,7 @@ const TREND_WINDOW = 3;       // the macro trend read looks at the last 3 fights
 
 // One fighter's side of one fight, pace-normalized. Chart + table fuel.
 export interface FormPoint {
+  fightId: string;
   date: string;            // ISO "YYYY-MM-DD"
   result: string;          // W / L / D / NC
   opponentName: string;
@@ -275,6 +276,84 @@ export function divisionRatioBenchmark(
   return result;
 }
 
+// ── The Gauntlet ───────────────────────────────────────────────────────────
+// Every fight plotted at the OPPONENT's Elo the night it happened, against the
+// fighter's own Elo trajectory. This is the career-story chart: level of
+// competition (dots), where the fighter's own rating sat (line), and how often
+// they beat the number (overperformance). All derived from the Elo trace — no
+// engine or loader changes. Display-only, like everything in this file.
+
+export interface GauntletPoint {
+  date: string;            // ISO "YYYY-MM-DD"
+  opponentName: string;
+  result: 'W' | 'L' | 'D';
+  method: string;
+  isFinish: boolean;       // KO/TKO or SUB → gold ring
+  opponentElo: number;     // opponent's rating at fight time (the dot height)
+  ownElo: number;          // fighter's rating AFTER the fight (trajectory line)
+  delta: number;           // per-fight Elo swing (dot size = |delta|)
+  expected: number;        // pre-fight win expectancy vs this opponent (0–1)
+  overUnder: number;       // actual − expected for this fight (+ = upset win)
+  cumOverperf: number;     // running Σ(actual − expected) — "wins above expected"
+}
+
+export interface Gauntlet {
+  points: GauntletPoint[];   // ascending by date
+  totalOverperf: number;     // final cumulative actual − expected
+  biggestUpset: GauntletPoint | null; // largest positive overUnder win
+  eloMin: number;
+  eloMax: number;
+}
+
+// Elo win expectancy — the same logistic the engine uses, recomputed here from
+// the pre-fight ratings the trace already stores (no coupling to eloEngine).
+function winExpectancy(ratingFor: number, ratingAgainst: number): number {
+  return 1 / (1 + Math.pow(10, (ratingAgainst - ratingFor) / 400));
+}
+
+export function buildGauntlet(history: FightTrace[]): Gauntlet | null {
+  // Trace is newest-first; the chart reads left→right in time. Only fights
+  // against a RATED opponent can be placed (opponentRating 0 = unrated/Sherdog).
+  const traced = history.filter((h) => h.opponentRating > 0);
+  if (traced.length < 2) return null;
+  const asc = [...traced].reverse();
+
+  let cum = 0;
+  let biggest: GauntletPoint | null = null;
+  const points: GauntletPoint[] = asc.map((h) => {
+    const expected = winExpectancy(h.ratingBefore, h.opponentRating);
+    const actual = h.result === 'W' ? 1 : h.result === 'D' ? 0.5 : 0;
+    const ou = actual - expected;
+    cum += ou;
+    const m = h.method.trim().toUpperCase();
+    const isFinish = m.startsWith('KO') || m.startsWith('TKO') || m === 'SUB';
+    const pt: GauntletPoint = {
+      date: h.date.slice(0, 10),
+      opponentName: h.opponentName,
+      result: h.result,
+      method: h.method,
+      isFinish,
+      opponentElo: Math.round(h.opponentRating),
+      ownElo: Math.round(h.ratingAfter),
+      delta: Math.round(h.delta),
+      expected: Math.round(expected * 100) / 100,
+      overUnder: Math.round(ou * 100) / 100,
+      cumOverperf: Math.round(cum * 100) / 100,
+    };
+    if (h.result === 'W' && (!biggest || ou > biggest.overUnder)) biggest = pt;
+    return pt;
+  });
+
+  const elos = points.flatMap((p) => [p.opponentElo, p.ownElo]);
+  return {
+    points,
+    totalOverperf: Math.round(cum * 10) / 10,
+    biggestUpset: biggest,
+    eloMin: Math.min(...elos),
+    eloMax: Math.max(...elos),
+  };
+}
+
 // Recent-form drift → bounded Elo nudge, for the DISPLAY-ONLY "form-adjusted"
 // win probability (compare page + upcoming cards). Reads the same signals the
 // metrics bonus uses (strike differential + takedown drift, ~1 TD ≈ 5 strikes),
@@ -457,6 +536,7 @@ export function getAdvancedStats(data: LoadedData, fighterId: string): AdvancedS
   }
 
   const timeline: FormPoint[] = samples.map(({ fight, side, minutes }) => ({
+    fightId: fight.fightId,
     date: fight.eventDate!.toISOString().slice(0, 10),
     result: side.result || '—',
     opponentName: side.opponentName,

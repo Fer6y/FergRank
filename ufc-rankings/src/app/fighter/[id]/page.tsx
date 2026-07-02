@@ -7,6 +7,7 @@ import ProfileRadar from '@/components/ProfileRadar';
 import FighterAvatar from '@/components/FighterAvatar';
 import FormPips from '@/components/FormPips';
 import AdvancedAnalyticsSection from '@/components/AdvancedAnalytics';
+import FightHistory, { type StrikeRate } from '@/components/FightHistory';
 import AnalystPageContext from '@/components/AnalystPageContext';
 
 export const revalidate = 86400;
@@ -35,6 +36,12 @@ export default async function FighterPage({
     ? parseInt(ranked.officialRank, 10)
     : null;
   const delta = officialNum != null && p.displayRank != null ? officialNum - p.displayRank : null;
+
+  // Per-fight strike rates keyed by fightId → the dominance strips in history.
+  const strikes: Record<string, StrikeRate> = {};
+  for (const pt of p.advanced?.timeline ?? []) {
+    strikes[pt.fightId] = { landed: pt.landedPer15, absorbed: pt.absorbedPer15 };
+  }
 
   // Last-5 strip for the hero: results + the span timeline (activity at a glance).
   const last5 = p.history.slice(0, 5).map((f) => ({
@@ -218,70 +225,7 @@ export default async function FighterPage({
           )}
 
           <Section title="FIGHT HISTORY">
-            {p.history.length === 0 ? (
-              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>No dated fights on record.</p>
-            ) : (
-              <div className="space-y-1.5">
-                {p.history.slice(0, 20).map((f, i) => {
-                  const linkable = !!f.opponentId && !f.opponentId.startsWith('sd:');
-                  const row = (
-                    <>
-                      <span
-                        className="w-6 h-6 rounded flex items-center justify-center text-xs font-medium shrink-0"
-                        style={{
-                          backgroundColor:
-                            f.result === 'W' ? 'rgba(45,212,126,0.18)' : f.result === 'L' ? 'rgba(255,45,45,0.14)' : 'var(--bg-elevated)',
-                          color: f.result === 'W' ? 'var(--accent-green)' : f.result === 'L' ? 'var(--accent-red-light)' : 'var(--text-secondary)',
-                        }}
-                      >
-                        {f.result}
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <div
-                          className="text-sm truncate"
-                          style={{ color: 'var(--text-primary)', textDecoration: linkable ? 'underline' : undefined, textDecorationColor: 'var(--border-light)', textUnderlineOffset: '3px' }}
-                        >
-                          {f.opponentName || 'Unknown opponent'}
-                        </div>
-                        <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                          {formatMethod(f.method)}
-                          {f.round ? ` · R${f.round}` : ''} · {new Date(f.date).getFullYear()}
-                        </div>
-                      </div>
-                      <span
-                        className="font-mono text-sm shrink-0"
-                        style={{ color: f.delta >= 0 ? 'var(--accent-green)' : 'var(--accent-red-light)' }}
-                        title="Elo change from this fight"
-                      >
-                        {f.delta >= 0 ? '+' : ''}{f.delta.toFixed(0)}
-                      </span>
-                    </>
-                  );
-                  const cls = 'flex items-center gap-3 px-3 py-2 rounded-lg';
-                  const style = { backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)' };
-                  return linkable ? (
-                    <Link
-                      key={f.fightId + i}
-                      href={`/fighter/${f.opponentId}`}
-                      className={`${cls} transition-colors hover:brightness-125`}
-                      style={style}
-                      title={`View ${f.opponentName}`}
-                    >
-                      {row}
-                    </Link>
-                  ) : (
-                    <div key={f.fightId + i} className={cls} style={style}>
-                      {row}
-                    </div>
-                  );
-                })}
-                {p.history.length > 20 && (
-                  <p className="text-xs text-center pt-1" style={{ color: 'var(--text-muted)' }}>
-                    + {p.history.length - 20} earlier fights
-                  </p>
-                )}
-              </div>
-            )}
+            <FightHistory history={p.history} strikes={strikes} />
           </Section>
         </div>
 
@@ -325,6 +269,7 @@ export default async function FighterPage({
           advanced={p.advanced}
           trendRead={p.trendRead}
           benchmark={p.divisionBenchmark}
+          gauntlet={p.gauntlet}
         />
       )}
     </div>
