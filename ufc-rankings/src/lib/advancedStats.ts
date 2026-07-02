@@ -288,7 +288,9 @@ export interface GauntletPoint {
   opponentName: string;
   result: 'W' | 'L' | 'D';
   method: string;
-  isFinish: boolean;       // KO/TKO or SUB → gold ring
+  // Finish type drives the dot ring: 'ko' = neon-orange, 'sub' = blue, null =
+  // decision (no ring). Deliberately NOT gold — gold means champion/title here.
+  finishType: 'ko' | 'sub' | null;
   opponentElo: number;     // opponent's rating at fight time (the dot height)
   ownElo: number;          // fighter's rating AFTER the fight (trajectory line)
   delta: number;           // per-fight Elo swing (dot size = |delta|)
@@ -326,13 +328,14 @@ export function buildGauntlet(history: FightTrace[]): Gauntlet | null {
     const ou = actual - expected;
     cum += ou;
     const m = h.method.trim().toUpperCase();
-    const isFinish = m.startsWith('KO') || m.startsWith('TKO') || m === 'SUB';
+    const finishType: 'ko' | 'sub' | null =
+      m.startsWith('KO') || m.startsWith('TKO') ? 'ko' : m === 'SUB' ? 'sub' : null;
     const pt: GauntletPoint = {
       date: h.date.slice(0, 10),
       opponentName: h.opponentName,
       result: h.result,
       method: h.method,
-      isFinish,
+      finishType,
       opponentElo: Math.round(h.opponentRating),
       ownElo: Math.round(h.ratingAfter),
       delta: Math.round(h.delta),

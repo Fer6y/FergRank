@@ -119,19 +119,24 @@ export default function Gauntlet({ gauntlet }: Props) {
         <path d={ownArea} fill="var(--accent-blue)" opacity="0.05" />
         <path d={ownLine} fill="none" stroke="var(--accent-blue)" strokeWidth="1.75" opacity="0.65" />
 
-        {/* per-fight opponent dots */}
-        {points.map((p, i) => (
-          <g key={p.date + i}>
-            {p.isFinish && (
-              <circle cx={x(i)} cy={y(p.opponentElo)} r={radius(p) + 2.4} fill="none" stroke="var(--accent-gold)" strokeWidth="1.5" />
-            )}
-            <circle cx={x(i)} cy={y(p.opponentElo)} r={radius(p)} fill={resultColor(p.result)} stroke="var(--bg-secondary)" strokeWidth="1">
-              <title>
-                {`${p.date} · ${p.result} vs ${p.opponentName}\nOpponent Elo ${p.opponentElo} · your Elo ${p.ownElo}\nWin odds were ${(p.expected * 100).toFixed(0)}% · Elo ${p.delta >= 0 ? '+' : ''}${p.delta}${p.isFinish ? ' · finish' : ''}`}
-              </title>
-            </circle>
-          </g>
-        ))}
+        {/* per-fight opponent dots. Ring marks a finish: neon orange = KO/TKO,
+            blue = submission. Gold is reserved for champion/title elsewhere. */}
+        {points.map((p, i) => {
+          const ringColor = p.finishType === 'ko' ? 'var(--accent-orange)' : p.finishType === 'sub' ? 'var(--accent-blue)' : null;
+          const finishLabel = p.finishType === 'ko' ? ' · KO/TKO' : p.finishType === 'sub' ? ' · submission' : '';
+          return (
+            <g key={p.date + i}>
+              {ringColor && (
+                <circle cx={x(i)} cy={y(p.opponentElo)} r={radius(p) + 2.4} fill="none" stroke={ringColor} strokeWidth="1.75" />
+              )}
+              <circle cx={x(i)} cy={y(p.opponentElo)} r={radius(p)} fill={resultColor(p.result)} stroke="var(--bg-secondary)" strokeWidth="1">
+                <title>
+                  {`${p.date} · ${p.result} vs ${p.opponentName}\nOpponent Elo ${p.opponentElo} · your Elo ${p.ownElo}\nWin odds were ${(p.expected * 100).toFixed(0)}% · Elo ${p.delta >= 0 ? '+' : ''}${p.delta}${finishLabel}`}
+                </title>
+              </circle>
+            </g>
+          );
+        })}
 
         {/* overperformance lane (subtle) */}
         <line x1={left} y1={laneY(0)} x2={right} y2={laneY(0)} stroke="var(--border)" strokeWidth="0.75" strokeDasharray="2 3" />
@@ -149,7 +154,10 @@ export default function Gauntlet({ gauntlet }: Props) {
           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--accent-red-light)' }} /> loss
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full border" style={{ borderColor: 'var(--accent-gold)' }} /> finish
+          <span className="w-2.5 h-2.5 rounded-full border-2" style={{ borderColor: 'var(--accent-orange)' }} /> KO/TKO
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full border-2" style={{ borderColor: 'var(--accent-blue)' }} /> submission
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-4 h-0.5" style={{ backgroundColor: 'var(--accent-blue)', opacity: 0.65 }} /> own Elo
