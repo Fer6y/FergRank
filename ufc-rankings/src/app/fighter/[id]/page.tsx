@@ -2,8 +2,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getFighterProfile } from '@/lib/fighterProfile';
 import { buildWhyThisRank } from '@/lib/fighterDisplay';
+import { isTitleFight } from '@/lib/titleFights';
 import ProfileRadar from '@/components/ProfileRadar';
 import FighterAvatar from '@/components/FighterAvatar';
+import FormPips from '@/components/FormPips';
 import AdvancedAnalyticsSection from '@/components/AdvancedAnalytics';
 
 export const revalidate = 86400;
@@ -32,6 +34,14 @@ export default async function FighterPage({
     ? parseInt(ranked.officialRank, 10)
     : null;
   const delta = officialNum != null && p.displayRank != null ? officialNum - p.displayRank : null;
+
+  // Last-5 strip for the hero: results + the span timeline (activity at a glance).
+  const last5 = p.history.slice(0, 5).map((f) => ({
+    result: f.result,
+    date: f.date.slice(0, 10),
+    isTitle: isTitleFight(p.fullName, f.opponentName, f.date, f.weightClass),
+    label: `${formatMethod(f.method)} vs. ${f.opponentName}`,
+  }));
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
@@ -73,6 +83,11 @@ export default async function FighterPage({
               </span>
             )}
           </p>
+          {last5.length > 0 && (
+            <div className="mt-2.5">
+              <FormPips fights={last5} />
+            </div>
+          )}
         </div>
 
         {/* Rank cards */}

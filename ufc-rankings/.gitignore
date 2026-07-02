@@ -43,3 +43,5 @@ next-env.d.ts
 # sherdog backfill — private raw HTML cache (never commit/redistribute raw pages)
 data/.sherdog_cache/
 scripts/sherdog/fixtures/*.html
+.next-preview/
+/.next-preview2/

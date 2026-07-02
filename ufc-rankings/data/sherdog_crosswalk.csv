@@ -2244,3 +2244,12 @@ d39a1677910874e9,Josh Hokit,Josh-Hokit-433441,https://www.sherdog.com/fighter/Jo
 bbad8cc98783fae1,Michael Aswell Jr.,Michael-Aswell-286497,https://www.sherdog.com/fighter/Michael-Aswell-286497,82,verified,true,"[reverse] overlap 3/3, name=true, wt=true, exactName=1/1"
 1be0a07a75aba8b6,Abus Magomedov,Abus-Magomedov-60755,https://www.sherdog.com/fighter/Abus-Magomedov-60755,110,verified,true,"[reverse] overlap 7/7, name=true, wt=true, exactName=1/1"
 4a637c0f4e711aa4,Sean Strickland,Sean-Strickland-30452,https://www.sherdog.com/fighter/Sean-Strickland-30452,110,verified,true,"[reverse] overlap 23/24, name=true, wt=true, exactName=1/1"
+b577c6fa8060ff5c,Kevin Holland,Kevin-Holland-108999,https://www.sherdog.com/fighter/Kevin-Holland-108999,100,manual,true,manually added — UFC vet absent from original crawl (booked vs Jacobe Smith, UFC FN 281)
+70838bdc207b5308,King Green,King-Green-27953,https://www.sherdog.com/fighter/King-Green-27953,88,name+ufcfights,true,"auto-resolved for upcoming card (name+ufcfights ufcOpp=29); UFC roster name-match"
+c212ca8a9b232259,Damian Pinas,Damian-Pinas-426729,https://www.sherdog.com/fighter/Damian-Pinas-426729,88,name+ufcfights,true,"auto-resolved for upcoming card (name+ufcfights ufcOpp=1); UFC roster name-match"
+a242f92577351a3c,Cody Durden,Cody-Durden-222325,https://www.sherdog.com/fighter/Cody-Durden-222325,88,name+ufcfights,true,"auto-resolved for upcoming card (name+ufcfights ufcOpp=16); UFC roster name-match"
+85a165c98f003923,Ryan Gandra,Ryan-Gandra-404139,https://www.sherdog.com/fighter/Ryan-Gandra-404139,88,name+ufcfights,true,"auto-resolved for upcoming card (name+ufcfights ufcOpp=1); UFC roster name-match"
+837d7b515e82e17f,Alberto Montes,Alberto-Montes-257203,https://www.sherdog.com/fighter/Alberto-Montes-257203,88,name+ufcfights,true,"auto-resolved for upcoming card (name+ufcfights ufcOpp=1); UFC roster name-match"
+36d7983b38d6c225,Allen Frye Jr.,Allen-Frye-395495,https://www.sherdog.com/fighter/Allen-Frye-395495,88,name+ufcfights,true,"auto-resolved for upcoming card (name+ufcfights ufcOpp=1); UFC roster name-match"
+2cc62c24e03e31f1,Khalil Rountree Jr.,Khalil-Rountree-77674,https://www.sherdog.com/fighter/Khalil-Rountree-77674,88,name+ufcfights,true,"auto-resolved for upcoming card (name+ufcfights ufcOpp=18); UFC roster name-match"
+d85578e821c6185f,Steve Erceg,Steve-Erceg-228813,https://www.sherdog.com/fighter/Steve-Erceg-228813,88,name+ufcfights,true,"auto-resolved for upcoming card (name+ufcfights ufcOpp=8); UFC roster name-match"

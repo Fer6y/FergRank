@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "dev:preview": "NEXT_DIST_DIR=.next-preview next dev",
+    "dev:preview2": "NEXT_DIST_DIR=.next-preview2 next dev"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.109.1",
     "next": "^16.2.10",
     "papaparse": "^5.5.3",
     "react": "^19.2.7",
