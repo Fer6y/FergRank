@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "dev:preview": "NEXT_DIST_DIR=.next-preview next dev"
+    "dev:preview": "NEXT_DIST_DIR=.next-preview next dev",
+    "dev:preview2": "NEXT_DIST_DIR=.next-preview2 next dev"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.109.1",

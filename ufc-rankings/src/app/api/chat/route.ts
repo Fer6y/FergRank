@@ -177,13 +177,18 @@ export async function POST(request: NextRequest) {
       } catch (err) {
         if (!abort.signal.aborted) {
           console.error('[api/chat]', err);
-          send({
-            type: 'error',
-            message:
-              err instanceof Anthropic.APIError
-                ? 'The analyst hit an upstream error. Try again in a moment.'
-                : 'Something went wrong on our end.',
-          });
+          let message = 'Something went wrong on our end.';
+          if (err instanceof Anthropic.APIError) {
+            // Surface operator-fixable setup problems plainly; keep the rest generic.
+            if (err.status === 400 && err.message.includes('credit balance')) {
+              message = 'The analyst\'s API account is out of credits — add credits in the Anthropic console (Plans & Billing).';
+            } else if (err.status === 401) {
+              message = 'The analyst\'s API key was rejected — check ANTHROPIC_API_KEY in .env.local.';
+            } else {
+              message = 'The analyst hit an upstream error. Try again in a moment.';
+            }
+          }
+          send({ type: 'error', message });
         }
       } finally {
         try {

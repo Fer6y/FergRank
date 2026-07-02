@@ -127,14 +127,20 @@ function MainSide({ f, align }: { f: CardFighter; align: 'left' | 'right' }) {
   );
 }
 
+function compareHref(bout: CardBout): string | null {
+  const { fighter1: f1, fighter2: f2 } = bout;
+  return f1.fighterId && f2.fighterId ? `/compare?a=${f1.fighterId}&b=${f2.fighterId}` : null;
+}
+
 function ProbabilitySpine({ bout }: { bout: CardBout }) {
   if (bout.prob1 == null) return null;
   const p1 = Math.round(bout.prob1 * 100);
   const p2 = 100 - p1;
   const fp1 = bout.formProb1 != null ? Math.round(bout.formProb1 * 100) : null;
   const showForm = fp1 != null && Math.abs(fp1 - p1) >= 2;
-  return (
-    <div className="px-4 pb-4">
+  const href = compareHref(bout);
+  const spine = (
+    <>
       <div className="flex items-baseline justify-between mb-1.5">
         <span
           className="font-display text-lg leading-none"
@@ -167,6 +173,21 @@ function ProbabilitySpine({ bout }: { bout: CardBout }) {
           }}
         />
       </div>
+    </>
+  );
+  return (
+    <div className="px-4 pb-4">
+      {href ? (
+        <Link
+          href={href}
+          title="Full comparison"
+          className="block -mx-2 -my-1.5 px-2 py-1.5 rounded-md transition-colors hover:bg-[var(--bg-card-hover)]"
+        >
+          {spine}
+        </Link>
+      ) : (
+        spine
+      )}
     </div>
   );
 }
@@ -192,8 +213,7 @@ function TaleOfTape({ bout }: { bout: CardBout }) {
   if (f1.finishRate != null && f2.finishRate != null)
     rows.push({ key: 'finish', label: 'Finish', v1: f1.finishRate, v2: f2.finishRate, fmt: (n) => `${Math.round(n * 100)}%` });
 
-  const compareHref =
-    f1.fighterId && f2.fighterId ? `/compare?a=${f1.fighterId}&b=${f2.fighterId}` : null;
+  const href = compareHref(bout);
 
   const qualityTip = (q: number | null) =>
     q != null ? `Opponent quality ${Math.round(q)} of 100, discounted for activity` : undefined;
@@ -239,9 +259,9 @@ function TaleOfTape({ bout }: { bout: CardBout }) {
         </div>
       )}
 
-      {compareHref && (
+      {href && (
         <Link
-          href={compareHref}
+          href={href}
           className="mt-3 pt-2.5 w-full text-center text-[11px] hover:underline border-t"
           style={{ color: 'var(--text-muted)', borderColor: 'var(--border)' }}
         >
@@ -306,6 +326,28 @@ function DenseSide({ f, align }: { f: CardFighter; align: 'left' | 'right' }) {
 
 function DenseBout({ bout }: { bout: CardBout }) {
   const p1 = bout.prob1 != null ? Math.round(bout.prob1 * 100) : null;
+  const href = compareHref(bout);
+  const pill =
+    p1 != null ? (
+      <>
+        <div className="flex justify-between font-mono text-[10px] mb-1">
+          <span style={{ color: p1 >= 50 ? 'var(--text-primary)' : 'var(--text-muted)' }}>{p1}</span>
+          <span style={{ color: p1 < 50 ? 'var(--text-primary)' : 'var(--text-muted)' }}>
+            {100 - p1}
+          </span>
+        </div>
+        <div className="relative h-1 rounded-full" style={{ backgroundColor: 'var(--bg-elevated)' }}>
+          <div
+            className="absolute inset-y-0 left-0 rounded-l-full"
+            style={{ width: `${p1}%`, backgroundColor: 'var(--accent-red)' }}
+          />
+        </div>
+      </>
+    ) : (
+      <div className="text-center font-mono text-[10px]" style={{ color: 'var(--text-muted)' }}>
+        —
+      </div>
+    );
   return (
     <div
       className="rounded-lg border px-4 py-2.5"
@@ -317,25 +359,16 @@ function DenseBout({ bout }: { bout: CardBout }) {
       <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)] items-center gap-x-3 gap-y-1.5">
         <DenseSide f={bout.fighter1} align="left" />
         <div>
-          {p1 != null ? (
-            <>
-              <div className="flex justify-between font-mono text-[10px] mb-1">
-                <span style={{ color: p1 >= 50 ? 'var(--text-primary)' : 'var(--text-muted)' }}>{p1}</span>
-                <span style={{ color: p1 < 50 ? 'var(--text-primary)' : 'var(--text-muted)' }}>
-                  {100 - p1}
-                </span>
-              </div>
-              <div className="relative h-1 rounded-full" style={{ backgroundColor: 'var(--bg-elevated)' }}>
-                <div
-                  className="absolute inset-y-0 left-0 rounded-l-full"
-                  style={{ width: `${p1}%`, backgroundColor: 'var(--accent-red)' }}
-                />
-              </div>
-            </>
+          {href ? (
+            <Link
+              href={href}
+              title="Full comparison"
+              className="block -mx-2 -my-1 px-2 py-1 rounded-md transition-colors hover:bg-[var(--bg-card-hover)]"
+            >
+              {pill}
+            </Link>
           ) : (
-            <div className="text-center font-mono text-[10px]" style={{ color: 'var(--text-muted)' }}>
-              —
-            </div>
+            pill
           )}
         </div>
         <DenseSide f={bout.fighter2} align="right" />
