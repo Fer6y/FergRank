@@ -1,13 +1,11 @@
 Fighter DOB coverage — generated 2026-07-02
 Registry fighters : 2693
   with DOB        : 2410 (89%)
-  from Wikidata   : 1996
-  from Sherdog    : 414
+  from Wikidata   : 1997
+  from Sherdog    : 413
 Active (fought ≤36mo): 871, with DOB 780 (90%)
-Rejected by career-plausibility guard: 6
-  ✗ Carlos Felipe (wikidata 1960-09-20): debut age 60 outside 16–47
+Rejected by career-plausibility guard: 4
   ✗ Jason Tan (wikidata 2000-01-01): debut age 7 outside 16–47
-  ✗ Carlos Felipe (wikidata-name 1960-09-20): debut age 60 outside 16–47
   ✗ Jason Tan (wikidata-name 2000-01-01): debut age 7 outside 16–47
   ✗ Mark Robinson (wikidata-name 1950-01-01): debut age 51 outside 16–47
   ✗ Ron van Clief (wikidata-name 1943-01-25): debut age 52 outside 16–47

@@ -74,9 +74,9 @@ async function fetchWikidataDobs(): Promise<Map<string, WdDob>> {
   for (let attempt = 1; attempt <= 4; attempt++) {
     res = await fetch(url, { headers: { Accept: 'text/csv', 'User-Agent': UA } });
     if (res.ok) break;
-    if (res.status === 429 && attempt < 4) {
+    if ((res.status === 429 || res.status >= 500) && attempt < 4) {
       const wait = Math.max(parseInt(res.headers.get('retry-after') || '0', 10), 30 * attempt) * 1000;
-      console.log(`  WDQS 429 — backing off ${wait / 1000}s (attempt ${attempt}/4)…`);
+      console.log(`  WDQS ${res.status} — backing off ${wait / 1000}s (attempt ${attempt}/4)…`);
       await new Promise((r) => setTimeout(r, wait));
       continue;
     }
@@ -93,14 +93,7 @@ async function fetchWikidataDobs(): Promise<Map<string, WdDob>> {
     if (!sid || !/^\d{4}-\d{2}-\d{2}$/.test(dob)) continue;
     // Keep the highest-precision statement when Wikidata has several.
     const cur = map.get(sid);
-    if (!cur || prec > cur.prec) {
-      map.set(sid, {
-        dob,
-        prec,
-        label: (r.label || '').trim(),
-        altLabels: (r.alts || '').split('|').map((s) => s.trim()).filter(Boolean),
-      });
-    }
+    if (!cur || prec > cur.prec) map.set(sid, { dob, prec, label: (r.label || '').trim() });
   }
   return map;
 }
@@ -213,13 +206,11 @@ async function main() {
   // career-plausibility validation like everything else.
   const wdByName = new Map<string, WdDob[]>();
   for (const e of wd.values()) {
-    for (const raw of [e.label, ...e.altLabels]) {
-      const key = normName(raw);
-      if (!key) continue;
-      const arr = wdByName.get(key) ?? [];
-      if (!arr.includes(e)) arr.push(e);
-      wdByName.set(key, arr);
-    }
+    const key = normName(e.label);
+    if (!key) continue;
+    const arr = wdByName.get(key) ?? [];
+    arr.push(e);
+    wdByName.set(key, arr);
   }
   // Name keys per fighter: canonical fullName + curated registry aliases
   // (fighter_aliases.csv — catches "Ian Machado Garry"→"Ian Garry",

@@ -141,7 +141,33 @@ initials avatars. The photo cascade is UFC headshot → Commons → UFC full-bod
 
 ---
 
-## 6. One-line summary
+## 6. Fighter ages — *build-time DOB pipeline* (BUILT 2026-07-02)
+
+`scripts/registry/buildAges.ts` → `data/canonical/fighter_dob.csv` (+
+`ages_coverage.txt`). Age curves matter for evaluation/projection and the
+primary CSVs carry no DOB, so this pass fills it from two sources, in order:
+
+1. **Wikidata P569** via the Sherdog fighter ID (P2818) — the same precise
+   ID↔ID join the media pipeline uses (no fuzzy names). `timePrecision` kept:
+   day/month/year (year-precision ages display as `~34`). A **guarded
+   name/alias fallback** (registry `fighter_aliases.csv`, unambiguous on both
+   sides) catches fighters with no local crosswalk row. Deliberately NO
+   `skos:altLabel` subquery — it 504s WDQS.
+2. **Sherdog profile pages** (`itemprop="birthDate"`), read from the existing
+   scrape cache at zero network cost; `--fetch` politely fetches missing
+   *active* fighters (capped, cached).
+
+**Every candidate DOB is validated against the fighter's own career**: debut
+age 16–47, last-fight age ≤ 55 (catches namesakes and Wikidata placeholder
+dates; known false positive: Ron van Clief, genuinely 51 at UFC 4). Coverage:
+**89% of the registry, 90% of active fighters, ~96% of the ranked pool.**
+Refreshed weekly by the ingest workflow (`--fetch`, non-fatal). Runtime:
+`src/lib/fighterAges.ts`, computed-at-request age — **display + trend-read
+context only, never in the scoring path**.
+
+---
+
+## 7. One-line summary
 
 | Layer | Source | Type | In the running app? |
 |-------|--------|------|---------------------|
@@ -151,3 +177,4 @@ initials avatars. The photo cascade is UFC headshot → Commons → UFC full-bod
 | Pre-UFC pedigree | Kaggle/Sherdog (frozen 2021) | local | ⚠️ disabled toggle |
 | Nationality / flags | Wikidata (P27) | external (build) | ✅ ~65% (initials/none fallback) |
 | Photos | Wikidata Commons + UFC.com | external (build) | ✅ ~63% combined (initials fallback) |
+| Ages / DOB | Wikidata (P569) + Sherdog profiles | external (build, weekly) | ✅ 89% (~96% ranked); display only |

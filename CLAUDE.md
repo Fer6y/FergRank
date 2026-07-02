@@ -28,7 +28,8 @@ The core product and the first discovery/personalization layers are **built and 
 | Advanced analytics (profile) | ✅ | `advancedStats.ts` (2026-07-01): ONE unified band below the profile grid — cautious **macro TREND READ** (opposition/mileage-aware; UFC tenure = aging proxy, no DOB in data), **form timeline chart**, **landed:absorbed ratio vs division ranked-pool median**, per-15 pace rates, durability, finish anatomy. Display-only; ranking-input signals badged |
 | Form-adjusted win % | ✅ | Compare + Upcoming: validated pure-Elo probability headline + experimental variant shading each side's Elo by bounded (±45) recent-form drift (`formEloNudge`) |
 | Division depth heatmap | ✅ | Homepage: per-division top-40 Elo heat strips on one global scale; hover = fighter, click = division |
-| Prospect watch `/prospects` | ✅ | Provisional-window (≤5 fights) risers: climb rate, last-2, booked next fight, pre-UFC record |
+| Prospect watch `/prospects` | ✅ | Provisional-window (≤5 fights) risers: climb rate, last-2, booked next fight, pre-UFC record, age (colour-coded runway) |
+| Fighter ages | ✅ | `buildAges.ts` (2026-07-02): Wikidata P569 via Sherdog-ID join + guarded alias match + Sherdog-profile fill, career-validated. 89% registry / ~96% ranked. Weekly-refreshed; display + trend-read only (`fighterAges.ts`). See `data/SOURCES.md` §6 |
 
 **Not yet built / known gaps:** community layer (Phase 3, Supabase), rank-history sparkline on the profile (the form timeline charts *output*, not rank), and all-time snapshots. Pre-UFC pedigree seed is still toggled **off** for scoring (the prospects page reads it for display only). The old "no strike-absorption data" blocker was wrong — `STR_1/2` covers both corners; the profile durability panel now shows absorption.
 
@@ -76,13 +77,13 @@ UFergCRankings/                ← repo root
     │   ├── Fighters.csv           ← physical attributes (reach, height, stance)
     │   ├── recent_ufc_fights.csv  ← ACTIVE Sherdog recency top-up (loaded, contract-guarded)
     │   ├── sherdog_*.csv          ← Sherdog scrape outputs (fights/orgs/prospects/crosswalk)
-    │   ├── canonical/             ← identity registry + media: fighter_registry.csv, fighter_media.csv (Wikidata), ufc_photos.csv (UFC.com)
+    │   ├── canonical/             ← identity registry + media + ages: fighter_registry.csv, fighter_media.csv (Wikidata), ufc_photos.csv (UFC.com), fighter_dob.csv (ages)
     │   ├── pro_mma_fights.csv     ← pre-UFC pedigree (Kaggle/Sherdog ~2021); seed DISABLED
     │   └── raw_*.csv              ← supplementary fallbacks (mostly unused at runtime)
     ├── scripts/
     │   ├── validate.ts            ← name-match audit + LW/WW/BW top-40 breakdown (run after algo changes)
     │   ├── sanityCheck.ts         ← quick single-division print
-    │   ├── registry/              ← canonical identity + media: buildRegistry.ts, buildMedia.ts (Wikidata), buildUfcPhotos.ts (UFC.com)
+    │   ├── registry/              ← canonical identity + media + ages: buildRegistry.ts, buildMedia.ts (Wikidata), buildUfcPhotos.ts (UFC.com), buildAges.ts (DOB)
     │   └── sherdog/               ← build-time scrape pipeline (fetchProfile, buildRecencyPatch, championAudit…)
     └── src/
         ├── app/
@@ -110,6 +111,7 @@ UFergCRankings/                ← repo root
         │   ├── fighterMedia.ts        ← photo + nationality/flag lookup (Wikidata + UFC.com), attached at API boundary; display only
         │   ├── loadUpcoming.ts        ← scheduled bouts (upcoming_fights.csv): per-fighter next fight + full card list; display only
         │   ├── advancedStats.ts       ← deep analytics: per-15 pace, form timeline, durability, finish anatomy, formEloNudge; display only
+        │   ├── fighterAges.ts         ← DOB/age lookup (fighter_dob.csv); display + trend-read context only
         │   ├── prospects.ts           ← prospect watchlist builder (provisional-window risers); display only
         │   ├── divisions.ts           ← shared division short codes
         │   ├── pedigreeSeed.ts        ← pre-UFC pedigree loader (disabled by default)
