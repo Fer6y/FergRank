@@ -27,7 +27,7 @@ import fs from 'fs';
 import path from 'path';
 import { fetchOrgEvents, fetchEventPage } from './fetchProfile';
 import { parseOrgEvents, parseUpcomingCard } from './parseEvent';
-import { loadAllData } from '../../src/lib/loadData';
+import { loadAllData, type LoadedData } from '../../src/lib/loadData';
 import type { UpcomingEvent } from './types';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
@@ -53,10 +53,9 @@ function isUFCEvent(name: string): boolean {
 // sherdog slug-id → { ourId, fullName }, from the verified crosswalk joined to
 // our registry. First 3 columns (ourId, fullName, sherdogId) never contain
 // commas, so a plain split is safe for them (the quoted notes column is last).
-function readCrosswalk(): Map<string, { ourId: string; name: string }> {
+function readCrosswalk(data: LoadedData): Map<string, { ourId: string; name: string }> {
   const map = new Map<string, { ourId: string; name: string }>();
   if (!fs.existsSync(CROSSWALK)) return map;
-  const data = loadAllData();
   const lines = fs.readFileSync(CROSSWALK, 'utf-8').split('\n').slice(1).filter(Boolean);
   for (const ln of lines) {
     const c = ln.split(',');
@@ -67,6 +66,26 @@ function readCrosswalk(): Map<string, { ourId: string; name: string }> {
     map.set(sherdogId, { ourId, name: f?.fullName ?? (c[1] ?? '').trim() });
   }
   return map;
+}
+
+// Name normalizer for the roster fallback: strip accents/punctuation/suffixes
+// so "Khalil Rountree" (card) matches "Khalil Rountree Jr." (roster).
+export const norm = (s: string) =>
+  (s || '').normalize('NFKD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase().replace(/[^a-z ]/g, ' ')
+    .replace(/\b(jr|sr|ii|iii|iv)\b/g, '')
+    .replace(/\s+/g, ' ').trim();
+
+// normalized full name → our fighter id(s). Namesakes produce multiple ids;
+// the fallback only resolves when exactly one candidate has UFC fights.
+export function buildNameIndex(data: LoadedData): Map<string, string[]> {
+  const idx = new Map<string, string[]>();
+  for (const f of data.fighters) {
+    const k = norm(f.fullName);
+    if (!k) continue;
+    (idx.get(k) ?? idx.set(k, []).get(k)!).push(f.fighterId);
+  }
+  return idx;
 }
 
 const esc = (v: string) => (/[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);
@@ -106,8 +125,10 @@ async function main() {
   }
 
   // 3. Pull + parse each card.
-  const crosswalk = readCrosswalk();
-  if (crosswalk.size === 0) console.warn('[buildUpcoming] ⚠ empty crosswalk — every fighter will be unresolved.');
+  const data = loadAllData();
+  const crosswalk = readCrosswalk(data);
+  const nameIndex = buildNameIndex(data);
+  if (crosswalk.size === 0) console.warn('[buildUpcoming] ⚠ empty crosswalk — relying on the name fallback.');
 
   const events: UpcomingEvent[] = [];
   for (const t of targets) {
@@ -123,10 +144,27 @@ async function main() {
 
   // 4–5. Resolve ids and write.
   const lines = [HEAD];
-  let resolved = 0, unresolved = 0;
+  let viaCrosswalk = 0, viaName = 0, unresolved = 0;
+  const nameResolvedLog: string[] = [];
   const resolve = (sherdogId: string, fallbackName: string) => {
     const hit = crosswalk.get(sherdogId);
-    if (hit) { resolved++; return { ourId: hit.ourId, name: hit.name }; }
+    if (hit) { viaCrosswalk++; return { ourId: hit.ourId, name: hit.name }; }
+
+    // Fallback: the crosswalk misses many roster fighters (it was never built
+    // to full coverage), which is why established vets showed "no UFC fights".
+    // Match the card's de-slugged name to our UFC roster — accept only a UNIQUE
+    // candidate that actually has UFC fights, so a debutant sharing a retiree's
+    // name can't false-match.
+    const cands = (nameIndex.get(norm(fallbackName)) ?? []).filter(
+      (id) => (data.fighterFights.get(id)?.length ?? 0) >= 1,
+    );
+    if (cands.length === 1) {
+      viaName++;
+      const name = data.fighterMap.get(cands[0])?.fullName ?? fallbackName;
+      nameResolvedLog.push(`${fallbackName} → ${cands[0]} (${name})`);
+      return { ourId: cands[0], name };
+    }
+
     unresolved++;
     return { ourId: '', name: fallbackName };
   };
@@ -148,7 +186,11 @@ async function main() {
   fs.writeFileSync(OUT, lines.join('\n') + '\n', 'utf-8');
   const bouts = lines.length - 1;
   console.log(`[buildUpcoming] wrote ${path.relative(process.cwd(), OUT)} — ${events.length} event(s), ${bouts} bout(s)`);
-  console.log(`[buildUpcoming] fighter ids: ${resolved} resolved, ${unresolved} unresolved (kept by name)`);
+  console.log(`[buildUpcoming] fighter ids: ${viaCrosswalk} via crosswalk, ${viaName} via name-fallback, ${unresolved} unresolved (kept by name = UFC debutants)`);
+  if (nameResolvedLog.length) {
+    console.log('[buildUpcoming] name-fallback caught these roster fighters the crosswalk was missing:');
+    for (const l of nameResolvedLog) console.log(`   • ${l}`);
+  }
 }
 
 // Only run when invoked directly — NEVER on import (this can crawl Sherdog).
