@@ -164,16 +164,28 @@ export const RANKING_CONFIG = {
   // current UFC rank. With Elo doing the heavy lifting, this is a small seed +
   // a post-sort safety floor — NOT the main driver. If floors fire for more
   // than ~1–2 fighters per division, the Elo model isn't landing — investigate.
-  officialBonusScaleElo: 0.4,   // officialBonus(Elo pts) = seedScore * this (champ seed 100 → +40).
-                                // Lowered 0.5→0.4 (2026-06-18): at 0.5 a #12–15 seed (+31) could
-                                // override a real ~27-Elo gap, floating UFC-ranked-but-fading fighters
-                                // (e.g. Walker 1-3) above higher-Elo movers (e.g. Costa). Seed is a
-                                // nudge/tiebreaker, not an override — Elo must dominate.
+  officialBonusScaleElo: 0.1,   // officialBonus(Elo pts) = seedScore * this (champ seed 100 → +10).
+                                // Lowered 0.5→0.4 (2026-06-18), then 0.4→0.1 (2026-07-03): the
+                                // current-form boundary discount compressed the ranked pool's spread
+                                // (median adjacent top-25 gap ≈3 Elo), so a +25–40 seed had become
+                                // worth 5–10 ranking spots — an override, not a tiebreaker (87
+                                // fighters propped ≥3 spots; see scripts/diagOfficialImpact.ts).
+                                // At 0.1 the seed spans +6.2 (#11–15) to +10 (champ) ≈ 2–3 median
+                                // gaps — a genuine nudge (12 fighters move ≥3 spots, max +5).
+                                // Re-anchor this if the display/rating spread is recalibrated again.
   officialRankScores: {
     'C': 100, '1': 90, '2': 85, '3': 85, '4': 78, '5': 78, '6': 78,
     '7': 70, '8': 70, '9': 70, '10': 70,
     '11': 62, '12': 62, '13': 62, '14': 62, '15': 62,
   } as Record<string, number>,
+  // Form gate on the seed (2026-07-02 diagnostic: scripts/diagOfficialImpact.ts).
+  // The official list is slow to shed fading names, so a NON-CHAMPION on a losing
+  // streak this long gets NO seed — the cage's verdict stands over the UFC's list
+  // (same philosophy as the contender-floor suppression below; the champion seed,
+  // like the champion floor, is unconditional). Without this, ~50 seeded fighters
+  // on 2+ skids (e.g. a 5-fight skid still paying +28 Elo) were being propped
+  // 3–16 spots above their in-cage rating.
+  officialSeedSuppressLossStreak: 2,
   // Post-sort safety floors (a fighter the UFC ranks here never displays below).
   // PURPOSE: catch Elo UNDER-rating a genuine contender — NOT to prop up a
   // fighter in real decline. The champion floor is unconditional. The CONTENDER

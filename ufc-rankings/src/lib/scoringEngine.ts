@@ -353,8 +353,22 @@ async function computeDivisionRankings(
     const metricsBonus = computeMetricsBonus(metricSamples, divFights.length);
 
     // ── Official seed (small; floors are the real backstop) ──
-    const officialBonus = (officialSeedMap.get(fighter.fighterId) || 0) * RANKING_CONFIG.officialBonusScaleElo;
     const officialRank = officialRankMap.get(fighter.fighterId) || null;
+    let officialBonus = (officialSeedMap.get(fighter.fighterId) || 0) * RANKING_CONFIG.officialBonusScaleElo;
+    // Form gate: a non-champion on a losing streak gets no seed — the official
+    // list is slow to shed fading names, and the cage's verdict stands over it
+    // (mirrors the contender-floor suppression; the champion seed, like the
+    // champion floor, is unconditional).
+    if (officialBonus > 0 && officialRank !== 'C') {
+      const streak = recentLossStreak(fighter.fighterId, data);
+      if (streak >= RANKING_CONFIG.officialSeedSuppressLossStreak) {
+        console.log(
+          `[scoringEngine] SEED SUPPRESSED in ${division}: ${fighter.fullName} ` +
+          `(UFC #${officialRank}) on a ${streak}-fight skid — officialBonus zeroed`
+        );
+        officialBonus = 0;
+      }
+    }
 
     // ── Pre-UFC pedigree seed (gated by seedEnabled; thin-sample only) ──
     // Tapers from full at 0 UFC fights to ZERO at seedTaperUFCFights, so a real

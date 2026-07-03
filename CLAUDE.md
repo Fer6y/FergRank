@@ -68,8 +68,9 @@ UFergCRankings/                ← repo root
     ├── validation_baseline_2026-06-12.txt ← snapshot of the broken v1 run (kept as evidence)
     ├── validation_elo_2026-06-12.txt      ← snapshot of the first v2 Elo run
     ├── validation_elo_2026-06-13.txt      ← v2 Elo run before the recency de-dup fix (evidence)
-    ├── validation_elo_2026-06-13_postdedup.txt ← CURRENT reference (after recency-patch de-dup;
-    │                                          names 100% resolved, floors 6→1, champions on top)
+    ├── validation_elo_2026-06-13_postdedup.txt ← post recency-de-dup run (evidence)
+    ├── validation_elo_2026-07-03_officialseed.txt ← CURRENT reference (official seed form-gated
+    │                                          + re-anchored to 0.1; champions lead LW/WW/BW)
     ├── data/
     │   ├── SOURCES.md             ← DATA PROVENANCE + alignment rules (read for data work)
     │   ├── Fighters_Stats.csv     ← PRIMARY fighter stats + weight class + style (~2,600)
@@ -236,7 +237,7 @@ finalRating = eloRating + metricsBonus + sosNudge + officialBonus
 rankScore   = map(finalRating → 0–100)   // linear, clamped, monotonic — display only
 ```
 
-`eloRating` (≈1300–1850) dominates. `metricsBonus` (±30), `sosNudge` (±30), and `officialBonus` (0–50) are deliberately small so they refine ties and edge cases without overriding who-beat-whom. (Exact magnitudes live in `rankingConfig.ts` — these are approximate.)
+`eloRating` (≈1300–1850) dominates. `metricsBonus` (±30), `sosNudge` (±30), and `officialBonus` (0–10, form-gated) are deliberately small so they refine ties and edge cases without overriding who-beat-whom. (Exact magnitudes live in `rankingConfig.ts` — these are approximate.)
 
 > **Core principles (why Elo):**
 > 1. **Opponent quality IS the rating.** Beating a high-rated fighter moves your Elo a lot; beating a low-rated one barely moves it. Strength of schedule is therefore *baked in*, not a separate pile of points. Going 1-1 against the champ and #1 leaves you rated near them; going 2-0 against #14/#15 barely moves you.
@@ -294,7 +295,11 @@ metricsBonus = (
 
 ### 4. Official rank seed (`officialBonus`) + safety floors
 
-The internal official-rankings route supplies each fighter's current UFC rank. With Elo doing the work, this is a small seed (`seedScore × 0.5` Elo points; champ +50) plus post-sort **safety floors** (a UFC-ranked fighter never *displays* below a guaranteed slot: champ ≥ #2, top-5 ≥ #8, top-15 ≥ #25).
+The internal official-rankings route supplies each fighter's current UFC rank. With Elo doing the work, this is a small seed (`seedScore × officialBonusScaleElo` — exact values in `rankingConfig.ts`) plus post-sort **safety floors** (a UFC-ranked fighter never *displays* below a guaranteed slot: champ ≥ #2, top-5 ≥ #8, top-15 ≥ #25).
+
+**Form gate (2026-07-02)**: a NON-champion on a losing streak of `officialSeedSuppressLossStreak` (2) or more gets **zero seed** — the official list is slow to shed fading names, and the cage's verdict stands over it. This mirrors the contender-floor suppression (the champion seed, like the champion floor, is unconditional). Diagnosed with `scripts/diagOfficialImpact.ts`: before the gate, 50 seeded fighters on 2+ skids were being propped 3–16 spots (Dariush +16, Font/Vera +15, Covington +12); after, the stale-seed count is ~4 — all long-layoff-but-not-losing elites (e.g. Shavkat), which the seed exists to protect. Re-run that script after any seed/floor tuning.
+
+**Magnitude re-anchor (2026-07-03)**: `officialBonusScaleElo` 0.4 → 0.1. The current-form boundary discount had compressed the ranked pool (median adjacent top-25 gap ≈3 Elo), so the old +25–40 seeds were worth 5–10 spots each — 87 fighters propped ≥3 spots. At 0.1 the seed spans +6.2 to +10 (~2–3 median gaps): 12 fighters move ≥3 spots, max +5. Consequence at the very top: a champion's belt alone (+10 seed + 8-pt tiebreaker band) no longer overrides a clear form gap — e.g. HW Volkov can out-rate champ Aspinall; the unconditional champion floor (≤#2) and the pinned "C" hero still keep every champ visually on top. If the rating spread is ever recalibrated, re-anchor this scale against the gap distribution (`diagOfficialImpact.ts` prints it).
 
 > **Health check**: floors are a backstop, not the engine. If floors fire for more than ~1–2 fighters in a division, the Elo isn't landing — investigate before tuning anything else. (On the 2026-06-13 v2 run: BW 0 floors, LW 2, WW 5 — down from 5/6/9 under v1. WW runs higher because the Makhachev division-override creates two "C" champs there.)
 
@@ -330,7 +335,7 @@ Strictly scoped: UFC fights in that file are dropped (they duplicate our primary
 1. ✅ **Data layer** — `loadData.ts`: load + join CSVs, name-resolve fight IDs, recency-patch guard. (`pedigreeSeed.ts` loads the pre-UFC pedigree seed.)
 2. ✅ **Elo engine** — `eloEngine.ts`: chronological sweep → one rating per fighter, plus per-fight trace + filter-aware caching.
 3. ✅ **Scoring engine** — `scoringEngine.ts`: eligibility + bounded adjustments → ranked array per division (filter-parameterized).
-4. ✅ **Validation** — `scripts/validate.ts`: name-match audit + LW/WW/BW top-40 breakdown. Run via `node_modules/.bin/jiti scripts/validate.ts` (needs network for Octagon). **Re-run + diff after any algo/data change.** Current reference: `validation_elo_2026-06-13_postdedup.txt`.
+4. ✅ **Validation** — `scripts/validate.ts`: name-match audit + LW/WW/BW top-40 breakdown. Run via `node_modules/.bin/jiti scripts/validate.ts` (needs network for Octagon). **Re-run + diff after any algo/data change.** Current reference: `validation_elo_2026-07-03_officialseed.txt`.
 5. ✅ **API routes** — `/api/rankings` (+live filters), `/api/fighter/[id]`, `/api/search`.
 6. ✅ **Rankings homepage** — division tabs + filter bar + champion hero + dense rows + trend chips.
 7. ✅ **Fighter profile page** — why-this-rank, radar, fight history with Elo deltas.
@@ -340,7 +345,7 @@ Strictly scoped: UFC fights in that file are dropped (they duplicate our primary
 
 ## Algorithm Tuning Notes
 
-- **Tune from real output, never in the abstract.** The workflow is: change a value in `rankingConfig.ts` → run `scripts/validate.ts` → diff against the last saved snapshot (`ufc-rankings/validation_elo_*.txt`) → spot-check that LW/WW/BW still make sense. `validation_elo_2026-06-13_postdedup.txt` is the current reference (names 100% resolved, only 1 floor fired across LW/WW/BW).
+- **Tune from real output, never in the abstract.** The workflow is: change a value in `rankingConfig.ts` → run `scripts/validate.ts` → diff against the last saved snapshot (`ufc-rankings/validation_elo_*.txt`) → spot-check that LW/WW/BW still make sense. `validation_elo_2026-07-03_officialseed.txt` is the current reference (post seed form-gate + 0.1 re-anchor; champions still lead LW/WW/BW).
 - **`metricsScaleElo` (30)** is the knob most likely to need adjusting. At 40 it occasionally swung a fighter ~±28 Elo points (e.g. King Green) and out-weighed who-beat-whom; lowered to 30 on 2026-06-13. If metrics still override head-to-head logic, keep dialing down.
 - **`elo.baseK` (24)** controls volatility. Higher = ratings swing more per fight (more recency-reactive, noisier); lower = stickier, more conservative. Don't raise it without re-checking that one upset can't vault a fighter past a proven champion.
 - **`recencyHalfLifeMonths` (15)** only affects the metrics/SoS sampling windows now — the Elo core gets its recency from chronological processing + inactivity regression. Tune `elo.inactivityRetentionPerYear` (0.92) instead to make layoffs bite harder/softer.
@@ -561,25 +566,9 @@ const KNOWN_NAME_OVERRIDES: Record<string, string> = {
 In v2 the official rank does **not** seed opponent quality — Elo already measures that from results. Instead the official rank plays two narrow roles in `scoringEngine.ts`:
 
 1. **Division membership** — the authority on which division a fighter is ranked in (handles permanent weight moves the UFC has recognized).
-2. **A small seed + safety floor** — `officialBonus = officialRankScores[rank] × officialBonusScaleElo` (champ 100 × 0.5 = +50 Elo points), plus the post-sort floor guarantees. This keeps a reigning/returning champ from sinking on a thin recent Elo sample without letting the official list override the data wholesale.
+2. **A small seed + safety floor** — `officialBonus = officialRankScores[rank] × officialBonusScaleElo`, plus the post-sort floor guarantees. This keeps a reigning/returning champ from sinking on a thin recent Elo sample without letting the official list override the data wholesale. **Gated by form**: a non-champion on a ≥`officialSeedSuppressLossStreak` losing streak gets no seed at all (see §4 under THE ALGORITHM).
 
-```typescript
-// in rankingConfig.ts
-officialBonusScaleElo: 0.5,   // seedScore → Elo points
-championFloorRank: 2, top5FloorRank: 8, top15FloorRank: 25,
-```
-
-### Official Rank → Seed Score Mapping
-
-| UFC Rank | Seed Score | → Elo bonus (×0.5) |
-|----------|-----------|--------------------|
-| Champion | 100 | +50 |
-| #1 | 90 | +45 |
-| #2–3 | 85 | +42.5 |
-| #4–6 | 78 | +39 |
-| #7–10 | 70 | +35 |
-| #11–15 | 62 | +31 |
-| Unranked | — | 0 (pure Elo + metrics + SoS) |
+Exact seed scores, the scale, and the floor ranks live in `rankingConfig.ts` (`officialRankScores`, `officialBonusScaleElo`, `*FloorRank`) — read them there; this doc used to inline the numbers and drifted out of sync. Unranked fighters get 0 (pure Elo + metrics + SoS).
 
 ---
 
