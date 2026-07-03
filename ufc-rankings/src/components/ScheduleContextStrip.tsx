@@ -100,7 +100,7 @@ export default function ScheduleContextStrip({ ctx, name }: { ctx: ScheduleConte
       <div className="rounded-md" style={{ backgroundColor: 'var(--bg-elevated)', color: 'var(--text-secondary)' }}>
         {/* Context row: window label + style mix + popover trigger */}
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] px-2.5 py-1.5">
-          <span className="tracking-widest truncate" style={{ color: 'var(--text-muted)' }}>
+          <span className="tracking-widest truncate font-medium" style={{ color: 'var(--text-secondary)' }}>
             {name ? `${name.toUpperCase()} · LAST ${ctx.windowSize}` : `SCHEDULE · LAST ${ctx.windowSize}`}
           </span>
 
@@ -126,7 +126,7 @@ export default function ScheduleContextStrip({ ctx, name }: { ctx: ScheduleConte
         {ctx.oppEloRecent != null && (
           <div className="px-2.5 py-2.5 flex items-end justify-between gap-3" style={{ borderTop: '1px solid var(--border)' }}>
             <div>
-              <div className="text-[10px] tracking-widest mb-1" style={{ color: 'var(--text-muted)' }}>
+              <div className="text-[11px] tracking-widest mb-1 font-medium" style={{ color: 'var(--text-secondary)' }}>
                 STRENGTH OF SCHEDULE · MEAN OPPONENT ELO
               </div>
               <div className="flex items-baseline gap-2.5">

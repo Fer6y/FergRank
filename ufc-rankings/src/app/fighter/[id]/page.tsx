@@ -268,6 +268,9 @@ export default async function FighterPage({
           {/* Analytics dashboard — Gauntlet + fight history, then the numbers,
               then de-emphasized radar/durability. The star of the profile. */}
           <AdvancedAnalyticsSection
+            eloRating={p.eloRating}
+            eloPeak={p.eloPeak}
+            whyHeadline={why?.headline ?? null}
             advanced={p.advanced}
             trendRead={p.trendRead}
             benchmark={p.divisionBenchmark}

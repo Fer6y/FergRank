@@ -68,6 +68,9 @@ function standoutOf(val: number | null | undefined, med: number | null | undefin
 }
 
 export default function AdvancedAnalyticsSection({
+  eloRating,
+  eloPeak,
+  whyHeadline,
   advanced,
   trendRead,
   benchmark,
@@ -76,6 +79,9 @@ export default function AdvancedAnalyticsSection({
   history,
   radar,
 }: {
+  eloRating: number;
+  eloPeak: number;
+  whyHeadline: string | null;
   advanced: AdvancedStats;
   trendRead: TrendInsight[];
   benchmark: RatioBenchmark | null;
@@ -105,6 +111,30 @@ export default function AdvancedAnalyticsSection({
 
   return (
     <section className="space-y-4">
+      {/* Top box — ELO anchors + a brief, personalised one-line "why this rank" */}
+      <div
+        className="rounded-xl px-5 py-4 flex items-start justify-between gap-6 flex-wrap"
+        style={cardStyle}
+      >
+        <p className="text-base sm:text-lg leading-snug flex-1 min-w-[240px]" style={{ color: 'var(--text-primary)' }}>
+          {whyHeadline ?? 'Core Elo rating, computed from every UFC fight and weighted toward recent results.'}
+        </p>
+        <div className="flex items-end gap-6 shrink-0">
+          <div className="text-right">
+            <div className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>ELO</div>
+            <div className="font-mono text-2xl leading-none mt-1" style={{ color: 'var(--text-primary)' }}>
+              {Math.round(eloRating)}
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>PEAK ELO</div>
+            <div className="font-mono text-2xl leading-none mt-1" style={{ color: 'var(--accent-gold)' }}>
+              {Math.round(eloPeak)}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ── Block A — the story: Gauntlet + trend read | fight history ── */}
       <div className="rounded-xl p-4" style={cardStyle}>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
@@ -138,30 +168,30 @@ export default function AdvancedAnalyticsSection({
                 Not enough fights against rated opponents to draw the Gauntlet.
               </p>
             )}
+            <div className="pt-4" style={{ borderTop: '1px solid var(--border)' }}>
+              <RatioPanel advanced={advanced} benchmark={benchmark} />
+            </div>
           </div>
 
           <div className="lg:col-span-2 min-w-0">
             <div className="text-[10px] tracking-widest mb-2" style={{ color: 'var(--text-muted)' }}>
               FIGHT HISTORY
             </div>
-            <div className="lg:max-h-[540px] lg:overflow-y-auto lg:pr-1">
+            <div className="lg:max-h-[600px] lg:overflow-y-auto lg:pr-1">
               <FightHistory history={history} strikes={strikes} />
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── Block B — the numbers: strike ratio | schedule-adjusted + pace ── */}
+      {/* ── Block B — full-width: strength of schedule + pace, striking | grappling ── */}
       <div className="rounded-xl p-4" style={cardStyle}>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
-          <div className="lg:col-span-2 min-w-0">
-            <RatioPanel advanced={advanced} benchmark={benchmark} />
-          </div>
-
-          <div className="lg:col-span-3 min-w-0">
-            {scheduleContext && <ScheduleContextStrip ctx={scheduleContext} />}
-            <div className={`grid ${paceGrid} gap-2 text-[10px] tracking-wider mb-2`} style={{ color: 'var(--text-muted)' }}>
-              <span>PACE</span>
+        {scheduleContext && <ScheduleContextStrip ctx={scheduleContext} />}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-4">
+          {/* Striking */}
+          <div className="min-w-0">
+            <div className={`grid ${paceGrid} gap-2 text-[11px] tracking-wider mb-2 font-medium`} style={{ color: 'var(--text-secondary)' }}>
+              <span>STRIKING</span>
               <span className="text-right">CAREER</span>
               {med && <span className="text-right">DIV MED</span>}
               <span className="text-right">TREND</span>
@@ -172,23 +202,35 @@ export default function AdvancedAnalyticsSection({
               <PaceRow gridCls={paceGrid} label="Strike differential" feedsRanking career={fmt1(career.diffPer15)} median={med ? fmt1(med.diffPer15) : null} delta={drift?.diffPer15Delta ?? null} standout={standoutOf(career.diffPer15, med?.diffPer15, true)} />
               <PaceRow gridCls={paceGrid} label="Sig. accuracy" feedsRanking career={pct(career.sigAccuracy)} median={med ? pct(med.sigAccuracy) : null} delta={drift?.sigAccuracyDelta != null ? drift.sigAccuracyDelta * 100 : null} deltaDecimals={0} standout={standoutOf(career.sigAccuracy, med?.sigAccuracy, true)} />
               <PaceRow gridCls={paceGrid} label="Knockdowns" feedsRanking career={career.kdPer15.toFixed(2)} median={med ? med.kdPer15.toFixed(2) : null} delta={recent ? Math.round((recent.kdPer15 - career.kdPer15) * 100) / 100 : null} deltaDecimals={2} standout={standoutOf(career.kdPer15, med?.kdPer15, true)} />
+            </div>
+          </div>
+
+          {/* Grappling */}
+          <div className="min-w-0">
+            <div className={`grid ${paceGrid} gap-2 text-[11px] tracking-wider mb-2 font-medium`} style={{ color: 'var(--text-secondary)' }}>
+              <span>GRAPPLING</span>
+              <span className="text-right">CAREER</span>
+              {med && <span className="text-right">DIV MED</span>}
+              <span className="text-right">TREND</span>
+            </div>
+            <div className="space-y-1.5">
               <PaceRow gridCls={paceGrid} label="Takedowns" feedsRanking career={fmt1(career.tdPer15)} median={med ? fmt1(med.tdPer15) : null} delta={drift?.tdPer15Delta ?? null} standout={standoutOf(career.tdPer15, med?.tdPer15, true)} />
               <PaceRow gridCls={paceGrid} label="Takedowns conceded" higherIsBetter={false} career={fmt1(career.tdAbsorbedPer15)} median={med ? fmt1(med.tdAbsorbedPer15) : null} delta={recent ? recent.tdAbsorbedPer15 - career.tdAbsorbedPer15 : null} standout={standoutOf(career.tdAbsorbedPer15, med?.tdAbsorbedPer15, false)} />
               <PaceRow gridCls={paceGrid} label="Sub attempts" career={fmt1(career.subAttPer15)} median={med ? fmt1(med.subAttPer15) : null} delta={recent ? Math.round((recent.subAttPer15 - career.subAttPer15) * 10) / 10 : null} standout={standoutOf(career.subAttPer15, med?.subAttPer15, true)} />
               <PaceRow gridCls={paceGrid} label="Control share" career={`${fmt1(career.ctrlSharePct)}%`} median={med ? `${fmt1(med.ctrlSharePct)}%` : null} delta={recent ? Math.round((recent.ctrlSharePct - career.ctrlSharePct) * 10) / 10 : null} standout={standoutOf(career.ctrlSharePct, med?.ctrlSharePct, true)} />
             </div>
-            <p className="text-[10px] leading-snug mt-3" style={{ color: 'var(--text-muted)' }}>
-              <span className="inline-block w-1.5 h-1.5 rounded-full mr-1 align-middle" style={{ backgroundColor: 'var(--accent-red)' }} />
-              = signal behind the bounded ±30 metrics bonus. CAREER is over {advanced.sampleFights} charted
-              fights ({advanced.totalMinutes} min); the TREND arrow shows the recent-form direction vs career
-              (▲ up / ▼ down), green = better / red = worse for the fighter.
-              {med && <> DIV MED = median of this division’s {benchmark?.sample} ranked fighters — the peer baseline;
-              a coloured value + badge (e.g. <span className="font-mono">8×</span>, <span className="font-mono">67%↓</span>)
-              flags a stat that stands out sharply from it (gold = elite, green = strength, red = gap).</>}
-              {' '}The last-5 numbers and opponent-adjusted read live in the fight-by-fight popup above.
-            </p>
           </div>
         </div>
+        <p className="text-[10px] leading-snug mt-4" style={{ color: 'var(--text-muted)' }}>
+          <span className="inline-block w-1.5 h-1.5 rounded-full mr-1 align-middle" style={{ backgroundColor: 'var(--accent-red)' }} />
+          = signal behind the bounded ±30 metrics bonus. CAREER is over {advanced.sampleFights} charted
+          fights ({advanced.totalMinutes} min); the TREND arrow shows the recent-form direction vs career
+          (▲ up / ▼ down), green = better / red = worse for the fighter.
+          {med && <> DIV MED = median of this division’s {benchmark?.sample} ranked fighters — the peer baseline;
+          a coloured value + badge (e.g. <span className="font-mono">8×</span>, <span className="font-mono">67%↓</span>)
+          flags a stat that stands out sharply from it (gold = elite, green = strength, red = gap).</>}
+          {' '}The last-5 numbers and opponent-adjusted read live in the fight-by-fight popup above.
+        </p>
       </div>
 
       {/* ── Block C — supporting, de-emphasized: radar + durability + finishes ── */}
@@ -341,8 +383,8 @@ function PaceRow({
         boxShadow: `inset 3px 0 0 ${standout.color}`,
       }
     : undefined;
-  const labelColor = standout?.emphasize ? standout.color : 'var(--text-secondary)';
-  const careerColor = standout ? standout.color : 'var(--text-muted)';
+  const labelColor = standout?.emphasize ? standout.color : 'var(--text-primary)';
+  const careerColor = standout ? standout.color : 'var(--text-primary)';
 
   return (
     <div
@@ -364,9 +406,9 @@ function PaceRow({
           </span>
         )}
       </span>
-      <span className="font-mono text-right" style={{ color: careerColor, fontWeight: standout ? 600 : 400 }}>{career}</span>
+      <span className="font-mono text-right" style={{ color: careerColor, fontWeight: standout ? 600 : 500 }}>{career}</span>
       {median != null && (
-        <span className="font-mono text-right" style={{ color: 'var(--text-muted)', opacity: 0.75 }}>{median}</span>
+        <span className="font-mono text-right" style={{ color: 'var(--text-secondary)' }}>{median}</span>
       )}
       <span className="text-right"><DeltaChip delta={delta} decimals={deltaDecimals ?? 1} higherIsBetter={higherIsBetter} /></span>
     </div>
