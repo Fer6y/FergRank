@@ -264,33 +264,6 @@ export default async function FighterPage({
         </div>
       )}
 
-      {/* Grappling proficiency — grey→blue ramp, ranked vs the fighter's own
-          division (grappleGradient.ts). Sits with the blue SCHEDULE card so the
-          blue reads systematic. Display-only, never touches the rank. */}
-      {p.grapple && (
-        <div
-          className="rounded-xl px-5 py-4"
-          style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}
-        >
-          <div className="flex items-baseline justify-between mb-3">
-            <span className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>
-              GRAPPLING PROFICIENCY
-            </span>
-            <span className="font-mono text-lg leading-none" style={{ color: p.grapple.color }}>
-              p{p.grapple.percentile}
-            </span>
-          </div>
-          <GrappleRamp
-            markers={[{ percentile: p.grapple.percentile, color: p.grapple.color }]}
-            showScaleLabels
-          />
-          <p className="text-[10px] leading-snug mt-2.5" style={{ color: 'var(--text-muted)' }}>
-            Takedowns, control &amp; ground share vs the {p.division || p.weightClass} 3+-fight pool —
-            how deep the grappling runs. Display-only.
-          </p>
-        </div>
-      )}
-
       {p.advanced ? (
         <>
           {/* Analytics dashboard — Gauntlet + fight history, then the numbers,
@@ -306,6 +279,7 @@ export default async function FighterPage({
             gauntlet={p.gauntlet}
             history={p.history}
             radar={p.radar}
+            grapple={p.grapple}
           />
 
           {/* Rank rationale + reference, below the dashboard */}
@@ -330,6 +304,16 @@ export default async function FighterPage({
             <Section title="ATTRIBUTES">
               <ProfileRadar radar={p.radar} />
             </Section>
+            {p.grapple && (
+              <Section title="GRAPPLING PROFICIENCY">
+                <div className="flex items-baseline justify-end mb-3">
+                  <span className="font-mono text-lg leading-none" style={{ color: p.grapple.color }}>
+                    p{p.grapple.percentile}
+                  </span>
+                </div>
+                <GrappleRamp markers={[{ percentile: p.grapple.percentile, color: p.grapple.color }]} showScaleLabels />
+              </Section>
+            )}
             {snapshotBlock}
             {communityBlock}
           </div>

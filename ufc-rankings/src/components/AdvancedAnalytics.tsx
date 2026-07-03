@@ -1,8 +1,10 @@
 import type { AdvancedStats, TrendInsight, RatioBenchmark, ScheduleContext, Gauntlet as GauntletData } from '@/lib/advancedStats';
 import type { FightTrace } from '@/lib/eloEngine';
+import type { GrappleGradient } from '@/lib/grappleGradient';
 import Gauntlet from './Gauntlet';
 import ScheduleContextStrip from './ScheduleContextStrip';
 import FightHistory, { type StrikeRate } from './FightHistory';
+import GrappleRamp from './GrappleRamp';
 import ProfileRadar from './ProfileRadar';
 
 interface RadarAxes {
@@ -78,6 +80,7 @@ export default function AdvancedAnalyticsSection({
   gauntlet,
   history,
   radar,
+  grapple,
 }: {
   eloRating: number;
   eloPeak: number;
@@ -89,6 +92,7 @@ export default function AdvancedAnalyticsSection({
   gauntlet: GauntletData | null;
   history: FightTrace[];
   radar: RadarAxes;
+  grapple: GrappleGradient | null;
 }) {
   const { career, recent, drift } = advanced;
   // Division ranked-pool medians → the DIV MED column (peer baseline). Only
@@ -186,6 +190,26 @@ export default function AdvancedAnalyticsSection({
 
       {/* ── Block B — full-width: strength of schedule + pace, striking | grappling ── */}
       <div className="rounded-xl p-4" style={cardStyle}>
+        {/* Grappling proficiency — grey→blue ramp, ranked vs own-division pool.
+            Sits under the Gauntlet and above the strength-of-schedule / pace
+            stats. Display-only, never touches the rank. */}
+        {grapple && (
+          <div className="mb-5 pb-5" style={{ borderBottom: '1px solid var(--border)' }}>
+            <div className="flex items-baseline justify-between mb-3">
+              <span className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>
+                GRAPPLING PROFICIENCY
+              </span>
+              <span className="font-mono text-lg leading-none" style={{ color: grapple.color }}>
+                p{grapple.percentile}
+              </span>
+            </div>
+            <GrappleRamp markers={[{ percentile: grapple.percentile, color: grapple.color }]} showScaleLabels />
+            <p className="text-[10px] leading-snug mt-2.5" style={{ color: 'var(--text-muted)' }}>
+              Takedowns, control &amp; ground share ranked against this division&apos;s 3+-fight pool — how deep the
+              grappling runs. Display-only.
+            </p>
+          </div>
+        )}
         {scheduleContext && <ScheduleContextStrip ctx={scheduleContext} />}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-4">
           {/* Striking */}
@@ -216,7 +240,7 @@ export default function AdvancedAnalyticsSection({
             <div className="space-y-1.5">
               <PaceRow gridCls={paceGrid} label="Takedowns" feedsRanking career={fmt1(career.tdPer15)} median={med ? fmt1(med.tdPer15) : null} delta={drift?.tdPer15Delta ?? null} standout={standoutOf(career.tdPer15, med?.tdPer15, true)} />
               <PaceRow gridCls={paceGrid} label="Takedowns conceded" higherIsBetter={false} career={fmt1(career.tdAbsorbedPer15)} median={med ? fmt1(med.tdAbsorbedPer15) : null} delta={recent ? recent.tdAbsorbedPer15 - career.tdAbsorbedPer15 : null} standout={standoutOf(career.tdAbsorbedPer15, med?.tdAbsorbedPer15, false)} />
-              <PaceRow gridCls={paceGrid} label="Sub attempts" career={fmt1(career.subAttPer15)} median={med ? fmt1(med.subAttPer15) : null} delta={recent ? Math.round((recent.subAttPer15 - career.subAttPer15) * 10) / 10 : null} standout={standoutOf(career.subAttPer15, med?.subAttPer15, true)} />
+              <PaceRow gridCls={paceGrid} label="Sub attempts" feedsRanking career={fmt1(career.subAttPer15)} median={med ? fmt1(med.subAttPer15) : null} delta={recent ? Math.round((recent.subAttPer15 - career.subAttPer15) * 10) / 10 : null} standout={standoutOf(career.subAttPer15, med?.subAttPer15, true)} />
               <PaceRow gridCls={paceGrid} label="Control share" career={`${fmt1(career.ctrlSharePct)}%`} median={med ? `${fmt1(med.ctrlSharePct)}%` : null} delta={recent ? Math.round((recent.ctrlSharePct - career.ctrlSharePct) * 10) / 10 : null} standout={standoutOf(career.ctrlSharePct, med?.ctrlSharePct, true)} />
             </div>
           </div>

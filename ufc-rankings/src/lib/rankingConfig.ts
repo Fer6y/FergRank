@@ -109,7 +109,7 @@ export const RANKING_CONFIG = {
   // ═══ FINISH MULTIPLIERS (scale the Elo K-factor per result) ═══════════
   finishMultipliers: {
     'KO/TKO': 1.4,
-    'SUB':    1.35,
+    'SUB':    1.4,   // a submission is as decisive a finish as a KO — parity with KO/TKO (was 1.35)
     'U-DEC':  1.0,
     'M-DEC':  0.9,
     'S-DEC':  0.8,
@@ -120,9 +120,10 @@ export const RANKING_CONFIG = {
   // absorbed), balanced by accuracy and grappling. Weights must sum to 1.0.
   metricsWeights: {
     volumeStrikeDifferential:   0.40,  // STR landed - STR absorbed (the headline)
-    strikeAccuracyDifferential: 0.20,  // Sig. Str. % edge (balances raw volume)
-    knockdownRate:              0.20,  // KDs per fight (finishing threat)
-    takedownDifferential:       0.20,  // TDs landed - absorbed (grappling)
+    strikeAccuracyDifferential: 0.15,  // Sig. Str. % edge (balances raw volume)
+    knockdownRate:              0.15,  // KDs per fight (STRIKE finish threat)
+    takedownDifferential:       0.15,  // TDs landed - absorbed (grappling control)
+    submissionThreat:           0.15,  // sub attempts per fight (GRAPPLE finish threat — mirrors knockdownRate)
   },
   metricsScaleElo: 30,          // Max ± Elo points the metrics composite contributes (lowered from 40 — was swinging ranks too hard)
   metricsConfidenceMinFights: 5, // Below this many scored fights, metrics are dampened
@@ -133,6 +134,7 @@ export const RANKING_CONFIG = {
     accuracyEdge: 0.25,         // |sigStrPct diff| of this ≈ full credit
     knockdownsPerFight: 1.5,    // this many KD/fight ≈ full credit
     takedownsPerFight: 3,       // |tdDiff| of this ≈ full credit
+    submissionsPerFight: 2,     // this many sub attempts/fight ≈ full credit (grapple finish threat)
   },
 
   // ═══ STRENGTH OF SCHEDULE ═════════════════════════════════════════════

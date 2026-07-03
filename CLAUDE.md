@@ -22,7 +22,7 @@ The core product and the first discovery/personalization layers are **built and 
 | P4P (Phase 5) | ✅ | Cross-division, valid because Elo is one global pool |
 | Leaderboards (Phase 5) | ✅ | Finishers / Knockouts / Submissions / Strikers / Grapplers (sample-weighted) |
 | Compare (Phase 2) | ✅ | Two fighters side-by-side, winner-highlighted stats + radars + **grappling-proficiency ramp** (shared grey→blue track, a needle per corner ranked vs own-division 3+-fight pool — `GrappleRamp`/`grappleGradient.ts`) |
-| Grappling proficiency ramp | ✅ | 2026-07-03: grey `#4a4a52` → blue `#4a9eff` SEQUENTIAL magnitude encoding of `RadarAxes.grappling`, ranked as a **division percentile** (own-division 3+-fight pool) so the crowded mid-division spreads while the genuine elite tail honestly stays bunched. Rendered as a full-gradient **track + needle** (`GrappleRamp`) so even one fighter shows the whole ramp, not a flat fill. On the **profile** (dedicated GRAPPLING PROFICIENCY card near the blue SCHEDULE card) + **/compare** (both corners on one track — grappler-vs-striker at a glance). Display-only, never touches Elo. PaceRow grapple-row tinting deliberately deferred (would clash with the existing red/green/gold `standoutOf` colouring) |
+| Grappling proficiency ramp | ✅ | 2026-07-03: grey `#4a4a52` → blue `#4a9eff` SEQUENTIAL magnitude encoding of `RadarAxes.grappling`, ranked as a **division percentile** (own-division 3+-fight pool) so the crowded mid-division spreads while the genuine elite tail honestly stays bunched. Rendered as a full-gradient **track + needle** (`GrappleRamp`) so even one fighter shows the whole ramp, not a flat fill. On the **profile** (top of analytics Block B — under the Gauntlet, above the strength-of-schedule strip + striking/grappling pace tables; fallback profiles show it under the radar) + **/compare** (both corners on one track — grappler-vs-striker at a glance). Display-only, never touches Elo. PaceRow grapple-row tinting deliberately deferred (would clash with the existing red/green/gold `standoutOf` colouring) |
 | Data-source alignment | ✅ | Recency patch is contract-guarded at load (de-dup + stale-drop + id-resolve) |
 | Fighter photos + flags | ✅ | Build-time media pipeline (Wikidata + UFC.com) → registry; rendered with initials fallback |
 | Upcoming cards `/upcoming` | ✅ | Redesigned 2026-07-02: date-first event tabs, main-event hero + dense prelim rows, **last-5 form pips (gold underline = title fight**, via `titleFights.ts` ← `data/title_fights.csv`; shared `FormPips` component with a light span timeline — newest-fight year → 5th-fight year — as an activity read), **win-probability spine**, main-event **tale-of-the-tape** (reach ← `fighterPhysical.ts`, activity-adjusted `scheduleStrength`, finish rate; links to `/compare`); per-fighter next-fight attached at API boundary. Display-only — never touches scoring |
@@ -286,13 +286,16 @@ Separates similar fighters by *how* they perform, over their last 5 division fig
 ```typescript
 metricsBonus = (
   volumeStrikeDifferential   * 0.40 +   // STR landed − absorbed (headline)
-  strikeAccuracyDifferential * 0.20 +   // Sig. Str. % edge (balances raw volume)
-  knockdownRate              * 0.20 +   // KDs per fight
-  takedownDifferential       * 0.20     // TDs landed − absorbed
+  strikeAccuracyDifferential * 0.15 +   // Sig. Str. % edge (balances raw volume)
+  knockdownRate              * 0.15 +   // KDs per fight (STRIKE finish threat)
+  takedownDifferential       * 0.15 +   // TDs landed − absorbed (grappling control)
+  submissionThreat           * 0.15     // sub attempts/fight (GRAPPLE finish threat)
 ) * metricsScaleElo (30)   // × confidence dampener if < 5 scored fights
 ```
 
 > **v1 bug this fixes**: the old engine used sig-strike *accuracy %* differential and ignored the `STR` volume columns entirely — so a fighter landing 8-of-10 "beat" one landing 90-of-200. v2 uses landed-strike **volume** as the headline, with accuracy only as a balancer.
+
+> **Submission threat (2026-07-03)**: `submissionThreat` (sub attempts/fight, one-sided like `knockdownRate`, `submissionsPerFight`=2 for full credit) was added to close a striker/grappler asymmetry — the composite rewarded *knockdown* finish threat but not *submission* finish threat. Weights rebalanced 0.40/**0.15**/0.15/0.15/0.15. Paired with `SUB` finish multiplier → **1.4** (KO parity, was 1.35): a submission is as decisive a finish as a KO. Rewards *currently active* sub threats (Oliveira passed Tsarukyan for LW #2; Merab up); it does **not** retroactively lift a fighter whose subs are old/vs weak opponents (their Elo already banked them — the change won't move a Mike Malott whose recent window has ~0 sub activity). Golden-master re-blessed 2026-07-03.
 
 ---
 
@@ -370,7 +373,7 @@ The config is organized into these groups (see the file for current values):
 |-------|----------|
 | `elo` | Core rating: `baseK`, provisional period, inactivity regression, weight-class move decay, Elo→0–100 display mapping |
 | `recencyHalfLifeMonths` / `recencyCutoffMonths` | Recency weighting + hard cutoff for the **metrics/SoS windows** (not the Elo core) |
-| `finishMultipliers` | Scale the Elo K-factor per result method (KO/TKO 1.4 → S-DEC 0.8) |
+| `finishMultipliers` | Scale the Elo K-factor per result method (KO/TKO 1.4 = SUB 1.4 → S-DEC 0.8) |
 | `metricsWeights` / `metricsScaleElo` / `metricsNorm` | Striking/grappling composite (volume-strike-differential led) |
 | `sosAnchorElo` / `sosSlopePerElo` / `sosAdjustCap` | Bounded strength-of-schedule nudge |
 | `officialBonusScaleElo` / `officialRankScores` / `*FloorRank` | Official-rank seed + post-sort safety floors |

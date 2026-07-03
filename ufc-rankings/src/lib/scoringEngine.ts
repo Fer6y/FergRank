@@ -80,6 +80,7 @@ export interface Perspective {
   kdSelf: number;
   tdSelf: number;
   tdOpp: number;
+  subSelf: number;
 }
 
 export function getFighterPerspective(fight: Fight, fighterId: string): Perspective | null {
@@ -90,6 +91,7 @@ export function getFighterPerspective(fight: Fight, fighterId: string): Perspect
       strSelf: fight.str1, strOpp: fight.str2,
       sigStrPctSelf: fight.sigStrPct1, sigStrPctOpp: fight.sigStrPct2,
       kdSelf: fight.kd1, tdSelf: fight.td1, tdOpp: fight.td2,
+      subSelf: fight.sub1,
     };
   }
   if (fight.fighterId2 === fighterId) {
@@ -99,6 +101,7 @@ export function getFighterPerspective(fight: Fight, fighterId: string): Perspect
       strSelf: fight.str2, strOpp: fight.str1,
       sigStrPctSelf: fight.sigStrPct2, sigStrPctOpp: fight.sigStrPct1,
       kdSelf: fight.kd2, tdSelf: fight.td2, tdOpp: fight.td1,
+      subSelf: fight.sub2,
     };
   }
   return null;
@@ -315,7 +318,7 @@ async function computeDivisionRankings(
     // ── Strength of schedule: recency-weighted avg opponent Elo in window ──
     let sosWeighted = 0;
     let sosWeightSum = 0;
-    const metricSamples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; w: number }[] = [];
+    const metricSamples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; sub: number; w: number }[] = [];
 
     for (const fight of divFights) {
       const persp = getFighterPerspective(fight, fighter.fighterId);
@@ -337,6 +340,7 @@ async function computeDivisionRankings(
           accDiff: persp.sigStrPctSelf - persp.sigStrPctOpp,
           kd: persp.kdSelf,
           tdDiff: persp.tdSelf - persp.tdOpp,
+          sub: persp.subSelf,
           w,
         });
       }
@@ -478,17 +482,18 @@ async function computeDivisionRankings(
 // ─── Metrics composite ───────────────────────────────────────
 
 function computeMetricsBonus(
-  samples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; w: number }[],
+  samples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; sub: number; w: number }[],
   scoredFightCount: number
 ): number {
   if (samples.length === 0) return 0;
 
-  let wSum = 0, str = 0, acc = 0, kd = 0, td = 0;
+  let wSum = 0, str = 0, acc = 0, kd = 0, td = 0, sub = 0;
   for (const s of samples) {
     str += s.strDiff * s.w;
     acc += s.accDiff * s.w;
     kd += s.kd * s.w;
     td += s.tdDiff * s.w;
+    sub += s.sub * s.w;
     wSum += s.w;
   }
   if (wSum === 0) return 0;
@@ -498,13 +503,16 @@ function computeMetricsBonus(
   const nAcc = clamp((acc / wSum) / norm.accuracyEdge, -1, 1);
   const nKd = clamp((kd / wSum) / norm.knockdownsPerFight, 0, 1);
   const nTd = clamp((td / wSum) / norm.takedownsPerFight, -1, 1);
+  // Submission threat is one-sided (attempts, not a differential) like KDs.
+  const nSub = clamp((sub / wSum) / norm.submissionsPerFight, 0, 1);
 
   const wts = RANKING_CONFIG.metricsWeights;
   const composite =
     nStr * wts.volumeStrikeDifferential +
     nAcc * wts.strikeAccuracyDifferential +
     nKd * wts.knockdownRate +
-    nTd * wts.takedownDifferential;
+    nTd * wts.takedownDifferential +
+    nSub * wts.submissionThreat;
 
   // Dampen for thin samples so a 3-fight fighter's metrics can't swing them.
   const confidence = Math.min(scoredFightCount / RANKING_CONFIG.metricsConfidenceMinFights, 1.0);
