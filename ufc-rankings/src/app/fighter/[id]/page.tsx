@@ -157,9 +157,10 @@ export default async function FighterPage({
 
       {/* Hero band */}
       <div
-        className="rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+        className="rounded-xl p-5"
         style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}
       >
+       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         <FighterAvatar
           src={p.avatarUrl ?? undefined}
           name={p.fullName}
@@ -196,7 +197,7 @@ export default async function FighterPage({
         </div>
 
         {/* Rank cards */}
-        <div className="flex gap-2.5 shrink-0">
+        <div className="flex gap-2.5 shrink-0 flex-wrap justify-end">
           {p.isChampion ? (
             <RankCard label="STATUS" value="C" color="var(--accent-gold)" />
           ) : p.displayRank != null ? (
@@ -222,7 +223,21 @@ export default async function FighterPage({
               sub={p.ranked?.scheduleStrength != null ? `${Math.round(p.ranked.scheduleStrength)} adj` : undefined}
             />
           )}
+          <RankCard label="ELO" value={`${Math.round(p.eloRating)}`} color="var(--text-primary)" />
+          <RankCard label="PEAK ELO" value={`${Math.round(p.eloPeak)}`} color="var(--accent-gold)" />
         </div>
+       </div>
+
+        {/* Personalised one-line "why this rank" — the fighter's identity in a
+            sentence. Lives in the hero pill alongside the ELO anchors. */}
+        {why?.headline && (
+          <p
+            className="text-sm sm:text-base leading-snug mt-4 pt-4"
+            style={{ color: 'var(--text-primary)', borderTop: '1px solid var(--border)' }}
+          >
+            {why.headline}
+          </p>
+        )}
       </div>
 
       {/* Next scheduled bout (display-only; never affects the rank) */}
@@ -269,9 +284,6 @@ export default async function FighterPage({
           {/* Analytics dashboard — Gauntlet + fight history, then the numbers,
               then de-emphasized radar/durability. The star of the profile. */}
           <AdvancedAnalyticsSection
-            eloRating={p.eloRating}
-            eloPeak={p.eloPeak}
-            whyHeadline={why?.headline ?? null}
             advanced={p.advanced}
             trendRead={p.trendRead}
             benchmark={p.divisionBenchmark}
@@ -305,14 +317,32 @@ export default async function FighterPage({
               <ProfileRadar radar={p.radar} />
             </Section>
             {p.grapple && (
-              <Section title="GRAPPLING PROFICIENCY">
-                <div className="flex items-baseline justify-end mb-3">
-                  <span className="font-mono text-lg leading-none" style={{ color: p.grapple.color }}>
-                    p{p.grapple.percentile}
+              <section>
+                <div className="flex items-baseline flex-wrap gap-x-2 mb-2.5">
+                  <h2 className="text-[10px] tracking-widest" style={{ color: 'var(--text-muted)' }}>
+                    GRAPPLING PROFICIENCY
+                  </h2>
+                  <span className="text-[10px]" style={{ color: 'var(--text-muted)' }}>
+                    — takedowns, control &amp; ground share vs division pool
                   </span>
                 </div>
-                <GrappleRamp markers={[{ percentile: p.grapple.percentile, color: p.grapple.color }]} showScaleLabels />
-              </Section>
+                <div
+                  className="rounded-xl p-4"
+                  style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}
+                >
+                  <div className="flex items-baseline justify-end mb-3">
+                    <span className="font-mono text-lg leading-none" style={{ color: p.grapple.color }}>
+                      p{p.grapple.percentile}
+                    </span>
+                  </div>
+                  <GrappleRamp markers={[{ percentile: p.grapple.percentile, color: p.grapple.color }]} showScaleLabels />
+                  {p.grapple.breakdown && (
+                    <p className="text-[11px] leading-snug mt-2.5" style={{ color: 'var(--text-secondary)' }}>
+                      {p.grapple.breakdown.summary}
+                    </p>
+                  )}
+                </div>
+              </section>
             )}
             {snapshotBlock}
             {communityBlock}

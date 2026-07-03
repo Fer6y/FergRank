@@ -18,6 +18,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import { computeRadarAxes } from './fighterRadar';
+import { getFighterPerspective, recencyWeight } from './scoringEngine';
 import { RANKING_CONFIG } from './rankingConfig';
 import type { LoadedData } from './loadData';
 
@@ -80,10 +81,156 @@ function divisionPool(data: LoadedData, division: string): number[] {
   return vals;
 }
 
+// ─── Per-fighter "why they sit here" breakdown ───────────────────────────
+// The ramp percentile is driven by the recency-weighted grappling signals the
+// radar uses (fighterRadar.ts). We recompute the three that are directly
+// readable — TAKEDOWNS (differential), CONTROL time, and SUBMISSION threat — so
+// the profile can name, per fighter, WHAT places them on the ramp: a
+// control-heavy wrestler (Makhachev), a submission hunter (Oliveira) and a
+// stand-up striker all get different sentences. (Career ground-share also feeds
+// the axis at a small weight but the CSV column isn't cleanly interpretable per
+// fighter, so it is deliberately left out of the narrative.) Display-only.
+
+export interface GrappleTrait {
+  key: 'takedowns' | 'control' | 'subs';
+  label: string;   // "Control time"
+  detail: string;  // human value, e.g. "2:40 / fight"
+  strength: number; // -1..1 vs a neutral grappler (>0 asset, <0 gap)
+}
+
+export interface GrappleBreakdown {
+  traits: GrappleTrait[]; // ordered strongest signal → weakest
+  summary: string;        // per-fighter one-liner explaining the placement
+  sampleFights: number;   // recent metric fights the read is built on
+}
+
+function fmtCtrl(sec: number): string {
+  const s = Math.round(sec);
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+
+const clamp01x = (v: number) => Math.max(0, Math.min(1, v));
+
+/**
+ * Recency-weighted grappling signals for a fighter over their recent division
+ * fights, turned into a ranked, human-readable trait list + a summary sentence
+ * describing why they sit where they do on the ramp. Null if unknown fighter.
+ */
+export function grappleBreakdown(
+  data: LoadedData,
+  fighterId: string,
+  division: string | null,
+  percentile: number
+): GrappleBreakdown | null {
+  const f = data.fighterMap.get(fighterId);
+  if (!f) return null;
+
+  const cfg = RANKING_CONFIG.radar;
+  const norm = RANKING_CONFIG.metricsNorm;
+  const now = new Date();
+  const halfLife = RANKING_CONFIG.recencyHalfLifeMonths;
+
+  const fights = (data.fighterFights.get(fighterId) || [])
+    .filter(
+      (x) =>
+        x.eventDate &&
+        x.hasMetrics !== false &&
+        (!division || x.weightClass === division)
+    )
+    .sort((a, b) => b.eventDate!.getTime() - a.eventDate!.getTime())
+    .slice(0, cfg.recentFights);
+
+  let wSum = 0;
+  let tdDiff = 0;
+  let ctrl = 0;
+  let sub = 0;
+  for (const x of fights) {
+    const p = getFighterPerspective(x, fighterId);
+    if (!p) continue;
+    const w = recencyWeight(x.eventDate, now, halfLife);
+    const ctrlSelf = x.fighterId1 === fighterId ? x.ctrl1 : x.ctrl2;
+    tdDiff += (p.tdSelf - p.tdOpp) * w;
+    ctrl += (ctrlSelf || 0) * w;
+    sub += p.subSelf * w;
+    wSum += w;
+  }
+
+  if (wSum === 0) {
+    // No per-fight metric sample (e.g. a Sherdog-recency-only fighter).
+    return {
+      traits: [],
+      summary:
+        'Not enough metric-tracked fights to break down takedowns, control or submissions — the ramp position leans on career grappling share alone.',
+      sampleFights: 0,
+    };
+  }
+
+  const avgTdDiff = tdDiff / wSum;
+  const avgCtrl = ctrl / wSum;
+  const avgSub = sub / wSum;
+
+  // Each trait carries a signed strength vs a neutral grappler (>0 asset). For
+  // takedowns, parity is neutral; for control and submissions, zero is neutral.
+  const traits: GrappleTrait[] = ([
+    {
+      key: 'takedowns',
+      label: 'Takedowns',
+      detail:
+        avgTdDiff >= 0.15
+          ? `+${avgTdDiff.toFixed(1)} TD/fight edge`
+          : avgTdDiff <= -0.15
+            ? `${avgTdDiff.toFixed(1)} TD/fight against`
+            : 'an even takedown battle',
+      // avgTdDiff / norm → clamp to [-1,1]; e.g. +3 TD/fight ≈ full asset.
+      strength: Math.max(-1, Math.min(1, avgTdDiff / norm.takedownsPerFight)),
+    },
+    {
+      key: 'control',
+      label: 'Control time',
+      detail: `${fmtCtrl(avgCtrl)} of control / fight`,
+      // 0s → -1 (nothing), controlSecondsFull → +1 (mat-dominant).
+      strength: clamp01x(avgCtrl / cfg.controlSecondsFull) * 2 - 1,
+    },
+    {
+      key: 'subs',
+      label: 'Submission threat',
+      detail:
+        avgSub >= 0.05 ? `${avgSub.toFixed(1)} sub attempts / fight` : 'no sub attempts',
+      strength: clamp01x(avgSub / norm.submissionsPerFight) * 2 - 1,
+    },
+  ] as GrappleTrait[]).sort((a, b) => b.strength - a.strength);
+
+  const assets = traits.filter((t) => t.strength > 0.05);
+  const worstGap = traits[traits.length - 1];
+
+  let summary: string;
+  if (assets.length === 0) {
+    // No positive grappling signal — a striker who keeps it standing.
+    summary =
+      'Sits low — a stand-up fighter with no standout takedowns, control or submission threat; the division out-grapples them.';
+  } else {
+    const drivers = assets.slice(0, 2);
+    const driverPhrase = drivers
+      .map((t) => `${t.label.toLowerCase()} (${t.detail})`)
+      .join(' and ');
+    const anchor =
+      percentile >= 75 ? 'Ranks high on' : percentile >= 45 ? 'Placed by' : 'Held up mainly by';
+    // Call out a real gap only when it isn't already one of the named drivers.
+    const gapPhrase =
+      assets.length < 3 && worstGap.strength < -0.3
+        ? ` — but light on ${worstGap.label.toLowerCase()} (${worstGap.detail})`
+        : '';
+    summary = `${anchor} ${driverPhrase}${gapPhrase}.`;
+  }
+
+  return { traits, summary, sampleFights: fights.length };
+}
+
 export interface GrappleGradient {
   value: number; // raw grappling axis, 0–1
   percentile: number; // 0–100 within the fighter's own-division 3+-fight pool
   color: string; // ramp colour at the percentile position
+  breakdown: GrappleBreakdown | null; // per-fighter "why they sit here"
 }
 
 /**
@@ -109,5 +256,10 @@ export function grappleGradient(
       percentile = Math.round((below / pool.length) * 100);
     }
   }
-  return { value: g, percentile, color: rampColor(percentile / 100) };
+  return {
+    value: g,
+    percentile,
+    color: rampColor(percentile / 100),
+    breakdown: grappleBreakdown(data, fighterId, division, percentile),
+  };
 }

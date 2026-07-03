@@ -22,7 +22,7 @@ interface Props {
 const OPP_ELITE = 1650;
 const OPP_RANKED = 1565;
 
-const NODE_R = [2.6, 3.9, 5.2]; // standard / ranked-calibre / elite
+const NODE_R = [5.2, 7.4, 9.6]; // standard / ranked-calibre / elite (~2× the old base so nodes read clearly)
 
 const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
@@ -211,7 +211,7 @@ export default function GauntletChart({ gauntlet }: Props) {
         {points.map((p, i) => (
           <circle
             key={`hit-${p.date}-${i}`}
-            cx={x(i)} cy={y(p.ownElo)} r="12"
+            cx={x(i)} cy={y(p.ownElo)} r="15"
             fill="transparent"
             style={{ cursor: 'pointer' }}
             onMouseEnter={() => activate(i)}

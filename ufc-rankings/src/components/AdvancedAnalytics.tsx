@@ -70,9 +70,6 @@ function standoutOf(val: number | null | undefined, med: number | null | undefin
 }
 
 export default function AdvancedAnalyticsSection({
-  eloRating,
-  eloPeak,
-  whyHeadline,
   advanced,
   trendRead,
   benchmark,
@@ -82,9 +79,6 @@ export default function AdvancedAnalyticsSection({
   radar,
   grapple,
 }: {
-  eloRating: number;
-  eloPeak: number;
-  whyHeadline: string | null;
   advanced: AdvancedStats;
   trendRead: TrendInsight[];
   benchmark: RatioBenchmark | null;
@@ -115,30 +109,6 @@ export default function AdvancedAnalyticsSection({
 
   return (
     <section className="space-y-4">
-      {/* Top box — ELO anchors + a brief, personalised one-line "why this rank" */}
-      <div
-        className="rounded-xl px-5 py-4 flex items-start justify-between gap-6 flex-wrap"
-        style={cardStyle}
-      >
-        <p className="text-base sm:text-lg leading-snug flex-1 min-w-[240px]" style={{ color: 'var(--text-primary)' }}>
-          {whyHeadline ?? 'Core Elo rating, computed from every UFC fight and weighted toward recent results.'}
-        </p>
-        <div className="flex items-end gap-6 shrink-0">
-          <div className="text-right">
-            <div className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>ELO</div>
-            <div className="font-mono text-2xl leading-none mt-1" style={{ color: 'var(--text-primary)' }}>
-              {Math.round(eloRating)}
-            </div>
-          </div>
-          <div className="text-right">
-            <div className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>PEAK ELO</div>
-            <div className="font-mono text-2xl leading-none mt-1" style={{ color: 'var(--accent-gold)' }}>
-              {Math.round(eloPeak)}
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ── Block A — the story: Gauntlet + trend read | fight history ── */}
       <div className="rounded-xl p-4" style={cardStyle}>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
@@ -172,6 +142,29 @@ export default function AdvancedAnalyticsSection({
                 Not enough fights against rated opponents to draw the Gauntlet.
               </p>
             )}
+            {/* Grappling proficiency — grey→blue ramp, ranked vs own-division pool.
+                Sits directly under the Gauntlet. Display-only, never touches the rank. */}
+            {grapple && (
+              <div className="pt-4" style={{ borderTop: '1px solid var(--border)' }}>
+                <div className="flex items-baseline flex-wrap gap-x-2 mb-3">
+                  <span className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>
+                    GRAPPLING PROFICIENCY
+                  </span>
+                  <span className="text-[10px]" style={{ color: 'var(--text-muted)' }}>
+                    — takedowns, control &amp; ground share vs this division&apos;s 3+-fight pool
+                  </span>
+                  <span className="ml-auto font-mono text-lg leading-none" style={{ color: grapple.color }}>
+                    p{grapple.percentile}
+                  </span>
+                </div>
+                <GrappleRamp markers={[{ percentile: grapple.percentile, color: grapple.color }]} showScaleLabels />
+                {grapple.breakdown && (
+                  <p className="text-[11px] leading-snug mt-2.5" style={{ color: 'var(--text-secondary)' }}>
+                    {grapple.breakdown.summary}
+                  </p>
+                )}
+              </div>
+            )}
             <div className="pt-4" style={{ borderTop: '1px solid var(--border)' }}>
               <RatioPanel advanced={advanced} benchmark={benchmark} />
             </div>
@@ -190,26 +183,6 @@ export default function AdvancedAnalyticsSection({
 
       {/* ── Block B — full-width: strength of schedule + pace, striking | grappling ── */}
       <div className="rounded-xl p-4" style={cardStyle}>
-        {/* Grappling proficiency — grey→blue ramp, ranked vs own-division pool.
-            Sits under the Gauntlet and above the strength-of-schedule / pace
-            stats. Display-only, never touches the rank. */}
-        {grapple && (
-          <div className="mb-5 pb-5" style={{ borderBottom: '1px solid var(--border)' }}>
-            <div className="flex items-baseline justify-between mb-3">
-              <span className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>
-                GRAPPLING PROFICIENCY
-              </span>
-              <span className="font-mono text-lg leading-none" style={{ color: grapple.color }}>
-                p{grapple.percentile}
-              </span>
-            </div>
-            <GrappleRamp markers={[{ percentile: grapple.percentile, color: grapple.color }]} showScaleLabels />
-            <p className="text-[10px] leading-snug mt-2.5" style={{ color: 'var(--text-muted)' }}>
-              Takedowns, control &amp; ground share ranked against this division&apos;s 3+-fight pool — how deep the
-              grappling runs. Display-only.
-            </p>
-          </div>
-        )}
         {scheduleContext && <ScheduleContextStrip ctx={scheduleContext} />}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-4">
           {/* Striking */}
