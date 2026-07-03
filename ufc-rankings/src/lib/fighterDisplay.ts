@@ -212,7 +212,9 @@ export function buildWhyThisRank(ranked: RankedFighter, history: FightTrace[] = 
   const styleWord = style;                                    // "a knockout artist"
   const StyleWord = style.charAt(0).toUpperCase() + style.slice(1);
   const months = Math.round(ranked.monthsSinceLastFight);
-  const finN = recentFinishes.length;
+  // Finishes WITHIN the current win streak (not a rolling window) — so "N straight,
+  // M finishes" can never claim more finishes than there are streak fights.
+  const streakFinishes = hist.slice(0, streak).filter((f) => f.result === 'W' && finishKind(f.method)).length;
   // Signature win = the marquee scalp a fan would name: prefer the best recent
   // quality win (the title-fight-era stuff), fall back to the best of the whole
   // career. Distinct from `mover`, the single biggest rating SWING (often an
@@ -225,86 +227,114 @@ export function buildWhyThisRank(ranked: RankedFighter, history: FightTrace[] = 
   const mover = signature && signature.opponentName && signature.delta > 0
     ? { name: signature.opponentName, yr: yearOf(signature.date), d: Math.round(signature.delta) }
     : null;
-  const qn = joinNames(qualityWins.slice(0, 2).map((f) => f.opponentName));
-  const qn1 = qualityWins[0]?.opponentName ?? null;
   const loserNames = joinNames(recentLosses.slice(0, 2).map((f) => f.opponentName));
-  // Pick one variant, skipping any whose interpolated data was missing.
-  const pick = (salt: string, arr: (string | null)[]) =>
+  const finRate = Math.round((ranked.koRate + ranked.subRate) * 100);
+  const sosScore = Math.round(ranked.strengthOfSchedule);
+  // Pick one variant, skipping any whose interpolated data was missing (a
+  // falsy entry — null from an absent object, false from a failed numeric gate).
+  const pick = (salt: string, arr: (string | false | null | undefined)[]) =>
     seededPick(ranked.fighterId + salt, arr.filter((x): x is string => !!x));
 
-  let headline: string;
+  // The headline is COMPOSED from two independently-seeded halves so the roster
+  // reads near-uniquely: a LEAD (the dominant form storyline — champ / skid /
+  // streak / quality / layoff / steady) + a COLOR clause (identity: fighting
+  // style, signature win, finish tendency, schedule difficulty). Lead salts
+  // differ per branch; the color salt is constant but its own seed, so the two
+  // halves rotate independently → hundreds of combinations, and every clause is
+  // a complete sentence so nothing splices ungrammatically.
+  let lead: string;
   if (isChamp) {
-    headline = pick('c', [
-      `Reigning champion — ${name} holds the top slot until someone takes the belt in the cage.`,
-      `The belt sits with ${name}. As champion they anchor the top of the division by right of the wins that earned it.`,
-      `Champion. ${name} stays #1 here on the strength of a title reign, not a poll.`,
-      `The champ, and ${styleWord} — ${name}'s ${elo} Elo is the number the rest of the division is chasing.`,
-      sig && `Champion ${name} got here as ${styleWord}; the win over ${sig.name} (${sig.yr}) was the signature moment.`,
-      `${name} wears the belt. Everything below this line is a queue to try to take it — and the ${elo} Elo says it stays put.`,
-      qn1 && `Title reign built on names, not narrative — ${name} beat ${qn} to earn the top slot, and holds it as ${styleWord}.`,
+    lead = pick('c', [
+      `Reigning champion — the belt stays put until someone takes it in the cage.`,
+      `The champ. Everything below this line is a queue for a crack at the top slot.`,
+      `${name} wears the belt, and the ${elo} Elo says its grip isn't loosening.`,
+      `Champion by result, not by poll — the title reign anchors the top of the division.`,
+      `#1 and clear of the field — that's what a live title reign buys.`,
+      `Title-holder. The rating has ${name} above the division for a reason.`,
     ]);
   } else if (skid >= 2 || (rec5.l > rec5.w && last5.length >= 4)) {
-    headline = pick('s', [
-      `A ${rec5.w}-${rec5.l} run over the last ${last5.length} is the story — that recent skid pulls the rating below where the name alone might land them.`,
-      `Skidding: ${skid >= 2 ? `back-to-back losses${loserNames ? ` to ${loserNames}` : ''}` : `a ${rec5.w}-${rec5.l} recent stretch`} have eaten into ${name}'s Elo, which is why they sit lower than you might expect.`,
-      `Recent form drags here — ${name} is ${rec5.w}-${rec5.l} in their last ${last5.length}, and the algorithm weighs those losses heavily.`,
-      `Still ${styleWord}, but a ${rec5.w}-${rec5.l} recent slide has the rating heading the wrong way${loserNames ? ` after ${loserNames}` : ''}.`,
-      sig && `The ceiling is real — the win over ${sig.name} (${sig.yr}) proves it — but a ${rec5.w}-${rec5.l} recent run is what the ${elo} Elo is pricing now.`,
-      `The name says contender; the last ${last5.length} (${rec5.w}-${rec5.l}) say the Elo has some catching down to do.`,
-      loserNames && `${StyleWord}, but the losses${loserNames ? ` to ${loserNames}` : ''} are recent and the rating hasn't forgotten them.`,
+    lead = pick('s', [
+      `A ${rec5.w}-${rec5.l} run over the last ${last5.length} is the story here.`,
+      `Recent form drags the rank — ${rec5.w}-${rec5.l} across the last ${last5.length}.`,
+      `${skid >= 2 ? `${skid} straight losses have` : `A rough recent stretch has`} pulled the Elo below where the name might land ${name}.`,
+      `Skidding: the rating is pricing a ${rec5.w}-${rec5.l} slide, not the reputation.`,
+      `The name says contender; the last ${last5.length} (${rec5.w}-${rec5.l}) say otherwise for now.`,
+      `Momentum's the wrong way — ${rec5.w}-${rec5.l} lately, and recency weighting bites hard.`,
+      loserNames && `The recent losses to ${loserNames} are what the ${elo} Elo hasn't shaken off.`,
     ]);
     used.add('skid');
-  } else if (streak >= 3 && finN >= 2) {
-    headline = pick('h', [
-      `Red-hot: ${name} is on a ${streak}-fight win streak with ${finN} finishes — exactly the kind of active, decisive run the rating rewards.`,
-      `${name} is surging — ${streak} straight wins, ${finN} of them stoppages. Recent finishes move Elo more than any decision can.`,
-      `${StyleWord} in full flow — ${streak} straight, ${finN} finishes, and the ${elo} Elo climbing with them.`,
-      sig && `${streak} straight and still finishing (${finN} in the run); the win over ${sig.name} (${sig.yr}) headlines the surge.`,
-      `As ${styleWord}, ${name} is doing exactly what moves the number: ${streak} wins, ${finN} inside the distance.`,
-      qn1 && `${streak} in a row with ${finN} finishes, the best over ${qn1} — that is the shape of a fighter on the way up.`,
+  } else if (streak >= 3 && streakFinishes >= 2) {
+    lead = pick('h', [
+      `Red-hot — ${streak} straight, ${streakFinishes} of them finishes.`,
+      `On a ${streak}-fight tear with ${streakFinishes} stoppages in it; the rating loves an active finisher.`,
+      `${streak} wins in a row, ${streakFinishes} inside the distance — climbing fast.`,
+      `Surging: ${streak} straight, ${streakFinishes} of them finishes, recency weighting doing the rest.`,
+      `Everything's trending up — a ${streak}-fight streak, ${streakFinishes} of them decisive.`,
+      `${streak} and counting, ${streakFinishes} finished early — exactly what moves the number.`,
     ]);
     used.add('streak'); used.add('finishes');
   } else if (streak >= 3) {
-    headline = pick('w', [
-      `${name} is riding a ${streak}-fight win streak — active and climbing, which the recency-weighted rating rewards.`,
-      `Momentum: ${streak} consecutive wins keep ${name} trending up the division.`,
-      `${streak} in a row and rising — ${styleWord} whose recent run is doing the talking.`,
-      sig && `A ${streak}-fight win streak, capped by the win over ${sig.name} (${sig.yr}) — the ${elo} Elo is following the momentum.`,
-      qn1 && `${streak} straight, the best of them over ${qn1} — that is the kind of run the Elo climbs on.`,
-      `${StyleWord} on a ${streak}-fight tear; recency weighting means this run counts double.`,
+    lead = pick('w', [
+      `Riding a ${streak}-fight win streak — active and climbing.`,
+      `${streak} straight and rising up the division.`,
+      `Momentum: ${streak} consecutive wins the recency-weighted rating rewards.`,
+      `On a ${streak}-fight run, and the number's following the form up.`,
+      `${streak} in a row — steady hands, upward trend.`,
+      `A clean ${streak}-fight streak keeps ${name} pointed the right way.`,
     ]);
     used.add('streak');
   } else if (qualityWins.length >= 1) {
-    headline = pick('q', [
-      `${name}'s ${elo} Elo is earned the hard way — wins over ${qn} are what beating the best looks like.`,
-      `Built on quality: the rating is propped up by real scalps — ${qn} — not a padded record.`,
-      `Who you beat is the rating. For ${name} that means ${qn}, and the Elo reflects it.`,
-      `${StyleWord} with the résumé to match — wins over ${qn} headline a ${elo} Elo.`,
-      mover && `The win over ${mover.name} (${mover.yr}) swung the rating +${mover.d} in a night; scalps like that are why ${name} sits here.`,
-      `${name} grades out as ${styleWord}, and the ${elo} Elo is stamped by names — ${qn}.`,
+    lead = pick('q', [
+      `Built the hard way — the ${elo} Elo is stacked with wins over ranked opposition.`,
+      `Earned, not inherited: this rating comes from beating the division's best.`,
+      `A ${elo} Elo propped up by genuine scalps, not a padded record.`,
+      `Quality over quantity — the rank rides on wins that actually moved the needle.`,
+      `Who you beat is the rating, and ${name}'s ledger is full of real names.`,
+      `The ${elo} Elo is a receipt for the level of opposition ${name} has beaten.`,
     ]);
     used.add('quality');
   } else if (ranked.monthsSinceLastFight >= 14) {
-    headline = pick('i', [
-      `${months} months out of the cage — inactivity has regressed ${name}'s rating toward the pack, which caps the rank.`,
-      `Rust factor: ${name} hasn't competed in ${months} months, and the rating fades toward the mean the longer that runs.`,
-      `${StyleWord} on paper, but ${months} months of inactivity has bled the rating toward the middle.`,
-      sig && `The peak was real — the win over ${sig.name} (${sig.yr}) — but ${months} months out has the rating drifting back to the pack.`,
-      `${months} months since a walk to the cage; the Elo regresses toward the mean while ${name} waits, and the rank follows it down.`,
+    lead = pick('i', [
+      `${months} months out of the cage — inactivity is regressing the rating toward the pack.`,
+      `Rust factor: ${months} months idle, and the Elo fades toward the mean.`,
+      `${months} months since a walk to the cage caps the rank until ${name}'s back.`,
+      `The layoff talks — ${months} months out has the rating drifting to the middle.`,
+      `Out ${months} months; the number slides toward the mean while ${name} waits.`,
     ]);
     used.add('inactive');
   } else {
-    headline = pick('d', [
-      `A ${elo} Elo anchors the rank — earned by who ${name} has beaten, weighted toward recent fights.`,
-      `${name} grades out as ${styleWord}; the ${elo} Elo reflects a steady body of work against the division.`,
-      `No single highlight drives this one — ${name}'s rank is a ${elo} Elo built on consistent, balanced results.`,
-      sig && `${StyleWord}: ${name}'s ${elo} Elo is anchored by the win over ${sig.name} (${sig.yr}), the best scalp on the résumé.`,
-      mover && `${StyleWord} — the ${elo} Elo's biggest single jump came beating ${mover.name} (${mover.yr}), worth +${mover.d} in a night.`,
-      qn1 && `${StyleWord} whose ${elo} Elo is anchored by the win over ${qn1}.`,
-      `${StyleWord} — the ${elo} Elo is the sum of who ${name} has shared the cage with, recent fights weighted highest.`,
-      `${name} reads as ${styleWord} on the tape; the ${elo} Elo is what that style has actually banked against this division.`,
+    lead = pick('d', [
+      `A ${elo} Elo built on a steady, balanced body of work.`,
+      `No single headline here — just a ${elo} Elo earned across the division.`,
+      `Consistent and well-rounded; the ${elo} Elo is the sum of the résumé.`,
+      `A middle-of-the-story rank — a ${elo} Elo from reliable, if quiet, results.`,
+      `The ${elo} Elo reflects who ${name} has shared the cage with, recent fights weighted most.`,
+      `Steady as it goes — the ${elo} Elo doesn't spike, it just holds.`,
     ]);
   }
+
+  // Color clause — identity, independently seeded. Only data-backed lines are
+  // offered; the style lines are always available so there is always a color.
+  const color = pick('col', [
+    `Style-wise, ${styleWord}.`,
+    `They fight like ${styleWord}.`,
+    `On the tape: ${styleWord}.`,
+    `${StyleWord} through and through.`,
+    `Read them as ${styleWord} and you've got the shape of it.`,
+    sig && `The win over ${sig.name} (${sig.yr}) is the signature scalp.`,
+    sig && `${sig.name} (${sig.yr}) headlines who they've beaten.`,
+    sig && `Best name on the sheet: ${sig.name} (${sig.yr}).`,
+    mover && `Biggest single night: +${mover.d} Elo for the ${mover.name} win (${mover.yr}).`,
+    ko >= 45 && `${ko}% of the wins come by knockout.`,
+    ko >= 30 && ko < 45 && `A live KO threat — ${ko}% of wins by stoppage.`,
+    sub >= 30 && `${sub}% of the wins come by submission.`,
+    sub >= 18 && sub < 30 && `The submission game is real — ${sub}% of wins on the mat.`,
+    acc >= 56 && `A ${acc}% significant-strike clip keeps the striking clean.`,
+    finRate >= 65 && `${finRate}% of the wins never reach the judges.`,
+    finRate <= 22 && `A cards fighter — ${finRate}% finish rate, wins on points.`,
+    sosScore >= 63 && `The schedule behind it grades ${sosScore}/100 for difficulty.`,
+  ]);
+  const headline = color ? `${lead} ${color}` : lead;
 
   // ── Supporting bullets (specific, in priority order) ──
   if (!used.has('quality') && qualityWins.length >= 1) {
