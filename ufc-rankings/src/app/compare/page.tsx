@@ -7,6 +7,7 @@ import { shortDivision } from '@/lib/divisions';
 import ComparePicker from '@/components/ComparePicker';
 import ProfileRadar from '@/components/ProfileRadar';
 import FighterAvatar from '@/components/FighterAvatar';
+import ScheduleContextStrip from '@/components/ScheduleContextStrip';
 
 export const revalidate = 86400;
 
@@ -103,6 +104,21 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
           </div>
         ))}
       </div>
+
+      {/* Schedule context — opponent-aware read of each fighter's recent window,
+          so win% and stat edges above can be judged against who they were earned
+          on. Display-only; same component as the profile. */}
+      {(pa.scheduleContext || pb.scheduleContext) && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-2">
+          {[pa, pb].map((p, i) => (
+            <div key={i}>
+              {p.scheduleContext
+                ? <ScheduleContextStrip ctx={p.scheduleContext} name={p.fullName.split(' ').slice(-1)[0]} />
+                : <div className="hidden sm:block" />}
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Stat table */}
       <div className="rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>

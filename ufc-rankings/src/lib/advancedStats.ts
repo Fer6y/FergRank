@@ -31,6 +31,7 @@ export interface FormPoint {
   fightId: string;
   date: string;            // ISO "YYYY-MM-DD"
   result: string;          // W / L / D / NC
+  opponentId: string;
   opponentName: string;
   method: string;
   minutes: number;         // cage time
@@ -88,7 +89,8 @@ export interface AdvancedStats {
   drift: FormDrift | null;
   // Landed:absorbed strike ratio — the margin metric. >1 = out-landing opponents.
   ratioCareer: number | null;
-  ratioLast3: number | null;
+  ratioRecent: number | null;  // over the last RECENT_WINDOW (matches the pace grid)
+  ratioLast3: number | null;   // tighter window used by the macro trend read
   timeline: FormPoint[];       // ascending by date
   rollingLanded: number[];     // rolling-3 mean of landedPer15, aligned to timeline
   durability: Durability;
@@ -279,6 +281,118 @@ export function divisionRatioBenchmark(
     : null;
   perData.set(division, result);
   return result;
+}
+
+// ── Schedule context ─────────────────────────────────────────────────────
+// The raw Last-N pace/drift figures are opponent-BLIND: a jump in strikes
+// absorbed can mean decline OR simply a tougher, higher-volume run of
+// opponents. This layer annotates the same Last-N window the pace grid shows
+// with the context needed to tell those apart:
+//   • opponent Elo, recent window vs career average (was it a step up?)
+//   • opponent style mix (striker / grappler) — explains style-driven swings
+//   • opponent-ADJUSTED absorption: how much the fighter absorbed relative to
+//     how much those specific opponents typically land on everyone else.
+// All display-only, all derived from data the app already computes.
+
+export type OpponentStyle = 'striker' | 'grappler' | 'balanced' | 'unknown';
+
+export interface WindowFight {
+  fightId: string;
+  date: string;
+  result: string;
+  opponentName: string;
+  opponentElo: number | null;   // rating at fight time (trace); null if unrated
+  style: OpponentStyle;
+  absorbedPer15: number;        // what the fighter absorbed in THIS fight
+  oppLandsPer15: number | null; // opponent's career output — the "expected" bar
+}
+
+export interface ScheduleContext {
+  windowSize: number;              // number of fights in the annotated window
+  oppEloRecent: number | null;     // mean opponent Elo over the window
+  oppEloCareer: number | null;     // mean opponent Elo over the whole career
+  oppEloStep: number | null;       // recent − career (+ = stepped up)
+  styleMix: { striker: number; grappler: number; balanced: number; unknown: number };
+  absorbedRecentPer15: number;     // fighter's absorbed/15 over the window
+  oppExpectedLandedPer15: number | null; // mean of the window opponents' output
+  // absorbedRecent ÷ oppExpected. <1 = better defence than these opponents'
+  // norm; >1 = getting hit more than they usually land on others.
+  absorbedVsExpected: number | null;
+  fights: WindowFight[];           // per-fight rows for the detail popup
+}
+
+// Opponent archetype from their own career pace profile. Deliberately simple
+// and absolute — a heuristic label for reading a schedule at a glance, not a
+// scoring input. Grappling load (takedowns + control) is checked first because
+// it's the rarer, more decisive signal.
+function classifyStyle(w: PaceWindow | null): OpponentStyle {
+  if (!w || w.fights < 2) return 'unknown';
+  const grapplingHeavy = w.tdPer15 >= 1.5 || w.ctrlSharePct >= 18;
+  const strikingHeavy = w.landedPer15 >= 55 && w.tdPer15 < 1.2;
+  if (grapplingHeavy && !strikingHeavy) return 'grappler';
+  if (strikingHeavy && !grapplingHeavy) return 'striker';
+  return 'balanced';
+}
+
+const mean = (xs: number[]) => (xs.length ? xs.reduce((s, x) => s + x, 0) / xs.length : null);
+
+export function buildScheduleContext(
+  data: LoadedData,
+  advanced: AdvancedStats,
+  history: FightTrace[],
+): ScheduleContext | null {
+  const recent = advanced.recent;
+  if (!recent) return null;
+
+  const traceByFight = new Map(history.map((h) => [h.fightId, h]));
+  const windowPoints = advanced.timeline.slice(-recent.fights);
+
+  const careerElos = history.map((h) => h.opponentRating).filter((r) => r > 0);
+  const recentElos: number[] = [];
+  const oppOutputs: number[] = [];
+  const styleMix = { striker: 0, grappler: 0, balanced: 0, unknown: 0 };
+
+  const fights: WindowFight[] = windowPoints.map((p) => {
+    const tr = traceByFight.get(p.fightId);
+    const oppElo = tr && tr.opponentRating > 0 ? Math.round(tr.opponentRating) : null;
+    if (oppElo != null) recentElos.push(oppElo);
+    const oppStats = getAdvancedStats(data, p.opponentId);
+    const style = classifyStyle(oppStats?.career ?? null);
+    styleMix[style]++;
+    const oppLands = oppStats && oppStats.career.landedPer15 > 0 ? oppStats.career.landedPer15 : null;
+    if (oppLands != null) oppOutputs.push(oppLands);
+    return {
+      fightId: p.fightId,
+      date: p.date,
+      result: p.result,
+      opponentName: p.opponentName,
+      opponentElo: oppElo,
+      style,
+      absorbedPer15: p.absorbedPer15,
+      oppLandsPer15: oppLands != null ? Math.round(oppLands * 10) / 10 : null,
+    };
+  });
+
+  const oppEloRecent = mean(recentElos);
+  const oppEloCareer = mean(careerElos);
+  const oppExpected = mean(oppOutputs);
+  const r1 = (n: number) => Math.round(n * 10) / 10;
+
+  return {
+    windowSize: recent.fights,
+    oppEloRecent: oppEloRecent != null ? Math.round(oppEloRecent) : null,
+    oppEloCareer: oppEloCareer != null ? Math.round(oppEloCareer) : null,
+    oppEloStep:
+      oppEloRecent != null && oppEloCareer != null ? Math.round(oppEloRecent - oppEloCareer) : null,
+    styleMix,
+    absorbedRecentPer15: recent.absorbedPer15,
+    oppExpectedLandedPer15: oppExpected != null ? r1(oppExpected) : null,
+    absorbedVsExpected:
+      oppExpected != null && oppExpected > 0
+        ? Math.round((recent.absorbedPer15 / oppExpected) * 100) / 100
+        : null,
+    fights,
+  };
 }
 
 // ── The Gauntlet ───────────────────────────────────────────────────────────
@@ -566,6 +680,7 @@ function computeAdvancedStats(data: LoadedData, fighterId: string): AdvancedStat
     fightId: fight.fightId,
     date: fight.eventDate!.toISOString().slice(0, 10),
     result: side.result || '—',
+    opponentId: fight.fighterId1 === fighterId ? fight.fighterId2 : fight.fighterId1,
     opponentName: side.opponentName,
     method: fight.method,
     minutes: Math.round(minutes * 10) / 10,
@@ -613,6 +728,7 @@ function computeAdvancedStats(data: LoadedData, fighterId: string): AdvancedStat
     last3,
     drift,
     ratioCareer: ratioOf(career),
+    ratioRecent: ratioOf(recent),
     ratioLast3: ratioOf(last3),
     timeline,
     rollingLanded,

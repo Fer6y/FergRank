@@ -1,5 +1,6 @@
-import type { AdvancedStats, TrendInsight, RatioBenchmark, Gauntlet as GauntletData } from '@/lib/advancedStats';
+import type { AdvancedStats, TrendInsight, RatioBenchmark, ScheduleContext, Gauntlet as GauntletData } from '@/lib/advancedStats';
 import Gauntlet from './Gauntlet';
+import ScheduleContextStrip from './ScheduleContextStrip';
 
 // Unified advanced-analytics section for the fighter profile: the cautious
 // macro TREND READ leads, then the form timeline, the landed:absorbed ratio
@@ -21,11 +22,13 @@ export default function AdvancedAnalyticsSection({
   advanced,
   trendRead,
   benchmark,
+  scheduleContext,
   gauntlet,
 }: {
   advanced: AdvancedStats;
   trendRead: TrendInsight[];
   benchmark: RatioBenchmark | null;
+  scheduleContext: ScheduleContext | null;
   gauntlet: GauntletData | null;
 }) {
   const { career, recent, drift } = advanced;
@@ -84,6 +87,7 @@ export default function AdvancedAnalyticsSection({
         {/* Pace table + finish anatomy */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 pt-4" style={{ borderTop: '1px solid var(--border)' }}>
           <div className="lg:col-span-3">
+            {scheduleContext && <ScheduleContextStrip ctx={scheduleContext} />}
             <div className="grid grid-cols-[1fr_56px_56px_64px] gap-2 text-[10px] tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>
               <span>PACE</span>
               <span className="text-right">CAREER</span>
@@ -105,6 +109,8 @@ export default function AdvancedAnalyticsSection({
               <span className="inline-block w-1.5 h-1.5 rounded-full mr-1 align-middle" style={{ backgroundColor: 'var(--accent-red)' }} />
               = signal behind the bounded ±30 metrics bonus. Computed from {advanced.sampleFights} charted
               fights ({advanced.totalMinutes} min). Drift arrows point toward better (green) or worse (red) for the fighter.
+              Drift is <em>raw</em> — it doesn’t adjust for who the recent opponents were; the SCHEDULE strip
+              above (and its details popup) is the opponent-adjusted read.
             </p>
           </div>
 
@@ -126,9 +132,10 @@ export default function AdvancedAnalyticsSection({
 
 // Landed:absorbed ratio, fighter vs their last 3 vs the division's ranked pool.
 function RatioPanel({ advanced, benchmark }: { advanced: AdvancedStats; benchmark: RatioBenchmark | null }) {
+  const recentN = advanced.recent?.fights ?? 5;
   const rows: { label: string; value: number | null; color: string }[] = [
     { label: 'Career', value: advanced.ratioCareer, color: 'var(--accent-red-light)' },
-    { label: 'Last 3', value: advanced.ratioLast3, color: 'var(--accent-red)' },
+    { label: `Last ${recentN}`, value: advanced.ratioRecent, color: 'var(--accent-red)' },
     { label: 'Div. ranked median', value: benchmark?.ratio ?? null, color: 'var(--text-muted)' },
   ];
   const present = rows.filter((r) => r.value != null) as { label: string; value: number; color: string }[];

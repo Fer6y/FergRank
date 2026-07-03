@@ -12,7 +12,7 @@
 import { getData } from './dataCache';
 import { generateDivisionRankings } from './scoringEngine';
 import { buildEloRatings, getElo, getFighterHistory, winProbability } from './eloEngine';
-import { getAdvancedStats, formEloNudge } from './advancedStats';
+import { getAdvancedStats, buildScheduleContext, formEloNudge, type ScheduleContext } from './advancedStats';
 import { describeStyle } from './fighterDisplay';
 import { getFighterMedia } from './fighterMedia';
 import { getFighterAge } from './fighterAges';
@@ -41,6 +41,9 @@ export interface CardFighter {
   finishRate: number | null;         // 0–1 (KO + SUB rate)
   scheduleStrength: number | null;   // 0–100, opponent quality × activity dampener
   scheduleQuality: number | null;    // 0–100, pure opponent quality (tooltip reference)
+  // Opponent-aware read of the last-5 window (opp Elo step, style mix,
+  // absorbed-vs-schedule) — display-only, powers the main-event context strip.
+  scheduleContext: ScheduleContext | null;
 }
 
 export interface CardBout {
@@ -122,6 +125,7 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
         fighterId: null, name, flag: null, avatarUrl: null,
         rankLabel: null, isChampion: false, age: null, description: null, recentFights: [],
         reach: null, finishRate: null, scheduleStrength: null, scheduleQuality: null,
+        scheduleContext: null,
       };
     }
 
@@ -129,6 +133,8 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     const info = rankMap.get(id);
     const fighter = data.fighterMap.get(id);
     const history = getFighterHistory(data, id);
+    const advanced = getAdvancedStats(data, id);
+    const scheduleContext = advanced ? buildScheduleContext(data, advanced, history) : null;
 
     // Rank badge.
     let rankLabel: string | null = null;
@@ -179,6 +185,7 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
       finishRate,
       scheduleStrength: info?.scheduleStrength ?? null,
       scheduleQuality: info?.scheduleQuality ?? null,
+      scheduleContext,
     };
   };
 

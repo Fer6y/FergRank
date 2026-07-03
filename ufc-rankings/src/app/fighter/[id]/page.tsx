@@ -269,6 +269,7 @@ export default async function FighterPage({
           advanced={p.advanced}
           trendRead={p.trendRead}
           benchmark={p.divisionBenchmark}
+          scheduleContext={p.scheduleContext}
           gauntlet={p.gauntlet}
         />
       )}

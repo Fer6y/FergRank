@@ -9,11 +9,13 @@ import {
   getAdvancedStats,
   buildTrendRead,
   buildGauntlet,
+  buildScheduleContext,
   divisionRatioBenchmark,
   type AdvancedStats,
   type TrendInsight,
   type RatioBenchmark,
   type Gauntlet,
+  type ScheduleContext,
 } from './advancedStats';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
@@ -82,6 +84,10 @@ export interface FighterProfile {
   trendRead: TrendInsight[];
   // Median ratio among this division's ranked fighters — the peer yardstick.
   divisionBenchmark: RatioBenchmark | null;
+  // Opponent-quality / style / adjusted-absorption context for the Last-N pace
+  // window — makes the raw drift numbers readable. Display-only. Null if no
+  // recent window (fewer than 3 charted fights).
+  scheduleContext: ScheduleContext | null;
   // Career-story chart data: every fight at the opponent's Elo + own trajectory
   // + overperformance. Derived from the Elo trace; display-only. Null if <2
   // fights against rated opponents.
@@ -168,6 +174,7 @@ export async function getFighterProfile(
   const divisionBenchmark = division && rankedIds.length
     ? divisionRatioBenchmark(data, division, rankedIds)
     : null;
+  const scheduleContext = advanced ? buildScheduleContext(data, advanced, history) : null;
 
   const radar = computeRadarAxes(data, fighterId, null, {
     sos,
@@ -215,6 +222,7 @@ export async function getFighterProfile(
     advanced,
     trendRead,
     divisionBenchmark,
+    scheduleContext,
     gauntlet: buildGauntlet(history, fighter.fullName),
   };
 }

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import FighterAvatar from '@/components/FighterAvatar';
 import { useAnalyst } from '@/components/AnalystContext';
 import FormPips, { resultColor } from '@/components/FormPips';
+import ScheduleContextStrip from '@/components/ScheduleContextStrip';
 import type { UpcomingEvent, CardFighter, CardBout } from '@/lib/upcomingEnrich';
 
 function formatDate(iso: string): string {
@@ -298,6 +299,30 @@ function MainEventBout({ bout }: { bout: CardBout }) {
         <MainSide f={bout.fighter2} align="right" />
       </div>
       <ProbabilitySpine bout={bout} />
+      <ScheduleContextBand bout={bout} />
+    </div>
+  );
+}
+
+// Opponent-aware schedule read for both corners of the main event — the same
+// component the profile uses, so the "was the recent run a step up, and how did
+// their defence hold against that level?" question is answered identically
+// everywhere. Only renders when at least one corner has a recent window.
+function ScheduleContextBand({ bout }: { bout: CardBout }) {
+  const c1 = bout.fighter1.scheduleContext;
+  const c2 = bout.fighter2.scheduleContext;
+  if (!c1 && !c2) return null;
+  return (
+    <div
+      className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 px-4 py-3 border-t"
+      style={{ borderColor: 'var(--border)' }}
+    >
+      {c1
+        ? <ScheduleContextStrip ctx={c1} name={lastName(bout.fighter1.name)} />
+        : <div className="hidden sm:block" />}
+      {c2
+        ? <ScheduleContextStrip ctx={c2} name={lastName(bout.fighter2.name)} />
+        : <div className="hidden sm:block" />}
     </div>
   );
 }
