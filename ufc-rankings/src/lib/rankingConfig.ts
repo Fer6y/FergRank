@@ -123,6 +123,37 @@ export const RANKING_CONFIG = {
     winProbShadeFloor: 0.25,   // a debut fighter (0 UFC bouts) still keeps 25% of the raw edge
   },
 
+  // ═══ ENHANCED WIN-PROBABILITY MODEL (display only, src/lib/fightPrediction.ts) ═══
+  // Layers AGE + STYLE-MATCHUP nudges on the Elo logit so the shown win% reads
+  // like an analyst's ("who wins THIS fight?") not just a rating gap. NEVER feeds
+  // Elo/rankings and NEVER reads odds. Coefficients are in LOGIT units and were
+  // fit walk-forward on established BFO-priced bouts (research/backtest/
+  // edgeExperiment.ts) — re-run it and re-read the raw coefficients if the rating
+  // spread or feature set changes. Edges are fav-perspective per-15 differentials.
+  // Coefficients FIT walk-forward with the Elo logit held at 1 (offset), OOS-
+  // validated: adding these lifts established-fight accuracy 57.5%→60.4% and
+  // Brier 0.243→0.237 vs pure Elo. Age is the strongest signal Elo lacks; the
+  // striking differential is the main STYLE signal; grappling is near-zero here
+  // (already priced into Elo among established fighters) and knockdown power fit
+  // NEGATIVE/noisy, so it is disabled (0). Re-fit via edgeExperiment.ts.
+  winProbModel: {
+    enabled: true,
+    ageEdgeCoef: 0.080,       // per YEAR the fighter is younger than the opponent (Elo has no aging curve)
+    grapplingEdgeCoef: 0.001, // NET grappling dominance (td + CONTROL differential) — refit ~0: already priced into Elo
+    strikingEdgeCoef: 0.011,  // per unit of striking edge (net landed−absorbed differential)
+    powerEdgeCoef: 0,         // knockdown-power edge — fit noisy/negative, disabled
+    // Per-BOUT context flags (data/bout_flags.csv). These are NOT in any career
+    // stat — they describe a specific booking, so they apply to scheduled/actual
+    // bouts (upcoming + backtest), never a hypothetical compare. DOMAIN PRIORS,
+    // not fitted (we have no historical flag data to fit on): bounded, negative,
+    // and conservative. Applied to the flagged fighter; re-tune if a labelled
+    // dataset is ever built. In logit units on the flagged fighter.
+    shortNoticeLogit: -0.30,  // stepped in on short notice (<~3 weeks) — less camp, ≈ −7% near 50/50
+    missedWeightLogit: -0.15, // missed weight — modest NET penalty (drained tends to outweigh the size edge)
+    maxAdjustmentLogit: 1.1,  // cap on |age+style+flags| so no context read flips a clear Elo favourite outright
+    minStyleFights: 3,        // need this many metric'd fights each side before style applies
+  },
+
   // ═══ RECENCY WINDOWS (for metrics & strength-of-schedule, NOT the Elo core) ═══
   recencyHalfLifeMonths: 15,    // 50% at 15mo, 25% at 30mo — used to weight metric/SoS samples
   recencyCutoffMonths: 48,      // Fights older than this are ignored entirely for metrics/SoS/eligibility

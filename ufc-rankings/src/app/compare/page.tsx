@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { winProbabilityShaded } from '@/lib/eloEngine';
-import { classifyStyle, formEloNudge, type PaceWindow, type ScheduleContext } from '@/lib/advancedStats';
+import { predictMatchup } from '@/lib/fightPrediction';
+import { classifyStyle, type PaceWindow, type ScheduleContext } from '@/lib/advancedStats';
 import { computeCompareEdges, type CategoryEdge, type EdgeLeader } from '@/lib/compareEdges';
 import { getFighterProfile, type FighterProfile } from '@/lib/fighterProfile';
 import { shortDivision } from '@/lib/divisions';
@@ -99,12 +100,12 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
   const prospectAny = provA || provB;
   const prospectNames = [provA ? pa.fullName : null, provB ? pb.fullName : null].filter(Boolean).join(' & ');
 
-  const nudgeA = formEloNudge(pa.advanced?.drift);
-  const nudgeB = formEloNudge(pb.advanced?.drift);
-  const haveForm = haveElo && (nudgeA !== 0 || nudgeB !== 0);
 
-  const winA = haveElo ? winProbabilityShaded(pa.eloRating, pb.eloRating, pa.fightCount, pb.fightCount) : null;
-  const winB = haveElo ? winProbabilityShaded(pb.eloRating, pa.eloRating, pb.fightCount, pa.fightCount) : null;
+  // Enhanced prediction: Elo + age + style-matchup (fightPrediction.ts). Falls
+  // back to the shaded pure-Elo number if a profile is missing.
+  const pred = haveElo ? predictMatchup(pa.fighterId, pb.fighterId) : null;
+  const winA = pred ? pred.probA : (haveElo ? winProbabilityShaded(pa.eloRating, pb.eloRating, pa.fightCount, pb.fightCount) : null);
+  const winB = winA != null ? 1 - winA : null;
 
   const fa = formWindow(pa);
   const fb = formWindow(pb);
@@ -218,17 +219,38 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
               {pctFmt(winB)}
             </div>
           </div>
-          {haveForm && (
-            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1.5 text-[10px]">
-              <div className="text-right font-mono" style={{ color: 'var(--text-secondary)' }}>
-                {pctFmt(winProbabilityShaded(pa.eloRating + nudgeA, pb.eloRating + nudgeB, pa.fightCount, pb.fightCount))}
+          {pred && (() => {
+            const eloA = pred.eloProbA;
+            const shiftPts = ((winA ?? eloA) - eloA) * 100; // pts age+style moved A's prob
+            const grapEdge = pred.style?.grapplingEdge ?? 0;
+            const strEdge = pred.style?.strikingEdge ?? 0;
+            const ageYrs = Math.round(pred.ageEdgeYears);
+            const chip = (label: string, favA: boolean, show: boolean) => show ? (
+              <span className="text-[9px] uppercase tracking-wide px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text-secondary)' }}>
+                {label} <span style={{ color: 'var(--accent-green)' }}>{favA ? lnA : lnB}</span>
+              </span>
+            ) : null;
+            return (
+              <div className="mt-2 pt-2" style={{ borderTop: '1px solid var(--border-light)' }}>
+                <div className="flex items-center justify-between text-[9px] mb-1.5" style={{ color: 'var(--text-muted)' }}>
+                  <span>ELO ALONE {pctFmt(eloA)} / {pctFmt(1 - eloA)}</span>
+                  {Math.abs(shiftPts) >= 0.5 && (
+                    <span>AGE + STYLE {shiftPts >= 0 ? '+' : '−'}{Math.abs(shiftPts).toFixed(0)}% {shiftPts >= 0 ? lnA : lnB}</span>
+                  )}
+                </div>
+                <div className="flex flex-wrap items-center gap-1.5 justify-center">
+                  {pred.style && (
+                    <span className="text-[9px] uppercase tracking-wide px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--bg-elevated)', color: 'var(--text-muted)' }}>
+                      {pred.style.clash.replace(/-/g, ' ')}
+                    </span>
+                  )}
+                  {chip('grappling', grapEdge >= 0, Math.abs(grapEdge) >= 1.5)}
+                  {chip('striking', strEdge >= 0, Math.abs(strEdge) >= 8)}
+                  {chip(`younger ${Math.abs(ageYrs)}y`, ageYrs > 0, Math.abs(ageYrs) >= 2)}
+                </div>
               </div>
-              <div className="uppercase tracking-wide text-center" style={{ color: 'var(--text-muted)' }}>form-adj</div>
-              <div className="text-left font-mono" style={{ color: 'var(--text-secondary)' }}>
-                {pctFmt(winProbabilityShaded(pb.eloRating + nudgeB, pa.eloRating + nudgeA, pb.fightCount, pa.fightCount))}
-              </div>
-            </div>
-          )}
+            );
+          })()}
         </div>
       )}
 
@@ -236,7 +258,7 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
         {formLabel === 'CAREER'
           ? 'Striking & grappling shown over each fighter’s career (too few charted fights for a 3-fight form window).'
           : 'Striking & grappling shown over each fighter’s last 3 charted fights (current form). Output/Defence vs schedule adjust that form for who they faced — the strength-of-schedule modifier.'}
-        {' '}Green = the better side of a stat; absorbed strikes and conceded takedowns count lower-is-better. Display-only — the win probability is the validated pure-Elo number.
+        {' '}Green = the better side of a stat; absorbed strikes and conceded takedowns count lower-is-better. Display-only — the win probability is Elo adjusted for age and the style matchup (never odds).
       </p>
 
       {/* ── Scouting report — the whole comparison in one glance ── */}

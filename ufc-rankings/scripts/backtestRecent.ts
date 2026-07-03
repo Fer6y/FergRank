@@ -116,17 +116,24 @@ function main() {
     }
   }
 
+  // Optional established-only filter: keep fights where BOTH corners had MORE than
+  // MINPRIOR prior UFC fights going in (MINPRIOR=5 → both >5). Restricts every
+  // downstream stat (per-card, overall, calibration, misses). Set via env.
+  const MINPRIOR = process.env.MINPRIOR != null ? Number(process.env.MINPRIOR) : -1;
+  const analyzed = MINPRIOR >= 0 ? all.filter((r) => r.minPrior > MINPRIOR) : all;
+
   // Per-card summary
+  if (MINPRIOR >= 0) console.log(`[FILTER] both corners > ${MINPRIOR} prior UFC fights — ${analyzed.length}/${all.length} fights qualify\n`);
   console.log('LAST', N_CARDS, 'UFC CARDS — pre-fight win% backtest (point-in-time Elo, production formula)\n');
   console.log('DATE        HIT/TOT  ACC   BRIER  EVENT');
   for (const [name, { date }] of lastCards) {
-    const rs = all.filter((r) => r.event === name && r.winnerPct != null);
+    const rs = analyzed.filter((r) => r.event === name && r.winnerPct != null);
     const hit = rs.filter((r) => r.favIsWinner).length;
     const brier = rs.reduce((s, r) => s + Math.pow(1 - (r.winnerPct as number), 2), 0) / (rs.length || 1);
     console.log(`${date}  ${String(hit).padStart(2)}/${String(rs.length).padStart(2)}   ${(100 * hit / (rs.length || 1)).toFixed(0).padStart(3)}%  ${brier.toFixed(3)}  ${name}`);
   }
 
-  const rated = all.filter((r) => r.winnerPct != null);
+  const rated = analyzed.filter((r) => r.winnerPct != null);
   const hit = rated.filter((r) => r.favIsWinner).length;
   const brier = rated.reduce((s, r) => s + Math.pow(1 - (r.winnerPct as number), 2), 0) / (rated.length || 1);
   console.log(`\nOVERALL: favorite won ${hit}/${rated.length} (${(100 * hit / rated.length).toFixed(1)}%)  |  Brier ${brier.toFixed(3)}  |  coin-flip baseline 0.250`);
@@ -170,7 +177,7 @@ function main() {
     console.log(`  ${r.date}  model favored ${r.loser} @ ${(100 * (r.favPct as number)).toFixed(0)}%  — ${r.winner} won (${r.method}, ${r.wc})`);
   }
 
-  console.log(`\nUnrated fights (thin/unresolved, excluded from stats): ${all.length - rated.length}`);
+  console.log(`\nUnrated fights (thin/unresolved, excluded from stats): ${analyzed.length - rated.length}`);
 }
 
 main();

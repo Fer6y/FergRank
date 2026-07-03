@@ -12,6 +12,8 @@
 import { getData } from './dataCache';
 import { generateDivisionRankings } from './scoringEngine';
 import { buildEloRatings, getElo, getFighterHistory, winProbabilityShaded } from './eloEngine';
+import { predictFight } from './fightPrediction';
+import { getBoutFlags, hasAnyFlags, type BoutFlagSet } from './boutFlags';
 import { getAdvancedStats, buildScheduleContext, formEloNudge, type ScheduleContext } from './advancedStats';
 import { describeStyle } from './fighterDisplay';
 import { getFighterMedia } from './fighterMedia';
@@ -58,6 +60,9 @@ export interface CardBout {
   // missing from our data.
   prob1: number | null;
   formProb1: number | null;
+  // Per-bout context flags (data/bout_flags.csv), null when the fighter is clean.
+  flags1: BoutFlagSet | null;
+  flags2: BoutFlagSet | null;
 }
 
 export interface UpcomingEvent {
@@ -190,9 +195,9 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
   };
 
   const ratings = buildEloRatings(data);
-  const probs = (id1: string | null, id2: string | null) => {
+  const probs = (id1: string | null, id2: string | null, eventDate: string) => {
     if (!id1 || !id2 || !data.fighterMap.has(id1) || !data.fighterMap.has(id2)) {
-      return { prob1: null, formProb1: null };
+      return { prob1: null, formProb1: null, flags1: null, flags2: null };
     }
     const eloA = getElo(ratings, id1).rating;
     const eloB = getElo(ratings, id2).rating;
@@ -200,9 +205,15 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     const fightsB = data.fighterFights.get(id2)?.length ?? 0;
     const nudgeA = formEloNudge(getAdvancedStats(data, id1)?.drift);
     const nudgeB = formEloNudge(getAdvancedStats(data, id2)?.drift);
+    // Per-bout context flags for THIS scheduled bout (short notice / missed weight).
+    const f1 = getBoutFlags(id1, eventDate);
+    const f2 = getBoutFlags(id2, eventDate);
     return {
-      prob1: winProbabilityShaded(eloA, eloB, fightsA, fightsB),
+      // Enhanced prediction: Elo + age + style-matchup + context flags (fightPrediction.ts).
+      prob1: predictFight(data, id1, id2, eloA, eloB, fightsA, fightsB, undefined, f1, f2).probA,
       formProb1: nudgeA !== 0 || nudgeB !== 0 ? winProbabilityShaded(eloA + nudgeA, eloB + nudgeB, fightsA, fightsB) : null,
+      flags1: hasAnyFlags(f1) ? f1 : null,
+      flags2: hasAnyFlags(f2) ? f2 : null,
     };
   };
 
@@ -216,7 +227,7 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
       weightClass: b.weightClass,
       fighter1: enrich(b.fighter1Id, b.fighter1Name),
       fighter2: enrich(b.fighter2Id, b.fighter2Name),
-      ...probs(b.fighter1Id, b.fighter2Id),
+      ...probs(b.fighter1Id, b.fighter2Id, card.eventDate),
     })),
   }));
 }

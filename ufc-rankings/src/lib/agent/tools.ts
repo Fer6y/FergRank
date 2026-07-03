@@ -18,6 +18,7 @@ import { enrichCards, type CardFighter } from '../upcomingEnrich';
 import { getFighterProfile } from '../fighterProfile';
 import { getAdvancedStats, formEloNudge, type PaceWindow } from '../advancedStats';
 import { buildEloRatings, getElo, winProbabilityShaded } from '../eloEngine';
+import { predictFight } from '../fightPrediction';
 import { searchFighters } from '../searchFighters';
 import { getReach } from '../fighterPhysical';
 import { getFighterAge } from '../fighterAges';
@@ -346,10 +347,20 @@ async function compareFighters(idA: string, idB: string): Promise<unknown> {
   const b = { ...side(fB, idB, eloB, advB), formEloNudge: r(nudgeB, 1) };
 
   const hasForm = nudgeA !== 0 || nudgeB !== 0;
+  const pred = predictFight(data, idA, idB, eloA, eloB, fightsA, fightsB);
   return {
-    // Validated pure-Elo probability, shaded toward 50% when a corner's UFC
-    // sample is thin (provisional-uncertainty) — the headline number.
-    winProbAPct: pct(winProbabilityShaded(eloA, eloB, fightsA, fightsB)),
+    // Enhanced prediction: Elo + age + style-matchup, thin-sample shaded.
+    winProbAPct: pct(pred.probA),
+    eloOnlyWinProbAPct: pct(pred.eloProbA), // the pure rating gap, before age/style
+    // The style read behind the number, so you can explain the pick from the tape
+    // (grounded in our fight data — never odds). Edges are A-perspective: + favours A.
+    matchup: pred.style ? {
+      clash: pred.style.clash,                       // e.g. "grappler-vs-striker"
+      summary: pred.style.summary,
+      ageEdgeYearsA: r(pred.ageEdgeYears, 1),        // + = A is younger
+      grapplingEdgeA: r(pred.style.grapplingEdge, 1),
+      strikingEdgeA: r(pred.style.strikingEdge, 1),
+    } : null,
     // Experimental: each side's Elo shaded by bounded (±45) recent-form drift.
     formAdjWinProbAPct: hasForm ? pct(winProbabilityShaded(eloA + nudgeA, eloB + nudgeB, fightsA, fightsB)) : null,
     fighterA: a,

@@ -7,6 +7,30 @@ import { useAnalyst } from '@/components/AnalystContext';
 import FormPips, { resultColor } from '@/components/FormPips';
 import ScheduleContextStrip from '@/components/ScheduleContextStrip';
 import type { UpcomingEvent, CardFighter, CardBout } from '@/lib/upcomingEnrich';
+import type { BoutFlagSet } from '@/lib/boutFlags';
+
+// Per-bout context flags (short notice / missed weight) → small red chips.
+function FlagBadge({ flags, right }: { flags: BoutFlagSet | null | undefined; right?: boolean }) {
+  if (!flags) return null;
+  const items = [
+    flags.shortNotice ? 'SHORT NOTICE' : null,
+    flags.missedWeight ? 'MISSED WEIGHT' : null,
+  ].filter(Boolean) as string[];
+  if (!items.length) return null;
+  return (
+    <div className={`flex flex-wrap gap-1 mt-1 ${right ? 'sm:justify-end' : ''}`}>
+      {items.map((t) => (
+        <span
+          key={t}
+          className="text-[8px] uppercase tracking-wide px-1.5 py-0.5 rounded font-semibold"
+          style={{ backgroundColor: 'var(--bg-elevated)', color: 'var(--accent-red)' }}
+        >
+          ⚠ {t}
+        </span>
+      ))}
+    </div>
+  );
+}
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -55,7 +79,7 @@ function RankChip({ f, compact = false }: { f: CardFighter; compact?: boolean })
   );
 }
 
-function MainSide({ f, align }: { f: CardFighter; align: 'left' | 'right' }) {
+function MainSide({ f, align, flags }: { f: CardFighter; align: 'left' | 'right'; flags?: BoutFlagSet | null }) {
   const right = align === 'right';
   const name = (
     <span
@@ -96,6 +120,7 @@ function MainSide({ f, align }: { f: CardFighter; align: 'left' | 'right' }) {
               </span>
             )}
           </div>
+          <FlagBadge flags={flags} right={right} />
         </div>
       </div>
 
@@ -294,9 +319,9 @@ function MainEventBout({ bout }: { bout: CardBout }) {
         </span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_200px_minmax(0,1fr)] items-start">
-        <MainSide f={bout.fighter1} align="left" />
+        <MainSide f={bout.fighter1} align="left" flags={bout.flags1} />
         <TaleOfTape bout={bout} />
-        <MainSide f={bout.fighter2} align="right" />
+        <MainSide f={bout.fighter2} align="right" flags={bout.flags2} />
       </div>
       <ProbabilitySpine bout={bout} />
       <ScheduleContextBand bout={bout} />
@@ -327,7 +352,7 @@ function ScheduleContextBand({ bout }: { bout: CardBout }) {
   );
 }
 
-function DenseSide({ f, align }: { f: CardFighter; align: 'left' | 'right' }) {
+function DenseSide({ f, align, flags }: { f: CardFighter; align: 'left' | 'right'; flags?: BoutFlagSet | null }) {
   const right = align === 'right';
   const name = (
     <span className="block truncate font-display text-sm uppercase" style={{ color: 'var(--text-primary)' }}>
@@ -335,16 +360,19 @@ function DenseSide({ f, align }: { f: CardFighter; align: 'left' | 'right' }) {
     </span>
   );
   return (
-    <div className={`flex items-center gap-2 min-w-0 ${right ? 'sm:flex-row-reverse' : ''}`}>
-      {f.fighterId ? (
-        <Link href={`/fighter/${f.fighterId}`} className="hover:underline min-w-0">
-          {name}
-        </Link>
-      ) : (
-        <span className="min-w-0">{name}</span>
-      )}
-      <RankChip f={f} compact />
-      <FormPips fights={f.recentFights} compact />
+    <div className={`min-w-0 ${right ? 'sm:text-right' : ''}`}>
+      <div className={`flex items-center gap-2 min-w-0 ${right ? 'sm:flex-row-reverse' : ''}`}>
+        {f.fighterId ? (
+          <Link href={`/fighter/${f.fighterId}`} className="hover:underline min-w-0">
+            {name}
+          </Link>
+        ) : (
+          <span className="min-w-0">{name}</span>
+        )}
+        <RankChip f={f} compact />
+        <FormPips fights={f.recentFights} compact />
+      </div>
+      <FlagBadge flags={flags} right={right} />
     </div>
   );
 }
@@ -382,7 +410,7 @@ function DenseBout({ bout }: { bout: CardBout }) {
         Bout {bout.boutOrder} · {bout.weightClass}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)] items-center gap-x-3 gap-y-1.5">
-        <DenseSide f={bout.fighter1} align="left" />
+        <DenseSide f={bout.fighter1} align="left" flags={bout.flags1} />
         <div>
           {href ? (
             <Link
@@ -396,7 +424,7 @@ function DenseBout({ bout }: { bout: CardBout }) {
             pill
           )}
         </div>
-        <DenseSide f={bout.fighter2} align="right" />
+        <DenseSide f={bout.fighter2} align="right" flags={bout.flags2} />
       </div>
     </div>
   );

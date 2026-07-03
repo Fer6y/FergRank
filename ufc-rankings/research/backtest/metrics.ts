@@ -123,7 +123,7 @@ function solveLinear(A: number[][], b: number[]): number[] {
 // Fit logistic regression by IRLS. X is n×k (no intercept column — added here).
 // Returns weights of length k+1, intercept first. Small ridge keeps it stable
 // under separation. Reusable for the walk-forward blend in Phase 2.
-export function fitLogistic(X: number[][], y: number[], iters = 30, ridge = 1e-6): number[] {
+export function fitLogistic(X: number[][], y: number[], iters = 30, ridge = 1e-6, offset?: number[]): number[] {
   const n = X.length;
   const k = X[0]?.length ?? 0;
   const Z = X.map((row) => [1, ...row]); // design matrix with intercept
@@ -133,10 +133,11 @@ export function fitLogistic(X: number[][], y: number[], iters = 30, ridge = 1e-6
     const H = Array.from({ length: k + 1 }, () => new Array(k + 1).fill(0));
     const g = new Array(k + 1).fill(0);
     for (let i = 0; i < n; i++) {
-      const eta = Z[i].reduce((s, v, j) => s + v * w[j], 0);
+      const off = offset ? offset[i] : 0;
+      const eta = Z[i].reduce((s, v, j) => s + v * w[j], 0) + off;
       const mu = sigmoid(eta);
       const wgt = Math.max(mu * (1 - mu), 1e-9);
-      const zwork = eta + (y[i] - mu) / wgt;
+      const zwork = eta + (y[i] - mu) / wgt - off; // working response for the linear part (offset removed)
       for (let a = 0; a <= k; a++) {
         g[a] += Z[i][a] * wgt * zwork;
         for (let b = 0; b <= k; b++) H[a][b] += Z[i][a] * wgt * Z[i][b];
