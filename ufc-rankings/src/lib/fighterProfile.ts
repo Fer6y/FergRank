@@ -2,6 +2,7 @@ import { getData } from './dataCache';
 import { generateDivisionRankings } from './scoringEngine';
 import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, type FightTrace } from './eloEngine';
 import { computeRadarAxes } from './fighterRadar';
+import { grappleGradient, type GrappleGradient } from './grappleGradient';
 import { getFighterMedia } from './fighterMedia';
 import { getNextFight, type NextFight } from './loadUpcoming';
 import { getFighterAge } from './fighterAges';
@@ -75,6 +76,10 @@ export interface FighterProfile {
     activity: number;
     oppQuality: number;
   };
+  // Grappling proficiency on the grey→blue ramp, ranked against the fighter's
+  // own-division 3+-fight pool (grappleGradient.ts). Display-only. Null if the
+  // grappling axis can't be built.
+  grapple: GrappleGradient | null;
 
   history: FightTrace[];
 
@@ -235,6 +240,7 @@ export async function getFighterProfile(
       sigStrikeAccuracy: fighter.sigStrikeAccuracy,
     },
     radar,
+    grapple: grappleGradient(data, fighterId, division, radar.grappling),
     history,
     advanced,
     trendRead,

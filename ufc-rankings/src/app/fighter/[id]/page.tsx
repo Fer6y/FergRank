@@ -4,6 +4,7 @@ import { getFighterProfile } from '@/lib/fighterProfile';
 import { buildWhyThisRank } from '@/lib/fighterDisplay';
 import { isTitleFight } from '@/lib/titleFights';
 import ProfileRadar from '@/components/ProfileRadar';
+import GrappleRamp from '@/components/GrappleRamp';
 import FighterAvatar from '@/components/FighterAvatar';
 import FormPips from '@/components/FormPips';
 import AdvancedAnalyticsSection from '@/components/AdvancedAnalytics';
@@ -260,6 +261,33 @@ export default async function FighterPage({
             {p.nextFight.eventName}
             {p.nextFight.eventDate ? ` · ${formatEventDate(p.nextFight.eventDate)}` : ''}
           </span>
+        </div>
+      )}
+
+      {/* Grappling proficiency — grey→blue ramp, ranked vs the fighter's own
+          division (grappleGradient.ts). Sits with the blue SCHEDULE card so the
+          blue reads systematic. Display-only, never touches the rank. */}
+      {p.grapple && (
+        <div
+          className="rounded-xl px-5 py-4"
+          style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}
+        >
+          <div className="flex items-baseline justify-between mb-3">
+            <span className="text-[11px] tracking-widest" style={{ color: 'var(--text-secondary)' }}>
+              GRAPPLING PROFICIENCY
+            </span>
+            <span className="font-mono text-lg leading-none" style={{ color: p.grapple.color }}>
+              p{p.grapple.percentile}
+            </span>
+          </div>
+          <GrappleRamp
+            markers={[{ percentile: p.grapple.percentile, color: p.grapple.color }]}
+            showScaleLabels
+          />
+          <p className="text-[10px] leading-snug mt-2.5" style={{ color: 'var(--text-muted)' }}>
+            Takedowns, control &amp; ground share vs the {p.division || p.weightClass} 3+-fight pool —
+            how deep the grappling runs. Display-only.
+          </p>
         </div>
       )}
 

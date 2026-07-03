@@ -21,7 +21,8 @@ The core product and the first discovery/personalization layers are **built and 
 | Live filter bar (Phase 4) | ✅ | Era / Finish / Recency / Activity sliders **re-run the real algorithm** server-side; neutral = house algorithm |
 | P4P (Phase 5) | ✅ | Cross-division, valid because Elo is one global pool |
 | Leaderboards (Phase 5) | ✅ | Finishers / Knockouts / Submissions / Strikers / Grapplers (sample-weighted) |
-| Compare (Phase 2) | ✅ | Two fighters side-by-side, winner-highlighted stats + radars |
+| Compare (Phase 2) | ✅ | Two fighters side-by-side, winner-highlighted stats + radars + **grappling-proficiency ramp** (shared grey→blue track, a needle per corner ranked vs own-division 3+-fight pool — `GrappleRamp`/`grappleGradient.ts`) |
+| Grappling proficiency ramp | ✅ | 2026-07-03: grey `#4a4a52` → blue `#4a9eff` SEQUENTIAL magnitude encoding of `RadarAxes.grappling`, ranked as a **division percentile** (own-division 3+-fight pool) so the crowded mid-division spreads while the genuine elite tail honestly stays bunched. Rendered as a full-gradient **track + needle** (`GrappleRamp`) so even one fighter shows the whole ramp, not a flat fill. On the **profile** (dedicated GRAPPLING PROFICIENCY card near the blue SCHEDULE card) + **/compare** (both corners on one track — grappler-vs-striker at a glance). Display-only, never touches Elo. PaceRow grapple-row tinting deliberately deferred (would clash with the existing red/green/gold `standoutOf` colouring) |
 | Data-source alignment | ✅ | Recency patch is contract-guarded at load (de-dup + stale-drop + id-resolve) |
 | Fighter photos + flags | ✅ | Build-time media pipeline (Wikidata + UFC.com) → registry; rendered with initials fallback |
 | Upcoming cards `/upcoming` | ✅ | Redesigned 2026-07-02: date-first event tabs, main-event hero + dense prelim rows, **last-5 form pips (gold underline = title fight**, via `titleFights.ts` ← `data/title_fights.csv`; shared `FormPips` component with a light span timeline — newest-fight year → 5th-fight year — as an activity read), **win-probability spine**, main-event **tale-of-the-tape** (reach ← `fighterPhysical.ts`, activity-adjusted `scheduleStrength`, finish rate; links to `/compare`); per-fighter next-fight attached at API boundary. Display-only — never touches scoring |
@@ -117,6 +118,7 @@ UFergCRankings/                ← repo root
         │   ├── searchFighters.ts      ← fuzzy name search, shared by /api/search + agent search_fighter
         │   ├── agent/                 ← "Ask the Analyst": tools.ts (5 grounding tools over the display path) + systemPrompt.ts (frozen persona)
         │   ├── advancedStats.ts       ← deep analytics: per-15 pace, form timeline, durability, finish anatomy, formEloNudge; display only
+        │   ├── grappleGradient.ts     ← grappling proficiency ramp (grey→blue): RadarAxes.grappling ranked vs own-division 3+-fight pool (percentile) + rampColor; display only, never feeds Elo
         │   ├── fighterAges.ts         ← DOB/age lookup (fighter_dob.csv); display + trend-read context only
         │   ├── titleFights.ts         ← "was this fight for a belt?" lookup (title_fights.csv); display only
         │   ├── fighterPhysical.ts     ← reach lookup (Fighters.csv), attached at API boundary; display only
@@ -146,6 +148,7 @@ UFergCRankings/                ← repo root
             ├── AdvancedAnalytics.tsx ← profile FORM & OUTPUT + DURABILITY & FINISHES sections
             ├── DepthHeatmap.tsx   ← homepage division-depth heat strips (global Elo scale)
             ├── ComparePicker.tsx  ← inline mini-search for the compare page
+            ├── GrappleRamp.tsx    ← grey→blue grappling-proficiency ramp: full gradient track + per-fighter percentile needle(s); profile (1 needle) + /compare (both corners)
             └── ScoreBar.tsx       ← visual score bar
 ```
 

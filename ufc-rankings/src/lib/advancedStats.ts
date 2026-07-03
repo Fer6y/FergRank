@@ -771,7 +771,7 @@ export interface ScheduleContext {
 // and absolute — a heuristic label for reading a schedule at a glance, not a
 // scoring input. Grappling load (takedowns + control) is checked first because
 // it's the rarer, more decisive signal.
-function classifyStyle(w: PaceWindow | null): OpponentStyle {
+export function classifyStyle(w: PaceWindow | null): OpponentStyle {
   if (!w || w.fights < 2) return 'unknown';
   const grapplingHeavy = w.tdPer15 >= 1.5 || w.ctrlSharePct >= 18;
   const strikingHeavy = w.landedPer15 >= 55 && w.tdPer15 < 1.2;
