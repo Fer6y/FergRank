@@ -320,10 +320,10 @@ export function getElo(map: EloMap, fighterId: string): EloState {
 
 // Raw Elo → 0–100 display score (linear, clamped). Monotonic, so it never
 // changes the ordering — purely for readable bars/numbers in the UI.
-export function eloToDisplayScore(elo: number): number {
-  // Monotonic piecewise-linear map (anchors in rankingConfig). Fixed (not
-  // filtered) so the scale stays comparable across divisions/filters.
-  const curve = RANKING_CONFIG.elo.displayCurve;
+// Monotonic piecewise-linear map from an Elo value to a 0–100 display score,
+// given a curve of [elo, score] anchors. Fixed (not filtered) so the scale
+// stays comparable across divisions/filters.
+function mapEloCurve(elo: number, curve: readonly [number, number][]): number {
   if (elo <= curve[0][0]) return curve[0][1];
   const last = curve[curve.length - 1];
   if (elo >= last[0]) return last[1];
@@ -337,6 +337,19 @@ export function eloToDisplayScore(elo: number): number {
   return last[1]; // unreachable (elo < last[0] handled above)
 }
 
+export function eloToDisplayScore(elo: number): number {
+  return mapEloCurve(elo, RANKING_CONFIG.elo.displayCurve);
+}
+
+// Schedule-strength display mapping. sosElo is an AVERAGE of opponent Elos and
+// so compresses toward the mean; it uses its own curve (anchored to the observed
+// sosElo distribution, ceiling ~1620) rather than the fighter-rating curve, so
+// an elite slate saturates near 100 instead of topping out mid-scale. Absolute
+// and display-only — see rankingConfig.sosDisplayCurve.
+export function sosEloToDisplayScore(sosElo: number): number {
+  return mapEloCurve(sosElo, RANKING_CONFIG.sosDisplayCurve);
+}
+
 // Calibrated head-to-head win probability for DISPLAY (e.g. the Compare page).
 // Uses winProbDenominator (≈589, from the backtest's Platt fit) instead of the
 // sweep's /400, which is over-confident for UFC. Symmetric:
@@ -344,4 +357,25 @@ export function eloToDisplayScore(elo: number): number {
 export function winProbability(eloA: number, eloB: number): number {
   const d = RANKING_CONFIG.elo.winProbDenominator;
   return 1 / (1 + Math.pow(10, (eloB - eloA) / d));
+}
+
+// Confidence in a head-to-head probability given each corner's UFC sample size.
+// Driven by the THINNER fighter (min): a rating built on <provisionalFights
+// bouts is a weak estimate, so any gap it produces is discounted. 1 = full
+// confidence (both established); floored so a debutant still keeps some edge.
+export function winProbConfidence(fightsA: number, fightsB: number): number {
+  const { provisionalFights, winProbShadeFloor } = RANKING_CONFIG.elo;
+  const raw = Math.min(fightsA, fightsB) / provisionalFights;
+  return Math.max(winProbShadeFloor, Math.min(1, raw));
+}
+
+// DISPLAY win probability with provisional-uncertainty shading: winProbability()
+// pulled toward 0.5 when either fighter's UFC sample is thin (see
+// winProbConfidence). Symmetric — shaded(a,b,fa,fb) + shaded(b,a,fb,fa) = 1 —
+// and never touches ratings or rankings.
+export function winProbabilityShaded(
+  eloA: number, eloB: number, fightsA: number, fightsB: number,
+): number {
+  const p = winProbability(eloA, eloB);
+  return 0.5 + (p - 0.5) * winProbConfidence(fightsA, fightsB);
 }

@@ -17,7 +17,7 @@ import { getUpcomingCards } from '../loadUpcoming';
 import { enrichCards, type CardFighter } from '../upcomingEnrich';
 import { getFighterProfile } from '../fighterProfile';
 import { getAdvancedStats, formEloNudge, type PaceWindow } from '../advancedStats';
-import { buildEloRatings, getElo, winProbability } from '../eloEngine';
+import { buildEloRatings, getElo, winProbabilityShaded } from '../eloEngine';
 import { searchFighters } from '../searchFighters';
 import { getReach } from '../fighterPhysical';
 import { getFighterAge } from '../fighterAges';
@@ -316,6 +316,8 @@ async function compareFighters(idA: string, idB: string): Promise<unknown> {
   const ratings = buildEloRatings(data);
   const eloA = getElo(ratings, idA).rating;
   const eloB = getElo(ratings, idB).rating;
+  const fightsA = data.fighterFights.get(idA)?.length ?? 0;
+  const fightsB = data.fighterFights.get(idB)?.length ?? 0;
   const advA = getAdvancedStats(data, idA);
   const advB = getAdvancedStats(data, idB);
   const nudgeA = formEloNudge(advA?.drift);
@@ -345,10 +347,11 @@ async function compareFighters(idA: string, idB: string): Promise<unknown> {
 
   const hasForm = nudgeA !== 0 || nudgeB !== 0;
   return {
-    // Validated pure-Elo probability — the headline number.
-    winProbAPct: pct(winProbability(eloA, eloB)),
+    // Validated pure-Elo probability, shaded toward 50% when a corner's UFC
+    // sample is thin (provisional-uncertainty) — the headline number.
+    winProbAPct: pct(winProbabilityShaded(eloA, eloB, fightsA, fightsB)),
     // Experimental: each side's Elo shaded by bounded (±45) recent-form drift.
-    formAdjWinProbAPct: hasForm ? pct(winProbability(eloA + nudgeA, eloB + nudgeB)) : null,
+    formAdjWinProbAPct: hasForm ? pct(winProbabilityShaded(eloA + nudgeA, eloB + nudgeB, fightsA, fightsB)) : null,
     fighterA: a,
     fighterB: b,
   };

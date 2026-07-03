@@ -11,7 +11,7 @@
 
 import { getData } from './dataCache';
 import { generateDivisionRankings } from './scoringEngine';
-import { buildEloRatings, getElo, getFighterHistory, winProbability } from './eloEngine';
+import { buildEloRatings, getElo, getFighterHistory, winProbabilityShaded } from './eloEngine';
 import { getAdvancedStats, buildScheduleContext, formEloNudge, type ScheduleContext } from './advancedStats';
 import { describeStyle } from './fighterDisplay';
 import { getFighterMedia } from './fighterMedia';
@@ -196,11 +196,13 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     }
     const eloA = getElo(ratings, id1).rating;
     const eloB = getElo(ratings, id2).rating;
+    const fightsA = data.fighterFights.get(id1)?.length ?? 0;
+    const fightsB = data.fighterFights.get(id2)?.length ?? 0;
     const nudgeA = formEloNudge(getAdvancedStats(data, id1)?.drift);
     const nudgeB = formEloNudge(getAdvancedStats(data, id2)?.drift);
     return {
-      prob1: winProbability(eloA, eloB),
-      formProb1: nudgeA !== 0 || nudgeB !== 0 ? winProbability(eloA + nudgeA, eloB + nudgeB) : null,
+      prob1: winProbabilityShaded(eloA, eloB, fightsA, fightsB),
+      formProb1: nudgeA !== 0 || nudgeB !== 0 ? winProbabilityShaded(eloA + nudgeA, eloB + nudgeB, fightsA, fightsB) : null,
     };
   };
 

@@ -15,7 +15,7 @@
 import { RANKING_CONFIG } from './rankingConfig';
 import { fetchOfficialRankings, getOfficialRankingsForDivision } from './fetchOfficialRankings';
 import { buildNameIndex, resolveNameToId } from './nameResolver';
-import { buildEloRatings, getElo, eloToDisplayScore, normalizeWeightClassForMove } from './eloEngine';
+import { buildEloRatings, getElo, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove } from './eloEngine';
 import { getRegistry } from './registry';
 import { effectiveEngine, DEFAULT_FILTERS, type FilterParams, type EffectiveEngine } from './filters';
 import { loadPedigreeStrength } from './pedigreeSeed';
@@ -393,7 +393,7 @@ async function computeDivisionRankings(
 
     // Schedule-strength display composite: opponent quality discounted by how
     // current the résumé is. Display only — does NOT enter finalRating above.
-    const sosQualityScore = eloToDisplayScore(sosElo);
+    const sosQualityScore = sosEloToDisplayScore(sosElo);
     const scheduleActivity = scheduleActivityFactor(monthsSinceLastFight, divFights.length);
     const scheduleStrength =
       sosQualityScore *

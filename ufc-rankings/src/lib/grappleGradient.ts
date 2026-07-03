@@ -17,7 +17,7 @@
 //  NEVER imported by eloEngine.ts / scoringEngine.ts — this is presentation only.
 // ─────────────────────────────────────────────────────────────────────────
 
-import { computeRadarAxes } from './fighterRadar';
+import { computeRadarAxes, careerSubmissionWins } from './fighterRadar';
 import { getFighterPerspective, recencyWeight } from './scoringEngine';
 import { RANKING_CONFIG } from './rankingConfig';
 import type { LoadedData } from './loadData';
@@ -143,15 +143,20 @@ export function grappleBreakdown(
   let wSum = 0;
   let tdDiff = 0;
   let ctrl = 0;
-  let sub = 0;
+  let sub = 0;       // sub attempts + finish bonus — matches the GRAPPLE axis
+  let subAtt = 0;    // bare attempts, for the human-readable detail
+  let subWins = 0;   // raw count of submission finishes in the window
   for (const x of fights) {
     const p = getFighterPerspective(x, fighterId);
     if (!p) continue;
     const w = recencyWeight(x.eventDate, now, halfLife);
     const ctrlSelf = x.fighterId1 === fighterId ? x.ctrl1 : x.ctrl2;
+    const isSubWin = p.isWin && /sub/i.test(x.method);
     tdDiff += (p.tdSelf - p.tdOpp) * w;
     ctrl += (ctrlSelf || 0) * w;
-    sub += p.subSelf * w;
+    sub += (p.subSelf + (isSubWin ? cfg.subFinishBonus : 0)) * w;
+    subAtt += p.subSelf * w;
+    if (isSubWin) subWins += 1;
     wSum += w;
   }
 
@@ -167,7 +172,14 @@ export function grappleBreakdown(
 
   const avgTdDiff = tdDiff / wSum;
   const avgCtrl = ctrl / wSum;
-  const avgSub = sub / wSum;
+  const avgSub = sub / wSum;         // recent attempts + finish bonus
+  const avgSubAtt = subAtt / wSum;   // bare attempts (for the detail text)
+  // Career submission pedigree — the durable jiu-jitsu signal the axis also uses.
+  const careerSubs = careerSubmissionWins(data, fighterId);
+  const nCareerSub = clamp01x(careerSubs / cfg.careerSubFull);
+  // Submission strength = the STRONGER of recent form and career pedigree (mirrors
+  // the axis), mapped from [0,1] onto [-1,1] so 0 reads as a neutral grappler.
+  const subStrength = Math.max(clamp01x(avgSub / norm.submissionsPerFight), nCareerSub) * 2 - 1;
 
   // Each trait carries a signed strength vs a neutral grappler (>0 asset). For
   // takedowns, parity is neutral; for control and submissions, zero is neutral.
@@ -194,9 +206,20 @@ export function grappleBreakdown(
     {
       key: 'subs',
       label: 'Submission threat',
+      // Lead with the durable career pedigree when there's a real body of it,
+      // else recent finishes, else bare attempts.
       detail:
-        avgSub >= 0.05 ? `${avgSub.toFixed(1)} sub attempts / fight` : 'no sub attempts',
-      strength: clamp01x(avgSub / norm.submissionsPerFight) * 2 - 1,
+        careerSubs >= 2
+          ? `${careerSubs} career sub wins${subWins >= 1 ? ` (${subWins} recent)` : ''}`
+          : subWins >= 1
+            ? `${subWins} sub finish + ${avgSubAtt.toFixed(1)} att/fight`
+            : avgSubAtt >= 0.05
+              ? `${avgSubAtt.toFixed(1)} sub attempts / fight`
+              : careerSubs === 1
+                ? '1 career sub win'
+                : 'no sub attempts',
+      // Stronger of recent form and career pedigree (mirrors the GRAPPLE axis).
+      strength: subStrength,
     },
   ] as GrappleTrait[]).sort((a, b) => b.strength - a.strength);
 

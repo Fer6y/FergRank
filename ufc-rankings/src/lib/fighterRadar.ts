@@ -7,7 +7,7 @@
 //  a fighter's recent division fights:
 //
 //    STRIKE  = output volume + KO/knockdown power + accuracy + output edge
-//    GRAPPLE = takedown differential + control time + ground share
+//    GRAPPLE = takedown differential + control time + ground share + sub threat
 //    FINISH  = career finish rate + recent knockdown threat
 //    ACTIVE  = recency of last fight
 //    OPP Q   = strength of schedule (opponent Elo)
@@ -29,6 +29,22 @@ export interface RadarAxes {
 }
 
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+
+/**
+ * Count of a fighter's CAREER submission WINS across their whole recorded history
+ * (UFC + recency-patch bouts). Durable jiu-jitsu pedigree — NOT recency-weighted —
+ * so a body of finishes keeps showcasing grappling even once the subs are old.
+ * Recency-patch rows carry a `method` string too, so they count.
+ */
+export function careerSubmissionWins(data: LoadedData, fighterId: string): number {
+  let n = 0;
+  for (const f of data.fighterFights.get(fighterId) || []) {
+    if (!f.eventDate) continue;
+    const p = getFighterPerspective(f, fighterId);
+    if (p?.isWin && /sub/i.test(f.method)) n++;
+  }
+  return n;
+}
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 // Map a signed ratio in [-1, 1] onto [0, 1] (0 → 0.5 = league average).
 const signedTo01 = (v: number) => (clamp(v, -1, 1) + 1) / 2;
@@ -82,18 +98,22 @@ export function computeRadarAxes(
   let kd = 0;       // knockdowns
   let tdDiff = 0;   // takedowns landed − absorbed
   let ctrl = 0;     // control seconds
+  let sub = 0;      // sub attempts + finish bonus (submission threat)
 
   for (const f of fights) {
     const p = getFighterPerspective(f, fighterId);
     if (!p) continue;
     const w = recencyWeight(f.eventDate, now, halfLife);
     const ctrlSelf = f.fighterId1 === fighterId ? f.ctrl1 : f.ctrl2;
+    // A submission WIN is worth far more than a bare attempt (subFinishBonus).
+    const subFinish = p.isWin && /sub/i.test(f.method) ? cfg.subFinishBonus : 0;
     vol += p.strSelf * w;
     volDiff += (p.strSelf - p.strOpp) * w;
     acc += norm01(p.sigStrPctSelf) * w;
     kd += p.kdSelf * w;
     tdDiff += (p.tdSelf - p.tdOpp) * w;
     ctrl += (ctrlSelf || 0) * w;
+    sub += (p.subSelf + subFinish) * w;
     wSum += w;
   }
 
@@ -102,15 +122,20 @@ export function computeRadarAxes(
   // ACTIVE: 0 months out → 1, activityFullMonths out → 0.
   const activity = clamp01(1 - ctx.monthsSinceLastFight / cfg.activityFullMonths);
 
+  // CAREER submission pedigree — durable, diminishing returns (1 sub minor, a
+  // handful elite). Not recency-weighted, so a real jiu-jitsu record still reads.
+  const nCareerSub = clamp01(careerSubmissionWins(data, fighterId) / cfg.careerSubFull);
+
   // No per-fight metric sample → fall back to career aggregates so the radar is
-  // never blank. Striking from accuracy + KO rate; grappling from ground share.
+  // never blank. Striking from accuracy + KO rate; grappling from ground share,
+  // lifted by career submission pedigree so a sub specialist isn't read as flat.
   if (wSum === 0) {
     return {
       strike: clamp01(
         0.6 * clamp01(norm01(ctx.careerSigAccuracy) / cfg.accuracyFull) +
           0.4 * clamp01(ctx.careerFinishRate)
       ),
-      grappling: clamp01(norm01(ctx.careerGroundPct)),
+      grappling: clamp01(Math.max(norm01(ctx.careerGroundPct), nCareerSub)),
       finishing: clamp01(ctx.careerFinishRate),
       activity,
       oppQuality,
@@ -123,6 +148,7 @@ export function computeRadarAxes(
   const avgKd = kd / wSum;
   const avgTdDiff = tdDiff / wSum;
   const avgCtrl = ctrl / wSum;
+  const avgSub = sub / wSum;
 
   // Per-axis normalized components (each 0–1).
   const nVolume = clamp01(avgVol / cfg.volumeStrikePerFightFull);
@@ -132,6 +158,10 @@ export function computeRadarAxes(
   const nTdDiff = signedTo01(avgTdDiff / norm.takedownsPerFight);
   const nControl = clamp01(avgCtrl / cfg.controlSecondsFull);
   const nGround = clamp01(norm01(ctx.careerGroundPct));
+  // Submission signal = the STRONGER of recent form (attempts + recent finish
+  // bonus) and career pedigree (a body of finishes). So actively submitting
+  // people AND a proven sub career both read high, and neither is erased.
+  const nSub = clamp01(Math.max(avgSub / norm.submissionsPerFight, nCareerSub));
 
   const sw = cfg.strikeWeights;
   const strike = clamp01(
@@ -143,7 +173,10 @@ export function computeRadarAxes(
 
   const gw = cfg.grappleWeights;
   const grappling = clamp01(
-    gw.takedownDiff * nTdDiff + gw.control * nControl + gw.groundShare * nGround
+    gw.takedownDiff * nTdDiff +
+      gw.control * nControl +
+      gw.groundShare * nGround +
+      gw.submission * nSub
   );
 
   const fw = cfg.finishWeights;

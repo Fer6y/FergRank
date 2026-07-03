@@ -93,13 +93,34 @@ export const RANKING_CONFIG = {
     ] as [number, number][],
 
     // Head-to-head win-PROBABILITY scale (display only, for the Compare page).
-    // VALIDATED: a symmetric reliability check over all ~17k UFC fights (point-in-
-    // time ratings) shows the standard /400 logistic is already well-calibrated
-    // (ECE ≈0.029). The backtest's apparent "overconfidence" (Platt slope ≈0.68)
-    // was an artifact of comparing Elo to MARKET-selected favourites (who carry
-    // info Elo lacks) — not a symmetric miscalibration. A neutral A-vs-B matchup
-    // has no such selection, so /400 is right; widening it to 589 made ECE worse.
-    winProbDenominator: 400,
+    // REFIT 2026-07-03: 400 → 200. A symmetric reliability check (both corners,
+    // point-in-time ratingBefore — necessary because the winner is listed as
+    // fighter-1 ~64% of the time) re-fit the log-loss-optimal denominator over
+    // recent (≤3yr) fights at ≈155 and over all history at ≈235; 200 is the robust
+    // middle. The OLD /400 was well-calibrated on the pre-boundary-discount spread,
+    // but the current-form discount + inactivity regression have since COMPRESSED
+    // the ranked pool (best only ~174 Elo above median), so /400 became far too
+    // FLAT: recent ECE 0.061 @400 → ~0.02 @200, and dynamic range recovers (top
+    // fighter vs a median one reads ~88% instead of ~73%). Display-only — this
+    // feeds winProbability() ONLY, never ratings or ordering, so no ranking gate.
+    // Re-fit here (scripts/spreadExperiment.ts) if the rating spread is ever
+    // recalibrated. NOTE: the boundary discount β is NOT a spread lever — the same
+    // experiment showed β 0.5→0.25 moves top-vs-median only ~171→194 Elo.
+    winProbDenominator: 200,
+
+    // PROVISIONAL-UNCERTAINTY SHADING (display only). A head-to-head win% is only
+    // as trustworthy as the THINNER fighter's UFC sample: two debutants are far
+    // closer to a coin flip than their (both ~1500) ratings imply, yet the raw
+    // logistic states the tiny gap with full confidence. When either corner has
+    // fewer than `provisionalFights` UFC bouts, the shown probability is pulled
+    // toward 0.5 by conf = clamp(minFights / provisionalFights, floor, 1):
+    //   p_shaded = 0.5 + (p − 0.5) · conf.
+    // At/above the provisional threshold conf = 1 (no change). Symmetric; never
+    // touches ratings, rankings, or the Elo sweep. Backtest motivation: over the
+    // last 10 cards, "thin" fights (a corner <5 UFC fights) hit 52% at the same
+    // 55% mean confidence as established fights that hit 59% — the model was
+    // equally sure of coin-flips and real edges. This hedges the coin-flips.
+    winProbShadeFloor: 0.25,   // a debut fighter (0 UFC bouts) still keeps 25% of the raw edge
   },
 
   // ═══ RECENCY WINDOWS (for metrics & strength-of-schedule, NOT the Elo core) ═══
@@ -145,6 +166,31 @@ export const RANKING_CONFIG = {
   sosAnchorElo: 1500,           // Schedule at league-average Elo earns zero nudge
   sosSlopePerElo: 0.05,         // Elo points of nudge per Elo point of schedule above/below anchor
   sosAdjustCap: 30,             // Clamp the SoS nudge to ± this many Elo points
+
+  // ── Schedule-strength DISPLAY curve (0–100), ABSOLUTE ─────────────────────
+  // sosElo is an AVERAGE of opponent Elos, so it compresses toward the mean —
+  // nobody's average opponent is a lone 1700+ champ, and the toughest slate
+  // anyone realistically assembles caps around ~1610–1620 league-wide. Reusing
+  // the fighter-rating displayCurve (ceiling 1760) therefore squashed every
+  // schedule into the bottom-to-middle of the scale (Gaethje's elite slate read
+  // ~74). This curve is anchored to the OBSERVED sosElo distribution instead
+  // (league-wide across all men's divisions: p05≈1473, med≈1529, p95≈1596,
+  // p99≈1608, max≈1617), so a top-contender slate saturates near 100 and a soft
+  // one honestly reads low. It stays ABSOLUTE (global Elo pool), so a shallow
+  // division's best schedule reads lower than a deep division's — by design.
+  // DISPLAY ONLY: this feeds strengthOfSchedule/scheduleStrength, never the
+  // rating (sosNudge uses the raw sosElo above).
+  sosDisplayCurve: [
+    [1450, 15],   // bottom of the ranked pool
+    [1475, 25],   // ~p05
+    [1505, 40],   // ~p25 (Salkilld tier)
+    [1530, 58],   // ~median schedule
+    [1558, 74],   // ~p75
+    [1582, 88],   // ~p90
+    [1596, 94],   // ~p95 (Gaethje tier)
+    [1610, 99],   // ~p99 (Topuria / Makhachev tier)
+    [1620, 100],  // toughest realistic slate → ceiling
+  ] as [number, number][],
 
   // ── Schedule-strength ACTIVITY dampener (DISPLAY ONLY) ────────────────────
   // The displayed "schedule strength" combines opponent quality (sosElo) with
@@ -362,8 +408,28 @@ export const RANKING_CONFIG = {
     activityFullMonths: 24,       // 0 months out → 1.0 on ACTIVE; this many months out → 0.0
     // STRIKE axis blend (weights sum to 1): output volume, KO power, accuracy, output edge.
     strikeWeights: { volume: 0.30, power: 0.30, accuracy: 0.25, differential: 0.15 },
-    // GRAPPLE axis blend (weights sum to 1): takedown edge, control time, ground share.
-    grappleWeights: { takedownDiff: 0.45, control: 0.40, groundShare: 0.15 },
+    // GRAPPLE axis blend (weights sum to 1): takedown edge, control time, ground
+    // share, submission threat. `submission` was added 2026-07-03 to close a
+    // wrestler bias — the axis credited takedowns + top control but ignored
+    // submission grappling, so a guard-based submission artist (Pimblett) read
+    // as a mid-pack grappler. Sub threat = attempts/fight PLUS a heavy bonus for
+    // an actual submission WIN (see radar.subFinishBonus) so finishes juice it
+    // far more than bare attempts. Normalized by metricsNorm.submissionsPerFight.
+    grappleWeights: { takedownDiff: 0.35, control: 0.35, groundShare: 0.10, submission: 0.20 },
+    // A submission WIN counts as this many sub-attempts toward the recent-form
+    // half of the GRAPPLE submission signal — so a finish weighs far more than an
+    // attempt that went nowhere. With the most-recent fight carrying ~half the
+    // recency weight, one recent sub finish alone lifts recent sub credit high.
+    subFinishBonus: 3,
+    // CAREER submission pedigree (durable, NOT recency-weighted). Recency wipes a
+    // fighter's older submission game, but a BODY of finishes is real proof of
+    // jiu-jitsu — so the submission signal takes the MAX of "actively submitting
+    // people (recent)" and "proven submission career". This is the count of
+    // career submission WINS that reads as a full career-sub contribution, with
+    // linear diminishing returns: 1 sub is minor (~1/N), a handful is elite. Set
+    // deliberately high so a single lucky sub doesn't crown someone a grappler —
+    // it takes MULTIPLE finishes to matter (the user's ask).
+    careerSubFull: 5,
     // FINISH axis blend (weights sum to 1): career finish rate + recent KO/knockdown threat.
     finishWeights: { careerFinishRate: 0.6, recentKnockdown: 0.4 },
   },

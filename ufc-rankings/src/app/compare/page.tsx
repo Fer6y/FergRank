@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { winProbability } from '@/lib/eloEngine';
+import { winProbabilityShaded } from '@/lib/eloEngine';
 import { classifyStyle, formEloNudge, type PaceWindow, type ScheduleContext } from '@/lib/advancedStats';
+import { computeCompareEdges, type CategoryEdge, type EdgeLeader } from '@/lib/compareEdges';
 import { getFighterProfile, type FighterProfile } from '@/lib/fighterProfile';
 import { shortDivision } from '@/lib/divisions';
 import ComparePicker from '@/components/ComparePicker';
@@ -102,8 +103,8 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
   const nudgeB = formEloNudge(pb.advanced?.drift);
   const haveForm = haveElo && (nudgeA !== 0 || nudgeB !== 0);
 
-  const winA = haveElo ? winProbability(pa.eloRating, pb.eloRating) : null;
-  const winB = haveElo ? winProbability(pb.eloRating, pa.eloRating) : null;
+  const winA = haveElo ? winProbabilityShaded(pa.eloRating, pb.eloRating, pa.fightCount, pb.fightCount) : null;
+  const winB = haveElo ? winProbabilityShaded(pb.eloRating, pa.eloRating, pb.fightCount, pa.fightCount) : null;
 
   const fa = formWindow(pa);
   const fb = formWindow(pb);
@@ -116,6 +117,12 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
   // makes clear each box holds BOTH fighters, not the one above it.
   const lnA = pa.fullName.split(' ').slice(-1)[0];
   const lnB = pb.fullName.split(' ').slice(-1)[0];
+
+  // Interpreted edge read per category (display-only): which fighter holds the
+  // advantage and how meaningful it is (stars + tier + %). Drives the striking/
+  // grappling edge cards and the scouting-report summary at the bottom.
+  const edges = computeCompareEdges(pa, pb);
+  const edgeByKey = Object.fromEntries(edges.map((e) => [e.key, e])) as Record<string, CategoryEdge>;
 
   return (
     <div className="space-y-3">
@@ -184,6 +191,12 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
       />
       </div>
 
+      {/* ── Edge scores — the interpreted read beneath the raw tables ── */}
+      <div className="grid grid-cols-2 gap-3 items-stretch">
+        <EdgeCard edge={edgeByKey.striking} pa={pa} pb={pb} nameA={lnA} nameB={lnB} accent="var(--accent-red-light)" />
+        <EdgeCard edge={edgeByKey.grappling} pa={pa} pb={pb} nameA={lnA} nameB={lnB} accent="var(--accent-blue)" />
+      </div>
+
       {/* ── Win probability — smaller box beneath ── */}
       {haveElo && (
         <div className="rounded-xl px-4 py-3 max-w-md mx-auto w-full" style={cardStyle}>
@@ -208,11 +221,11 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
           {haveForm && (
             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1.5 text-[10px]">
               <div className="text-right font-mono" style={{ color: 'var(--text-secondary)' }}>
-                {pctFmt(winProbability(pa.eloRating + nudgeA, pb.eloRating + nudgeB))}
+                {pctFmt(winProbabilityShaded(pa.eloRating + nudgeA, pb.eloRating + nudgeB, pa.fightCount, pb.fightCount))}
               </div>
               <div className="uppercase tracking-wide text-center" style={{ color: 'var(--text-muted)' }}>form-adj</div>
               <div className="text-left font-mono" style={{ color: 'var(--text-secondary)' }}>
-                {pctFmt(winProbability(pb.eloRating + nudgeB, pa.eloRating + nudgeA))}
+                {pctFmt(winProbabilityShaded(pb.eloRating + nudgeB, pa.eloRating + nudgeA, pb.fightCount, pa.fightCount))}
               </div>
             </div>
           )}
@@ -225,6 +238,9 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
           : 'Striking & grappling shown over each fighter’s last 3 charted fights (current form). Output/Defence vs schedule adjust that form for who they faced — the strength-of-schedule modifier.'}
         {' '}Green = the better side of a stat; absorbed strikes and conceded takedowns count lower-is-better. Display-only — the win probability is the validated pure-Elo number.
       </p>
+
+      {/* ── Scouting report — the whole comparison in one glance ── */}
+      <ScoutingReport edges={edges} pa={pa} pb={pb} />
 
       {/* Prospect flag — the model still gives its read, framed as upside */}
       {prospectAny && (
@@ -420,6 +436,130 @@ function FighterHead({ p, style }: { p: FighterProfile; style: string }) {
         </div>
       </div>
     </Link>
+  );
+}
+
+// ── Edge score visuals ───────────────────────────────────────────────────
+
+function Stars({ n, color }: { n: number; color: string }) {
+  return (
+    <span className="tracking-[0.15em] text-sm leading-none" aria-label={`${n} of 5`}>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <span key={i} style={{ color: i < n ? color : 'var(--border-light)' }}>★</span>
+      ))}
+    </span>
+  );
+}
+
+function edgeColor(edge: CategoryEdge, pa: FighterProfile): string {
+  if (edge.leader === 'even' || edge.stars === 0) return 'var(--text-muted)';
+  const leaderIsChamp = edge.leader === 'a' ? pa.isChampion : false;
+  return leaderIsChamp ? 'var(--accent-gold)' : 'var(--accent-green)';
+}
+
+// The interpreted read for one category: an optional 100-is-average index bar
+// (fighter A · division avg · fighter B) over a star-rated verdict.
+function EdgeCard({ edge, pa, pb, nameA, nameB, accent }: { edge: CategoryEdge; pa: FighterProfile; pb: FighterProfile; nameA: string; nameB: string; accent: string }) {
+  const color = edgeColor(edge, pa);
+  const leaderName = edge.leaderName;
+  return (
+    <div className="rounded-xl px-3 py-3 flex flex-col" style={cardStyle}>
+      <div className="text-[10px] tracking-widest text-center mb-2" style={{ color: accent }}>
+        {edge.label.toUpperCase()} EDGE
+      </div>
+
+      {edge.index ? (
+        <IndexScale a={edge.index.a} b={edge.index.b} nameA={nameA} nameB={nameB} leader={edge.leader} color={color} />
+      ) : (
+        <div className="text-[10px] text-center mb-2 leading-snug" style={{ color: 'var(--text-muted)' }}>
+          {edge.available ? 'Ranked against each other' : 'Not enough charted data'}
+        </div>
+      )}
+
+      <div className="mt-auto pt-2 flex flex-col items-center gap-1" style={{ borderTop: '1px solid var(--border)' }}>
+        <Stars n={edge.stars} color={color} />
+        {edge.available && edge.stars > 0 ? (
+          <>
+            <div className="font-display text-lg leading-none" style={{ color }}>{leaderName}</div>
+            <div className="text-[10px] uppercase tracking-wide" style={{ color: 'var(--text-secondary)' }}>
+              {edge.tier} <span className="font-mono">(+{edge.edgePct}%)</span>
+            </div>
+          </>
+        ) : (
+          <div className="text-[10px] uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
+            {edge.available ? 'Even' : 'No read'}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Three stacked values, sorted high→low, with the division baseline (100) always
+// shown as the middle reference. Higher = better; 100 = division average.
+function IndexScale({ a, b, nameA, nameB, leader, color }: { a: number; b: number; nameA: string; nameB: string; leader: EdgeLeader; color: string }) {
+  const rows = [
+    { name: nameA, val: a, isA: true },
+    { name: 'Division Avg', val: 100, isA: null as boolean | null },
+    { name: nameB, val: b, isA: false },
+  ].sort((x, y) => y.val - x.val);
+  return (
+    <div className="space-y-1 mb-1">
+      {rows.map((r) => {
+        const isLeader = r.isA != null && ((r.isA && leader === 'a') || (!r.isA && leader === 'b'));
+        const isAvg = r.isA == null;
+        return (
+          <div key={r.name} className="grid grid-cols-[1fr_auto] items-center gap-2 text-[11px]">
+            <span className="truncate" style={{ color: isAvg ? 'var(--text-muted)' : 'var(--text-secondary)', fontStyle: isAvg ? 'italic' : 'normal' }}>
+              {r.name}
+            </span>
+            <span className="font-mono tabular-nums" style={{ color: isLeader ? color : isAvg ? 'var(--text-muted)' : 'var(--text-primary)', fontWeight: isLeader ? 600 : 400 }}>
+              {r.val}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// The whole comparison distilled into one scouting-report block: one line per
+// category — tier + the fighter who holds it — for an at-a-glance verdict.
+function ScoutingReport({ edges, pa, pb }: { edges: CategoryEdge[]; pa: FighterProfile; pb: FighterProfile }) {
+  return (
+    <div className="rounded-xl px-4 py-4" style={cardStyle}>
+      <div className="text-[11px] tracking-widest mb-3" style={{ color: 'var(--text-secondary)' }}>
+        SCOUTING REPORT
+      </div>
+      <div className="space-y-2">
+        {edges.map((e) => {
+          const color = edgeColor(e, pa);
+          const has = e.available && e.stars > 0;
+          return (
+            <div key={e.key} className="grid grid-cols-[auto_1fr] items-baseline gap-3" style={{ borderTop: '1px solid var(--border)', paddingTop: '0.5rem' }}>
+              <span className="text-[11px] uppercase tracking-wide w-24 shrink-0" style={{ color: 'var(--text-muted)' }}>{e.label}</span>
+              <span className="text-sm" style={{ color: has ? 'var(--text-primary)' : 'var(--text-muted)' }}>
+                {has ? (
+                  <>
+                    <span style={{ color, fontWeight: 600 }}>{e.tier}</span>
+                    <span style={{ color: 'var(--text-muted)' }}> — </span>
+                    <span style={{ color }}>{e.leaderName}</span>
+                  </>
+                ) : e.available ? (
+                  <span style={{ color: 'var(--text-muted)' }}>Even</span>
+                ) : (
+                  <span style={{ color: 'var(--text-muted)' }}>Not enough data</span>
+                )}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      <p className="text-[10px] leading-snug mt-3" style={{ color: 'var(--text-muted)' }}>
+        Edge scores are an interpreted read of the stats above — Striking &amp; Grappling are indexed to each
+        fighter&apos;s own division (100 = divisional average), the rest edge the two fighters directly. Display-only.
+      </p>
+    </div>
   );
 }
 
