@@ -1,6 +1,17 @@
 import type { AdvancedStats, TrendInsight, RatioBenchmark, ScheduleContext, Gauntlet as GauntletData } from '@/lib/advancedStats';
+import type { FightTrace } from '@/lib/eloEngine';
 import Gauntlet from './Gauntlet';
 import ScheduleContextStrip from './ScheduleContextStrip';
+import FightHistory, { type StrikeRate } from './FightHistory';
+import ProfileRadar from './ProfileRadar';
+
+interface RadarAxes {
+  strike: number;
+  grappling: number;
+  finishing: number;
+  activity: number;
+  oppQuality: number;
+}
 
 // Unified advanced-analytics section for the fighter profile: the cautious
 // macro TREND READ leads, then the form timeline, the landed:absorbed ratio
@@ -18,57 +29,108 @@ const INSIGHT_COLOR: Record<TrendInsight['kind'], string> = {
   neutral: 'var(--text-muted)',
 };
 
+// ── Standout vs the division median ────────────────────────────────────────
+// Flags a pace stat that deviates significantly from the peer baseline (DIV
+// MED) — the fighter's signature strength or a notable gap. Ratio-based so it
+// works across wildly different scales (knockdowns ~0.4 vs strikes ~60). A
+// strength above the median in the "good" direction pops (green, gold when
+// elite, with a row accent); a gap is marked more subtly. Display-only.
+interface Standout {
+  color: string;       // accent for the value + badge
+  badge: string;       // e.g. "8.2×" (above median) or "67%↓" (below)
+  emphasize: boolean;  // elite strength → row accent bar + faint tint
+}
+
+function standoutOf(val: number | null | undefined, med: number | null | undefined, higherIsBetter: boolean): Standout | null {
+  if (val == null || med == null || med <= 0 || val < 0) return null;
+  // Both negligible → "doesn't do this", not a signal worth colouring.
+  if (val < 0.15 && med < 0.5) return null;
+  const ratio = val / med;
+  let dir: 'good' | 'bad';
+  let elite: boolean;
+  let badge: string;
+  if (ratio >= 1.6) {
+    dir = higherIsBetter ? 'good' : 'bad';
+    elite = ratio >= 2.5;
+    badge = ratio >= 9.95 ? `${Math.round(ratio)}×` : `${ratio.toFixed(1)}×`;
+  } else if (ratio <= 0.62) {
+    dir = higherIsBetter ? 'bad' : 'good';
+    elite = ratio <= 0.4;
+    badge = `${Math.round((1 - ratio) * 100)}%↓`;
+  } else {
+    return null;
+  }
+  const color =
+    dir === 'good'
+      ? elite ? 'var(--accent-gold)' : 'var(--accent-green)'
+      : 'var(--accent-red-light)';
+  return { color, badge, emphasize: dir === 'good' && elite };
+}
+
 export default function AdvancedAnalyticsSection({
   advanced,
   trendRead,
   benchmark,
   scheduleContext,
   gauntlet,
+  history,
+  radar,
 }: {
   advanced: AdvancedStats;
   trendRead: TrendInsight[];
   benchmark: RatioBenchmark | null;
   scheduleContext: ScheduleContext | null;
   gauntlet: GauntletData | null;
+  history: FightTrace[];
+  radar: RadarAxes;
 }) {
   const { career, recent, drift } = advanced;
+  // Division ranked-pool medians → the DIV MED column (peer baseline). Only
+  // shown when the division has a benchmark (≥10 chartable ranked fighters).
+  // Columns are deliberately spare: CAREER vs DIV MED, plus a TREND arrow (no
+  // number) for recent direction. LAST-5 lives in the fight-by-fight popup.
+  const med = benchmark?.pace ?? null;
+  const paceGrid = med
+    ? 'grid-cols-[1fr_64px_64px_40px]'
+    : 'grid-cols-[1fr_64px_40px]';
+
+  // Per-fight strike rates (landed/absorbed per 15) keyed by fightId → the
+  // dominance strips in the fight-history list beside the Gauntlet.
+  const strikes: Record<string, StrikeRate> = {};
+  for (const pt of advanced.timeline) {
+    strikes[pt.fightId] = { landed: pt.landedPer15, absorbed: pt.absorbedPer15 };
+  }
+
+  const cardStyle = { backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' };
 
   return (
-    <section>
-      <h2 className="text-[10px] tracking-widest mb-2.5" style={{ color: 'var(--text-muted)' }}>
-        ADVANCED ANALYTICS · PER 15 MIN OF CAGE TIME
-      </h2>
-      <div
-        className="rounded-xl p-4 space-y-5"
-        style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}
-      >
-        {/* Trend read — the interpretation layer */}
-        {trendRead.length > 0 && (
-          <div>
-            <div className="text-[10px] tracking-widest mb-2" style={{ color: 'var(--text-muted)' }}>
-              TREND READ
-            </div>
-            <ul className="space-y-2">
-              {trendRead.map((ins, i) => (
-                <li key={i} className="flex gap-2.5 text-sm leading-snug">
-                  <span
-                    className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
-                    style={{ backgroundColor: INSIGHT_COLOR[ins.kind] }}
-                  />
-                  <span style={{ color: 'var(--text-secondary)' }}>{ins.text}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-[10px] leading-snug mt-2" style={{ color: 'var(--text-muted)' }}>
-              Fights are rare events and stat lines are matchup-dependent — the read weighs mileage,
-              opposition level and damage history before calling anything a trend, and it never touches the rank.
-            </p>
-          </div>
-        )}
-
-        {/* Timeline + ratio/durability */}
+    <section className="space-y-4">
+      {/* ── Block A — the story: Gauntlet + trend read | fight history ── */}
+      <div className="rounded-xl p-4" style={cardStyle}>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 min-w-0 space-y-4">
+            {trendRead.length > 0 && (
+              <div>
+                <div className="text-[10px] tracking-widest mb-2" style={{ color: 'var(--text-muted)' }}>
+                  TREND READ
+                </div>
+                <ul className="space-y-2">
+                  {trendRead.map((ins, i) => (
+                    <li key={i} className="flex gap-2.5 text-sm leading-snug">
+                      <span
+                        className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
+                        style={{ backgroundColor: INSIGHT_COLOR[ins.kind] }}
+                      />
+                      <span style={{ color: 'var(--text-secondary)' }}>{ins.text}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[10px] leading-snug mt-2" style={{ color: 'var(--text-muted)' }}>
+                  Fights are rare events and stat lines are matchup-dependent — the read weighs mileage,
+                  opposition level and damage history before calling anything a trend, and it never touches the rank.
+                </p>
+              </div>
+            )}
             {gauntlet ? (
               <Gauntlet gauntlet={gauntlet} />
             ) : (
@@ -78,43 +140,78 @@ export default function AdvancedAnalyticsSection({
             )}
           </div>
 
-          <div className="lg:col-span-2 space-y-4">
-            <RatioPanel advanced={advanced} benchmark={benchmark} />
-            <DurabilityPanel advanced={advanced} />
+          <div className="lg:col-span-2 min-w-0">
+            <div className="text-[10px] tracking-widest mb-2" style={{ color: 'var(--text-muted)' }}>
+              FIGHT HISTORY
+            </div>
+            <div className="lg:max-h-[540px] lg:overflow-y-auto lg:pr-1">
+              <FightHistory history={history} strikes={strikes} />
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Pace table + finish anatomy */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 pt-4" style={{ borderTop: '1px solid var(--border)' }}>
-          <div className="lg:col-span-3">
+      {/* ── Block B — the numbers: strike ratio | schedule-adjusted + pace ── */}
+      <div className="rounded-xl p-4" style={cardStyle}>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+          <div className="lg:col-span-2 min-w-0">
+            <RatioPanel advanced={advanced} benchmark={benchmark} />
+          </div>
+
+          <div className="lg:col-span-3 min-w-0">
             {scheduleContext && <ScheduleContextStrip ctx={scheduleContext} />}
-            <div className="grid grid-cols-[1fr_56px_56px_64px] gap-2 text-[10px] tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>
+            <div className={`grid ${paceGrid} gap-2 text-[10px] tracking-wider mb-2`} style={{ color: 'var(--text-muted)' }}>
               <span>PACE</span>
               <span className="text-right">CAREER</span>
-              <span className="text-right">LAST {recent?.fights ?? '—'}</span>
-              <span className="text-right">DRIFT</span>
+              {med && <span className="text-right">DIV MED</span>}
+              <span className="text-right">TREND</span>
             </div>
             <div className="space-y-1.5">
-              <PaceRow label="Strikes landed" career={fmt1(career.landedPer15)} recent={recent ? fmt1(recent.landedPer15) : '—'} delta={drift?.landedPer15Delta ?? null} />
-              <PaceRow label="Strikes absorbed" career={fmt1(career.absorbedPer15)} recent={recent ? fmt1(recent.absorbedPer15) : '—'} delta={recent ? -(recent.absorbedPer15 - career.absorbedPer15) : null} />
-              <PaceRow label="Strike differential" feedsRanking career={fmt1(career.diffPer15)} recent={recent ? fmt1(recent.diffPer15) : '—'} delta={drift?.diffPer15Delta ?? null} />
-              <PaceRow label="Sig. accuracy" feedsRanking career={pct(career.sigAccuracy)} recent={recent ? pct(recent.sigAccuracy) : '—'} delta={drift?.sigAccuracyDelta != null ? drift.sigAccuracyDelta * 100 : null} deltaDecimals={0} />
-              <PaceRow label="Knockdowns" feedsRanking career={career.kdPer15.toFixed(2)} recent={recent ? recent.kdPer15.toFixed(2) : '—'} delta={recent ? Math.round((recent.kdPer15 - career.kdPer15) * 100) / 100 : null} deltaDecimals={2} />
-              <PaceRow label="Takedowns" feedsRanking career={fmt1(career.tdPer15)} recent={recent ? fmt1(recent.tdPer15) : '—'} delta={drift?.tdPer15Delta ?? null} />
-              <PaceRow label="Takedowns conceded" career={fmt1(career.tdAbsorbedPer15)} recent={recent ? fmt1(recent.tdAbsorbedPer15) : '—'} delta={recent ? -(recent.tdAbsorbedPer15 - career.tdAbsorbedPer15) : null} />
-              <PaceRow label="Sub attempts" career={fmt1(career.subAttPer15)} recent={recent ? fmt1(recent.subAttPer15) : '—'} delta={recent ? Math.round((recent.subAttPer15 - career.subAttPer15) * 10) / 10 : null} />
-              <PaceRow label="Control share" career={`${fmt1(career.ctrlSharePct)}%`} recent={recent ? `${fmt1(recent.ctrlSharePct)}%` : '—'} delta={recent ? Math.round((recent.ctrlSharePct - career.ctrlSharePct) * 10) / 10 : null} />
+              <PaceRow gridCls={paceGrid} label="Strikes landed" career={fmt1(career.landedPer15)} median={med ? fmt1(med.landedPer15) : null} delta={drift?.landedPer15Delta ?? null} standout={standoutOf(career.landedPer15, med?.landedPer15, true)} />
+              <PaceRow gridCls={paceGrid} label="Strikes absorbed" higherIsBetter={false} career={fmt1(career.absorbedPer15)} median={med ? fmt1(med.absorbedPer15) : null} delta={recent ? recent.absorbedPer15 - career.absorbedPer15 : null} standout={standoutOf(career.absorbedPer15, med?.absorbedPer15, false)} />
+              <PaceRow gridCls={paceGrid} label="Strike differential" feedsRanking career={fmt1(career.diffPer15)} median={med ? fmt1(med.diffPer15) : null} delta={drift?.diffPer15Delta ?? null} standout={standoutOf(career.diffPer15, med?.diffPer15, true)} />
+              <PaceRow gridCls={paceGrid} label="Sig. accuracy" feedsRanking career={pct(career.sigAccuracy)} median={med ? pct(med.sigAccuracy) : null} delta={drift?.sigAccuracyDelta != null ? drift.sigAccuracyDelta * 100 : null} deltaDecimals={0} standout={standoutOf(career.sigAccuracy, med?.sigAccuracy, true)} />
+              <PaceRow gridCls={paceGrid} label="Knockdowns" feedsRanking career={career.kdPer15.toFixed(2)} median={med ? med.kdPer15.toFixed(2) : null} delta={recent ? Math.round((recent.kdPer15 - career.kdPer15) * 100) / 100 : null} deltaDecimals={2} standout={standoutOf(career.kdPer15, med?.kdPer15, true)} />
+              <PaceRow gridCls={paceGrid} label="Takedowns" feedsRanking career={fmt1(career.tdPer15)} median={med ? fmt1(med.tdPer15) : null} delta={drift?.tdPer15Delta ?? null} standout={standoutOf(career.tdPer15, med?.tdPer15, true)} />
+              <PaceRow gridCls={paceGrid} label="Takedowns conceded" higherIsBetter={false} career={fmt1(career.tdAbsorbedPer15)} median={med ? fmt1(med.tdAbsorbedPer15) : null} delta={recent ? recent.tdAbsorbedPer15 - career.tdAbsorbedPer15 : null} standout={standoutOf(career.tdAbsorbedPer15, med?.tdAbsorbedPer15, false)} />
+              <PaceRow gridCls={paceGrid} label="Sub attempts" career={fmt1(career.subAttPer15)} median={med ? fmt1(med.subAttPer15) : null} delta={recent ? Math.round((recent.subAttPer15 - career.subAttPer15) * 10) / 10 : null} standout={standoutOf(career.subAttPer15, med?.subAttPer15, true)} />
+              <PaceRow gridCls={paceGrid} label="Control share" career={`${fmt1(career.ctrlSharePct)}%`} median={med ? `${fmt1(med.ctrlSharePct)}%` : null} delta={recent ? Math.round((recent.ctrlSharePct - career.ctrlSharePct) * 10) / 10 : null} standout={standoutOf(career.ctrlSharePct, med?.ctrlSharePct, true)} />
             </div>
             <p className="text-[10px] leading-snug mt-3" style={{ color: 'var(--text-muted)' }}>
               <span className="inline-block w-1.5 h-1.5 rounded-full mr-1 align-middle" style={{ backgroundColor: 'var(--accent-red)' }} />
-              = signal behind the bounded ±30 metrics bonus. Computed from {advanced.sampleFights} charted
-              fights ({advanced.totalMinutes} min). Drift arrows point toward better (green) or worse (red) for the fighter.
-              Drift is <em>raw</em> — it doesn’t adjust for who the recent opponents were; the SCHEDULE strip
-              above (and its details popup) is the opponent-adjusted read.
+              = signal behind the bounded ±30 metrics bonus. CAREER is over {advanced.sampleFights} charted
+              fights ({advanced.totalMinutes} min); the TREND arrow shows the recent-form direction vs career
+              (▲ up / ▼ down), green = better / red = worse for the fighter.
+              {med && <> DIV MED = median of this division’s {benchmark?.sample} ranked fighters — the peer baseline;
+              a coloured value + badge (e.g. <span className="font-mono">8×</span>, <span className="font-mono">67%↓</span>)
+              flags a stat that stands out sharply from it (gold = elite, green = strength, red = gap).</>}
+              {' '}The last-5 numbers and opponent-adjusted read live in the fight-by-fight popup above.
             </p>
           </div>
+        </div>
+      </div>
 
-          <div className="lg:col-span-2">
+      {/* ── Block C — supporting, de-emphasized: radar + durability + finishes ── */}
+      <div className="rounded-xl p-4" style={{ backgroundColor: 'var(--bg-primary)', border: '1px dashed var(--border)' }}>
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
+          <span className="text-[10px] tracking-widest" style={{ color: 'var(--text-muted)' }}>
+            SUPPORTING · ATTRIBUTES & DURABILITY
+          </span>
+          <span
+            className="text-[8px] tracking-widest px-1.5 py-0.5 rounded"
+            style={{ color: 'var(--accent-gold)', border: '1px solid var(--border)' }}
+          >
+            RADAR REWORK PENDING
+          </span>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start" style={{ opacity: 0.82 }}>
+          <div>
+            <div className="text-[10px] tracking-widest mb-2" style={{ color: 'var(--text-muted)' }}>ATTRIBUTES</div>
+            <ProfileRadar radar={radar} />
+          </div>
+          <DurabilityPanel advanced={advanced} />
+          <div>
+            <div className="text-[10px] tracking-widest mb-2" style={{ color: 'var(--text-muted)' }}>FINISH ANATOMY</div>
             {(advanced.finishWins.length > 0 || advanced.finishedBy.length > 0) ? (
               <div className="grid grid-cols-2 gap-4">
                 <FinishList title="FINISHES BY" entries={advanced.finishWins} accent="var(--accent-red-light)" />
@@ -203,39 +300,75 @@ function DurabilityPanel({ advanced }: { advanced: AdvancedStats }) {
   );
 }
 
-function DeltaChip({ delta, decimals = 1 }: { delta: number | null; decimals?: number }) {
-  if (delta == null) return <span style={{ color: 'var(--text-muted)' }}>—</span>;
+// Trend arrow only — direction the stat moved recently (▲ up / ▼ down / · flat);
+// the colour shows whether that move is good or bad for the fighter. So for a
+// "lower is better" stat like strikes absorbed, moving up is a red ▲. The
+// magnitude deliberately isn't shown here — the fight-by-fight popup has it.
+function DeltaChip({ delta, decimals = 1, higherIsBetter = true }: { delta: number | null; decimals?: number; higherIsBetter?: boolean }) {
+  if (delta == null) return <span style={{ color: 'var(--text-muted)' }}>·</span>;
   const eps = decimals === 0 ? 0.5 : 0.05;
-  const color = Math.abs(delta) < eps ? 'var(--text-muted)' : delta > 0 ? 'var(--accent-green)' : 'var(--accent-red-light)';
-  const arrow = Math.abs(delta) < eps ? '·' : delta > 0 ? '▲' : '▼';
+  const flat = Math.abs(delta) < eps;
+  const up = delta > 0;
+  const isGood = up ? higherIsBetter : !higherIsBetter;
+  const color = flat ? 'var(--text-muted)' : isGood ? 'var(--accent-green)' : 'var(--accent-red-light)';
+  const arrow = flat ? '·' : up ? '▲' : '▼';
   return (
-    <span className="font-mono text-xs" style={{ color }}>
-      {arrow} {Math.abs(delta).toFixed(decimals)}
+    <span className="font-mono text-sm" style={{ color }} title={flat ? 'flat vs career' : up ? 'trending up vs career' : 'trending down vs career'}>
+      {arrow}
     </span>
   );
 }
 
 function PaceRow({
-  label, career, recent, delta, deltaDecimals, feedsRanking,
+  label, career, median, delta, deltaDecimals, feedsRanking, gridCls, standout, higherIsBetter = true,
 }: {
   label: string;
   career: string;
-  recent: string;
+  median?: string | null;
   delta: number | null;
   deltaDecimals?: number;
   feedsRanking?: boolean;
+  gridCls: string;
+  standout?: Standout | null;
+  higherIsBetter?: boolean;
 }) {
+  // Elite strengths get the full row treatment (accent bar + faint tint);
+  // other standouts just colour their CAREER value + badge. The inset box-shadow
+  // draws the left bar without shifting the grid columns.
+  const rowStyle = standout?.emphasize
+    ? {
+        backgroundColor: `color-mix(in srgb, ${standout.color} 9%, transparent)`,
+        boxShadow: `inset 3px 0 0 ${standout.color}`,
+      }
+    : undefined;
+  const labelColor = standout?.emphasize ? standout.color : 'var(--text-secondary)';
+  const careerColor = standout ? standout.color : 'var(--text-muted)';
+
   return (
-    <div className="grid grid-cols-[1fr_56px_56px_64px] items-center gap-2 text-sm">
-      <span className="flex items-center gap-1.5 min-w-0" style={{ color: 'var(--text-secondary)' }}>
+    <div
+      className={`grid ${gridCls} items-center gap-2 text-sm rounded ${standout?.emphasize ? '-mx-1.5 px-1.5 py-0.5' : ''}`}
+      style={rowStyle}
+    >
+      <span className="flex items-center gap-1.5 min-w-0" style={{ color: labelColor }}>
         {feedsRanking && (
           <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: 'var(--accent-red)' }} />
         )}
         <span className="truncate">{label}</span>
+        {standout && (
+          <span
+            className="shrink-0 font-mono text-[9px] leading-none px-1 py-0.5 rounded"
+            style={{ color: standout.color, backgroundColor: 'var(--bg-elevated)' }}
+            title="vs the division ranked median"
+          >
+            {standout.badge}
+          </span>
+        )}
       </span>
-      <span className="font-mono text-right" style={{ color: 'var(--text-muted)' }}>{career}</span>
-      <span className="font-mono text-right" style={{ color: 'var(--text-primary)' }}>{recent}</span>
-      <span className="text-right"><DeltaChip delta={delta} decimals={deltaDecimals ?? 1} /></span>
+      <span className="font-mono text-right" style={{ color: careerColor, fontWeight: standout ? 600 : 400 }}>{career}</span>
+      {median != null && (
+        <span className="font-mono text-right" style={{ color: 'var(--text-muted)', opacity: 0.75 }}>{median}</span>
+      )}
+      <span className="text-right"><DeltaChip delta={delta} decimals={deltaDecimals ?? 1} higherIsBetter={higherIsBetter} /></span>
     </div>
   );
 }

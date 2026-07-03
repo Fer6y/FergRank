@@ -184,3 +184,19 @@ export const WOMENS_DIVISIONS = [
 ] as const;
 
 export const ALL_DIVISIONS = [...MENS_DIVISIONS, ...WOMENS_DIVISIONS] as const;
+
+// The divisions one weight class up and one down, within the same gender ladder.
+// Used to widen the "plays like" comparable pool beyond a single division while
+// staying stylistically sane (no jumping from Flyweight to Heavyweight).
+export function adjacentDivisions(division: string): string[] {
+  for (const list of [MENS_DIVISIONS, WOMENS_DIVISIONS] as readonly (readonly string[])[]) {
+    const i = list.indexOf(division);
+    if (i >= 0) {
+      const out: string[] = [];
+      if (i - 1 >= 0) out.push(list[i - 1]);
+      if (i + 1 < list.length) out.push(list[i + 1]);
+      return out;
+    }
+  }
+  return [];
+}

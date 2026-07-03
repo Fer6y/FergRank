@@ -10,6 +10,7 @@ import {
   buildTrendRead,
   buildGauntlet,
   buildScheduleContext,
+  findComparable,
   divisionRatioBenchmark,
   type AdvancedStats,
   type TrendInsight,
@@ -17,7 +18,7 @@ import {
   type Gauntlet,
   type ScheduleContext,
 } from './advancedStats';
-import { ALL_DIVISIONS } from './types';
+import { ALL_DIVISIONS, adjacentDivisions } from './types';
 import type { RankedFighter } from './types';
 import type { Fighter } from './types';
 
@@ -161,6 +162,24 @@ export async function getFighterProfile(
   const tenureYears = history.length
     ? (Date.now() - new Date(history[history.length - 1].date).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
     : 0;
+  const divisionBenchmark = division && rankedIds.length
+    ? divisionRatioBenchmark(data, division, rankedIds)
+    : null;
+  const scheduleContext = advanced ? buildScheduleContext(data, advanced, history) : null;
+  const ratings = buildEloRatings(data);
+  // "Plays like" comparable pool: the subject's division plus the one weight
+  // class up and one down (same-gender ladder) — some cross-division variance,
+  // without silly reaches. findComparable also caps how far UP it can reach.
+  let comparablePool = rankedIds;
+  if (division && advanced && rankedIds.length) {
+    for (const nd of adjacentDivisions(division)) {
+      const nr = await generateDivisionRankings(nd, data);
+      comparablePool = comparablePool.concat(nr.fighters.map((f) => f.fighterId));
+    }
+  }
+  const comparable = advanced && comparablePool.length
+    ? findComparable(data, fighterId, advanced, comparablePool, (id) => getElo(ratings, id).rating)
+    : null;
   const trendRead = advanced
     ? buildTrendRead(advanced, {
         age: ageInfo?.age ?? null,
@@ -169,12 +188,10 @@ export async function getFighterProfile(
         eloRating: elo.rating,
         eloPeak: elo.peakRating,
         history,
+        scheduleContext,
+        comparable,
       })
     : [];
-  const divisionBenchmark = division && rankedIds.length
-    ? divisionRatioBenchmark(data, division, rankedIds)
-    : null;
-  const scheduleContext = advanced ? buildScheduleContext(data, advanced, history) : null;
 
   const radar = computeRadarAxes(data, fighterId, null, {
     sos,

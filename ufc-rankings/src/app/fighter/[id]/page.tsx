@@ -51,6 +51,99 @@ export default async function FighterPage({
     label: `${formatMethod(f.method)} vs. ${f.opponentName}`,
   }));
 
+  // Reusable content blocks. The full analytics dashboard (Gauntlet + history +
+  // pace + radar) renders when charted stats exist; these are the rank-rationale
+  // / fallback pieces composed around it.
+  const whyBlock = why ? (
+    <Section title="WHY THIS RANK">
+      <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-primary)' }}>
+        {why.headline}
+      </p>
+      {why.insights.length > 0 && (
+        <ul className="space-y-2 mb-4">
+          {why.insights.map((ins, i) => (
+            <li key={i} className="flex gap-2.5 text-sm leading-snug">
+              <span
+                className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
+                style={{
+                  backgroundColor:
+                    ins.kind === 'positive'
+                      ? 'var(--accent-green)'
+                      : ins.kind === 'negative'
+                        ? 'var(--accent-red-light)'
+                        : 'var(--text-muted)',
+                }}
+              />
+              <span style={{ color: 'var(--text-secondary)' }}>{ins.text}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div
+        className="text-[10px] tracking-widest mb-2 pt-1"
+        style={{ color: 'var(--text-muted)', borderTop: '1px solid var(--border)' }}
+      >
+        SCORE BREAKDOWN
+      </div>
+      <div className="space-y-2">
+        <DecompRow label="Base Elo" value={why.parts[0].value} color={why.parts[0].color} isBase />
+        {why.parts.slice(1).filter((pt) => pt.value !== 0).map((pt) => (
+          <DecompRow key={pt.label} label={pt.label} value={pt.value} color={pt.color} />
+        ))}
+        <div
+          className="flex items-center justify-between pt-2 mt-1"
+          style={{ borderTop: '1px solid var(--border)' }}
+        >
+          <span className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-secondary)' }}>
+            Final rating
+          </span>
+          <span className="font-display text-xl" style={{ color: 'var(--text-primary)' }}>
+            {why.final.toFixed(1)}
+          </span>
+        </div>
+      </div>
+    </Section>
+  ) : (
+    <Section title="RATING">
+      <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+        Not currently ranked in a division (needs 3+ recent UFC fights in one weight class).
+        Core Elo: <span className="font-mono" style={{ color: 'var(--text-primary)' }}>{p.eloRating}</span>
+        {' '}(peak {p.eloPeak}).
+      </p>
+    </Section>
+  );
+
+  const snapshotBlock = (
+    <Section title="SNAPSHOT">
+      <dl className="space-y-2 text-sm">
+        <Stat label="Schedule (opponent quality)" value={p.sos != null ? p.sos.toFixed(1) : '—'} />
+        {p.ranked?.scheduleStrength != null && (
+          <Stat label="Schedule (activity-adjusted)" value={p.ranked.scheduleStrength.toFixed(1)} />
+        )}
+        <Stat label="Peak Elo" value={`${p.eloPeak}`} />
+        <Stat label="Current Elo" value={`${p.eloRating}`} />
+        <Stat label="Age" value={p.age != null ? `${p.ageApproximate ? '~' : ''}${p.age}` : '—'} />
+        <Stat label="Months since last fight" value={`${p.monthsSinceLastFight}`} />
+        <Stat label="Stance" value={p.stance || '—'} />
+        <Stat label="Height" value={p.height || '—'} />
+      </dl>
+    </Section>
+  );
+
+  const communityBlock = (
+    <div
+      className="rounded-xl p-4 text-center"
+      style={{ backgroundColor: 'var(--bg-card)', border: '1px dashed var(--border-light)' }}
+    >
+      <div className="text-[10px] tracking-wider mb-1" style={{ color: 'var(--text-muted)' }}>
+        COMMUNITY · COMING SOON
+      </div>
+      <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
+        Confidence vote &amp; comments — shown beside the rank, never replacing it.
+      </div>
+    </div>
+  );
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
       {/* Point the analyst dock at this fighter while the profile is open. */}
@@ -120,6 +213,14 @@ export default async function FighterPage({
           ) : (
             <RankCard label="STATUS" value="Unranked" color="var(--text-muted)" small />
           )}
+          {p.sos != null && (
+            <RankCard
+              label="SCHEDULE"
+              value={p.sos.toFixed(0)}
+              color="var(--accent-blue)"
+              sub={p.ranked?.scheduleStrength != null ? `${Math.round(p.ranked.scheduleStrength)} adj` : undefined}
+            />
+          )}
         </div>
       </div>
 
@@ -162,122 +263,52 @@ export default async function FighterPage({
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
-        {/* Left: why this rank + fight history */}
-        <div className="lg:col-span-3 space-y-5">
-          {why ? (
-            <Section title="WHY THIS RANK">
-              <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-primary)' }}>
-                {why.headline}
-              </p>
-              {why.insights.length > 0 && (
-                <ul className="space-y-2 mb-4">
-                  {why.insights.map((ins, i) => (
-                    <li key={i} className="flex gap-2.5 text-sm leading-snug">
-                      <span
-                        className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
-                        style={{
-                          backgroundColor:
-                            ins.kind === 'positive'
-                              ? 'var(--accent-green)'
-                              : ins.kind === 'negative'
-                                ? 'var(--accent-red-light)'
-                                : 'var(--text-muted)',
-                        }}
-                      />
-                      <span style={{ color: 'var(--text-secondary)' }}>{ins.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              <div
-                className="text-[10px] tracking-widest mb-2 pt-1"
-                style={{ color: 'var(--text-muted)', borderTop: '1px solid var(--border)' }}
-              >
-                SCORE BREAKDOWN
-              </div>
-              <div className="space-y-2">
-                <DecompRow label="Base Elo" value={why.parts[0].value} color={why.parts[0].color} isBase />
-                {why.parts.slice(1).filter((pt) => pt.value !== 0).map((pt) => (
-                  <DecompRow key={pt.label} label={pt.label} value={pt.value} color={pt.color} />
-                ))}
-                <div
-                  className="flex items-center justify-between pt-2 mt-1"
-                  style={{ borderTop: '1px solid var(--border)' }}
-                >
-                  <span className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-secondary)' }}>
-                    Final rating
-                  </span>
-                  <span className="font-display text-xl" style={{ color: 'var(--text-primary)' }}>
-                    {why.final.toFixed(1)}
-                  </span>
-                </div>
-              </div>
-            </Section>
-          ) : (
-            <Section title="RATING">
-              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-                Not currently ranked in a division (needs 3+ recent UFC fights in one weight class).
-                Core Elo: <span className="font-mono" style={{ color: 'var(--text-primary)' }}>{p.eloRating}</span>
-                {' '}(peak {p.eloPeak}).
-              </p>
-            </Section>
-          )}
+      {p.advanced ? (
+        <>
+          {/* Analytics dashboard — Gauntlet + fight history, then the numbers,
+              then de-emphasized radar/durability. The star of the profile. */}
+          <AdvancedAnalyticsSection
+            advanced={p.advanced}
+            trendRead={p.trendRead}
+            benchmark={p.divisionBenchmark}
+            scheduleContext={p.scheduleContext}
+            gauntlet={p.gauntlet}
+            history={p.history}
+            radar={p.radar}
+          />
 
-          <Section title="FIGHT HISTORY">
-            <FightHistory history={p.history} strikes={strikes} />
-          </Section>
-        </div>
-
-        {/* Right: radar + snapshot + community stub */}
-        <div className="lg:col-span-2 space-y-5">
-          <Section title="ATTRIBUTES">
-            <ProfileRadar radar={p.radar} />
-          </Section>
-
-          <Section title="SNAPSHOT">
-            <dl className="space-y-2 text-sm">
-              <Stat label="Strength of schedule" value={p.sos != null ? p.sos.toFixed(1) : '—'} />
-              <Stat label="Peak Elo" value={`${p.eloPeak}`} />
-              <Stat label="Current Elo" value={`${p.eloRating}`} />
-              <Stat label="Age" value={p.age != null ? `${p.ageApproximate ? '~' : ''}${p.age}` : '—'} />
-              <Stat label="Months since last fight" value={`${p.monthsSinceLastFight}`} />
-              <Stat label="Stance" value={p.stance || '—'} />
-              <Stat label="Height" value={p.height || '—'} />
-            </dl>
-          </Section>
-
-          <div
-            className="rounded-xl p-4 text-center"
-            style={{ backgroundColor: 'var(--bg-card)', border: '1px dashed var(--border-light)' }}
-          >
-            <div className="text-[10px] tracking-wider mb-1" style={{ color: 'var(--text-muted)' }}>
-              COMMUNITY · COMING SOON
-            </div>
-            <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
-              Confidence vote &amp; comments — shown beside the rank, never replacing it.
+          {/* Rank rationale + reference, below the dashboard */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+            <div className="lg:col-span-3">{whyBlock}</div>
+            <div className="lg:col-span-2 space-y-5">
+              {snapshotBlock}
+              {communityBlock}
             </div>
           </div>
+        </>
+      ) : (
+        // Fallback for fighters without charted analytics (no Gauntlet/pace).
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+          <div className="lg:col-span-3 space-y-5">
+            {whyBlock}
+            <Section title="FIGHT HISTORY">
+              <FightHistory history={p.history} strikes={strikes} />
+            </Section>
+          </div>
+          <div className="lg:col-span-2 space-y-5">
+            <Section title="ATTRIBUTES">
+              <ProfileRadar radar={p.radar} />
+            </Section>
+            {snapshotBlock}
+            {communityBlock}
+          </div>
         </div>
-      </div>
-
-      {/* Advanced analytics — one unified band: trend read, form timeline,
-          ratio vs the division's ranked pool, pace, durability, finish
-          anatomy. Display-only; "why this rank" above stays the authority. */}
-      {p.advanced && (
-        <AdvancedAnalyticsSection
-          advanced={p.advanced}
-          trendRead={p.trendRead}
-          benchmark={p.divisionBenchmark}
-          scheduleContext={p.scheduleContext}
-          gauntlet={p.gauntlet}
-        />
       )}
     </div>
   );
 }
 
-function RankCard({ label, value, color, small }: { label: string; value: string; color: string; small?: boolean }) {
+function RankCard({ label, value, color, small, sub }: { label: string; value: string; color: string; small?: boolean; sub?: string }) {
   return (
     <div
       className="rounded-lg px-3 py-2 text-center min-w-[68px]"
@@ -289,6 +320,11 @@ function RankCard({ label, value, color, small }: { label: string; value: string
       <div className={`font-display leading-none mt-0.5 ${small ? 'text-sm py-1' : 'text-2xl'}`} style={{ color }}>
         {value}
       </div>
+      {sub && (
+        <div className="text-[8px] tracking-wider font-mono mt-0.5" style={{ color: 'var(--text-muted)' }}>
+          {sub}
+        </div>
+      )}
     </div>
   );
 }
