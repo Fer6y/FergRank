@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { winProbabilityShaded } from '@/lib/eloEngine';
 import { predictMatchup } from '@/lib/fightPrediction';
+import { probabilityToAmerican } from '@/lib/americanOdds';
 import { classifyStyle, type PaceWindow, type ScheduleContext } from '@/lib/advancedStats';
 import { computeCompareEdges, type CategoryEdge, type EdgeLeader } from '@/lib/compareEdges';
 import { getFighterProfile, type FighterProfile } from '@/lib/fighterProfile';
@@ -209,15 +210,32 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
             <span className="text-right text-[9px] uppercase tracking-wider font-semibold truncate" style={{ color: 'var(--text-secondary)' }}>{lnB}</span>
           </div>
           <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-            <div className="text-right font-mono text-2xl leading-none"
-              style={{ color: (winA ?? 0) >= (winB ?? 0) ? 'var(--accent-green)' : 'var(--text-secondary)' }}>
-              {pctFmt(winA)}
+            <div className="text-right">
+              <div className="font-mono text-2xl leading-none"
+                style={{ color: (winA ?? 0) >= (winB ?? 0) ? 'var(--accent-green)' : 'var(--text-secondary)' }}>
+                {pctFmt(winA)}
+              </div>
+              {winA != null && (
+                <div className="font-mono text-[11px] mt-1" style={{ color: 'var(--text-muted)' }}>
+                  {probabilityToAmerican(winA) ?? '—'}
+                </div>
+              )}
             </div>
             <div className="font-display text-xs" style={{ color: 'var(--text-muted)' }}>VS</div>
-            <div className="text-left font-mono text-2xl leading-none"
-              style={{ color: (winB ?? 0) > (winA ?? 0) ? 'var(--accent-green)' : 'var(--text-secondary)' }}>
-              {pctFmt(winB)}
+            <div className="text-left">
+              <div className="font-mono text-2xl leading-none"
+                style={{ color: (winB ?? 0) > (winA ?? 0) ? 'var(--accent-green)' : 'var(--text-secondary)' }}>
+                {pctFmt(winB)}
+              </div>
+              {winB != null && (
+                <div className="font-mono text-[11px] mt-1" style={{ color: 'var(--text-muted)' }}>
+                  {probabilityToAmerican(winB) ?? '—'}
+                </div>
+              )}
             </div>
+          </div>
+          <div className="text-[9px] tracking-widest text-center mt-1.5" style={{ color: 'var(--text-muted)' }}>
+            FAIR LINE · NO VIG
           </div>
           {pred && (() => {
             const eloA = pred.eloProbA;

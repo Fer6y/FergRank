@@ -8,6 +8,7 @@ import FormPips, { resultColor } from '@/components/FormPips';
 import ScheduleContextStrip from '@/components/ScheduleContextStrip';
 import type { UpcomingEvent, CardFighter, CardBout } from '@/lib/upcomingEnrich';
 import type { BoutFlagSet } from '@/lib/boutFlags';
+import { probabilityToAmerican } from '@/lib/americanOdds';
 
 // Per-bout context flags (short notice / missed weight) → small red chips.
 function FlagBadge({ flags, right }: { flags: BoutFlagSet | null | undefined; right?: boolean }) {
@@ -164,24 +165,40 @@ function ProbabilitySpine({ bout }: { bout: CardBout }) {
   const p2 = 100 - p1;
   const fp1 = bout.formProb1 != null ? Math.round(bout.formProb1 * 100) : null;
   const showForm = fp1 != null && Math.abs(fp1 - p1) >= 2;
+  const line1 = probabilityToAmerican(bout.prob1);
+  const line2 = probabilityToAmerican(1 - bout.prob1);
   const href = compareHref(bout);
   const spine = (
     <>
       <div className="flex items-baseline justify-between mb-1.5">
-        <span
-          className="font-display text-lg leading-none"
-          style={{ color: p1 >= p2 ? 'var(--text-primary)' : 'var(--text-muted)' }}
-        >
-          {p1}%
+        <span className="flex items-baseline gap-1.5">
+          <span
+            className="font-display text-lg leading-none"
+            style={{ color: p1 >= p2 ? 'var(--text-primary)' : 'var(--text-muted)' }}
+          >
+            {p1}%
+          </span>
+          {line1 && (
+            <span className="font-mono text-[10px] leading-none" style={{ color: 'var(--text-muted)' }}>
+              {line1}
+            </span>
+          )}
         </span>
         <span className="font-mono text-[10px] tracking-widest" style={{ color: 'var(--text-muted)' }}>
           WIN PROBABILITY{showForm ? ` · FORM-ADJ ${fp1}–${100 - fp1!}` : ''}
         </span>
-        <span
-          className="font-display text-lg leading-none"
-          style={{ color: p2 > p1 ? 'var(--text-primary)' : 'var(--text-muted)' }}
-        >
-          {p2}%
+        <span className="flex items-baseline gap-1.5">
+          {line2 && (
+            <span className="font-mono text-[10px] leading-none" style={{ color: 'var(--text-muted)' }}>
+              {line2}
+            </span>
+          )}
+          <span
+            className="font-display text-lg leading-none"
+            style={{ color: p2 > p1 ? 'var(--text-primary)' : 'var(--text-muted)' }}
+          >
+            {p2}%
+          </span>
         </span>
       </div>
       <div className="relative h-1.5 rounded-full" style={{ backgroundColor: 'var(--bg-elevated)' }}>
@@ -379,13 +396,19 @@ function DenseSide({ f, align, flags }: { f: CardFighter; align: 'left' | 'right
 
 function DenseBout({ bout }: { bout: CardBout }) {
   const p1 = bout.prob1 != null ? Math.round(bout.prob1 * 100) : null;
+  const line1 = bout.prob1 != null ? probabilityToAmerican(bout.prob1) : null;
+  const line2 = bout.prob1 != null ? probabilityToAmerican(1 - bout.prob1) : null;
   const href = compareHref(bout);
   const pill =
     p1 != null ? (
       <>
         <div className="flex justify-between font-mono text-[10px] mb-1">
-          <span style={{ color: p1 >= 50 ? 'var(--text-primary)' : 'var(--text-muted)' }}>{p1}</span>
+          <span style={{ color: p1 >= 50 ? 'var(--text-primary)' : 'var(--text-muted)' }}>
+            {p1}
+            {line1 && <span style={{ color: 'var(--text-muted)' }}> · {line1}</span>}
+          </span>
           <span style={{ color: p1 < 50 ? 'var(--text-primary)' : 'var(--text-muted)' }}>
+            {line2 && <span style={{ color: 'var(--text-muted)' }}>{line2} · </span>}
             {100 - p1}
           </span>
         </div>

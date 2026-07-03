@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { americanToImplied, probabilityToAmerican } from '@/lib/americanOdds';
 
 // Option A — value calculator. You type the current market line for an upcoming
 // fight; this compares the MODEL's calibrated win% (from core Elo) to the
@@ -12,13 +13,6 @@ interface Props {
   nameA: string;
   nameB: string;
   lowConfidence?: boolean; // a fighter has a thin UFC sample (Elo still converging)
-}
-
-// American odds → implied probability. Accepts "-150", "+130", "150".
-function americanToImplied(raw: string): number | null {
-  const v = parseFloat(raw.replace(/[^0-9.+-]/g, ''));
-  if (!Number.isFinite(v) || v === 0) return null;
-  return v > 0 ? 100 / (v + 100) : -v / (-v + 100);
 }
 
 const pct = (x: number) => `${Math.round(x * 100)}%`;
@@ -82,6 +76,7 @@ export default function OddsValue({ modelProbA, nameA, nameB, lowConfidence }: P
       <div className="rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
         {[
           { label: 'Model win %', a: pct(modelProbA), b: pct(modelB), strong: true },
+          { label: 'Model fair line', a: probabilityToAmerican(modelProbA) ?? '—', b: probabilityToAmerican(modelB) ?? '—' },
           { label: 'Market (de-vig)', a: marketA != null ? pct(marketA) : '—', b: marketB != null ? pct(marketB) : '—' },
           { label: 'Edge (model − mkt)', a: edgeA != null ? `${signed(edgeA)}` : '—', b: edgeA != null ? `${signed(-edgeA)}` : '—', edge: true },
         ].map((r) => (
