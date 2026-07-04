@@ -10,6 +10,7 @@ import ComparePicker from '@/components/ComparePicker';
 import ProfileRadar from '@/components/ProfileRadar';
 import GrappleRamp from '@/components/GrappleRamp';
 import FighterAvatar from '@/components/FighterAvatar';
+import CompareGauntlet from '@/components/CompareGauntlet';
 
 export const revalidate = 86400;
 
@@ -134,6 +135,15 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
         <FighterHead p={pa} style={describeStyle(pa)} />
         <FighterHead p={pb} style={describeStyle(pb)} />
       </div>
+
+      {/* ── Shared Gauntlet — both fighters' Elo trajectories overlaid on one
+          calendar chart (A red / B blue) so their timelines read together ── */}
+      {pa.gauntlet && pb.gauntlet && (
+        <CompareGauntlet
+          a={{ name: pa.fullName, gauntlet: pa.gauntlet }}
+          b={{ name: pb.fullName, gauntlet: pb.gauntlet }}
+        />
+      )}
 
       {/* ── Rating + Strength of schedule — side by side ── */}
       <div className="grid grid-cols-2 gap-3 items-stretch">

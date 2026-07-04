@@ -70,8 +70,10 @@ UFergCRankings/                ← repo root
     ├── validation_elo_2026-06-12.txt      ← snapshot of the first v2 Elo run
     ├── validation_elo_2026-06-13.txt      ← v2 Elo run before the recency de-dup fix (evidence)
     ├── validation_elo_2026-06-13_postdedup.txt ← post recency-de-dup run (evidence)
-    ├── validation_elo_2026-07-03_officialseed.txt ← CURRENT reference (official seed form-gated
+    ├── validation_elo_2026-07-03_officialseed.txt ← prior reference (official seed form-gated
     │                                          + re-anchored to 0.1; champions lead LW/WW/BW)
+    ├── validation_elo_2026-07-04_lhwchamp.txt ← CURRENT reference (Ulberg = LHW champ after
+    │                                          Pereira vacated for the HW interim; champions lead LW/WW/BW)
     ├── data/
     │   ├── SOURCES.md             ← DATA PROVENANCE + alignment rules (read for data work)
     │   ├── Fighters_Stats.csv     ← PRIMARY fighter stats + weight class + style (~2,600)
@@ -348,7 +350,7 @@ Strictly scoped: UFC fights in that file are dropped (they duplicate our primary
 1. ✅ **Data layer** — `loadData.ts`: load + join CSVs, name-resolve fight IDs, recency-patch guard. (`pedigreeSeed.ts` loads the pre-UFC pedigree seed.)
 2. ✅ **Elo engine** — `eloEngine.ts`: chronological sweep → one rating per fighter, plus per-fight trace + filter-aware caching.
 3. ✅ **Scoring engine** — `scoringEngine.ts`: eligibility + bounded adjustments → ranked array per division (filter-parameterized).
-4. ✅ **Validation** — `scripts/validate.ts`: name-match audit + LW/WW/BW top-40 breakdown. Run via `node_modules/.bin/jiti scripts/validate.ts` (needs network for Octagon). **Re-run + diff after any algo/data change.** Current reference: `validation_elo_2026-07-03_officialseed.txt`.
+4. ✅ **Validation** — `scripts/validate.ts`: name-match audit + LW/WW/BW top-40 breakdown. Run via `node_modules/.bin/jiti scripts/validate.ts` (needs network for Octagon). **Re-run + diff after any algo/data change.** Current reference: `validation_elo_2026-07-04_lhwchamp.txt`.
 5. ✅ **API routes** — `/api/rankings` (+live filters), `/api/fighter/[id]`, `/api/search`.
 6. ✅ **Rankings homepage** — division tabs + filter bar + champion hero + dense rows + trend chips.
 7. ✅ **Fighter profile page** — why-this-rank, radar, fight history with Elo deltas.
@@ -358,7 +360,7 @@ Strictly scoped: UFC fights in that file are dropped (they duplicate our primary
 
 ## Algorithm Tuning Notes
 
-- **Tune from real output, never in the abstract.** The workflow is: change a value in `rankingConfig.ts` → run `scripts/validate.ts` → diff against the last saved snapshot (`ufc-rankings/validation_elo_*.txt`) → spot-check that LW/WW/BW still make sense. `validation_elo_2026-07-03_officialseed.txt` is the current reference (post seed form-gate + 0.1 re-anchor; champions still lead LW/WW/BW).
+- **Tune from real output, never in the abstract.** The workflow is: change a value in `rankingConfig.ts` → run `scripts/validate.ts` → diff against the last saved snapshot (`ufc-rankings/validation_elo_*.txt`) → spot-check that LW/WW/BW still make sense. `validation_elo_2026-07-04_lhwchamp.txt` is the current reference (Ulberg = LHW champ after Pereira vacated for the HW interim; champions still lead LW/WW/BW).
 - **`metricsScaleElo` (30)** is the knob most likely to need adjusting. At 40 it occasionally swung a fighter ~±28 Elo points (e.g. King Green) and out-weighed who-beat-whom; lowered to 30 on 2026-06-13. If metrics still override head-to-head logic, keep dialing down.
 - **`elo.baseK` (24)** controls volatility. Higher = ratings swing more per fight (more recency-reactive, noisier); lower = stickier, more conservative. Don't raise it without re-checking that one upset can't vault a fighter past a proven champion.
 - **`recencyHalfLifeMonths` (15)** only affects the metrics/SoS sampling windows now — the Elo core gets its recency from chronological processing + inactivity regression. Tune `elo.inactivityRetentionPerYear` (0.92) instead to make layoffs bite harder/softer.
