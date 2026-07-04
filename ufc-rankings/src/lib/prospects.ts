@@ -35,7 +35,12 @@ export interface ProspectEntry {
   ourRank: number | null;       // display rank if already cracking a division
   lastTwo: { result: string; label: string }[];
   nextFight: NextFight | null;
-  preUFC: { record: string; fights: number } | null;
+  preUFC: {
+    record: string;
+    fights: number;
+    ufcBoundBeaten: number;       // # future-UFC fighters beaten pre-UFC (schedule quality)
+    bestScalp: string | null;     // name of the best future-UFC fighter they beat pre-UFC
+  } | null;
 }
 
 // Compact method label for one-line results ("KO R2", "SUB R1", "UD").
@@ -102,7 +107,14 @@ export async function buildProspectWatchlist(limit = 20): Promise<ProspectEntry[
       })),
       nextFight: next,
       preUFC: ped && ped.fights >= MIN_PED_FIGHTS
-        ? { record: `${ped.wins}-${ped.losses}`, fights: ped.fights }
+        ? {
+            record: `${ped.wins}-${ped.losses}`,
+            fights: ped.fights,
+            ufcBoundBeaten: ped.ufcBoundBeaten,
+            bestScalp: ped.bestScalpId
+              ? data.fighterMap.get(ped.bestScalpId)?.fullName ?? null
+              : null,
+          }
         : null,
     });
   }

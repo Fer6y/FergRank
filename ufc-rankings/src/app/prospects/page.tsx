@@ -111,6 +111,12 @@ function ProspectCard({ p, index }: { p: ProspectEntry; index: number }) {
         {p.preUFC && (
           <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
             Pre-UFC: <span className="font-mono">{p.preUFC.record}</span> over {p.preUFC.fights} fights outside the UFC
+            {p.preUFC.ufcBoundBeaten > 0 && (
+              <>
+                {' · '}beat <span className="font-mono">{p.preUFC.ufcBoundBeaten}</span> future UFC fighter{p.preUFC.ufcBoundBeaten > 1 ? 's' : ''}
+                {p.preUFC.bestScalp ? ` (incl. ${p.preUFC.bestScalp})` : ''}
+              </>
+            )}
           </span>
         )}
         {p.nextFight && (

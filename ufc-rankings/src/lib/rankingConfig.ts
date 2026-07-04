@@ -152,6 +152,12 @@ export const RANKING_CONFIG = {
     missedWeightLogit: -0.15, // missed weight — modest NET penalty (drained tends to outweigh the size edge)
     maxAdjustmentLogit: 1.1,  // cap on |age+style+flags| so no context read flips a clear Elo favourite outright
     minStyleFights: 3,        // need this many metric'd fights each side before style applies
+    // Pre-UFC pedigree PRIOR (prediction side, DISPLAY-ONLY — never touches the
+    // Elo pool). Logit per unit of tapered pedigree-strength difference (A − B),
+    // where each side's strength tapers out by seedTaperUFCFights, so it only
+    // informs THIN-SAMPLE bouts — exactly where core Elo is a weak estimate and
+    // the market's edge on newcomers is largest. Bounded by maxAdjustmentLogit.
+    pedigreeEdgeCoef: 0.5,
   },
 
   // ═══ RECENCY WINDOWS (for metrics & strength-of-schedule, NOT the Elo core) ═══
@@ -422,6 +428,41 @@ export const RANKING_CONFIG = {
     // Defunct elite orgs (Pride/Strikeforce/WEC, tier `historical`) are excluded
     // from the current-form seed — they remain available for all-time context.
     seedExcludeHistorical: true,
+
+    // ── Empirical promotion grading (Workstream A) ────────────────────────
+    // Replace/blend the hand-tuned promotionTiers.multiplier with a DATA-DRIVEN
+    // grade: how well fighters who graduated from promotion X actually perform in
+    // the UFC (settled Elo gain, empirical-Bayes shrunk). Built offline by
+    // scripts/sherdog/gradePromotions.ts → data/promotion_grades.csv. When the
+    // file is absent or the toggle is off, the seed falls back to the static tier
+    // multiplier (identical to pre-grading behaviour).
+    useEmpiricalGrades: true,
+    gradeSourceFile: 'promotion_grades.csv',
+    gradeBlendLambda: 0.5,   // mult = λ·empiricalGrade + (1−λ)·staticTierMultiplier
+    gradeMinGraduates: 8,    // below this graduate count, trust the static tier instead
+    gradeShrinkageKappa: 15, // empirical-Bayes pseudo-count: shrink small-n orgs toward the global mean
+    // Orgs that are UFC TRYOUTS/showcases, not developmental feeder promotions —
+    // matched by canonicalOrg substring (case-insensitive). Excluded from FEEDER
+    // attribution (so a fighter is graded on where they actually came up, not the
+    // doorway) and therefore never graded as a promotion. The win still counts
+    // toward the pre-UFC record; it just isn't the fighter's "feeder identity".
+    // DWCS is Dana White's Contender Series — a one-fight UFC tryout.
+    feederExcludeOrgs: ['Contender Series', "Dana White"],
+
+    // ── Deeper pre-UFC strength of schedule (Workstream B.1) ──────────────
+    // A win rate is blind to WHO you beat. sherdog_fights.csv carries
+    // opponentSherdogId on ~100% of rows, and ~1,641 pre-UFC opponents are
+    // themselves crosswalked UFC fighters — so we can measure how many FUTURE
+    // UFC fighters a fighter beat pre-UFC, weighted by those opponents' UFC Elo.
+    // Beating a future contender is the strongest pre-UFC signal available.
+    // Folded as a BOUNDED additive term into pedigreeStrength (never past
+    // maxStrength). Leak note: opponent UFC Elo is the settled (present-day)
+    // rating — a mild look-ahead in backtests; acceptable for the tiny seed, to
+    // be upgraded to point-in-time opponent Elo later if validation flags it.
+    useOpponentSos: true,
+    sosWeight: 0.30,     // weight of the SoS term added on top of winRate×confidence×mult
+    sosTermCap: 0.40,    // clamp on the SoS term (keeps strength ≤ maxStrength)
+    sosNormConst: 300,   // beaten-opponent Elo-above-1500 SUM that reads as a full SoS term
   },
 
   // ═══ PROFILE RADAR (DISPLAY ONLY — never feeds finalRating) ════════════

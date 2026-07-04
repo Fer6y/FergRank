@@ -23,6 +23,7 @@ import type { Fight } from './types';
 import { RANKING_CONFIG } from './rankingConfig';
 import { getFighterAge } from './fighterAges';
 import { buildEloRatings, getElo } from './eloEngine';
+import { loadPedigreeStrength } from './pedigreeSeed';
 
 const LN10 = Math.log(10);
 const sigmoid = (x: number): number => 1 / (1 + Math.exp(-x));
@@ -166,7 +167,9 @@ export interface PredictionBreakdown {
   flagLogit: number;     // net context-flag adjustment (A perspective)
   flagsA: FightContext;
   flagsB: FightContext;
-  totalAdjLogit: number; // age + style + flags, after the cap
+  pedigreeEdge: number;  // A's tapered pre-UFC pedigree strength − B's (+ = A better pedigree)
+  pedigreeLogit: number; // pre-UFC pedigree prior (thin-sample only; tapers out by seedTaperUFCFights)
+  totalAdjLogit: number; // age + style + flags + pedigree, after the cap
   confidence: number;    // sample-size confidence applied
 }
 
@@ -218,7 +221,24 @@ export function predictFight(
   // Context flags (A perspective): A's own flags hurt A; B's flags help A.
   const flagLogit = cfg.enabled ? flagLogitFor(ctxA) - flagLogitFor(ctxB) : 0;
 
-  const totalAdjLogit = clamp(ageLogit + styleLogit + flagLogit, -cfg.maxAdjustmentLogit, cfg.maxAdjustmentLogit);
+  // Pre-UFC pedigree PRIOR (A perspective). A newcomer's thin Elo is a weak
+  // estimate — this leans on where they came from and how they did there. Each
+  // side's strength tapers to zero by seedTaperUFCFights, so it vanishes once a
+  // fighter has a real UFC sample (exactly like the ranking seed). DISPLAY-ONLY:
+  // reads the pedigree strength map, never the Elo pool.
+  let pedigreeEdge = 0;
+  let pedigreeLogit = 0;
+  if (cfg.enabled && RANKING_CONFIG.preUFCPedigree.enabled) {
+    const taperFights = RANKING_CONFIG.preUFCPedigree.seedTaperUFCFights;
+    const ped = loadPedigreeStrength(data);
+    const taper = (n: number) => Math.max(0, 1 - n / taperFights);
+    const effA = (ped.get(idA)?.strength ?? 0) * taper(fightsA);
+    const effB = (ped.get(idB)?.strength ?? 0) * taper(fightsB);
+    pedigreeEdge = effA - effB;
+    pedigreeLogit = cfg.pedigreeEdgeCoef * pedigreeEdge;
+  }
+
+  const totalAdjLogit = clamp(ageLogit + styleLogit + flagLogit + pedigreeLogit, -cfg.maxAdjustmentLogit, cfg.maxAdjustmentLogit);
 
   // Sample-size confidence (provisional shading), applied to the WHOLE logit.
   const conf = Math.max(
@@ -230,7 +250,8 @@ export function predictFight(
   const probA = sigmoid((base + totalAdjLogit) * conf);
   return {
     probA, eloProbA, ageEdgeYears, ageLogit, style: style ?? null, styleLogit,
-    flagLogit, flagsA: ctxA ?? {}, flagsB: ctxB ?? {}, totalAdjLogit, confidence: conf,
+    flagLogit, flagsA: ctxA ?? {}, flagsB: ctxB ?? {},
+    pedigreeEdge, pedigreeLogit, totalAdjLogit, confidence: conf,
   };
 }
 

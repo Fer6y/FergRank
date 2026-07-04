@@ -79,6 +79,7 @@ interface Row {
   date: string; div: string; fav: string; dog: string;
   eloPFav: number; fullPFav: number; mktPFav: number; favWon: boolean;
   ageEdge: number; styleLogit: number;
+  minFightNo: number; // prior UFC bouts of the THINNER fighter (drives the newcomer gap)
 }
 
 function main() {
@@ -140,6 +141,7 @@ function main() {
       dog: f1IsFav ? r['fighter2'] : r['fighter1'],
       eloPFav, fullPFav: pred.probA, mktPFav, favWon,
       ageEdge: pred.ageEdgeYears, styleLogit: pred.styleLogit,
+      minFightNo: Math.min(favPit.selfFightNo, dogPit.selfFightNo),
     });
   }
 
@@ -169,6 +171,29 @@ function main() {
 
   console.log('DOES THE AGE/STYLE LAYER HELP? (full model − pure Elo; negative logloss/brier = improvement):');
   console.log(`  Δlogloss ${gap(g.logLoss, e.logLoss)}   Δbrier ${gap(g.brier, e.brier)}   Δacc ${gap(100 * g.accuracy, 100 * e.accuracy)}pt   ΔECE ${gap(g.ece, e.ece)}\n`);
+
+  // ── FIGHT-EXPERIENCE BUCKETS ────────────────────────────────────────────
+  // The newcomer gap: bucket each bout by the THINNER fighter's prior UFC
+  // bouts. This is where any pedigree/pre-UFC-SoS improvement must show up —
+  // the 3–5 bucket should close toward the market; the 6+ bucket should barely
+  // move (the seed tapers out by 6 fights). Run at MINFIGHTNO=3 to fill both.
+  const buckets: { label: string; test: (r: Row) => boolean }[] = [
+    { label: '3–5 prior (newcomer)', test: (r) => r.minFightNo >= 3 && r.minFightNo <= 5 },
+    { label: '6+ prior (established)', test: (r) => r.minFightNo >= 6 },
+  ];
+  console.log('BY FIGHT EXPERIENCE (thinner fighter\'s prior UFC bouts) — full model vs market:');
+  console.log('  bucket                    n    full LL  mkt LL   ΔLL     full acc  mkt acc  Δacc');
+  for (const b of buckets) {
+    const sub = rows.filter(b.test);
+    if (!sub.length) { console.log(`  ${b.label.padEnd(24)}  (no bouts in window)`); continue; }
+    const gf = score(sub.map((r) => ({ p: r.fullPFav, won: r.favWon })));
+    const kf = score(sub.map((r) => ({ p: r.mktPFav, won: r.favWon })));
+    console.log(
+      `  ${b.label.padEnd(24)} ${String(gf.n).padStart(3)}   ${fmt(gf.logLoss)}   ${fmt(kf.logLoss)}  ${gap(gf.logLoss, kf.logLoss)}   ` +
+      `${(100 * gf.accuracy).toFixed(1)}%    ${(100 * kf.accuracy).toFixed(1)}%   ${gap(100 * gf.accuracy, 100 * kf.accuracy)}pt`,
+    );
+  }
+  console.log('  (Δ = full model − market; the newcomer bucket is the target for pre-UFC pedigree work)\n');
 
   // Where the full model most changed the pure-Elo number.
   const byShift = [...rows].sort((a, b) => Math.abs(b.fullPFav - b.eloPFav) - Math.abs(a.fullPFav - a.eloPFav));

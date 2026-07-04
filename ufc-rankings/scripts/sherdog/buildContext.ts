@@ -79,6 +79,15 @@ function classifyOrg(eventName: string): { canonical: string; tier: string; matc
   // substring false-positives of includes() (e.g. "Alash Pride", "EcoPride",
   // "Extreme Shootout" wrongly matching Pride/Shooto).
   const ev = eventName.trim().toLowerCase();
+  // Cage Warriors is logged abbreviated ("CW 100 - Cage Warriors 100", "CWFC -
+  // Cage Warriors Unplugged"), so it fails the startsWith patterns and wrongly
+  // lands in tier4. The abbrev itself is ambiguous ("CW 1 - Cage Wars 1" is a
+  // DIFFERENT org; "CWA" is the amateur academy), but the spelled-out "cage
+  // warriors" in the title is a reliable signal — match on that, excluding the
+  // academy. Checked before the startsWith loop.
+  if (/cage warriors\b/i.test(eventName) && !/academy/i.test(eventName)) {
+    return { canonical: 'Cage Warriors', tier: 'tier3', matched: true };
+  }
   for (const m of ORG_MATCHERS) {
     if (m.patterns.some((p) => ev.startsWith(p.toLowerCase()))) {
       return { canonical: m.canonical, tier: m.tier, matched: true };
