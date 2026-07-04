@@ -394,10 +394,12 @@ export const RANKING_CONFIG = {
     'Merab Dvalishvili': { division: 'Bantamweight', rank: '1' },
     // Title changes the API hasn't caught up to, confirmed by the champion audit
     // (scripts/sherdog/championAudit.ts) against current Sherdog results:
-    // Pereira beat Ankalaev (LHW), Van beat Pantoja (FLW). Old champ seeded as
-    // top contender (#1).
-    'Alex Pereira': { division: 'Light Heavyweight', rank: 'C' },
-    'Magomed Ankalaev': { division: 'Light Heavyweight', rank: '1' },
+    // Van beat Pantoja (FLW). LHW: Pereira VACATED the belt to fight for the HW
+    // interim title, so he is no longer champ — Ulberg is the undisputed LHW
+    // champ. Ulberg holds "C"; Pereira seeded #1, Ankalaev #2.
+    'Carlos Ulberg': { division: 'Light Heavyweight', rank: 'C' },
+    'Alex Pereira': { division: 'Light Heavyweight', rank: '1' },
+    'Magomed Ankalaev': { division: 'Light Heavyweight', rank: '2' },
     // MW: Strickland beat Chimaev to take the undisputed belt (API still stale).
     // Strickland holds "C"; Chimaev (just dethroned) seeded #1; Du Plessis #2.
     'Sean Strickland': { division: 'Middleweight', rank: 'C' },

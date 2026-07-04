@@ -131,6 +131,10 @@ export async function getFighterProfile(
   let displayRank: number | null = null;
   let champion = false;
   let rankedIds: string[] = [];
+  // Division reference Elos for the Gauntlet (raw core-Elo scale). Null when the
+  // fighter isn't ranked in a division (no pool to compare against).
+  let divMedianElo: number | null = null;
+  let champElo: number | null = null;
 
   if (division) {
     const rankings = await generateDivisionRankings(division, data);
@@ -144,6 +148,18 @@ export async function getFighterProfile(
         displayRank = contenders.findIndex((f) => f.fighterId === fighterId) + 1 || null;
       }
     }
+    // Median core Elo of the ranked pool + the champion's core Elo — reference
+    // lines drawn across the Gauntlet so the fighter's trajectory reads against
+    // the division. Uses raw eloRating to match the chart's ownElo scale.
+    const sortedElos = rankings.fighters.map((f) => f.eloRating).sort((a, b) => a - b);
+    if (sortedElos.length) {
+      const mid = Math.floor(sortedElos.length / 2);
+      divMedianElo = Math.round(
+        sortedElos.length % 2 ? sortedElos[mid] : (sortedElos[mid - 1] + sortedElos[mid]) / 2
+      );
+    }
+    const champ = rankings.fighters.find((f) => isChampion(f));
+    if (champ) champElo = Math.round(champ.eloRating);
   }
 
   const monthsSince = ranked?.monthsSinceLastFight
@@ -246,6 +262,13 @@ export async function getFighterProfile(
     trendRead,
     divisionBenchmark,
     scheduleContext,
-    gauntlet: buildGauntlet(history, fighter.fullName),
+    gauntlet: (() => {
+      const g = buildGauntlet(history, fighter.fullName);
+      if (g) {
+        g.divMedianElo = divMedianElo;
+        g.champElo = champElo;
+      }
+      return g;
+    })(),
   };
 }

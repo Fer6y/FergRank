@@ -886,6 +886,11 @@ export interface Gauntlet {
   biggestUpset: GauntletPoint | null; // largest positive overUnder win
   eloMin: number;
   eloMax: number;
+  // Division reference lines (raw core-Elo scale, matching ownElo). Attached by
+  // fighterProfile.ts after ranking the division; null when the fighter is
+  // unranked (no division pool to compare against). Display-only.
+  divMedianElo: number | null; // median core Elo of the division's ranked pool
+  champElo: number | null;     // the reigning champion's core Elo
 }
 
 // Elo win expectancy — the same logistic the engine uses, recomputed here from
@@ -945,6 +950,8 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
     biggestUpset: biggest,
     eloMin: Math.min(...elos),
     eloMax: Math.max(...elos),
+    divMedianElo: null,
+    champElo: null,
   };
 }
 

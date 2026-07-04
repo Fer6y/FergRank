@@ -406,30 +406,30 @@
       "rank": 1,
       "id": "6a36f7b99dfc0313",
       "name": "Carlos Ulberg",
-      "score": 96.16,
-      "finalRating": 1614.39,
+      "score": 96.38,
+      "finalRating": 1615.89,
       "elo": 1598.4,
-      "officialRank": "3",
+      "officialRank": "C",
       "record": "10-1-0"
     },
     {
       "rank": 2,
       "id": "a38373934b735770",
       "name": "Alex Pereira",
-      "score": 96.16,
-      "finalRating": 1600.95,
+      "score": 93.98,
+      "finalRating": 1599.95,
       "elo": 1576.48,
-      "officialRank": "C",
+      "officialRank": "1",
       "record": "10-3-0"
     },
     {
       "rank": 3,
       "id": "69646a0ad3abb8c7",
       "name": "Magomed Ankalaev",
-      "score": 87.89,
-      "finalRating": 1581.73,
-      "elo": 1570.61,
-      "officialRank": "1",
+      "score": 87.68,
+      "finalRating": 1581.23,
+      "elo": 1570.6,
+      "officialRank": "2",
       "record": "12-2-1"
     },
     {
@@ -487,7 +487,7 @@
       "id": "29a6a8a9d3847e14",
       "name": "Jan Blachowicz",
       "score": 73.1,
-      "finalRating": 1538.93,
+      "finalRating": 1538.92,
       "elo": 1527.52,
       "officialRank": "5",
       "record": "12-8-2"
@@ -840,7 +840,7 @@
       "name": "Dricus Du Plessis",
       "score": 93.65,
       "finalRating": 1598.95,
-      "elo": 1591.76,
+      "elo": 1591.75,
       "officialRank": "2",
       "record": "9-1-0"
     },
@@ -889,7 +889,7 @@
       "id": "2127684a702c4006",
       "name": "Gregory Rodrigues",
       "score": 81.76,
-      "finalRating": 1566.86,
+      "finalRating": 1566.85,
       "elo": 1563.16,
       "officialRank": null,
       "record": "10-3-0"
@@ -1232,7 +1232,7 @@
       "name": "Ian Machado Garry",
       "score": 95.48,
       "finalRating": 1609.87,
-      "elo": 1588.9,
+      "elo": 1588.89,
       "officialRank": "6",
       "record": "10-1-0"
     },
@@ -1702,7 +1702,7 @@
       "rank": 10,
       "id": "3495d04b5c109550",
       "name": "Paddy Pimblett",
-      "score": 81.31,
+      "score": 81.3,
       "finalRating": 1565.74,
       "elo": 1552,
       "officialRank": "10",
@@ -2145,7 +2145,7 @@
       "id": "00bf0d84c07bafc5",
       "name": "Nathaniel Wood",
       "score": 75.56,
-      "finalRating": 1551.8,
+      "finalRating": 1551.79,
       "elo": 1546.85,
       "officialRank": null,
       "record": "11-3-0"
@@ -2295,7 +2295,7 @@
       "id": "56adb35526c59c88",
       "name": "Muhammad Naimov",
       "score": 54.77,
-      "finalRating": 1511.99,
+      "finalRating": 1511.98,
       "elo": 1514.61,
       "officialRank": null,
       "record": "5-2-0"
@@ -2345,7 +2345,7 @@
       "id": "3f3f90729e314479",
       "name": "Brian Ortega",
       "score": 51.21,
-      "finalRating": 1506.53,
+      "finalRating": 1506.52,
       "elo": 1515.98,
       "officialRank": "5",
       "record": "8-5-0"
@@ -2456,7 +2456,7 @@
       "rank": 5,
       "id": "fb2821134f28cffd",
       "name": "Mario Bautista",
-      "score": 84.49,
+      "score": 84.48,
       "finalRating": 1573.46,
       "elo": 1561.66,
       "officialRank": "8",
@@ -2899,7 +2899,7 @@
       "id": "10a96d52c89b5469",
       "name": "Lone'er Kavanagh",
       "score": 64.7,
-      "finalRating": 1525.82,
+      "finalRating": 1525.81,
       "elo": 1516.66,
       "officialRank": null,
       "record": "3-1-0"
@@ -3854,7 +3854,7 @@
       "name": "Melissa Gatto",
       "score": 43.72,
       "finalRating": 1493.79,
-      "elo": 1492.81,
+      "elo": 1492.82,
       "officialRank": null,
       "record": "3-3-0"
     },
@@ -4026,7 +4026,7 @@
       "name": "Kayla Harrison",
       "score": 83.5,
       "finalRating": 1571.06,
-      "elo": 1541.62,
+      "elo": 1541.61,
       "officialRank": "C",
       "record": "3-0-0"
     },
@@ -4305,7 +4305,7 @@
       "id": "0dbc2b27f95b406a",
       "name": "Lina Lansberg",
       "score": 31.96,
-      "finalRating": 1461.65,
+      "finalRating": 1461.66,
       "elo": 1465.18,
       "officialRank": null,
       "record": "4-7-0"
@@ -4315,8 +4315,8 @@
       "id": "90ac0050b15a98ba",
       "name": "Tamires Vidal",
       "score": 30.88,
-      "finalRating": 1456.11,
-      "elo": 1459.96,
+      "finalRating": 1456.12,
+      "elo": 1459.97,
       "officialRank": null,
       "record": "1-3-0"
     },

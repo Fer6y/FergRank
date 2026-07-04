@@ -55,7 +55,7 @@ function formatDate(iso: string): string {
 }
 
 export default function GauntletChart({ gauntlet }: Props) {
-  const { points, totalOverperf } = gauntlet;
+  const { points, totalOverperf, divMedianElo, champElo } = gauntlet;
   const n = points.length;
   // hovered = live highlight on the chart; the panel remembers the last
   // hovered fight so it never goes blank (defaults to the most recent fight).
@@ -86,8 +86,13 @@ export default function GauntletChart({ gauntlet }: Props) {
     const right = W - rightPad;
     const plotH = bottom - top;
 
-    const rawMin = Math.min(...points.map((p) => p.ownElo));
-    const rawMax = Math.max(...points.map((p) => p.ownElo));
+    // Include the division reference Elos in the domain so their lines always
+    // sit at a real height on the axis (even if the champ is above / the median
+    // below the fighter's own range) — the whole point is to see where the
+    // fighter stacks up against them.
+    const refs = [divMedianElo, champElo].filter((v): v is number => v != null);
+    const rawMin = Math.min(...points.map((p) => p.ownElo), ...refs);
+    const rawMax = Math.max(...points.map((p) => p.ownElo), ...refs);
     const pad = Math.max(25, (rawMax - rawMin) * 0.15);
     const yMin = Math.floor((rawMin - pad) / 50) * 50;
     const yMax = Math.ceil((rawMax + pad) / 50) * 50;
@@ -115,7 +120,7 @@ export default function GauntletChart({ gauntlet }: Props) {
     const area = `${line} L${x(n - 1).toFixed(1)},${bottom} L${x(0).toFixed(1)},${bottom} Z`;
 
     return { W, H, top, bottom, left, right, x, y, gridVals, shownTicks, line, area };
-  }, [points, n]);
+  }, [points, n, divMedianElo, champElo]);
 
   // Open scrolled to the right (most-recent fights / today) when the timeline
   // is wider than the viewport (a career longer than the default window).
@@ -199,6 +204,41 @@ export default function GauntletChart({ gauntlet }: Props) {
               {t.label}
             </text>
           ))}
+
+          {/* division reference lines — the median of the ranked pool (blue,
+              dashed) and the reigning champion's Elo (gold, dotted), drawn
+              across the plot so the fighter's trajectory reads against the
+              division. Labelled at the RIGHT edge (the chart opens scrolled to
+              "today", so the right edge is always in view even when a long
+              career overflows the scroll container). */}
+          {divMedianElo != null && (
+            <g opacity="0.7">
+              <line
+                x1={left} y1={y(divMedianElo)} x2={right} y2={y(divMedianElo)}
+                stroke="var(--accent-blue)" strokeWidth="1" strokeDasharray="4 4" opacity="0.55"
+              />
+              <text
+                x={right - 2} y={y(divMedianElo) - 3}
+                fill="var(--accent-blue)" fontSize="8.5" letterSpacing="0.5" textAnchor="end"
+              >
+                DIV MED {divMedianElo}
+              </text>
+            </g>
+          )}
+          {champElo != null && (
+            <g opacity="0.8">
+              <line
+                x1={left} y1={y(champElo)} x2={right} y2={y(champElo)}
+                stroke="var(--accent-gold)" strokeWidth="1" strokeDasharray="1.5 3" opacity="0.65"
+              />
+              <text
+                x={right - 2} y={y(champElo) - 3}
+                fill="var(--accent-gold)" fontSize="8.5" letterSpacing="0.5" textAnchor="end"
+              >
+                DIVISION CHAMP {champElo}
+              </text>
+            </g>
+          )}
 
           <path d={area} fill="url(#gauntlet-area)" />
           <path d={line} fill="none" stroke="var(--elo-line)" strokeWidth="1.5" opacity="0.75" />
@@ -337,6 +377,16 @@ export default function GauntletChart({ gauntlet }: Props) {
         <span className="flex items-center gap-1.5" style={{ color: 'var(--accent-gold)' }}>
           ⚑ weight-class move
         </span>
+        {divMedianElo != null && (
+          <span className="flex items-center gap-1.5">
+            <span className="w-4 border-t border-dashed" style={{ borderColor: 'var(--accent-blue)' }} /> div median
+          </span>
+        )}
+        {champElo != null && (
+          <span className="flex items-center gap-1.5">
+            <span className="w-4 border-t border-dotted" style={{ borderColor: 'var(--accent-gold)' }} /> division champ
+          </span>
+        )}
         <span>node size = opponent level · hover a fight for detail</span>
       </div>
     </div>
