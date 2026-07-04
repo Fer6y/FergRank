@@ -29,6 +29,9 @@ export interface EloState {
   lastFightDate: Date | null;
   lastWeightClass: string | null; // Normalized weight class of most recent fight
   discountedAtBoundary: boolean;  // Has the one-time current-form boundary discount been applied?
+  divisionsSeen: Set<string>;     // Normalized divisions the fighter has already competed in
+                                  // (the move-decay penalty is charged only on the FIRST entry
+                                  // into a new division — returning to a proven weight is free).
 }
 
 export type EloMap = Map<string, EloState>;
@@ -67,17 +70,18 @@ export function normalizeWeightClassForMove(wc: string): string | null {
   return w.replace(/^Interim\s+/i, '').trim();
 }
 
-function finishK(method: string, mults: Record<string, number>, baseK: number): number {
+// The finish-method K multiplier for a fight (same for both corners). Multiply
+// by baseK (and the provisional boost) at the call site.
+function finishMultiplier(method: string, mults: Record<string, number>): number {
   const m = method.trim();
-  let mult = 1.0;
   // KO/TKO — including "TKO - Doctor's Stoppage" (a doctor waving it off IS a
   // finish, so it earns full finish credit, not neutral K).
-  if (m.startsWith('KO/TKO') || m.startsWith('TKO')) mult = mults['KO/TKO'];
-  else if (m === 'SUB' || m === 'Submission') mult = mults['SUB'];
-  else if (m === 'U-DEC') mult = mults['U-DEC'];
-  else if (m === 'M-DEC') mult = mults['M-DEC'];
-  else if (m === 'S-DEC') mult = mults['S-DEC'];
-  return baseK * mult;
+  if (m.startsWith('KO/TKO') || m.startsWith('TKO')) return mults['KO/TKO'];
+  if (m === 'SUB' || m === 'Submission') return mults['SUB'];
+  if (m === 'U-DEC') return mults['U-DEC'];
+  if (m === 'M-DEC') return mults['M-DEC'];
+  if (m === 'S-DEC') return mults['S-DEC'];
+  return 1.0;
 }
 
 // Regress a rating toward the mean for a layoff of `months`, beyond a grace period.
@@ -110,6 +114,7 @@ function newState(E: EloParams): EloState {
     lastFightDate: null,
     lastWeightClass: null,
     discountedAtBoundary: false,
+    divisionsSeen: new Set<string>(),
   };
 }
 
@@ -125,9 +130,14 @@ function prepareForFight(state: EloState, fightDate: Date, normWC: string | null
     const gap = monthsBetween(state.lastFightDate, fightDate);
     if (gap > 0) state.rating = regressForInactivity(state.rating, gap, E);
   }
-  if (normWC && state.lastWeightClass && normWC !== state.lastWeightClass) {
+  // Weight-class move decay — charged ONCE per division. A fighter pays the
+  // "unproven at a new weight" tax only the FIRST time they enter a division;
+  // moving back to a weight they've already competed in is free (they've proven
+  // themselves there, and the inactivity regression already handles the gap).
+  if (normWC && state.lastWeightClass && normWC !== state.lastWeightClass && !state.divisionsSeen.has(normWC)) {
     state.rating = E.initialRating + (state.rating - E.initialRating) * (1 - E.moveDecayPenalty);
   }
+  if (normWC) state.divisionsSeen.add(normWC);
 }
 
 /**
@@ -200,14 +210,40 @@ function runEloSweep(
     const [sa, sb] = result; // actual scores (1/0, 0/1, or 0.5/0.5)
 
     // Finish-weighted K, boosted while either fighter is still provisional.
-    const kBase = finishK(fight.method, engine.finishMultipliers, E.baseK);
-    const ka = kBase * (a.fights < E.provisionalFights ? E.provisionalKMultiplier : 1);
-    const kb = kBase * (b.fights < E.provisionalFights ? E.provisionalKMultiplier : 1);
+    // While a fighter is provisional, the finish multiplier is damped toward 1.0
+    // (provisionalFinishDamp) so finish×provisional K can't compound — a newcomer
+    // KO'ing low-rated opponents converges on the RESULT, not the method.
+    const finishMult = finishMultiplier(fight.method, engine.finishMultipliers);
+    const provDampedMult = 1 + (finishMult - 1) * E.provisionalFinishDamp;
+    const provA = a.fights < E.provisionalFights;
+    const provB = b.fights < E.provisionalFights;
+    const ka = E.baseK * (provA ? provDampedMult * E.provisionalKMultiplier : finishMult);
+    const kb = E.baseK * (provB ? provDampedMult * E.provisionalKMultiplier : finishMult);
 
     const aBefore = a.rating;
     const bBefore = b.rating;
-    const deltaA = ka * (sa - ea);
-    const deltaB = kb * (sb - eb);
+    let deltaA = ka * (sa - ea);
+    let deltaB = kb * (sb - eb);
+
+    // Win-quality gate: the points a fighter GAINS from a win are scaled by the
+    // OPPONENT'S ABSOLUTE rating — beating a weak opponent (low Elo) earns little,
+    // beating a strong one earns full credit EVEN IF they're ranked below you.
+    // This plateaus an unbeaten streak over weak/lower competition near that
+    // slate's level instead of letting it float into contention (an undefeated
+    // fighter's rating otherwise climbs forever), while NOT punishing an elite who
+    // beats other elites (Makhachev over #3). Enforces "opponent quality IS the
+    // rating." LOSSES are untouched (negative deltas keep full weight). Keyed on
+    // ABSOLUTE opp Elo, NOT the gap-to-winner (that flaw punished the #1, who has
+    // everyone below them). Off when winQualityGate == 0.
+    if (E.winQualityGate > 0) {
+      const span = E.winQualityFullElo - E.winQualityLowElo;
+      const gateMult = (oppElo: number): number => {
+        const q = span > 0 ? Math.max(E.winQualityGateFloor, Math.min(1, (oppElo - E.winQualityLowElo) / span)) : 1;
+        return 1 - E.winQualityGate * (1 - q); // winQualityGate scales how fully the gate applies (1 = full)
+      };
+      if (deltaA > 0) deltaA *= gateMult(bBefore);
+      if (deltaB > 0) deltaB *= gateMult(aBefore);
+    }
 
     a.rating += deltaA;
     b.rating += deltaB;
@@ -302,6 +338,41 @@ export function getFighterHistory(data: LoadedData, fighterId: string): FightTra
   // ISO dates compare lexicographically — a stable string sort keeps same-day
   // (tournament-era) fights in sweep order without allocating Dates.
   return [...arr].sort((x, y) => (y.date < x.date ? -1 : y.date > x.date ? 1 : 0));
+}
+
+// UFC W/L/D record derived from the Elo fight trace (which INCLUDES the recency
+// top-up). The static W/L/D in Fighters_Stats.csv is frozen at the primary-data
+// cutoff, so it goes stale the moment a recent bout lands via the recency patch
+// (e.g. Mitch Raposo reading 1-2 while the Gauntlet shows his 2-2). Deriving the
+// displayed record from the same traced fights keeps it in lockstep with the
+// fight history and the current Elo. Falls back to the static record only when a
+// fighter has no traced fights (e.g. only undated or no-contest bouts). Display
+// only — the record never feeds the rating (Elo processes fights directly).
+export function getTracedRecord(
+  data: LoadedData,
+  fighterId: string,
+  fallback: { wins: number; losses: number; draws: number }
+): { wins: number; losses: number; draws: number } {
+  buildEloRatings(data);
+  const arr = historyCache.get(data)?.get(fighterId);
+  if (!arr || arr.length === 0) return { wins: fallback.wins, losses: fallback.losses, draws: fallback.draws };
+  let wins = 0, losses = 0, draws = 0;
+  for (const h of arr) {
+    if (h.result === 'W') wins++;
+    else if (h.result === 'L') losses++;
+    else draws++;
+  }
+  return { wins, losses, draws };
+}
+
+// Convenience: the traced record formatted as "W-L-D".
+export function getTracedRecordString(
+  data: LoadedData,
+  fighterId: string,
+  fallback: { wins: number; losses: number; draws: number }
+): string {
+  const r = getTracedRecord(data, fighterId, fallback);
+  return `${r.wins}-${r.losses}-${r.draws}`;
 }
 
 // Returns [scoreA, scoreB] or null if the fight shouldn't affect ratings.

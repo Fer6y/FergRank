@@ -30,19 +30,61 @@ export const RANKING_CONFIG = {
     // Provisional period — new fighters converge faster.
     provisionalFights: 5,       // First N fights use the boosted K
     provisionalKMultiplier: 1.5,
+    // While a fighter is still PROVISIONAL, damp the finish-method K multiplier
+    // toward 1.0 by this factor: effMult = 1 + (finishMult − 1) × this. The bug
+    // it fixes: finish (×1.4) STACKED with the provisional boost (×1.5) gave a
+    // newcomer K ≈ 50 (2.1× base), so KO'ing/subbing low-rated opponents in the
+    // first 5 fights paid +22–24 EACH and rocketed a "finisher over cans" above
+    // proven gatekeepers who beat elites by decision. 0 = finishes earn NO extra
+    // K while provisional (converge fast, but on the RESULT not the method);
+    // 1 = full finish credit even while provisional (old behaviour). The finish
+    // multiplier still applies at full strength once a fighter is established.
+    provisionalFinishDamp: 0.5,
+
+    // ── WIN-QUALITY GATE ──────────────────────────────────────────────────
+    // Scale the points a fighter GAINS from a win by the OPPONENT'S ABSOLUTE Elo:
+    // beating a strong opponent (≥ winQualityFullElo) earns full credit; beating a
+    // weak one (≤ winQualityLowElo) earns only winQualityGateFloor of it; linear
+    // between. gainMult = 1 − winQualityGate·(1 − q), q = clamp((oppElo−low)/(full−low),
+    // floor, 1). So an unbeaten streak over weak competition PLATEAUS near that
+    // slate's level instead of floating into contention (fixes the undefeated-
+    // streak inflation the audit flagged: Robertson/Stirling/Salkilld climbing
+    // top-8 on sub-median slates), WITHOUT punishing an elite who beats other
+    // elites (keyed on absolute opp Elo, not gap-to-winner). LOSSES untouched (they
+    // still count in full). winQualityGate: 0 = off, 1 = full gate. Tune via
+    // scripts/winGateExperiment.ts, then re-anchor displayCurve to the new spread.
+    // Set to 0.5 on 2026-07-04: the sweep showed 0.5 pushes soft-slate streakers
+    // (Robertson #1→#4, Edwards #1→#5, Allen off MW #1) down to where their
+    // competition justifies while elites who beat quality hold (Chimaev→MW #1);
+    // 1.0 over-gated (collapsed the pool). displayCurve + winProbDenominator
+    // re-anchored to the resulting spread in the same commit.
+    winQualityGate: 0.5,
+    winQualityFullElo: 1560,     // beat an opponent at/above this → full gain credit (a ranked-calibre win)
+    winQualityLowElo: 1460,      // beat an opponent at/below this → only the floor fraction (a soft win)
+    winQualityGateFloor: 0.15,   // minimum gain fraction for beating a very weak opponent (never literally 0)
 
     // Inactivity regression toward the mean. Applied (a) between a fighter's
     // fights based on the layoff gap, and (b) once more from their last fight
     // to "today" so the displayed rating reflects current layoff.
     // rating = mean + (rating - mean) * retentionPerYear^(yearsInactive)
-    // Gentle on purpose so injured elites (e.g. ~18mo out) aren't nuked.
-    inactivityRetentionPerYear: 0.92,
-    inactivityGraceMonths: 12,  // No regression for layoffs shorter than this. Set to 12mo
-                                // so a normal ELITE cadence (champs defend ~1–2×/yr, often
-                                // 10–14mo between bouts) is treated as fully current and pays
-                                // NO activity penalty. Decay (the 0.92 slope) still fades a
-                                // genuinely inactive veteran past the 1yr mark — a fighter
-                                // years out (e.g. last bout 2017) still bleeds toward the mean.
+    // CONTINUOUS RECENCY DECAY (2026-07-04 redesign): this is now the SOLE
+    // recency-fade mechanism — it replaced the discrete 5yr "boundary discount"
+    // (see maxFightAgeYears below) whose synchronized wall drew a jarring
+    // league-wide cliff on every veteran's chart. With only a short grace, a
+    // little fade applies at EVERY gap for everyone, so pre-window form fades
+    // smoothly along each fighter's own timeline (no wall, no cliff, no
+    // year-to-year migration) while old results still can't prop up today's
+    // rating. Rate chosen empirically (scripts/boundaryRedesign.ts, config "A2"):
+    // 0.88/yr + 3mo grace keeps currently-active tenured elites on top while
+    // dropping idle veterans (Khabib) and NOT floating raw prospects — the
+    // Goldilocks between naive-removal (Jones/Usman float) and over-decay
+    // (debutants float). Tradeoff: elite cadence now pays a small (~10 Elo)
+    // activity drift it re-earns by winning — the price of continuous fade over
+    // the old discrete wall.
+    inactivityRetentionPerYear: 0.88,
+    inactivityGraceMonths: 3,   // Only near-back-to-back bouts are graced; any real layoff
+                                // starts a gentle fade. (Was 12mo when the discrete boundary
+                                // did the heavy recency work; now the decay does it alone.)
 
     // CURRENT-FORM BOUNDARY: how old "old form" is. The full fight history is
     // still swept (so opponent quality / SoS stays calibrated and the rating
@@ -55,7 +97,14 @@ export const RANKING_CONFIG = {
     // user-facing Era filter OVERRIDES this: an explicit era is a hard window
     // (drops older fights, no discount) for the historical lens. Set to null to
     // disable the boundary entirely (pure full-history Elo).
-    maxFightAgeYears: 5,
+    //
+    // RETIRED 2026-07-04 (set to null): the discrete wall drew a synchronized
+    // league-wide cliff (every veteran's chart dropped at the same rolling
+    // calendar date, ~5yr ago, and the cliff MIGRATED forward each year). Recency
+    // dominance is now carried entirely by the continuous inactivity decay above
+    // (which fades old form smoothly, per-fighter, with no wall). Restore a number
+    // here only to bring the discrete boundary back.
+    maxFightAgeYears: null as number | null,
     // Fraction toward the mean applied once at the boundary. 0.5 = halve the
     // accumulated above/below-mean rating (heavy discount); 1.0 ≈ the old hard
     // reset; 0 = no discount. The chosen middle keeps the spread (SoS intact)
@@ -77,19 +126,24 @@ export const RANKING_CONFIG = {
     // [rawElo, displayScore], ascending; values between anchors are linearly
     // interpolated, outside the ends are clamped. Tune the anchors here — nothing
     // else needs to change. (Ranked pool today spans Elo ~1425–1753.)
-    // Recalibrated for the post-boundary-discount spread (ranked pool now spans
-    // finalRating ~1427–1725; median ~1561, p95 ~1663). The heavy current-form
-    // discount tightened the elite band, so anchors were pulled in to keep
-    // champions saturating near 96–99 and the floor at ~25.
+    // Re-anchored 2026-07-04 for the win-quality-gate spread (measured ranked-pool
+    // finalRating: min 1426, p05 1467, p25 1497, med 1520, p75 1548, p90 1582,
+    // p95 1598, max 1645 = Makhachev/P4P#1; Oliveira 1620, Merab 1619, Ulberg
+    // 1614, Gane 1612, Chimaev/Topuria 1604, Pereira 1601). The gate slightly
+    // compressed + lowered the pool, so anchors pulled in to keep champions
+    // saturating ~94–99, the median ~60, floor ~25 (scripts/winGateExperiment.ts
+    // + a dist probe print these).
     displayCurve: [
-      [1427, 25],   // bottom of the ranked pool → ~25 (scale floor)
-      [1500, 42],
-      [1560, 62],   // ~median ranked fighter
-      [1610, 80],
-      [1645, 91],   // strong champions / top contenders
-      [1680, 97],   // Topuria tier
-      [1715, 99],   // Makhachev (clear P4P #1) tier
-      [1760, 100],  // headroom ceiling
+      [1426, 25],   // bottom of the ranked pool → ~25 (scale floor)
+      [1467, 33],   // ~p05
+      [1497, 45],   // ~p25
+      [1520, 60],   // ~median ranked fighter
+      [1548, 74],   // ~p75
+      [1582, 88],   // ~p90 strong champions / top contenders
+      [1600, 94],   // ~p95
+      [1620, 97],   // Oliveira / elite tier
+      [1645, 99],   // Makhachev (clear P4P #1) tier
+      [1680, 100],  // headroom ceiling
     ] as [number, number][],
 
     // Head-to-head win-PROBABILITY scale (display only, for the Compare page).
@@ -103,10 +157,11 @@ export const RANKING_CONFIG = {
     // FLAT: recent ECE 0.061 @400 → ~0.02 @200, and dynamic range recovers (top
     // fighter vs a median one reads ~88% instead of ~73%). Display-only — this
     // feeds winProbability() ONLY, never ratings or ordering, so no ranking gate.
-    // Re-fit here (scripts/spreadExperiment.ts) if the rating spread is ever
-    // recalibrated. NOTE: the boundary discount β is NOT a spread lever — the same
-    // experiment showed β 0.5→0.25 moves top-vs-median only ~171→194 Elo.
-    winProbDenominator: 200,
+    // Re-fit here (scripts/spreadExperiment.ts / boundaryRedesign.ts) if the
+    // rating spread is ever recalibrated. REFIT 2026-07-04: 190 → 140 after the
+    // win-quality-gate compressed the pool further (symmetric point-in-time
+    // log-loss fit: recent≤3yr ≈115, all-history ≈165; 140 is the robust middle).
+    winProbDenominator: 140,
 
     // PROVISIONAL-UNCERTAINTY SHADING (display only). A head-to-head win% is only
     // as trustworthy as the THINNER fighter's UFC sample: two debutants are far
@@ -289,11 +344,13 @@ export const RANKING_CONFIG = {
   championTiebreakerBand: 8,
 
   // Head-to-head leapfrog: a fighter who RECENTLY and DECISIVELY beat someone
-  // ranked above them is lifted to directly above that opponent — even when the
-  // two are NOT adjacent (pairwise leapfrog). The winner passes anyone in between
-  // (whom they may not have fought) to sit just above the specific fighter they
-  // beat. Elo is gap-preserving, so a single decision win narrows the gap without
-  // flipping the order; this correction enforces the in-cage result. Guard rails
+  // ranked above them is lifted to directly above that opponent. Elo is
+  // gap-preserving, so a single decision win narrows the gap without flipping the
+  // order; this correction enforces the in-cage result. ANTI-VAULT (2026-07-04):
+  // beating the victim is a LOCAL reorder — it may pass a FEW un-beaten in-between
+  // fighters (Topuria beat Oliveira, jumps 2 → allowed) but not a big STACK of
+  // superior fighters the winner never fought (Hernandez beat Allen, would jump ~5
+  // incl. pristine-résumé Chimaev → blocked). See leapfrogMaxUnbeaten. Guard rails
   // keep one result from overriding the rating wholesale:
   //   • recencyMonths — the meeting must be within this window of "today"; a
   //     stale win can't override years of divergence.
@@ -304,11 +361,17 @@ export const RANKING_CONFIG = {
   //     shouldn't reorder the division).
   //   • eloGapCap — only applies when the two are within this many Elo points, so
   //     a lone upset can't vault someone over half the division.
+  //   • leapfrogMaxUnbeaten — the win may reorder the winner past at most this many
+  //     UN-BEATEN in-between fighters (a local reorder). Beyond it the leap is
+  //     skipped: one win shouldn't vault a fighter over a whole stack of superior
+  //     résumés they never fought. Topuria→Oliveira jumps 2 (allowed);
+  //     Hernandez→Allen would jump ~5 incl. Chimaev (blocked).
   headToHead: {
     recencyMonths: 18,
     negateOnLossAfter: true,
     decisiveOnly: true,
     eloGapCap: 50,
+    leapfrogMaxUnbeaten: 3,
   },
 
   // ═══ ELIGIBILITY ══════════════════════════════════════════════════════

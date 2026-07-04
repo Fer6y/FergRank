@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Gauntlet, GauntletPoint } from '@/lib/advancedStats';
 
 interface Props {
@@ -26,6 +26,21 @@ const NODE_R = [5.2, 7.4, 9.6]; // standard / ranked-calibre / elite (~2× the o
 
 const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
+// X-axis is a TRUE calendar scale (fixed pixels-per-year), NOT one node per
+// slot. So activity/inactivity reads honestly: a busy stretch bunches, a layoff
+// leaves a real gap, and the axis is identical across every fighter. The window
+// defaults to the last WINDOW_YEARS and is anchored on the right to "today"
+// (so a fighter idle since 2021 shows empty space out to now); a longer career
+// overflows to the left inside a horizontally-scrollable container.
+const WINDOW_YEARS = 7;
+const PX_PER_YEAR = 84; // a WINDOW_YEARS window ≈ 640px wide (matches the old chart)
+
+// Fractional calendar year of an ISO date ("2022-07-01" → 2022.5).
+function yearFloat(iso: string): number {
+  const [y, m, d] = iso.split('-').map(Number);
+  return (y || 2000) + ((m || 1) - 1) / 12 + ((d || 1) - 1) / 365;
+}
+
 function oppTier(p: GauntletPoint): 0 | 1 | 2 {
   return p.opponentElo >= OPP_ELITE ? 2 : p.opponentElo >= OPP_RANKED ? 1 : 0;
 }
@@ -46,15 +61,29 @@ export default function GauntletChart({ gauntlet }: Props) {
   // hovered fight so it never goes blank (defaults to the most recent fight).
   const [hovered, setHovered] = useState<number | null>(null);
   const [panelIdx, setPanelIdx] = useState(n - 1);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const geometry = useMemo(() => {
-    const W = 640;
     const H = 216;
     const top = 14;
     const bottom = H - 22;
     const left = 42;
-    const right = W - 14;
-    const plotW = right - left;
+    const rightPad = 14;
+
+    // Calendar span. Right edge anchored to "today" so idleness shows as blank
+    // space out to now; left edge extends to the first fight, but at least a full
+    // WINDOW_YEARS so short careers still render on the same scale (and older
+    // careers overflow left → the container scrolls).
+    const now = new Date();
+    const nowYf = now.getFullYear() + now.getMonth() / 12 + (now.getDate() - 1) / 365;
+    const firstYf = yearFloat(points[0]?.date ?? '2000-01-01');
+    const lastYf = yearFloat(points[n - 1]?.date ?? '2000-01-01');
+    const spanEnd = Math.max(nowYf, lastYf);
+    const spanStart = Math.min(firstYf, spanEnd - WINDOW_YEARS);
+    const totalYears = spanEnd - spanStart;
+
+    const W = left + totalYears * PX_PER_YEAR + rightPad;
+    const right = W - rightPad;
     const plotH = bottom - top;
 
     const rawMin = Math.min(...points.map((p) => p.ownElo));
@@ -63,36 +92,40 @@ export default function GauntletChart({ gauntlet }: Props) {
     const yMin = Math.floor((rawMin - pad) / 50) * 50;
     const yMax = Math.ceil((rawMax + pad) / 50) * 50;
 
-    const x = (i: number) => left + (n === 1 ? plotW / 2 : (i * plotW) / (n - 1));
+    const xAt = (yf: number) => left + (yf - spanStart) * PX_PER_YEAR;
+    const x = (i: number) => xAt(yearFloat(points[i].date));
     const y = (elo: number) => top + plotH * (1 - (elo - yMin) / (yMax - yMin));
 
     const gridStep = yMax - yMin > 300 ? 100 : 50;
     const gridVals: number[] = [];
     for (let v = yMin; v <= yMax; v += gridStep) gridVals.push(v);
 
-    // Year ticks where the calendar year changes (thinned when crowded).
-    const ticks: { i: number; label: string }[] = [];
-    let lastYear = '';
-    points.forEach((p, i) => {
-      const yr = p.date.slice(0, 4);
-      if (yr !== lastYear) {
-        ticks.push({ i, label: yr });
-        lastYear = yr;
-      }
-    });
-    const tickStep = Math.max(1, Math.ceil(ticks.length / 8));
-    const shownTicks = ticks.filter((_, idx) => idx % tickStep === 0);
+    // Year ticks at each January 1 within the span (thinned if a long career
+    // makes them crowd). On a true calendar axis these sit at real positions.
+    const allTicks: { x: number; label: string }[] = [];
+    for (let Y = Math.ceil(spanStart); Y <= Math.floor(spanEnd); Y++) {
+      allTicks.push({ x: xAt(Y), label: String(Y) });
+    }
+    const tickStep = Math.max(1, Math.ceil(allTicks.length / 9));
+    const shownTicks = allTicks.filter((_, idx) => idx % tickStep === 0);
 
     const line = points
       .map((p, i) => `${i === 0 ? 'M' : 'L'}${x(i).toFixed(1)},${y(p.ownElo).toFixed(1)}`)
       .join(' ');
     const area = `${line} L${x(n - 1).toFixed(1)},${bottom} L${x(0).toFixed(1)},${bottom} Z`;
 
-    return { W, H, bottom, left, right, x, y, gridVals, shownTicks, line, area };
+    return { W, H, top, bottom, left, right, x, y, gridVals, shownTicks, line, area };
   }, [points, n]);
 
+  // Open scrolled to the right (most-recent fights / today) when the timeline
+  // is wider than the viewport (a career longer than the default window).
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.scrollLeft = el.scrollWidth;
+  }, [geometry.W]);
+
   if (n < 2) return null;
-  const { W, H, bottom, left, right, x, y, gridVals, shownTicks, line, area } = geometry;
+  const { W, H, top, bottom, left, right, x, y, gridVals, shownTicks, line, area } = geometry;
 
   // Brightened path through the hovered node's adjacent segments.
   const highlightPath = (i: number): string => {
@@ -126,11 +159,14 @@ export default function GauntletChart({ gauntlet }: Props) {
         </div>
       </div>
 
+      <div ref={scrollRef} className="overflow-x-auto" style={{ scrollbarWidth: 'thin' }}>
       <svg
         viewBox={`0 0 ${W} ${H}`}
-        className="w-full h-auto"
+        width={W}
+        height={H}
+        style={{ maxWidth: 'none', display: 'block' }}
         role="img"
-        aria-label="The fighter's Elo rating after each fight, oldest to newest"
+        aria-label="The fighter's Elo rating after each fight on a calendar timeline, oldest to newest"
         onMouseLeave={() => setHovered(null)}
       >
         <defs>
@@ -159,13 +195,27 @@ export default function GauntletChart({ gauntlet }: Props) {
           ))}
 
           {shownTicks.map((t) => (
-            <text key={t.label + t.i} x={x(t.i)} y={bottom + 14} fill="var(--text-muted)" fontSize="9" textAnchor="middle">
+            <text key={t.label} x={t.x} y={bottom + 14} fill="var(--text-muted)" fontSize="9" textAnchor="middle">
               {t.label}
             </text>
           ))}
 
           <path d={area} fill="url(#gauntlet-area)" />
           <path d={line} fill="none" stroke="var(--elo-line)" strokeWidth="1.5" opacity="0.75" />
+
+          {/* weight-class move flags — a gold pennant at the top with a dashed
+              drop line to the node marking the first fight in a new division. */}
+          {points.map((p, i) =>
+            p.divisionChange ? (
+              <g key={`flag-${p.date}-${i}`} opacity="0.85">
+                <line
+                  x1={x(i)} y1={top + 2} x2={x(i)} y2={y(p.ownElo)}
+                  stroke="var(--accent-gold)" strokeWidth="1" strokeDasharray="2 3" opacity="0.45"
+                />
+                <path d={`M${x(i)},${top} l8,2.6 l-8,2.6 z`} fill="var(--accent-gold)" />
+              </g>
+            ) : null
+          )}
 
           {points.map((p, i) => {
             const r = NODE_R[oppTier(p)];
@@ -219,6 +269,7 @@ export default function GauntletChart({ gauntlet }: Props) {
           />
         ))}
       </svg>
+      </div>
 
       {/* persistent fight information panel — hovering a node updates it */}
       <div
@@ -244,9 +295,17 @@ export default function GauntletChart({ gauntlet }: Props) {
                     TITLE FIGHT
                   </span>
                 )}
+                {sel.divisionChange && (
+                  <span
+                    className="ml-2 align-middle text-[9px] tracking-widest px-1.5 py-0.5 rounded"
+                    style={{ color: 'var(--accent-gold)', border: '1px solid var(--accent-gold)' }}
+                  >
+                    ⚑ MOVED
+                  </span>
+                )}
               </div>
               <div className="text-[10px] tracking-wide" style={{ color: 'var(--text-muted)' }}>
-                {sel.method} · {formatDate(sel.date)}
+                {sel.method} · {formatDate(sel.date)} · {sel.weightClass}
               </div>
             </div>
           </div>
@@ -274,6 +333,9 @@ export default function GauntletChart({ gauntlet }: Props) {
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full border" style={{ borderColor: 'var(--accent-gold)' }} /> title fight
+        </span>
+        <span className="flex items-center gap-1.5" style={{ color: 'var(--accent-gold)' }}>
+          ⚑ weight-class move
         </span>
         <span>node size = opponent level · hover a fight for detail</span>
       </div>

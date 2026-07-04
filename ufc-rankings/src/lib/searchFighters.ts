@@ -4,6 +4,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import { getData } from './dataCache';
+import { getTracedRecordString } from './eloEngine';
 import { ALL_DIVISIONS } from './types';
 
 function normalize(s: string): string {
@@ -54,7 +55,7 @@ export function searchFighters(query: string, limit = 8): SearchHit[] {
         nickname: f.nickname,
         weightClass: f.weightClass,
         division,
-        record: `${f.wins}-${f.losses}-${f.draws}`,
+        record: getTracedRecordString(data, f.fighterId, f),
         fightCount,
       },
       score,

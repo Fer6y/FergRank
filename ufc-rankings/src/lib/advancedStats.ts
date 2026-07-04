@@ -20,6 +20,7 @@
 import type { Fight } from './types';
 import type { LoadedData } from './loadData';
 import type { FightTrace } from './eloEngine';
+import { normalizeWeightClassForMove } from './eloEngine';
 import { isTitleFight } from './titleFights';
 
 const RECENT_WINDOW = 5;      // "recent form" = last 5 metric-bearing fights
@@ -875,6 +876,8 @@ export interface GauntletPoint {
   overUnder: number;       // actual − expected for this fight (+ = upset win)
   cumOverperf: number;     // running Σ(actual − expected) — "wins above expected"
   titleFight: boolean;     // championship bout → gold halo on the node
+  weightClass: string;     // bout weight class (raw label, for the panel)
+  divisionChange: boolean; // first fight in a NEW division vs the previous bout → move flag
 }
 
 export interface Gauntlet {
@@ -900,6 +903,9 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
 
   let cum = 0;
   let biggest: GauntletPoint | null = null;
+  // Track the last non-null normalized division so a catchweight bout in between
+  // doesn't spuriously flag a move (it normalizes to null = "no division change").
+  let lastNormWC: string | null = null;
   const points: GauntletPoint[] = asc.map((h) => {
     const expected = winExpectancy(h.ratingBefore, h.opponentRating);
     const actual = h.result === 'W' ? 1 : h.result === 'D' ? 0.5 : 0;
@@ -908,6 +914,9 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
     const m = h.method.trim().toUpperCase();
     const finishType: 'ko' | 'sub' | null =
       m.startsWith('KO') || m.startsWith('TKO') ? 'ko' : m === 'SUB' ? 'sub' : null;
+    const normWC = normalizeWeightClassForMove(h.weightClass);
+    const divisionChange = normWC != null && lastNormWC != null && normWC !== lastNormWC;
+    if (normWC != null) lastNormWC = normWC;
     const pt: GauntletPoint = {
       date: h.date.slice(0, 10),
       opponentName: h.opponentName,
@@ -922,6 +931,8 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
       overUnder: Math.round(ou * 100) / 100,
       cumOverperf: Math.round(cum * 100) / 100,
       titleFight: isTitleFight(fighterName, h.opponentName, h.date, h.weightClass),
+      weightClass: h.weightClass,
+      divisionChange,
     };
     if (h.result === 'W' && (!biggest || ou > biggest.overUnder)) biggest = pt;
     return pt;

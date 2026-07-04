@@ -1,6 +1,6 @@
 import { getData } from './dataCache';
 import { generateDivisionRankings } from './scoringEngine';
-import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, type FightTrace } from './eloEngine';
+import { buildEloRatings, getElo, getFighterHistory, getTracedRecordString, eloToDisplayScore, type FightTrace } from './eloEngine';
 import { computeRadarAxes } from './fighterRadar';
 import { grappleGradient, type GrappleGradient } from './grappleGradient';
 import { getFighterMedia } from './fighterMedia';
@@ -211,7 +211,7 @@ export async function getFighterProfile(
     fighterId,
     fullName: fighter.fullName,
     nickname: fighter.nickname,
-    record: `${fighter.wins}-${fighter.losses}-${fighter.draws}`,
+    record: getTracedRecordString(data, fighterId, fighter),
     weightClass: fighter.weightClass,
     gender: fighter.gender,
     height: fighter.height,

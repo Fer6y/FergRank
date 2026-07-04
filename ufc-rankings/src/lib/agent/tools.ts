@@ -17,7 +17,7 @@ import { getUpcomingCards } from '../loadUpcoming';
 import { enrichCards, type CardFighter } from '../upcomingEnrich';
 import { getFighterProfile } from '../fighterProfile';
 import { getAdvancedStats, formEloNudge, type PaceWindow } from '../advancedStats';
-import { buildEloRatings, getElo, winProbabilityShaded } from '../eloEngine';
+import { buildEloRatings, getElo, winProbabilityShaded, getTracedRecordString } from '../eloEngine';
 import { predictFight } from '../fightPrediction';
 import { searchFighters } from '../searchFighters';
 import { getReach } from '../fighterPhysical';
@@ -332,7 +332,7 @@ async function compareFighters(idA: string, idB: string): Promise<unknown> {
   ) => ({
     fighterId: id,
     name: f.fullName,
-    record: `${f.wins}-${f.losses}-${f.draws}`,
+    record: getTracedRecordString(data, id, f),
     weightClass: f.weightClass,
     elo: Math.round(elo),
     age: getFighterAge(id)?.age ?? null,

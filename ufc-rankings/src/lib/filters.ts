@@ -42,6 +42,11 @@ export interface EloParams {
   baseK: number;
   provisionalFights: number;
   provisionalKMultiplier: number;
+  provisionalFinishDamp: number;
+  winQualityGate: number;
+  winQualityFullElo: number;
+  winQualityLowElo: number;
+  winQualityGateFloor: number;
   inactivityRetentionPerYear: number;
   inactivityGraceMonths: number;
   moveDecayPenalty: number;

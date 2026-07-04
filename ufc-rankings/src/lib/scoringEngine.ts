@@ -15,7 +15,7 @@
 import { RANKING_CONFIG } from './rankingConfig';
 import { fetchOfficialRankings, getOfficialRankingsForDivision } from './fetchOfficialRankings';
 import { buildNameIndex, resolveNameToId } from './nameResolver';
-import { buildEloRatings, getElo, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove } from './eloEngine';
+import { buildEloRatings, getElo, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove, getTracedRecordString } from './eloEngine';
 import { getRegistry } from './registry';
 import { effectiveEngine, DEFAULT_FILTERS, type FilterParams, type EffectiveEngine } from './filters';
 import { loadPedigreeStrength } from './pedigreeSeed';
@@ -404,7 +404,7 @@ async function computeDivisionRankings(
       fighterId: fighter.fighterId,
       fullName: fighter.fullName,
       nickname: fighter.nickname,
-      record: `${fighter.wins}-${fighter.losses}-${fighter.draws}`,
+      record: getTracedRecordString(data, fighter.fighterId, fighter),
       weightClass: fighter.weightClass,
       belt: fighter.belt,
       rankScore: Math.round(eloToDisplayScore(finalRating) * 100) / 100,
@@ -656,6 +656,20 @@ function applyHeadToHead(
     const wi = idxOf(e.winnerId);
     const li = idxOf(e.loserId);
     if (wi < 0 || li < 0 || wi <= li) continue; // already above the victim
+    // Anti-vault guard: the list is finalRating-sorted, so EVERY fighter between
+    // the winner and the victim outranks the winner. Beating the victim is a LOCAL
+    // reorder — it should not vault the winner over a big STACK of superior
+    // fighters they never beat. Passing a FEW un-beaten fighters is fine (Topuria
+    // beat Oliveira, jumps 2 → allowed); vaulting many is not (Hernandez beat
+    // Allen, would jump ~5 incl. pristine-résumé Chimaev → blocked). Fighters the
+    // winner has ALSO beaten don't count against the cap (that pass is earned).
+    let unbeatenPassed = 0;
+    for (let k = li + 1; k < wi; k++) {
+      const midId = rankedFighters[k].fighterId;
+      const m = lastMeeting.get(`${e.winnerId}|${midId}`);
+      if (!m || m.winnerId !== e.winnerId) unbeatenPassed++;
+    }
+    if (unbeatenPassed > cfg.leapfrogMaxUnbeaten) continue;
     const [w] = rankedFighters.splice(wi, 1);
     rankedFighters.splice(li, 0, w); // insert directly above the victim
     moved.add(e.winnerId);

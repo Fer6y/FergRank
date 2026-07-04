@@ -70,10 +70,10 @@ Originally derived from **UFC.com stats** via the `scrape_ufc_stats` project
 | File | Origin | Status |
 |------|--------|--------|
 | `recent_ufc_fights.csv` | Sherdog recency top-up | ✅ **active** — keeps Elo current past the `Fights.csv` cutoff (see §4) |
-| `sherdog_fights.csv` | Sherdog full history | ⚠️ pedigree **seed disabled** (`preUFCPedigree.seedEnabled = false`); crosswalk/context only |
+| `sherdog_fights.csv` | Sherdog full history | ✅ pedigree **seed enabled** (`preUFCPedigree.seedEnabled = true`, bounded ≤25 Elo, thin-sample taper); also crosswalk/context |
 | `sherdog_crosswalk.csv` | Sherdog ↔ our-id map (2,240 rows) | ✅ maps Sherdog ids to our roster |
 | `sherdog_orgs.csv`, `sherdog_prospects.csv` | Sherdog | context / prospect watchlist (not wired into core) |
-| `pro_mma_fights.csv` | **Kaggle/Sherdog**, frozen ~Aug 2021 | ⚠️ pre-UFC pedigree, behind disabled toggle |
+| `pro_mma_fights.csv` | **Kaggle/Sherdog**, frozen ~Aug 2021 | ✅ pre-UFC pedigree seed (enabled, bounded ≤25 Elo, tapers out by 6 UFC fights) |
 
 ---
 
@@ -191,7 +191,7 @@ Prompt caching (system + tool definitions) keeps per-message cost low.
 | Core stats/fights | UFC.com (`scrape_ufc_stats`) → local CSV | local | ✅ every request |
 | Official rankings | Octagon API | external | ✅ runtime (cached 24h, 1 call) |
 | Recency top-up | Sherdog scrape → CSV | external (build) | ✅ loaded (contract-guarded) |
-| Pre-UFC pedigree | Kaggle/Sherdog (frozen 2021) | local | ⚠️ disabled toggle |
+| Pre-UFC pedigree | Kaggle/Sherdog (frozen 2021) | local | ✅ enabled seed (bounded ≤25 Elo, tapers out by 6 UFC fights) |
 | Nationality / flags | Wikidata (P27) | external (build) | ✅ ~65% (initials/none fallback) |
 | Photos | Wikidata Commons + UFC.com | external (build) | ✅ ~63% combined (initials fallback) |
 | Ages / DOB | Wikidata (P569) + Sherdog profiles | external (build, weekly) | ✅ 89% (~96% ranked); display only |
