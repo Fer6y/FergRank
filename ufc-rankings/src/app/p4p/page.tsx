@@ -17,7 +17,8 @@ export default async function P4PPage() {
         </h1>
         <p className="text-xs mt-1.5 max-w-2xl" style={{ color: 'var(--text-muted)' }}>
           One global Elo pool spans every division, so these ratings compare directly across weight classes.
-          Beating elite opposition in a deep division is what carries a fighter up this list.
+          Beating elite opposition in a deep division is what carries a fighter up this list — weighted toward
+          recent form, so who&rsquo;s performing at the top <em>now</em> outranks a fighter coasting on a past prime.
         </p>
       </div>
 

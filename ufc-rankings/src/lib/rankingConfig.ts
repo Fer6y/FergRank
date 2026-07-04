@@ -378,6 +378,25 @@ export const RANKING_CONFIG = {
   minUFCFights: 3,              // Minimum UFC fights to appear at all
   rankingsDepth: 40,            // Fighters ranked per division
 
+  // ═══ P4P RECENT-FORM TILT (display-only, P4P list ONLY) ═══════════════
+  // P4P is meant to be the CURRENT best-of-best. A fighter's all-time Elo can
+  // coast on banked prime equity — their recent fights start from a high
+  // carried-in baseline, so a flat/declining recent run still leaves the rating
+  // near its peak (e.g. Oliveira: 4-2 / +23 net Elo over 3.5y but rated #2;
+  // Volkanovski: 3-3 / -9 and still top-4). This applies a BOUNDED tilt to the
+  // P4P sort key ONLY — it never touches the Elo core, division rankings, or the
+  // golden master. Signal = recency-weighted net Elo swing over the window (each
+  // fight's swing is already opponent-quality-aware); coasters get ~0 tilt while
+  // active risers pin to the cap, so the proven-but-stale slide a few spots
+  // below the elite-and-current without being ejected from the tier.
+  p4pRecentForm: {
+    enabled: true,
+    windowYears: 3.5,   // how far back "recent form" looks
+    halfLifeMonths: 18, // recency half-life within the window (last ~18mo dominate)
+    lambda: 0.45,       // tilt = lambda × (recency-weighted net Elo); gentle
+    cap: 15,            // clamp the tilt to ±this many Elo points (bounded)
+  },
+
   // ═══ DIVISION OVERRIDES ═══════════════════════════════════════════════
   // Manual fixes for fighters whose division/rank in the API is stale (e.g. a
   // permanent weight move, or a title change the Octagon API hasn't caught up

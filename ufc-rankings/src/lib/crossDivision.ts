@@ -10,9 +10,33 @@
 
 import { getData } from './dataCache';
 import { generateDivisionRankings } from './scoringEngine';
+import { getFighterHistory, eloToDisplayScore } from './eloEngine';
+import { RANKING_CONFIG } from './rankingConfig';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { LoadedData } from './loadData';
+
+// Recency-weighted net Elo swing over the recent-form window. Each fight's Elo
+// delta is already opponent-quality-aware (beating a strong opponent moves you
+// more), so summing them — weighted so the last ~18mo dominate — measures
+// whether a fighter is still CLIMBING/holding at elite level or coasting on a
+// carried-in prime. Display-only; used solely to tilt the P4P sort (below).
+function recentFormTilt(data: LoadedData, fighterId: string): number {
+  const cfg = RANKING_CONFIG.p4pRecentForm;
+  if (!cfg.enabled) return 0;
+  const now = Date.now();
+  const cutoff = now - cfg.windowYears * 365.25 * 864e5;
+  const msPerMonth = (365.25 / 12) * 864e5;
+  let weighted = 0;
+  for (const f of getFighterHistory(data, fighterId)) {
+    const t = new Date(f.date).getTime();
+    if (!Number.isFinite(t) || t < cutoff) continue;
+    const monthsAgo = (now - t) / msPerMonth;
+    weighted += Math.pow(0.5, monthsAgo / cfg.halfLifeMonths) * f.delta;
+  }
+  const raw = cfg.lambda * weighted;
+  return Math.max(-cfg.cap, Math.min(cfg.cap, raw));
+}
 
 export interface PoolFighter extends RankedFighter {
   division: string;
@@ -52,17 +76,25 @@ export interface P4PEntry {
   record: string;
   isChampion: boolean;
   rankScore: number;
-  finalRating: number;
+  finalRating: number;      // base all-time rating (before the recent-form tilt)
+  recentFormTilt: number;   // bounded ± Elo adjustment applied for the P4P sort
   strengthOfSchedule: number;
 }
 
 export async function buildP4P(limit = 30): Promise<P4PEntry[]> {
+  const data = getData();
   const pool = await buildRankedPool();
+  // Tilt each fighter's rating by their recent form, then sort + score on the
+  // tilted rating so the displayed rankScore stays monotonic with the order.
+  // P4P-only: the pool's underlying division ratings are untouched.
   return pool
-    .slice()
-    .sort((a, b) => b.finalRating - a.finalRating)
+    .map((f) => {
+      const tilt = recentFormTilt(data, f.fighterId);
+      return { f, tilt, tilted: f.finalRating + tilt };
+    })
+    .sort((a, b) => b.tilted - a.tilted)
     .slice(0, limit)
-    .map((f, i) => ({
+    .map(({ f, tilt, tilted }, i) => ({
       rank: i + 1,
       fighterId: f.fighterId,
       fullName: f.fullName,
@@ -70,8 +102,9 @@ export async function buildP4P(limit = 30): Promise<P4PEntry[]> {
       division: f.division,
       record: f.record,
       isChampion: f.isChampion,
-      rankScore: f.rankScore,
+      rankScore: eloToDisplayScore(tilted),
       finalRating: f.finalRating,
+      recentFormTilt: tilt,
       strengthOfSchedule: f.strengthOfSchedule,
     }));
 }
