@@ -137,13 +137,18 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
       </div>
 
       {/* ── Shared Gauntlet — both fighters' Elo trajectories overlaid on one
-          calendar chart (A red / B blue) so their timelines read together ── */}
-      {pa.gauntlet && pb.gauntlet && (
-        <CompareGauntlet
-          a={{ name: pa.fullName, gauntlet: pa.gauntlet }}
-          b={{ name: pb.fullName, gauntlet: pb.gauntlet }}
-        />
-      )}
+          calendar chart so their timelines read together. Colour is assigned by
+          RATING, not slot order: the higher-Elo fighter is always red, the lower
+          blue (the CompareGauntlet's `a` corner renders red). ── */}
+      {pa.gauntlet && pb.gauntlet && (() => {
+        const [hi, lo] = pa.eloRating >= pb.eloRating ? [pa, pb] : [pb, pa];
+        return (
+          <CompareGauntlet
+            a={{ name: hi.fullName, gauntlet: hi.gauntlet! }}
+            b={{ name: lo.fullName, gauntlet: lo.gauntlet! }}
+          />
+        );
+      })()}
 
       {/* ── Rating + Strength of schedule — side by side ── */}
       <div className="grid grid-cols-2 gap-3 items-stretch">
