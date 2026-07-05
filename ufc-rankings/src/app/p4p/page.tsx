@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { buildP4P } from '@/lib/crossDivision';
-import { initials } from '@/lib/fighterDisplay';
 import { shortDivision } from '@/lib/divisions';
 import DistinctionDecals from '@/components/DistinctionDecals';
+import FighterAvatar from '@/components/FighterAvatar';
 
 export const revalidate = 86400;
 
@@ -41,20 +41,21 @@ export default async function P4PPage() {
               {e.rank}
             </div>
 
-            <div
-              className="hidden sm:flex w-10 h-10 rounded-full shrink-0 items-center justify-center text-xs font-medium"
-              style={{
-                backgroundColor: 'var(--bg-elevated)',
-                color: e.isChampion ? 'var(--accent-gold)' : 'var(--text-muted)',
-                border: e.isChampion ? '1.5px solid var(--accent-gold)' : 'none',
-              }}
-              aria-hidden
-            >
-              {initials(e.fullName)}
+            <div className="hidden sm:block">
+              <FighterAvatar
+                src={e.avatarUrl ?? undefined}
+                name={e.fullName}
+                sizeClass="w-10 h-10"
+                initialsClass="text-xs"
+                bg="var(--bg-elevated)"
+                initialsColor={e.isChampion ? 'var(--accent-gold)' : 'var(--text-muted)'}
+                border={e.isChampion ? '1.5px solid var(--accent-gold)' : undefined}
+              />
             </div>
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
+                {e.flag && <span className="text-sm shrink-0 leading-none">{e.flag}</span>}
                 <span className="font-medium text-sm truncate" style={{ color: 'var(--text-primary)' }}>
                   {e.fullName}
                 </span>

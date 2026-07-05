@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "jiti scripts/engine.test.ts",
     "dev:preview": "NEXT_DIST_DIR=.next-preview next dev",
     "dev:preview2": "NEXT_DIST_DIR=.next-preview2 next dev"
   },

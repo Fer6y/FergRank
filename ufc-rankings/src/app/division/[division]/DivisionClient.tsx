@@ -36,7 +36,10 @@ export default function DivisionClient({
   const [gender, setGender] = useState<'male' | 'female'>(genderOf(division));
   const [selectedDivision, setSelectedDivision] = useState<string>(division);
   const [filters, setFilters] = useState<FilterParams>(DEFAULT_FILTERS);
-  const [rankings, setRankings] = useState<DivisionRankings | null>(initialRankings);
+  // Holds ONLY the result of a non-neutral fetch (a different division or moved
+  // filters). The neutral view is derived straight from initialRankings, so this
+  // stays null until the user actually asks for something the server didn't render.
+  const [fetched, setFetched] = useState<DivisionRankings | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -51,16 +54,12 @@ export default function DivisionClient({
   }
 
   // The neutral view (route's own division, house filters) is exactly what the
-  // server already rendered — reuse it instead of refetching.
+  // server already rendered — render derives it from initialRankings directly
+  // (see displayRankings below), so the effect neither fetches nor writes state.
   const neutral = selectedDivision === division && isDefaultFilters(filters);
 
   useEffect(() => {
-    if (neutral) {
-      setRankings(initialRankings);
-      setLoading(false);
-      setError(null);
-      return;
-    }
+    if (neutral) return; // nothing to fetch; render falls back to initialRankings
     let cancelled = false;
     const t = setTimeout(async () => {
       setLoading(true);
@@ -72,11 +71,11 @@ export default function DivisionClient({
           throw new Error(data.error || `HTTP ${res.status}`);
         }
         const data: DivisionRankings = await res.json();
-        if (!cancelled) setRankings(data);
+        if (!cancelled) setFetched(data);
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : 'Unknown error');
-          setRankings(null);
+          setFetched(null);
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -87,12 +86,18 @@ export default function DivisionClient({
       clearTimeout(t);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [neutral, initialRankings, selectedDivision, filters.eraStartYear, filters.finishWeight, filters.recencyWeight, filters.activityWeight]);
+  }, [neutral, selectedDivision, filters.eraStartYear, filters.finishWeight, filters.recencyWeight, filters.activityWeight]);
 
   const handleGenderChange = (newGender: 'male' | 'female') => {
     setGender(newGender);
     setSelectedDivision(newGender === 'male' ? MENS_DIVISIONS[0] : WOMENS_DIVISIONS[0]);
   };
+
+  // What the table shows: the server-rendered data for the neutral view, else
+  // the fetched result (falling back to initialRankings during the debounce so
+  // stale-but-present rows show instead of an empty flash). loading/error only
+  // apply while a fetch is the source of truth — never over the neutral view.
+  const displayRankings = neutral ? initialRankings : (fetched ?? initialRankings);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-5">
@@ -109,7 +114,7 @@ export default function DivisionClient({
 
       <FilterBar filters={filters} onChange={setFilters} />
 
-      <RankingTable rankings={rankings} loading={loading} error={error} />
+      <RankingTable rankings={displayRankings} loading={!neutral && loading} error={neutral ? null : error} />
 
       <div className="text-center py-6 text-xs space-y-1" style={{ color: 'var(--text-muted)' }}>
         <p>Rankings generated algorithmically from UFC fight data.</p>

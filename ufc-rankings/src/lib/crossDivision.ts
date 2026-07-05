@@ -16,6 +16,7 @@ import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { LoadedData } from './loadData';
 import { buildDistinctions, type Distinction } from './distinctions';
+import { getFighterMedia } from './fighterMedia';
 
 // Recency-weighted, quality-gated net Elo swing over the recent-form window.
 // Each fight's Elo delta is opponent-quality-aware for its SIGN/magnitude, but a
@@ -92,6 +93,8 @@ export interface P4PEntry {
   recentFormTilt: number;   // bounded ± Elo adjustment applied for the P4P sort
   strengthOfSchedule: number;
   distinctions: Distinction[]; // decal badges (display only)
+  avatarUrl: string | null;    // head-framed photo for the avatar (display only)
+  flag: string | null;         // emoji nationality flag (display only)
 }
 
 export async function buildP4P(limit = 30): Promise<P4PEntry[]> {
@@ -107,24 +110,29 @@ export async function buildP4P(limit = 30): Promise<P4PEntry[]> {
     })
     .sort((a, b) => b.tilted - a.tilted)
     .slice(0, limit)
-    .map(({ f, tilt, tilted }, i) => ({
-      rank: i + 1,
-      fighterId: f.fighterId,
-      fullName: f.fullName,
-      nickname: f.nickname,
-      division: f.division,
-      record: f.record,
-      isChampion: f.isChampion,
-      rankScore: eloToDisplayScore(tilted),
-      finalRating: f.finalRating,
-      recentFormTilt: tilt,
-      strengthOfSchedule: f.strengthOfSchedule,
-      distinctions: buildDistinctions({
-        fighterName: f.fullName,
+    .map(({ f, tilt, tilted }, i) => {
+      const media = getFighterMedia(f.fighterId);
+      return {
+        rank: i + 1,
+        fighterId: f.fighterId,
+        fullName: f.fullName,
+        nickname: f.nickname,
+        division: f.division,
+        record: f.record,
         isChampion: f.isChampion,
-        history: getFighterHistory(data, f.fighterId),
-      }),
-    }));
+        rankScore: eloToDisplayScore(tilted),
+        finalRating: f.finalRating,
+        recentFormTilt: tilt,
+        strengthOfSchedule: f.strengthOfSchedule,
+        distinctions: buildDistinctions({
+          fighterName: f.fullName,
+          isChampion: f.isChampion,
+          history: getFighterHistory(data, f.fighterId),
+        }),
+        avatarUrl: media?.avatarUrl || null,
+        flag: media?.flag || null,
+      };
+    });
 }
 
 // ── Specialty leaderboards ───────────────────────────────────────────────

@@ -144,7 +144,9 @@ function trimPace(p: PaceWindow | null) {
     diffPer15: r(p.diffPer15, 1),
     tdPer15: r(p.tdPer15, 1),
     kdPer15: r(p.kdPer15, 2),
+    kdDiffPer15: r(p.kdDiffPer15, 2),
     ctrlSharePct: r(p.ctrlSharePct, 1),
+    netCtrlPct: r(p.netCtrlPct, 1),
     sigAccuracyPct: p.sigAccuracy != null ? pct(p.sigAccuracy) : null,
   };
 }

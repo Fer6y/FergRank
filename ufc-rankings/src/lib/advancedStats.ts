@@ -52,8 +52,12 @@ export interface PaceWindow {
   tdPer15: number;
   tdAbsorbedPer15: number;
   kdPer15: number;
+  kdAbsorbedPer15: number;     // knockdowns suffered per 15 (the chin side)
+  kdDiffPer15: number;         // kd landed − kd absorbed, per 15 (power + durability in one)
   subAttPer15: number;
-  ctrlSharePct: number;        // % of cage time spent in control
+  ctrlSharePct: number;        // % of cage time this fighter spent in control
+  oppCtrlSharePct: number;     // % of cage time the OPPONENT spent in control
+  netCtrlPct: number;          // ctrlSharePct − oppCtrlSharePct (the honest, non-ambiguous control read)
   sigAccuracy: number | null;  // mean per-fight accuracy (0–1)
 }
 
@@ -636,10 +640,12 @@ export interface PaceMedians {
   diffPer15: number;
   sigAccuracy: number | null;
   kdPer15: number;
+  kdDiffPer15: number;
   tdPer15: number;
   tdAbsorbedPer15: number;
   subAttPer15: number;
   ctrlSharePct: number;
+  netCtrlPct: number;
 }
 
 export interface RatioBenchmark {
@@ -670,10 +676,12 @@ export function divisionRatioBenchmark(
   const diff: number[] = [];
   const acc: number[] = [];
   const kd: number[] = [];
+  const kdDiff: number[] = [];
   const td: number[] = [];
   const tdAbs: number[] = [];
   const subAtt: number[] = [];
   const ctrl: number[] = [];
+  const netCtrl: number[] = [];
   for (const id of rankedIds) {
     const a = getAdvancedStats(data, id);
     const r = a ? ratioOf(a.career) : null;
@@ -685,10 +693,12 @@ export function divisionRatioBenchmark(
       diff.push(c.diffPer15);
       if (c.sigAccuracy != null) acc.push(c.sigAccuracy);
       kd.push(c.kdPer15);
+      kdDiff.push(c.kdDiffPer15);
       td.push(c.tdPer15);
       tdAbs.push(c.tdAbsorbedPer15);
       subAtt.push(c.subAttPer15);
       ctrl.push(c.ctrlSharePct);
+      netCtrl.push(c.netCtrlPct);
     }
   }
   const median = (xs: number[]) => {
@@ -709,10 +719,12 @@ export function divisionRatioBenchmark(
           diffPer15: r1(diff),
           sigAccuracy: acc.length ? Math.round(median(acc) * 1000) / 1000 : null,
           kdPer15: Math.round(median(kd) * 100) / 100,
+          kdDiffPer15: Math.round(median(kdDiff) * 100) / 100,
           tdPer15: r1(td),
           tdAbsorbedPer15: r1(tdAbs),
           subAttPer15: r1(subAtt),
           ctrlSharePct: r1(ctrl),
+          netCtrlPct: r1(netCtrl),
         },
       }
     : null;
@@ -993,6 +1005,7 @@ interface Side {
   kdAbsorbed: number;
   subAtt: number;
   ctrlSec: number;
+  oppCtrlSec: number;
   sigAcc: number;
 }
 
@@ -1002,12 +1015,12 @@ function sideOf(f: Fight, fighterId: string): Side {
     ? {
         result: f.result1, opponentName: f.fighter2Name,
         landed: f.str1, absorbed: f.str2, td: f.td1, tdAbsorbed: f.td2,
-        kd: f.kd1, kdAbsorbed: f.kd2, subAtt: f.sub1, ctrlSec: f.ctrl1, sigAcc: f.sigStrPct1,
+        kd: f.kd1, kdAbsorbed: f.kd2, subAtt: f.sub1, ctrlSec: f.ctrl1, oppCtrlSec: f.ctrl2, sigAcc: f.sigStrPct1,
       }
     : {
         result: f.result2, opponentName: f.fighter1Name,
         landed: f.str2, absorbed: f.str1, td: f.td2, tdAbsorbed: f.td1,
-        kd: f.kd2, kdAbsorbed: f.kd1, subAtt: f.sub2, ctrlSec: f.ctrl2, sigAcc: f.sigStrPct2,
+        kd: f.kd2, kdAbsorbed: f.kd1, subAtt: f.sub2, ctrlSec: f.ctrl2, oppCtrlSec: f.ctrl1, sigAcc: f.sigStrPct2,
       };
 }
 
@@ -1026,8 +1039,12 @@ function buildWindow(samples: { side: Side; minutes: number }[]): PaceWindow {
     tdPer15: r1(per15(sum((s) => s.td))),
     tdAbsorbedPer15: r1(per15(sum((s) => s.tdAbsorbed))),
     kdPer15: Math.round(per15(sum((s) => s.kd)) * 100) / 100,
+    kdAbsorbedPer15: Math.round(per15(sum((s) => s.kdAbsorbed)) * 100) / 100,
+    kdDiffPer15: Math.round(per15(sum((s) => s.kd - s.kdAbsorbed)) * 100) / 100,
     subAttPer15: r1(per15(sum((s) => s.subAtt))),
     ctrlSharePct: minutes > 0 ? r1((sum((s) => s.ctrlSec) / (minutes * 60)) * 100) : 0,
+    oppCtrlSharePct: minutes > 0 ? r1((sum((s) => s.oppCtrlSec) / (minutes * 60)) * 100) : 0,
+    netCtrlPct: minutes > 0 ? r1((sum((s) => s.ctrlSec - s.oppCtrlSec) / (minutes * 60)) * 100) : 0,
     sigAccuracy: accSamples.length
       ? Math.round((accSamples.reduce((s, x) => s + x.side.sigAcc, 0) / accSamples.length) * 1000) / 1000
       : null,

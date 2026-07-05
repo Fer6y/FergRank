@@ -23,6 +23,14 @@ interface RadarAxes {
 
 const fmt1 = (n: number) => (Math.round(n * 10) / 10).toFixed(1);
 const pct = (n: number | null) => (n == null ? '—' : `${(n * 100).toFixed(0)}%`);
+// Signed formatter for differential rows (net control, KD differential) — the
+// leading + makes "who's ahead" legible at a glance.
+const signed = (n: number, decimals: number, suffix = '') =>
+  `${n > 0 ? '+' : ''}${n.toFixed(decimals)}${suffix}`;
+// Colour a signed differential by sign, with a small dead-zone so a near-even
+// stat stays neutral rather than flashing green/red on noise.
+const signedColor = (v: number, deadzone: number) =>
+  v > deadzone ? 'var(--accent-green)' : v < -deadzone ? 'var(--accent-red-light)' : 'var(--text-primary)';
 
 const INSIGHT_COLOR: Record<TrendInsight['kind'], string> = {
   positive: 'var(--accent-green)',
@@ -199,6 +207,7 @@ export default function AdvancedAnalyticsSection({
               <PaceRow gridCls={paceGrid} label="Strike differential" feedsRanking career={fmt1(career.diffPer15)} median={med ? fmt1(med.diffPer15) : null} delta={drift?.diffPer15Delta ?? null} standout={standoutOf(career.diffPer15, med?.diffPer15, true)} />
               <PaceRow gridCls={paceGrid} label="Sig. accuracy" feedsRanking career={pct(career.sigAccuracy)} median={med ? pct(med.sigAccuracy) : null} delta={drift?.sigAccuracyDelta != null ? drift.sigAccuracyDelta * 100 : null} deltaDecimals={0} standout={standoutOf(career.sigAccuracy, med?.sigAccuracy, true)} />
               <PaceRow gridCls={paceGrid} label="Knockdowns" feedsRanking career={career.kdPer15.toFixed(2)} median={med ? med.kdPer15.toFixed(2) : null} delta={recent ? Math.round((recent.kdPer15 - career.kdPer15) * 100) / 100 : null} deltaDecimals={2} standout={standoutOf(career.kdPer15, med?.kdPer15, true)} />
+              <PaceRow gridCls={paceGrid} label="Knockdown diff." career={signed(career.kdDiffPer15, 2)} median={med ? signed(med.kdDiffPer15, 2) : null} delta={recent ? Math.round((recent.kdDiffPer15 - career.kdDiffPer15) * 100) / 100 : null} deltaDecimals={2} valueColor={signedColor(career.kdDiffPer15, 0.1)} />
             </div>
           </div>
 
@@ -214,7 +223,7 @@ export default function AdvancedAnalyticsSection({
               <PaceRow gridCls={paceGrid} label="Takedowns" feedsRanking career={fmt1(career.tdPer15)} median={med ? fmt1(med.tdPer15) : null} delta={drift?.tdPer15Delta ?? null} standout={standoutOf(career.tdPer15, med?.tdPer15, true)} />
               <PaceRow gridCls={paceGrid} label="Takedowns conceded" higherIsBetter={false} career={fmt1(career.tdAbsorbedPer15)} median={med ? fmt1(med.tdAbsorbedPer15) : null} delta={recent ? recent.tdAbsorbedPer15 - career.tdAbsorbedPer15 : null} standout={standoutOf(career.tdAbsorbedPer15, med?.tdAbsorbedPer15, false)} />
               <PaceRow gridCls={paceGrid} label="Sub attempts" feedsRanking career={fmt1(career.subAttPer15)} median={med ? fmt1(med.subAttPer15) : null} delta={recent ? Math.round((recent.subAttPer15 - career.subAttPer15) * 10) / 10 : null} standout={standoutOf(career.subAttPer15, med?.subAttPer15, true)} />
-              <PaceRow gridCls={paceGrid} label="Control share" career={`${fmt1(career.ctrlSharePct)}%`} median={med ? `${fmt1(med.ctrlSharePct)}%` : null} delta={recent ? Math.round((recent.ctrlSharePct - career.ctrlSharePct) * 10) / 10 : null} standout={standoutOf(career.ctrlSharePct, med?.ctrlSharePct, true)} />
+              <PaceRow gridCls={paceGrid} label="Net control" career={signed(career.netCtrlPct, 1, '%')} median={med ? signed(med.netCtrlPct, 1, '%') : null} delta={recent ? Math.round((recent.netCtrlPct - career.netCtrlPct) * 10) / 10 : null} valueColor={signedColor(career.netCtrlPct, 1.5)} />
             </div>
           </div>
         </div>
@@ -359,7 +368,7 @@ function DeltaChip({ delta, decimals = 1, higherIsBetter = true }: { delta: numb
 }
 
 function PaceRow({
-  label, career, median, delta, deltaDecimals, feedsRanking, gridCls, standout, higherIsBetter = true,
+  label, career, median, delta, deltaDecimals, feedsRanking, gridCls, standout, valueColor, higherIsBetter = true,
 }: {
   label: string;
   career: string;
@@ -369,6 +378,7 @@ function PaceRow({
   feedsRanking?: boolean;
   gridCls: string;
   standout?: Standout | null;
+  valueColor?: string;   // overrides the CAREER value colour when there's no standout (signed diff rows)
   higherIsBetter?: boolean;
 }) {
   // Elite strengths get the full row treatment (accent bar + faint tint);
@@ -381,7 +391,7 @@ function PaceRow({
       }
     : undefined;
   const labelColor = standout?.emphasize ? standout.color : 'var(--text-primary)';
-  const careerColor = standout ? standout.color : 'var(--text-primary)';
+  const careerColor = standout ? standout.color : (valueColor ?? 'var(--text-primary)');
 
   return (
     <div

@@ -27,10 +27,20 @@ export default function GrappleRamp({
   const hasTop = markers.some((m) => (m.side ?? 'top') === 'top' && (m.label || m.sub));
   const hasBottom = markers.some((m) => m.side === 'bottom' && (m.label || m.sub));
 
+  // Text alternative for assistive tech: the whole point of the ramp (each
+  // fighter's grappling percentile vs their division) is otherwise conveyed only
+  // by needle position and colour.
+  const tier = (p: number) => (p >= 80 ? 'elite' : p >= 60 ? 'strong' : p >= 40 ? 'average' : p >= 20 ? 'below average' : 'negligible');
+  const rampLabel =
+    'Grappling proficiency vs division (negligible to elite): ' +
+    markers
+      .map((m) => `${m.label ? m.label + ' ' : ''}${Math.round(m.percentile)}th percentile (${tier(m.percentile)})`)
+      .join('; ');
+
   return (
     <div className="w-full">
       <div style={{ paddingTop: hasTop ? 24 : 0, paddingBottom: hasBottom ? 24 : 0 }}>
-        <div className="relative rounded-full" style={{ height, background: RAMP }}>
+        <div className="relative rounded-full" role="img" aria-label={rampLabel} style={{ height, background: RAMP }}>
           {markers.map((m, i) => {
             const pos = Math.max(0, Math.min(100, m.percentile));
             const side = m.side ?? 'top';

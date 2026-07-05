@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { initials } from '@/lib/fighterDisplay';
 
 interface FighterAvatarProps {
@@ -39,13 +40,17 @@ export default function FighterAvatar({
           the photo loads and if it errors; the image covers them once painted. */}
       <span className={initialsClass}>{initials(name)}</span>
       {showImg && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        // next/image optimizes + resizes the remote UFC/Commons photo down to the
+        // avatar box (see next.config remotePatterns). `fill` covers the wrapper;
+        // the initials underneath remain the fallback if it errors. `sizes` is the
+        // largest avatar box we render (~96px hero) so the optimizer never over-fetches.
+        <Image
           src={src}
           alt=""
-          loading="lazy"
+          fill
+          sizes="96px"
           onError={() => setFailed(true)}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="object-cover"
           style={{ objectPosition: 'center top', backgroundColor: bg }}
         />
       )}

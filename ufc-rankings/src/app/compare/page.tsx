@@ -202,7 +202,7 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
           { label: 'Takedowns /15', a: fa.w?.tdPer15 ?? null, b: fb.w?.tdPer15 ?? null, fmt: fmt1 },
           { label: 'Takedowns conceded /15', a: fa.w?.tdAbsorbedPer15 ?? null, b: fb.w?.tdAbsorbedPer15 ?? null, fmt: fmt1, lowerIsBetter: true },
           { label: 'Sub attempts /15', a: fa.w?.subAttPer15 ?? null, b: fb.w?.subAttPer15 ?? null, fmt: fmt1 },
-          { label: 'Control share', a: fa.w?.ctrlSharePct ?? null, b: fb.w?.ctrlSharePct ?? null, fmt: (v) => `${fmt1(v)}%` },
+          { label: 'Net control', a: fa.w?.netCtrlPct ?? null, b: fb.w?.netCtrlPct ?? null, fmt: signedPct, hint: 'own control time − opponent’s, as % of the fight — positive means you controlled more than you were controlled' },
           { label: 'Defence vs schedule', a: sca?.absorbedVsExpected ?? null, b: scb?.absorbedVsExpected ?? null, fmt: ratioPct, lowerIsBetter: true, hint: 'absorbed vs what these opponents normally land — <100% is stingier than the schedule' },
           { label: 'Sub rate (career)', a: pa.stats.subRate, b: pb.stats.subRate, fmt: pctFmt },
         ]}
@@ -631,3 +631,5 @@ const pctFmt = (v: number | null) => (v == null ? '—' : `${Math.round((v > 1 ?
 // Schedule-adjusted ratios are already on a 1.0 = 100% scale (not 0–1), so format
 // them directly rather than through pctFmt's 0–1/0–100 heuristic.
 const ratioPct = (v: number) => `${Math.round(v * 100)}%`;
+// Signed % for differential rows (net control) — the leading + shows who's ahead.
+const signedPct = (v: number) => `${v > 0 ? '+' : ''}${(Math.round(v * 10) / 10).toFixed(1)}%`;
