@@ -16,23 +16,34 @@ import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { LoadedData } from './loadData';
 
-// Recency-weighted net Elo swing over the recent-form window. Each fight's Elo
-// delta is already opponent-quality-aware (beating a strong opponent moves you
-// more), so summing them — weighted so the last ~18mo dominate — measures
-// whether a fighter is still CLIMBING/holding at elite level or coasting on a
-// carried-in prime. Display-only; used solely to tilt the P4P sort (below).
+// Recency-weighted, quality-gated net Elo swing over the recent-form window.
+// Each fight's Elo delta is opponent-quality-aware for its SIGN/magnitude, but a
+// string of modest wins over mid-tier opposition can still accumulate — so each
+// WIN's contribution is additionally gated by the opponent's absolute quality
+// (full credit vs an elite, only `qualityFloor` vs a can), mirroring the Elo
+// core's winQuality gate. LOSSES keep full weight (losing to a can should still
+// hurt). Weighted so the last ~18mo dominate. This measures whether a fighter is
+// still beating elites NOW or coasting on a carried-in prime / padding a streak.
+// Display-only; used solely to tilt the P4P sort (below).
 function recentFormTilt(data: LoadedData, fighterId: string): number {
   const cfg = RANKING_CONFIG.p4pRecentForm;
   if (!cfg.enabled) return 0;
   const now = Date.now();
   const cutoff = now - cfg.windowYears * 365.25 * 864e5;
   const msPerMonth = (365.25 / 12) * 864e5;
+  const qSpan = cfg.qualityFullElo - cfg.qualityLowElo;
   let weighted = 0;
   for (const f of getFighterHistory(data, fighterId)) {
     const t = new Date(f.date).getTime();
     if (!Number.isFinite(t) || t < cutoff) continue;
-    const monthsAgo = (now - t) / msPerMonth;
-    weighted += Math.pow(0.5, monthsAgo / cfg.halfLifeMonths) * f.delta;
+    const recency = Math.pow(0.5, (now - t) / msPerMonth / cfg.halfLifeMonths);
+    let contribution = f.delta;
+    if (f.delta > 0) {
+      // Gate the GAIN by opponent quality: q=0 at qualityLowElo, 1 at qualityFullElo.
+      const q = Math.max(0, Math.min(1, (f.opponentRating - cfg.qualityLowElo) / qSpan));
+      contribution *= cfg.qualityFloor + (1 - cfg.qualityFloor) * q;
+    }
+    weighted += recency * contribution;
   }
   const raw = cfg.lambda * weighted;
   return Math.max(-cfg.cap, Math.min(cfg.cap, raw));

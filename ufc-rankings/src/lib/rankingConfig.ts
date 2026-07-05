@@ -385,16 +385,23 @@ export const RANKING_CONFIG = {
   // near its peak (e.g. Oliveira: 4-2 / +23 net Elo over 3.5y but rated #2;
   // Volkanovski: 3-3 / -9 and still top-4). This applies a BOUNDED tilt to the
   // P4P sort key ONLY — it never touches the Elo core, division rankings, or the
-  // golden master. Signal = recency-weighted net Elo swing over the window (each
-  // fight's swing is already opponent-quality-aware); coasters get ~0 tilt while
-  // active risers pin to the cap, so the proven-but-stale slide a few spots
-  // below the elite-and-current without being ejected from the tier.
+  // golden master. Signal = recency-weighted net Elo swing over the window, with
+  // each WIN's contribution GATED by the opponent's absolute quality (mirrors the
+  // Elo core's winQuality gate): beating an elite counts full, beating a can
+  // barely counts — so a hot streak padded against mid-tier opposition does NOT
+  // outweigh fewer wins over elites (Prates beating JDM + Leon rates above a
+  // volume-padded record). LOSSES keep full weight, so losing to a can still
+  // hurts. Coasters/decliners get a small tilt while active elite-beaters approach
+  // the cap, so the proven-but-stale slide a few spots without leaving the tier.
   p4pRecentForm: {
     enabled: true,
-    windowYears: 3.5,   // how far back "recent form" looks
-    halfLifeMonths: 18, // recency half-life within the window (last ~18mo dominate)
-    lambda: 0.45,       // tilt = lambda × (recency-weighted net Elo); gentle
-    cap: 15,            // clamp the tilt to ±this many Elo points (bounded)
+    windowYears: 3.5,     // how far back "recent form" looks
+    halfLifeMonths: 18,   // recency half-life within the window (last ~18mo dominate)
+    lambda: 0.4,          // tilt = lambda × (recency-weighted quality-gated net Elo); gentle
+    cap: 18,              // clamp the tilt to ±this many Elo points (bounded)
+    qualityFullElo: 1560, // beating an opponent at/above this → full win credit
+    qualityLowElo: 1460,  // beating an opponent at/below this → only the floor fraction
+    qualityFloor: 0.15,   // minimum win-credit fraction for beating a very weak opponent
   },
 
   // ═══ DIVISION OVERRIDES ═══════════════════════════════════════════════
