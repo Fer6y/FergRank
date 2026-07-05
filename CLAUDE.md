@@ -128,7 +128,7 @@ UFergCRankings/                ← repo root
         │   ├── prospects.ts           ← prospect watchlist builder (provisional-window risers); display only
         │   ├── divisions.ts           ← shared division short codes
         │   ├── pedigreeSeed.ts        ← pre-UFC pedigree loader + seed (ENABLED; ≤25 Elo, tapers out by 6 UFC fights)
-        │   ├── fetchOfficialRankings.ts ← Octagon API client (runtime external call #1; #2 is the Anthropic API in /api/chat)
+        │   ├── fetchOfficialRankings.ts ← reads the committed official-rankings snapshot (data/official_rankings.csv); live Octagon fetch = fallback only. Anthropic API in /api/chat is now the only runtime external call
         │   ├── nameResolver.ts        ← fuzzy UFC.com-name → CSV-id matching
         │   ├── auditOfficialMatches.ts ← diagnostic: which official names resolve
         │   ├── rankingConfig.ts       ← ALL tunables (single source of truth)
@@ -515,10 +515,12 @@ Official UFC rankings are fetched from **Octagon API**, a free open-source MMA A
 ### Architecture (as built)
 
 ```
-src/lib/fetchOfficialRankings.ts   ← isolated fetch + 24h in-module cache + normalize. The ONE place to change if the source breaks.
+scripts/buildOfficialRankings.ts   ← BUILD-TIME: fetches live Octagon → writes data/official_rankings.csv (the committed snapshot). Wired into weeklyUpdate.ts.
+data/official_rankings.csv         ← the committed snapshot the running app reads (versioned, git-visible, hand-overridable).
+src/lib/fetchOfficialRankings.ts   ← RUNTIME: reads the snapshot; live fetch (fetchLiveOfficialRankings) is the fallback only. The ONE place to change if the source breaks.
 ```
 
-The scoring engine calls `fetchOfficialRankings()` directly; the fetch is memoized in-module for 24h, so a separate `/api/official-rankings` route was unnecessary. If Octagon changes or goes down, one file swap fixes everything and the app degrades to pure-Elo. (The expected JSON shape evolved from the doc below into an array of division objects — see the actual parser in `fetchOfficialRankings.ts`.)
+**Committed-snapshot architecture (2026-07-04).** The running app no longer fetches Octagon at request time. `fetchOfficialRankings()` reads the committed `data/official_rankings.csv` snapshot; the live Octagon fetch (`fetchLiveOfficialRankings`) is kept only as a fallback for a fresh checkout with no snapshot, and an empty `{}` is the final degrade to pure-Elo. The snapshot is refreshed at build time by `scripts/buildOfficialRankings.ts` (a weekly-ingest step; the Action commits the CSV → redeploy). This killed the staleness/reliability problem — the feed is now versioned (the git diff on the CSV **is** the staleness detector), hand-overridable (edit the CSV to fix a wrong rank), and the build script refuses to overwrite a good snapshot with an empty Octagon response. Pure source-swap — golden-master-verified zero ranking drift. (The JSON shape is an array of division objects — see the parser in `fetchOfficialRankings.ts`.)
 
 ### Expected JSON Structure from Octagon API
 
@@ -612,6 +614,6 @@ Every fighter gets a **Strength of Schedule (SoS)** score — the recency-weight
 - `Events.csv` provides dates — always join on `Event_Id`. The Elo engine **skips fights with no date** (can't place them on the timeline).
 - Some fighters appear in multiple weight classes — Elo carries one rating across moves with a decay penalty; the engine only *scores* a fighter within the division they're eligible for.
 - Control time (`Ctrl_1`, `Ctrl_2`) is in **seconds**. (Not currently used by the v2 metrics composite — volume/accuracy/KD/TD are.)
-- The Octagon API fetch is the only external **runtime** network call in the app — keep it that way. (Sherdog scraping is build-time only.)
+- The Octagon rankings fetch is now **build-time only** (writes the committed `data/official_rankings.csv` snapshot; the app reads that file at runtime). The only external **runtime** network call left is the Anthropic API behind `/api/chat`. Keep it that way. (Sherdog scraping is build-time only too.)
 - **Recency patch** (`recent_ufc_fights.csv`) is integrated in `loadData.ts` with three guards — stale-drop, duplicate-drop (suffix-tolerant name-pair within ±7 days), and `sd:`-id name-resolution. This fixed silent Elo double-counting. Full provenance + rules in `data/SOURCES.md`.
 - **Data freshness drifts**: when the CSVs are refreshed, update the counts in this doc and `data/SOURCES.md`, and **regenerate the validation snapshot**.

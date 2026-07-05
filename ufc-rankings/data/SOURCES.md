@@ -12,16 +12,27 @@ is a local file.
 
 ## 1. External sources (the only data we pull from outside)
 
-### A. Octagon API — *runtime*, the single live dependency
+### A. Octagon API — *build-time snapshot*, no longer a runtime dependency
 - **URL**: `https://api.octagon-api.com/rankings`
 - **What**: official UFC rankings — champion + top-15 per division.
 - **Used for**: the "vs UFC" trend chips, division membership, a small official
   seed (≤ +50 Elo) and post-sort safety floors. It does **not** drive the core
   rating — Elo does.
-- **Freshness**: fetched on demand, cached **24 h** in-process.
-- **Resilience**: isolated in `src/lib/fetchOfficialRankings.ts`. On any failure
-  it returns `{}` and the app degrades gracefully to **pure Elo** (no crash, no
-  trend chips). Swap that one file if the API ever changes.
+- **Freshness / architecture (2026-07-04)**: the running app reads a **committed
+  snapshot**, `data/official_rankings.csv`, NOT a live request-time fetch. The
+  snapshot is regenerated at build time by `scripts/buildOfficialRankings.ts`
+  (wired into the weekly ingest, `weeklyUpdate.ts`), which fetches live Octagon
+  and writes the CSV. This makes the displayed "UFC Rank" versioned, git-visible,
+  and hand-overridable — the git diff on that file **is** the staleness detector
+  (a flat diff = Octagon itself hasn't moved). Behaviour is a pure source-swap:
+  the returned shape is unchanged, so trend chips / champion "C" / floors / seed
+  are all identical (golden-master-verified, zero drift).
+- **Resilience**: isolated in `src/lib/fetchOfficialRankings.ts`. Runtime reads
+  the snapshot; the live fetch remains only as a fallback for a fresh checkout
+  with no snapshot yet, and an empty `{}` is the final degrade to **pure Elo**
+  (no crash, no trend chips). The build script refuses to overwrite a good
+  snapshot with an empty Octagon response. To hand-fix a stale/wrong rank, edit
+  the CSV directly. Swap that one file if the API ever changes.
 - **Known misalignment (handled)**: the API lags real title changes. Stale
   champions are corrected in `RANKING_CONFIG.divisionOverrides` (e.g. Makhachev
   at WW, Pereira at LHW, Chimaev at MW, Van at FLW, Dern at WSW). Re-audit after
@@ -189,7 +200,7 @@ Prompt caching (system + tool definitions) keeps per-message cost low.
 | Layer | Source | Type | In the running app? |
 |-------|--------|------|---------------------|
 | Core stats/fights | UFC.com (`scrape_ufc_stats`) → local CSV | local | ✅ every request |
-| Official rankings | Octagon API | external | ✅ runtime (cached 24h, 1 call) |
+| Official rankings | Octagon API → committed `official_rankings.csv` | local (build-time snapshot) | ✅ reads snapshot; live fetch = fallback only |
 | Recency top-up | Sherdog scrape → CSV | external (build) | ✅ loaded (contract-guarded) |
 | Pre-UFC pedigree | Kaggle/Sherdog (frozen 2021) | local | ✅ enabled seed (bounded ≤25 Elo, tapers out by 6 UFC fights) |
 | Nationality / flags | Wikidata (P27) | external (build) | ✅ ~65% (initials/none fallback) |

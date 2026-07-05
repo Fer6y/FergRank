@@ -48,19 +48,24 @@ interface Step { label: string; cmd: string; network: boolean; fatal: boolean; }
 function buildPlan(args: Args): Step[] {
   const steps: Step[] = [];
   if (!args.skipFetch)
-    steps.push({ label: '1/6 fetchEvent (discover + refresh roster)', cmd: `${JITI} scripts/sherdog/fetchEvent.ts --days ${args.days}`, network: true, fatal: true });
-  steps.push({ label: '2/6 extendCrosswalk (map new fighters)', cmd: `${JITI} scripts/sherdog/extendCrosswalk.ts`, network: false, fatal: true });
-  steps.push({ label: '3/7 buildRecencyPatch (regenerate recency CSV)', cmd: `${JITI} scripts/sherdog/buildRecencyPatch.ts`, network: false, fatal: true });
+    steps.push({ label: '1/8 fetchEvent (discover + refresh roster)', cmd: `${JITI} scripts/sherdog/fetchEvent.ts --days ${args.days}`, network: true, fatal: true });
+  steps.push({ label: '2/8 extendCrosswalk (map new fighters)', cmd: `${JITI} scripts/sherdog/extendCrosswalk.ts`, network: false, fatal: true });
+  steps.push({ label: '3/8 buildRecencyPatch (regenerate recency CSV)', cmd: `${JITI} scripts/sherdog/buildRecencyPatch.ts`, network: false, fatal: true });
+  // Refresh the committed official-rankings snapshot from live Octagon. NON-FATAL:
+  // if Octagon is down/empty the build script keeps the last-known-good file, so a
+  // rankings-source hiccup never blocks the fight-data ingest. This is what keeps
+  // the displayed "UFC Rank" current without a live request-time fetch.
+  steps.push({ label: '4/8 buildOfficialRankings (refresh UFC-rank snapshot)', cmd: `${JITI} scripts/buildOfficialRankings.ts`, network: true, fatal: false });
   // Display-only upcoming-fights snapshot. NON-FATAL: a schedule-scrape hiccup
   // must never block the core results ingest (upcoming bouts don't affect Elo).
-  steps.push({ label: '4/7 buildUpcoming (next 3 cards, display-only)', cmd: `${JITI} scripts/sherdog/buildUpcoming.ts --cards 3`, network: true, fatal: false });
+  steps.push({ label: '5/8 buildUpcoming (next 3 cards, display-only)', cmd: `${JITI} scripts/sherdog/buildUpcoming.ts --cards 3`, network: true, fatal: false });
   // Informational — a bad name-match audit shouldn't block the data update.
-  steps.push({ label: '5/7 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
+  steps.push({ label: '6/8 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
   // The diff IS the report: new fights are EXPECTED to move rankings, so a
   // non-zero exit here is normal — never fatal in the weekly context.
-  steps.push({ label: '6/7 goldenMaster (what-changed report)', cmd: `${JITI} scripts/goldenMaster.ts`, network: true, fatal: false });
+  steps.push({ label: '7/8 goldenMaster (what-changed report)', cmd: `${JITI} scripts/goldenMaster.ts`, network: true, fatal: false });
   if (!args.noBless)
-    steps.push({ label: '7/7 goldenMaster --update (re-bless baseline)', cmd: `${JITI} scripts/goldenMaster.ts --update`, network: true, fatal: true });
+    steps.push({ label: '8/8 goldenMaster --update (re-bless baseline)', cmd: `${JITI} scripts/goldenMaster.ts --update`, network: true, fatal: true });
   return steps;
 }
 
@@ -104,7 +109,7 @@ function main() {
   console.log('\n═══════════════════════════════════════════════════════════════');
   console.log(`  WEEKLY UPDATE COMPLETE in ${secs}s — ${ran.length} step(s) ran.`);
   if (softFailed.length) console.log(`  non-fatal issues: ${softFailed.join(' | ')}`);
-  console.log('  Regenerated: data/recent_ufc_fights.csv, the crosswalk' +
+  console.log('  Regenerated: data/recent_ufc_fights.csv, data/official_rankings.csv, the crosswalk' +
     (args.noBless ? '' : ', data/golden/rankings_snapshot.json'));
   console.log('  NEXT: the GitHub Action commits these → push → redeploy → live.');
   console.log('  (running locally? `git diff data/golden/rankings_snapshot.json` shows the ranking changes.)');
