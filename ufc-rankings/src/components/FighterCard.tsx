@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { RankedFighter } from '@/lib/types';
 import ScoreBar from './ScoreBar';
 import FighterAvatar from './FighterAvatar';
+import DistinctionDecals from './DistinctionDecals';
 import { getTrend, getHighlights } from '@/lib/fighterDisplay';
 
 interface FighterCardProps {
@@ -59,6 +60,9 @@ export default function FighterCard({ fighter, displayRank, maxScore, division }
           <span className="font-medium text-sm truncate" style={{ color: 'var(--text-primary)' }}>
             {fighter.fullName}
           </span>
+          {fighter.distinctions && fighter.distinctions.length > 0 && (
+            <DistinctionDecals distinctions={fighter.distinctions} max={2} size={13} />
+          )}
           {fighter.nickname && (
             <span className="hidden sm:inline text-xs truncate" style={{ color: 'var(--text-muted)' }}>
               &quot;{fighter.nickname}&quot;

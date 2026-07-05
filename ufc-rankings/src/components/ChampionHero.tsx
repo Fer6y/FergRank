@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { RankedFighter } from '@/lib/types';
 import FighterAvatar from './FighterAvatar';
+import DistinctionDecals from './DistinctionDecals';
 import { getHighlights } from '@/lib/fighterDisplay';
 
 interface ChampionHeroProps {
@@ -12,6 +13,8 @@ interface ChampionHeroProps {
 // shown as #1 (DESIGN_VISION §4, [[project_champion_display]]).
 export default function ChampionHero({ fighter, division }: ChampionHeroProps) {
   const highlights = getHighlights(fighter);
+  // The hero already flags "C" + CHAMPION, so drop the redundant champion decal.
+  const decals = (fighter.distinctions ?? []).filter((d) => d.kind !== 'champion');
 
   return (
     <Link
@@ -55,6 +58,7 @@ export default function ChampionHero({ fighter, division }: ChampionHeroProps) {
           >
             CHAMPION
           </span>
+          {decals.length > 0 && <DistinctionDecals distinctions={decals} max={2} size={14} />}
         </div>
         <div className="flex items-center gap-3 mt-0.5">
           <span className="text-xs font-mono" style={{ color: 'var(--text-secondary)' }}>

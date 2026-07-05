@@ -6,6 +6,7 @@ import { grappleGradient, type GrappleGradient } from './grappleGradient';
 import { getFighterMedia } from './fighterMedia';
 import { getNextFight, type NextFight } from './loadUpcoming';
 import { getFighterAge } from './fighterAges';
+import { buildDistinctions, type Distinction } from './distinctions';
 import {
   getAdvancedStats,
   buildTrendRead,
@@ -54,6 +55,10 @@ export interface FighterProfile {
   displayRank: number | null;   // rank among contenders (champions excluded)
   isChampion: boolean;
   ranked: RankedFighter | null;
+
+  // Small "decal" badges next to the name (champion, title fights/wins, streaks,
+  // main events…). Pre-sorted by priority. Display-only — see lib/distinctions.ts.
+  distinctions: Distinction[];
 
   // Current core Elo even when unranked (for a minimal profile).
   eloRating: number;
@@ -244,6 +249,11 @@ export async function getFighterProfile(
     displayRank,
     isChampion: champion,
     ranked,
+    distinctions: buildDistinctions({
+      fighterName: fighter.fullName,
+      isChampion: champion,
+      history,
+    }),
     eloRating: Math.round(elo.rating * 100) / 100,
     eloPeak: Math.round(elo.peakRating * 100) / 100,
     eloDisplay: Math.round(eloDisplay * 100) / 100,

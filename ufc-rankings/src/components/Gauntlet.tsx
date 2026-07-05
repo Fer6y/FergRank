@@ -10,8 +10,9 @@ interface Props {
 // The Gauntlet — the career-trajectory chart, redesigned 2026-07-02 per the
 // Gauntlet brief. The chart draws ONE thing: the fighter's own Elo line, with
 // a small node per fight sitting on it. Colour is reserved for result (green
-// win / red loss), node size encodes opponent level, and a gold halo marks a
-// championship fight. Everything else — opponent, method, expectancy, rating
+// win / red loss), node size encodes opponent level, and a halo marks the
+// card's headline bout — gold for a title fight, purple for a (non-title)
+// 5-round main event. Everything else — opponent, method, expectancy, rating
 // swing — lives in the persistent info panel below, driven by hovering (or
 // tapping) a node: the node enlarges with a white glow, its adjacent line
 // segments brighten, and the rest of the chart fades back.
@@ -264,6 +265,9 @@ export default function GauntletChart({ gauntlet }: Props) {
                 {p.titleFight && (
                   <circle cx={x(i)} cy={y(p.ownElo)} r={r + 2.2} fill="none" stroke="var(--accent-gold)" strokeWidth="1.25" opacity="0.9" />
                 )}
+                {p.mainEvent && (
+                  <circle cx={x(i)} cy={y(p.ownElo)} r={r + 2.2} fill="none" stroke="var(--accent-purple)" strokeWidth="1.25" opacity="0.9" />
+                )}
                 <circle cx={x(i)} cy={y(p.ownElo)} r={r} fill={resultColor(p.result)} stroke="var(--bg-secondary)" strokeWidth="1" />
               </g>
             );
@@ -281,11 +285,13 @@ export default function GauntletChart({ gauntlet }: Props) {
           }}
         >
           <path d={highlightPath(panelIdx)} fill="none" stroke="var(--text-primary)" strokeWidth="1.5" opacity="0.4" />
-          {points[panelIdx].titleFight && (
+          {(points[panelIdx].titleFight || points[panelIdx].mainEvent) && (
             <circle
               cx={x(panelIdx)} cy={y(points[panelIdx].ownElo)}
               r={NODE_R[oppTier(points[panelIdx])] * 1.6 + 3}
-              fill="none" stroke="var(--accent-gold)" strokeWidth="1.5"
+              fill="none"
+              stroke={points[panelIdx].titleFight ? 'var(--accent-gold)' : 'var(--accent-purple)'}
+              strokeWidth="1.5"
             />
           )}
           <circle
@@ -335,6 +341,14 @@ export default function GauntletChart({ gauntlet }: Props) {
                     TITLE FIGHT
                   </span>
                 )}
+                {sel.mainEvent && (
+                  <span
+                    className="ml-2 align-middle text-[9px] tracking-widest px-1.5 py-0.5 rounded"
+                    style={{ color: 'var(--accent-purple)', border: '1px solid var(--accent-purple)' }}
+                  >
+                    MAIN EVENT
+                  </span>
+                )}
                 {sel.divisionChange && (
                   <span
                     className="ml-2 align-middle text-[9px] tracking-widest px-1.5 py-0.5 rounded"
@@ -373,6 +387,9 @@ export default function GauntletChart({ gauntlet }: Props) {
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full border" style={{ borderColor: 'var(--accent-gold)' }} /> title fight
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full border" style={{ borderColor: 'var(--accent-purple)' }} /> main event
         </span>
         <span className="flex items-center gap-1.5" style={{ color: 'var(--accent-gold)' }}>
           ⚑ weight-class move

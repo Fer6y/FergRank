@@ -1,4 +1,5 @@
 // Core data types loaded from CSVs
+import type { Distinction } from './distinctions';
 
 export interface Fighter {
   fighterId: string;
@@ -156,6 +157,7 @@ export interface RankedFighter {
   avatarUrl?: string;         // photo for the circular avatar; absent → initials
   flag?: string;              // emoji flag from nationality; absent → none
   nationality?: string;       // human label, e.g. "Brazil"
+  distinctions?: Distinction[]; // decal badges (champion, title fights/wins, streaks…), attached at the API boundary; display only
 }
 
 export interface DivisionRankings {

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { buildP4P } from '@/lib/crossDivision';
 import { initials } from '@/lib/fighterDisplay';
 import { shortDivision } from '@/lib/divisions';
+import DistinctionDecals from '@/components/DistinctionDecals';
 
 export const revalidate = 86400;
 
@@ -62,6 +63,10 @@ export default async function P4PPage() {
                     ★
                   </span>
                 )}
+                {(() => {
+                  const decals = e.distinctions.filter((d) => d.kind !== 'champion');
+                  return decals.length > 0 ? <DistinctionDecals distinctions={decals} max={2} size={13} /> : null;
+                })()}
               </div>
               <div className="flex items-center gap-3 mt-0.5">
                 <span

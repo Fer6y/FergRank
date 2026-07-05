@@ -34,16 +34,35 @@ const pairKey = (a: string, b: string): string => [norm(a), norm(b)].sort().join
 // A name pair can rematch (e.g. trilogies) — keep every tagged date.
 let index: Map<string, number[]> | null = null;
 
+// Per-fighter title-fight tally (normalized name → appearances + wins). Built
+// from the same CSV in the same pass; display-only, like the pair index.
+export interface TitleRecord {
+  appearances: number; // total championship bouts the fighter took part in
+  wins: number;        // championship bouts won (belt won or defended)
+}
+let recordIndex: Map<string, TitleRecord> | null = null;
+
 function load(): Map<string, number[]> {
   if (index) return index;
   const map = new Map<string, number[]>();
+  const recs = new Map<string, TitleRecord>();
   index = map;
+  recordIndex = recs;
   if (!fs.existsSync(FILE)) return map;
 
   const rows = Papa.parse<Record<string, string>>(fs.readFileSync(FILE, 'utf-8'), {
     header: true,
     skipEmptyLines: true,
   }).data;
+
+  const bump = (name: string, won: boolean) => {
+    const key = norm(name);
+    if (!key) return;
+    const rec = recs.get(key) ?? { appearances: 0, wins: 0 };
+    rec.appearances += 1;
+    if (won) rec.wins += 1;
+    recs.set(key, rec);
+  };
 
   for (const r of rows) {
     const t = new Date((r.date || '') + 'T00:00:00Z').getTime();
@@ -52,8 +71,21 @@ function load(): Map<string, number[]> {
     const list = map.get(key);
     if (list) list.push(t);
     else map.set(key, [t]);
+
+    // Per-fighter tally. result_fighter1 is 'W' when fighter_1 won the bout;
+    // anything else (L/D/NC) is not a win for fighter_1.
+    const f1Won = (r.result_fighter1 || '').trim().toUpperCase() === 'W';
+    bump(r.fighter_1 || '', f1Won);
+    bump(r.fighter_2 || '', !f1Won && (r.result_fighter1 || '').trim().toUpperCase() === 'L');
   }
   return map;
+}
+
+// Career championship tally for a fighter (by name). Zeroes when the fighter has
+// no title fights in the ledger. Display-only — never touches scoring.
+export function getTitleRecord(fighterName: string): TitleRecord {
+  load();
+  return recordIndex!.get(norm(fighterName)) ?? { appearances: 0, wins: 0 };
 }
 
 // Ledger dates and fight dates both come from Events.csv, so they match

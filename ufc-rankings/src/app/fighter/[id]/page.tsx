@@ -6,6 +6,7 @@ import { isTitleFight } from '@/lib/titleFights';
 import ProfileRadar from '@/components/ProfileRadar';
 import GrappleRamp from '@/components/GrappleRamp';
 import FighterAvatar from '@/components/FighterAvatar';
+import DistinctionDecals from '@/components/DistinctionDecals';
 import FormPips from '@/components/FormPips';
 import AdvancedAnalyticsSection from '@/components/AdvancedAnalytics';
 import FightHistory, { type StrikeRate } from '@/components/FightHistory';
@@ -179,6 +180,9 @@ export default async function FighterPage({
               </span>
             )}
             <span className="truncate">{p.fullName}</span>
+            {p.distinctions.length > 0 && (
+              <DistinctionDecals distinctions={p.distinctions} size={17} />
+            )}
           </h1>
           <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
             {p.nickname && <span style={{ color: 'var(--text-muted)' }}>&quot;{p.nickname}&quot; · </span>}

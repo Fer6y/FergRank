@@ -4,6 +4,7 @@ import { generateDivisionRankings } from '@/lib/scoringEngine';
 import { auditOfficialMatches } from '@/lib/auditOfficialMatches';
 import { parseFilters } from '@/lib/filters';
 import { attachMedia } from '@/lib/fighterMedia';
+import { attachDistinctions } from '@/lib/distinctions';
 import { ALL_DIVISIONS } from '@/lib/types';
 
 export const revalidate = 86400; // 24 hours ISR
@@ -33,10 +34,12 @@ export async function GET(request: NextRequest) {
     const auditResults = await auditOfficialMatches(data);
     const rankings = await generateDivisionRankings(division, data, filters);
     attachMedia(rankings.fighters);
+    attachDistinctions(data, rankings.fighters);
     return NextResponse.json({ rankings, audit: auditResults });
   }
 
   const rankings = await generateDivisionRankings(division, data, filters);
   attachMedia(rankings.fighters);
+  attachDistinctions(data, rankings.fighters);
   return NextResponse.json(rankings);
 }

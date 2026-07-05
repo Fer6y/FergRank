@@ -14,6 +14,7 @@ import { loadPedigreeStrength } from './pedigreeSeed';
 import { getFighterMedia } from './fighterMedia';
 import { getFighterAge } from './fighterAges';
 import { getNextFight, type NextFight } from './loadUpcoming';
+import { buildDistinctions, type Distinction } from './distinctions';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 
@@ -34,6 +35,7 @@ export interface ProspectEntry {
   climbPerFight: number;        // (Elo − 1500) / fights — speed of the rise
   ourRank: number | null;       // display rank if already cracking a division
   lastTwo: { result: string; label: string }[];
+  distinctions: Distinction[];  // decal badges (streaks/undefeated); display only
   nextFight: NextFight | null;
   preUFC: {
     record: string;
@@ -105,6 +107,7 @@ export async function buildProspectWatchlist(limit = 20): Promise<ProspectEntry[
         result: h.result,
         label: `${shortMethod(h.method, h.round)} vs. ${h.opponentName}`,
       })),
+      distinctions: buildDistinctions({ fighterName: fighter.fullName, isChampion: false, history }),
       nextFight: next,
       preUFC: ped && ped.fights >= MIN_PED_FIGHTS
         ? {

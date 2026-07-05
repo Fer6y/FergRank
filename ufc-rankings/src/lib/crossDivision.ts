@@ -15,6 +15,7 @@ import { RANKING_CONFIG } from './rankingConfig';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { LoadedData } from './loadData';
+import { buildDistinctions, type Distinction } from './distinctions';
 
 // Recency-weighted, quality-gated net Elo swing over the recent-form window.
 // Each fight's Elo delta is opponent-quality-aware for its SIGN/magnitude, but a
@@ -90,6 +91,7 @@ export interface P4PEntry {
   finalRating: number;      // base all-time rating (before the recent-form tilt)
   recentFormTilt: number;   // bounded ± Elo adjustment applied for the P4P sort
   strengthOfSchedule: number;
+  distinctions: Distinction[]; // decal badges (display only)
 }
 
 export async function buildP4P(limit = 30): Promise<P4PEntry[]> {
@@ -117,6 +119,11 @@ export async function buildP4P(limit = 30): Promise<P4PEntry[]> {
       finalRating: f.finalRating,
       recentFormTilt: tilt,
       strengthOfSchedule: f.strengthOfSchedule,
+      distinctions: buildDistinctions({
+        fighterName: f.fullName,
+        isChampion: f.isChampion,
+        history: getFighterHistory(data, f.fighterId),
+      }),
     }));
 }
 

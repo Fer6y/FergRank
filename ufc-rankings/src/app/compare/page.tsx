@@ -11,6 +11,7 @@ import ProfileRadar from '@/components/ProfileRadar';
 import GrappleRamp from '@/components/GrappleRamp';
 import FighterAvatar from '@/components/FighterAvatar';
 import CompareGauntlet from '@/components/CompareGauntlet';
+import DistinctionDecals from '@/components/DistinctionDecals';
 
 export const revalidate = 86400;
 
@@ -472,6 +473,11 @@ function FighterHead({ p, style }: { p: FighterProfile; style: string }) {
             <span className="shrink-0 leading-none" title={p.nationality ?? undefined}>{p.flag}</span>
           )}
           <span className="font-medium text-sm" style={{ color: 'var(--text-primary)' }}>{p.fullName}</span>
+          {(() => {
+            // The head already flags champ status on the right, so drop the redundant C decal.
+            const decals = p.distinctions.filter((d) => d.kind !== 'champion');
+            return decals.length > 0 ? <DistinctionDecals distinctions={decals} max={2} size={13} /> : null;
+          })()}
           <span className="text-[10px] px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--bg-elevated)', color: 'var(--text-secondary)' }}>
             {p.division ? shortDivision(p.division) : shortDivision(p.weightClass)}
           </span>

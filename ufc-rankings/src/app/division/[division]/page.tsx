@@ -3,6 +3,7 @@ import DivisionClient from './DivisionClient';
 import { getData } from '@/lib/dataCache';
 import { generateDivisionRankings } from '@/lib/scoringEngine';
 import { attachMedia } from '@/lib/fighterMedia';
+import { attachDistinctions } from '@/lib/distinctions';
 import { ALL_DIVISIONS } from '@/lib/types';
 
 // Server-rendered + ISR: the route division's house rankings are computed here
@@ -25,8 +26,10 @@ export default async function DivisionPage({
   const division = decodeURIComponent(raw);
   if (!ALL_DIVISIONS.includes(division as (typeof ALL_DIVISIONS)[number])) notFound();
 
-  const rankings = await generateDivisionRankings(division, getData());
+  const data = getData();
+  const rankings = await generateDivisionRankings(division, data);
   attachMedia(rankings.fighters);
+  attachDistinctions(data, rankings.fighters);
 
   return <DivisionClient division={division} initialRankings={rankings} />;
 }

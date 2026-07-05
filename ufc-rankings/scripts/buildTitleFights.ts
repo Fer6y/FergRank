@@ -161,7 +161,32 @@ const mapDivision = (wc: string): string | null => {
   return divKeys.has(cleaned) ? cleaned : null;
 };
 
-for (const f of readCsv('Fights.csv')) {
+const fightRows = readCsv('Fights.csv');
+
+// Ledger-staleness guard: our champion ledger only knows title history to its
+// build date, so for a CURRENT reign (end === null) it can lag behind actual
+// results — the champ may already have lost the belt in our fight data without
+// the reign being closed. A champ's FIRST loss inside an open reign is that
+// (unrecorded) title change and stays a title fight; any LATER loss is a
+// post-dethroning, non-title bout and must not be tagged. Precompute each
+// open-reign champion's earliest in-data loss date so the tagging loop can tell
+// the two apart (see the drop below). Losses before the reign start are ignored.
+const firstLossInOpenReign = new Map<string, number>(); // champNorm -> ms
+const openReignStart = new Map<string, number>(); // champNorm -> reign start ms
+for (const r of reigns) if (r.end == null) openReignStart.set(r.champNorm, day(r.start));
+for (const f of fightRows) {
+  const date = eventDate.get(f['Event_Id'] || '');
+  if (!date) continue;
+  const t = day(date);
+  const loserNorm = f['Result_1'] === 'L' ? norm(f['Fighter_1']) : f['Result_2'] === 'L' ? norm(f['Fighter_2']) : null;
+  if (!loserNorm) continue;
+  const start = openReignStart.get(loserNorm);
+  if (start == null || t < start - PAD) continue;
+  const prev = firstLossInOpenReign.get(loserNorm);
+  if (prev == null || t < prev) firstLossInOpenReign.set(loserNorm, t);
+}
+
+for (const f of fightRows) {
   const tf = f['Time Format'] || '';
   const wc = f['Weight_Class'] || '';
   const five = tf.startsWith('5 Rnd');
@@ -213,6 +238,19 @@ for (const f of readCsv('Fights.csv')) {
         (a, b) =>
           Number(a.r.interim) - Number(b.r.interim) || day(b.r.start) - day(a.r.start),
       )[0] || null;
+
+  // Guard against non-title 5-round main events by a champion who has ALREADY
+  // lost their belt in our data but whose (current) reign the ledger hasn't
+  // closed yet. If the defending champ lost this bout and it is NOT their first
+  // loss inside an open reign, the belt was gone before this fight — it's a
+  // post-dethroning main event, not a title fight. The first such loss (the
+  // real, unrecorded title change) is left tagged. (Closed reigns are trusted
+  // as-is: their dethroning fight ends the reign on its own date.)
+  if (defending) {
+    const champLost = winnerNorm != null && winnerNorm !== defending.participantNorm;
+    const firstLoss = firstLossInOpenReign.get(defending.participantNorm);
+    if (champLost && firstLoss != null && t > firstLoss + PAD) continue;
+  }
 
   let hit: Reign;
   let champName: string;

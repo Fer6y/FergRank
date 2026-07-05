@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { buildProspectWatchlist, type ProspectEntry } from '@/lib/prospects';
 import { shortDivision } from '@/lib/divisions';
 import FighterAvatar from '@/components/FighterAvatar';
+import DistinctionDecals from '@/components/DistinctionDecals';
 
 export const revalidate = 86400;
 
@@ -63,6 +64,7 @@ function ProspectCard({ p, index }: { p: ProspectEntry; index: number }) {
           >
             <span className="truncate">{p.fullName}</span>
             {p.flag && <span className="text-sm leading-none shrink-0">{p.flag}</span>}
+            {p.distinctions.length > 0 && <DistinctionDecals distinctions={p.distinctions} max={2} size={13} />}
           </Link>
           <div className="flex items-center gap-2 mt-1">
             <span

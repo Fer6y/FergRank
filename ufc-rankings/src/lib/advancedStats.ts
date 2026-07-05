@@ -876,6 +876,7 @@ export interface GauntletPoint {
   overUnder: number;       // actual − expected for this fight (+ = upset win)
   cumOverperf: number;     // running Σ(actual − expected) — "wins above expected"
   titleFight: boolean;     // championship bout → gold halo on the node
+  mainEvent: boolean;      // 5-round, non-title bout → purple halo on the node
   weightClass: string;     // bout weight class (raw label, for the panel)
   divisionChange: boolean; // first fight in a NEW division vs the previous bout → move flag
 }
@@ -922,6 +923,7 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
     const normWC = normalizeWeightClassForMove(h.weightClass);
     const divisionChange = normWC != null && lastNormWC != null && normWC !== lastNormWC;
     if (normWC != null) lastNormWC = normWC;
+    const titleFight = isTitleFight(fighterName, h.opponentName, h.date, h.weightClass);
     const pt: GauntletPoint = {
       date: h.date.slice(0, 10),
       opponentName: h.opponentName,
@@ -935,7 +937,10 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
       expected: Math.round(expected * 100) / 100,
       overUnder: Math.round(ou * 100) / 100,
       cumOverperf: Math.round(cum * 100) / 100,
-      titleFight: isTitleFight(fighterName, h.opponentName, h.date, h.weightClass),
+      titleFight,
+      // Purple main-event ring only for 5-round bouts that are NOT title fights
+      // (a title fight is already the 5-round belt bout — it gets gold, not both).
+      mainEvent: h.fiveRound && !titleFight,
       weightClass: h.weightClass,
       divisionChange,
     };

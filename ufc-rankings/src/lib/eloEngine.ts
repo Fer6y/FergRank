@@ -48,6 +48,7 @@ export interface FightTrace {
   method: string;
   round: number;
   weightClass: string;
+  fiveRound: boolean;      // scheduled for 5 rounds (main event / title fight) — display only
   ratingBefore: number;    // entering the fight (post inactivity/move prep)
   ratingAfter: number;     // immediately after
   delta: number;           // ratingAfter − ratingBefore (the per-fight Elo swing)
@@ -255,14 +256,14 @@ function runEloSweep(
       fightId: fight.fightId, date: iso,
       opponentId: fight.fighterId2, opponentName: fight.fighter2Name,
       result: toResult(sa), method: fight.method, round: fight.round,
-      weightClass: fight.weightClass,
+      weightClass: fight.weightClass, fiveRound: (fight.timeFormat || '').startsWith('5 Rnd'),
       ratingBefore: aBefore, ratingAfter: a.rating, delta: deltaA, opponentRating: bBefore,
     });
     pushTrace(fight.fighterId2, {
       fightId: fight.fightId, date: iso,
       opponentId: fight.fighterId1, opponentName: fight.fighter1Name,
       result: toResult(sb), method: fight.method, round: fight.round,
-      weightClass: fight.weightClass,
+      weightClass: fight.weightClass, fiveRound: (fight.timeFormat || '').startsWith('5 Rnd'),
       ratingBefore: bBefore, ratingAfter: b.rating, delta: deltaB, opponentRating: aBefore,
     });
 
