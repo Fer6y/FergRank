@@ -415,6 +415,13 @@ export function buildWhyThisRank(ranked: RankedFighter, history: FightTrace[] = 
     });
   }
 
+  if (ranked.untestedPenalty <= -2) {
+    insights.push({
+      kind: 'negative',
+      text: `Held ${ranked.untestedPenalty.toFixed(0)} as UNTESTED — no win yet over a ranked-calibre opponent. The Elo is already banked; this hold releases the moment they beat one.`,
+    });
+  }
+
   if (signature && signature.delta >= 25 && !used.has('quality')) {
     insights.push({
       kind: 'neutral',
@@ -440,6 +447,7 @@ export function buildWhyThisRank(ranked: RankedFighter, history: FightTrace[] = 
     { label: 'Official', value: ranked.officialBonus, color: 'var(--accent-gold)' },
   ];
   if (ranked.pedigreeBonus) parts.push({ label: 'Pedigree', value: ranked.pedigreeBonus, color: 'var(--text-secondary)' });
+  if (ranked.untestedPenalty) parts.push({ label: 'Untested', value: ranked.untestedPenalty, color: 'var(--accent-blue)' });
 
   return { headline, insights: [...insights.slice(0, 5), styleInsight], parts, final: ranked.finalRating, style };
 }

@@ -139,6 +139,7 @@ export interface RankedFighter {
   officialBonus: number;      // UFC official-rank seed (Elo points)
   pedigreeBonus: number;      // Pre-UFC pedigree nudge (Elo points; 0 unless seedEnabled)
   pedigreeStrength: number;   // Raw bounded pedigree [0–~0.78], 0 if none/disabled
+  untestedPenalty: number;    // "Untested" hold (≤0): ranking-only, released by a ranked win. Folded into finalRating; P4P subtracts it back out.
   officialRank: string | null; // "C"/"1".."15" or null if unranked by UFC
   strengthOfSchedule: number; // 0–100 display of avg opponent rating (pure opponent quality)
   scheduleStrength: number;   // 0–100 display: opponent quality × activity dampener (DISPLAY ONLY)

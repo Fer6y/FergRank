@@ -56,6 +56,12 @@ export interface PoolFighter extends RankedFighter {
   isChampion: boolean;
 }
 
+// P4P is an Elo-POOL board, so it uses the UN-HELD rating: the "untested" hold is
+// a within-division ranking device, and double-dinging a shallow-division prospect
+// cross-division would be unfair. untestedPenalty is ≤0, so subtracting it ADDS
+// the held-back points back.
+const unheldRating = (f: RankedFighter): number => f.finalRating - f.untestedPenalty;
+
 const poolCache = new WeakMap<LoadedData, PoolFighter[]>();
 
 // Run all divisions once (default filters), dedup by fighter (a fighter ranked
@@ -70,7 +76,7 @@ export async function buildRankedPool(): Promise<PoolFighter[]> {
     const r = await generateDivisionRankings(division, data);
     for (const f of r.fighters) {
       const prev = seen.get(f.fighterId);
-      if (!prev || f.finalRating > prev.finalRating) {
+      if (!prev || unheldRating(f) > unheldRating(prev)) {
         seen.set(f.fighterId, { ...f, division, isChampion: f.officialRank === 'C' || f.belt });
       }
     }
@@ -106,7 +112,7 @@ export async function buildP4P(limit = 30): Promise<P4PEntry[]> {
   return pool
     .map((f) => {
       const tilt = recentFormTilt(data, f.fighterId);
-      return { f, tilt, tilted: f.finalRating + tilt };
+      return { f, tilt, tilted: unheldRating(f) + tilt };
     })
     .sort((a, b) => b.tilted - a.tilted)
     .slice(0, limit)
@@ -121,7 +127,7 @@ export async function buildP4P(limit = 30): Promise<P4PEntry[]> {
         record: f.record,
         isChampion: f.isChampion,
         rankScore: eloToDisplayScore(tilted),
-        finalRating: f.finalRating,
+        finalRating: unheldRating(f),
         recentFormTilt: tilt,
         strengthOfSchedule: f.strengthOfSchedule,
         distinctions: buildDistinctions({

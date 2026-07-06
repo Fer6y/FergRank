@@ -270,6 +270,30 @@ export const RANKING_CONFIG = {
   metricsQualityLowElo: 1460,   // slate at/below this → only the floor fraction
   metricsQualityFloor: 0.30,    // minimum metrics fraction for a very weak slate
 
+  // ── "UNTESTED" HOLD — bowling-spare résumé gate (2026-07-06) ──────────────
+  // An undefeated riser who has beaten NOBODY ranked shouldn't sit among proven
+  // contenders on Elo alone. Like a bowling spare, the pins are "pending" until
+  // the next ball counts them: a fighter whose best CAREER win is below the
+  // ranked-calibre threshold is HELD BACK in the rankings until they beat someone
+  // real — at which point the penalty RELEASES entirely and (since Elo already
+  // banked the big win) they jump. Ranking-only: never touches Elo, and P4P
+  // subtracts it back out (a shallow-division prospect shouldn't be double-dinged
+  // cross-division — P4P is an Elo-pool board). Penalty scales with how far the
+  // best win falls short AND tapers out by fight count, so PROVEN VETERANS are
+  // immune by construction (a faded ex-champ has both a career quality win and
+  // 10+ fights). Diagnosed on the LHW audit: Navajo Stirling (5-0, best win
+  // ~1507, no ranked scalp) held from #4 to #5 behind Azamat Murzakanov (6-1,
+  // who HAS a ≥1550 win → released); blue-chip prospects with real wins (Morales,
+  // Umar, Tsarukyan) and all established vets are untouched. Surfaced in the
+  // "why this rank" decomposition as a releasable hold.
+  untestedHold: {
+    enabled: true,
+    thresholdElo: 1550,   // a career WIN over an opponent at/above this releases the hold
+    rampElo: 70,          // penalty ramps to full over this many Elo below threshold
+    maxPenaltyElo: 25,    // max Elo points held back (at full shortfall, 0 fights)
+    taperFights: 14,      // hold tapers linearly to ZERO by this many UFC fights (vets immune)
+  },
+
   // ═══ STRENGTH OF SCHEDULE ═════════════════════════════════════════════
   // SoS = recency-weighted average of opponents' Elo over the window. Elo
   // ALREADY rewards a tough schedule, so this is a small bounded NUDGE on top

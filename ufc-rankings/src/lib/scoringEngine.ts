@@ -318,15 +318,20 @@ async function computeDivisionRankings(
     // ── Strength of schedule: recency-weighted avg opponent Elo in window ──
     let sosWeighted = 0;
     let sosWeightSum = 0;
+    let bestWinElo = 0; // highest opponent Elo among CAREER wins (feeds the "untested" hold)
     const metricSamples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; sub: number; w: number }[] = [];
 
     for (const fight of divFights) {
       const persp = getFighterPerspective(fight, fighter.fighterId);
       if (!persp) continue;
       const w = recencyWeight(fight.eventDate, now, halfLife);
+      const oppElo = getElo(elo, persp.opponentId).rating;
+
+      // A legitimizing win counts FOREVER (career-wide, not window-limited), so a
+      // faded vet's old quality win still releases the untested hold below.
+      if (persp.isWin && oppElo > bestWinElo) bestWinElo = oppElo;
 
       if (fight.eventDate && monthsBetween(fight.eventDate, now) / 12 <= RANKING_CONFIG.sosWindowYears) {
-        const oppElo = getElo(elo, persp.opponentId).rating;
         sosWeighted += oppElo * w;
         sosWeightSum += w;
       }
@@ -395,7 +400,20 @@ async function computeDivisionRankings(
       pedigreeBonus = pedInfo.strength * RANKING_CONFIG.preUFCPedigree.seedMaxElo * taper;
     }
 
-    const finalRating = eloState.rating + metricsBonus + sosNudge + officialBonus + pedigreeBonus;
+    // ── "Untested" hold (bowling-spare): held back until a ranked-calibre win ──
+    // Scales with how far the best career win falls short of the threshold, and
+    // tapers out by fight count so proven veterans are immune. Ranking-only; the
+    // penalty is folded into finalRating here but subtracted back out for P4P
+    // (see crossDivision.ts). Releases entirely once bestWinElo clears threshold.
+    let untestedPenalty = 0;
+    const uh = RANKING_CONFIG.untestedHold;
+    if (uh.enabled) {
+      const shortfall = clamp((uh.thresholdElo - bestWinElo) / uh.rampElo, 0, 1);
+      const taper = clamp(1 - fights.length / uh.taperFights, 0, 1);
+      untestedPenalty = -uh.maxPenaltyElo * shortfall * taper;
+    }
+
+    const finalRating = eloState.rating + metricsBonus + sosNudge + officialBonus + pedigreeBonus + untestedPenalty;
 
     const lastDivFightDate = divFights[0]?.eventDate || eloState.lastFightDate;
     const monthsSinceLastFight = lastDivFightDate ? monthsBetween(lastDivFightDate, now) : 999;
@@ -426,6 +444,7 @@ async function computeDivisionRankings(
       officialBonus: Math.round(officialBonus * 100) / 100,
       pedigreeBonus: Math.round(pedigreeBonus * 100) / 100,
       pedigreeStrength: Math.round(pedigreeStrength * 1000) / 1000,
+      untestedPenalty: Math.round(untestedPenalty * 100) / 100,
       officialRank,
       strengthOfSchedule: Math.round(sosQualityScore * 100) / 100,
       scheduleStrength: Math.round(scheduleStrength * 100) / 100,
