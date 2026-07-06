@@ -22,7 +22,12 @@ import { splitCsvLine, recencyKey } from '../sherdog/buildRecencyPatch';
 
 const OUT = path.join(process.cwd(), 'data', 'recent_ufc_fights.csv');
 const EVENTS_URL = `${UFCSTATS_BASE}/statistics/events/completed`;
-const HEAD = 'fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source';
+// Schema now carries per-fight metrics (ufcstats gives them; the old Sherdog
+// patch never did). Old carried-forward rows lack the trailing metric columns —
+// they're padded on merge and loadData treats absent metrics as hasMetrics:false.
+const METRIC_COLS = 'kd1,kd2,str1,str2,td1,td2,sub1,sub2';
+const HEAD = `fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,${METRIC_COLS}`;
+const BASE_COLS = 12; // columns before the metric block
 
 interface Args { days: number; dry: boolean; }
 function parseArgs(argv: string[]): Args {
@@ -92,6 +97,8 @@ async function main() {
         id1, b.fighter1Name, id2, b.fighter2Name, ev.date!,
         b.result1, b.result2, b.method, b.round ? String(b.round) : '',
         b.weightClass, ev.name, 'ufcstats',
+        String(b.kd1), String(b.kd2), String(b.str1), String(b.str2),
+        String(b.td1), String(b.td2), String(b.sub1), String(b.sub2),
       ].map(esc).join(','));
       emitted++;
     }
@@ -101,13 +108,16 @@ async function main() {
   //    key collision; older non-rebuilt rows carried forward). Same as Sherdog.
   let carried = 0;
   if (fs.existsSync(OUT)) {
+    const width = BASE_COLS + METRIC_COLS.split(',').length; // full schema width
     for (const ln of fs.readFileSync(OUT, 'utf-8').split('\n').slice(1).filter(Boolean)) {
       const c = splitCsvLine(ln);
       if (c.length < 5) continue;
       const key = recencyKey(c[0], c[2], c[4]);
       if (seen.has(key)) continue;
       seen.add(key);
-      rows.push(ln);
+      // Pad pre-metrics rows (old Sherdog schema) to the full width so the CSV
+      // isn't ragged; the empty metric cells read as hasMetrics:false at load.
+      rows.push(c.length < width ? ln + ','.repeat(width - c.length) : ln);
       carried++;
     }
   }

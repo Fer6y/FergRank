@@ -32,8 +32,9 @@ node_modules/.bin/jiti scripts/sherdog/weeklyUpdate.ts "$@"
 # --dry only prints the plan; nothing was regenerated, so there's nothing to commit.
 case " $* " in *" --dry "*) echo "dry run — skipping ages refresh + commit."; exit 0 ;; esac
 
-# 2. Self-healing DOB coverage (non-fatal, mirrors the Action's ages step).
-node_modules/.bin/jiti scripts/registry/buildAges.ts --fetch \
+# 2. Self-healing DOB coverage (non-fatal). Wikidata + cache only — dropped the
+# --fetch Sherdog per-fighter top-up (Sherdog now hard-blocks; it only 403'd).
+node_modules/.bin/jiti scripts/registry/buildAges.ts \
   || echo "⚠  ages refresh failed (non-fatal) — fighter_dob.csv left as-is."
 
 # 3. Commit + push the refreshed data (same file set as the GitHub Action).

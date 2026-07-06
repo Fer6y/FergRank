@@ -65,10 +65,9 @@ function buildPlan(args: Args): Step[] {
   // rankings-source hiccup never blocks the fight-data ingest. This is what keeps
   // the displayed "UFC Rank" current without a live request-time fetch.
   steps.push({ label: '2/6 buildOfficialRankings (refresh UFC-rank snapshot)', cmd: `${JITI} scripts/buildOfficialRankings.ts`, network: true, fatal: false });
-  // Display-only upcoming-fights snapshot. NON-FATAL. ⚠️ still Sherdog-based, so
-  // currently blocked — the /upcoming page will go stale until this is ported to
-  // ufcstats too (follow-up). Never blocks the core results ingest either way.
-  steps.push({ label: '3/6 buildUpcoming (next 3 cards, display-only — Sherdog, may fail)', cmd: `${JITI} scripts/sherdog/buildUpcoming.ts --cards 3`, network: true, fatal: false });
+  // Display-only upcoming-fights snapshot (ported to ufcstats 2026-07-06). NON-FATAL:
+  // upcoming bouts don't affect Elo, so a schedule-scrape hiccup never blocks the ingest.
+  steps.push({ label: '3/6 buildUpcoming (next 3 cards, display-only — ufcstats)', cmd: `${JITI} scripts/ufcstats/buildUpcomingFromUfcStats.ts --cards 3`, network: true, fatal: false });
   // Informational — a bad name-match audit shouldn't block the data update.
   steps.push({ label: '4/6 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
   // The diff IS the report: new fights are EXPECTED to move rankings, so a

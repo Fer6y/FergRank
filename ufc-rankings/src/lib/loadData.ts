@@ -143,14 +143,21 @@ export function loadRecentPatch(): Fight[] {
       const dateStr = r['date'] || '';
       const eventDate = dateStr ? new Date(dateStr) : null;
       const zero = 0;
+      // ufcstats rows (2026-07 onward) carry per-fight metrics; older Sherdog
+      // rows don't (empty/absent metric columns). A present strike value is the
+      // flag — those fights then feed the striking/grappling composite instead
+      // of being ignored as metric-blind.
+      const hasMetrics = r['str1'] !== undefined && r['str1'] !== '';
       return {
-        fightId: `sherdog-${i}`,
+        fightId: `recency-${i}`,
         fighterId1: r['fighter1_ourId'] || '',
         fighterId2: r['fighter2_ourId'] || '',
         fighter1Name: r['fighter1_name'] || '',
         fighter2Name: r['fighter2_name'] || '',
-        kd1: zero, kd2: zero, str1: zero, str2: zero, td1: zero, td2: zero,
-        sub1: zero, sub2: zero,
+        kd1: parseNum(r['kd1']), kd2: parseNum(r['kd2']),
+        str1: parseNum(r['str1']), str2: parseNum(r['str2']),
+        td1: parseNum(r['td1']), td2: parseNum(r['td2']),
+        sub1: parseNum(r['sub1']), sub2: parseNum(r['sub2']),
         weightClass: r['weightClass'] || '',
         method: r['method'] || '',
         methodDetails: '',
@@ -163,7 +170,7 @@ export function loadRecentPatch(): Fight[] {
         sigStrPct1: zero, sigStrPct2: zero, ctrl1: zero, ctrl2: zero,
         eventDate,
         source: 'sherdog' as const,
-        hasMetrics: false,
+        hasMetrics,
       };
     });
 }

@@ -138,11 +138,49 @@ export function parseEventPage(html: string): UfcStatsBout[] {
   return bouts;
 }
 
+// ── Upcoming event: announced matchups (no results/metrics yet) ───────────────
+export interface UpcomingBout {
+  fighter1Name: string; fighter1UfcId: string;
+  fighter2Name: string; fighter2UfcId: string;
+  weightClass: string;
+}
+export interface UpcomingEvent { name: string; date: string | null; bouts: UpcomingBout[] }
+
+// Ordered longest-first so "Light Heavyweight" wins over "Heavyweight" and the
+// women's divisions match before the plain names.
+const WEIGHT_RE =
+  /(Women's\s+(?:Strawweight|Flyweight|Bantamweight|Featherweight)|Light Heavyweight|Heavyweight|Middleweight|Welterweight|Lightweight|Featherweight|Bantamweight|Flyweight|Strawweight|Catch\s?Weight|Open\s?Weight)/i;
+
+export function parseUpcomingEvent(html: string): UpcomingEvent {
+  const name = html.match(/b-content__title-highlight">\s*([\s\S]*?)<\/span>/)?.[1].replace(/\s+/g, ' ').trim() ?? '';
+  const dateRaw = html.match(/Date:\s*<\/i>\s*([A-Za-z]+ \d{1,2}, \d{4})/)?.[1] ?? '';
+  const date = toISO(dateRaw);
+
+  const bouts: UpcomingBout[] = [];
+  const rowRe = /<tr class="b-fight-details__table-row[^"]*"[^>]*data-link="[^"]*"[^>]*>([\s\S]*?)<\/tr>/g;
+  let r: RegExpExecArray | null;
+  while ((r = rowRe.exec(html))) {
+    const row = r[1];
+    const fighters = [...row.matchAll(/fighter-details\/([a-f0-9]+)"[^>]*>\s*([^<]+?)\s*<\/a>/g)];
+    if (fighters.length < 2) continue;
+    bouts.push({
+      fighter1UfcId: fighters[0][1], fighter1Name: fighters[0][2],
+      fighter2UfcId: fighters[1][1], fighter2Name: fighters[1][2],
+      weightClass: row.match(WEIGHT_RE)?.[1].replace(/\s+/g, ' ').trim() ?? '',
+    });
+  }
+  return { name, date, bouts };
+}
+
 // ── CLI self-test: parse a saved fixture and print what it found ──────────────
 if (process.argv[1] && /parseUfcStats\.ts$/.test(process.argv[1])) {
   const file = process.argv[2] ?? 'scripts/ufcstats/fixtures/events_list_real.html';
   const html = fs.readFileSync(file, 'utf-8');
-  if (/b-fight-details__table-row__hover/.test(html)) {
+  if (/b-fight-details__table-row__hover/.test(html) && !/b-flag__text/.test(html)) {
+    const ev = parseUpcomingEvent(html);
+    console.log(`upcoming: "${ev.name}" (${ev.date}) — ${ev.bouts.length} bout(s):\n`);
+    for (const b of ev.bouts) console.log(`  ${b.fighter1Name} vs ${b.fighter2Name} · ${b.weightClass}`);
+  } else if (/b-fight-details__table-row__hover/.test(html)) {
     const bouts = parseEventPage(html);
     console.log(`parsed ${bouts.length} bout(s) from ${file}:\n`);
     for (const b of bouts) {
