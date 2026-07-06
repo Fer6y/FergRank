@@ -16,6 +16,7 @@ import { RANKING_CONFIG } from './rankingConfig';
 import { fetchOfficialRankings, getOfficialRankingsForDivision } from './fetchOfficialRankings';
 import { buildNameIndex, resolveNameToId } from './nameResolver';
 import { buildEloRatings, getElo, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove, getTracedRecordString } from './eloEngine';
+import { getTitleRecord } from './titleFights';
 import { getRegistry } from './registry';
 import { effectiveEngine, DEFAULT_FILTERS, type FilterParams, type EffectiveEngine } from './filters';
 import { loadPedigreeStrength } from './pedigreeSeed';
@@ -405,9 +406,16 @@ async function computeDivisionRankings(
     // tapers out by fight count so proven veterans are immune. Ranking-only; the
     // penalty is folded into finalRating here but subtracted back out for P4P
     // (see crossDivision.ts). Releases entirely once bestWinElo clears threshold.
+    //
+    // Title-fight exemption: bestWinElo reads the opponent's CURRENT (faded) Elo,
+    // so a former contender whose elite scalps have since declined/retired can
+    // read as "untested" despite an unimpeachable résumé (e.g. Procházka, whose
+    // wins over champ-era Teixeira/Reyes/Hill have all regressed below threshold).
+    // Having contested a UFC title is definitional proof of being tested, so any
+    // title-fight participant is exempt outright.
     let untestedPenalty = 0;
     const uh = RANKING_CONFIG.untestedHold;
-    if (uh.enabled) {
+    if (uh.enabled && getTitleRecord(fighter.fullName).appearances === 0) {
       const shortfall = clamp((uh.thresholdElo - bestWinElo) / uh.rampElo, 0, 1);
       const taper = clamp(1 - fights.length / uh.taperFights, 0, 1);
       untestedPenalty = -uh.maxPenaltyElo * shortfall * taper;

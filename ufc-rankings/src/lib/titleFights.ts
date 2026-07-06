@@ -82,7 +82,9 @@ function load(): Map<string, number[]> {
 }
 
 // Career championship tally for a fighter (by name). Zeroes when the fighter has
-// no title fights in the ledger. Display-only — never touches scoring.
+// no title fights in the ledger. Mostly display (distinction decals), but also
+// read by scoringEngine's "untested" hold to exempt title-fight participants
+// (contesting a UFC belt is definitional proof of being tested).
 export function getTitleRecord(fighterName: string): TitleRecord {
   load();
   return recordIndex!.get(norm(fighterName)) ?? { appearances: 0, wins: 0 };
