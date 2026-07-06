@@ -125,58 +125,30 @@ function recentLossStreak(fighterId: string, data: LoadedData): number {
   return streak;
 }
 
-function applyOfficialFloors(
+// Only the CHAMPION floor remains: a reigning champ is pinned to the top slot
+// regardless of rating (the belt IS the guarantee). The old CONTENDER floors
+// (UFC top-5 ≥ #8, top-15 ≥ #25) were removed — they let the UFC list OVERRIDE
+// Elo, floating lower-rated ranked fighters above higher-rated ones (even ones
+// who had beaten them). UFC rank still gets a say through the small officialBonus
+// seed folded into finalRating: bounded (≤10 Elo), form-gated, and — because it's
+// applied before the sort while head-to-head + the champion rules run AFTER — it
+// only ever sways genuine near-ties and never overrides the cage or the belt.
+function applyChampionFloor(
   rankedFighters: RankedFighter[],
   officialRankMap: Map<string, string>,
-  division: string,
-  data: LoadedData
+  division: string
 ): void {
-  const tiers = [
-    { ranks: ['6','7','8','9','10','11','12','13','14','15'], floor: RANKING_CONFIG.top15FloorRank, name: 'top15FloorRank', contender: true },
-    { ranks: ['1','2','3','4','5'], floor: RANKING_CONFIG.top5FloorRank, name: 'top5FloorRank', contender: true },
-    { ranks: ['C'], floor: RANKING_CONFIG.championFloorRank, name: 'championFloorRank', contender: false },
-  ];
-
-  for (const tier of tiers) {
-    for (const fighter of [...rankedFighters]) {
-      const officialRank = officialRankMap.get(fighter.fighterId);
-      if (!officialRank || !tier.ranks.includes(officialRank)) continue;
-
-      // Contender floors don't protect a fighter on a losing streak — let the
-      // Elo drop stand (the champion floor is unconditional).
-      if (tier.contender) {
-        const streak = recentLossStreak(fighter.fighterId, data);
-        if (streak >= RANKING_CONFIG.contenderFloorSuppressLossStreak) {
-          console.log(
-            `[scoringEngine] FLOOR SUPPRESSED in ${division}: ${fighter.fullName} ` +
-            `(UFC #${officialRank}) on a ${streak}-fight skid — ${tier.name} not applied`
-          );
-          continue;
-        }
-      }
-
-      const currentIndex = rankedFighters.indexOf(fighter);
-      let targetIndex = tier.floor - 1;
-      // Elo-respecting contender floor: rescue a ranked fighter who has sunk below
-      // their floor, but NEVER lift them above a fighter with a higher finalRating.
-      // The floor exists to catch a ranked fighter who fell below LOWER-rated guys
-      // (a genuine Elo miss) — it must not rank lower Elo over higher Elo (e.g.
-      // float Rountree over Procházka, who out-rates AND KO'd him). The champion
-      // floor stays absolute (belt guarantees the top slot regardless of rating).
-      if (tier.contender) {
-        while (targetIndex < currentIndex && rankedFighters[targetIndex].finalRating > fighter.finalRating) {
-          targetIndex++;
-        }
-      }
-      if (currentIndex > targetIndex) {
-        const oldRank = currentIndex + 1;
-        rankedFighters.splice(currentIndex, 1);
-        rankedFighters.splice(targetIndex, 0, fighter);
-        console.log(
-          `[scoringEngine] FLOOR APPLIED in ${division}: ${fighter.fullName} ` +
-          `lifted from #${oldRank} to #${targetIndex + 1} (rule: ${tier.name})`
-        );
-      }
+  const floorIndex = RANKING_CONFIG.championFloorRank - 1;
+  for (const fighter of [...rankedFighters]) {
+    if (officialRankMap.get(fighter.fighterId) !== 'C') continue;
+    const currentIndex = rankedFighters.indexOf(fighter);
+    if (currentIndex > floorIndex) {
+      rankedFighters.splice(currentIndex, 1);
+      rankedFighters.splice(floorIndex, 0, fighter);
+      console.log(
+        `[scoringEngine] CHAMP FLOOR in ${division}: ${fighter.fullName} ` +
+        `lifted from #${currentIndex + 1} to #${floorIndex + 1}`
+      );
     }
   }
 }
@@ -501,8 +473,9 @@ async function computeDivisionRankings(
   // 6. Champion tiebreaker: a reigning champ in a near-tie wins the top slot.
   applyChampionTiebreaker(rankedFighters, division);
 
-  // 7. Official safety floors (should rarely fire if Elo is landing).
-  applyOfficialFloors(rankedFighters, officialRankMap, division, data);
+  // 7. Champion floor only — pin a reigning champ to the top slot. Contender
+  //    floors were removed so the UFC list can never override Elo/head-to-head.
+  applyChampionFloor(rankedFighters, officialRankMap, division);
 
   // 8. Display-only monotonicity: steps 5–7 reorder the array but never touch
   //    rankScore, so a lifted fighter (especially a champion pinned to the top
