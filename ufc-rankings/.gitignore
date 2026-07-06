@@ -43,5 +43,8 @@ next-env.d.ts
 # sherdog backfill — private raw HTML cache (never commit/redistribute raw pages)
 data/.sherdog_cache/
 scripts/sherdog/fixtures/*.html
+# ufcstats recency source — same policy (private raw HTML cache + fixtures)
+data/.ufcstats_cache/
+scripts/ufcstats/fixtures/*.html
 .next-preview/
 /.next-preview2/

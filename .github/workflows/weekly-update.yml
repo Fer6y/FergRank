@@ -3,13 +3,17 @@ name: Weekly UFC ingest
 # Pulls the past week's UFC fights into the Elo engine and commits the refreshed
 # data. The commit triggers Vercel's auto-deploy → a fresh process loads the new
 # CSV on boot → rankings go live. See scripts/sherdog/weeklyUpdate.ts.
+#
+# ⚠️  SCHEDULE DISABLED 2026-07-05 — GitHub-hosted runners use datacenter IPs that
+#     Sherdog's anti-bot rejects, so step 1 (the crawl) fatally errors here (run #5
+#     failed after ~60s of retries). The crawl SUCCEEDS from a residential IP, so
+#     ingestion moved to a LOCAL launchd job on the maintainer's Mac:
+#       scripts/sherdog/weeklyIngestLocal.sh  +  ~/Library/LaunchAgents/com.fergrank.weekly-ingest.plist
+#     This workflow is kept for reference and manual dispatch (e.g. if a self-hosted
+#     runner on an allowed IP is ever added — it would still fail on a hosted runner).
 on:
-  schedule:
-    # Sundays 11:00 UTC — 6am EST (7am EDT in summer; GitHub cron is UTC-only,
-    # no DST awareness). Cards are always done by then (~1am ET); if a one-off
-    # card runs late or Sherdog posts slowly, that week's results simply land
-    # on the NEXT run — buildRecencyPatch accumulates, nothing is lost.
-    - cron: '0 11 * * 0'
+  # schedule:
+  #   - cron: '0 11 * * 0'   # (disabled — see the note above; Sherdog blocks hosted-runner IPs)
   workflow_dispatch:
     inputs:
       days:

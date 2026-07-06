@@ -1,0 +1,10 @@
+# Manual corrections applied ON TOP of the live Octagon fetch by
+# scripts/buildOfficialRankings.ts, so a hand-fix survives the weekly refresh
+# (Octagon is sometimes stale). Format: division,rank,name
+# Pinning a fighter at a rank bumps everyone below down one (no duplicates); ranks
+# you don't list keep Octagon's order. Delete a row once Octagon catches up.
+division,rank,name
+# LHW: Octagon still lists the old champion (Ankalaev); Ulberg is the real champ.
+Light Heavyweight,C,Carlos Ulberg
+Light Heavyweight,1,Alex Pereira
+Light Heavyweight,2,Magomed Ankalaev

@@ -1,13 +1,17 @@
 // weeklyUpdate: Phase 3 — the one-command orchestrator for the weekly UFC
 // auto-ingest pipeline. Chains the (already-built, individually-tested) steps:
 //
-//   1. fetchEvent       discover the past week's UFC card(s), refresh roster     [NETWORK]
-//   2. extendCrosswalk  map any new card fighters → our ids                      [offline]
-//   3. buildRecencyPatch regenerate data/recent_ufc_fights.csv from cache        [offline]
-//   4. buildUpcoming    snapshot the next 3 cards → upcoming_fights.csv (display) [NETWORK, non-fatal]
-//   5. validate         name-match audit + LW/WW/BW sanity (informational)       [NETWORK]
-//   6. goldenMaster     diff vs baseline = "what changed this week" report       [NETWORK]
-//   7. goldenMaster --update  re-bless the baseline so git diff is the audit     [NETWORK]
+//   1. buildRecencyFromUfcStats  discover the week's card(s) + parse bouts +
+//                                regenerate data/recent_ufc_fights.csv (ufcstats) [NETWORK]
+//   2. buildOfficialRankings     refresh the committed UFC-rank snapshot (Octagon)[NETWORK, non-fatal]
+//   3. buildUpcoming             next 3 cards → upcoming_fights.csv (Sherdog)      [NETWORK, non-fatal]
+//   4. validate                  name-match audit + LW/WW/BW sanity (informational)[NETWORK]
+//   5. goldenMaster              diff vs baseline = "what changed this week"       [NETWORK]
+//   6. goldenMaster --update     re-bless the baseline so git diff is the audit    [NETWORK]
+//
+// Recency source moved Sherdog → ufcstats.com on 2026-07-05 (Sherdog Cloudflare-
+// blocked all non-browser clients); the old fetchEvent/extendCrosswalk/
+// buildRecencyPatch trio is retired from the plan (files kept for reference).
 //
 // The steps communicate via the on-disk Sherdog cache + the CSVs, not in-process
 // state, so this is honest sequential glue (each step is also runnable alone).
@@ -47,25 +51,31 @@ interface Step { label: string; cmd: string; network: boolean; fatal: boolean; }
 
 function buildPlan(args: Args): Step[] {
   const steps: Step[] = [];
-  if (!args.skipFetch)
-    steps.push({ label: '1/8 fetchEvent (discover + refresh roster)', cmd: `${JITI} scripts/sherdog/fetchEvent.ts --days ${args.days}`, network: true, fatal: true });
-  steps.push({ label: '2/8 extendCrosswalk (map new fighters)', cmd: `${JITI} scripts/sherdog/extendCrosswalk.ts`, network: false, fatal: true });
-  steps.push({ label: '3/8 buildRecencyPatch (regenerate recency CSV)', cmd: `${JITI} scripts/sherdog/buildRecencyPatch.ts`, network: false, fatal: true });
+  // ── Recency source: ufcstats.com (2026-07-05) ──────────────────────────────
+  // Replaced the Sherdog crawl (fetchEvent → extendCrosswalk → buildRecencyPatch)
+  // after Sherdog's Cloudflare edge began hard-blocking non-browser clients from
+  // every IP. buildRecencyFromUfcStats does discovery + parse + patch in ONE step:
+  // event-oriented (a card → all its bouts) so no per-profile crawl and no id-
+  // crosswalk (ufcstats names ARE our names). Clears ufcstats's transparent PoW
+  // gate itself (see fetchUfcStats.ts).
+  const offlineFlag = args.skipFetch ? 'UFCSTATS_OFFLINE=1 ' : '';
+  steps.push({ label: '1/6 buildRecencyFromUfcStats (discover + parse + patch)', cmd: `${offlineFlag}${JITI} scripts/ufcstats/buildRecencyFromUfcStats.ts --days ${args.days}`, network: true, fatal: true });
   // Refresh the committed official-rankings snapshot from live Octagon. NON-FATAL:
   // if Octagon is down/empty the build script keeps the last-known-good file, so a
   // rankings-source hiccup never blocks the fight-data ingest. This is what keeps
   // the displayed "UFC Rank" current without a live request-time fetch.
-  steps.push({ label: '4/8 buildOfficialRankings (refresh UFC-rank snapshot)', cmd: `${JITI} scripts/buildOfficialRankings.ts`, network: true, fatal: false });
-  // Display-only upcoming-fights snapshot. NON-FATAL: a schedule-scrape hiccup
-  // must never block the core results ingest (upcoming bouts don't affect Elo).
-  steps.push({ label: '5/8 buildUpcoming (next 3 cards, display-only)', cmd: `${JITI} scripts/sherdog/buildUpcoming.ts --cards 3`, network: true, fatal: false });
+  steps.push({ label: '2/6 buildOfficialRankings (refresh UFC-rank snapshot)', cmd: `${JITI} scripts/buildOfficialRankings.ts`, network: true, fatal: false });
+  // Display-only upcoming-fights snapshot. NON-FATAL. ⚠️ still Sherdog-based, so
+  // currently blocked — the /upcoming page will go stale until this is ported to
+  // ufcstats too (follow-up). Never blocks the core results ingest either way.
+  steps.push({ label: '3/6 buildUpcoming (next 3 cards, display-only — Sherdog, may fail)', cmd: `${JITI} scripts/sherdog/buildUpcoming.ts --cards 3`, network: true, fatal: false });
   // Informational — a bad name-match audit shouldn't block the data update.
-  steps.push({ label: '6/8 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
+  steps.push({ label: '4/6 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
   // The diff IS the report: new fights are EXPECTED to move rankings, so a
   // non-zero exit here is normal — never fatal in the weekly context.
-  steps.push({ label: '7/8 goldenMaster (what-changed report)', cmd: `${JITI} scripts/goldenMaster.ts`, network: true, fatal: false });
+  steps.push({ label: '5/6 goldenMaster (what-changed report)', cmd: `${JITI} scripts/goldenMaster.ts`, network: true, fatal: false });
   if (!args.noBless)
-    steps.push({ label: '8/8 goldenMaster --update (re-bless baseline)', cmd: `${JITI} scripts/goldenMaster.ts --update`, network: true, fatal: true });
+    steps.push({ label: '6/6 goldenMaster --update (re-bless baseline)', cmd: `${JITI} scripts/goldenMaster.ts --update`, network: true, fatal: true });
   return steps;
 }
 
