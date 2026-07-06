@@ -3,7 +3,7 @@ import type { RankedFighter } from '@/lib/types';
 import ScoreBar from './ScoreBar';
 import FighterAvatar from './FighterAvatar';
 import DistinctionDecals from './DistinctionDecals';
-import { getTrend, getHighlights } from '@/lib/fighterDisplay';
+import { getTrend, getHighlights, getInactivity } from '@/lib/fighterDisplay';
 
 interface FighterCardProps {
   fighter: RankedFighter;
@@ -17,6 +17,7 @@ export default function FighterCard({ fighter, displayRank, maxScore, division }
   const isTop15 = displayRank <= 15;
   const highlights = getHighlights(fighter);
   const trend = getTrend(fighter, displayRank);
+  const inactive = getInactivity(fighter);
 
   return (
     <Link
@@ -75,6 +76,15 @@ export default function FighterCard({ fighter, displayRank, maxScore, division }
               title={trend.title}
             >
               {trend.label}
+            </span>
+          )}
+          {inactive && (
+            <span
+              className="text-[11px] font-medium px-1.5 py-0.5 rounded shrink-0"
+              style={{ backgroundColor: 'var(--bg-elevated)', color: 'var(--text-secondary)' }}
+              title={inactive.title}
+            >
+              {inactive.label}
             </span>
           )}
           {fighter.fightCount <= 3 && (

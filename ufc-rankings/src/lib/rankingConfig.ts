@@ -86,6 +86,18 @@ export const RANKING_CONFIG = {
                                 // starts a gentle fade. (Was 12mo when the discrete boundary
                                 // did the heavy recency work; now the decay does it alone.)
 
+    // FULLY-INACTIVE second slope (2026-07-06). The single 0.88/yr slope is
+    // deliberately gentle so a normal elite cadence (defend every ~10-14mo) pays
+    // almost nothing — but that same gentleness let genuinely PARKED legends hang
+    // onto top slots (e.g. a former champ idle ~20mo+ still seated top-5 on two old
+    // finishes). So past `fullInactivityMonths` the layoff switches to a steeper
+    // `inactivityRetentionSteep` per-year rate, applied ONLY to the portion of the
+    // gap beyond the threshold. This is piecewise: 3-24mo keeps the gentle 0.88/yr
+    // (active/semi-active fighters are UNTOUCHED), and only the truly shelved fade
+    // fast. Set fullInactivityMonths huge to disable the second slope.
+    fullInactivityMonths: 24,        // "fully inactive" elbow — the 2-year line
+    inactivityRetentionSteep: 0.65,  // steeper per-year retention past the elbow
+
     // CURRENT-FORM BOUNDARY: how old "old form" is. The full fight history is
     // still swept (so opponent quality / SoS stays calibrated and the rating
     // SPREAD is preserved), but the FIRST time a fighter competes inside this
@@ -487,12 +499,11 @@ export const RANKING_CONFIG = {
     // as WSW "C", so we crown Dern and evict Zhang to flyweight.
     'Mackenzie Dern': { division: "Women's Strawweight", rank: 'C' },
     'Zhang Weili': { division: "Women's Flyweight", rank: '1', removeFrom: "Women's Strawweight" },
-    // MW→LHW: Costa moved up permanently and KO'd Murzakanov (UFC 327,
-    // 2026-04-11). The API still ranks him at MW #13, which would pin him to the
-    // MW pool; evict him there and rank him at LHW. 'NR' = no official seed/floor
-    // (he's genuinely unranked at 205) — his Elo, lifted by the Murzakanov KO,
-    // places him. Bump the rank here if/when the UFC officially ranks him at LHW.
-    'Paulo Costa': { division: 'Light Heavyweight', rank: 'NR', removeFrom: 'Middleweight' },
+    // (Paulo Costa MW→LHW override removed 2026-07-06: ufc.com now ranks him at
+    // LHW #8 directly and no longer lists him at MW, and his weightClass data is
+    // now Light Heavyweight — so he resolves natively from the official snapshot
+    // with his real #8 seed. The old 'NR' + removeFrom:Middleweight pin, added
+    // while the feed still had him at MW #13, is obsolete.)
   } as Record<string, { division: string; rank: string; removeFrom?: string }>,
 
   // ═══ PROMOTION TIERS ══════════════════════════════════════════════════

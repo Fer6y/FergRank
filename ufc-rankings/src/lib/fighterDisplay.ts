@@ -17,6 +17,29 @@ export interface Trend {
   bg: string;
 }
 
+// In-division idle time past which a fighter is flagged INACTIVE on their card.
+// Display-only (18mo, 2026-07-06): the badge makes the shelf-time visible so a
+// top slot isn't silently read as "currently active"; the rating itself is
+// separately faded by the steeper post-24mo inactivity decay in the Elo core.
+export const INACTIVE_MONTHS = 18;
+
+export interface InactiveBadge {
+  label: string;
+  title: string;
+}
+
+// `monthsSinceLastFight` on RankedFighter is DIVISION-scoped (last fight in this
+// weight class), so this reads "no HW fight in N months" — exactly the signal.
+export function getInactivity(fighter: { monthsSinceLastFight: number }): InactiveBadge | null {
+  const m = Math.round(fighter.monthsSinceLastFight);
+  if (m < INACTIVE_MONTHS) return null;
+  const label = m >= 24 ? `⏸ INACTIVE ${Math.floor(m / 12)}Y` : '⏸ INACTIVE';
+  return {
+    label,
+    title: `No fight in this division in ${m} months — flagged inactive. The rating is fading toward the pack (and fades faster past 2 years).`,
+  };
+}
+
 // Compare our displayed rank to the fighter's official UFC rank. This delta IS
 // the product thesis (DESIGN_VISION §0) — surfaced on every contender row.
 export function getTrend(fighter: RankedFighter, displayRank: number): Trend | null {

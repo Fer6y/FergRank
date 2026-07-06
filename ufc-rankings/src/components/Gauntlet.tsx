@@ -331,11 +331,13 @@ export default function GauntletChart({ gauntlet }: Props) {
               {sel.result}
             </span>
             <div className="min-w-0">
-              <div className="text-sm font-semibold truncate" style={{ color: 'var(--text-primary)' }}>
-                {sel.opponentName}
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-sm font-semibold truncate" style={{ color: 'var(--text-primary)' }}>
+                  {sel.opponentName}
+                </span>
                 {sel.titleFight && (
                   <span
-                    className="ml-2 align-middle text-[9px] tracking-widest px-1.5 py-0.5 rounded"
+                    className="shrink-0 whitespace-nowrap text-[9px] tracking-widest px-1.5 py-0.5 rounded"
                     style={{ color: 'var(--accent-gold)', border: '1px solid var(--accent-gold)' }}
                   >
                     TITLE FIGHT
@@ -343,7 +345,7 @@ export default function GauntletChart({ gauntlet }: Props) {
                 )}
                 {sel.mainEvent && (
                   <span
-                    className="ml-2 align-middle text-[9px] tracking-widest px-1.5 py-0.5 rounded"
+                    className="shrink-0 whitespace-nowrap text-[9px] tracking-widest px-1.5 py-0.5 rounded"
                     style={{ color: 'var(--accent-purple)', border: '1px solid var(--accent-purple)' }}
                   >
                     MAIN EVENT
@@ -351,7 +353,7 @@ export default function GauntletChart({ gauntlet }: Props) {
                 )}
                 {sel.divisionChange && (
                   <span
-                    className="ml-2 align-middle text-[9px] tracking-widest px-1.5 py-0.5 rounded"
+                    className="shrink-0 whitespace-nowrap text-[9px] tracking-widest px-1.5 py-0.5 rounded"
                     style={{ color: 'var(--accent-gold)', border: '1px solid var(--accent-gold)' }}
                   >
                     ⚑ MOVED

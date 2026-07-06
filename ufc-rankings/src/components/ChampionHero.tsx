@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { RankedFighter } from '@/lib/types';
 import FighterAvatar from './FighterAvatar';
 import DistinctionDecals from './DistinctionDecals';
-import { getHighlights } from '@/lib/fighterDisplay';
+import { getHighlights, getInactivity } from '@/lib/fighterDisplay';
 
 interface ChampionHeroProps {
   fighter: RankedFighter;
@@ -59,6 +59,18 @@ export default function ChampionHero({ fighter, division }: ChampionHeroProps) {
             CHAMPION
           </span>
           {decals.length > 0 && <DistinctionDecals distinctions={decals} max={2} size={14} />}
+          {(() => {
+            const inactive = getInactivity(fighter);
+            return inactive ? (
+              <span
+                className="text-[10px] font-medium px-1.5 py-0.5 rounded shrink-0"
+                style={{ backgroundColor: 'var(--bg-elevated)', color: 'var(--text-secondary)' }}
+                title={inactive.title}
+              >
+                {inactive.label}
+              </span>
+            ) : null;
+          })()}
         </div>
         <div className="flex items-center gap-3 mt-0.5">
           <span className="text-xs font-mono" style={{ color: 'var(--text-secondary)' }}>

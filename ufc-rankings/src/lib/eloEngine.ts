@@ -88,8 +88,15 @@ function finishMultiplier(method: string, mults: Record<string, number>): number
 // Regress a rating toward the mean for a layoff of `months`, beyond a grace period.
 function regressForInactivity(rating: number, months: number, E: EloParams): number {
   if (months <= E.inactivityGraceMonths) return rating;
-  const years = (months - E.inactivityGraceMonths) / 12;
-  const retention = Math.pow(E.inactivityRetentionPerYear, years);
+  // Piecewise: gentle 0.88/yr across the normal-layoff band (grace → elbow), then
+  // a steeper rate applied ONLY to the portion of the gap past `fullInactivityMonths`.
+  // Active/semi-active fighters never reach the elbow, so they're untouched; only
+  // genuinely parked ratings fade fast (stops idle legends holding top slots).
+  const gentleMonths = Math.min(months, E.fullInactivityMonths) - E.inactivityGraceMonths;
+  const steepMonths = Math.max(0, months - E.fullInactivityMonths);
+  const retention =
+    Math.pow(E.inactivityRetentionPerYear, gentleMonths / 12) *
+    Math.pow(E.inactivityRetentionSteep, steepMonths / 12);
   return E.initialRating + (rating - E.initialRating) * retention;
 }
 

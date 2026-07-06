@@ -49,6 +49,8 @@ export interface EloParams {
   winQualityGateFloor: number;
   inactivityRetentionPerYear: number;
   inactivityGraceMonths: number;
+  fullInactivityMonths: number;
+  inactivityRetentionSteep: number;
   moveDecayPenalty: number;
 }
 

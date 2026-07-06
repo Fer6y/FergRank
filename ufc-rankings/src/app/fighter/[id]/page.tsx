@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getFighterProfile } from '@/lib/fighterProfile';
-import { buildWhyThisRank } from '@/lib/fighterDisplay';
+import { buildWhyThisRank, getInactivity } from '@/lib/fighterDisplay';
 import { isTitleFight } from '@/lib/titleFights';
 import ProfileRadar from '@/components/ProfileRadar';
 import GrappleRamp from '@/components/GrappleRamp';
@@ -189,6 +189,15 @@ export default async function FighterPage({
             <span className="truncate">{p.fullName}</span>
             {p.distinctions.length > 0 && (
               <DistinctionDecals distinctions={p.distinctions} size={17} />
+            )}
+            {getInactivity(p) && (
+              <span
+                className="text-[11px] font-medium px-2 py-0.5 rounded shrink-0 self-center"
+                style={{ backgroundColor: 'var(--bg-elevated)', color: 'var(--text-secondary)' }}
+                title={getInactivity(p)!.title}
+              >
+                {getInactivity(p)!.label}
+              </span>
             )}
           </h1>
           <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
