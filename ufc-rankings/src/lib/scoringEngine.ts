@@ -156,14 +156,25 @@ function applyOfficialFloors(
       }
 
       const currentIndex = rankedFighters.indexOf(fighter);
-      const floorIndex = tier.floor - 1;
-      if (currentIndex > floorIndex) {
+      let targetIndex = tier.floor - 1;
+      // Elo-respecting contender floor: rescue a ranked fighter who has sunk below
+      // their floor, but NEVER lift them above a fighter with a higher finalRating.
+      // The floor exists to catch a ranked fighter who fell below LOWER-rated guys
+      // (a genuine Elo miss) — it must not rank lower Elo over higher Elo (e.g.
+      // float Rountree over Procházka, who out-rates AND KO'd him). The champion
+      // floor stays absolute (belt guarantees the top slot regardless of rating).
+      if (tier.contender) {
+        while (targetIndex < currentIndex && rankedFighters[targetIndex].finalRating > fighter.finalRating) {
+          targetIndex++;
+        }
+      }
+      if (currentIndex > targetIndex) {
         const oldRank = currentIndex + 1;
         rankedFighters.splice(currentIndex, 1);
-        rankedFighters.splice(floorIndex, 0, fighter);
+        rankedFighters.splice(targetIndex, 0, fighter);
         console.log(
           `[scoringEngine] FLOOR APPLIED in ${division}: ${fighter.fullName} ` +
-          `lifted from #${oldRank} to #${floorIndex + 1} (rule: ${tier.name})`
+          `lifted from #${oldRank} to #${targetIndex + 1} (rule: ${tier.name})`
         );
       }
     }
