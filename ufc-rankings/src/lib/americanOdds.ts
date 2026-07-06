@@ -6,8 +6,7 @@
 //
 //  These are FAIR (no-vig) lines — the honest translation of P(win) into a
 //  price. A real book adds vig, so their favourite would be juicier and their
-//  dog shorter; the value check in OddsValue.tsx is where the market line comes
-//  in for comparison.
+//  dog shorter.
 // ─────────────────────────────────────────────────────────────────────────
 
 // Probability (0–1) → American line string, e.g. 0.62 → "-163", 0.40 → "+150".
@@ -20,11 +19,4 @@ export function probabilityToAmerican(p: number): string | null {
       ? Math.round((decimal - 1) * 100) // underdog → positive
       : -Math.round(100 / (decimal - 1)); // favourite → negative
   return `${line > 0 ? '+' : ''}${line}`;
-}
-
-// American odds → implied probability. Accepts "-150", "+130", "150".
-export function americanToImplied(raw: string): number | null {
-  const v = parseFloat(raw.replace(/[^0-9.+-]/g, ''));
-  if (!Number.isFinite(v) || v === 0) return null;
-  return v > 0 ? 100 / (v + 100) : -v / (-v + 100);
 }

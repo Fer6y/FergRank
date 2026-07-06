@@ -58,9 +58,3 @@ export function getFighterAge(fighterId: string, asOf: Date = new Date()): Fight
   if (beforeBirthday) age--;
   return { dob: e.dob, age, approximate: e.approximate };
 }
-
-// Compact display label: "34" or "~34" for year-precision DOBs.
-export function ageLabel(a: FighterAge | null): string | null {
-  if (!a) return null;
-  return a.approximate ? `~${a.age}` : `${a.age}`;
-}

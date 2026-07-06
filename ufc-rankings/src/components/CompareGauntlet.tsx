@@ -123,7 +123,7 @@ export default function CompareGauntlet({ a, b }: Props) {
     if (el) el.scrollLeft = el.scrollWidth;
   }, [geo.W]);
 
-  const { W, H, top, bottom, left, right, x, y, gridVals, shownTicks, lineA, lineB } = geo;
+  const { W, H, bottom, left, right, x, y, gridVals, shownTicks, lineA, lineB } = geo;
 
   const endA = A[A.length - 1];
   const endB = B[B.length - 1];

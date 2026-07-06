@@ -26,11 +26,6 @@ export interface NextFight {
   isMainEvent: boolean;
 }
 
-// Optional next-fight field mixed onto any object carrying a `fighterId`.
-export interface WithNextFight {
-  nextFight?: NextFight;
-}
-
 // Both caches are keyed by the calendar day: the "has this card passed?"
 // filter bakes today's date into the result, so a long-lived process must
 // rebuild after midnight or it keeps serving fights that already happened.
@@ -151,15 +146,4 @@ export function getUpcomingCards(): UpcomingCard[] {
     .map((c) => ({ ...c, bouts: c.bouts.sort((a, b) => a.boutOrder - b.boutOrder) }))
     .sort((a, b) => a.eventDate.localeCompare(b.eventDate));
   return cardsCache;
-}
-
-// Attach the next-fight field to ranked-fighter payloads in place at the API
-// boundary. No-op for fighters with no booked fight.
-export function attachNextFight<T extends WithNextFight & { fighterId: string }>(fighters: T[]): T[] {
-  const map = load();
-  for (const f of fighters) {
-    const n = map.get(f.fighterId);
-    if (n) f.nextFight = n;
-  }
-  return fighters;
 }

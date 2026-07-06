@@ -122,7 +122,7 @@ UFergCRankings/                ← repo root
         │   ├── upcomingEnrich.ts      ← bout enrichment (ranks/last-5/win-prob), shared by /api/upcoming + agent get_card
         │   ├── searchFighters.ts      ← fuzzy name search, shared by /api/search + agent search_fighter
         │   ├── agent/                 ← "Ask the Analyst": tools.ts (5 grounding tools over the display path) + systemPrompt.ts (frozen persona)
-        │   ├── advancedStats.ts       ← deep analytics: per-15 pace, per-fight `timeline` data (feeds the strike-dominance strips), durability, finish anatomy, formEloNudge; display only
+        │   ├── advancedStats/         ← deep analytics (display only), split into core.ts (per-15 pace, per-fight `timeline` data feeding the strike-dominance strips, durability, finish anatomy, schedule context, gauntlet, division benchmark, formEloNudge, getAdvancedStats) + trendRead.ts (the prose macro TREND READ + "plays like" comparable); barrel index.ts keeps the `@/lib/advancedStats` import path unchanged
         │   ├── grappleGradient.ts     ← grappling proficiency ramp (grey→blue): RadarAxes.grappling ranked vs own-division 3+-fight pool (percentile) + rampColor; display only, never feeds Elo
         │   ├── fighterAges.ts         ← DOB/age lookup (fighter_dob.csv); display + trend-read context only
         │   ├── titleFights.ts         ← "was this fight for a belt?" lookup (title_fights.csv); display only

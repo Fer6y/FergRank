@@ -1,5 +1,5 @@
 import { loadAllData } from '../src/lib/loadData';
-import { loadPreUFCPedigree } from '../src/lib/loadMultiPromotion';
+import { loadPreUFCPedigree } from './loadMultiPromotion';
 
 const data = loadAllData();
 const ped = loadPreUFCPedigree(data);

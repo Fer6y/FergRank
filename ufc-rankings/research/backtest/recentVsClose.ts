@@ -110,7 +110,6 @@ function main() {
 
     // Frame from the MARKET FAVOURITE (lower decimal close).
     const f1IsFav = c1 <= c2;
-    const favId = f1IsFav ? id1 : id2;
     const favClose = f1IsFav ? c1 : c2;
     const dogClose = f1IsFav ? c2 : c1;
     const favPit = f1IsFav ? p1 : p2!;

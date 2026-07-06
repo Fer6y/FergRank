@@ -63,8 +63,3 @@ export function getRegistry(): Registry {
   if (!cached) cached = build();
   return cached;
 }
-
-// Convenience for the common case.
-export function resolveToCanonical(name: string): string | null {
-  return getRegistry().resolve(name);
-}

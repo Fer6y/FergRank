@@ -1,17 +1,19 @@
 import fs from 'fs';
 import path from 'path';
 import Papa from 'papaparse';
-import { RANKING_CONFIG } from './rankingConfig';
-import { buildNameIndex, resolveNameToId } from './nameResolver';
-import type { LoadedData } from './loadData';
+import { RANKING_CONFIG } from '../src/lib/rankingConfig';
+import { buildNameIndex, resolveNameToId } from '../src/lib/nameResolver';
+import type { LoadedData } from '../src/lib/loadData';
 import type {
   PreUFCPedigree,
   PreUFCPedigreeMap,
   PreUFCPromotionRecord,
-} from './types';
+} from '../src/lib/types';
 
 // ─────────────────────────────────────────────────────────────────────────
-//  Pre-UFC pedigree loader
+//  Pre-UFC pedigree loader — RESEARCH/SCRIPT ONLY (lives under scripts/, not
+//  src/lib). The app runtime does NOT use this; production pre-UFC seeding goes
+//  through src/lib/pedigreeSeed.ts. Consumed only by the verify/assess scripts.
 //
 //  Reads data/pro_mma_fights.csv (Kaggle/Sherdog, ends Aug 2021) and produces,
 //  per fighter ALREADY in our UFC dataset, a bounded summary of how they did in

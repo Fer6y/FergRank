@@ -434,7 +434,7 @@ function edgeColor(edge: CategoryEdge, pa: FighterProfile): string {
 
 // The interpreted read for one category: an optional 100-is-average index bar
 // (fighter A · division avg · fighter B) over a star-rated verdict.
-function EdgeCard({ edge, pa, pb, nameA, nameB, accent }: { edge: CategoryEdge; pa: FighterProfile; pb: FighterProfile; nameA: string; nameB: string; accent: string }) {
+function EdgeCard({ edge, pa, nameA, nameB, accent }: { edge: CategoryEdge; pa: FighterProfile; pb: FighterProfile; nameA: string; nameB: string; accent: string }) {
   const color = edgeColor(edge, pa);
   const leaderName = edge.leaderName;
   return (
@@ -500,7 +500,7 @@ function IndexScale({ a, b, nameA, nameB, leader, color }: { a: number; b: numbe
 
 // The whole comparison distilled into one scouting-report block: one line per
 // category — tier + the fighter who holds it — for an at-a-glance verdict.
-function ScoutingReport({ edges, pa, pb }: { edges: CategoryEdge[]; pa: FighterProfile; pb: FighterProfile }) {
+function ScoutingReport({ edges, pa }: { edges: CategoryEdge[]; pa: FighterProfile; pb: FighterProfile }) {
   return (
     <div className="rounded-xl px-4 py-4" style={cardStyle}>
       <div className="text-[11px] tracking-widest mb-3" style={{ color: 'var(--text-secondary)' }}>

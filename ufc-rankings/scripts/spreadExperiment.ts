@@ -77,12 +77,6 @@ function logLoss(samples: Sample[], D: number): number {
   return s / samples.length;
 }
 
-function brier(samples: Sample[], D: number): number {
-  let s = 0;
-  for (const x of samples) { const p = logistic(x.p2Elo - x.p1Elo, D); s += (p - x.outcome) ** 2; }
-  return s / samples.length;
-}
-
 // Expected Calibration Error over 10 equal-width bins.
 function ece(samples: Sample[], D: number): number {
   const bins = Array.from({ length: 10 }, () => ({ n: 0, psum: 0, osum: 0 }));
@@ -152,7 +146,7 @@ function main() {
     // implied win% of the top fighter vs a median one, at the modern-fit Dr (fighter=top,
     // opponent=median → gap = median − max, negative → logistic > 0.5).
     const bestVsMed = 100 * logistic(sp.median - sp.max, Dr);
-    const ll = logLoss(all, D), br = brier(all, D), e = ece(all, D);
+    const ll = logLoss(all, D), e = ece(all, D);
     const rll = logLoss(recent, Dr), re = ece(recent, Dr);
     console.log(
       `${beta.toFixed(2)}   ` +

@@ -90,7 +90,7 @@ async function main() {
       officialNormSet.add(norm(o.name));
       const ufcRankLabel = o.rank; // "C","1",...
       const ufcRankNum = o.rank === 'C' ? 0 : parseInt(o.rank, 10);
-      let hit = ourByNorm.get(norm(o.name)) || ourByLast.get(lastFirst(o.name));
+      const hit = ourByNorm.get(norm(o.name)) || ourByLast.get(lastFirst(o.name));
       if (!hit) {
         console.log(`${String(ufcRankLabel).padStart(4)} |  ??  |  --  | ${o.name}  (NOT in our top ${ours.fighters.length})`);
         bigDiffs.push(`${div}: UFC #${ufcRankLabel} ${o.name} — absent from our ranked pool`);

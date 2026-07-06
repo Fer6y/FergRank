@@ -98,7 +98,6 @@ function main() {
     console.log('='.repeat(80));
     const rated = cardRes.filter((r) => r.winnerPreWinPct != null);
     let correct = 0, briersum = 0;
-    const scored = rated.filter((r) => r.method !== '' );
     for (const r of cardRes) {
       const pct = r.winnerPreWinPct;
       if (pct == null) {
