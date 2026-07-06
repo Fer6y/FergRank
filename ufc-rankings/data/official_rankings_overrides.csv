@@ -1,10 +1,11 @@
-# Manual corrections applied ON TOP of the live Octagon fetch by
-# scripts/buildOfficialRankings.ts, so a hand-fix survives the weekly refresh
-# (Octagon is sometimes stale). Format: division,rank,name
+# Manual corrections applied ON TOP of the ufc.com/rankings fetch by
+# scripts/buildOfficialRankings.ts, so a hand-fix survives the weekly refresh.
+# Format: division,rank,name
 # Pinning a fighter at a rank bumps everyone below down one (no duplicates); ranks
-# you don't list keep Octagon's order. Delete a row once Octagon catches up.
+# you don't list keep ufc.com's order. Delete a row once ufc.com catches up.
+#
+# Emergency hatch only. Now that the snapshot is sourced DIRECTLY from
+# ufc.com/rankings (fresh), this file should normally be EMPTY — the old LHW pins
+# here were a workaround for the Octagon API lagging the champion, which the
+# direct source fixes. Add a row only when ufc.com itself is wrong/behind.
 division,rank,name
-# LHW: Octagon still lists the old champion (Ankalaev); Ulberg is the real champ.
-Light Heavyweight,C,Carlos Ulberg
-Light Heavyweight,1,Alex Pereira
-Light Heavyweight,2,Magomed Ankalaev

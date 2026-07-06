@@ -3,7 +3,7 @@
 //
 //   1. buildRecencyFromUfcStats  discover the week's card(s) + parse bouts +
 //                                regenerate data/recent_ufc_fights.csv (ufcstats) [NETWORK]
-//   2. buildOfficialRankings     refresh the committed UFC-rank snapshot (Octagon)[NETWORK, non-fatal]
+//   2. buildOfficialRankings     refresh the committed UFC-rank snapshot (ufc.com)[NETWORK, non-fatal]
 //   3. buildUpcoming             next 3 cards → upcoming_fights.csv (Sherdog)      [NETWORK, non-fatal]
 //   4. validate                  name-match audit + LW/WW/BW sanity (informational)[NETWORK]
 //   5. goldenMaster              diff vs baseline = "what changed this week"       [NETWORK]

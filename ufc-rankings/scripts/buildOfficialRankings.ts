@@ -1,21 +1,26 @@
-// buildOfficialRankings: fetch the current UFC rankings from the live Octagon API
-// and write them to a COMMITTED SNAPSHOT (data/official_rankings.csv).
+// buildOfficialRankings: fetch the current UFC rankings and write them to a
+// COMMITTED SNAPSHOT (data/official_rankings.csv).
+//
+// PRIMARY SOURCE: ufc.com/rankings directly (scripts/ufcstats/fetchUfcRankings.ts).
+// The Octagon API we used before (api.octagon-api.com) lagged ufc.com by
+// days/weeks — it kept returning old champions, which forced hand-maintenance via
+// the overrides file. ufc.com serves the live board as parseable server-rendered
+// HTML, so we read it straight. Octagon stays as an automatic FALLBACK if the
+// ufc.com parse ever comes back empty (e.g. a page restructure).
 //
 // This pins the "UFC Rank" the app displays to versioned, git-visible,
-// hand-overridable data instead of an uncontrolled live third-party fetch at
-// request time — which was the source of the staleness. The app's runtime reader
-// (src/lib/fetchOfficialRankings.ts) prefers this file; the live fetch is only a
-// fallback for a fresh checkout that hasn't generated the snapshot yet.
+// hand-overridable data instead of an uncontrolled live fetch at request time.
+// The app's runtime reader (src/lib/fetchOfficialRankings.ts) prefers this file.
 //
 // Refreshed by the weekly ingest (see scripts/sherdog/weeklyUpdate.ts) and
 // runnable on demand from ufc-rankings/:
 //   node_modules/.bin/jiti scripts/buildOfficialRankings.ts
 //
-// A flat (no-change) git diff on the output file after a run means Octagon itself
-// hasn't updated its rankings — so the diff on this file IS the staleness detector
-// the live fetch never gave us.
+// A flat (no-change) git diff on the output file after a run means the UFC board
+// itself hasn't changed — so the diff on this file IS the staleness detector.
 import fs from 'fs';
 import path from 'path';
+import { fetchUfcComRankings } from './ufcstats/fetchUfcRankings';
 import { fetchLiveOfficialRankings } from '../src/lib/fetchOfficialRankings';
 
 const OUT = path.join(process.cwd(), 'data', 'official_rankings.csv');
@@ -77,16 +82,24 @@ function applyOverrides(rankings: Record<string, RankEntry[]>, overrides: Overri
 }
 
 async function main() {
-  const rankings = await fetchLiveOfficialRankings();
+  // Primary: ufc.com/rankings. Fallback: Octagon API (only if ufc.com parses empty).
+  let rankings = await fetchUfcComRankings();
+  let source = 'ufc.com';
+  if (Object.keys(rankings).length === 0) {
+    console.warn('⚠ ufc.com returned no divisions — falling back to Octagon API.');
+    rankings = await fetchLiveOfficialRankings();
+    source = 'octagon';
+  }
   const divisions = Object.keys(rankings);
 
-  // Never overwrite a good snapshot with nothing. If Octagon is down or returns
-  // an empty payload, keep the last-known-good committed file — this is exactly
-  // the outage the snapshot exists to survive.
+  // Never overwrite a good snapshot with nothing. If BOTH sources are down or
+  // return empty, keep the last-known-good committed file — this is exactly the
+  // outage the snapshot exists to survive.
   if (divisions.length === 0) {
-    console.error('✗ Octagon returned no divisions — keeping existing snapshot, not overwriting.');
+    console.error('✗ Both ufc.com and Octagon returned no divisions — keeping existing snapshot, not overwriting.');
     process.exit(1);
   }
+  console.log(`source: ${source}`);
 
   // Apply manual overrides on top of the live fetch (survives the weekly refresh).
   const overrides = loadOverrides();
