@@ -15,8 +15,7 @@
 import { RANKING_CONFIG } from './rankingConfig';
 import { fetchOfficialRankings, getOfficialRankingsForDivision } from './fetchOfficialRankings';
 import { buildNameIndex, resolveNameToId } from './nameResolver';
-import { buildEloRatings, getElo, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove, getTracedRecordString } from './eloEngine';
-import { getTitleRecord } from './titleFights';
+import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove, getTracedRecordString } from './eloEngine';
 import { getRegistry } from './registry';
 import { effectiveEngine, DEFAULT_FILTERS, type FilterParams, type EffectiveEngine } from './filters';
 import { loadPedigreeStrength } from './pedigreeSeed';
@@ -316,21 +315,35 @@ async function computeDivisionRankings(
 
     const divFights = getDivFights(fighter.fighterId);
 
+    // Opponent QUALITY (for SoS + the untested hold) = max(fight-time, current).
+    // The night you fought them the opponent was worth `opponentRating` (their
+    // trace value — what the Elo CORE already used); today they may be rated
+    // higher or lower. We take the HIGHER of the two so a win is:
+    //   • never DEGRADED below what they were worth that night — they EARNED that
+    //     rating, so a since-faded/retired opponent can't erode your résumé; and
+    //   • UPGRADED if they've since climbed — you get credit when the fighter you
+    //     beat goes on to prove himself (the "B rebounds → bump A" case).
+    // Built once per fighter from the trace, keyed by fightId. bestWinElo (the
+    // untested-hold release key) is scanned CAREER-WIDE here, NOT the SoS window,
+    // so an old elite scalp (e.g. Procházka's champ-era Teixeira sub) still counts.
+    const oppQualityByFight = new Map<string, number>();
+    let bestWinElo = 0;
+    for (const t of getFighterHistory(data, fighter.fighterId)) {
+      const q = Math.max(t.opponentRating, getElo(elo, t.opponentId).rating);
+      oppQualityByFight.set(t.fightId, q);
+      if (t.result === 'W' && q > bestWinElo) bestWinElo = q;
+    }
+
     // ── Strength of schedule: recency-weighted avg opponent Elo in window ──
     let sosWeighted = 0;
     let sosWeightSum = 0;
-    let bestWinElo = 0; // highest opponent Elo among CAREER wins (feeds the "untested" hold)
     const metricSamples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; sub: number; w: number }[] = [];
 
     for (const fight of divFights) {
       const persp = getFighterPerspective(fight, fighter.fighterId);
       if (!persp) continue;
       const w = recencyWeight(fight.eventDate, now, halfLife);
-      const oppElo = getElo(elo, persp.opponentId).rating;
-
-      // A legitimizing win counts FOREVER (career-wide, not window-limited), so a
-      // faded vet's old quality win still releases the untested hold below.
-      if (persp.isWin && oppElo > bestWinElo) bestWinElo = oppElo;
+      const oppElo = oppQualityByFight.get(fight.fightId) ?? getElo(elo, persp.opponentId).rating;
 
       if (fight.eventDate && monthsBetween(fight.eventDate, now) / 12 <= RANKING_CONFIG.sosWindowYears) {
         sosWeighted += oppElo * w;
@@ -406,16 +419,12 @@ async function computeDivisionRankings(
     // tapers out by fight count so proven veterans are immune. Ranking-only; the
     // penalty is folded into finalRating here but subtracted back out for P4P
     // (see crossDivision.ts). Releases entirely once bestWinElo clears threshold.
-    //
-    // Title-fight exemption: bestWinElo reads the opponent's CURRENT (faded) Elo,
-    // so a former contender whose elite scalps have since declined/retired can
-    // read as "untested" despite an unimpeachable résumé (e.g. Procházka, whose
-    // wins over champ-era Teixeira/Reyes/Hill have all regressed below threshold).
-    // Having contested a UFC title is definitional proof of being tested, so any
-    // title-fight participant is exempt outright.
+    // bestWinElo now uses max(fight-time, current) opponent quality (see above),
+    // so a former contender's old elite scalp legitimately releases the hold at
+    // the root — no title-fight exemption needed.
     let untestedPenalty = 0;
     const uh = RANKING_CONFIG.untestedHold;
-    if (uh.enabled && getTitleRecord(fighter.fullName).appearances === 0) {
+    if (uh.enabled) {
       const shortfall = clamp((uh.thresholdElo - bestWinElo) / uh.rampElo, 0, 1);
       const taper = clamp(1 - fights.length / uh.taperFights, 0, 1);
       untestedPenalty = -uh.maxPenaltyElo * shortfall * taper;
