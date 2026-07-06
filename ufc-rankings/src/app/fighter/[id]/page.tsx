@@ -151,10 +151,17 @@ export default async function FighterPage({
       {/* Point the analyst dock at this fighter while the profile is open. */}
       <AnalystPageContext fighterId={p.fighterId} fighterName={p.fullName} />
 
-      {/* Breadcrumb */}
-      <Link href={backHref} className="text-xs" style={{ color: 'var(--text-muted)' }}>
-        ← {backDivision ? `${backDivision} rankings` : 'Rankings'}
-      </Link>
+      {/* Breadcrumb + quick actions: back to the list you came from, plus jumps
+          to the full rankings and a compare pre-loaded with this fighter. */}
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <Link href={backHref} className="text-xs" style={{ color: 'var(--text-muted)' }}>
+          ← {backDivision ? `${backDivision} rankings` : 'Rankings'}
+        </Link>
+        <div className="flex items-center gap-2">
+          <ActionLink href="/">Rankings</ActionLink>
+          <ActionLink href={`/compare?a=${encodeURIComponent(p.fighterId)}`}>Compare →</ActionLink>
+        </div>
+      </div>
 
       {/* Hero band */}
       <div
@@ -354,6 +361,22 @@ export default async function FighterPage({
         </div>
       )}
     </div>
+  );
+}
+
+function ActionLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="text-[11px] tracking-wide px-2.5 py-1 rounded-md transition-colors"
+      style={{
+        color: 'var(--text-secondary)',
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border)',
+      }}
+    >
+      {children}
+    </Link>
   );
 }
 
