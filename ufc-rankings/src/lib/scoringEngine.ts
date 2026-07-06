@@ -354,7 +354,17 @@ async function computeDivisionRankings(
     );
 
     // ── Striking/grappling metrics (bounded ± Elo points) ──
-    const metricsBonus = computeMetricsBonus(metricSamples, divFights.length);
+    let metricsBonus = computeMetricsBonus(metricSamples, divFights.length);
+
+    // Opponent-quality damper: positive metrics earned against a weak slate are
+    // discounted (gaudy stats vs bad competition shouldn't inflate the rating).
+    // Keyed on sosElo (slate quality); negative metrics stand regardless. See
+    // RANKING_CONFIG.metricsQualityDamp for the full rationale.
+    if (RANKING_CONFIG.metricsQualityDamp && metricsBonus > 0) {
+      const span = RANKING_CONFIG.metricsQualityFullElo - RANKING_CONFIG.metricsQualityLowElo;
+      const q = span > 0 ? clamp((sosElo - RANKING_CONFIG.metricsQualityLowElo) / span, 0, 1) : 1;
+      metricsBonus *= RANKING_CONFIG.metricsQualityFloor + (1 - RANKING_CONFIG.metricsQualityFloor) * q;
+    }
 
     // ── Official seed (small; floors are the real backstop) ──
     const officialRank = officialRankMap.get(fighter.fighterId) || null;

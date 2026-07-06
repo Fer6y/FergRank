@@ -250,6 +250,26 @@ export const RANKING_CONFIG = {
     submissionsPerFight: 2,     // this many sub attempts/fight ≈ full credit (grapple finish threat)
   },
 
+  // ── OPPONENT-QUALITY DAMPER on POSITIVE metrics (2026-07-06) ──────────────
+  // Dominant striking/grappling stats padded against a WEAK slate shouldn't
+  // inflate the rating — the metrics composite is opponent-blind, so a fighter
+  // racking up gaudy differentials over sub-median competition otherwise reads
+  // like elite dominance. Scale POSITIVE metricsBonus by a ramp on the fighter's
+  // slate quality (sosElo): FULL credit at/above metricsQualityFullElo, down to
+  // metricsQualityFloor at/below metricsQualityLowElo, linear between:
+  //   mult = floor + (1 − floor)·clamp((sosElo − low)/(full − low), 0, 1)
+  // NEGATIVE metrics (being out-struck/out-grappled) are UNTOUCHED — a soft
+  // performance counts against you regardless of who you faced. Diagnosed on the
+  // LHW audit: Navajo Stirling (5-0 over a ~1475 slate) was earning +15 metrics,
+  // seating him at #3–4; the damper cuts that to ~+7 (slate-honest) while legit
+  // dominators over real comp (Tsarukyan +17.8 vs a 1528 slate, Morales +13.9 vs
+  // 1535) are preserved. Surgical: established fighters' near-zero metrics are
+  // unaffected. Display flows through unchanged (metricsBonus is still ± Elo pts).
+  metricsQualityDamp: true,
+  metricsQualityFullElo: 1520,  // slate at/above this → full metrics credit
+  metricsQualityLowElo: 1460,   // slate at/below this → only the floor fraction
+  metricsQualityFloor: 0.30,    // minimum metrics fraction for a very weak slate
+
   // ═══ STRENGTH OF SCHEDULE ═════════════════════════════════════════════
   // SoS = recency-weighted average of opponents' Elo over the window. Elo
   // ALREADY rewards a tough schedule, so this is a small bounded NUDGE on top
