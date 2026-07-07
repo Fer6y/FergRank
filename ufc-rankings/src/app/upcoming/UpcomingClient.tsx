@@ -315,6 +315,24 @@ function TaleOfTape({ bout }: { bout: CardBout }) {
   );
 }
 
+// The rich hero body — both full corners, the tale-of-the-tape, the win-prob
+// spine, and the schedule-context band. Shared by the featured main event and
+// by any dense bout the user expands, so an expanded card reads identically to
+// the main event rather than as a second, divergent layout.
+function BoutBody({ bout }: { bout: CardBout }) {
+  return (
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_200px_minmax(0,1fr)] items-start">
+        <MainSide f={bout.fighter1} align="left" flags={bout.flags1} />
+        <TaleOfTape bout={bout} />
+        <MainSide f={bout.fighter2} align="right" flags={bout.flags2} />
+      </div>
+      <ProbabilitySpine bout={bout} />
+      <ScheduleContextBand bout={bout} />
+    </>
+  );
+}
+
 function MainEventBout({ bout }: { bout: CardBout }) {
   return (
     <div
@@ -335,13 +353,7 @@ function MainEventBout({ bout }: { bout: CardBout }) {
           {bout.weightClass} · 5 rounds
         </span>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_200px_minmax(0,1fr)] items-start">
-        <MainSide f={bout.fighter1} align="left" flags={bout.flags1} />
-        <TaleOfTape bout={bout} />
-        <MainSide f={bout.fighter2} align="right" flags={bout.flags2} />
-      </div>
-      <ProbabilitySpine bout={bout} />
-      <ScheduleContextBand bout={bout} />
+      <BoutBody bout={bout} />
     </div>
   );
 }
@@ -395,6 +407,10 @@ function DenseSide({ f, align, flags }: { f: CardFighter; align: 'left' | 'right
 }
 
 function DenseBout({ bout }: { bout: CardBout }) {
+  // Collapsed by default: a compact bar. Clicking the header expands it into the
+  // same rich body the main event uses — same data, already enriched per bout,
+  // so there's nothing extra to fetch.
+  const [expanded, setExpanded] = useState(false);
   const p1 = bout.prob1 != null ? Math.round(bout.prob1 * 100) : null;
   const line1 = bout.prob1 != null ? probabilityToAmerican(bout.prob1) : null;
   const line2 = bout.prob1 != null ? probabilityToAmerican(1 - bout.prob1) : null;
@@ -426,29 +442,52 @@ function DenseBout({ bout }: { bout: CardBout }) {
     );
   return (
     <div
-      className="rounded-lg border px-4 py-2.5"
-      style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border)' }}
+      className="rounded-lg border overflow-hidden transition-colors"
+      style={{
+        backgroundColor: expanded ? 'var(--bg-card)' : 'var(--bg-secondary)',
+        borderColor: expanded ? 'var(--border-light)' : 'var(--border)',
+      }}
     >
-      <div className="text-[10px] tracking-widest uppercase mb-1.5" style={{ color: 'var(--text-muted)' }}>
-        Bout {bout.boutOrder} · {bout.weightClass}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)] items-center gap-x-3 gap-y-1.5">
-        <DenseSide f={bout.fighter1} align="left" flags={bout.flags1} />
-        <div>
-          {href ? (
-            <Link
-              href={href}
-              title="Full comparison"
-              className="block -mx-2 -my-1 px-2 py-1 rounded-md transition-colors hover:bg-[var(--bg-card-hover)]"
-            >
-              {pill}
-            </Link>
-          ) : (
-            pill
-          )}
+      {/* The whole strip is the toggle — a real button so keyboard + a11y come
+          for free and the fighter/compare links below stay independently clickable. */}
+      <button
+        type="button"
+        onClick={() => setExpanded((v) => !v)}
+        aria-expanded={expanded}
+        className="w-full flex items-center justify-between px-4 py-2 cursor-pointer transition-colors hover:bg-[var(--bg-card-hover)]"
+      >
+        <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
+          Bout {bout.boutOrder} · {bout.weightClass}
+        </span>
+        <span
+          aria-hidden
+          className="font-mono text-[10px] leading-none transition-transform"
+          style={{ color: 'var(--text-muted)', transform: expanded ? 'rotate(180deg)' : 'none' }}
+        >
+          ▾
+        </span>
+      </button>
+      {expanded ? (
+        <BoutBody bout={bout} />
+      ) : (
+        <div className="px-4 pb-2.5 grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)] items-center gap-x-3 gap-y-1.5">
+          <DenseSide f={bout.fighter1} align="left" flags={bout.flags1} />
+          <div>
+            {href ? (
+              <Link
+                href={href}
+                title="Full comparison"
+                className="block -mx-2 -my-1 px-2 py-1 rounded-md transition-colors hover:bg-[var(--bg-card-hover)]"
+              >
+                {pill}
+              </Link>
+            ) : (
+              pill
+            )}
+          </div>
+          <DenseSide f={bout.fighter2} align="right" flags={bout.flags2} />
         </div>
-        <DenseSide f={bout.fighter2} align="right" flags={bout.flags2} />
-      </div>
+      )}
     </div>
   );
 }
