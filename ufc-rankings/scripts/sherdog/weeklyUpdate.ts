@@ -59,22 +59,30 @@ function buildPlan(args: Args): Step[] {
   // crosswalk (ufcstats names ARE our names). Clears ufcstats's transparent PoW
   // gate itself (see fetchUfcStats.ts).
   const offlineFlag = args.skipFetch ? 'UFCSTATS_OFFLINE=1 ' : '';
-  steps.push({ label: '1/6 buildRecencyFromUfcStats (discover + parse + patch)', cmd: `${offlineFlag}${JITI} scripts/ufcstats/buildRecencyFromUfcStats.ts --days ${args.days}`, network: true, fatal: true });
+  steps.push({ label: '1/8 buildRecencyFromUfcStats (discover + parse + patch)', cmd: `${offlineFlag}${JITI} scripts/ufcstats/buildRecencyFromUfcStats.ts --days ${args.days}`, network: true, fatal: true });
   // Refresh the committed official-rankings snapshot from live Octagon. NON-FATAL:
   // if Octagon is down/empty the build script keeps the last-known-good file, so a
   // rankings-source hiccup never blocks the fight-data ingest. This is what keeps
   // the displayed "UFC Rank" current without a live request-time fetch.
-  steps.push({ label: '2/6 buildOfficialRankings (refresh UFC-rank snapshot)', cmd: `${JITI} scripts/buildOfficialRankings.ts`, network: true, fatal: false });
+  steps.push({ label: '2/8 buildOfficialRankings (refresh UFC-rank snapshot)', cmd: `${JITI} scripts/buildOfficialRankings.ts`, network: true, fatal: false });
   // Display-only upcoming-fights snapshot (ported to ufcstats 2026-07-06). NON-FATAL:
   // upcoming bouts don't affect Elo, so a schedule-scrape hiccup never blocks the ingest.
-  steps.push({ label: '3/6 buildUpcoming (next 3 cards, display-only — ufcstats)', cmd: `${JITI} scripts/ufcstats/buildUpcomingFromUfcStats.ts --cards 3`, network: true, fatal: false });
+  steps.push({ label: '3/8 buildUpcoming (next 3 cards, display-only — ufcstats)', cmd: `${JITI} scripts/ufcstats/buildUpcomingFromUfcStats.ts --cards 3`, network: true, fatal: false });
+  // Research-zone odds refresh (display-only, feeds the /odds explorer). Both
+  // NON-FATAL: odds never touch Elo/scoring, so an odds hiccup never blocks the
+  // ingest. refreshRecent re-pulls only recent/upcoming BFO event pages (the
+  // bulk cache is fetch-once-forever, which froze pre-closing lines at the
+  // recency edge); exportAnalysis then rebuilds data/odds_analysis.json — the
+  // static file the /odds page reads. The firewall holds: research → JSON → app.
+  steps.push({ label: '4/8 bfo refreshRecent (recent closing lines)', cmd: `${JITI} research/bfo/refreshRecent.ts --days 60`, network: true, fatal: false });
+  steps.push({ label: '5/8 exportAnalysis (rebuild /odds JSON)', cmd: `${JITI} research/backtest/exportAnalysis.ts`, network: false, fatal: false });
   // Informational — a bad name-match audit shouldn't block the data update.
-  steps.push({ label: '4/6 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
+  steps.push({ label: '6/8 validate (name-match + sanity, informational)', cmd: `${JITI} scripts/validate.ts`, network: true, fatal: false });
   // The diff IS the report: new fights are EXPECTED to move rankings, so a
   // non-zero exit here is normal — never fatal in the weekly context.
-  steps.push({ label: '5/6 goldenMaster (what-changed report)', cmd: `${JITI} scripts/goldenMaster.ts`, network: true, fatal: false });
+  steps.push({ label: '7/8 goldenMaster (what-changed report)', cmd: `${JITI} scripts/goldenMaster.ts`, network: true, fatal: false });
   if (!args.noBless)
-    steps.push({ label: '6/6 goldenMaster --update (re-bless baseline)', cmd: `${JITI} scripts/goldenMaster.ts --update`, network: true, fatal: true });
+    steps.push({ label: '8/8 goldenMaster --update (re-bless baseline)', cmd: `${JITI} scripts/goldenMaster.ts --update`, network: true, fatal: true });
   return steps;
 }
 

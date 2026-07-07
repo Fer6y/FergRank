@@ -11,9 +11,11 @@ fighter cards. Goal: outperform the UFC's own upcoming Meta/AI rankings on trans
 - Validate rankings: `node_modules/.bin/jiti scripts/validate.ts` — name-match audit + LW/WW/BW
   top-40 breakdown; needs network. Diff against the latest `validation_elo_*.txt` snapshot after
   any algo/data change (current reference: `validation_elo_2026-07-04_lhwchamp.txt`).
-- Unit tests: `npm test` — engine + display tests guarding the Elo INVARIANTS beneath the ranking
-  output (winner-gains, opponent-quality gate, finish weighting, provisional K, weight-move-once,
-  symmetric win-prob), which can regress while the top-40 order stays put.
+- Unit tests: `npm test` — engine + scoring + display suites guarding the INVARIANTS beneath the
+  ranking output: Elo core (winner-gains, opponent-quality gate, finish weighting, provisional K,
+  weight-move-once, symmetric win-prob) and the ranking layer (untested hold, metrics damper, H2H
+  leapfrog + anti-vault, champion tiebreaker/floor, two-slope inactivity, P4P tilt) — all of which
+  can regress while the top-40 order stays put.
 - Golden master: `node_modules/.bin/jiti scripts/goldenMaster.ts` (compare) / `--update` (re-bless
   intentionally). Order + membership must match exactly; scores tolerate small clock drift.
 - Official-seed diagnostics: `node_modules/.bin/jiti scripts/diagOfficialImpact.ts` — who the seed
@@ -105,8 +107,10 @@ boundary and must never feed `eloEngine.ts`/`scoringEngine.ts`:
 
 ## Pipeline ops (weekly ingest)
 
-- Official rankings: the app reads the committed `data/official_rankings.csv` snapshot (built by
-  `scripts/buildOfficialRankings.ts` from Octagon API; live fetch = fresh-checkout fallback only).
+- Official rankings: the app reads the committed `data/official_rankings.csv` snapshot, built by
+  `scripts/buildOfficialRankings.ts` — **primary source ufc.com/rankings** (server-rendered HTML,
+  `scripts/ufcstats/fetchUfcRankings.ts`); Octagon API is the automatic fallback; runtime live
+  fetch = fresh-checkout fallback only.
   **Hand-corrections go in `data/official_rankings_overrides.csv`, never the snapshot** — the
   weekly refresh overwrites the snapshot and silently reverts direct edits.
 - The weekly ingest runs **locally** (launchd: `scripts/sherdog/weeklyIngestLocal.sh`, Sundays

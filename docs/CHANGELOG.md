@@ -12,6 +12,32 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-07-07
 
+- **Scoring-layer unit tests** (`scripts/scoring.test.ts`, wired into `npm test`). The ranking-layer
+  mechanisms built 2026-07-02→06 were guarded only by the golden master, which catches unintended
+  change but encodes no intent (a `--update` re-bless can silently bless a bug). Now covered:
+  two-slope inactivity regression (continuity at the elbow, steep-past-elbow), untested hold
+  (release/taper/linearity), metrics opponent-quality damper, metrics composite invariants
+  (confidence dampener, one-sided kd/sub, saturation at `metricsScaleElo`), official-seed
+  loss-streak counting, champion tiebreaker + champion floor (including the ABSENCE of contender
+  floors), head-to-head leapfrog (stale/split/gap-cap guards, anti-vault with the also-beaten
+  exemption, rematch-loss negation + champ-loss exception), and the P4P recent-form tilt. To make
+  them testable, the inline formulas were extracted as exported pure helpers
+  (`untestedHoldPenalty`, `metricsQualityMultiplier` in `scoringEngine.ts`; `regressForInactivity`,
+  `recentFormTilt` exported) — behavior-identical, golden master unchanged.
+- **Dead config keys removed** (`top5FloorRank`, `top15FloorRank`,
+  `contenderFloorSuppressLossStreak`) — orphaned by the 2026-07-06 contender-floor removal; the
+  champion-floor comment now records why they're gone.
+- **Odds pipeline made weekly-fresh.** New `research/bfo/refreshRecent.ts` incrementally re-pulls
+  recent/upcoming BFO event pages (the bulk cache is fetch-once-forever, which froze PRE-closing
+  lines at the recency edge) and merges them into `data/bfo_odds.csv`; `weeklyUpdate.ts` gained two
+  non-fatal steps (4/8 refreshRecent, 5/8 exportAnalysis) so `data/odds_analysis.json` and the
+  /odds page stay current automatically; the local ingest + CI commit lists now include both odds
+  files. First run backfilled June 2026 (Vegas 118/119, Freedom Fights 250, Fight Night 6-27) +
+  UFC 329 early lines → 4,198 fights in the export.
+- **Dependencies:** `postcss` forced to ≥8.5.10 via npm `overrides` (Next 16.2.10 vendors 8.4.31 —
+  GHSA-qx2v-qp2m-jg93; no patched stable Next exists yet) → `npm audit` clean;
+  `@anthropic-ai/sdk` 0.109 → 0.110. Build + all tests + golden master verified against the
+  overridden postcss.
 - **Docs restructure.** CLAUDE.md (629 lines, grown append-only) split: current-state algorithm
   spec → `docs/ALGORITHM.md`, dated history → this file, plan files → `docs/plans/` (with a status
   index), CLAUDE.md rewritten lean. "Restraint when changing the model" rules now live in the
@@ -19,6 +45,12 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-07-06
 
+- **Official rankings sourced direct from ufc.com (Octagon demoted to fallback).**
+  `scripts/ufcstats/fetchUfcRankings.ts` parses `ufc.com/rankings` (server-rendered HTML, no JS
+  hydration, no PoW gate); `buildOfficialRankings.ts` uses it as the primary source and falls back
+  to the Octagon API only if the parse comes back empty. Motivation: Octagon lagged ufc.com by
+  days/weeks — it kept returning old champions, forcing hand-maintenance via the overrides file.
+  The committed-snapshot architecture is unchanged.
 - **Contender floors removed — champion floor only.** The post-sort safety floors for UFC top-5
   (≥ #8) and top-15 (≥ #25), and their loss-streak suppression, were first made Elo-respecting
   (never rank lower Elo over higher) which proved them functionally inert, then removed outright.

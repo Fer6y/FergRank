@@ -27,7 +27,7 @@ import { getFighterMedia } from './fighterMedia';
 // hurt). Weighted so the last ~18mo dominate. This measures whether a fighter is
 // still beating elites NOW or coasting on a carried-in prime / padding a streak.
 // Display-only; used solely to tilt the P4P sort (below).
-function recentFormTilt(data: LoadedData, fighterId: string): number {
+export function recentFormTilt(data: LoadedData, fighterId: string): number {
   const cfg = RANKING_CONFIG.p4pRecentForm;
   if (!cfg.enabled) return 0;
   const now = Date.now();

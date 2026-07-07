@@ -392,21 +392,18 @@ export const RANKING_CONFIG = {
   // Form gate on the seed (2026-07-02 diagnostic: scripts/diagOfficialImpact.ts).
   // The official list is slow to shed fading names, so a NON-CHAMPION on a losing
   // streak this long gets NO seed — the cage's verdict stands over the UFC's list
-  // (same philosophy as the contender-floor suppression below; the champion seed,
+  // (same philosophy the retired contender floors used; the champion seed,
   // like the champion floor, is unconditional). Without this, ~50 seeded fighters
   // on 2+ skids (e.g. a 5-fight skid still paying +28 Elo) were being propped
   // 3–16 spots above their in-cage rating.
   officialSeedSuppressLossStreak: 2,
-  // Post-sort safety floors (a fighter the UFC ranks here never displays below).
-  // PURPOSE: catch Elo UNDER-rating a genuine contender — NOT to prop up a
-  // fighter in real decline. The champion floor is unconditional. The CONTENDER
-  // floors (top-5 / top-15) are suppressed once a fighter is on a losing streak,
-  // because a fighter the cage just beat repeatedly SHOULD be allowed to fall
-  // (e.g. a former top-5 on a 3-fight skid drops below 8 instead of being held).
+  // Post-sort champion floor (the ONE remaining safety floor): a reigning champ
+  // never displays below this slot. Unconditional. PURPOSE: catch Elo
+  // UNDER-rating a genuine champ on a thin recent sample — NOT to prop up
+  // decline. (Contender floors — top-5 ≥ #8 / top-15 ≥ #25 with loss-streak
+  // suppression — were removed 2026-07-06: once made Elo-respecting they were
+  // provably inert, so they were dropped outright; golden-master identical.)
   championFloorRank: 2,           // reigning champ: always ≤ this (unconditional)
-  top5FloorRank: 8,               // UFC #1–5 (when in form)
-  top15FloorRank: 25,             // UFC #6–15 (when in form)
-  contenderFloorSuppressLossStreak: 2, // ≥ this many straight losses → no contender floor
   // Champion tiebreaker: a REIGNING champ (official rank "C") sitting directly
   // below a non-champion whose finalRating is within this many Elo points gets
   // lifted above them. Only breaks genuine near-ties at the very top — it does

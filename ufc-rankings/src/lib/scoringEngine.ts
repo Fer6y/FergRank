@@ -112,7 +112,7 @@ export function getFighterPerspective(fight: Fight, fighterId: string): Perspect
 // Count consecutive losses from a fighter's most recent UFC fight backward.
 // A win/draw/NC ends the streak. Used to suppress contender floors for fighters
 // the cage is telling us are in decline.
-function recentLossStreak(fighterId: string, data: LoadedData): number {
+export function recentLossStreak(fighterId: string, data: LoadedData): number {
   const fights = (data.fighterFights.get(fighterId) || [])
     .filter((f) => f.eventDate)
     .sort((a, b) => b.eventDate!.getTime() - a.eventDate!.getTime());
@@ -133,7 +133,7 @@ function recentLossStreak(fighterId: string, data: LoadedData): number {
 // seed folded into finalRating: bounded (≤10 Elo), form-gated, and — because it's
 // applied before the sort while head-to-head + the champion rules run AFTER — it
 // only ever sways genuine near-ties and never overrides the cage or the belt.
-function applyChampionFloor(
+export function applyChampionFloor(
   rankedFighters: RankedFighter[],
   officialRankMap: Map<string, string>,
   division: string
@@ -363,9 +363,7 @@ async function computeDivisionRankings(
     // Keyed on sosElo (slate quality); negative metrics stand regardless. See
     // RANKING_CONFIG.metricsQualityDamp for the full rationale.
     if (RANKING_CONFIG.metricsQualityDamp && metricsBonus > 0) {
-      const span = RANKING_CONFIG.metricsQualityFullElo - RANKING_CONFIG.metricsQualityLowElo;
-      const q = span > 0 ? clamp((sosElo - RANKING_CONFIG.metricsQualityLowElo) / span, 0, 1) : 1;
-      metricsBonus *= RANKING_CONFIG.metricsQualityFloor + (1 - RANKING_CONFIG.metricsQualityFloor) * q;
+      metricsBonus *= metricsQualityMultiplier(sosElo);
     }
 
     // ── Official seed (small; floors are the real backstop) ──
@@ -405,13 +403,7 @@ async function computeDivisionRankings(
     // bestWinElo now uses max(fight-time, current) opponent quality (see above),
     // so a former contender's old elite scalp legitimately releases the hold at
     // the root — no title-fight exemption needed.
-    let untestedPenalty = 0;
-    const uh = RANKING_CONFIG.untestedHold;
-    if (uh.enabled) {
-      const shortfall = clamp((uh.thresholdElo - bestWinElo) / uh.rampElo, 0, 1);
-      const taper = clamp(1 - fights.length / uh.taperFights, 0, 1);
-      untestedPenalty = -uh.maxPenaltyElo * shortfall * taper;
-    }
+    const untestedPenalty = untestedHoldPenalty(bestWinElo, fights.length);
 
     const finalRating = eloState.rating + metricsBonus + sosNudge + officialBonus + pedigreeBonus + untestedPenalty;
 
@@ -511,7 +503,29 @@ async function computeDivisionRankings(
 
 // ─── Metrics composite ───────────────────────────────────────
 
-function computeMetricsBonus(
+// Opponent-quality damper multiplier for POSITIVE metrics: 1 at/above
+// metricsQualityFullElo, metricsQualityFloor at/below metricsQualityLowElo,
+// linear between. Callers apply it only when metricsBonus > 0 — a soft
+// performance counts regardless of who you faced.
+export function metricsQualityMultiplier(sosElo: number): number {
+  const span = RANKING_CONFIG.metricsQualityFullElo - RANKING_CONFIG.metricsQualityLowElo;
+  const q = span > 0 ? clamp((sosElo - RANKING_CONFIG.metricsQualityLowElo) / span, 0, 1) : 1;
+  return RANKING_CONFIG.metricsQualityFloor + (1 - RANKING_CONFIG.metricsQualityFloor) * q;
+}
+
+// "Untested" hold (bowling-spare): ≤0 Elo, scales with how far the best career
+// win falls short of ranked calibre, tapers to zero by taperFights so proven
+// veterans are immune by construction. Releases entirely once bestWinElo clears
+// the threshold. Ranking-only — folded into finalRating, subtracted back for P4P.
+export function untestedHoldPenalty(bestWinElo: number, fightCount: number): number {
+  const uh = RANKING_CONFIG.untestedHold;
+  if (!uh.enabled) return 0;
+  const shortfall = clamp((uh.thresholdElo - bestWinElo) / uh.rampElo, 0, 1);
+  const taper = clamp(1 - fightCount / uh.taperFights, 0, 1);
+  return -uh.maxPenaltyElo * shortfall * taper;
+}
+
+export function computeMetricsBonus(
   samples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; sub: number; w: number }[],
   scoredFightCount: number
 ): number {
@@ -554,7 +568,7 @@ function computeMetricsBonus(
 // whose finalRating is within championTiebreakerBand gets the higher slot.
 // Single forward pass, adjacent swaps only — breaks near-ties, never boosts a
 // champ past someone clearly ahead.
-function applyChampionTiebreaker(rankedFighters: RankedFighter[], division: string): void {
+export function applyChampionTiebreaker(rankedFighters: RankedFighter[], division: string): void {
   const band = RANKING_CONFIG.championTiebreakerBand;
   for (let i = 1; i < rankedFighters.length; i++) {
     const champ = rankedFighters[i];
@@ -580,7 +594,7 @@ function isIndecisive(method: string): boolean {
   return /S-DEC/i.test(method);
 }
 
-function applyHeadToHead(
+export function applyHeadToHead(
   rankedFighters: RankedFighter[],
   data: LoadedData,
   division: string,

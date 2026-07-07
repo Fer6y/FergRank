@@ -256,7 +256,10 @@ only *scores* a fighter in the division they're eligible for.
 Workflow: **change `rankingConfig.ts` → run `scripts/validate.ts` → diff against the last
 `validation_elo_*.txt` snapshot → spot-check LW/WW/BW → run the golden master** (and re-bless with
 `--update` only when the change is intended). Tune from real output, never in the abstract. Before
-adding or tuning any mechanism, run the `modeling-discipline` skill.
+adding or tuning any mechanism, run the `modeling-discipline` skill. Every mechanism above is also
+guarded at intent level by `npm test` (`scripts/engine.test.ts` for the Elo core,
+`scripts/scoring.test.ts` for the ranking layer) — a config tuning change won't fail them, a
+behavior change will.
 
 - `metricsScaleElo` — the knob most likely to need adjusting; if metrics override head-to-head
   logic, dial down.

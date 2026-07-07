@@ -83,6 +83,8 @@ jobs:
                   data/sherdog_crosswalk_review.csv \
                   data/canonical/fighter_dob.csv \
                   data/canonical/ages_coverage.txt \
+                  data/bfo_odds.csv \
+                  data/odds_analysis.json \
                   data/golden/rankings_snapshot.json
           if git diff --cached --quiet; then
             echo "No data changes this week — nothing to commit."

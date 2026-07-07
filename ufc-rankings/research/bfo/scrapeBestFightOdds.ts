@@ -163,7 +163,11 @@ async function main(): Promise<void> {
   await testPull(3);
 }
 
-main().catch((e) => {
-  console.error('[bfo] failed:', e);
-  process.exit(1);
-});
+// Entry guard: run only when executed directly (refreshRecent.ts imports
+// politeFetch from this module and must not trigger a crawl on import).
+if (typeof require !== 'undefined' && require.main === module) {
+  main().catch((e) => {
+    console.error('[bfo] failed:', e);
+    process.exit(1);
+  });
+}

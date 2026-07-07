@@ -86,7 +86,7 @@ function finishMultiplier(method: string, mults: Record<string, number>): number
 }
 
 // Regress a rating toward the mean for a layoff of `months`, beyond a grace period.
-function regressForInactivity(rating: number, months: number, E: EloParams): number {
+export function regressForInactivity(rating: number, months: number, E: EloParams): number {
   if (months <= E.inactivityGraceMonths) return rating;
   // Piecewise: gentle 0.88/yr across the normal-layoff band (grace → elbow), then
   // a steeper rate applied ONLY to the portion of the gap past `fullInactivityMonths`.

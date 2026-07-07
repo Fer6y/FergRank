@@ -45,6 +45,8 @@ git add data/recent_ufc_fights.csv \
         data/sherdog_crosswalk_review.csv \
         data/canonical/fighter_dob.csv \
         data/canonical/ages_coverage.txt \
+        data/bfo_odds.csv \
+        data/odds_analysis.json \
         data/golden/rankings_snapshot.json 2>/dev/null || true
 
 if git diff --cached --quiet; then
