@@ -1,6 +1,6 @@
 // buildRecencyPatch: pull the NEW UFC fights Sherdog knows about but our
 // primary Fights.csv doesn't yet, so the Elo ratings stay current ahead of the
-// data refresh. See SHERDOG_BACKFILL_PLAN.md.
+// data refresh. See docs/plans/SHERDOG_BACKFILL_PLAN.md.
 //
 // SAFE-BY-CONSTRUCTION design (why this can't cross-contaminate):
 //   • Per fighter, we keep ONLY Sherdog UFC fights dated AFTER their most recent

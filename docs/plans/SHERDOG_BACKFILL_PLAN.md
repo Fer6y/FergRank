@@ -1,5 +1,11 @@
 # Sherdog Backfill Plan — Cross-Promotion Context for UFC Fighters
 
+> **Status: COMPLETE / HISTORICAL.** The pipeline was built (`scripts/sherdog/`) and ran until
+> Sherdog's Cloudflare edge hard-blocked all non-browser clients (2026-07-05). Weekly recency +
+> upcoming now come from ufcstats.com (`scripts/ufcstats/`); Sherdog is fully out of the weekly
+> pipeline (2026-07-06). The scraped CSVs remain in active use as frozen pedigree/crosswalk data.
+> See `docs/CHANGELOG.md` 2026-07-05/06.
+
 ## Goal
 
 Build a **current, multi-promotion fight-history layer** sourced from Sherdog, used to

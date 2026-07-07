@@ -1,7 +1,7 @@
 // Unit tests for the Elo core + display helpers (eloEngine.ts).
 //
 // The golden master guards the ranking OUTPUT (order/membership/scores); this
-// guards the ENGINE INVARIANTS underneath it — the properties CLAUDE.md promises
+// guards the ENGINE INVARIANTS underneath it — the properties docs/ALGORITHM.md promises
 // (winner gains, opponent-quality gate, finish weighting, provisional K, move
 // charged once, symmetric win-prob). Those can regress while the top-40 order
 // happens to stay put, so they need their own assertions. Config is referenced

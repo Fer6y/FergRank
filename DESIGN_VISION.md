@@ -1,7 +1,7 @@
 # UFC AI Rankings — UI/UX Design Vision
 
-> Status: **largely BUILT** (2026-06-13). Direction: **bolder & editorial** · photo + flag placeholders (no nationality source yet). The homepage, profile, search, filters, P4P, leaderboards, and compare are all live — see §1 and `CLAUDE.md` → "Current Build Status". This doc remains the source of truth for visual decisions; the still-open items are in §9.
-> Companion to `CLAUDE.md` (product/algorithm brain) and `data/SOURCES.md` (data provenance).
+> Status: **largely BUILT** (2026-06-13). Direction: **bolder & editorial** · photo + flag placeholders (no nationality source yet). The homepage, profile, search, filters, P4P, leaderboards, and compare are all live — see §1 and `docs/CHANGELOG.md` (dated build history). This doc remains the source of truth for visual decisions; the still-open items are in §9.
+> Companion to `CLAUDE.md` (project brain), `docs/ALGORITHM.md` (algorithm spec), and `ufc-rankings/data/SOURCES.md` (data provenance).
 
 ---
 
@@ -21,7 +21,7 @@ This section originally described a one-screen placeholder. That redesign is **d
 - **Discovery** — `/p4p`, `/leaderboards`, `/compare` (with `ComparePicker`).
 - **Type** wired: Oswald display, Geist Sans/Mono. Colour tokens in `globals.css`.
 
-What remains is in §9 (open) and `CLAUDE.md` phases (community layer, rank-history sparkline, real photos/flags, division heatmap, prospect UI).
+What remains is in §9 (open) and `docs/plans/ROADMAP.md` phases (community layer, rank-history sparkline, real photos/flags, division heatmap, prospect UI).
 
 ---
 

@@ -1,6 +1,6 @@
 /**
  * VISION AUDIT (offline, read-only) — does each RANKED fighter's placement obey
- * the three core principles in CLAUDE.md?
+ * the three core principles in docs/ALGORITHM.md?
  *   1. Opponent quality IS the rating (SoS baked in) — a top rank should rest on
  *      a tough recent slate, not a pile of soft wins.
  *   2. Raw win COUNT never drives magnitude.

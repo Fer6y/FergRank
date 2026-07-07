@@ -36,7 +36,7 @@ node_modules/.bin/jiti scripts/validate.ts        # algo validation (needs netwo
 
 | File | What |
 |------|------|
-| `../CLAUDE.md` | Project brain — architecture, algorithm, build status, phases |
+| `../CLAUDE.md` | Project brain — commands, structure, firewall rules, gotchas (algorithm spec: `../docs/ALGORITHM.md`; history: `../docs/CHANGELOG.md`) |
 | `../DESIGN_VISION.md` | UI/UX design system + locked decisions |
 | `data/SOURCES.md` | Data provenance + external sources + alignment rules |
 | `AGENTS.md` | Next.js 16 gotchas — read before writing route/page code |

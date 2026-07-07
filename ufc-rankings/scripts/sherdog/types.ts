@@ -1,5 +1,5 @@
 // Shared types for the Sherdog backfill pipeline (build-time only).
-// See SHERDOG_BACKFILL_PLAN.md for the end-to-end design.
+// See docs/plans/SHERDOG_BACKFILL_PLAN.md for the end-to-end design.
 
 // One parsed pro fight from a fighter's Sherdog profile.
 // NOTE: Sherdog profiles do NOT expose a promotion column — the org is encoded

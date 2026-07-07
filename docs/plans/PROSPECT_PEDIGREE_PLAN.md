@@ -1,6 +1,8 @@
 # Prospect & Pre-UFC Pedigree — Implementation Plan
 
-> **Status:** planning. Prepared 2026-07-03 for the next working session.
+> **Status: COMPLETE (2026-07-03)** — Workstream A built, B.1 built, B.2 deliberately not built
+> (gated on B.1 delivering measurable gain; it didn't). See `docs/CHANGELOG.md` 2026-07-03.
+> Originally: planning, prepared 2026-07-03 for the next working session.
 > **Owner context:** picks up directly from the closing-line backtest below.
 > **Scope discipline:** everything here refines the *prior* on thin-sample
 > fighters. It must stay bounded and thin-sample-only (tapers out by 6 UFC

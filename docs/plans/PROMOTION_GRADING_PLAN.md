@@ -1,5 +1,7 @@
 # Workstream A — Empirical Promotion Grading
 
+> **Status: COMPLETE — built 2026-07-03** (feeder attribution + empirical grades + the
+> prediction-side pedigree prior). See `docs/CHANGELOG.md` 2026-07-03 for what shipped.
 > **Type:** implementation spec for a fresh agent session.
 > **Parent:** `PROSPECT_PEDIGREE_PLAN.md` (motivation + firewall rules).
 > **Sibling:** `PREUFC_SOS_PLAN.md` (Workstream B). A and B are independent —
@@ -18,7 +20,7 @@
    (lines ~386) — the hand-tuned multipliers this workstream makes data-driven.
 4. `scripts/sherdog/buildContext.ts` — how `sherdog_fights.csv` is built and how
    orgs are classified to tiers (the `ORG_MATCHERS` table + `classifyOrg`).
-5. `CLAUDE.md` §5 (pre-UFC pedigree) — the guarantees you must not break.
+5. `docs/ALGORITHM.md` §7 (pre-UFC pedigree) — the guarantees you must not break.
 
 **The firewall (non-negotiable, from `pedigreeSeed.ts`):** pre-UFC data never
 enters the UFC Elo sweep; the seed is bounded ≤ `seedMaxElo` (25) and tapers to

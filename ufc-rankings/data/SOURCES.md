@@ -4,9 +4,10 @@ How every piece of data in this app originates, how fresh it is, and how the
 sources are kept in alignment. Audited 2026-06-13.
 
 The app is **local-first**: rankings are computed entirely from CSVs in this
-folder. There is exactly **one external network call at runtime** (official UFC
-rankings) and **one external scrape at build time** (Sherdog). Everything else
-is a local file.
+folder. There is exactly **one external network call at runtime** (the Anthropic
+API behind `/api/chat`); official rankings and all scraping (ufcstats.com;
+formerly Sherdog) are **build-time** pipelines writing committed files.
+Everything else is a local file.
 
 ---
 
@@ -31,21 +32,41 @@ is a local file.
   the snapshot; the live fetch remains only as a fallback for a fresh checkout
   with no snapshot yet, and an empty `{}` is the final degrade to **pure Elo**
   (no crash, no trend chips). The build script refuses to overwrite a good
-  snapshot with an empty Octagon response. To hand-fix a stale/wrong rank, edit
-  the CSV directly. Swap that one file if the API ever changes.
+  snapshot with an empty Octagon response. **To hand-fix a stale/wrong rank, put
+  the correction in `official_rankings_overrides.csv` (format: division,rank,name;
+  pinning a fighter bumps those below down one), NEVER the snapshot itself** —
+  `buildOfficialRankings.ts` applies overrides on top of the fetch every run, so
+  they survive the weekly refresh, while direct snapshot edits get silently
+  reverted by the next ingest (this was a real bug, 2026-07-05). Swap
+  `fetchOfficialRankings.ts` if the API ever changes.
 - **Known misalignment (handled)**: the API lags real title changes. Stale
   champions are corrected in `RANKING_CONFIG.divisionOverrides` (e.g. Makhachev
   at WW, Pereira at LHW, Chimaev at MW, Van at FLW, Dern at WSW). Re-audit after
   each card with `scripts/sherdog/championAudit.ts`.
 
-### B. Sherdog — *build-time scrape*, never hit by the running app
+### B. Sherdog — *build-time scrape*, never hit by the running app — **CRAWL DEAD (2026-07-05)**
 - **URL**: `https://www.sherdog.com` (fighter profiles + fight-finder).
 - **Scraper**: `scripts/sherdog/fetchProfile.ts`, cached under
   `data/.sherdog_cache/` so re-runs don't re-hammer the site.
-- **Produces**: `recent_ufc_fights.csv`, `sherdog_fights.csv`, `sherdog_orgs.csv`,
+- **Produced**: `recent_ufc_fights.csv`, `sherdog_fights.csv`, `sherdog_orgs.csv`,
   `sherdog_prospects.csv`, `sherdog_crosswalk*.csv`.
-- **Caveat**: a live scrape of a third-party site — subject to their ToS / markup
-  changes / rate limits. It is a **pipeline**, run manually, not a runtime call.
+- **Status**: Sherdog's Cloudflare edge hard-blocks every non-browser client
+  (403 from all IPs, curl + Node alike) since 2026-07-05, and Sherdog is fully
+  out of the weekly pipeline (2026-07-06). The already-scraped CSVs remain in
+  active use as **frozen** pedigree/crosswalk/context data.
+
+### C. ufcstats.com — *build-time scrape*, the ACTIVE weekly source (2026-07-05)
+- **Scripts**: `scripts/ufcstats/` — `fetchUfcStats.ts` clears ufcstats's
+  transparent SHA-256 proof-of-work gate, `parseUfcStats.ts` parses the events
+  list + per-bout results/metrics, `buildRecencyFromUfcStats.ts` writes
+  `recent_ufc_fights.csv` (same schema + accumulate-merge as the Sherdog
+  builder, IDs resolved by name), `buildUpcomingFromUfcStats.ts` writes
+  `upcoming_fights.csv` from announced matchups.
+- Run by `weeklyUpdate.ts`, which executes **locally** on the maintainer's Mac
+  via launchd (`scripts/sherdog/weeklyIngestLocal.sh` +
+  `~/Library/LaunchAgents/com.fergrank.weekly-ingest.plist`, Sundays 7am) — CI
+  runners' datacenter IPs are bot-blocked; `weekly-update.yml` is
+  manual-dispatch only.
 
 > The ad/tracker domains (doubleclick, amazon-adsystem, pub.network…) that appear
 > if you grep the repo are **noise inside saved Sherdog HTML fixtures** — the app
@@ -70,9 +91,36 @@ Originally derived from **UFC.com stats** via the `scrape_ufc_stats` project
 > ⚠️ `Fighter_Id` columns in `Fights.csv` are ~88% unreliable — `loadData.ts`
 > re-resolves participants by **name** against `Fighters_Stats.csv`.
 
-> 📌 Note: `CLAUDE.md` still quotes the older snapshot (8,713 fights, dates to
-> 2025-12-06). The data has since been refreshed to 2026-05-16; treat the numbers
-> here as current.
+> 📌 The row/date counts in this file are the ones to trust and update on each
+> data refresh (CLAUDE.md no longer inlines them). After a refresh, regenerate
+> the validation snapshot (`validation_elo_*.txt`).
+
+### Column reference (primary CSVs)
+
+- **`Fighters_Stats.csv`** (PRIMARY, ~2,600 fighters): `Fighter_Id`, `Full Name`,
+  `Nickname`, `Weight_Class`, `Gender`, `W`/`L`/`D`, `Sig. Str. %` (accuracy),
+  `Head_%`/`Body_%`/`Leg_%` (strike distribution), `Distance_%`/`Clinch_%`/
+  `Ground_%` (location distribution), `Ctrl` (control time, **seconds**,
+  aggregate), `KD`, `TD`, `Sub. Att`, `KO Rate`/`SUB Rate`/`DEC Rate`,
+  `Fighting Style`, `Striker_Membership`/`Wrestler_Membership`/
+  `Hybrid_Membership`, `Belt` (champion flag — **stale, don't use for champion
+  identity**; official rank "C" is the authority).
+- **`Fights.csv`** (PRIMARY, ~8,700 fights): `Fight_Id`, `Fighter_Id_1/2`
+  (**~88% unreliable — re-resolved by name at load**), `Fighter_1/2`,
+  `Result_1/2` (W/L/D/NC per fighter), `Method` (KO/TKO, SUB, U-DEC, M-DEC,
+  S-DEC), `Method Details` (e.g. "KO/TKO Punches", "Submission Rear Naked
+  Choke"), `Round`, `Fight_Time`, `Time Format`, `Weight_Class`, `Ctrl_1/2`
+  (control **seconds** per fight), `Sig. Str. %_1/2` (accuracy decimals),
+  `STR_1/2` (landed-strike **counts** — the volume signal), `KD_1/2`, `TD_1/2`,
+  `Event_Id`.
+- **`Events.csv`** (773 events): `Event_Id`, `Name`, `Date` (YYYY-MM-DD),
+  `Location`. Date range 1994-03-11 → 2026-05-16. Always join fights on
+  `Event_Id` for dates; the Elo engine skips undated fights.
+- **`Fighters.csv`** (~4,400): physical attributes `Ht.`, `Wt.`, `Reach`,
+  `Stance` — profile pages.
+- **`recent_ufc_fights.csv`**: UFC fights newer than `Fights.csv` (see §4).
+  Since 2026-07-06 it carries the 8 per-fight metric columns (KD/STR/TD/sub per
+  corner); older Sherdog-era rows are padded and load with `hasMetrics: false`.
 
 ---
 
@@ -80,7 +128,7 @@ Originally derived from **UFC.com stats** via the `scrape_ufc_stats` project
 
 | File | Origin | Status |
 |------|--------|--------|
-| `recent_ufc_fights.csv` | Sherdog recency top-up | ✅ **active** — keeps Elo current past the `Fights.csv` cutoff (see §4) |
+| `recent_ufc_fights.csv` | ufcstats.com recency top-up (was Sherdog) | ✅ **active** — keeps Elo current past the `Fights.csv` cutoff (see §4) |
 | `sherdog_fights.csv` | Sherdog full history | ✅ pedigree **seed enabled** (`preUFCPedigree.seedEnabled = true`, bounded ≤25 Elo, thin-sample taper); also crosswalk/context |
 | `sherdog_crosswalk.csv` | Sherdog ↔ our-id map (2,240 rows) | ✅ maps Sherdog ids to our roster |
 | `sherdog_orgs.csv`, `sherdog_prospects.csv` | Sherdog | context / prospect watchlist (not wired into core) |
@@ -180,8 +228,8 @@ context only, never in the scoring path**.
 
 ## 7. Ask-the-Analyst chat — *Anthropic API* (BUILT 2026-07-02, runtime)
 
-`/api/chat` (`src/app/api/chat/route.ts`) is the app's **second external
-runtime call**, alongside the Octagon rankings fetch. It streams a
+`/api/chat` (`src/app/api/chat/route.ts`) is the app's **only external
+runtime call** (the Octagon rankings fetch is build-time). It streams a
 conversation with `claude-sonnet-5` via `@anthropic-ai/sdk`; the model starts
 with zero fight facts and grounds every claim through tools
 (`src/lib/agent/tools.ts`) that wrap the same display-path accessors the UI
@@ -201,9 +249,52 @@ Prompt caching (system + tool definitions) keeps per-message cost low.
 |-------|--------|------|---------------------|
 | Core stats/fights | UFC.com (`scrape_ufc_stats`) → local CSV | local | ✅ every request |
 | Official rankings | Octagon API → committed `official_rankings.csv` | local (build-time snapshot) | ✅ reads snapshot; live fetch = fallback only |
-| Recency top-up | Sherdog scrape → CSV | external (build) | ✅ loaded (contract-guarded) |
+| Recency top-up | ufcstats.com scrape → CSV (was Sherdog, dead 2026-07-05) | external (build) | ✅ loaded (contract-guarded) |
 | Pre-UFC pedigree | Kaggle/Sherdog (frozen 2021) | local | ✅ enabled seed (bounded ≤25 Elo, tapers out by 6 UFC fights) |
 | Nationality / flags | Wikidata (P27) | external (build) | ✅ ~65% (initials/none fallback) |
 | Photos | Wikidata Commons + UFC.com | external (build) | ✅ ~63% combined (initials fallback) |
 | Ages / DOB | Wikidata (P569) + Sherdog profiles | external (build, weekly) | ✅ 89% (~96% ranked); display only |
 | Analyst chat | Anthropic API (`claude-sonnet-5`) | external | ✅ runtime (`/api/chat`, needs `ANTHROPIC_API_KEY`) |
+
+---
+
+## 9. Name resolution — Octagon/UFC.com names → CSV fighter ids
+
+The Octagon API returns fighter names as strings scraped from UFC.com; our CSVs
+use their own format. They will not always match exactly and are reconciled by
+`src/lib/nameResolver.ts` (`resolveNameToId()`):
+
+1. exact match → 2. normalized match (lowercase, strip accents, strip
+punctuation) → 3. last-name + first-initial → 4. no match: log a warning,
+return null (the fighter gets no official seed and falls back to pure
+computed rating). Diagnostic: `src/lib/auditOfficialMatches.ts` reports which
+official names resolve.
+
+**Expected Octagon JSON shape** (division keys are title-cased strings matching
+UFC's naming; champion is `rank: "C"`; ranks are strings `"1"`–`"15"`):
+
+```json
+{
+  "Lightweight": [
+    { "rank": "C", "name": "Islam Makhachev", "record": "26-1-0" },
+    { "rank": "1", "name": "Charles Oliveira", "record": "34-10-0" }
+  ]
+}
+```
+
+**Known UFC.com name quirks** handled in normalization: accents stripped
+(`Renato Moicano` vs `Moicaño`), hyphenated/shortened names (`Ian Machado
+Garry` vs `Ian Garry`), nicknames embedded in the name field, middle names
+sometimes included. Name-particle fighters (de/da/do/van/von/dos…) may be
+capitalized differently or dropped entirely on UFC.com — add discovered
+mismatches to the override map in `nameResolver.ts`.
+
+**Flagged fighters from the dataset scan** (29 names with particles or 4+ words
+most likely to mismatch): Da'Mon Blackshear, Henrique da Silva, Ariane da
+Silva, Alex Da Silva, Yorgan De Castro, Geraldo de Freitas, Philip De Fries,
+Chris de la Rocha, Montana De La Rosa, Mark De La Rosa, Mike de la Torre,
+Rodrigo de Lima, Edilberto de Oliveira, Jorge de Oliveira, Isabela de Padua,
+Gloria de Paula, Germaine de Randamie, Reinier de Ridder, Tiago dos Santos e
+Silva, Carls John De Tomas, Da Woon Jung, Marcos Rogerio de Lima, Douglas
+Silva de Andrade, Joshua Van, Mike van Arsdale, Matt Van Buren, Ron van Clief,
+Jason Von Flue, Elizeu Zaleski dos Santos.

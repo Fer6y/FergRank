@@ -3,7 +3,7 @@
 > That model was validated on real output on 2026-06-12 and failed (unbounded win-quality sum
 > rewarded volume of finishes; champions had to be floored into place). It was **replaced by the
 > Elo model** (`eloEngine.ts` + rewritten `scoringEngine.ts`). The current algorithm is documented
-> in `CLAUDE.md → "THE ALGORITHM (v2 — Elo core)"`. This file is retained only as the record of how
+> in `docs/ALGORITHM.md`. This file is retained only as the record of how
 > v1 was tuned and why it was abandoned. The config keys it references (winRatePrior, lossPenaltyMultiplier,
 > activityCap, sosSlope, etc.) **no longer exist** in `rankingConfig.ts`.
 

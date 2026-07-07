@@ -1,5 +1,7 @@
 # Workstream B — Deeper Pre-UFC Strength of Schedule
 
+> **Status: B.1 COMPLETE (built 2026-07-03) / B.2 DEFERRED — deliberately not built** (§3 gated
+> B.2 on B.1 delivering measurable gain; it didn't). See `docs/CHANGELOG.md` 2026-07-03.
 > **Type:** implementation spec for a fresh agent session.
 > **Parent:** `PROSPECT_PEDIGREE_PLAN.md` (motivation + firewall rules).
 > **Sibling:** `PROMOTION_GRADING_PLAN.md` (Workstream A). A grades the
@@ -20,7 +22,7 @@
    *mirrors this in a separate pool* — reuse the math, not the data.
 4. `scripts/sherdog/buildContext.ts` — how `sherdog_fights.csv` (the pre-UFC
    graph) is produced; the columns you'll join on.
-5. `CLAUDE.md` §5 + THE ALGORITHM §1 — the pedigree guarantees + the Elo model.
+5. `docs/ALGORITHM.md` §7 (pedigree) + §1 (Elo core) — the pedigree guarantees + the Elo model.
 
 **The firewall (non-negotiable):** the pre-UFC rating pool is **entirely
 separate** from the UFC Elo pool — it never writes to a UFC rating, never enters
