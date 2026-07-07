@@ -205,7 +205,22 @@ export const RANKING_CONFIG = {
   // NEGATIVE/noisy, so it is disabled (0). Re-fit via edgeExperiment.ts.
   winProbModel: {
     enabled: true,
-    ageEdgeCoef: 0.080,       // per YEAR the fighter is younger than the opponent (Elo has no aging curve)
+    ageEdgeCoef: 0.080,       // per YEAR the fighter is younger, NEAR PARITY — the slope for small age gaps (Elo has no aging curve)
+    // Age saturation (#2): the age edge is diminishing, not linear. A +14yr gap
+    // is NOT 2× a +7yr gap in win terms, and old fighters still win — so age is
+    // passed through tanh(years / ageSaturationYears). For small gaps this ≈
+    // ageEdgeCoef·years (unchanged); for large gaps it saturates at
+    // ageEdgeCoef·ageSaturationYears, so age alone can no longer eat the whole
+    // cap. Backtest diagnosis: a +14yr gap was saturating maxAdjustmentLogit and
+    // turning a 64% Elo call into 84% (Lucindo, Rodriguez).
+    ageSaturationYears: 8,
+    // Overlay shrink (#1): a single damping factor on the FITTED age+style
+    // overlay (NOT flags/pedigree). The overlay was directionally right but too
+    // high-variance — it over-promoted moderate favourites past 80% (won 56%)
+    // and demoted others into the 40–60 band (won 68%). Shrinking pulls the
+    // whole S-curve toward calibration while keeping the log-loss gain.
+    // 1.0 = old behaviour; 0 = pure-Elo win % (age/style contribute nothing).
+    overlayShrink: 0.65,
     grapplingEdgeCoef: 0.001, // NET grappling dominance (td + CONTROL differential) — refit ~0: already priced into Elo
     strikingEdgeCoef: 0.011,  // per unit of striking edge (net landed−absorbed differential)
     powerEdgeCoef: 0,         // knockdown-power edge — fit noisy/negative, disabled

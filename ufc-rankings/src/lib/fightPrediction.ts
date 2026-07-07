@@ -203,7 +203,12 @@ export function predictFight(
   const ageA = getFighterAge(idA, at)?.age ?? null;
   const ageB = getFighterAge(idB, at)?.age ?? null;
   const ageEdgeYears = ageA != null && ageB != null ? ageB - ageA : 0;
-  const ageLogit = cfg.enabled ? cfg.ageEdgeCoef * ageEdgeYears : 0;
+  // Saturating age edge (#2): ≈ ageEdgeCoef·years for small gaps, tapering to
+  // ±ageEdgeCoef·ageSaturationYears for large ones. Shrunk by overlayShrink (#1)
+  // at source so the returned decomposition stays consistent with totalAdjLogit.
+  const ageLogit = cfg.enabled
+    ? cfg.overlayShrink * cfg.ageEdgeCoef * cfg.ageSaturationYears * Math.tanh(ageEdgeYears / cfg.ageSaturationYears)
+    : 0;
 
   // Style edge (A perspective).
   const pA = styleProfile(data, idA, asOf);
@@ -212,10 +217,13 @@ export function predictFight(
   let styleLogit = 0;
   if (cfg.enabled && pA && pB && pA.fights >= cfg.minStyleFights && pB.fights >= cfg.minStyleFights) {
     style = styleMatchup(pA, pB);
-    styleLogit =
+    // Shrunk by overlayShrink (#1) at source, like ageLogit, so the returned
+    // breakdown sums to totalAdjLogit and the UI decomposition stays honest.
+    styleLogit = cfg.overlayShrink * (
       cfg.grapplingEdgeCoef * style.grapplingEdge +
       cfg.strikingEdgeCoef * style.strikingEdge +
-      cfg.powerEdgeCoef * style.powerEdge;
+      cfg.powerEdgeCoef * style.powerEdge
+    );
   }
 
   // Context flags (A perspective): A's own flags hurt A; B's flags help A.
