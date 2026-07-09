@@ -115,7 +115,9 @@ boundary and must never feed `eloEngine.ts`/`scoringEngine.ts`:
   weekly refresh overwrites the snapshot and silently reverts direct edits.
 - The weekly ingest runs **locally** (launchd: `scripts/sherdog/weeklyIngestLocal.sh`, Sundays
   7am), not in CI — datacenter IPs are bot-blocked. `weekly-update.yml` is manual-dispatch only.
-- Recency + upcoming come from **ufcstats.com** (`scripts/ufcstats/`); the Sherdog crawl is dead
+- Recency comes from **ufcstats.com** (`scripts/ufcstats/`); **upcoming cards come from ufc.com/event**
+  (`fetchUfcCards.ts` → `buildUpcomingFromUfcCom.ts`, 2026-07-09) — authoritative bout order + the
+  main/prelim/early `section` split (ufcstats gave neither). The Sherdog crawl is dead
   (Cloudflare-blocked) — its frozen CSVs still serve pedigree/crosswalk. See `data/SOURCES.md`.
 
 ## Tuning workflow

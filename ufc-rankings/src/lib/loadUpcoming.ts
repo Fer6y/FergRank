@@ -1,7 +1,8 @@
 // ─────────────────────────────────────────────────────────────────────────
 //  loadUpcoming.ts — scheduled (not-yet-fought) bouts per fighter.
 //
-//  Reads data/upcoming_fights.csv (produced by scripts/sherdog/buildUpcoming.ts)
+//  Reads data/upcoming_fights.csv (produced by
+//  scripts/ufcstats/buildUpcomingFromUfcCom.ts — ufc.com card order + sections)
 //  and exposes each fighter's NEXT booked fight. This is STRICTLY presentation —
 //  upcoming bouts have no result and never touch the Elo/scoring path. Attached
 //  at the API boundary (like fighterMedia.ts), so the algorithm stays unaware.
@@ -87,9 +88,15 @@ export function getNextFight(fighterId: string): NextFight | undefined {
 // card position so the page can render events in date order, bouts in bout_order.
 // Display-only, like everything else here.
 
+// A bout's place on the card: 'main' = main card, 'prelim' = prelims, 'early' =
+// early prelims. null when the snapshot predates the section column — the UI then
+// falls back to a flat, undivided list.
+export type CardSection = 'main' | 'prelim' | 'early';
+
 export interface UpcomingBout {
   boutOrder: number;          // 1 = main event, ascending down the card
   isMainEvent: boolean;
+  section: CardSection | null;
   weightClass: string;
   fighter1Id: string | null;  // our canonical id, null if not in our data
   fighter1Name: string;
@@ -131,9 +138,13 @@ export function getUpcomingCards(): UpcomingCard[] {
       card = { eventId: r.event_id || null, eventName, eventDate, bouts: [] };
       byEvent.set(key, card);
     }
+    const section = r.section === 'main' || r.section === 'prelim' || r.section === 'early'
+      ? r.section
+      : null;
     card.bouts.push({
       boutOrder: Number(r.bout_order) || 999,
       isMainEvent: r.is_main_event === '1',
+      section,
       weightClass: r.weight_class || '',
       fighter1Id: (r.fighter1_ourId || '').trim() || null,
       fighter1Name: r.fighter1_name || '',

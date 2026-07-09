@@ -1,40 +1,36 @@
-event_id,event_name,event_date,bout_order,is_main_event,weight_class,fighter1_ourId,fighter1_name,fighter1_sherdogId,fighter2_ourId,fighter2_name,fighter2_sherdogId,fetched_at
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,1,1,Welterweight,3437154cd3a90944,Conor McGregor,Conor-McGregor-29688,fe8d8a8c3b0afe3e,Max Holloway,Max-Holloway-38671,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,2,0,Lightweight,baf62b0c8795f506,Benoit Saint Denis,Benoit-St-Denis-317103,3495d04b5c109550,Paddy Pimblett,Paddy-Pimblett-84902,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,3,0,Bantamweight,bf88971d31a1367b,Cory Sandhagen,Cory-Sandhagen-112869,fb2821134f28cffd,Mario Bautista,Mario-Bautista-128107,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,4,0,Flyweight,22c9882008036ba4,Brandon Royval,Brandon-Royval-83851,10a96d52c89b5469,Lone'er Kavanagh,Loneer-Kavanagh-213249,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,5,0,Heavyweight,,Gable Steveson,Gable-Steveson-483540,5ffade352e5b635f,Elisha Ellison,Elisha-Ellison-426649,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,6,0,Light Heavyweight,40531c8f39f016fe,Robert Whittaker,Robert-Whittaker-45132,9dd8a4f62f227cb4,Nikita Krylov,Nikita-Krylov-110937,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,7,0,Lightweight,70838bdc207b5308,King Green,King-Green-27953,d75d3c014f3a0d70,Terrance McKinney,Terrance-McKinney-232591,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,8,0,Featherweight,2c5a8031b203a4e5,Luke Riley,Luke-Riley-354035,62c22d8f8fd6a0fc,Kai Kamaka,Kai-Kamaka-III-117585,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,9,0,Middleweight,600dc8df28333450,Cesar Almeida,Cesar-Almeida-217983,c212ca8a9b232259,Damian Pinas,Damian-Pinas-426729,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,10,0,Bantamweight,2dcc031de9b13dcc,Cody Garbrandt,Cody-Garbrandt-50381,f11750d4f48eb942,Adrian Yanez,Adrian-Yanez-86354,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,11,0,Flyweight,f23f5caaf463e283,Tracy Cortez,Tracy-Cortez-160955,58cfe90363989b8f,Wang Cong,Cong-Wang-413126,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,12,0,Bantamweight,6268180e745a1e23,Farid Basharat,Farid-Basharat-222641,82f88b53fc143497,Ethyn Ewing,Ethyn-Ewing-312049,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,13,0,Flyweight,a242f92577351a3c,Cody Durden,Cody-Durden-222325,14a2fa2dd23e71d3,Alessandro Costa,Alessandro-Costa-214613,2026-06-30
-UFC-329-McGregor-vs-Holloway-2-111889,UFC 329 - McGregor vs. Holloway 2,2026-07-11,14,0,Middleweight,85a165c98f003923,Ryan Gandra,Ryan-Gandra-404139,3278a31624e0082e,Zach Reese,Zachary-Reese-100903,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,1,1,Middleweight,7000b0fb9e20419a,Dricus Du Plessis,Dricus-Du-Plessis-146193,09c4ebb55e8079b1,Kamaru Usman,Kamaru-Usman-120691,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,2,0,Welterweight,b577c6fa8060ff5c,Kevin Holland,Kevin-Holland-108999,ef56a8f712d971ef,Jacobe Smith,Jacobe-Smith-394506,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,3,0,Middleweight,fef78cb6d5f39398,Jared Cannonier,Jared-Cannonier-78628,ba40e07b06503a8c,Christian Leroy Duncan,Christian-Leroy-Duncan-209939,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,4,0,Strawweight,f27df41475ce0c44,Tabatha Ricci,Tabatha-Ricci-152919,989a52c826c894ee,Fatima Kline,Fatima-Kline-300151,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,5,0,Featherweight,2f88f17add7669c5,Jose Delgado,Jose-Delgado-307733,87bd1fc4820e6e6f,Austin Bashi,Austin-Bashi-362871,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,6,0,Lightweight,61aca8157bf71afd,Chase Hooper,Chase-Hooper-249301,af8e52231b4cfce5,Mitch Ramirez,Mitch-Ramirez-244107,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,7,0,Featherweight,006859adbc880edd,Tommy McMillen,Tommy-McMillen-229309,837d7b515e82e17f,Alberto Montes,Alberto-Montes-257203,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,8,0,Middleweight,d22abf14634b6e90,Brad Tavares,Brad-Tavares-33095,f9f4bfae4f5773bb,Marc-Andre Barriault,MarcAndre-Barriault-170803,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,9,0,Flyweight,7e02c6105357be18,Dione Barbosa,Dione-Barbosa-266915,f0a323d30b06e3a8,Veronica Hardy,Veronica-Hardy-180217,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,10,0,Flyweight,201260e3416bc322,Alden Coria,Alden-Coria-203015,b2b19b8c517cc5a0,Stewart Nicoll,Stewart-Nicoll-289569,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,11,0,Heavyweight,184b150c59c5539d,Alvin Hines,Alvin-Hines-405550,36d7983b38d6c225,Allen Frye,Allen-Frye-395495,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,12,0,Light Heavyweight,dad9b43cf7480f68,Felipe Franco,Felipe-Franco-415770,,Levi Rodrigues,Levi-Rodrigues-386559,2026-06-30
-UFC-Fight-Night-281-Du-Plessis-vs-Usman-112601,UFC Fight Night 281 - Du Plessis vs. Usman,2026-07-18,13,0,Welterweight,,JeanPaul Lebosnoyani,JeanPaul-Lebosnoyani-248169,,Seok Hyeon Ko,Seok-Hyeon-Ko-275977,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,1,1,Light Heavyweight,69646a0ad3abb8c7,Magomed Ankalaev,Magomed-Ankalaev-170785,2cc62c24e03e31f1,Khalil Rountree,Khalil-Rountree-77674,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,2,0,Flyweight,d85578e821c6185f,Steve Erceg,Steve-Erceg-228813,,Ramazonbek Temirov,Ramazonbek-Temirov-215649,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,3,0,Heavyweight,16862aff18bed355,Rizvan Kuniev,Rizvan-Kuniev-86319,41e41e4d372a0ff3,Tyrell Fortune,Tyrell-Fortune-204623,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,4,0,Heavyweight,c351fa759a6f4223,Valter Walker,Valter-Walker-376023,af733fdd68401f60,Thomas Petersen,Thomas-Petersen-287525,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,5,0,Light Heavyweight,91199de65226ddd6,Dustin Jacoby,Dustin-Jacoby-73825,14d9402cd3d121ac,Uran Satybaldiev,Uran-Satybaldiev-364447,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,6,0,Lightweight,20fbdf9a7df6c950,Ismael Bonfim,Ismael-Bonfim-84528,a892819bc8e25b5a,Axel Sola,Axel-Sola-269167,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,7,0,Light Heavyweight,af48657df8015e6d,Brendson Ribeiro,Brendson-Ribeiro-210539,,Magomed Tuchalov,Magomed-Tuchalov-339963,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,8,0,Welterweight,966e46aafac530c8,Islam Dulatov,Islam-Dulatov-236167,93635f958774e503,Wellington Turman,Wellington-Turman-157451,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,9,0,Lightweight,9c6d0c42a7a85b51,Nurullo Aliev,Nurullo-Aliev-274869,c089e6624556674f,Mike Davis,Mike-Davis-202169,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,10,0,Bantamweight,a991252ad3712030,Muin Gafurov,Muin-Gafurov-182325,,Abdul Hussein,Abdul-Hussein-212403,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,11,0,Welterweight,52e90de4305c8afb,Saygid Izagakhmaev,Saygid-Izagakhmaev-127299,,Abubakar Vagaev,Abubakar-Vagaev-171149,2026-06-30
-UFC-Fight-Night-282-Ankalaev-vs-Rountree-112908,UFC Fight Night 282 - Ankalaev vs. Rountree,2026-07-25,12,0,Lightweight,,Damian Rzepecki,Damian-Rzepecki-343575,,Magomed Zaynukov,Magomed-Zaynukov-383513,2026-06-30
+event_id,event_name,event_date,bout_order,section,is_main_event,weight_class,fighter1_ourId,fighter1_name,fighter1_sherdogId,fighter2_ourId,fighter2_name,fighter2_sherdogId,fetched_at
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,1,main,1,Welterweight,3437154cd3a90944,Conor McGregor,,fe8d8a8c3b0afe3e,Max Holloway,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,2,main,0,Lightweight,baf62b0c8795f506,Benoît Saint Denis,,3495d04b5c109550,Paddy Pimblett,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,3,main,0,Bantamweight,bf88971d31a1367b,Cory Sandhagen,,fb2821134f28cffd,Mario Bautista,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,4,main,0,Flyweight,22c9882008036ba4,Brandon Royval,,10a96d52c89b5469,Lone'er Kavanagh,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,5,main,0,Lightweight,70838bdc207b5308,King Green,,d75d3c014f3a0d70,Terrance McKinney,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,6,prelim,0,Light Heavyweight,9dd8a4f62f227cb4,Nikita Krylov,,40531c8f39f016fe,Robert Whittaker,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,7,prelim,0,Heavyweight,,Gable Steveson,,5ffade352e5b635f,Elisha Ellison,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,8,prelim,0,Bantamweight,2dcc031de9b13dcc,Cody Garbrandt,,f11750d4f48eb942,Adrian Yanez,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,9,prelim,0,Featherweight,2c5a8031b203a4e5,Luke Riley,,62c22d8f8fd6a0fc,Kai Kamaka III,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,10,early,0,Women's Flyweight,f23f5caaf463e283,Tracy Cortez,,58cfe90363989b8f,Wang Cong,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,11,early,0,Middleweight,c212ca8a9b232259,Damian Pinas,,600dc8df28333450,Cesar Almeida,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,12,early,0,Bantamweight,6268180e745a1e23,Farid Basharat,,,John Garza,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,13,early,0,Middleweight,85a165c98f003923,Ryan Gandra,,3278a31624e0082e,Zachary Reese,,2026-07-09
+ufc-329,UFC 329 - McGregor vs. Holloway,2026-07-11,14,early,0,Flyweight,14a2fa2dd23e71d3,Alessandro Costa,,a242f92577351a3c,Cody Durden,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,1,main,1,Middleweight,7000b0fb9e20419a,Dricus Du Plessis,,09c4ebb55e8079b1,Kamaru Usman,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,2,main,0,Middleweight,fef78cb6d5f39398,Jared Cannonier,,ba40e07b06503a8c,Christian Leroy Duncan,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,3,main,0,Welterweight,b577c6fa8060ff5c,Kevin Holland,,ef56a8f712d971ef,Jacobe Smith,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,4,main,0,Lightweight,61aca8157bf71afd,Chase Hooper,,af8e52231b4cfce5,Mitch Ramirez,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,5,main,0,Featherweight,006859adbc880edd,Tommy McMillen,,837d7b515e82e17f,Alberto Montes,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,6,prelim,0,Women's Strawweight,f27df41475ce0c44,Tabatha Ricci,,989a52c826c894ee,Fatima Kline,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,7,prelim,0,Featherweight,87bd1fc4820e6e6f,Austin Bashi,,2f88f17add7669c5,Jose Miguel Delgado,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,8,prelim,0,Light Heavyweight,60dd552a80e10dab,Levi Rodrigues Jr.,,dad9b43cf7480f68,Felipe Franco,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,9,prelim,0,Flyweight,201260e3416bc322,Alden Coria,,b2b19b8c517cc5a0,Stewart Nicoll,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,10,prelim,0,Heavyweight,36d7983b38d6c225,Allen Frye Jr.,,184b150c59c5539d,Alvin Hines,,2026-07-09
+ufc-fight-night-july-18-2026,UFC Fight Night - Plessis vs. Usman,2026-07-18,11,prelim,0,Women's Flyweight,f0a323d30b06e3a8,Veronica Hardy,,7e02c6105357be18,Dione Barbosa,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,1,main,1,Light Heavyweight,69646a0ad3abb8c7,Magomed Ankalaev,,2cc62c24e03e31f1,Khalil Rountree Jr.,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,2,main,0,Flyweight,d85578e821c6185f,Steve Erceg,,fea9efc9272d4900,Ramazan Temirov,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,3,main,0,Welterweight,966e46aafac530c8,Islam Dulatov,,93635f958774e503,Wellington Turman,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,4,main,0,Lightweight,,Magomed Zaynukov,,,Damian Rzepecki,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,5,main,0,Heavyweight,16862aff18bed355,Rizvan Kuniev,,41e41e4d372a0ff3,Tyrell Fortune,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,6,prelim,0,Heavyweight,c351fa759a6f4223,Valter Walker,,af733fdd68401f60,Thomas Petersen,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,7,prelim,0,Heavyweight,14d9402cd3d121ac,Uran Satybaldiev,,91199de65226ddd6,Dustin Jacoby,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,8,prelim,0,Lightweight,20fbdf9a7df6c950,Ismael Bonfim,,a892819bc8e25b5a,Axel Sola,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,9,prelim,0,Light Heavyweight,,Magomed Tuchalov,,af48657df8015e6d,Brendson Ribeiro,,2026-07-09
+ufc-fight-night-july-25-2026,UFC Fight Night - Ankalaev vs. Rountree,2026-07-25,10,prelim,0,Lightweight,9c6d0c42a7a85b51,Nurullo Aliev,,c089e6624556674f,Mike Davis,,2026-07-09

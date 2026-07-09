@@ -4,7 +4,7 @@
 //   1. buildRecencyFromUfcStats  discover the week's card(s) + parse bouts +
 //                                regenerate data/recent_ufc_fights.csv (ufcstats) [NETWORK]
 //   2. buildOfficialRankings     refresh the committed UFC-rank snapshot (ufc.com)[NETWORK, non-fatal]
-//   3. buildUpcoming             next 3 cards → upcoming_fights.csv (Sherdog)      [NETWORK, non-fatal]
+//   3. buildUpcoming             next 3 cards → upcoming_fights.csv (ufc.com)      [NETWORK, non-fatal]
 //   4. validate                  name-match audit + LW/WW/BW sanity (informational)[NETWORK]
 //   5. goldenMaster              diff vs baseline = "what changed this week"       [NETWORK]
 //   6. goldenMaster --update     re-bless the baseline so git diff is the audit    [NETWORK]
@@ -65,9 +65,10 @@ function buildPlan(args: Args): Step[] {
   // rankings-source hiccup never blocks the fight-data ingest. This is what keeps
   // the displayed "UFC Rank" current without a live request-time fetch.
   steps.push({ label: '2/8 buildOfficialRankings (refresh UFC-rank snapshot)', cmd: `${JITI} scripts/buildOfficialRankings.ts`, network: true, fatal: false });
-  // Display-only upcoming-fights snapshot (ported to ufcstats 2026-07-06). NON-FATAL:
+  // Display-only upcoming-fights snapshot from ufc.com (2026-07-09) — authoritative
+  // card order + main/prelim/early section split (ufcstats gave neither). NON-FATAL:
   // upcoming bouts don't affect Elo, so a schedule-scrape hiccup never blocks the ingest.
-  steps.push({ label: '3/8 buildUpcoming (next 3 cards, display-only — ufcstats)', cmd: `${JITI} scripts/ufcstats/buildUpcomingFromUfcStats.ts --cards 3`, network: true, fatal: false });
+  steps.push({ label: '3/8 buildUpcoming (next 3 cards, display-only — ufc.com)', cmd: `${JITI} scripts/ufcstats/buildUpcomingFromUfcCom.ts --cards 3`, network: true, fatal: false });
   // Research-zone odds refresh (display-only, feeds the /odds explorer). Both
   // NON-FATAL: odds never touch Elo/scoring, so an odds hiccup never blocks the
   // ingest. refreshRecent re-pulls only recent/upcoming BFO event pages (the

@@ -492,6 +492,32 @@ function DenseBout({ bout }: { bout: CardBout }) {
   );
 }
 
+// Card sections in top-to-bottom order, with the labels the UFC uses. Main card
+// gets the gold accent (it leads the broadcast); prelims are quieter.
+const SECTION_META: { key: 'main' | 'prelim' | 'early'; label: string; accent: boolean }[] = [
+  { key: 'main', label: 'Main Card', accent: true },
+  { key: 'prelim', label: 'Preliminary Card', accent: false },
+  { key: 'early', label: 'Early Prelims', accent: false },
+];
+
+// A labelled rule between card sections (Main Card / Prelims / Early Prelims).
+function SectionDivider({ label, count, accent }: { label: string; count: number; accent: boolean }) {
+  return (
+    <div className="flex items-center gap-3 pt-1">
+      <span
+        className="font-display text-lg uppercase tracking-wide leading-none"
+        style={{ color: accent ? 'var(--accent-gold)' : 'var(--text-secondary)' }}
+      >
+        {label}
+      </span>
+      <span className="font-mono text-[10px] leading-none" style={{ color: 'var(--text-muted)' }}>
+        {count} {count === 1 ? 'bout' : 'bouts'}
+      </span>
+      <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+    </div>
+  );
+}
+
 // Client island of the (server-rendered) /upcoming page: event-tab selection
 // and the analyst-dock wiring. Cards arrive fully enriched as props — no
 // client fetch, so the first event's card is in the initial HTML.
@@ -612,12 +638,29 @@ export default function UpcomingClient({ events }: { events: UpcomingEvent[] }) 
               <span>= title fight</span>
             </div>
           </div>
-          {event.bouts.map((b) => (
+          {(() => {
             // boutOrder alone can collide (missing values default to 999).
-            <div key={`${b.boutOrder}-${b.fighter1.name}-${b.fighter2.name}`}>
-              {b === hero ? <MainEventBout bout={b} /> : <DenseBout bout={b} />}
-            </div>
-          ))}
+            const boutKey = (b: CardBout) => `${b.boutOrder}-${b.fighter1.name}-${b.fighter2.name}`;
+            const renderBout = (b: CardBout) => (
+              <div key={boutKey(b)}>
+                {b === hero ? <MainEventBout bout={b} /> : <DenseBout bout={b} />}
+              </div>
+            );
+            // Grouped rendering only when the snapshot carries section labels;
+            // an older section-less snapshot falls back to one flat list.
+            const hasSections = event.bouts.some((b) => b.section);
+            if (!hasSections) return event.bouts.map(renderBout);
+            return SECTION_META.map(({ key, label, accent }) => {
+              const group = event.bouts.filter((b) => b.section === key);
+              if (group.length === 0) return null;
+              return (
+                <div key={key} className="space-y-4">
+                  <SectionDivider label={label} count={group.length} accent={accent} />
+                  {group.map(renderBout)}
+                </div>
+              );
+            });
+          })()}
           <button
             onClick={() => setAnalystOpen(true)}
             className="w-full flex items-center justify-between rounded-xl border px-4 py-3 text-left cursor-pointer transition-colors hover:border-[var(--accent-red)]"

@@ -62,13 +62,33 @@ Everything else is a local file.
   out of the weekly pipeline (2026-07-06). The already-scraped CSVs remain in
   active use as **frozen** pedigree/crosswalk/context data.
 
-### C. ufcstats.com — *build-time scrape*, the ACTIVE weekly source (2026-07-05)
+### C. ufcstats.com — *build-time scrape*, the ACTIVE weekly RECENCY source (2026-07-05)
 - **Scripts**: `scripts/ufcstats/` — `fetchUfcStats.ts` clears ufcstats's
   transparent SHA-256 proof-of-work gate, `parseUfcStats.ts` parses the events
   list + per-bout results/metrics, `buildRecencyFromUfcStats.ts` writes
   `recent_ufc_fights.csv` (same schema + accumulate-merge as the Sherdog
-  builder, IDs resolved by name), `buildUpcomingFromUfcStats.ts` writes
-  `upcoming_fights.csv` from announced matchups.
+  builder, IDs resolved by name). `buildUpcomingFromUfcStats.ts` (announced
+  matchups → `upcoming_fights.csv`) was **superseded 2026-07-09** by the ufc.com
+  card source in §D and retired to fallback.
+
+### D. ufc.com/event — *build-time scrape*, the ACTIVE UPCOMING-CARD source (2026-07-09)
+- **Scripts**: `scripts/ufcstats/fetchUfcCards.ts` parses ufc.com/events (the next
+  cards + their main-card timestamps) and each ufc.com/event/<slug> page
+  (server-rendered HTML, no JS hydration, no proof-of-work gate — the same
+  surface as the rankings scraper); `buildUpcomingFromUfcCom.ts` writes
+  `upcoming_fights.csv`.
+- **Why (over ufcstats)**: ufc.com gives the AUTHORITATIVE fight order and the
+  explicit `main-card` / `prelims-card` / `early-prelims` section split. ufcstats
+  lists bouts in announcement order with no section labels, so the /upcoming page
+  order drifted from the real card the week of an event and could not render a
+  main-card/undercard divider.
+- **Schema note**: adds a `section` column (`main`/`prelim`/`early`); event date
+  from the local hero suffix + year from the events-list timestamp (dodges the
+  UTC day-slip); fighter ids resolved by name with a suffix-stripped retry
+  ("Rountree Jr." → "Rountree"). Display-only — upcoming bouts never touch the
+  Elo/scoring path. NON-FATAL in the weekly ingest; a scrape hiccup leaves the
+  last-known-good snapshot.
+
 - Run by `weeklyUpdate.ts`, which executes **locally** on the maintainer's Mac
   via launchd (`scripts/sherdog/weeklyIngestLocal.sh` +
   `~/Library/LaunchAgents/com.fergrank.weekly-ingest.plist`, Sundays 7am) — CI
@@ -257,6 +277,7 @@ Prompt caching (system + tool definitions) keeps per-message cost low.
 | Core stats/fights | UFC.com (`scrape_ufc_stats`) → local CSV | local | ✅ every request |
 | Official rankings | ufc.com/rankings (Octagon fallback) → committed `official_rankings.csv` | local (build-time snapshot) | ✅ reads snapshot; live fetch = fallback only |
 | Recency top-up | ufcstats.com scrape → CSV (was Sherdog, dead 2026-07-05) | external (build) | ✅ loaded (contract-guarded) |
+| Upcoming cards | ufc.com/event scrape → `upcoming_fights.csv` (was ufcstats, 2026-07-09) | external (build) | ✅ order + section split; display-only |
 | Pre-UFC pedigree | Kaggle/Sherdog (frozen 2021) | local | ✅ enabled seed (bounded ≤25 Elo, tapers out by 6 UFC fights) |
 | Nationality / flags | Wikidata (P27) | external (build) | ✅ ~65% (initials/none fallback) |
 | Photos | Wikidata Commons + UFC.com | external (build) | ✅ ~63% combined (initials fallback) |

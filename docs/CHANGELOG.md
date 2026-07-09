@@ -10,6 +10,30 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-07-09
+
+- **/upcoming sourced from ufc.com — authoritative bout ORDER + main/prelim/early SECTION split.**
+  The upcoming page took its bout order from ufcstats.com (`buildUpcomingFromUfcStats.ts`), which
+  lists announced bouts in announcement order and carries no card-section labels. That order
+  drifted from the real card as the UFC reshuffled bouts the week of an event (diagnosed on UFC
+  329: King Green vs McKinney was our bout #7 but is really main-card #5; Gable Steveson sat at our
+  #5 but is a prelim — so a naive "top-5 = main card" rule on the stale data would have been
+  wrong), and there was no way to render a main-card/undercard divider. New
+  `scripts/ufcstats/fetchUfcCards.ts` parses ufc.com/event pages (server-rendered HTML, no JS/PoW
+  gate — same surface as `fetchUfcRankings.ts`) for the correct fight order + the explicit
+  `main-card`/`prelims-card`/`early-prelims` sections; `buildUpcomingFromUfcCom.ts` writes
+  `upcoming_fights.csv` with a new `section` column (event date from the local hero suffix + year
+  from the events-list timestamp, dodging the UTC day-slip; fighter ids resolved by name with a
+  suffix-stripped retry for "Rountree Jr." etc.). `loadUpcoming.ts`/`upcomingEnrich.ts` thread
+  `section` through; `UpcomingClient.tsx` renders labelled **Main Card / Preliminary Card / Early
+  Prelims** dividers (flat-list fallback when a snapshot predates the column). Weekly ingest step 3
+  swapped to the new builder; `buildUpcomingFromUfcStats.ts` retired to fallback. Display-only —
+  never touches Elo; golden master unaffected. Refreshed the committed snapshot for UFC 329 / the
+  two July Fight Nights (35 bouts, 65/70 fighters resolved; the 5 misses are genuine
+  debutants/regionals). Typecheck + all unit tests pass.
+
+---
+
 ## 2026-07-07
 
 - **Scoring-layer unit tests** (`scripts/scoring.test.ts`, wired into `npm test`). The ranking-layer

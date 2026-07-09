@@ -1,3 +1,7 @@
+// ⚠️  SUPERSEDED 2026-07-09 by buildUpcomingFromUfcCom.ts (ufc.com gives the
+//     authoritative card ORDER + main/prelim/early SECTION split that ufcstats
+//     does not). Kept as a fallback source; the weekly ingest no longer calls it.
+//
 // buildUpcomingFromUfcStats: the ufcstats replacement for the (Sherdog-blocked)
 // buildUpcoming. Fetches the next N upcoming UFC cards + their announced bouts and
 // writes data/upcoming_fights.csv (display-only — feeds the /upcoming page, never

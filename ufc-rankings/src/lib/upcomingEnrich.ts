@@ -23,7 +23,7 @@ import { getReach } from './fighterPhysical';
 import { shortDivision } from './divisions';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
-import type { UpcomingCard } from './loadUpcoming';
+import type { UpcomingCard, CardSection } from './loadUpcoming';
 
 // One enriched corner of a bout — everything the card UI needs, display-only.
 export interface CardFighter {
@@ -51,6 +51,7 @@ export interface CardFighter {
 export interface CardBout {
   boutOrder: number;
   isMainEvent: boolean;
+  section: CardSection | null;
   weightClass: string;
   fighter1: CardFighter;
   fighter2: CardFighter;
@@ -224,6 +225,7 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     bouts: card.bouts.map((b) => ({
       boutOrder: b.boutOrder,
       isMainEvent: b.isMainEvent,
+      section: b.section,
       weightClass: b.weightClass,
       fighter1: enrich(b.fighter1Id, b.fighter1Name),
       fighter2: enrich(b.fighter2Id, b.fighter2Name),
