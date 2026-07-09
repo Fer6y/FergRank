@@ -82,9 +82,17 @@ export const RANKING_CONFIG = {
     // activity drift it re-earns by winning — the price of continuous fade over
     // the old discrete wall.
     inactivityRetentionPerYear: 0.88,
-    inactivityGraceMonths: 3,   // Only near-back-to-back bouts are graced; any real layoff
-                                // starts a gentle fade. (Was 12mo when the discrete boundary
-                                // did the heavy recency work; now the decay does it alone.)
+    inactivityGraceMonths: 5,   // Grace the NORMAL competitive cadence — a gap only starts a
+                                // gentle fade once it exceeds a typical active fighter's schedule.
+                                // Calibrated to the measured inter-fight gap distribution
+                                // (2026-07-09): modern-era median gap ≈6.2mo (~1.9 fights/yr), so
+                                // at the old 3mo only ~9% of fights were graced — the model was
+                                // decaying ~90% of bouts, i.e. treating the normal 2x/yr cadence as
+                                // a layoff. 5mo graces the largest gap band (3-5mo) so a ~2.4x/yr
+                                // fighter pays nothing; only real layoffs fade. (Was 12mo when the
+                                // discrete boundary did the recency work, then 3mo; now the decay
+                                // does it alone.) DELETE/RE-TUNE if the gap distribution shifts —
+                                // re-run the gap measurement before touching this.
 
     // FULLY-INACTIVE second slope (2026-07-06). The single 0.88/yr slope is
     // deliberately gentle so a normal elite cadence (defend every ~10-14mo) pays
@@ -95,7 +103,7 @@ export const RANKING_CONFIG = {
     // gap beyond the threshold. This is piecewise: 3-24mo keeps the gentle 0.88/yr
     // (active/semi-active fighters are UNTOUCHED), and only the truly shelved fade
     // fast. Set fullInactivityMonths huge to disable the second slope.
-    fullInactivityMonths: 24,        // "fully inactive" elbow — the 2-year line
+    fullInactivityMonths: 18,        // "fully inactive" elbow — the 2-year line
     inactivityRetentionSteep: 0.65,  // steeper per-year retention past the elbow
 
     // CURRENT-FORM BOUNDARY: how old "old form" is. The full fight history is

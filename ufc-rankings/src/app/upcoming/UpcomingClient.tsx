@@ -91,7 +91,7 @@ function MainSide({ f, align, flags }: { f: CardFighter; align: 'left' | 'right'
     </span>
   );
   return (
-    <div className={`p-4 ${right ? 'sm:text-right' : ''}`}>
+    <div className={`p-3.5 sm:p-4 ${right ? 'sm:text-right' : ''}`}>
       <div className={`flex items-center gap-3 mb-2.5 ${right ? 'sm:flex-row-reverse' : ''}`}>
         <FighterAvatar
           src={f.avatarUrl ?? undefined}
@@ -191,7 +191,9 @@ function ProbabilitySpine({ bout }: { bout: CardBout }) {
   const line2 = probabilityToAmerican(1 - bout.prob1);
   return (
     <div className="px-4 pb-4">
-      <div className="flex items-baseline justify-between mb-1.5">
+      {/* grid (not justify-between) so the centre label truncates instead of
+          wrapping into the flanking percentages on a narrow screen */}
+      <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-baseline gap-2 mb-1.5">
         <span className="flex items-baseline gap-1.5">
           <span
             className="font-display text-lg leading-none"
@@ -205,8 +207,8 @@ function ProbabilitySpine({ bout }: { bout: CardBout }) {
             </span>
           )}
         </span>
-        <span className="font-mono text-[10px] tracking-widest" style={{ color: 'var(--text-muted)' }}>
-          WIN PROBABILITY{showForm ? ` · FORM-ADJ ${fp1}–${100 - fp1!}` : ''}
+        <span className="font-mono text-[10px] tracking-widest text-center truncate" style={{ color: 'var(--text-muted)' }}>
+          WIN PROBABILITY
         </span>
         <span className="flex items-baseline gap-1.5">
           {line2 && (
@@ -222,6 +224,11 @@ function ProbabilitySpine({ bout }: { bout: CardBout }) {
           </span>
         </span>
       </div>
+      {showForm && (
+        <div className="font-mono text-[9px] tracking-widest text-center mb-1.5" style={{ color: 'var(--text-muted)' }}>
+          FORM-ADJ {fp1}–{100 - fp1!}
+        </div>
+      )}
       <div className="relative h-1.5 rounded-full" style={{ backgroundColor: 'var(--bg-elevated)' }}>
         <div
           className="absolute inset-y-0 left-0 rounded-l-full"
@@ -334,22 +341,26 @@ function MainEventBout({ bout }: { bout: CardBout }) {
       className="rounded-xl overflow-hidden border"
       style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-light)' }}
     >
+      {/* flex-wrap: on a narrow screen the weight-class drops to its own line
+          (order-last, full width) rather than every phrase breaking mid-word;
+          on sm+ it sits inline right of centre, restoring the desktop row. */}
       <div
-        className="flex items-center justify-between gap-3 px-4 py-2 border-b"
+        className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2 border-b"
         style={{ backgroundColor: 'var(--bg-card-hover)', borderColor: 'var(--border)' }}
       >
         <span
-          className="text-[10px] tracking-widest uppercase font-medium"
+          className="mr-auto whitespace-nowrap text-[10px] tracking-widest uppercase font-medium"
           style={{ color: 'var(--accent-gold)' }}
         >
           ★ Main event
         </span>
-        <div className="flex items-center gap-3">
-          <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
-            {bout.weightClass} · 5 rounds
-          </span>
-          {href && <CompareChip href={href} />}
-        </div>
+        <span
+          className="order-last w-full whitespace-nowrap text-[10px] tracking-widest uppercase sm:order-none sm:w-auto"
+          style={{ color: 'var(--text-muted)' }}
+        >
+          {bout.weightClass} · 5 rounds
+        </span>
+        {href && <CompareChip href={href} />}
       </div>
       <BoutBody bout={bout} />
     </div>
@@ -366,7 +377,7 @@ function ScheduleContextBand({ bout }: { bout: CardBout }) {
   if (!c1 && !c2) return null;
   return (
     <div
-      className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 px-4 py-3 border-t"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 px-3.5 py-2.5 sm:px-4 sm:py-3 border-t"
       style={{ borderColor: 'var(--border)' }}
     >
       {c1
