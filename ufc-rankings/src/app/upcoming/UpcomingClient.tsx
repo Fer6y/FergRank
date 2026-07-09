@@ -156,7 +156,29 @@ function MainSide({ f, align, flags }: { f: CardFighter; align: 'left' | 'right'
 
 function compareHref(bout: CardBout): string | null {
   const { fighter1: f1, fighter2: f2 } = bout;
-  return f1.fighterId && f2.fighterId ? `/compare?a=${f1.fighterId}&b=${f2.fighterId}` : null;
+  // `from=upcoming` lets the compare page offer a "back to upcoming" link only
+  // when the visitor actually arrived from a card.
+  return f1.fighterId && f2.fighterId
+    ? `/compare?a=${f1.fighterId}&b=${f2.fighterId}&from=upcoming`
+    : null;
+}
+
+// Always-visible, clearly-labelled one-click jump to the full /compare page for
+// a bout. Lives in every bout header so the in-depth head-to-head is one click
+// away without expanding the row. `stopPropagation` keeps it independent of the
+// dense header's expand-toggle button it sits beside.
+function CompareChip({ href, className = '' }: { href: string; className?: string }) {
+  return (
+    <Link
+      href={href}
+      title="Full head-to-head comparison"
+      onClick={(e) => e.stopPropagation()}
+      className={`inline-flex items-center gap-1 shrink-0 font-mono text-[10px] tracking-wider uppercase px-2 py-1 rounded-md border transition-colors hover:border-[var(--accent-red)] hover:text-[var(--text-primary)] ${className}`}
+      style={{ borderColor: 'var(--border-light)', color: 'var(--text-secondary)' }}
+    >
+      ⚖ Compare
+    </Link>
+  );
 }
 
 function ProbabilitySpine({ bout }: { bout: CardBout }) {
@@ -167,9 +189,8 @@ function ProbabilitySpine({ bout }: { bout: CardBout }) {
   const showForm = fp1 != null && Math.abs(fp1 - p1) >= 2;
   const line1 = probabilityToAmerican(bout.prob1);
   const line2 = probabilityToAmerican(1 - bout.prob1);
-  const href = compareHref(bout);
-  const spine = (
-    <>
+  return (
+    <div className="px-4 pb-4">
       <div className="flex items-baseline justify-between mb-1.5">
         <span className="flex items-baseline gap-1.5">
           <span
@@ -216,21 +237,6 @@ function ProbabilitySpine({ bout }: { bout: CardBout }) {
           }}
         />
       </div>
-    </>
-  );
-  return (
-    <div className="px-4 pb-4">
-      {href ? (
-        <Link
-          href={href}
-          title="Full comparison"
-          className="block -mx-2 -my-1.5 px-2 py-1.5 rounded-md transition-colors hover:bg-[var(--bg-card-hover)]"
-        >
-          {spine}
-        </Link>
-      ) : (
-        spine
-      )}
     </div>
   );
 }
@@ -255,8 +261,6 @@ function TaleOfTape({ bout }: { bout: CardBout }) {
     rows.push({ key: 'schedule', label: 'Sched str', v1: f1.scheduleStrength, v2: f2.scheduleStrength, fmt: (n) => `${Math.round(n)}` });
   if (f1.finishRate != null && f2.finishRate != null)
     rows.push({ key: 'finish', label: 'Finish', v1: f1.finishRate, v2: f2.finishRate, fmt: (n) => `${Math.round(n * 100)}%` });
-
-  const href = compareHref(bout);
 
   const qualityTip = (q: number | null) =>
     q != null ? `Opponent quality ${Math.round(q)} of 100, discounted for activity` : undefined;
@@ -301,16 +305,6 @@ function TaleOfTape({ bout }: { bout: CardBout }) {
           })}
         </div>
       )}
-
-      {href && (
-        <Link
-          href={href}
-          className="mt-3 pt-2.5 w-full text-center text-[11px] hover:underline border-t"
-          style={{ color: 'var(--text-muted)', borderColor: 'var(--border)' }}
-        >
-          Full comparison →
-        </Link>
-      )}
     </div>
   );
 }
@@ -334,13 +328,14 @@ function BoutBody({ bout }: { bout: CardBout }) {
 }
 
 function MainEventBout({ bout }: { bout: CardBout }) {
+  const href = compareHref(bout);
   return (
     <div
       className="rounded-xl overflow-hidden border"
       style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-light)' }}
     >
       <div
-        className="flex items-center justify-between px-4 py-2 border-b"
+        className="flex items-center justify-between gap-3 px-4 py-2 border-b"
         style={{ backgroundColor: 'var(--bg-card-hover)', borderColor: 'var(--border)' }}
       >
         <span
@@ -349,9 +344,12 @@ function MainEventBout({ bout }: { bout: CardBout }) {
         >
           ★ Main event
         </span>
-        <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
-          {bout.weightClass} · 5 rounds
-        </span>
+        <div className="flex items-center gap-3">
+          <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
+            {bout.weightClass} · 5 rounds
+          </span>
+          {href && <CompareChip href={href} />}
+        </div>
       </div>
       <BoutBody bout={bout} />
     </div>
@@ -448,43 +446,35 @@ function DenseBout({ bout }: { bout: CardBout }) {
         borderColor: expanded ? 'var(--border-light)' : 'var(--border)',
       }}
     >
-      {/* The whole strip is the toggle — a real button so keyboard + a11y come
-          for free and the fighter/compare links below stay independently clickable. */}
-      <button
-        type="button"
-        onClick={() => setExpanded((v) => !v)}
-        aria-expanded={expanded}
-        className="w-full flex items-center justify-between px-4 py-2 cursor-pointer transition-colors hover:bg-[var(--bg-card-hover)]"
-      >
-        <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
-          Bout {bout.boutOrder} · {bout.weightClass}
-        </span>
-        <span
-          aria-hidden
-          className="font-mono text-[10px] leading-none transition-transform"
-          style={{ color: 'var(--text-muted)', transform: expanded ? 'rotate(180deg)' : 'none' }}
+      {/* The strip is the expand toggle — a real button so keyboard + a11y come
+          for free — with the Compare chip as an independent sibling link beside
+          it (not nested, so the two clicks stay distinct). */}
+      <div className="flex items-center">
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          className="flex-1 flex items-center justify-between px-4 py-2 cursor-pointer transition-colors hover:bg-[var(--bg-card-hover)]"
         >
-          ▾
-        </span>
-      </button>
+          <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
+            Bout {bout.boutOrder} · {bout.weightClass}
+          </span>
+          <span
+            aria-hidden
+            className="font-mono text-[10px] leading-none transition-transform"
+            style={{ color: 'var(--text-muted)', transform: expanded ? 'rotate(180deg)' : 'none' }}
+          >
+            ▾
+          </span>
+        </button>
+        {href && <CompareChip href={href} className="mr-4 ml-3" />}
+      </div>
       {expanded ? (
         <BoutBody bout={bout} />
       ) : (
         <div className="px-4 pb-2.5 grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)] items-center gap-x-3 gap-y-1.5">
           <DenseSide f={bout.fighter1} align="left" flags={bout.flags1} />
-          <div>
-            {href ? (
-              <Link
-                href={href}
-                title="Full comparison"
-                className="block -mx-2 -my-1 px-2 py-1 rounded-md transition-colors hover:bg-[var(--bg-card-hover)]"
-              >
-                {pill}
-              </Link>
-            ) : (
-              pill
-            )}
-          </div>
+          <div>{pill}</div>
           <DenseSide f={bout.fighter2} align="right" flags={bout.flags2} />
         </div>
       )}

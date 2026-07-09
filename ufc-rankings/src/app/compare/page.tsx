@@ -19,9 +19,9 @@ export const revalidate = 86400;
 export default async function ComparePage({
   searchParams,
 }: {
-  searchParams: Promise<{ a?: string; b?: string }>;
+  searchParams: Promise<{ a?: string; b?: string; from?: string }>;
 }) {
-  const { a, b } = await searchParams;
+  const { a, b, from } = await searchParams;
   const [pa, pb] = await Promise.all([
     a ? getFighterProfile(a) : Promise.resolve(null),
     b ? getFighterProfile(b) : Promise.resolve(null),
@@ -29,6 +29,16 @@ export default async function ComparePage({
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6 space-y-5">
+      {from === 'upcoming' && (
+        <Link
+          href="/upcoming"
+          className="inline-flex items-center gap-1.5 text-xs hover:underline"
+          style={{ color: 'var(--text-secondary)' }}
+        >
+          ← Back to upcoming
+        </Link>
+      )}
+
       <div>
         <h1 className="font-display text-3xl sm:text-4xl leading-none" style={{ color: 'var(--text-primary)' }}>
           COMPARE
