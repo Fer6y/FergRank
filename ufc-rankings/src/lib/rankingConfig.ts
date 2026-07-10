@@ -100,10 +100,16 @@ export const RANKING_CONFIG = {
     // onto top slots (e.g. a former champ idle ~20mo+ still seated top-5 on two old
     // finishes). So past `fullInactivityMonths` the layoff switches to a steeper
     // `inactivityRetentionSteep` per-year rate, applied ONLY to the portion of the
-    // gap beyond the threshold. This is piecewise: 3-24mo keeps the gentle 0.88/yr
+    // gap beyond the threshold. This is piecewise: grace-18mo keeps the gentle 0.88/yr
     // (active/semi-active fighters are UNTOUCHED), and only the truly shelved fade
     // fast. Set fullInactivityMonths huge to disable the second slope.
-    fullInactivityMonths: 18,        // "fully inactive" elbow — the 2-year line
+    // Lowered 24→18mo (2026-07-09) as the PAIR to the grace 3→5 widening: widening the
+    // grace uniformly reduces gentle-band decay for EVERYONE idle, which re-floated
+    // genuinely parked names (Nunes ~37mo, Jones ~20mo). Pulling the elbow in to 18mo
+    // (~3 missed normal cadences) puts those long layoffs back into steep decay, so the
+    // grace change lifts only the recently-active (Adesanya 3.4mo, Holloway 4.1mo) —
+    // not the retired. The two knobs are coupled: re-tune them together, never alone.
+    fullInactivityMonths: 18,        // "fully inactive" elbow — the 1.5-year line
     inactivityRetentionSteep: 0.65,  // steeper per-year retention past the elbow
 
     // CURRENT-FORM BOUNDARY: how old "old form" is. The full fight history is

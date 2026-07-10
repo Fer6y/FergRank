@@ -12,6 +12,30 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-07-09
 
+- **Inactivity grace widened 3→5mo, paired with the steep-decay elbow pulled 24→18mo.** The grace
+  period (`elo.inactivityGraceMonths`) was decaying almost every fighter: measuring the actual
+  inter-fight gap distribution off the fight data (`fighter1Name`/`fighter2Name` × `eventDate`,
+  numeric-sorted) gave a **modern-era (2023+) median gap of 6.2mo (~1.9 fights/yr)** — only ~9% of
+  fights follow a ≤3mo gap, so at grace=3 the model treated the normal ~2×/yr cadence as a layoff.
+  Widening to 5mo graces the largest single gap band (3-5mo) so a ~2.4×/yr fighter pays nothing.
+  **But grace enters the decay as `gentleMonths = min(gap,elbow) − grace`, so widening it uniformly
+  reduces decay for EVERYONE idle — partially undoing the 2026-07-06 two-slope "parked legend" fix**
+  (grace=5 alone re-floated Amanda Nunes, 37mo idle/retired, WBW #5→#2; Raphael Assuncao 40mo back
+  into the BW top-40; Jon Jones 20mo HW #7→#6). Pulling the elbow (`fullInactivityMonths`) in to
+  18mo (~3 missed normal cadences) puts those long layoffs back into the steep 0.65/yr band, so the
+  net change lifts only the **recently-active** (Israel Adesanya 3.4mo MW #21→#16, Max Holloway
+  4.1mo LW #6→#5) while the parked names stay sunk (Nunes unchanged, Jones #7→#8). The two knobs are
+  **coupled — always re-tune them together.** Not a new mechanism (retune of existing knobs); the
+  display-only `scheduleStrength` activity dampener + the `⏸ INACTIVE` badge are separate and never
+  feed the rating, so no double-count. Re-anchor check via `diagOfficialImpact.ts`: adjacent top-25
+  gap held at **median 3.0 / p75 5.7 Elo** with seeds still spanning +6.2→+10 (~2-3 gaps, 5 fighters
+  propped ≥3 spots, max +5) — the spread the display curve + official seed are anchored to is
+  unchanged, so **no display-curve / `officialBonusScaleElo` re-anchor needed.** Reshuffles every
+  division (a broad, mostly small lift as semi-active fighters stop being over-penalized); golden
+  master re-blessed, typecheck + all unit tests pass. Caveat logged: validated on premise + impact
+  review, NOT a held-out predictive metric — a win-prob backtest is insensitive here (it scores
+  bouts where both fighters just fought, i.e. inside grace either way).
+
 - **/upcoming sourced from ufc.com — authoritative bout ORDER + main/prelim/early SECTION split.**
   The upcoming page took its bout order from ufcstats.com (`buildUpcomingFromUfcStats.ts`), which
   lists announced bouts in announcement order and carries no card-section labels. That order
