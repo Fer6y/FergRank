@@ -238,11 +238,27 @@ console.log('\n=== applyHeadToHead (leapfrog + anti-vault + negation) ===');
     applyHeadToHead(arr, data([fight('Z', 'B', 'W', { date: monthsAgo(3), wc: DIV })]), DIV, NOW, null);
     ok(names(arr) === 'A,B,Z', 'a win from too far below (gap > eloGapCap) does not reorder');
   }
-  // 5. Anti-vault: passing more than leapfrogMaxUnbeaten un-beaten fighters is blocked.
+  // 5. Anti-vault: passing MORE than leapfrogMaxUnbeaten un-beaten fighters is
+  //    blocked. Cap-relative so this holds whatever leapfrogMaxUnbeaten is set to:
+  //    the winner (bottom) beating the victim (top) passes (n-2) = cap+1 un-beaten.
   {
-    const arr = mkRanked(); // F beating A would pass B,C,D,E = 4 unbeaten > cap (3)
-    applyHeadToHead(arr, data([fight('F', 'A', 'W', { date: monthsAgo(3), wc: DIV })]), DIV, NOW, null);
-    ok(names(arr) === 'A,B,C,D,E,F', `blocked when it would vault > ${cfg.leapfrogMaxUnbeaten} un-beaten fighters`);
+    const cap = cfg.leapfrogMaxUnbeaten;
+    const n = cap + 3;
+    const ids = Array.from({ length: n }, (_, i) => String.fromCharCode(65 + i));
+    const arr = ids.map((id, i) => rf(id, 1600 - i * 3)); // small gaps keep eloGapCap satisfied
+    applyHeadToHead(arr, data([fight(ids[n - 1], ids[0], 'W', { date: monthsAgo(3), wc: DIV })]), DIV, NOW, null);
+    ok(names(arr) === ids.join(','), `blocked when it would vault > ${cap} un-beaten fighters`);
+  }
+  // 5b. Boundary: passing EXACTLY leapfrogMaxUnbeaten un-beaten fighters is allowed
+  //     (a local reorder — this is the Costa→Murzakanov case at cap 4).
+  {
+    const cap = cfg.leapfrogMaxUnbeaten;
+    const n = cap + 2; // winner passes (n-2) = cap un-beaten = cap → allowed
+    const ids = Array.from({ length: n }, (_, i) => String.fromCharCode(65 + i));
+    const arr = ids.map((id, i) => rf(id, 1600 - i * 3));
+    applyHeadToHead(arr, data([fight(ids[n - 1], ids[0], 'W', { date: monthsAgo(3), wc: DIV })]), DIV, NOW, null);
+    const expected = [ids[n - 1], ...ids.slice(0, n - 1)].join(',');
+    ok(names(arr) === expected, `allowed when it vaults exactly ${cap} un-beaten fighters (local reorder)`);
   }
   // 6. Anti-vault exemption: in-between fighters the winner ALSO beat don't count.
   {

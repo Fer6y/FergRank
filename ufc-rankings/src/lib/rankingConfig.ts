@@ -447,13 +447,20 @@ export const RANKING_CONFIG = {
   //     UN-BEATEN in-between fighters (a local reorder). Beyond it the leap is
   //     skipped: one win shouldn't vault a fighter over a whole stack of superior
   //     résumés they never fought. Topuria→Oliveira jumps 2 (allowed);
-  //     Hernandez→Allen would jump ~5 incl. Chimaev (blocked).
+  //     Hernandez→Allen would jump ~5 incl. Chimaev (still blocked at 4).
+  //     Widened 3→4 (2026-07-10) so Costa's KO of Murzakanov lifts him above the
+  //     man he finished (LHW #9→#4); this was the ONLY edge in the data on the 4
+  //     boundary — zero collateral in the other 11 divisions. Caveat: no held-out
+  //     metric supports 4 over 3, and the jump also passes Prochazka/Jacoby/
+  //     Stirling/Reyes (un-fought). DELETE-BACK-TO-3 CONDITION: if any future card
+  //     produces a single-win 4-vault over a clearly superior résumé the winner
+  //     never faced, this is too loose — revert and handle Costa as an override.
   headToHead: {
     recencyMonths: 18,
     negateOnLossAfter: true,
     decisiveOnly: true,
     eloGapCap: 50,
-    leapfrogMaxUnbeaten: 3,
+    leapfrogMaxUnbeaten: 4,
   },
 
   // ═══ ELIGIBILITY ══════════════════════════════════════════════════════

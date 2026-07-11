@@ -10,6 +10,28 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-07-10
+
+- **Head-to-head anti-vault cap widened 3→4 (`headToHead.leapfrogMaxUnbeaten`).** Diagnosed off
+  a single LHW case: Paulo Costa KO'd Azamat Murzakanov (UFC 327, 2026-04-11) yet sat LHW #9 to
+  Murzakanov's #4. The gap is pure Elo — Costa entered at 1521.6 vs Murzakanov's 1574.8 (a 6-0
+  UFC finish run over a soft slate, sosElo ~1515), and the KO transferred ~19.4, narrowing the
+  ~53-pt lead to ~15 without flipping it. The H2H leapfrog that exists to enforce the in-cage
+  result *wanted* to fire but was blocked by the anti-vault guard: lifting Costa to #4 passes 4
+  un-beaten in-between fighters (Prochazka/Jacoby/Stirling/Reyes) > the old cap of 3. **Impact
+  measured by cold-cache diff across all 12 divisions (the rankings cache doesn't key on config,
+  so a two-process run was required): the ONLY edge in the current data on the 4-boundary is
+  Costa's** — LHW #9→#4 (five fighters shift down one), every other division byte-identical.
+  Hernandez→Allen (would pass ~5 incl. Chimaev) stays blocked. **Honest caveats (this is a
+  one-anecdote knob-widen, logged per modeling-discipline):** (1) no held-out/predictive metric
+  supports 4 over 3 — the golden-master re-bless proves non-regression, not improvement; (2) the
+  jump also vaults Costa over former champ Prochazka (Elo 1560 > Costa's 1540) whom he never
+  fought — trading one arguable wrong for another; (3) it permanently loosens the guard for all
+  future cards. **Delete-back-to-3 condition** (in the config comment): revert if any future card
+  produces a single-win 4-vault over a clearly superior un-fought résumé — handle Costa as a
+  manual override instead. Scoring test 5 made cap-relative + a boundary test 5b added ("exactly
+  the cap is allowed"); golden master re-blessed; typecheck + all unit tests pass.
+
 ## 2026-07-09
 
 - **Inactivity grace widened 3→5mo, paired with the steep-decay elbow pulled 24→18mo.** The grace
