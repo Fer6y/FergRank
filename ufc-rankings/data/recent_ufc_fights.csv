@@ -1,4 +1,18 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,kd1,kd2,str1,str2,td1,td2,sub1,sub2
+fe8d8a8c3b0afe3e,Max Holloway,3437154cd3a90944,Conor McGregor,2026-07-11,W,L,KO/TKO,1,Welterweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,0,12,0,0,0,0,0
+3495d04b5c109550,Paddy Pimblett,baf62b0c8795f506,Benoit Saint Denis,2026-07-11,W,L,SUB,1,Lightweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,0,4,1,0,0,1,0
+fb2821134f28cffd,Mario Bautista,bf88971d31a1367b,Cory Sandhagen,2026-07-11,W,L,U-DEC,3,Bantamweight,UFC 329: McGregor vs. Holloway 2,ufcstats,1,0,114,89,8,1,3,0
+22c9882008036ba4,Brandon Royval,10a96d52c89b5469,Lone'er Kavanagh,2026-07-11,W,L,SUB,3,Flyweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,1,84,56,3,1,2,1
+70838bdc207b5308,King Green,d75d3c014f3a0d70,Terrance McKinney,2026-07-11,W,L,KO/TKO,1,Lightweight,UFC 329: McGregor vs. Holloway 2,ufcstats,1,0,43,45,0,1,0,0
+40531c8f39f016fe,Robert Whittaker,9dd8a4f62f227cb4,Nikita Krylov,2026-07-11,W,L,KO/TKO,3,Light Heavyweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,0,54,51,0,3,0,0
+us:f7e856a73c96048e,Gable Steveson,5ffade352e5b635f,Elisha Ellison,2026-07-11,W,L,KO/TKO,1,Heavyweight,UFC 329: McGregor vs. Holloway 2,ufcstats,1,0,41,13,0,0,0,0
+f11750d4f48eb942,Adrian Yanez,2dcc031de9b13dcc,Cody Garbrandt,2026-07-11,W,L,KO/TKO,1,Bantamweight,UFC 329: McGregor vs. Holloway 2,ufcstats,1,0,16,13,0,0,0,0
+2c5a8031b203a4e5,Luke Riley,us:eee0ef3e2b14816b,Kai Kamaka III,2026-07-11,W,L,KO/TKO,1,Featherweight,UFC 329: McGregor vs. Holloway 2,ufcstats,1,0,43,23,0,0,0,0
+58cfe90363989b8f,Wang Cong,f23f5caaf463e283,Tracy Cortez,2026-07-11,W,L,U-DEC,3,Women's Flyweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,0,137,72,0,1,0,0
+c212ca8a9b232259,Damian Pinas,600dc8df28333450,Cesar Almeida,2026-07-11,W,L,KO/TKO,1,Middleweight,UFC 329: McGregor vs. Holloway 2,ufcstats,1,0,25,37,0,1,0,0
+6268180e745a1e23,Farid Basharat,us:a54b961a1f8be1d5,John Garza,2026-07-11,W,L,U-DEC,3,Bantamweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,0,86,82,5,0,0,0
+85a165c98f003923,Ryan Gandra,3278a31624e0082e,Zach Reese,2026-07-11,W,L,KO/TKO,1,Middleweight,UFC 329: McGregor vs. Holloway 2,ufcstats,1,0,10,5,0,0,0,0
+14a2fa2dd23e71d3,Alessandro Costa,a242f92577351a3c,Cody Durden,2026-07-11,W,L,SUB,2,Flyweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,0,21,28,0,0,2,0
 4e08ff215f9a5fc0,Rafael Fiziev,aef0ff28e0e41917,Manuel Torres,2026-06-27,W,L,KO/TKO,2,Lightweight,UFC Fight Night: Fiziev vs. Torres,ufcstats,1,0,25,22,2,0,0,0
 0d9f2d60c2483ea0,Shara Magomedov,b2d0ed4e270b49dc,Michel Pereira,2026-06-27,W,L,U-DEC,3,Middleweight,UFC Fight Night: Fiziev vs. Torres,ufcstats,0,1,52,35,0,0,0,0
 1ec908c218b0c556,Matheus Camilo,f0427fab32e0994a,Nazim Sadykhov,2026-06-27,W,L,KO/TKO,1,Lightweight,UFC Fight Night: Fiziev vs. Torres,ufcstats,1,0,4,0,0,0,0,0

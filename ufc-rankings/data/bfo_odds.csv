@@ -1804,17 +1804,31 @@ date,event_slug,fighter1,fighter2,open1,open2,close1,close2,n_books
 2026-06-27,ufc-fight-night-4230,Daniil Donchenko,Theodor Berggren,,,1.2000,4.7750,6
 2026-06-27,ufc-fight-night-4230,Bekzat Almakhan,Jean Matsumoto,2.5600,1.6135,2.4400,1.5698,7
 2026-06-27,ufc-fight-night-4230,Jefferson Nascimento,Tahir Abdullayev,,,1.6369,2.2500,6
-2026-07-11,ufc-329-4190,Conor McGregor,Max Holloway,2.7000,1.5618,2.7550,1.4396,7
-2026-07-11,ufc-329-4190,Benoit Saint-Denis,Paddy Pimblett,1.8547,2.1300,1.6921,2.1650,7
-2026-07-11,ufc-329-4190,Cory Sandhagen,Mario Bautista,1.7519,2.2700,1.6559,2.2500,7
-2026-07-11,ufc-329-4190,Brandon Royval,Loneer Kavanagh,2.8600,1.4926,2.8050,1.4396,7
-2026-07-11,ufc-329-4190,King Green,Terrance McKinney,2.3300,1.7246,2.2800,1.6154,7
-2026-07-11,ufc-329-4190,Elisha Ellison,Gable Steveson,9.0900,1.1111,11.0000,1.0450,7
-2026-07-11,ufc-329-4190,Nikita Krylov,Robert Whittaker,2.2700,1.7246,2.2350,1.6195,7
-2026-07-11,ufc-329-4190,Adrian Yanez,Cody Garbrandt,1.2817,4.1700,1.2381,4.1000,7
-2026-07-11,ufc-329-4190,Kai Kamaka III,Luke Riley,3.4500,1.3891,3.2500,1.3362,7
-2026-07-11,ufc-329-4190,Tracy Cortez,Wang Cong,2.0000,1.9615,1.9524,1.8696,6
-2026-07-11,ufc-329-4190,Cesar Almeida,Damian Pinas,3.1300,1.4484,2.6950,1.4548,7
-2026-07-11,ufc-329-4190,Ryan Gandra,Zachary Reese,1.8197,2.1300,1.7355,2.0900,7
-2026-07-11,ufc-329-4190,Alessandro Costa,Cody Durden,,,1.3992,3.0000,6
-2026-07-11,ufc-329-4190,Farid Basharat,John Garza,,,1.1667,5.0000,1
+2026-07-11,ufc-329-4190,Conor McGregor,Max Holloway,3.1300,1.4484,3.3500,1.3419,7
+2026-07-11,ufc-329-4190,Benoit Saint-Denis,Paddy Pimblett,1.8850,2.0800,1.8231,2.0000,7
+2026-07-11,ufc-329-4190,Cory Sandhagen,Mario Bautista,1.7246,2.3300,1.6712,2.2000,7
+2026-07-11,ufc-329-4190,Brandon Royval,Loneer Kavanagh,3.1300,1.4484,2.9500,1.4083,7
+2026-07-11,ufc-329-4190,King Green,Terrance McKinney,1.9615,2.0000,1.8783,1.9353,7
+2026-07-11,ufc-329-4190,Nikita Krylov,Robert Whittaker,2.1300,1.8547,2.0500,1.7968,7
+2026-07-11,ufc-329-4190,Elisha Ellison,Gable Steveson,7.6900,1.1364,9.0000,1.0707,7
+2026-07-11,ufc-329-4190,Adrian Yanez,Cody Garbrandt,1.2817,4.3500,1.2410,4.1500,7
+2026-07-11,ufc-329-4190,Kai Kamaka III,Luke Riley,3.1300,1.4484,3.0600,1.3846,7
+2026-07-11,ufc-329-4190,Tracy Cortez,Wang Cong,2.1700,1.8197,2.0000,1.8333,6
+2026-07-11,ufc-329-4190,Cesar Almeida,Damian Pinas,3.3300,1.4082,3.0500,1.3848,7
+2026-07-11,ufc-329-4190,Farid Basharat,John Garza,,,1.1399,6.0000,6
+2026-07-11,ufc-329-4190,Ryan Gandra,Zachary Reese,1.7874,2.2200,1.7353,2.1200,7
+2026-07-11,ufc-329-4190,Alessandro Costa,Cody Durden,,,1.4255,2.8750,6
+2026-07-11,ufc-329-4252,Conor McGregor,Max Holloway,3.1300,1.4484,3.3500,1.3419,7
+2026-07-11,ufc-329-4252,Benoit Saint-Denis,Paddy Pimblett,1.8850,2.0800,1.8231,2.0000,7
+2026-07-11,ufc-329-4252,Cory Sandhagen,Mario Bautista,1.7246,2.3300,1.6712,2.2000,7
+2026-07-11,ufc-329-4252,Brandon Royval,Loneer Kavanagh,3.1300,1.4484,2.9500,1.4083,7
+2026-07-11,ufc-329-4252,King Green,Terrance McKinney,1.9615,2.0000,1.8783,1.9353,7
+2026-07-11,ufc-329-4252,Nikita Krylov,Robert Whittaker,2.1300,1.8547,2.0500,1.7968,7
+2026-07-11,ufc-329-4252,Elisha Ellison,Gable Steveson,7.6900,1.1364,9.0000,1.0707,7
+2026-07-11,ufc-329-4252,Adrian Yanez,Cody Garbrandt,1.2817,4.3500,1.2410,4.1500,7
+2026-07-11,ufc-329-4252,Kai Kamaka III,Luke Riley,3.1300,1.4484,3.0600,1.3846,7
+2026-07-11,ufc-329-4252,Tracy Cortez,Wang Cong,2.1700,1.8197,2.0000,1.8333,6
+2026-07-11,ufc-329-4252,Cesar Almeida,Damian Pinas,3.3300,1.4082,3.0500,1.3848,7
+2026-07-11,ufc-329-4252,Farid Basharat,John Garza,,,1.1399,6.0000,6
+2026-07-11,ufc-329-4252,Ryan Gandra,Zachary Reese,1.7874,2.2200,1.7353,2.1200,7
+2026-07-11,ufc-329-4252,Alessandro Costa,Cody Durden,,,1.4255,2.8750,6
