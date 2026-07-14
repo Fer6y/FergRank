@@ -12,6 +12,9 @@ export const KNOWN_NAME_OVERRIDES: Record<string, string> = {
   'Ian Machado Garry': 'Ian Garry',
   'Ian Garry': 'Ian Garry',
   'Jan Błachowicz': 'Jan Blachowicz',
+  // Identity merge (fighter_merges.csv) collapsed the "Patricio Pitbull" row
+  // into Patricio Freire, so last-name matching fails ("pitbull p" vs "freire p").
+  'Patricio Pitbull': 'Patricio Freire',
 };
 
 export function normalize(name: string): string {

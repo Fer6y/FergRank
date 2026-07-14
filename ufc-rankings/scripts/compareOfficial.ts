@@ -19,10 +19,17 @@ function loadOfficialFromPath(p: string): OfficialRankingsMap {
   return result;
 }
 
+// Letters that do NOT decompose under NFD, so the combining-mark strip misses
+// them and the [^a-z0-9 ] strip would delete them ("Błachowicz" → "bachowicz").
+const NON_DECOMPOSING: Record<string, string> = {
+  'ł': 'l', 'đ': 'd', 'ø': 'o', 'æ': 'ae', 'œ': 'oe', 'ß': 'ss', 'ð': 'd', 'þ': 'th',
+};
+
 // Normalize a name for fuzzy matching (lowercase, strip accents/punct).
 function norm(s: string): string {
   return s
     .toLowerCase()
+    .replace(/[łđøæœßðþ]/g, (c) => NON_DECOMPOSING[c])
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9 ]/g, '')
