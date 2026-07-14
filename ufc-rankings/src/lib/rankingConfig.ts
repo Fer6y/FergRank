@@ -527,11 +527,12 @@ export const RANKING_CONFIG = {
     // holds "C", Topuria — now off his undefeated run — is seeded top contender.
     'Justin Gaethje': { division: 'Lightweight', rank: 'C' },
     'Ilia Topuria': { division: 'Lightweight', rank: '1' },
-    // W-Strawweight: Zhang vacated the 115 belt to move up to flyweight (lost
-    // to Shevchenko there). Dern won the vacant title. The API still lists Zhang
-    // as WSW "C", so we crown Dern and evict Zhang to flyweight.
-    'Mackenzie Dern': { division: "Women's Strawweight", rank: 'C' },
-    'Zhang Weili': { division: "Women's Flyweight", rank: '1', removeFrom: "Women's Strawweight" },
+    // (Dern/Zhang WSW overrides removed 2026-07-14: ufc.com now lists Dern as
+    // WSW "C" and Zhang at WSW #1 natively, so both resolve straight from the
+    // official snapshot. The old pair — crown Dern, evict Zhang to flyweight —
+    // dated from when the feed still stale-listed Zhang as WSW champ. Zhang is
+    // scored at WSW again (#1, ~1593, champ floor puts Dern #2); if she books a
+    // flyweight fight the official board move will carry her automatically.)
     // (Paulo Costa MW→LHW override removed 2026-07-06: ufc.com now ranks him at
     // LHW #8 directly and no longer lists him at MW, and his weightClass data is
     // now Light Heavyweight — so he resolves natively from the official snapshot

@@ -10,6 +10,25 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-07-14
+
+- **Stale Dern/Zhang WSW division overrides removed — Zhang scored at Strawweight again.** The
+  override pair (crown Dern WSW "C", evict Zhang to Women's Flyweight with a hand-made WFW #1
+  seed) dated from when ufc.com still stale-listed Zhang as WSW champ after she vacated to move
+  up. Verified against the live board (fetched 2026-07-14, byte-identical to the committed
+  snapshot): ufc.com now lists **Dern as WSW "C" and Zhang at WSW #1 natively**, so both resolve
+  straight from the official snapshot and the override contradicted the documented rule that the
+  official board owns division membership. Not a mechanism change — a stale manual override
+  deleted (its own comment's premise expired). Measured impact, exactly two divisions: **WSW —
+  Zhang enters at #1 (finalRating ~1593, ~27 clear of the field; her 5-fight SW win run over
+  Suarez/Yan/Lemos/Joanna is banked Elo and the Shevchenko loss cost little as a big rating
+  underdog), Dern floored to #2 (unconditional champion floor, same presentation as Aspinall/
+  Strickland), everyone else down one, Carnelossi out at #40; WFW — Zhang (was #5, 0-1 in-division)
+  leaves, top-4 unchanged, everyone below up one, Liang Na in at #40.** Dern's displayed score
+  +10.2 is the display curve keeping rankScore monotonic around the champion floor, not a rating
+  change. If Zhang books a flyweight fight instead, the official board move carries her back
+  automatically via the weekly ingest. Golden master re-blessed; typecheck + all unit tests pass.
+
 ## 2026-07-10
 
 - **Head-to-head anti-vault cap widened 3→4 (`headToHead.leapfrogMaxUnbeaten`).** Diagnosed off
