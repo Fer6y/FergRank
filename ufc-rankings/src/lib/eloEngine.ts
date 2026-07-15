@@ -17,6 +17,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import { RANKING_CONFIG } from './rankingConfig';
+import { rankingsNow } from './clock';
 import { effectiveEngine, DEFAULT_FILTERS, type EffectiveEngine, type EloParams } from './filters';
 import type { Fight } from './types';
 import type { LoadedData } from './loadData';
@@ -194,7 +195,7 @@ function runEloSweep(
   const maxAge = RANKING_CONFIG.elo.maxFightAgeYears;
   const boundaryDate =
     engine.eraStartYear == null && maxAge != null
-      ? new Date(Date.now() - maxAge * 365.25 * 24 * 60 * 60 * 1000)
+      ? new Date(rankingsNow().getTime() - maxAge * 365.25 * 24 * 60 * 60 * 1000)
       : null;
 
   for (const fight of ordered) {
@@ -285,7 +286,7 @@ function runEloSweep(
 
   // Final regression: bring each rating from its last-fight date up to "now"
   // so the displayed number reflects current layoff.
-  const now = new Date();
+  const now = rankingsNow();
   for (const s of states.values()) {
     if (s.lastFightDate) {
       const gap = monthsBetween(s.lastFightDate, now);
@@ -308,7 +309,7 @@ export function buildEloRatings(data: LoadedData, eng?: EffectiveEngine): EloMap
 
   let perData = eloCache.get(data);
   if (!perData) { perData = new Map(); eloCache.set(data, perData); }
-  const key = `${engine.signature}|${new Date().toISOString().slice(0, 10)}`;
+  const key = `${engine.signature}|${rankingsNow().toISOString().slice(0, 10)}`;
   const cached = perData.get(key);
   if (cached) return cached;
 

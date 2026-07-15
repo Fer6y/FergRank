@@ -11,6 +11,7 @@
 import { getData } from './dataCache';
 import { generateDivisionRankings } from './scoringEngine';
 import { getFighterHistory, eloToDisplayScore } from './eloEngine';
+import { rankingsNow } from './clock';
 import { RANKING_CONFIG } from './rankingConfig';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
@@ -30,7 +31,7 @@ import { getFighterMedia } from './fighterMedia';
 export function recentFormTilt(data: LoadedData, fighterId: string): number {
   const cfg = RANKING_CONFIG.p4pRecentForm;
   if (!cfg.enabled) return 0;
-  const now = Date.now();
+  const now = rankingsNow().getTime();
   const cutoff = now - cfg.windowYears * 365.25 * 864e5;
   const msPerMonth = (365.25 / 12) * 864e5;
   const qSpan = cfg.qualityFullElo - cfg.qualityLowElo;

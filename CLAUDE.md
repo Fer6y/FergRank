@@ -17,7 +17,9 @@ fighter cards. Goal: outperform the UFC's own upcoming Meta/AI rankings on trans
   leapfrog + anti-vault, champion tiebreaker/floor, two-slope inactivity, P4P tilt) — all of which
   can regress while the top-40 order stays put.
 - Golden master: `node_modules/.bin/jiti scripts/goldenMaster.ts` (compare) / `--update` (re-bless
-  intentionally). Order + membership must match exactly; scores tolerate small clock drift.
+  intentionally). Deterministic: the snapshot records its bless date (`asOf`) and the compare
+  freezes the engine clock to it (`RANKINGS_ASOF` → `src/lib/clock.ts`), so it fails only on real
+  code/data changes — never from calendar days passing since the bless.
 - Official-seed diagnostics: `node_modules/.bin/jiti scripts/diagOfficialImpact.ts` — who the seed
   props + the ranked-pool gap distribution. Re-run after any seed/floor tuning.
 - Typecheck: `npx tsc --noEmit`. CI = typecheck → `npm test` → build → golden master.

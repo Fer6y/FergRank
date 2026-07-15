@@ -13,6 +13,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import { RANKING_CONFIG } from './rankingConfig';
+import { rankingsNow } from './clock';
 import { fetchOfficialRankings, getOfficialRankingsForDivision } from './fetchOfficialRankings';
 import { buildNameIndex, resolveNameToId } from './nameResolver';
 import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove, getTracedRecordString, type EloMap } from './eloEngine';
@@ -178,7 +179,7 @@ export function generateDivisionRankings(
   const cacheMap = perData;
   // engine.signature covers the Elo CORE only; pureElo is a scoring-layer view,
   // so it joins the key here (a pure-Elo request reuses the default sweep).
-  const key = `${division}|${engine.signature}|${engine.pureElo ? 'pure' : 'ranked'}|${new Date().toISOString().slice(0, 10)}`;
+  const key = `${division}|${engine.signature}|${engine.pureElo ? 'pure' : 'ranked'}|${rankingsNow().toISOString().slice(0, 10)}`;
   const hit = cacheMap.get(key);
   if (hit) return hit;
 
@@ -196,7 +197,7 @@ async function computeDivisionRankings(
   data: LoadedData,
   engine: EffectiveEngine
 ): Promise<DivisionRankings> {
-  const now = new Date();
+  const now = rankingsNow();
   const { fighters, fighterFights } = data;
 
   const eraStartYear = engine.eraStartYear;
@@ -630,7 +631,7 @@ export function predictiveRatingAdjustment(data: LoadedData, fighterId: string):
   const fighter = data.fighterMap.get(fighterId);
   if (!fighter) return 0;
   const division = fighter.weightClass;
-  const now = new Date();
+  const now = rankingsNow();
   const elo = buildEloRatings(data);
   const pedigree = RANKING_CONFIG.preUFCPedigree.seedEnabled ? loadPedigreeStrength(data) : null;
   const fights = data.fighterFights.get(fighterId) || [];

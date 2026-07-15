@@ -5,10 +5,11 @@ name: CI
 # changes and re-blesses the golden baseline): this one proves CODE changes
 # compile, build, and don't silently move the rankings.
 #
-# The golden-master step needs network (Octagon official rankings) and compares
-# against the committed baseline in ufc-rankings/data/golden/. Its comparison is
-# drift-tolerant on scores but exact on order/membership — if it fails on a
-# change that SHOULD move rankings, re-bless locally with
+# The golden-master step compares against the committed baseline in
+# ufc-rankings/data/golden/ with the engine clock frozen to the snapshot's
+# bless date (asOf), so the comparison is deterministic — it fails only on a
+# real code/data change, never from calendar days passing since the bless.
+# If it fails on a change that SHOULD move rankings, re-bless locally with
 # `node_modules/.bin/jiti scripts/goldenMaster.ts --update` and commit the
 # snapshot alongside the code.
 

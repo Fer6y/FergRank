@@ -5,10 +5,13 @@
 //  the rankings unexpectedly. This is the safety net for a "frozen-live" product:
 //  refactor freely, then run this to prove rankings didn't shift.
 //
-//  Comparison is robust to the engine's clock-based drift (it regresses ratings
-//  to `new Date()`):
+//  DETERMINISTIC: the snapshot records the date it was blessed (`asOf`), and the
+//  comparison freezes the engine clock to that date (RANKINGS_ASOF → rankingsNow()),
+//  so the engine's regress-ratings-to-"today" step can't rot the baseline as
+//  calendar days pass (near-tied fighters used to swap ranks between blesses and
+//  fail CI on an untouched main).
 //    • ORDER + MEMBERSHIP per division must match EXACTLY  → real regression.
-//    • SCORES may drift within a small tolerance           → clock/calendar noise.
+//    • SCORES may drift within a small tolerance           → residual noise.
 //  A change in order, who's ranked, or a score moving > tolerance = FAIL.
 //
 //  Run:    node_modules/.bin/jiti scripts/goldenMaster.ts            (compare)
@@ -30,11 +33,16 @@ interface Entry {
   score: number; finalRating: number; elo: number;
   officialRank: string | null; record: string;
 }
-type Snapshot = Record<string, Entry[]>;
+type Divisions = Record<string, Entry[]>;
+interface Snapshot { asOf: string; divisions: Divisions }
 
-async function generate(): Promise<Snapshot> {
+// Generate rankings with the engine clock frozen to `asOf` (YYYY-MM-DD, UTC
+// midnight) — see src/lib/clock.ts. Bless and compare both run through here
+// with the SAME date, so output is a pure function of (code, data).
+async function generate(asOf: string): Promise<Divisions> {
+  process.env.RANKINGS_ASOF = asOf;
   const data = loadAllData();
-  const out: Snapshot = {};
+  const out: Divisions = {};
   for (const div of ALL_DIVISIONS) {
     const r = await generateDivisionRankings(div, data);
     out[div] = r.fighters.map((f) => ({
@@ -44,6 +52,14 @@ async function generate(): Promise<Snapshot> {
     }));
   }
   return out;
+}
+
+// Legacy snapshots (pre-asOf) were the bare divisions record.
+function readSnapshot(): Snapshot {
+  const raw = JSON.parse(fs.readFileSync(SNAP, 'utf-8'));
+  if (typeof raw.asOf === 'string' && raw.divisions) return raw as Snapshot;
+  console.log('  (legacy snapshot without asOf — comparing at wall-clock today; re-bless to pin it)');
+  return { asOf: new Date().toISOString().slice(0, 10), divisions: raw as Divisions };
 }
 
 interface DivDiff {
@@ -76,21 +92,23 @@ function diffDivision(division: string, gold: Entry[], cur: Entry[]): DivDiff | 
 
 async function main(): Promise<void> {
   const update = process.argv.includes('--update');
-  const current = await generate();
 
   if (update || !fs.existsSync(SNAP)) {
+    const asOf = new Date().toISOString().slice(0, 10);
+    const divisions = await generate(asOf);
     fs.mkdirSync(path.dirname(SNAP), { recursive: true });
-    fs.writeFileSync(SNAP, JSON.stringify(current, null, 2) + '\n');
-    const n = Object.values(current).reduce((s, v) => s + v.length, 0);
+    fs.writeFileSync(SNAP, JSON.stringify({ asOf, divisions }, null, 2) + '\n');
+    const n = Object.values(divisions).reduce((s, v) => s + v.length, 0);
     console.log(`✓ snapshot ${fs.existsSync(SNAP) && !update ? 'created' : 'updated'}: ${SNAP}`);
-    console.log(`  ${Object.keys(current).length} divisions, ${n} ranked fighters.`);
+    console.log(`  ${Object.keys(divisions).length} divisions, ${n} ranked fighters, asOf ${asOf}.`);
     return;
   }
 
-  const golden: Snapshot = JSON.parse(fs.readFileSync(SNAP, 'utf-8'));
+  const golden = readSnapshot();
+  const current = await generate(golden.asOf);
   const diffs: DivDiff[] = [];
   for (const div of ALL_DIVISIONS) {
-    const dd = diffDivision(div, golden[div] ?? [], current[div] ?? []);
+    const dd = diffDivision(div, golden.divisions[div] ?? [], current[div] ?? []);
     if (dd) diffs.push(dd);
   }
 
@@ -98,7 +116,7 @@ async function main(): Promise<void> {
   console.log('  GOLDEN-MASTER RANKING REGRESSION TEST');
   console.log('═══════════════════════════════════════════════════════════════');
   if (!diffs.length) {
-    console.log('  ✓ PASS — all 12 divisions identical (order, membership, scores).');
+    console.log(`  ✓ PASS — all ${ALL_DIVISIONS.length} divisions identical (order, membership, scores) at asOf ${golden.asOf}.`);
     return;
   }
 

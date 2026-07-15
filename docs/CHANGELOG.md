@@ -10,7 +10,26 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
-## 2026-07-15 (later)
+## 2026-07-15 (CI fix)
+
+- **Golden master made deterministic — frozen `asOf` clock kills the recurring CI baseline rot.**
+  CI's golden-master step kept failing on an untouched `main` (runs c4ae3bc 2026-07-15 and several
+  on 2026-07-09): the Elo sweep regresses every rating to `new Date()`, so the ranking output is a
+  function of (code, data, TODAY) — and as calendar days passed after a bless, near-tied fighters
+  decayed at different rates until a pair swapped ranks (reproduced locally: WSW #36/#37
+  Dudakova/Martinez flipped by pure clock drift; order must match exactly, so CI hard-failed with
+  zero code change). Fix: new `src/lib/clock.ts` `rankingsNow()` — the engines' single notion of
+  "today", overridable via `RANKINGS_ASOF=YYYY-MM-DD` (UTC midnight, timezone-stable; unset =
+  wall clock, so production is byte-identical). All ranking-path wall-clock reads route through it
+  (`eloEngine` final regression + era boundary + cache key, `scoringEngine` ranking pass +
+  prediction adjustment + cache key, `crossDivision` P4P recent-form window; remaining
+  `new Date()` uses in src/lib are display-only surfaces outside the ranked output).
+  `goldenMaster.ts` snapshot format is now `{ asOf, divisions }`: bless stamps today's date,
+  compare freezes the clock to the stored `asOf` — output is a pure function of (code, data), so
+  the check fails only on real changes (legacy bare-divisions snapshots fall back to wall clock
+  with a re-bless warning). Snapshot re-blessed at asOf 2026-07-15; compare passes and re-runs are
+  stable. Typecheck + all unit tests pass. The weekly ingest already re-blesses after data
+  changes (step 8/8), which stamps a fresh `asOf` weekly — no ingest changes needed.
 
 - **Prediction meters switched to RANKED ratings (the closest model to the closing line).**
   Follow-up to the bake-off below: `research/backtest/last100.ts` (most recent 100/500
