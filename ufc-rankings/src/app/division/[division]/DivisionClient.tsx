@@ -15,6 +15,7 @@ function buildQuery(division: string, f: FilterParams): string {
   if (f.finishWeight !== 0.5) p.set('finish', String(f.finishWeight));
   if (f.recencyWeight !== 0.5) p.set('recency', String(f.recencyWeight));
   if (f.activityWeight !== 0.5) p.set('activity', String(f.activityWeight));
+  if (f.pureElo) p.set('pure', '1');
   return p.toString();
 }
 
@@ -86,7 +87,7 @@ export default function DivisionClient({
       clearTimeout(t);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [neutral, selectedDivision, filters.eraStartYear, filters.finishWeight, filters.recencyWeight, filters.activityWeight]);
+  }, [neutral, selectedDivision, filters.eraStartYear, filters.finishWeight, filters.recencyWeight, filters.activityWeight, filters.pureElo]);
 
   const handleGenderChange = (newGender: 'male' | 'female') => {
     setGender(newGender);

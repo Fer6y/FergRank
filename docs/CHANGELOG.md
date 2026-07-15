@@ -10,6 +10,48 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-07-15 (later)
+
+- **Prediction meters switched to RANKED ratings (the closest model to the closing line).**
+  Follow-up to the bake-off below: `research/backtest/last100.ts` (most recent 100/500
+  odds-matched bouts, both ≥5 prior UFC fights) showed monotone improvement pure Elo → ranked
+  score → +age/style overlay, with **ranked + overlay** the best (n=500: t = −3.83 vs raw-Elo
+  predictions on per-bout logloss; LL gap to the de-vigged close +0.0298 vs pure Elo's +0.0561 —
+  ~47% of the gap recovered; still significantly behind the market, t = 2.51 — the 100-bout window
+  where it nominally beat the close, 73% vs 68% acc, was a lucky stretch: pick-disagreements ran
+  11-6 model at n=100 but 71-48 MARKET at n=500). Shipped: `predictiveRating()` in
+  `fightPrediction.ts` = current Elo + `predictiveRatingAdjustment()` (new in `scoringEngine.ts` —
+  metrics + SoS + pedigree + untested hold in the fighter's home division; official seed excluded,
+  matching the backtested composition). All three prediction surfaces route through it: compare's
+  `predictMatchup`, `/upcoming`'s headline `prob1`, and the Analyst `compareFighters` tool
+  (displayed per-side `elo` stays raw; compare's decomposition label renamed ELO ALONE → RATING
+  ALONE). To keep one copy of the formulas, the ranking pass's per-fighter adjustment block was
+  extracted as `computeFighterAdjustments()` used by both paths — behavior-identical (golden
+  master diff matches clean HEAD's pure clock drift; all unit tests + typecheck pass; verified
+  live on /compare + /upcoming, hand-traced Topuria–Oliveira 49.0%→48.0%). `formProb1` and the
+  compare fallback still use raw Elo by design. Display-only end to end: nothing feeds Elo or the
+  division sort.
+
+## 2026-07-15
+
+- **"Pure Elo closer to the closing line" claim tested — REFUTED; Pure-Elo view toggle added.**
+  New research script `research/backtest/rankedVsClose.ts` scores pure Elo vs a point-in-time
+  reconstruction of the ranking score (elo + metrics + SoS + pedigree + untested hold, each
+  recomputed as of the fight date from pre-fight data only; officialBonus omitted — no historical
+  official-rankings snapshots exist) against the de-vigged BFO close. Result, 835 bouts (both ≥3
+  prior UFC fights): the ranking layer moves predictions TOWARD the market, not away — full sample
+  Δlogloss −0.0067 (paired t = −2.77), acc 59.6%→61.2%, ECE 0.141→0.124; direction consistent in
+  every subset (established ≥6: −0.0071, t = −2.26; newcomers 3–5: −0.0063; last-30-cards:
+  −0.0039). So the bounded adjustments earn their keep even as predictors. Caveats: officialBonus
+  unmeasured (bounded ≤~10 Elo, ranked names only); pedigree empirical grades carry the known mild
+  look-ahead. Separately shipped the user-facing **Pure Elo toggle** on the division FilterBar
+  (`FilterParams.pureElo` → `pure=1` on /api/rankings): ranks by raw Elo only — adjustments zeroed
+  in the output (decomposition agrees with finalRating), H2H leapfrog/champion tiebreaker/champion
+  floor skipped (champion hero still pins via RankingTable's "C" filter). View-only: default off
+  reproduces the house algorithm byte-identically (verified — golden master diff identical to
+  clean HEAD's pure clock drift), and `pureElo` is excluded from the Elo-core cache signature so
+  the toggle reuses the default sweep. Typecheck + all unit tests pass.
+
 ## 2026-07-14
 
 - **Stale Dern/Zhang WSW division overrides removed — Zhang scored at Strawweight again.** The

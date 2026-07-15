@@ -14,6 +14,7 @@ export interface FilterParams {
   finishWeight: number;        // 0..1, 0.5 = neutral (how much finishing matters)
   recencyWeight: number;       // 0..1, 0.5 = neutral (how much recent fights dominate)
   activityWeight: number;      // 0..1, 0.5 = neutral (how hard layoffs are penalized)
+  pureElo: boolean;            // true = rank by raw Elo only (no ranking-layer adjustments)
 }
 
 export const DEFAULT_FILTERS: FilterParams = {
@@ -21,6 +22,7 @@ export const DEFAULT_FILTERS: FilterParams = {
   finishWeight: 0.5,
   recencyWeight: 0.5,
   activityWeight: 0.5,
+  pureElo: false,
 };
 
 export function isDefaultFilters(f: FilterParams): boolean {
@@ -28,7 +30,8 @@ export function isDefaultFilters(f: FilterParams): boolean {
     f.eraStartYear == null &&
     f.finishWeight === 0.5 &&
     f.recencyWeight === 0.5 &&
-    f.activityWeight === 0.5
+    f.activityWeight === 0.5 &&
+    !f.pureElo
   );
 }
 
@@ -59,12 +62,17 @@ export interface EffectiveEngine {
   finishMultipliers: Record<string, number>;
   eraStartYear: number | null;
   recencyHalfLifeMonths: number; // scoring-side metric/SoS window
-  signature: string;             // cache key
+  pureElo: boolean;              // scoring-layer view: rank on raw Elo only
+  signature: string;             // Elo-CORE cache key (pureElo excluded — the sweep is identical)
   isDefault: boolean;
 }
 
 export function effectiveEngine(filters: FilterParams): EffectiveEngine {
-  const def = isDefaultFilters(filters);
+  // pureElo never touches the Elo sweep — exclude it from the CORE signature so
+  // a pure-Elo request reuses the default sweep cache. The scoring layer keys
+  // its own cache on `pureElo` separately (see scoringEngine).
+  const { pureElo, ...core } = filters;
+  const def = isDefaultFilters({ ...core, pureElo: false });
   const base = RANKING_CONFIG.elo;
 
   // finishWeight: scale the deviation of each multiplier from 1.0. 0.5→×1 (base),
@@ -101,7 +109,8 @@ export function effectiveEngine(filters: FilterParams): EffectiveEngine {
     finishMultipliers,
     eraStartYear: filters.eraStartYear,
     recencyHalfLifeMonths,
-    signature: def ? 'default' : JSON.stringify(filters),
+    pureElo,
+    signature: def ? 'default' : JSON.stringify(core),
     isDefault: def,
   };
 }
@@ -116,10 +125,12 @@ export function parseFilters(params: URLSearchParams): FilterParams {
   };
   const eraRaw = params.get('era');
   const eraStartYear = eraRaw && eraRaw !== 'all' ? parseInt(eraRaw, 10) : null;
+  const pureRaw = params.get('pure');
   return {
     eraStartYear: Number.isFinite(eraStartYear as number) ? eraStartYear : null,
     finishWeight: clamp(num('finish', 0.5), 0, 1),
     recencyWeight: clamp(num('recency', 0.5), 0, 1),
     activityWeight: clamp(num('activity', 0.5), 0, 1),
+    pureElo: pureRaw === '1' || pureRaw === 'true',
   };
 }

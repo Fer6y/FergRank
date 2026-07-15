@@ -223,7 +223,9 @@ function Comparison({ pa, pb }: { pa: FighterProfile; pb: FighterProfile }) {
             return (
               <div className="mt-2 pt-2" style={{ borderTop: '1px solid var(--border-light)' }}>
                 <div className="flex items-center justify-between text-[9px] mb-1.5" style={{ color: 'var(--text-muted)' }}>
-                  <span>ELO ALONE {pctFmt(eloA)} / {pctFmt(1 - eloA)}</span>
+                  {/* pred.eloProbA is the RANKED-rating gap (Elo + bounded ranking
+                      terms) before the age/style overlay — label it as such. */}
+                  <span>RATING ALONE {pctFmt(eloA)} / {pctFmt(1 - eloA)}</span>
                   {Math.abs(shiftPts) >= 0.5 && (
                     <span>AGE + STYLE {shiftPts >= 0 ? '+' : '−'}{Math.abs(shiftPts).toFixed(0)}% {shiftPts >= 0 ? lnA : lnB}</span>
                   )}

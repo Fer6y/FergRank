@@ -12,7 +12,7 @@
 import { getData } from './dataCache';
 import { generateDivisionRankings } from './scoringEngine';
 import { buildEloRatings, getElo, getFighterHistory, winProbabilityShaded } from './eloEngine';
-import { predictFight } from './fightPrediction';
+import { predictFight, predictiveRating } from './fightPrediction';
 import { getBoutFlags, hasAnyFlags, type BoutFlagSet } from './boutFlags';
 import { getAdvancedStats, buildScheduleContext, formEloNudge, type ScheduleContext } from './advancedStats';
 import { describeStyle } from './fighterDisplay';
@@ -202,6 +202,10 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     }
     const eloA = getElo(ratings, id1).rating;
     const eloB = getElo(ratings, id2).rating;
+    // Headline meter uses RANKED ratings (Elo + bounded ranking-layer terms) —
+    // the closing-line backtest's best configuration (see predictiveRating).
+    const rankedA = predictiveRating(data, id1);
+    const rankedB = predictiveRating(data, id2);
     const fightsA = data.fighterFights.get(id1)?.length ?? 0;
     const fightsB = data.fighterFights.get(id2)?.length ?? 0;
     const nudgeA = formEloNudge(getAdvancedStats(data, id1)?.drift);
@@ -210,8 +214,8 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     const f1 = getBoutFlags(id1, eventDate);
     const f2 = getBoutFlags(id2, eventDate);
     return {
-      // Enhanced prediction: Elo + age + style-matchup + context flags (fightPrediction.ts).
-      prob1: predictFight(data, id1, id2, eloA, eloB, fightsA, fightsB, undefined, f1, f2).probA,
+      // Enhanced prediction: ranked rating + age + style-matchup + context flags.
+      prob1: predictFight(data, id1, id2, rankedA, rankedB, fightsA, fightsB, undefined, f1, f2).probA,
       formProb1: nudgeA !== 0 || nudgeB !== 0 ? winProbabilityShaded(eloA + nudgeA, eloB + nudgeB, fightsA, fightsB) : null,
       flags1: hasAnyFlags(f1) ? f1 : null,
       flags2: hasAnyFlags(f2) ? f2 : null,

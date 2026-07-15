@@ -18,7 +18,7 @@ import { enrichCards, type CardFighter } from '../upcomingEnrich';
 import { getFighterProfile } from '../fighterProfile';
 import { getAdvancedStats, formEloNudge, type PaceWindow } from '../advancedStats';
 import { buildEloRatings, getElo, winProbabilityShaded, getTracedRecordString } from '../eloEngine';
-import { predictFight } from '../fightPrediction';
+import { predictFight, predictiveRating } from '../fightPrediction';
 import { searchFighters } from '../searchFighters';
 import { getReach } from '../fighterPhysical';
 import { getFighterAge } from '../fighterAges';
@@ -349,11 +349,18 @@ async function compareFighters(idA: string, idB: string): Promise<unknown> {
   const b = { ...side(fB, idB, eloB, advB), formEloNudge: r(nudgeB, 1) };
 
   const hasForm = nudgeA !== 0 || nudgeB !== 0;
-  const pred = predictFight(data, idA, idB, eloA, eloB, fightsA, fightsB);
+  // RANKED ratings (Elo + bounded ranking-layer terms) feed the prediction —
+  // same model as the compare/upcoming meters (see predictiveRating). The
+  // displayed per-side `elo` stays the raw rating.
+  const pred = predictFight(
+    data, idA, idB,
+    predictiveRating(data, idA), predictiveRating(data, idB),
+    fightsA, fightsB,
+  );
   return {
-    // Enhanced prediction: Elo + age + style-matchup, thin-sample shaded.
+    // Enhanced prediction: ranked rating + age + style-matchup, thin-sample shaded.
     winProbAPct: pct(pred.probA),
-    eloOnlyWinProbAPct: pct(pred.eloProbA), // the pure rating gap, before age/style
+    eloOnlyWinProbAPct: pct(pred.eloProbA), // the ranked-rating gap, before age/style
     // The style read behind the number, so you can explain the pick from the tape
     // (grounded in our fight data — never odds). Edges are A-perspective: + favours A.
     matchup: pred.style ? {

@@ -224,12 +224,21 @@ Refinements on top of the base seed:
 
 ## 8. Win probability (display-only)
 
-Headline win prob is pure Elo (`elo.winProbDenominator`), shaded toward 0.5 for provisional
-fighters (`elo.winProbShadeFloor`). A bounded context overlay (`winProbModel`: age edge with
-saturation, striking/grappling/power style edges, short-notice and missed-weight flags, all capped
-by `maxAdjustmentLogit` and shrunk by `overlayShrink`) adjusts it without ever flipping a clear
-Elo favourite. `formEloNudge` (compare/upcoming) is a separate experimental variant shading each
-side's Elo by bounded recent-form drift. None of this feeds Elo or rankings.
+The prediction meters (compare, /upcoming, the Analyst tool) feed **ranked ratings** into the
+overlay (2026-07-15): each side's rating is current Elo plus the bounded ranking-layer terms —
+metrics, SoS nudge, pedigree seed, untested hold; the official seed is deliberately excluded (a
+belt-tracking prior, not a cage signal) — via `predictiveRating()` (`fightPrediction.ts`) →
+`predictiveRatingAdjustment()` (`scoringEngine.ts`, sharing the ranking pass's formula block so
+the two can't drift). Chosen on evidence: the closing-line bake-off
+(`research/backtest/last100.ts`) found Elo → ranked → +overlay improves monotonically, ranked +
+overlay beating raw-Elo predictions at t = −3.83 (n=500) and recovering ~47% of the logloss gap
+to the de-vigged close. Probability from the rating gap uses `elo.winProbDenominator`, shaded
+toward 0.5 for provisional fighters (`elo.winProbShadeFloor`). The bounded context overlay
+(`winProbModel`: age edge with saturation, striking/grappling/power style edges, short-notice and
+missed-weight flags, all capped by `maxAdjustmentLogit` and shrunk by `overlayShrink`) adjusts it
+without ever flipping a clear favourite. `formEloNudge` (compare/upcoming) is a separate
+experimental variant shading each side's raw Elo by bounded recent-form drift. None of this feeds
+Elo or rankings.
 
 ## 9. P4P & leaderboards (`crossDivision.ts`)
 

@@ -23,6 +23,7 @@ import type { Fight } from './types';
 import { RANKING_CONFIG } from './rankingConfig';
 import { getFighterAge } from './fighterAges';
 import { buildEloRatings, getElo } from './eloEngine';
+import { predictiveRatingAdjustment } from './scoringEngine';
 import { loadPedigreeStrength } from './pedigreeSeed';
 
 const LN10 = Math.log(10);
@@ -265,13 +266,26 @@ export function predictFight(
 
 // Convenience wrapper for the display layer: predict from two ids, loading the
 // (memoized) data + Elo ratings itself. Live prediction → no asOf (full record).
+// Feeds RANKED ratings (predictiveRating), not raw Elo — the closing-line
+// backtest's best configuration.
 export function predictMatchup(idA: string, idB: string): PredictionBreakdown | null {
   const data = loadAllData();
   if (!data.fighterMap.has(idA) || !data.fighterMap.has(idB)) return null;
-  const ratings = buildEloRatings(data);
   return predictFight(
     data, idA, idB,
-    getElo(ratings, idA).rating, getElo(ratings, idB).rating,
+    predictiveRating(data, idA), predictiveRating(data, idB),
     data.fighterFights.get(idA)?.length ?? 0, data.fighterFights.get(idB)?.length ?? 0,
   );
+}
+
+// The rating a fighter carries into a prediction: current Elo + the bounded
+// ranking-layer terms (metrics/SoS/pedigree/untested; NO official seed). This
+// is the model the closing-line backtest measured closest to the market
+// (research/backtest/last100.ts, 2026-07-15: t = −3.83 vs raw-Elo predictions
+// at n=500, ~47% of the logloss gap to the close recovered). Every prediction
+// surface (compare, upcoming, agent) routes through this so the shown meters
+// stay one model. Display-only; never feeds Elo or the division sort.
+export function predictiveRating(data: LoadedData, fighterId: string): number {
+  const ratings = buildEloRatings(data);
+  return getElo(ratings, fighterId).rating + predictiveRatingAdjustment(data, fighterId);
 }

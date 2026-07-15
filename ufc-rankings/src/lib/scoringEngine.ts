@@ -15,7 +15,7 @@
 import { RANKING_CONFIG } from './rankingConfig';
 import { fetchOfficialRankings, getOfficialRankingsForDivision } from './fetchOfficialRankings';
 import { buildNameIndex, resolveNameToId } from './nameResolver';
-import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove, getTracedRecordString } from './eloEngine';
+import { buildEloRatings, getElo, getFighterHistory, eloToDisplayScore, sosEloToDisplayScore, normalizeWeightClassForMove, getTracedRecordString, type EloMap } from './eloEngine';
 import { getRegistry } from './registry';
 import { effectiveEngine, DEFAULT_FILTERS, type FilterParams, type EffectiveEngine } from './filters';
 import { loadPedigreeStrength } from './pedigreeSeed';
@@ -176,7 +176,9 @@ export function generateDivisionRankings(
   let perData = rankingsCache.get(data);
   if (!perData) { perData = new Map(); rankingsCache.set(data, perData); }
   const cacheMap = perData;
-  const key = `${division}|${engine.signature}|${new Date().toISOString().slice(0, 10)}`;
+  // engine.signature covers the Elo CORE only; pureElo is a scoring-layer view,
+  // so it joins the key here (a pure-Elo request reuses the default sweep).
+  const key = `${division}|${engine.signature}|${engine.pureElo ? 'pure' : 'ranked'}|${new Date().toISOString().slice(0, 10)}`;
   const hit = cacheMap.get(key);
   if (hit) return hit;
 
@@ -298,73 +300,11 @@ async function computeDivisionRankings(
 
     const divFights = getDivFights(fighter.fighterId);
 
-    // Opponent QUALITY (for SoS + the untested hold) = max(fight-time, current).
-    // The night you fought them the opponent was worth `opponentRating` (their
-    // trace value — what the Elo CORE already used); today they may be rated
-    // higher or lower. We take the HIGHER of the two so a win is:
-    //   • never DEGRADED below what they were worth that night — they EARNED that
-    //     rating, so a since-faded/retired opponent can't erode your résumé; and
-    //   • UPGRADED if they've since climbed — you get credit when the fighter you
-    //     beat goes on to prove himself (the "B rebounds → bump A" case).
-    // Built once per fighter from the trace, keyed by fightId. bestWinElo (the
-    // untested-hold release key) is scanned CAREER-WIDE here, NOT the SoS window,
-    // so an old elite scalp (e.g. Procházka's champ-era Teixeira sub) still counts.
-    const oppQualityByFight = new Map<string, number>();
-    let bestWinElo = 0;
-    for (const t of getFighterHistory(data, fighter.fighterId)) {
-      const q = Math.max(t.opponentRating, getElo(elo, t.opponentId).rating);
-      oppQualityByFight.set(t.fightId, q);
-      if (t.result === 'W' && q > bestWinElo) bestWinElo = q;
-    }
-
-    // ── Strength of schedule: recency-weighted avg opponent Elo in window ──
-    let sosWeighted = 0;
-    let sosWeightSum = 0;
-    const metricSamples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; sub: number; w: number }[] = [];
-
-    for (const fight of divFights) {
-      const persp = getFighterPerspective(fight, fighter.fighterId);
-      if (!persp) continue;
-      const w = recencyWeight(fight.eventDate, now, halfLife);
-      const oppElo = oppQualityByFight.get(fight.fightId) ?? getElo(elo, persp.opponentId).rating;
-
-      if (fight.eventDate && monthsBetween(fight.eventDate, now) / 12 <= RANKING_CONFIG.sosWindowYears) {
-        sosWeighted += oppElo * w;
-        sosWeightSum += w;
-      }
-
-      // Sherdog recency top-up fights carry no per-fight metrics — include them
-      // in Elo/SoS/recency (handled elsewhere) but NEVER in the strike/grappling
-      // composite, or they'd drag the averages toward zero.
-      if (fight.hasMetrics !== false && metricSamples.length < RANKING_CONFIG.metricsRecentFights) {
-        metricSamples.push({
-          strDiff: persp.strSelf - persp.strOpp,
-          accDiff: persp.sigStrPctSelf - persp.sigStrPctOpp,
-          kd: persp.kdSelf,
-          tdDiff: persp.tdSelf - persp.tdOpp,
-          sub: persp.subSelf,
-          w,
-        });
-      }
-    }
-
-    const sosElo = sosWeightSum > 0 ? sosWeighted / sosWeightSum : RANKING_CONFIG.sosAnchorElo;
-    const sosNudge = clamp(
-      (sosElo - RANKING_CONFIG.sosAnchorElo) * RANKING_CONFIG.sosSlopePerElo,
-      -RANKING_CONFIG.sosAdjustCap,
-      RANKING_CONFIG.sosAdjustCap
-    );
-
-    // ── Striking/grappling metrics (bounded ± Elo points) ──
-    let metricsBonus = computeMetricsBonus(metricSamples, divFights.length);
-
-    // Opponent-quality damper: positive metrics earned against a weak slate are
-    // discounted (gaudy stats vs bad competition shouldn't inflate the rating).
-    // Keyed on sosElo (slate quality); negative metrics stand regardless. See
-    // RANKING_CONFIG.metricsQualityDamp for the full rationale.
-    if (RANKING_CONFIG.metricsQualityDamp && metricsBonus > 0) {
-      metricsBonus *= metricsQualityMultiplier(sosElo);
-    }
+    // SoS / metrics / pedigree / untested-hold — the shared per-fighter block
+    // (also feeds the prediction path via predictiveRatingAdjustment).
+    const adj = computeFighterAdjustments(data, elo, fighter.fighterId, fights.length, divFights, halfLife, now, pedigree);
+    const { sosElo, pedigreeStrength } = adj;
+    let { metricsBonus, sosNudge, pedigreeBonus, untestedPenalty } = adj;
 
     // ── Official seed (small; floors are the real backstop) ──
     const officialRank = officialRankMap.get(fighter.fighterId) || null;
@@ -384,26 +324,17 @@ async function computeDivisionRankings(
       }
     }
 
-    // ── Pre-UFC pedigree seed (gated by seedEnabled; thin-sample only) ──
-    // Tapers from full at 0 UFC fights to ZERO at seedTaperUFCFights, so a real
-    // UFC sample always overrides it. pedigree is null when the toggle is off.
-    const pedInfo = pedigree?.get(fighter.fighterId);
-    const pedigreeStrength = pedInfo?.strength ?? 0;
-    let pedigreeBonus = 0;
-    if (pedInfo) {
-      const taper = Math.max(0, 1 - fights.length / RANKING_CONFIG.preUFCPedigree.seedTaperUFCFights);
-      pedigreeBonus = pedInfo.strength * RANKING_CONFIG.preUFCPedigree.seedMaxElo * taper;
+    // Pure-Elo view: the user asked for the raw rating, so every ranking-layer
+    // adjustment is zeroed (not just excluded from the sum) — the displayed
+    // decomposition must agree with finalRating. sosElo/scheduleStrength stay:
+    // they're context stats, not rating terms.
+    if (engine.pureElo) {
+      metricsBonus = 0;
+      sosNudge = 0;
+      officialBonus = 0;
+      pedigreeBonus = 0;
+      untestedPenalty = 0;
     }
-
-    // ── "Untested" hold (bowling-spare): held back until a ranked-calibre win ──
-    // Scales with how far the best career win falls short of the threshold, and
-    // tapers out by fight count so proven veterans are immune. Ranking-only; the
-    // penalty is folded into finalRating here but subtracted back out for P4P
-    // (see crossDivision.ts). Releases entirely once bestWinElo clears threshold.
-    // bestWinElo now uses max(fight-time, current) opponent quality (see above),
-    // so a former contender's old elite scalp legitimately releases the hold at
-    // the root — no title-fight exemption needed.
-    const untestedPenalty = untestedHoldPenalty(bestWinElo, fights.length);
 
     const finalRating = eloState.rating + metricsBonus + sosNudge + officialBonus + pedigreeBonus + untestedPenalty;
 
@@ -458,16 +389,21 @@ async function computeDivisionRankings(
     return b.sosElo - a.sosElo;
   });
 
-  // 5. Head-to-head leapfrog: a fighter who recently + decisively beat someone
-  //    ranked above them is lifted to directly above that opponent (guard-railed).
-  applyHeadToHead(rankedFighters, data, division, now, eraStartYear);
+  // 5–7 are ranking-layer corrections; the pure-Elo view skips them all — it
+  // shows the raw merit sort, nothing else. (The champion hero is a UI concern:
+  // RankingTable pins any officialRank "C" above the list regardless of slot.)
+  if (!engine.pureElo) {
+    // 5. Head-to-head leapfrog: a fighter who recently + decisively beat someone
+    //    ranked above them is lifted to directly above that opponent (guard-railed).
+    applyHeadToHead(rankedFighters, data, division, now, eraStartYear);
 
-  // 6. Champion tiebreaker: a reigning champ in a near-tie wins the top slot.
-  applyChampionTiebreaker(rankedFighters, division);
+    // 6. Champion tiebreaker: a reigning champ in a near-tie wins the top slot.
+    applyChampionTiebreaker(rankedFighters, division);
 
-  // 7. Champion floor only — pin a reigning champ to the top slot. Contender
-  //    floors were removed so the UFC list can never override Elo/head-to-head.
-  applyChampionFloor(rankedFighters, officialRankMap, division);
+    // 7. Champion floor only — pin a reigning champ to the top slot. Contender
+    //    floors were removed so the UFC list can never override Elo/head-to-head.
+    applyChampionFloor(rankedFighters, officialRankMap, division);
+  }
 
   // 8. Display-only monotonicity: steps 5–7 reorder the array but never touch
   //    rankScore, so a lifted fighter (especially a champion pinned to the top
@@ -561,6 +497,155 @@ export function computeMetricsBonus(
   // Dampen for thin samples so a 3-fight fighter's metrics can't swing them.
   const confidence = Math.min(scoredFightCount / RANKING_CONFIG.metricsConfidenceMinFights, 1.0);
   return composite * RANKING_CONFIG.metricsScaleElo * confidence;
+}
+
+// ─── Shared per-fighter adjustment block ─────────────────────
+// The bounded ranking-layer terms (SoS nudge, metrics composite, pedigree seed,
+// untested hold) for ONE fighter, computed at `now` over `divFights`. Used by
+// the division ranking pass AND by predictiveRatingAdjustment below — one copy
+// of the formulas, so the two paths can never drift apart.
+export interface FighterAdjustments {
+  sosElo: number;
+  sosNudge: number;
+  metricsBonus: number;
+  pedigreeBonus: number;
+  pedigreeStrength: number;
+  untestedPenalty: number;
+  bestWinElo: number;
+}
+
+function computeFighterAdjustments(
+  data: LoadedData,
+  elo: EloMap,
+  fighterId: string,
+  fightCount: number,
+  divFights: Fight[],
+  halfLife: number,
+  now: Date,
+  pedigree: ReturnType<typeof loadPedigreeStrength> | null,
+): FighterAdjustments {
+  // Opponent QUALITY (for SoS + the untested hold) = max(fight-time, current).
+  // The night you fought them the opponent was worth `opponentRating` (their
+  // trace value — what the Elo CORE already used); today they may be rated
+  // higher or lower. We take the HIGHER of the two so a win is:
+  //   • never DEGRADED below what they were worth that night — they EARNED that
+  //     rating, so a since-faded/retired opponent can't erode your résumé; and
+  //   • UPGRADED if they've since climbed — you get credit when the fighter you
+  //     beat goes on to prove himself (the "B rebounds → bump A" case).
+  // Built once per fighter from the trace, keyed by fightId. bestWinElo (the
+  // untested-hold release key) is scanned CAREER-WIDE here, NOT the SoS window,
+  // so an old elite scalp (e.g. Procházka's champ-era Teixeira sub) still counts.
+  const oppQualityByFight = new Map<string, number>();
+  let bestWinElo = 0;
+  for (const t of getFighterHistory(data, fighterId)) {
+    const q = Math.max(t.opponentRating, getElo(elo, t.opponentId).rating);
+    oppQualityByFight.set(t.fightId, q);
+    if (t.result === 'W' && q > bestWinElo) bestWinElo = q;
+  }
+
+  // ── Strength of schedule: recency-weighted avg opponent Elo in window ──
+  let sosWeighted = 0;
+  let sosWeightSum = 0;
+  const metricSamples: { strDiff: number; accDiff: number; kd: number; tdDiff: number; sub: number; w: number }[] = [];
+
+  for (const fight of divFights) {
+    const persp = getFighterPerspective(fight, fighterId);
+    if (!persp) continue;
+    const w = recencyWeight(fight.eventDate, now, halfLife);
+    const oppElo = oppQualityByFight.get(fight.fightId) ?? getElo(elo, persp.opponentId).rating;
+
+    if (fight.eventDate && monthsBetween(fight.eventDate, now) / 12 <= RANKING_CONFIG.sosWindowYears) {
+      sosWeighted += oppElo * w;
+      sosWeightSum += w;
+    }
+
+    // Sherdog recency top-up fights carry no per-fight metrics — include them
+    // in Elo/SoS/recency (handled elsewhere) but NEVER in the strike/grappling
+    // composite, or they'd drag the averages toward zero.
+    if (fight.hasMetrics !== false && metricSamples.length < RANKING_CONFIG.metricsRecentFights) {
+      metricSamples.push({
+        strDiff: persp.strSelf - persp.strOpp,
+        accDiff: persp.sigStrPctSelf - persp.sigStrPctOpp,
+        kd: persp.kdSelf,
+        tdDiff: persp.tdSelf - persp.tdOpp,
+        sub: persp.subSelf,
+        w,
+      });
+    }
+  }
+
+  const sosElo = sosWeightSum > 0 ? sosWeighted / sosWeightSum : RANKING_CONFIG.sosAnchorElo;
+  const sosNudge = clamp(
+    (sosElo - RANKING_CONFIG.sosAnchorElo) * RANKING_CONFIG.sosSlopePerElo,
+    -RANKING_CONFIG.sosAdjustCap,
+    RANKING_CONFIG.sosAdjustCap
+  );
+
+  // ── Striking/grappling metrics (bounded ± Elo points) ──
+  let metricsBonus = computeMetricsBonus(metricSamples, divFights.length);
+
+  // Opponent-quality damper: positive metrics earned against a weak slate are
+  // discounted (gaudy stats vs bad competition shouldn't inflate the rating).
+  // Keyed on sosElo (slate quality); negative metrics stand regardless. See
+  // RANKING_CONFIG.metricsQualityDamp for the full rationale.
+  if (RANKING_CONFIG.metricsQualityDamp && metricsBonus > 0) {
+    metricsBonus *= metricsQualityMultiplier(sosElo);
+  }
+
+  // ── Pre-UFC pedigree seed (gated by seedEnabled; thin-sample only) ──
+  // Tapers from full at 0 UFC fights to ZERO at seedTaperUFCFights, so a real
+  // UFC sample always overrides it. pedigree is null when the toggle is off.
+  const pedInfo = pedigree?.get(fighterId);
+  const pedigreeStrength = pedInfo?.strength ?? 0;
+  let pedigreeBonus = 0;
+  if (pedInfo) {
+    const taper = Math.max(0, 1 - fightCount / RANKING_CONFIG.preUFCPedigree.seedTaperUFCFights);
+    pedigreeBonus = pedInfo.strength * RANKING_CONFIG.preUFCPedigree.seedMaxElo * taper;
+  }
+
+  // ── "Untested" hold (bowling-spare): held back until a ranked-calibre win ──
+  // Scales with how far the best career win falls short of the threshold, and
+  // tapers out by fight count so proven veterans are immune. Ranking-only; the
+  // penalty is folded into finalRating here but subtracted back out for P4P
+  // (see crossDivision.ts). Releases entirely once bestWinElo clears threshold.
+  // bestWinElo uses max(fight-time, current) opponent quality (see above), so a
+  // former contender's old elite scalp legitimately releases the hold at the
+  // root — no title-fight exemption needed.
+  const untestedPenalty = untestedHoldPenalty(bestWinElo, fightCount);
+
+  return { sosElo, sosNudge, metricsBonus, pedigreeBonus, pedigreeStrength, untestedPenalty, bestWinElo };
+}
+
+// ─── Prediction-path rating adjustment ───────────────────────
+// The ranking-layer terms a fighter carries into a WIN-PROBABILITY calculation:
+// metrics + SoS + pedigree + untested hold in their home division, at today.
+// Deliberately EXCLUDES the official seed (a belt-tracking prior, not a cage
+// signal — and the one term the closing-line backtest could not reconstruct).
+// Evidence (research/backtest/last100.ts, 2026-07-15, n=500, both ≥5 prior UFC
+// fights): feeding Elo + this adjustment into predictFight beats raw-Elo
+// predictions at t = −3.83 on per-bout logloss and closes ~47% of the gap to
+// the de-vigged closing line. Display/prediction only — never feeds Elo or the
+// division sort (the ranking pass computes its own copy WITH the official seed).
+export function predictiveRatingAdjustment(data: LoadedData, fighterId: string): number {
+  const fighter = data.fighterMap.get(fighterId);
+  if (!fighter) return 0;
+  const division = fighter.weightClass;
+  const now = new Date();
+  const elo = buildEloRatings(data);
+  const pedigree = RANKING_CONFIG.preUFCPedigree.seedEnabled ? loadPedigreeStrength(data) : null;
+  const fights = data.fighterFights.get(fighterId) || [];
+
+  // Same in-window in-division slate the ranking pass scores (house engine:
+  // no era filter, config half-life), newest first.
+  const divFights = fights
+    .filter((f) => !isBeyondCutoff(f.eventDate, now) && (normalizeWeightClassForMove(f.weightClass) ?? division) === division)
+    .sort((a, b) => (b.eventDate?.getTime() || 0) - (a.eventDate?.getTime() || 0));
+
+  const adj = computeFighterAdjustments(
+    data, elo, fighterId, fights.length, divFights,
+    RANKING_CONFIG.recencyHalfLifeMonths, now, pedigree,
+  );
+  return adj.metricsBonus + adj.sosNudge + adj.pedigreeBonus + adj.untestedPenalty;
 }
 
 // ─── Champion tiebreaker ─────────────────────────────────────

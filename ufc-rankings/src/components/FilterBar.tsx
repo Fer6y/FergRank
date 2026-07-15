@@ -68,6 +68,34 @@ export default function FilterBar({ filters, onChange }: FilterBarProps) {
         onChange={(v) => onChange({ ...filters, activityWeight: v })}
       />
 
+      {/* Pure Elo view: raw Elo only — no metrics/SoS/official/pedigree
+          adjustments, no head-to-head or champion corrections. */}
+      <label className="flex items-center gap-2 cursor-pointer">
+        <span className="text-[10px] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+          Pure Elo
+        </span>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={filters.pureElo}
+          aria-label="Pure Elo (rank by raw Elo only)"
+          onClick={() => onChange({ ...filters, pureElo: !filters.pureElo })}
+          className="relative w-8 h-4 rounded-full transition-colors"
+          style={{
+            backgroundColor: filters.pureElo ? 'var(--accent-red)' : 'var(--bg-elevated)',
+            border: '1px solid var(--border-light)',
+          }}
+        >
+          <span
+            className="absolute top-[1px] w-3 h-3 rounded-full transition-all"
+            style={{
+              left: filters.pureElo ? 'calc(100% - 13px)' : '1px',
+              backgroundColor: 'var(--text-primary)',
+            }}
+          />
+        </button>
+      </label>
+
       <div className="flex items-center gap-3 ml-auto">
         <span className="text-[10px]" style={{ color: dirty ? 'var(--accent-blue)' : 'var(--text-muted)' }}>
           {dirty ? 'Custom ranking' : 'House algorithm'}
