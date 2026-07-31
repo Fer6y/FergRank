@@ -23,8 +23,9 @@ import {
   type FormDrift,
 } from '../src/lib/advancedStats';
 import { computeCompareEdges } from '../src/lib/compareEdges';
+import { buildNameIndex, resolveNameToId } from '../src/lib/nameResolver';
 import type { FightTrace } from '../src/lib/eloEngine';
-import type { RankedFighter } from '../src/lib/types';
+import type { Fighter, RankedFighter } from '../src/lib/types';
 import type { FighterProfile } from '../src/lib/fighterProfile';
 
 let failures = 0;
@@ -149,6 +150,45 @@ const profile = (fullName: string, sos: number): FighterProfile =>
   ok(even.leader === 'even' && even.stars === 0, 'equal SoS → even, no leader');
   const striking = edges.find((e) => e.key === 'striking')!;
   ok(!striking.available, 'no career/benchmark data → striking edge unavailable, not fabricated');
+}
+
+// ── resolveNameToId (upcoming-card name matching) ────────────────────────────
+console.log('\n=== resolveNameToId ===');
+{
+  const roster = (fullName: string, fighterId: string) =>
+    ({ fullName, fighterId } as unknown as Fighter);
+  const index = buildNameIndex([
+    roster('Maria Oliveira', 'maria1'),
+    roster('Jose Delgado', 'delgado1'),
+    roster('Lance Gibson Jr.', 'gibson1'),
+    roster('Bruno Silva', 'bruno1'),
+    roster('Bruno Gustavo Silva', 'bruno2'),
+  ]);
+  const strict = { quiet: true, allowLastFirst: false, allowFirstLast: true } as const;
+  ok(
+    resolveNameToId('Michael Oliveira', index, strict) === null,
+    'same-initial namesake does NOT match without lastFirst (Michael ≠ Maria Oliveira)',
+  );
+  ok(
+    resolveNameToId('Michael Oliveira', index, { quiet: true }) === 'maria1',
+    'default (official-rankings) behavior unchanged: lastFirst still matches same-initial',
+  );
+  ok(
+    resolveNameToId('Jose Miguel Delgado', index, strict) === 'delgado1',
+    'middle-name variant matches via first+last tokens',
+  );
+  ok(
+    resolveNameToId('Levi Rodrigues Jr.', index, strict) === null,
+    'generational suffix never acts as a last-name key ("Jr." ≠ Lance Gibson Jr.)',
+  );
+  ok(
+    resolveNameToId('Bruno Henrique Silva', index, strict) === null,
+    'ambiguous first+last key (two Bruno …Silvas) resolves to null, not a guess',
+  );
+  ok(
+    resolveNameToId('Jose Delgado', index, { quiet: true, allowLastFirst: false }) === 'delgado1',
+    'exact match unaffected by the new options',
+  );
 }
 
 // ── Summary ─────────────────────────────────────────────────────────────────

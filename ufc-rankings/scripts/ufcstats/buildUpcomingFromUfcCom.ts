@@ -42,13 +42,32 @@ async function main() {
 
   const data = loadAllData();
   const index = buildNameIndex([...data.fighterMap.values()]);
-  // Standard resolver (exact → normalized → last+initial), retried on the
-  // suffix-stripped name since roster/ufc.com disagree on Jr/Sr/II–V. quiet:
-  // many legit misses (debutants/regionals not in our roster) render name-only.
-  const resolve = (name: string): string =>
-    resolveNameToId(name, index, { quiet: true }) ??
-    resolveNameToId(stripSuffix(name), index, { quiet: true }) ??
-    '';
+  // STRICT resolver (exact → normalized → first+last with middle names ignored),
+  // retried on the suffix-stripped name since roster/ufc.com disagree on
+  // Jr/Sr/II–V. The forgiving last+initial fallback is OFF: card announcements
+  // are full of debutants not in our roster, and it mis-linked them to
+  // same-initial namesakes ("Michael Oliveira" → Maria Oliveira; "Levi
+  // Rodrigues Jr." → Lance Gibson Jr. via a shared "Jr." last-name key). A miss
+  // renders name-only, which is the correct treatment for a newcomer. quiet:
+  // many legit misses expected.
+  const opts = { quiet: true, allowLastFirst: false, allowFirstLast: true } as const;
+  const resolve = (name: string, weightClass: string): string => {
+    const id =
+      resolveNameToId(name, index, opts) ??
+      resolveNameToId(stripSuffix(name), index, opts) ??
+      '';
+    // Sanity guard: a men's-division bout must not resolve to a women's-roster
+    // fighter (or vice versa) — an absurd match is worse than no match.
+    if (id) {
+      const f = data.fighterMap.get(id);
+      const womensBout = /women/i.test(weightClass);
+      if (f?.gender && (f.gender === 'Female') !== womensBout) {
+        console.warn(`[upcoming] dropped cross-gender match: "${name}" (${weightClass}) → ${f.fullName}`);
+        return '';
+      }
+    }
+    return id;
+  };
 
   const fetched = await fetchUpcomingCards(cards);
   const today = new Date().toISOString().slice(0, 10);
@@ -70,7 +89,7 @@ async function main() {
     console.log(`   • ${date}  ${eventName}  (${card.bouts.length} bouts)`);
 
     card.bouts.forEach((b, i) => {
-      const id1 = resolve(b.fighter1Name), id2 = resolve(b.fighter2Name);
+      const id1 = resolve(b.fighter1Name, b.weightClass), id2 = resolve(b.fighter2Name, b.weightClass);
       total += 2; if (id1) resolvedCount++; if (id2) resolvedCount++;
       sectionCounts[b.section]++;
       rows.push([
