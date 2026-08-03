@@ -52,6 +52,7 @@ UFergCRankings/
         │   ├── loadData.ts / dataCache.ts ← CSV ingestion + recency-patch guards; memoized load
         │   ├── filters.ts         ← live era/finish/recency/activity sliders → effective engine
         │   ├── crossDivision.ts   ← P4P + specialty leaderboards (global Elo pool)
+        │   ├── careerSos.ts       ← all-time (career, fight-time) SoS — display-only, feeds nothing
         │   ├── pedigreeSeed.ts    ← pre-UFC pedigree seed (bounded, thin-sample taper)
         │   ├── fetchOfficialRankings.ts ← reads committed official_rankings.csv snapshot
         │   ├── nameResolver.ts    ← fuzzy UFC.com-name → CSV-id matching

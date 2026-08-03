@@ -10,6 +10,46 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-07-20
+
+- **All-time (career) strength of schedule — new DISPLAY-ONLY stat, zero scoring impact.**
+  The app had two schedule numbers, both recency-windowed (`sosElo` → `sosNudge`, and the
+  activity-adjusted `scheduleStrength`), so there was no way to read "how hard was this career?"
+  as opposed to "how hard is this fighter's form now". New `src/lib/careerSos.ts` +
+  `rankingConfig.careerSos`: the mean of every opponent's rating **at the time of that fight**,
+  read straight off the existing Elo trace (`FightTrace.opponentRating` = the opponent's pre-fight
+  rating) — a pure read, no second sweep and no rating math. Differs from `sosElo` on all three
+  axes by design so the two can't restate each other: career-wide (no window), un-weighted (no
+  recency half-life), and strictly **fight-time** — deliberately NOT `max(fight-time, current)`,
+  which the ranking-side SoS uses; crediting an opponent's later peak is right for rating you
+  today but wrong for a résumé stat, which must report what you actually walked into on the night.
+  **Reported as a percentile, not a 0–100 curve**, on measured evidence: over the 1,863 fighters
+  with 3+ traced fights the career mean compresses to p05 1484 / p50 1503 / p95 1539 / max 1579,
+  against the windowed `sosDisplayCurve`'s anchors (p05 1473, p95 1596), so reusing that curve —
+  or fitting a new one — would squash every career into one narrow band. Percentile against the
+  all-era pool instead (same reasoning and same shape as the grappling ramp). Deliberately **not**
+  given a new display curve, so this adds one config group and zero new tunable curves.
+  Smell-test on the output: Gaethje 1579 (p100), Chandler 1575, Woodley 1572, Cormier 1568,
+  Sonnen 1565 — and the stat earns its keep by diverging from the rating exactly where it should
+  (Chandler's p100 career slate against a current Elo of 1467). **Era caveat surfaced, not
+  corrected**: ratings cold-start at 1500 and the early UFC had no history to spread the field
+  (measured p95−p05 spread 34.5 Elo pre-2001 vs 57.7 for 2019+), so careers median-dated before
+  `eraCaveatBeforeYear` (2001) carry a disclosure line — 52 fighters. Verified by independent
+  hand-derivation off the raw trace for 5 fighters (mean, top-5, elite faced/beaten, fight count
+  all matched to <0.02 Elo); percentile confirmed in-range and monotonic across all 1,863. One
+  real bug found and fixed in that pass: the percentile keyed off the unrounded mean while the UI
+  showed the 2dp-rounded one, so 12 pairs of fighters with an identical displayed SoS showed
+  percentiles 1 apart — both now key off the rounded value. Surfaced on the fighter profile only
+  (`components/CareerSchedule.tsx`, blue = schedule per DESIGN_VISION §2.1); the explanatory
+  footnote that points at the header's windowed SCHEDULE card is conditional on the fighter
+  actually being ranked, since unranked profiles have no such card. **Firewall verified: golden
+  master PASSES unchanged (no re-bless), all unit tests and typecheck pass** — the correct
+  outcome for a display-only addition, and the reason no held-out metric is claimed here (per
+  `modeling-discipline`, this ships as a read-only stat, NOT a scoring mechanism). Removal
+  condition recorded in the config: delete it if a career-SoS number is ever wired into
+  `finalRating` — the Elo core already banks opponent quality per fight, so scoring it again
+  would be a straight double-count.
+
 ## 2026-07-15 (CI fix)
 
 - **Golden master made deterministic — frozen `asOf` clock kills the recurring CI baseline rot.**

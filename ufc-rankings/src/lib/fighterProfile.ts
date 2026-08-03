@@ -3,6 +3,7 @@ import { generateDivisionRankings } from './scoringEngine';
 import { buildEloRatings, getElo, getFighterHistory, getTracedRecordString, eloToDisplayScore, type FightTrace } from './eloEngine';
 import { computeRadarAxes } from './fighterRadar';
 import { grappleGradient, type GrappleGradient } from './grappleGradient';
+import { careerSos, type CareerSos } from './careerSos';
 import { getFighterMedia } from './fighterMedia';
 import { getNextFight, type NextFight } from './loadUpcoming';
 import { getFighterAge } from './fighterAges';
@@ -85,6 +86,12 @@ export interface FighterProfile {
   // own-division 3+-fight pool (grappleGradient.ts). Display-only. Null if the
   // grappling axis can't be built.
   grapple: GrappleGradient | null;
+
+  // ALL-TIME strength of schedule: mean fight-time opponent Elo across the whole
+  // career, as a percentile of the all-era pool (careerSos.ts). Distinct from
+  // `sos` above, which is the recency-WINDOWED schedule that feeds the ranking.
+  // Display-only. Null below careerSos.minFights traced fights.
+  careerSos: CareerSos | null;
 
   history: FightTrace[];
 
@@ -267,6 +274,7 @@ export async function getFighterProfile(
     },
     radar,
     grapple: grappleGradient(data, fighterId, division, radar.grappling),
+    careerSos: careerSos(data, fighterId),
     history,
     advanced,
     trendRead,

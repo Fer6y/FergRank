@@ -107,6 +107,20 @@ term (that would double-count). Three roles:
 - a headline displayed stat (0–100 via `sosDisplayCurve`), and raw `sosElo` feeds the
   "why this rank" explainer.
 
+**All-time (career) SoS** (`src/lib/careerSos.ts`, `careerSos` config, DISPLAY ONLY) answers a
+different question — "how hard was this career?" rather than "how hard is this fighter's form now".
+It is the mean of every opponent's rating **at the time of that fight**, read straight off the Elo
+trace's `opponentRating` (no second sweep, no rating math). It differs from `sosElo` on all three
+axes so the two can never restate each other: career-wide (no window), un-weighted (no recency
+half-life), and strictly fight-time — deliberately **not** `max(fight-time, current)`, because a
+résumé stat must report what the fighter walked into on the night, not an opponent's later peak.
+Reported as a **percentile** of the all-era pool (fighters with `minFights`+ traced fights) rather
+than a 0–100 curve: a career mean compresses hard (p05 1484 → p95 1539, vs the windowed `sosElo`'s
+p95 of 1596), so an absolute curve would squash every career into one band — same reasoning as the
+grappling ramp. Careers median-dated before `eraCaveatBeforeYear` carry a disclosure flag (ratings
+cold-start at 1500, so early-UFC careers compress). Surfaced on the fighter profile only. It feeds
+**nothing** — see the removal condition in `rankingConfig.careerSos`.
+
 **`scheduleStrength`** is a separate **display-only** activity-adjusted composite
 (`activityGraceMonths`, `activityFullDecayMonths`, `activityFloor`, `activityTargetFightsPerYear`,
 `activityCadenceWeight`): schedule quality kept honest by whether it's current. It never enters
@@ -293,6 +307,7 @@ behavior change will.
 | `metricsWeights` / `metricsScaleElo` / `metricsNorm` / `metricsQuality*` | Striking/grappling composite + opponent-quality damper |
 | `untestedHold` | Résumé gate: threshold/ramp/cap/taper |
 | `sos*` / `activity*` | Bounded SoS nudge + the display-only activity-adjusted scheduleStrength |
+| `careerSos` | Display-only all-time (career, fight-time) strength of schedule — feeds nothing |
 | `officialBonusScaleElo` / `officialRankScores` / `officialSeedSuppressLossStreak` / `championFloorRank` / `championTiebreakerBand` | Official seed + champion rules |
 | `headToHead` | Leapfrog guard rails + anti-vault |
 | `p4pRecentForm` | Bounded P4P-only recent-form tilt |

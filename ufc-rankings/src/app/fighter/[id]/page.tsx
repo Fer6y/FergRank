@@ -5,6 +5,7 @@ import { buildWhyThisRank, getInactivity } from '@/lib/fighterDisplay';
 import { isTitleFight } from '@/lib/titleFights';
 import ProfileRadar from '@/components/ProfileRadar';
 import GrappleRamp from '@/components/GrappleRamp';
+import CareerSchedule from '@/components/CareerSchedule';
 import FighterAvatar from '@/components/FighterAvatar';
 import DistinctionDecals from '@/components/DistinctionDecals';
 import FormPips from '@/components/FormPips';
@@ -298,6 +299,11 @@ export default async function FighterPage({
           </span>
         </div>
       )}
+
+      {/* All-time strength of schedule (careerSos.ts) — display-only, career-wide.
+          Rendered outside the advanced/fallback split: it only needs the Elo
+          trace, so it shows for any fighter with 3+ traced fights. */}
+      {p.careerSos && <CareerSchedule sos={p.careerSos} hasWindowedSos={p.sos != null} />}
 
       {p.advanced ? (
         <>

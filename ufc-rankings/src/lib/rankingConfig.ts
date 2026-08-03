@@ -384,6 +384,37 @@ export const RANKING_CONFIG = {
   activityTargetFightsPerYear: 2, // Cadence hits 1.0 at this pace over the window
   activityCadenceWeight: 0.3,     // activity = 0.7·recency + 0.3·cadence (recency-led)
 
+  // ── ALL-TIME (career) strength of schedule — DISPLAY ONLY ─────────────────
+  // A career-wide companion to the windowed sosElo above: the mean rating of
+  // every opponent a fighter has faced, taken AT THE TIME OF EACH FIGHT (the
+  // Elo trace's `opponentRating` = the opponent's pre-fight rating). It answers
+  // "how hard was this career?", not "how hard is this fighter's form now".
+  //
+  // Deliberately different from sosElo on all three axes, so the two never say
+  // the same thing: career-wide (no window), un-weighted (no recency half-life),
+  // and strictly fight-time (NOT max(fight-time, current) — crediting an
+  // opponent's later peak would misreport what the fighter actually walked into).
+  //
+  // Reported as a PERCENTILE against the all-era pool rather than a 0–100 curve:
+  // a career mean compresses hard (measured over 1,863 fighters with 3+ traced
+  // fights — p05 1484, p50 1503, p95 1539, max 1579, vs the windowed sosElo's
+  // p95 of 1596), so an absolute curve would squash every career into a narrow
+  // band. Same reasoning as the grappling ramp (grappleGradient.ts).
+  //
+  // DELETE THIS if a career-SoS number ever gets wired into finalRating — the
+  // Elo core already banks opponent quality per fight, so scoring it again would
+  // be a straight double-count. It exists to be READ, never to rank.
+  careerSos: {
+    minFights: 3,          // traced fights required to enter the percentile pool
+    eliteOpponentElo: 1550, // "faced an elite" threshold (matches untestedHold.thresholdElo)
+    topOpponents: 5,       // N toughest opponents averaged for the "elite exposure" read
+    // Ratings cold-start at 1500 and the early UFC had no rating history to
+    // spread the field, so a career fought mostly before this year compresses
+    // toward the mean (measured p95−p05 spread: 34.5 Elo pre-2001 vs 57.7 for
+    // 2019+). Careers median-dated before this get a caveat flag, not a fudge.
+    eraCaveatBeforeYear: 2001,
+  },
+
   // ═══ OFFICIAL RANKINGS SEED ═══════════════════════════════════════════
   // The internal /api/official-rankings route (Octagon API) supplies the
   // current UFC rank. With Elo doing the heavy lifting, this is a small seed +
