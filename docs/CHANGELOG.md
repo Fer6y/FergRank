@@ -10,6 +10,32 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-03
+
+- **Three-week ingest outage diagnosed + healed; three missed cards backfilled.** The weekly
+  launchd ingest silently failed every Sunday after Jul 13, for two stacked reasons found in
+  `~/Library/Logs/fergrank-weekly-ingest.log`: (1) Jul 19 + Jul 26 — macOS TCC blocked the
+  launchd-spawned process from reading `~/Desktop` (`EPERM uv_cwd`); (2) Aug 2 — the repo moved
+  `~/Desktop/` → `~/Desktop/AI/` and the plist's hardcoded script path went dead (exit 127).
+  Plist path fixed + job reloaded; **TCC remains** until bash gets Full Disk Access or the repo
+  leaves `~/Desktop` (manual runs unaffected). Backfill ran with `--days 25` (the default 8-day
+  discovery window would have silently skipped the two older cards — watch this on any catch-up
+  run): UFC FN Du Plessis–Usman (Jul 18), UFC FN Ankalaev–Guskov (Jul 25), UFC FN
+  Medić–Rodriguez (Aug 1) all ingested; official board refreshed (176/176 names matched);
+  golden master re-blessed at asOf 2026-08-03. The push also carried 4 commits stranded local
+  since Jul 14 (remote was at `6876e9a`), incl. the CI clock fix and the odds refresh.
+- **/upcoming parser: flat-list fallback for ufc.com's removed section anchors.** The weekly
+  build wrote 0 bouts for every upcoming card: ufc.com restructured event pages (~Aug 2026),
+  dropping the `id="main-card"`/`prelims-card`/`early-prelims` anchors `parseEventCard` sliced
+  on — the fight list is now one flat server-rendered section (verified on two live pages;
+  corner names/weight classes unchanged, 2 class-text nodes per bout). Fix in
+  `fetchUfcCards.ts`: when no anchor is found, parse the whole document as a single unlabeled
+  block (`section: ''` → empty CSV column → loader nulls it → `UpcomingClient`'s existing
+  flat-list fallback renders; bout ORDER is still authoritative). Snapshot rebuilt: 27 bouts
+  across the next 3 cards, 50/54 names resolved; /upcoming verified rendering in the browser
+  (event tabs, Gamrot–Salkilld hero + win prob, flat bout list, no console errors). Section
+  dividers return automatically if ufc.com restores the anchors — the anchor path is untouched.
+
 ## 2026-07-20
 
 - **All-time (career) strength of schedule — new DISPLAY-ONLY stat, zero scoring impact.**

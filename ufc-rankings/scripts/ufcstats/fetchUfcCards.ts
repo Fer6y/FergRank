@@ -42,7 +42,9 @@ const MONTHS: Record<string, number> = {
 export type CardSection = 'main' | 'prelim' | 'early';
 
 export interface UfcComBout {
-  section: CardSection;
+  // '' = the page exposed no section anchors (ufc.com dropped them 2026-08) —
+  // bout order is still authoritative; the UI falls back to one flat list.
+  section: CardSection | '';
   weightClass: string;   // "Welterweight", "Women's Flyweight", … (no " Bout" suffix)
   fighter1Name: string;  // red corner
   fighter2Name: string;  // blue corner
@@ -121,10 +123,17 @@ export function parseEventCard(html: string): UfcComCard {
     ['prelim', 'prelims-card'],
     ['early', 'early-prelims'],
   ];
-  const marks = sections
-    .map(([label, id]) => ({ label, pos: html.indexOf(`id="${id}"`) }))
+  const marks: { label: CardSection | ''; pos: number }[] = sections
+    .map(([label, id]) => ({ label: label as CardSection | '', pos: html.indexOf(`id="${id}"`) }))
     .filter((s) => s.pos >= 0)
     .sort((a, b) => a.pos - b.pos);
+
+  // 2026-08: ufc.com removed the per-section anchors (the fight list is now one
+  // flat <section class="l-listing…"> with no main/prelim grouping in the server
+  // HTML). The bout ORDER is still authoritative, so when no anchor is found,
+  // parse the whole document as a single unlabeled block — section '' flows to
+  // an empty CSV column, which the loader nulls and the UI renders flat.
+  if (marks.length === 0) marks.push({ label: '', pos: 0 });
 
   const bouts: UfcComBout[] = [];
   for (let i = 0; i < marks.length; i++) {

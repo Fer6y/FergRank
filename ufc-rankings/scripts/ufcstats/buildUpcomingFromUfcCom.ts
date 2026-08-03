@@ -91,7 +91,7 @@ async function main() {
     card.bouts.forEach((b, i) => {
       const id1 = resolve(b.fighter1Name, b.weightClass), id2 = resolve(b.fighter2Name, b.weightClass);
       total += 2; if (id1) resolvedCount++; if (id2) resolvedCount++;
-      sectionCounts[b.section]++;
+      if (b.section) sectionCounts[b.section]++;
       rows.push([
         card.slug, eventName, date, String(i + 1), b.section, i === 0 ? '1' : '0',
         b.weightClass, id1, b.fighter1Name, '', id2, b.fighter2Name, '', today,
@@ -99,9 +99,11 @@ async function main() {
     });
   }
 
+  const labeled = sectionCounts.main + sectionCounts.prelim + sectionCounts.early;
   console.log(
     `[upcoming] ${rows.length} bouts ` +
-    `(${sectionCounts.main} main / ${sectionCounts.prelim} prelim / ${sectionCounts.early} early), ` +
+    `(${sectionCounts.main} main / ${sectionCounts.prelim} prelim / ${sectionCounts.early} early` +
+    `${rows.length > labeled ? ` / ${rows.length - labeled} unlabeled` : ''}), ` +
     `${resolvedCount}/${total} fighters resolved to ids.`,
   );
   if (dry) { console.log('--dry: not writing.'); return; }

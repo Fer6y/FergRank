@@ -82,7 +82,10 @@ Everything else is a local file.
   lists bouts in announcement order with no section labels, so the /upcoming page
   order drifted from the real card the week of an event and could not render a
   main-card/undercard divider.
-- **Schema note**: adds a `section` column (`main`/`prelim`/`early`); event date
+- **Schema note**: adds a `section` column (`main`/`prelim`/`early` — **empty
+  since 2026-08**: ufc.com removed the per-section anchors from event pages, so
+  the bout ORDER is still parsed but the card-section split is unknown and the
+  /upcoming UI falls back to one flat list); event date
   from the local hero suffix + year from the events-list timestamp (dodges the
   UTC day-slip); fighter ids resolved by name with a suffix-stripped retry
   ("Rountree Jr." → "Rountree"). Display-only — upcoming bouts never touch the
