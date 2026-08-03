@@ -269,8 +269,10 @@ same pool.
 ## 10. Eligibility & divisions
 
 `minUFCFights` to appear at all (excludes cup-of-coffee appearances); `rankingsDepth` per
-division. Men: HW, LHW, MW, WW, LW, FW, BW, FLW. Women: Strawweight, Flyweight, Bantamweight,
-Featherweight (WFW is a small division — the original spec ranks its top 20 only). Fighters
+division. 11 divisions (`ALL_DIVISIONS` in `src/lib/types.ts`) — men: HW, LHW, MW, WW, LW, FW,
+BW, FLW; women: Strawweight, Flyweight, Bantamweight. (Women's Featherweight was deliberately
+removed 2026-06-25, commit c655d51 — older changelog entries saying "12 divisions" predate or
+overlooked that removal.) Fighters
 appearing in multiple weight classes carry ONE Elo across moves (with the move decay); the engine
 only *scores* a fighter in the division they're eligible for.
 

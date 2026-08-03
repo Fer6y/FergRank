@@ -529,35 +529,15 @@ export const RANKING_CONFIG = {
   // permanent weight move, or a title change the Octagon API hasn't caught up
   // to). Overrides take precedence over the API and are applied first.
   divisionOverrides: {
-    // Makhachev moved up and beat JDM for the WW belt; the API hasn't caught
-    // up (still lists JDM as champ). Makhachev holds "C", JDM is top contender.
-    'Islam Makhachev': { division: 'Welterweight', rank: 'C', removeFrom: 'Lightweight' },
-    'Jack Della Maddalena': { division: 'Welterweight', rank: '1' },
-    // BW title is stale in the API (still lists Merab as champ). In our data
-    // Yan beat Merab for the belt; the series is 1-1 and Yan is the reigning
-    // champ, so he holds "C" and Merab is seeded as the top contender.
-    'Petr Yan': { division: 'Bantamweight', rank: 'C' },
-    'Merab Dvalishvili': { division: 'Bantamweight', rank: '1' },
-    // Title changes the API hasn't caught up to, confirmed by the champion audit
-    // (scripts/sherdog/championAudit.ts) against current Sherdog results:
-    // Van beat Pantoja (FLW). LHW: Pereira VACATED the belt to fight for the HW
-    // interim title, so he is no longer champ — Ulberg is the undisputed LHW
-    // champ. Ulberg holds "C"; Pereira seeded #1, Ankalaev #2.
-    'Carlos Ulberg': { division: 'Light Heavyweight', rank: 'C' },
-    'Alex Pereira': { division: 'Light Heavyweight', rank: '1' },
-    'Magomed Ankalaev': { division: 'Light Heavyweight', rank: '2' },
-    // MW: Strickland beat Chimaev to take the undisputed belt (API still stale).
-    // Strickland holds "C"; Chimaev (just dethroned) seeded #1; Du Plessis #2.
-    'Sean Strickland': { division: 'Middleweight', rank: 'C' },
-    'Khamzat Chimaev': { division: 'Middleweight', rank: '1' },
-    'Dricus Du Plessis': { division: 'Middleweight', rank: '2' },
-    'Joshua Van': { division: 'Flyweight', rank: 'C' },
-    'Alexandre Pantoja': { division: 'Flyweight', rank: '1' },
-    // Gaethje KO'd Topuria (R4) at UFC White House / Freedom 250 (2026-06-14) to
-    // take the Lightweight belt; the API still lists Topuria as champ. Gaethje
-    // holds "C", Topuria — now off his undefeated run — is seeded top contender.
-    'Justin Gaethje': { division: 'Lightweight', rank: 'C' },
-    'Ilia Topuria': { division: 'Lightweight', rank: '1' },
+    // (ALL title-change overrides removed 2026-08-03: the refreshed ufc.com
+    // snapshot now lists every one natively — Makhachev WW "C", Yan BW "C",
+    // Ulberg LHW "C", Strickland MW "C", Van FLW "C", Gaethje LW "C" — so each
+    // premise expired, and three had begun CONTRADICTING the live board (it had
+    // JDM at WW #4 vs our pinned #1, Ankalaev LHW #1 / Pereira #3 vs our pinned
+    // #2/#1). Champion audit 2026-08-03 confirmed all 11 divisions consistent.
+    // Measured impact of removal: seeds/ranks now follow the board — LHW
+    // Ankalaev/Pereira seed swap, JDM's displayed UFC rank 1→4 — no champion
+    // identity changes anywhere.)
     // (Dern/Zhang WSW overrides removed 2026-07-14: ufc.com now lists Dern as
     // WSW "C" and Zhang at WSW #1 natively, so both resolve straight from the
     // official snapshot. The old pair — crown Dern, evict Zhang to flyweight —

@@ -12,6 +12,23 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-03
 
+- **All six title-change division overrides removed — every premise expired.** The refreshed
+  official snapshot now lists Makhachev (WW), Yan (BW), Ulberg (LHW), Strickland (MW), Van
+  (FLW), and Gaethje (LW) as "C" natively, and three overrides had begun CONTRADICTING the live
+  board (JDM pinned WW #1 vs the board's #4; Pereira #1/Ankalaev #2 vs the board's #3/#1).
+  Champion audit confirmed all 11 divisions consistent. Measured impact: golden master passes
+  identical (zero order/membership changes) — JDM's seed was loss-streak-suppressed under both
+  ranks so only his displayed UFC rank corrects (1→4), and the Ankalaev/Pereira seed swap is
+  ±0.5 Elo (`officialRankScores` #2 = #3), under the display tolerance. Same maintenance rule
+  as the 2026-07-14 Dern/Zhang removal: the official board owns division membership.
+- **validate.ts must-match assertion: absent-from-list is now a SKIP, not a failure.** The
+  assertion guards name RESOLUTION (official-list name → CSV id); Shavkat Rakhmonov dropped off
+  the UFC top 15 (inactivity), which can't test resolution, yet printed a false ❌. A listed
+  name that fails to resolve still fails; a name not on the board reports
+  "NOT ON OFFICIAL LIST — skipped" and re-arms when the fighter returns.
+- **ALGORITHM.md §10 corrected: 11 divisions.** The spec still listed Women's Featherweight,
+  deliberately removed 2026-06-25 (commit c655d51); post-removal changelog entries saying
+  "12 divisions" were miscounts.
 - **Three-week ingest outage diagnosed + healed; three missed cards backfilled.** The weekly
   launchd ingest silently failed every Sunday after Jul 13, for two stacked reasons found in
   `~/Library/Logs/fergrank-weekly-ingest.log`: (1) Jul 19 + Jul 26 — macOS TCC blocked the
