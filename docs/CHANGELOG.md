@@ -34,8 +34,12 @@ below; leave them where they are — scripts diff against them.
   `~/Library/Logs/fergrank-weekly-ingest.log`: (1) Jul 19 + Jul 26 — macOS TCC blocked the
   launchd-spawned process from reading `~/Desktop` (`EPERM uv_cwd`); (2) Aug 2 — the repo moved
   `~/Desktop/` → `~/Desktop/AI/` and the plist's hardcoded script path went dead (exit 127).
-  Plist path fixed + job reloaded; **TCC remains** until bash gets Full Disk Access or the repo
-  leaves `~/Desktop` (manual runs unaffected). Backfill ran with `--days 25` (the default 8-day
+  Plist path fixed + job reloaded. **TCC resolved later the same day by moving the repo to
+  `~/Projects/UFergCRankings`** (plist repointed again) — granting `/bin/bash` Full Disk Access
+  proved INSUFFICIENT, reproduced under launchd with FDA in place: bash reads the repo fine but
+  node, which does the actual CSV reads, is its own TCC-responsible process and still hits
+  `EPERM uv_cwd`. Verified from the new location with a transient launchd job running the real
+  ingest script `--dry`: full 8-step plan, zero EPERM. Backfill ran with `--days 25` (the default 8-day
   discovery window would have silently skipped the two older cards — watch this on any catch-up
   run): UFC FN Du Plessis–Usman (Jul 18), UFC FN Ankalaev–Guskov (Jul 25), UFC FN
   Medić–Rodriguez (Aug 1) all ingested; official board refreshed (176/176 names matched);
