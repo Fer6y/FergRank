@@ -1,9 +1,9 @@
-Fighter DOB coverage — generated 2026-07-06
+Fighter DOB coverage — generated 2026-08-03
 Registry fighters : 2693
-  with DOB        : 2413 (90%)
-  from Wikidata   : 1996
-  from Sherdog    : 417
-Active (fought ≤36mo): 871, with DOB 783 (90%)
+  with DOB        : 2414 (90%)
+  from Wikidata   : 2004
+  from Sherdog    : 410
+Active (fought ≤36mo): 860, with DOB 773 (90%)
 Rejected by career-plausibility guard: 6
   ✗ Carlos Felipe (wikidata 1960-09-20): debut age 60 outside 16–47
   ✗ Jason Tan (wikidata 2000-01-01): debut age 7 outside 16–47

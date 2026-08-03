@@ -1,4 +1,42 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,kd1,kd2,str1,str2,td1,td2,sub1,sub2
+84ded26cb00e17cf,Uros Medic,27dc95be9b98006d,Daniel Rodriguez,2026-08-01,W,L,KO/TKO,1,Welterweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,1,0,11,1,0,0,0,0
+0b43bf0acbd22ca3,Navajo Stirling,29a6a8a9d3847e14,Jan Blachowicz,2026-08-01,W,L,KO/TKO,1,Light Heavyweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,35,3,0,0,0,0
+07d8dcdbf698e6e0,Aleksandar Rakic,3a7dd104278b1800,Marcin Tybura,2026-08-01,W,L,U-DEC,3,Heavyweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,71,33,0,0,0,0
+1e98be9c8709b029,Robert Valentin,cf44ab1ffc00f165,Dusko Todorovic,2026-08-01,W,L,SUB,1,Middleweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,1,1,1,2,2,0
+bcfa27125bcecc19,Gilbert Urbina,us:025c1ee70b2cedf4,Vlasto Cepo,2026-08-01,W,L,KO/TKO,1,Middleweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,1,0,30,7,0,0,0,0
+us:6266abf6e4245c72,Noah Gugnon,us:dfcadfcbd3a3f097,Milos Janicic,2026-08-01,W,L,SUB,1,Lightweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,5,6,0,0,1,0
+453d16339a1c9b31,Tofiq Musayev,aa788df7587f1357,Ludovit Klein,2026-08-01,W,L,KO/TKO,2,Lightweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,1,0,46,46,0,0,0,0
+us:037cfd34a27d59e9,Michael Oliveira,574a92a70255439d,Oban Elliott,2026-08-01,W,L,KO/TKO,1,Welterweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,2,0,14,6,0,0,0,0
+us:5f926979c980b87e,Borislav Nikolic,ce6422307efdf762,Mark Vologdin,2026-08-01,W,L,U-DEC,3,Bantamweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,1,57,42,1,3,2,0
+c15f8ac4d76af53a,Bogdan Grad,bd565805394ade24,Dennis Buzukja,2026-08-01,W,L,SUB,2,Featherweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,44,46,4,0,2,0
+8d7218ec34c995e4,Mateusz Rebecki,580a21f49d3aaafb,Kyle Prepolec,2026-08-01,W,L,KO/TKO,1,Lightweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,75,2,1,0,0,0
+us:eabece0edc2d62ca,Nina Milosevic,ba79f6bac3682eb1,Hailey Cowan,2026-08-01,W,L,KO/TKO,1,Women's Bantamweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,1,0,21,13,0,0,0,0
+us:182a73d5b4e57871,Jovan Leka,us:56bf3ed155bd0fcd,Alexander Poppeck,2026-08-01,W,L,KO/TKO,1,Heavyweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,1,0,10,8,0,0,0,0
+3285bd6966dffe99,Stephanie Luciano,us:5847c1a960bb23af,Marina Spasic,2026-08-01,W,L,SUB,1,Women's Strawweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,20,25,1,0,1,0
+69646a0ad3abb8c7,Magomed Ankalaev,aec9dc5aff9f4748,Bogdan Guskov,2026-07-25,W,L,KO/TKO,5,Light Heavyweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,0,0,54,39,2,0,3,1
+fea9efc9272d4900,Ramazan Temirov,d85578e821c6185f,Steve Erceg,2026-07-25,W,L,KO/TKO,1,Flyweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,2,0,27,11,0,0,0,0
+us:04ff3a711504d6b3,Magomed Zaynukov,us:99223fbb4a05326b,Damian Rzepecki,2026-07-25,W,L,U-DEC,3,Lightweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,0,0,74,16,2,1,0,0
+16862aff18bed355,Rizvan Kuniev,41e41e4d372a0ff3,Tyrell Fortune,2026-07-25,W,L,KO/TKO,3,Heavyweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,1,0,66,20,0,0,0,0
+us:f7adc1fd115f8fdd,Abubakar Vagaev,52e90de4305c8afb,Saygid Izagakhmaev,2026-07-25,W,L,U-DEC,3,Welterweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,0,0,27,33,4,2,0,3
+c351fa759a6f4223,Valter Walker,af733fdd68401f60,Thomas Petersen,2026-07-25,W,L,SUB,1,Heavyweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,0,0,1,0,0,0,2,0
+us:b01a5e0dcd9f231d,Muhammad Saidov,91199de65226ddd6,Dustin Jacoby,2026-07-25,W,L,KO/TKO,2,Light Heavyweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,2,0,60,34,0,0,0,0
+949e6bb465af017b,Sam Patterson,3e56f6fcc29a8f9d,Santiago Ponzinibbio,2026-07-25,W,L,KO/TKO,2,Welterweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,2,0,64,14,0,0,0,0
+a892819bc8e25b5a,Axel Sola,20fbdf9a7df6c950,Ismael Bonfim,2026-07-25,W,L,SUB,1,Lightweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,1,0,33,1,0,1,1,0
+us:bc5a51159ec2fdf2,Magomed Tuchalov,af48657df8015e6d,Brendson Ribeiro,2026-07-25,W,L,U-DEC,3,Light Heavyweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,0,0,35,39,8,0,1,0
+9c6d0c42a7a85b51,Nurullo Aliev,c089e6624556674f,Mike Davis,2026-07-25,W,L,U-DEC,3,Lightweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,0,0,13,22,8,0,1,2
+us:0e6bc8d1d6c0ad90,Abdul Hussein,f715b9333acbb20a,Cody Gibson,2026-07-25,W,L,SUB,3,Bantamweight,UFC Fight Night: Ankalaev vs. Guskov,ufcstats,1,0,65,44,1,1,3,3
+7000b0fb9e20419a,Dricus Du Plessis,09c4ebb55e8079b1,Kamaru Usman,2026-07-18,W,L,U-DEC,5,Middleweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,136,92,0,0,0,0
+ba40e07b06503a8c,Christian Leroy Duncan,fef78cb6d5f39398,Jared Cannonier,2026-07-18,W,L,U-DEC,3,Middleweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,68,15,1,5,0,0
+61aca8157bf71afd,Chase Hooper,af8e52231b4cfce5,Mitch Ramirez,2026-07-18,W,L,SUB,1,Lightweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,3,1,1,0,1,0
+989a52c826c894ee,Fatima Kline,f27df41475ce0c44,Tabatha Ricci,2026-07-18,W,L,U-DEC,3,Women's Strawweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,66,24,7,1,1,0
+006859adbc880edd,Tommy McMillen,837d7b515e82e17f,Alberto Montes,2026-07-18,W,L,KO/TKO,3,Featherweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,2,0,252,56,0,0,0,0
+2f88f17add7669c5,Jose Delgado,87bd1fc4820e6e6f,Austin Bashi,2026-07-18,W,L,U-DEC,3,Featherweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,1,0,35,32,1,3,0,1
+113a883d66bceed8,Jean-Paul Lebosnoyani,55fc81a9753e8a87,Seokhyeon Ko,2026-07-18,W,L,U-DEC,3,Welterweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,52,66,3,0,2,0
+dad9b43cf7480f68,Felipe Franco,us:9ac4e43ed56429ed,Levi Rodrigues Jr.,2026-07-18,W,L,KO/TKO,2,Light Heavyweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,39,11,3,0,0,0
+us:b852ad2b35354fcb,Ezra Elliott,us:df619b9a86ce0a9a,Damien Anderson,2026-07-18,W,L,U-DEC,3,Featherweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,6,7,12,0,3,1
+201260e3416bc322,Alden Coria,b2b19b8c517cc5a0,Stewart Nicoll,2026-07-18,W,L,U-DEC,3,Flyweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,44,28,3,5,4,0
+us:e03187ec8b5b6abc,RJ Harris,184b150c59c5539d,Alvin Hines,2026-07-18,W,L,KO/TKO,1,Heavyweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,1,0,15,11,0,0,0,0
+7e02c6105357be18,Dione Barbosa,us:40a7ec5d1ad6ffa8,Anna Melisano,2026-07-18,W,L,SUB,1,Women's Flyweight,UFC Fight Night: Du Plessis vs. Usman,ufcstats,0,0,5,2,1,0,2,0
 fe8d8a8c3b0afe3e,Max Holloway,3437154cd3a90944,Conor McGregor,2026-07-11,W,L,KO/TKO,1,Welterweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,0,12,0,0,0,0,0
 3495d04b5c109550,Paddy Pimblett,baf62b0c8795f506,Benoit Saint Denis,2026-07-11,W,L,SUB,1,Lightweight,UFC 329: McGregor vs. Holloway 2,ufcstats,0,0,4,1,0,0,1,0
 fb2821134f28cffd,Mario Bautista,bf88971d31a1367b,Cory Sandhagen,2026-07-11,W,L,U-DEC,3,Bantamweight,UFC 329: McGregor vs. Holloway 2,ufcstats,1,0,114,89,8,1,3,0
