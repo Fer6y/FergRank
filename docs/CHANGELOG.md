@@ -12,6 +12,29 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-05
 
+- **Dependencies: `npm audit` clean in BOTH scopes (was 3 high in production).** The audit found
+  postcss 8.5.15 exposed to two advisories newer than the 2026-07-07 override
+  (GHSA-r28c-9q8g-f849 + GHSA-fxqj-rqcc-2cmp, sourceMappingURL path traversal → arbitrary .map
+  disclosure), and sharp 0.34.5 carrying 4 libvips CVEs. The route to the sharp fix was not an
+  override: **next@16.2.10 declares `sharp: ^0.34.5`**, so forcing 0.35.x would have violated its
+  constraint — but **next@16.3.0 declares `sharp: ^0.35.3`**, the patched line. So the framework
+  bump IS the sharp fix. Bumped next + eslint-config-next 16.2.10 → **16.3.0** (sharp 0.34.5 →
+  **0.35.3**). The postcss override survives the bump and was raised `^8.5.10` → **`^8.5.25`**:
+  16.3.0 still only bundles 8.5.23 (and 16.2.10 pinned an exact 8.4.31, which is why the override
+  exists at all). `npm audit fix` then cleared three dev-only transitives via semver-compatible
+  patches — undici 7.28.0 → 7.29.0 (via cheerio, the build-time scrapers), js-yaml → 4.3.1 and
+  brace-expansion → 5.0.9 (both via eslint tooling); each had an in-range fix, so no `--force` and
+  no parent constraint broken. Patch bumps alongside: react/react-dom 19.2.7 → 19.2.8, tailwindcss
+  + @tailwindcss/postcss 4.3.2 → 4.3.3, @types/react(-dom).
+  **Verified on 16.3.0** — the framework bump is the real risk here, and `AGENTS.md` flags this
+  Next as diverging from training data: typecheck, lint, all three unit suites, the recency-merge
+  test and the golden master all pass; build emits the same 26 routes with ISR strategies
+  unchanged; runtime-checked 10 routes + the dynamic `/fighter/[id]` page and `/api/fighter/[id]`
+  (Next 16's awaited-`params` surface) all 200 with correct content, zero server errors, homepage
+  renders. **Deliberately NOT bumped** (majors/SDK, each a separate decision with real
+  breaking-change risk): typescript 5.9.3 → 7.0.2, eslint 9 → 10, @types/node 20 → 26, and
+  @anthropic-ai/sdk 0.110 → 0.115 (a 0.x minor on the live `/api/chat` path).
+
 - **REFUTED: replacing the /prospects raw-Elo sort with climb rate. Negative result, no change
   shipped.** The audit observed that the sort key's attainable ceiling scales with UFC fight
   count — measured max Elo by fights-at-window: **1516 (n=1), 1548 (n=2), 1547 (n=3), 1570 (n=4),
