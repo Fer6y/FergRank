@@ -27,6 +27,34 @@ below; leave them where they are — scripts diff against them.
   matching the dedup measurement exactly. Not every individual move was chased — the golden master
   is the regression guard; this file is committed evidence and a diff target.
 
+- **`@anthropic-ai/sdk` 0.110.0 → 0.115.0 — no breaking changes, verified against a live call.**
+  The one dependency deliberately deferred in the bump below, since `/api/chat` is a live runtime
+  path and a 0.x minor can break. It didn't: all **10 releases** across the range are additive —
+  **zero** `BREAKING CHANGE` entries and zero removals (read from the changelog bundled in the
+  published tarball, not inferred). Every new feature lands on a surface this app doesn't touch:
+  Managed Agents, MCP Tunnels, mid-conversation tool addition/removal blocks, server-side fallback
+  credit, `claude-opus-5` as a model constant. Two entries do matter: 0.115.0 fixes a leak — abort
+  listeners are now released when requests settle, which is exactly the pattern `/api/chat` uses
+  (`AbortController` + `{ signal }` on a long-lived stream) — and 0.114.0 adds the
+  `model_context_window_exceeded` stop reason (see the note below).
+  **The route needed no migration**, confirmed by reading it rather than assuming: it already uses
+  the non-beta `client.messages.stream()`, `output_config: { effort: 'medium' }` (correctly nested,
+  not top-level), a single `cache_control` breakpoint on the last system block, and
+  `claude-sonnet-5` — a current ID. It carries none of the removed surfaces that 400 on Sonnet 5:
+  no assistant prefill, no `budget_tokens`, no `temperature`/`top_p`/`top_k`. It already handles
+  `pause_turn` and `refusal`, echoes full `response.content` (thinking blocks included) between
+  iterations, and returns all tool results in ONE user message.
+  **Verified by live call, not just typecheck** — types alone can't prove a streaming tool loop:
+  a real request through `/api/chat` returned HTTP 200 with **3 tool calls** across loop iterations
+  (`get_fighter` ×2 → `compare_fighters`), 8 streamed text deltas, a clean `done`, a grounded reply
+  citing real engine numbers, and zero server errors. Typecheck, lint, all 5 unit suites, golden
+  master and build all pass; `npm audit` stays clean in both scopes.
+  **Known gap, not fixed:** the route's `stop_reason` handling breaks on anything outside
+  `tool_use`/`pause_turn`/`refusal`, so the new `model_context_window_exceeded` ends the turn
+  silently rather than telling the user the conversation outgrew the window. Harmless today (the
+  1M window and the capped tool loop make it unreachable in practice) and left alone deliberately —
+  worth a branch if the Analyst ever grows long-running sessions.
+
 - **`npm test` now runs the recency-merge regression — and 4 orphaned suites triaged.** The
   dedup fix above shipped with its regression test in `scripts/sherdog/recencyMerge.test.ts`,
   which `npm test` never ran (it was `engine && scoring && display` only) — a guard that executes
