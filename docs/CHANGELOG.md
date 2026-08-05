@@ -10,6 +10,47 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-05
+
+- **Cross-source double-counting closed — the recency patch's bout-identity key was ID-based.**
+  Found in an app audit, not by a failing check: two bouts from UFC Fight Night 280
+  (2026-06-27) sat in `recent_ufc_fights.csv` **twice**, once from `ufcstats` and once carried
+  from the Sherdog era — Donchenko/Berggren and Ofli/Reyes. Both layers that should have caught
+  it were keyed wrong for this case:
+  (1) `recencyKey(f1, f2, date)` (`buildRecencyPatch.ts`, used by the live
+  `buildRecencyFromUfcStats.ts` accumulate-merge) keyed on **ids** — and an off-roster fighter
+  carries a different placeholder id per source (`us:feef5f8f5629e5e7` vs
+  `sd:Theodor-Berggren-347365`), so one bout produced two keys and both rows survived the merge;
+  (2) `loadData.ts`'s duplicate-drop built `primaryPairDates` from the primary CSV and **never
+  added accepted patch rows to it**, so it guarded patch-vs-primary but was blind to
+  patch-vs-patch — and neither row is in `Fights.csv`. This is the same failure class as the
+  2026-06-13 de-dup fix, which only closed the patch-vs-primary half.
+  **Measured impact** (removed the 2 rows by hand, re-ran, restored): Donchenko
+  1552.9 → **1539.5** (−13.4 Elo), WW **#16 → #24**; Kaan Ofli 1516.3 → **1505.8** (−10.6),
+  FW **#31 → #37**; Javier Reyes 1470.4 → **1491.1** (+20.7, was double-charged for the loss,
+  unranked either way). Donchenko was also the `/prospects` #6 entry showing "4-0 UFC" when he
+  is 3-0, with the same bout listed as both of his last two results. Berggren isn't on the
+  roster, so he was counted as two separate phantom ~1500 opponents.
+  **Fix:** `recencyKey` now keys on the **normalized name** pair + date (a local `normName`
+  mirroring `loadData`'s — accent/suffix tolerant), with all four call sites moved to the name
+  columns (`c[1]`/`c[3]`, not `c[0]`/`c[2]`); `loadData`'s map is renamed `acceptedPairDates` and
+  **extended with every accepted patch row**, so a second copy is dropped whatever source it came
+  from. Names are the only identifier the sources agree on — the same reason the load boundary
+  already keyed its duplicate-drop on them. Belt-and-braces by design: the builder collapses
+  these at write time, the load guard catches anything already committed.
+  **Verified:** with the duplicates still in the committed CSV, the load-boundary fix reproduces
+  the hand-deduped run **byte-identically** (only the log counter differs: `1` → `3
+  duplicate-dropped`). Golden master re-blessed at asOf 2026-08-05 — diff confined to WW and FW,
+  **zero membership changes**. One diff entry needed chasing: Kevin Holland showed a −4.70 score
+  drift despite no link to either bout. Cause is display-only and benign — his `elo` (1520.00)
+  and `finalRating` (1529.06) are unchanged from the blessed snapshot; Donchenko landing at #24
+  pushes the un-beaten in-between count past `headToHead.leapfrogMaxUnbeaten` (4), so the
+  anti-vault guard correctly stops lifting Holland over Randy Brown (whom he beat) and his
+  displayed score is no longer clamped up to Brown's 69.23 for monotonicity. Same display-curve
+  artifact documented for Dern's champion floor on 2026-07-14, not a rating change.
+  `recencyMerge.test.ts` gained the regression directly (one bout + two source ids → one key)
+  plus suffix/accent cases. Typecheck, all unit tests, lint and build pass.
+
 ## 2026-08-03
 
 - **All six title-change division overrides removed — every premise expired.** The refreshed

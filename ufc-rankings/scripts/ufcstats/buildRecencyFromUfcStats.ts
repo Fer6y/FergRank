@@ -90,7 +90,7 @@ async function main() {
       const id1 = resolve(b.fighter1Name) ?? `us:${b.fighter1UfcId}`;
       const id2 = resolve(b.fighter2Name) ?? `us:${b.fighter2UfcId}`;
       if (id1.startsWith('us:') || id2.startsWith('us:')) unresolved++;
-      const key = recencyKey(id1, id2, ev.date!);
+      const key = recencyKey(b.fighter1Name, b.fighter2Name, ev.date!);
       if (seen.has(key)) continue;
       seen.add(key);
       rows.push([
@@ -112,7 +112,7 @@ async function main() {
     for (const ln of fs.readFileSync(OUT, 'utf-8').split('\n').slice(1).filter(Boolean)) {
       const c = splitCsvLine(ln);
       if (c.length < 5) continue;
-      const key = recencyKey(c[0], c[2], c[4]);
+      const key = recencyKey(c[1], c[3], c[4]); // NAMES (c[1]/c[3]), not ids — see recencyKey
       if (seen.has(key)) continue;
       seen.add(key);
       // Pad pre-metrics rows (old Sherdog schema) to the full width so the CSV

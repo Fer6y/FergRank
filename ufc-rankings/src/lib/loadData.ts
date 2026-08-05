@@ -250,11 +250,19 @@ export function loadAllData(): LoadedData {
   // Contract: these are UFC fights NEWER than Fights.csv. The upstream builder
   // has historically violated that (stale + duplicate rows), so we enforce it
   // at the load boundary instead of trusting the file:
-  //   1. DROP duplicates of a primary fight — same fighter pair (suffix-tolerant
-  //      name key) within ±7 days. ID keys are unreliable across sources (the
-  //      crosswalk id, the Fights.csv id and the roster id for one fighter can
-  //      all differ), so we key on normalized names. Catches double-counts like
-  //      Kamaka 2026-04-04 that were inflating the Elo sweep.
+  //   1. DROP duplicates — same fighter pair (suffix-tolerant name key) within
+  //      ±7 days of a fight we've ALREADY accepted, whether that fight came from
+  //      the primary CSV or from an earlier patch row. ID keys are unreliable
+  //      across sources (the crosswalk id, the Fights.csv id and the roster id for
+  //      one fighter can all differ), so we key on normalized names. Catches
+  //      double-counts like Kamaka 2026-04-04 that were inflating the Elo sweep.
+  //      The patch-vs-patch half matters because one bout can arrive from two
+  //      SOURCES with different placeholder opponent ids (`us:` from ufcstats,
+  //      `sd:` from the Sherdog era) — neither row is in the primary CSV, so
+  //      checking only against primary let both through and double-counted the
+  //      bout (Donchenko/Berggren + Ofli/Reyes, 2026-06-27). First row wins; the
+  //      builder emits the metric-bearing ufcstats row ahead of carried-forward
+  //      ones, and recencyKey now collapses these at build time too.
   //   2. DROP anything older than the primary cutoff minus a grace window — a
   //      "recency" row dated 2014 is a scrape error, not a gap-fill (this also
   //      sweeps up old duplicates like JDM/Emeev 2022).
@@ -262,15 +270,18 @@ export function loadAllData(): LoadedData {
   //      roster (JDM, Aaron Pico, Junior Tafa…) so the new fight attaches to the
   //      real fighter; genuinely-new regional fighters stay `sd:` (~1500 Elo).
   let latestPrimaryMs = 0;
-  const primaryPairDates = new Map<string, number[]>();
+  // Every bout already accepted into the sweep, keyed by normalized name pair.
+  // Seeded from the primary CSV, then EXTENDED with each accepted patch row so a
+  // second copy of the same bout is dropped no matter which source it came from.
+  const acceptedPairDates = new Map<string, number[]>();
   for (const f of fights) {
     if (!f.eventDate) continue;
     const t = f.eventDate.getTime();
     if (t > latestPrimaryMs) latestPrimaryMs = t;
     const k = pairKey(f.fighter1Name, f.fighter2Name);
-    const arr = primaryPairDates.get(k);
+    const arr = acceptedPairDates.get(k);
     if (arr) arr.push(t);
-    else primaryPairDates.set(k, [t]);
+    else acceptedPairDates.set(k, [t]);
   }
   const DUP_MS = 7 * 24 * 60 * 60 * 1000;        // ±7 days ⇒ same fight
   const recencyFloorMs = latestPrimaryMs - 60 * 24 * 60 * 60 * 1000; // 60-day gap-fill grace
@@ -284,7 +295,8 @@ export function loadAllData(): LoadedData {
     if (!pf.eventDate) continue;
     const t = pf.eventDate.getTime();
     if (t < recencyFloorMs) { rcStale++; continue; }
-    const dates = primaryPairDates.get(pairKey(pf.fighter1Name, pf.fighter2Name));
+    const k = pairKey(pf.fighter1Name, pf.fighter2Name);
+    const dates = acceptedPairDates.get(k);
     if (dates && dates.some((x) => Math.abs(x - t) <= DUP_MS)) { rcDup++; continue; }
     if (pf.fighterId1.startsWith('sd:') && nameCount.get(pf.fighter1Name) === 1) {
       const id = nameToId.get(pf.fighter1Name);
@@ -295,6 +307,10 @@ export function loadAllData(): LoadedData {
       if (id) { pf.fighterId2 = id; rcResolved++; }
     }
     fights.push(pf);
+    // Record it so a later patch row for the SAME bout (different source, hence a
+    // different opponent id) is caught by the duplicate-drop above.
+    if (dates) dates.push(t);
+    else acceptedPairDates.set(k, [t]);
     rcAdded++;
   }
   if (rcAdded || rcDup || rcStale) {

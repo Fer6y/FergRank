@@ -70,10 +70,31 @@ export function splitCsvLine(line: string): string[] {
   return out;
 }
 
-// Bout identity key — order-independent pair + date. Matches the in-run dedup so
-// a freshly-built row supersedes the same bout carried from the previous file.
-export function recencyKey(f1: string, f2: string, date: string): string {
-  return [f1, f2].sort().join('|') + '|' + date;
+// Normalized name for the bout-identity key — strips accents, generational
+// suffixes and punctuation so "Kai Kamaka III" and "Kai Kamaka" collapse. Mirrors
+// loadData.ts's normName so the builder and the load-boundary guard agree on what
+// counts as "the same bout".
+function normName(s: string): string {
+  return (s || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/\b(jr|sr|ii|iii|iv)\b/g, '')
+    .replace(/[^a-z0-9]/g, '');
+}
+
+// Bout identity key — order-independent NAME pair + date. Matches the in-run dedup
+// so a freshly-built row supersedes the same bout carried from the previous file.
+//
+// Keyed on NAMES, not ids, deliberately: the same bout arrives from different
+// sources carrying different placeholder ids for an off-roster fighter — `us:<ufcId>`
+// from ufcstats, `sd:<sherdogId>` from the Sherdog era. An id key made those two rows
+// look like two DIFFERENT fights, so both survived the accumulate-merge and the Elo
+// sweep counted the bout twice (Donchenko/Berggren + Ofli/Reyes, both 2026-06-27:
+// +13.4 and +10.6 Elo, 8 and 6 rank spots). Names are the only identifier the
+// sources agree on — the same reason loadData keys its duplicate-drop on them.
+export function recencyKey(f1Name: string, f2Name: string, date: string): string {
+  return [normName(f1Name), normName(f2Name)].sort().join('|') + '|' + date;
 }
 
 function main() {
@@ -130,7 +151,7 @@ function main() {
       if (!oppCw) oppUnresolved++;
 
       // Dedup: same bout pulled from both fighters' profiles → emit once.
-      const key = recencyKey(me.ourId, oppOurId, fight.date);
+      const key = recencyKey(me.name, oppName, fight.date);
       if (seen.has(key)) continue;
       seen.add(key);
 
@@ -160,7 +181,7 @@ function main() {
     for (const ln of prev) {
       const cols = splitCsvLine(ln);
       if (cols.length < 5) continue;
-      const key = recencyKey(cols[0], cols[2], cols[4]); // f1ourId, f2ourId, date
+      const key = recencyKey(cols[1], cols[3], cols[4]); // f1name, f2name, date
       if (seen.has(key)) continue;
       seen.add(key);
       lines.push(ln);
