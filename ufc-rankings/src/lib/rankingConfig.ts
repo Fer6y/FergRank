@@ -498,6 +498,50 @@ export const RANKING_CONFIG = {
   minUFCFights: 3,              // Minimum UFC fights to appear at all
   rankingsDepth: 40,            // Fighters ranked per division
 
+  // ═══ PROSPECT WATCHLIST (/prospects — DISPLAY ONLY) ═══════════════════
+  // Feeds NOTHING. `prospects.ts` reads engine output (Elo, rankings) and never
+  // writes back; these knobs move a page, not a rating.
+  //
+  // The ORDER is raw Elo and deliberately stays that way. A 2026-08-05 held-out
+  // backtest tested replacing it with climb rate ((elo−1500)/fights) to remove the
+  // fight-count ceiling — REFUTED. Over fighters inside the window at T with a
+  // later fight (n=112 at T=2023-08-05, n=118 at T=2024-08-05), raw Elo beat both
+  // climb and shrunk-climb on every outcome, including the fully external one
+  // (reaching the UFC's own official top 15: AUC 0.716/0.744 raw vs 0.645/0.619
+  // climb vs 0.702/0.718 shrunk k=3). Shrinkage only helped by converging BACK
+  // toward raw Elo. The ceiling is Elo correctly encoding evidence — five banked
+  // wins predict more than one fast start — so do not "fix" it without beating
+  // those numbers first. Full write-up: docs/CHANGELOG.md 2026-08-05.
+  prospects: {
+    // Must track elo.provisionalFights — the page's whole premise is "still inside
+    // the provisional-Elo window", so a divergence would make the copy a lie.
+    // Asserted at module load in prospects.ts rather than trusted.
+    maxUFCFights: 5,
+    activeWithinMonths: 15,     // idle longer than this drops off unless a fight is booked
+    minPedigreeFights: 3,       // don't render a 1-fight pre-UFC "record"
+    listLimit: 20,              // entries shown per tier
+
+    // ── Prospect vs newcomer split (a DEFINITIONAL line, not a predictive one) ──
+    // "≤5 UFC fights" conflates two populations: genuine prospects, and established
+    // fighters importing a career (Michael Page 39/23 pre-UFC bouts, Amosov 32).
+    // The backtest above cannot arbitrate this — a predictive metric ranks Page
+    // highly and is RIGHT to; the objection is that he is not in the category, not
+    // that he is over-rated. So this is a stated definition, deliberately carrying
+    // no scoring term and no new signal.
+    //
+    // AGE-PRIMARY on purpose. An earlier draft used (age ≥ 32 OR pre-UFC ≥ 15) and
+    // false-positived Kevin Vallejos (24, 15 pre-UFC bouts) — unambiguously a
+    // prospect. Runway is the scouting variable; pre-UFC volume only stands in when
+    // age is unknown (25% of the pool), and an unknown-age fighter with a short
+    // record defaults to PROSPECT so missing data never silently demotes anyone.
+    veteranAgeYears: 32,
+    veteranPreUFCFightsIfAgeUnknown: 20,
+
+    // DELETE the split (collapse back to one list) if the UFC's signing pattern
+    // changes such that fewer than ~3 fighters per refresh land in the newcomer
+    // tier — at that point it is two headings for one list.
+  },
+
   // ═══ P4P RECENT-FORM TILT (display-only, P4P list ONLY) ═══════════════
   // P4P is meant to be the CURRENT best-of-best. A fighter's all-time Elo can
   // coast on banked prime equity — their recent fights start from a high

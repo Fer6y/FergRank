@@ -12,6 +12,62 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-05
 
+- **REFUTED: replacing the /prospects raw-Elo sort with climb rate. Negative result, no change
+  shipped.** The audit observed that the sort key's attainable ceiling scales with UFC fight
+  count — measured max Elo by fights-at-window: **1516 (n=1), 1548 (n=2), 1547 (n=3), 1570 (n=4),
+  1575 (n=5)** against a displayed-20th cutoff of ~1538 — so all 19 one-fight fighters in the
+  100-strong pool were categorically unreachable on a top-20 page, and `climbPerFight` was
+  computed and displayed but never ordered on. The proposed fix was a shrunk climb rate
+  ((elo−1500)/(n+k)). **The held-out backtest killed it.** Cohort: fighters inside the window
+  with a winning record as of T who fought again after (n=112 at T=2023-08-05, n=118 at
+  T=2024-08-05); point-in-time ratings read straight off `FightTrace.ratingAfter` (a pure read,
+  no second sweep — same technique as `careerSos`). Raw Elo@T beat climb and shrunk-climb on
+  **every** outcome at **both** horizons, including the fully external one — reaching the UFC's
+  own official top 15: **AUC 0.716 / 0.744 (raw Elo)** vs 0.645 / 0.619 (climb) vs 0.702 / 0.718
+  (shrunk k=3); later win rate ρ 0.137 / 0.233 vs 0.137 / 0.159; net Elo after T ρ 0.137 / 0.091
+  vs 0.103 / 0.010. The external target matters because Elo-today is autocorrelated with Elo@T
+  and would flatter the incumbent on its own; the UFC's board is not our engine. Shrinkage only
+  ever helped by **converging back toward raw Elo** (k=1 → k=5: ρ 0.472 → 0.511), which is what
+  (elo−1500)/(n+k) does as k→∞ — the data was asking to go all the way. Conclusion: the
+  fight-count ceiling is **not a defect**; it is Elo correctly encoding evidence, since five
+  banked wins predict more than one fast start, and climb rate divides away exactly the signal
+  that predicts success. Two further gate catches recorded so they aren't re-proposed: (1) the
+  originally-sketched "climb + slate quality" composite would have **double-counted** — opponent
+  quality is already inside Elo via the win-quality gate; (2) the veteran detector drafted as
+  (age ≥ 32 OR pre-UFC ≥ 15 fights) **false-positived Kevin Vallejos** (24, 15 pre-UFC bouts), an
+  unambiguous prospect. Caveats: n≈115 per horizon, the win-rate ρ gaps are small (AUC carries
+  the result), and fighters who never fought again are excluded, which drops some of the clearest
+  failures. The refuted alternative and these numbers are recorded in `rankingConfig.prospects`
+  so the next person doesn't re-litigate it from intuition.
+
+- **/prospects split into PROSPECTS + NEW TO THE UFC — a definitional fix, zero new signal.**
+  With the ordering vindicated above, the real complaint about Michael Page (39) sitting at #5
+  was never "over-rated" — a predictive metric ranks him highly and is right to. It was that he
+  is **not in the category**: the `≤5 UFC fights` gate silently covered two populations. Fixed by
+  changing *eligibility presentation*, not scoring — one page, two Elo-ordered lists. The rule is
+  **age-primary** (runway is the scouting variable): age ≥ `veteranAgeYears` (32) → newcomer;
+  age known and below → prospect regardless of pre-UFC volume, which is what rescues Vallejos;
+  age unknown (25 of 100 in the pool) falls back to `veteranPreUFCFightsIfAgeUnknown` (20) and
+  otherwise **defaults to prospect**, so missing data never silently demotes anyone. Result: 89
+  prospects / 12 newcomers, every newcomer 32+ (Page 39, Amosov 32, Belgaroui 34, Alencar 35,
+  Musayev 36 …), Vallejos correctly retained as a prospect. Honest note: the unknown-age fallback
+  currently fires for **0 fighters** — it is a guard against the ~25% DOB gap (a missing-DOB Page
+  would otherwise land in Prospects), not a load-bearing rule. Removal condition in the config:
+  collapse back to one list if fewer than ~3 fighters per refresh land in the newcomer tier.
+- **/prospects: draws were being dropped from the displayed record.** `${w}-${l}` ignored draws,
+  so Chris Padilla rendered "4-0 UFC" while his own card listed `D · MD vs. MarQuel Mederos`
+  directly beneath — he is 4-0-1. Four fighters were misreporting (Padilla, Mederos,
+  Abdul-Malik, Bellato); now `4-0-1` when a draw exists. The `w > l` eligibility gate is
+  unchanged (a draw is not a win).
+- **/prospects magic numbers moved into `rankingConfig.prospects`.** `MAX_UFC_FIGHTS = 5`,
+  `ACTIVE_WITHIN_MONTHS = 15` and `MIN_PED_FIGHTS = 3` were hardcoded in `prospects.ts`, against
+  the project's single-source-of-truth rule. `maxUFCFights` silently duplicated
+  `elo.provisionalFights` — and the page copy explicitly claims to track the provisional window,
+  so tuning the engine knob would have made the UI a lie. Now config-driven, with a **load-time
+  assertion** that the two are equal rather than a comment asking someone to remember. Golden
+  master PASSES unchanged (display-only, as it should be); typecheck, lint, all unit tests and
+  build pass.
+
 - **Cross-source double-counting closed — the recency patch's bout-identity key was ID-based.**
   Found in an app audit, not by a failing check: two bouts from UFC Fight Night 280
   (2026-06-27) sat in `recent_ufc_fights.csv` **twice**, once from `ufcstats` and once carried

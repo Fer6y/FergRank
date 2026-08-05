@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { buildProspectWatchlist, type ProspectEntry } from '@/lib/prospects';
+import { RANKING_CONFIG } from '@/lib/rankingConfig';
 import { shortDivision } from '@/lib/divisions';
 import FighterAvatar from '@/components/FighterAvatar';
 import DistinctionDecals from '@/components/DistinctionDecals';
@@ -10,31 +11,62 @@ const resultColor = (r: string) =>
   r === 'W' ? 'var(--accent-green)' : r === 'L' ? 'var(--accent-red-light)' : 'var(--text-muted)';
 
 export default async function ProspectsPage() {
-  const prospects = await buildProspectWatchlist(20);
+  const { prospects, newcomers } = await buildProspectWatchlist();
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6 space-y-5">
+    <div className="max-w-5xl mx-auto px-4 py-6 space-y-8">
       <div>
         <h1 className="font-display text-3xl sm:text-4xl leading-none" style={{ color: 'var(--text-primary)' }}>
           PROSPECT WATCH
         </h1>
         <p className="text-xs mt-1.5 max-w-2xl" style={{ color: 'var(--text-muted)' }}>
-          Fighters still inside the provisional-Elo window (≤5 UFC fights) with a winning record and a
-          live schedule, ordered by rating. Climb rate = Elo gained per fight since debut — the engine
-          treats these ratings as provisional, so read them as trajectory, not destination.
+          Fighters still inside the provisional-Elo window (≤{RANKING_CONFIG.prospects.maxUFCFights} UFC
+          fights) with a winning record and a live schedule, ordered by rating. Climb rate = Elo gained
+          per fight since debut — the engine treats these ratings as provisional, so read them as
+          trajectory, not destination.
         </p>
       </div>
 
-      {prospects.length === 0 ? (
-        <p className="text-sm" style={{ color: 'var(--text-muted)' }}>No qualifying prospects right now.</p>
+      <Section
+        title="PROSPECTS"
+        blurb="Young risers — still building a UFC record, ceiling unknown."
+        entries={prospects}
+        emptyLabel="No qualifying prospects right now."
+      />
+
+      <Section
+        title="NEW TO THE UFC"
+        blurb={`Established fighters inside their first UFC bouts — ${RANKING_CONFIG.prospects.veteranAgeYears}+ years old, or arriving on a long professional record. Strong fighters, but not prospects.`}
+        entries={newcomers}
+        emptyLabel="No established newcomers on the current roster."
+      />
+    </div>
+  );
+}
+
+function Section({
+  title, blurb, entries, emptyLabel,
+}: { title: string; blurb: string; entries: ProspectEntry[]; emptyLabel: string }) {
+  return (
+    <section className="space-y-3">
+      <div className="flex items-baseline gap-3 flex-wrap">
+        <h2 className="font-display text-xl sm:text-2xl leading-none" style={{ color: 'var(--text-primary)' }}>
+          {title}
+        </h2>
+        <span className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>{entries.length}</span>
+        <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{blurb}</span>
+      </div>
+
+      {entries.length === 0 ? (
+        <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{emptyLabel}</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {prospects.map((p, i) => (
+          {entries.map((p, i) => (
             <ProspectCard key={p.fighterId} p={p} index={i + 1} />
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

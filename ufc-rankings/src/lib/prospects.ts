@@ -1,10 +1,17 @@
 // ─────────────────────────────────────────────────────────────────────────
 //  prospects.ts — the prospect watchlist (display-only).
 //
-//  Surfaces fighters still inside the provisional-Elo window (≤5 UFC fights)
-//  who are winning and active: their climb rate, last results, booked next
-//  fight, and pre-UFC pedigree context where the Sherdog data has it.
+//  Surfaces fighters still inside the provisional-Elo window who are winning
+//  and active: their climb rate, last results, booked next fight, and pre-UFC
+//  pedigree context where the Sherdog data has it.
 //  Reads engine OUTPUT (Elo, rankings) — never feeds anything back.
+//
+//  Split into two TIERS because "≤N UFC fights" covers two different
+//  populations — genuine prospects, and established fighters importing a career
+//  (see RANKING_CONFIG.prospects for the definition and why it carries no
+//  scoring term). Both tiers are ordered by raw Elo: a held-out backtest
+//  (2026-08-05) refuted replacing that with climb rate. All knobs live in
+//  RANKING_CONFIG.prospects — nothing hardcoded here.
 // ─────────────────────────────────────────────────────────────────────────
 
 import { getData } from './dataCache';
@@ -15,12 +22,24 @@ import { getFighterMedia } from './fighterMedia';
 import { getFighterAge } from './fighterAges';
 import { getNextFight, type NextFight } from './loadUpcoming';
 import { buildDistinctions, type Distinction } from './distinctions';
+import { RANKING_CONFIG } from './rankingConfig';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 
-const MAX_UFC_FIGHTS = 5;        // the engine's provisional-K window
-const ACTIVE_WITHIN_MONTHS = 15; // inactive prospects drop off unless booked
-const MIN_PED_FIGHTS = 3;        // don't show a 1-fight pre-UFC "record"
+const P = RANKING_CONFIG.prospects;
+
+// The page's premise is "still inside the provisional-Elo window", so the two
+// must agree. Fail loudly at load rather than silently rendering a false claim.
+if (P.maxUFCFights !== RANKING_CONFIG.elo.provisionalFights) {
+  throw new Error(
+    `[prospects] config desync: prospects.maxUFCFights (${P.maxUFCFights}) must equal ` +
+    `elo.provisionalFights (${RANKING_CONFIG.elo.provisionalFights}) — the watchlist claims ` +
+    `to track the provisional window.`,
+  );
+}
+
+/** Which list a fighter belongs on. See RANKING_CONFIG.prospects for the rule. */
+export type ProspectTier = 'prospect' | 'newcomer';
 
 export interface ProspectEntry {
   fighterId: string;
@@ -28,7 +47,8 @@ export interface ProspectEntry {
   division: string;
   flag: string | null;
   avatarUrl: string | null;
-  ufcRecord: string;            // decisive UFC record, e.g. "4-0"
+  tier: ProspectTier;
+  ufcRecord: string;            // UFC record, e.g. "4-0" (draws appended: "4-0-1")
   ufcFights: number;
   age: number | null;           // real age — central to prospect projection
   elo: number;                  // rounded core Elo
@@ -56,7 +76,23 @@ function shortMethod(method: string, round: number): string {
   return method.trim();
 }
 
-export async function buildProspectWatchlist(limit = 20): Promise<ProspectEntry[]> {
+/**
+ * Prospect vs newcomer — a DEFINITIONAL split, not a quality judgement. Age is
+ * the scouting variable (runway); pre-UFC volume only stands in when age is
+ * unknown, and a short-record unknown-age fighter defaults to `prospect` so
+ * missing data never silently demotes anyone. See RANKING_CONFIG.prospects.
+ */
+function classifyTier(age: number | null, preUFCFights: number): ProspectTier {
+  if (age != null) return age >= P.veteranAgeYears ? 'newcomer' : 'prospect';
+  return preUFCFights >= P.veteranPreUFCFightsIfAgeUnknown ? 'newcomer' : 'prospect';
+}
+
+export interface ProspectWatchlist {
+  prospects: ProspectEntry[];   // young risers — the scouting board
+  newcomers: ProspectEntry[];   // established fighters inside their first UFC bouts
+}
+
+export async function buildProspectWatchlist(limit = P.listLimit): Promise<ProspectWatchlist> {
   const data = getData();
   const ratings = buildEloRatings(data);
   const pedigree = loadPedigreeStrength(data);
@@ -77,19 +113,21 @@ export async function buildProspectWatchlist(limit = 20): Promise<ProspectEntry[
   for (const fighter of data.fighters) {
     const history = getFighterHistory(data, fighter.fighterId); // newest first, dated
     const n = history.length;
-    if (n === 0 || n > MAX_UFC_FIGHTS) continue;
+    if (n === 0 || n > P.maxUFCFights) continue;
     const w = history.filter((h) => h.result === 'W').length;
     const l = history.filter((h) => h.result === 'L').length;
-    if (w <= l) continue;                          // winning record only
+    const drawn = n - w - l;                       // the engine traces draws too
+    if (w <= l) continue;                          // winning record only (a draw is not a win)
     if (champIds.has(fighter.fighterId)) continue;
 
     const next = getNextFight(fighter.fighterId) ?? null;
     const monthsSince = (now - new Date(history[0].date).getTime()) / (1000 * 60 * 60 * 24 * 30.44);
-    if (monthsSince > ACTIVE_WITHIN_MONTHS && !next) continue;
+    if (monthsSince > P.activeWithinMonths && !next) continue;
 
     const elo = getElo(ratings, fighter.fighterId).rating;
     const media = getFighterMedia(fighter.fighterId);
     const ped = pedigree.get(fighter.fighterId);
+    const age = getFighterAge(fighter.fighterId)?.age ?? null;
 
     out.push({
       fighterId: fighter.fighterId,
@@ -97,9 +135,12 @@ export async function buildProspectWatchlist(limit = 20): Promise<ProspectEntry[
       division: fighter.weightClass,
       flag: media?.flag || null,
       avatarUrl: media?.avatarUrl || null,
-      ufcRecord: `${w}-${l}`,
+      tier: classifyTier(age, ped?.fights ?? 0),
+      // Draws are real results and were being dropped: a 4-0-1 fighter rendered
+      // as "4-0" while their own card listed the draw as a recent result.
+      ufcRecord: drawn > 0 ? `${w}-${l}-${drawn}` : `${w}-${l}`,
       ufcFights: n,
-      age: getFighterAge(fighter.fighterId)?.age ?? null,
+      age,
       elo: Math.round(elo),
       climbPerFight: Math.round(((elo - 1500) / n) * 10) / 10,
       ourRank: rankMap.get(fighter.fighterId) ?? null,
@@ -109,7 +150,7 @@ export async function buildProspectWatchlist(limit = 20): Promise<ProspectEntry[
       })),
       distinctions: buildDistinctions({ fighterName: fighter.fullName, isChampion: false, history }),
       nextFight: next,
-      preUFC: ped && ped.fights >= MIN_PED_FIGHTS
+      preUFC: ped && ped.fights >= P.minPedigreeFights
         ? {
             record: `${ped.wins}-${ped.losses}`,
             fights: ped.fights,
@@ -122,5 +163,10 @@ export async function buildProspectWatchlist(limit = 20): Promise<ProspectEntry[
     });
   }
 
-  return out.sort((a, b) => b.elo - a.elo).slice(0, limit);
+  // Raw Elo, both tiers. Held-out-backtest-defended — see RANKING_CONFIG.prospects.
+  out.sort((a, b) => b.elo - a.elo);
+  return {
+    prospects: out.filter((p) => p.tier === 'prospect').slice(0, limit),
+    newcomers: out.filter((p) => p.tier === 'newcomer').slice(0, limit),
+  };
 }
