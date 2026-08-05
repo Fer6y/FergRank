@@ -146,6 +146,7 @@ export async function POST(request: NextRequest) {
       const send = (obj: Record<string, unknown>) =>
         controller.enqueue(encoder.encode(JSON.stringify(obj) + '\n'));
 
+      let settled = false; // a terminal stop reason was reached and reported
       try {
         for (let iteration = 0; iteration < MAX_TOOL_ITERATIONS; iteration++) {
           const msgStream = client.messages.stream(
@@ -197,10 +198,37 @@ export async function POST(request: NextRequest) {
             continue;
           }
 
+          // ── Terminal stop reasons ────────────────────────────────────────
+          // Every arm below says something to the user. A silent `break` here
+          // leaves the reply looking like it simply stopped mid-thought, with
+          // no way to tell a finished answer from a truncated one.
+          //
+          // The final `else` is the load-bearing part: an unrecognized stop
+          // reason degrades to a visible message instead of silence. That is
+          // exactly how `model_context_window_exceeded` slipped in when the SDK
+          // added it (0.114.0) — enumerating today's reasons alone would let
+          // the next addition regress this the same way.
           if (response.stop_reason === 'refusal') {
             send({ type: 'text', text: "I can't help with that one — ask me about the fights." });
+          } else if (response.stop_reason === 'max_tokens') {
+            send({ type: 'text', text: '\n\n(Cut off — that answer hit the length limit. Ask me to continue, or narrow the question.)' });
+          } else if (response.stop_reason === 'model_context_window_exceeded') {
+            send({ type: 'text', text: '\n\n(This conversation has outgrown my context window. Start a new chat to keep going.)' });
+          } else if (response.stop_reason !== 'end_turn') {
+            console.warn('[api/chat] unhandled stop_reason:', response.stop_reason);
+            send({ type: 'text', text: '\n\n(The analyst stopped early. Try asking again.)' });
           }
-          break; // end_turn / max_tokens / refusal → turn over
+          settled = true;
+          break;
+        }
+        // Falling out of the loop without a terminal stop reason means every
+        // iteration wanted another tool call — say so rather than ending on a
+        // trail of tool labels and no answer.
+        if (!settled) {
+          send({
+            type: 'text',
+            text: `\n\n(I stopped after ${MAX_TOOL_ITERATIONS} lookups without landing on an answer. Try narrowing the question.)`,
+          });
         }
         send({ type: 'done' });
       } catch (err) {

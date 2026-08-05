@@ -27,6 +27,27 @@ below; leave them where they are — scripts diff against them.
   matching the dedup measurement exactly. Not every individual move was chased — the golden master
   is the regression guard; this file is committed evidence and a diff target.
 
+- **`/api/chat` no longer ends a turn silently — the stop-reason gap closed, and it was wider than
+  first reported.** The SDK bump below flagged the new `model_context_window_exceeded` stop reason
+  falling through the route's `break`. Reading the whole block found **three** silent-stop paths,
+  not one, and the one actually reachable today was missed in that first pass: **`max_tokens`**.
+  At `MAX_TOKENS = 4096` per iteration a long answer simply stopped mid-sentence with nothing to
+  distinguish it from a finished reply — `model_context_window_exceeded` (needs 1M tokens) and
+  tool-loop exhaustion (8 straight `tool_use` iterations, ending on a trail of tool labels and no
+  answer) are the rarer two. Each now sends a plain-prose notice on the `text` channel, which is
+  the channel the client appends inline (`error` would have replaced the partial reply instead of
+  completing it); `whitespace-pre-wrap` on the assistant bubble renders the `\n\n` separator, and
+  the notices avoid markdown because `AnalystDock` renders `{m.content}` as plain text.
+  **The load-bearing part is the final `else`, not the enumeration:** an unrecognized stop reason
+  now degrades to a visible message plus a `console.warn` rather than silence. Enumerating today's
+  reasons alone would let the *next* SDK addition regress this exactly the way this one did.
+  **Verified live, not by inspection:** temporarily setting `MAX_TOKENS = 64` and asking for a long
+  answer produced a real mid-sentence cut followed by the notice; restoring 4096 and re-running a
+  normal tool-using turn (3 tool calls) confirmed no false-positive notice on `end_turn`. The other
+  three arms are typecheck- and inspection-verified only — `model_context_window_exceeded` and an
+  unknown stop reason can't be provoked from the API, and forcing loop exhaustion would need a
+  contrived tool. Typecheck, lint, all 5 suites and build pass.
+
 - **`@anthropic-ai/sdk` 0.110.0 → 0.115.0 — no breaking changes, verified against a live call.**
   The one dependency deliberately deferred in the bump below, since `/api/chat` is a live runtime
   path and a 0.x minor can break. It didn't: all **10 releases** across the range are additive —
