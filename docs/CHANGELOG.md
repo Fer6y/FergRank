@@ -12,6 +12,21 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-05
 
+- **Validation snapshot regenerated → `validation_elo_2026-08-05.txt`** (new reference; CLAUDE.md
+  updated). The previous reference, `validation_elo_2026-07-07.txt`, was a month stale — predating
+  three backfilled cards, the 2026-08-03 override removal and the dedup fix — and it had a **failing
+  assertion baked into it**: `❌ SOME MUST-MATCH NAMES FAILED`, which was the false Shavkat
+  Rakhmonov ❌ fixed on 2026-08-03 (he had dropped off the UFC top 15, which can't test name
+  resolution). The new snapshot reads `✅ ALL MUST-MATCH NAMES RESOLVED` (Shavkat correctly
+  reported as `NOT ON OFFICIAL LIST — skipped`), `✅ FinalRating strictly descending`, **0
+  UNMATCHED** names across all 11 divisions, and 8,805 fights vs 8,755 (+50 net: the backfill less
+  the 2 de-duplicated bouts — the `3 duplicate-dropped` load line is visible in the header).
+  Movement vs the old reference is broad and small, consistent with a month of new results plus
+  inactivity decay: 26–28 of ~38 shared names shift in each of LW/WW/BW with 2–3 entries/exits per
+  division. The one change verified against a known cause is **Daniil Donchenko WW #15 → #24**,
+  matching the dedup measurement exactly. Not every individual move was chased — the golden master
+  is the regression guard; this file is committed evidence and a diff target.
+
 - **`npm test` now runs the recency-merge regression — and 4 orphaned suites triaged.** The
   dedup fix above shipped with its regression test in `scripts/sherdog/recencyMerge.test.ts`,
   which `npm test` never ran (it was `engine && scoring && display` only) — a guard that executes

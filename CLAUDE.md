@@ -10,7 +10,7 @@ fighter cards. Goal: outperform the UFC's own upcoming Meta/AI rankings on trans
 - Dev server: `npm run dev` (Turbopack). Verify changes against running output, not just types.
 - Validate rankings: `node_modules/.bin/jiti scripts/validate.ts` — name-match audit + LW/WW/BW
   top-40 breakdown; needs network. Diff against the latest `validation_elo_*.txt` snapshot after
-  any algo/data change (current reference: `validation_elo_2026-07-07.txt`).
+  any algo/data change (current reference: `validation_elo_2026-08-05.txt`).
 - Unit tests: `npm test` — engine + scoring + display suites guarding the INVARIANTS beneath the
   ranking output: Elo core (winner-gains, opponent-quality gate, finish weighting, provisional K,
   weight-move-once, symmetric win-prob) and the ranking layer (untested hold, metrics damper, H2H
