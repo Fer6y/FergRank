@@ -12,6 +12,22 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-05
 
+- **`npm test` now runs the recency-merge regression — and 4 orphaned suites triaged.** The
+  dedup fix above shipped with its regression test in `scripts/sherdog/recencyMerge.test.ts`,
+  which `npm test` never ran (it was `engine && scoring && display` only) — a guard that executes
+  nowhere protects nothing. Audit found **six** `.test.ts` files outside the script, not one, so
+  they were triaged rather than bulk-added: `recencyMerge` and `extendCrosswalk` are pure unit
+  tests (inline fixtures, no file I/O, no cwd dependence) and are now **in `npm test`**; the other
+  four are **deliberately excluded** and moved to a new `npm run test:local`, because they are not
+  CI-safe — `parseProfile` / `parseEvent` / `resolveCrosswalk` read `scripts/sherdog/fixtures/*.html`
+  with an unguarded `readFileSync`, and that directory is **git-ignored**, so on a fresh checkout
+  they would THROW and break the build; `methodMap` reads the git-ignored `data/.sherdog_cache/`
+  and hits an early `process.exit(0)` when it finds nothing, i.e. it would pass while testing
+  nothing. Both failure modes are worse than leaving them out — one breaks CI, one manufactures
+  false confidence. Verified by **negative control**, not just a green run: injecting a failing
+  assertion into `recencyMerge.test.ts` makes `npm test` exit 1, and it returns to 0 on restore,
+  so the new suites genuinely gate. All 5 CI suites and all 4 local suites pass.
+
 - **Dependencies: `npm audit` clean in BOTH scopes (was 3 high in production).** The audit found
   postcss 8.5.15 exposed to two advisories newer than the 2026-07-07 override
   (GHSA-r28c-9q8g-f849 + GHSA-fxqj-rqcc-2cmp, sourceMappingURL path traversal → arbitrary .map

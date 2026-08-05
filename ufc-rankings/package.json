@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "jiti scripts/engine.test.ts && jiti scripts/scoring.test.ts && jiti scripts/display.test.ts",
+    "test": "jiti scripts/engine.test.ts && jiti scripts/scoring.test.ts && jiti scripts/display.test.ts && jiti scripts/sherdog/recencyMerge.test.ts && jiti scripts/sherdog/extendCrosswalk.test.ts",
+    "test:local": "jiti scripts/sherdog/parseProfile.test.ts && jiti scripts/sherdog/parseEvent.test.ts && jiti scripts/sherdog/resolveCrosswalk.test.ts && jiti scripts/sherdog/methodMap.test.ts",
     "dev:preview": "NEXT_DIST_DIR=.next-preview next dev",
     "dev:preview2": "NEXT_DIST_DIR=.next-preview2 next dev"
   },
