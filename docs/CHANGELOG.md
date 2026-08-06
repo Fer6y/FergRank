@@ -27,6 +27,30 @@ below; leave them where they are — scripts diff against them.
   matching the dedup measurement exactly. Not every individual move was chased — the golden master
   is the regression guard; this file is committed evidence and a diff target.
 
+- **/prospects: climb rate added as an OPT-IN sort view — default stays raw Elo.** The 2026-08-05
+  backtest refuted climb rate as the *default* ordering; it did not say the ordering has no use.
+  This ships it as a second lens with the evidence-backed sort still in front: a `Sort:
+  Rating | Climb rate` toggle, defaulting to Rating, with a caveat line shown only while the climb
+  view is active ("Rating predicts breakthrough better — this view is for spotting fast starters,
+  not ranking them"). Same shape as the existing Pure-Elo toggle on the division FilterBar.
+  **Client-side, deliberately.** A `?sort=` searchParam would have made /prospects a dynamic route
+  and cost its ISR caching, and the ranking pass is far too CPU-heavy to run per request — the
+  build output confirms the page stays `○` static with `revalidate` intact. Re-ordering ~100
+  pre-computed entries in the browser is free.
+  **The non-obvious part is where the slice happens.** `buildProspectWatchlist()` now returns the
+  FULL pool per tier (89 prospects / 12 newcomers) instead of pre-slicing to `listLimit`, and the
+  client sorts *then* slices. Slicing server-side by Elo first would have pre-filtered on the
+  default key and hidden exactly the low-fight-count risers the climb view exists to surface —
+  the toggle would have reordered 20 names and shown nothing new. Measured: the rating view has
+  **0** fighters with ≤2 UFC fights in its top 20; the climb view has **2**, and surfaces 3 names
+  the rating view never shows (Ethyn Ewing n=2, Damian Pinas n=2, Jacobe Smith n=3).
+  New `climbShrinkK` (3) in `rankingConfig.prospects` carries the k-vs-convergence tradeoff the
+  backtest measured (ρ 0.472 at k=1 → 0.511 at k=5, converging toward raw Elo) so the next reader
+  sees why a low k is right for a *view* and wrong for a default. Verified in the browser, not just
+  by build: clicking the toggle reorders to exactly the ordering computed offline, `aria-pressed`
+  tracks, the caveat shows/hides, it round-trips back to Rating, 32 cards render, zero console
+  errors. Golden master passes unchanged; typecheck, lint, all 5 suites and build pass.
+
 - **`/api/chat` no longer ends a turn silently — the stop-reason gap closed, and it was wider than
   first reported.** The SDK bump below flagged the new `model_context_window_exceeded` stop reason
   falling through the route's `break`. Reading the whole block found **three** silent-stop paths,

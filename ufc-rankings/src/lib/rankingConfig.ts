@@ -521,6 +521,16 @@ export const RANKING_CONFIG = {
     minPedigreeFights: 3,       // don't render a 1-fight pre-UFC "record"
     listLimit: 20,              // entries shown per tier
 
+    // Shrinkage constant for the OPT-IN climb-rate view: (elo − 1500) / (n + k).
+    // This orders the alternate view only — the default sort is raw Elo and stays
+    // that way (see the refutation note above). k trades differentiation against
+    // small-sample noise, and the backtest measured the tradeoff directly: as k
+    // rises the ordering converges toward raw Elo (ρ 0.472 at k=1 → 0.511 at k=5),
+    // which is the whole reason this is a view and not the default. 3 is a tested
+    // mid-point — differentiated enough to surface fast starters the Elo ceiling
+    // hides, shrunk enough that a single lucky debut doesn't top the list.
+    climbShrinkK: 3,
+
     // ── Prospect vs newcomer split (a DEFINITIONAL line, not a predictive one) ──
     // "≤5 UFC fights" conflates two populations: genuine prospects, and established
     // fighters importing a career (Michael Page 39/23 pre-UFC bouts, Amosov 32).

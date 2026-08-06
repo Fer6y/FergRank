@@ -52,7 +52,8 @@ export interface ProspectEntry {
   ufcFights: number;
   age: number | null;           // real age — central to prospect projection
   elo: number;                  // rounded core Elo
-  climbPerFight: number;        // (Elo − 1500) / fights — speed of the rise
+  climbPerFight: number;        // (Elo − 1500) / fights — speed of the rise (displayed)
+  shrunkClimb: number;          // (Elo − 1500) / (fights + k) — sort key for the climb VIEW only
   ourRank: number | null;       // display rank if already cracking a division
   lastTwo: { result: string; label: string }[];
   distinctions: Distinction[];  // decal badges (streaks/undefeated); display only
@@ -92,7 +93,13 @@ export interface ProspectWatchlist {
   newcomers: ProspectEntry[];   // established fighters inside their first UFC bouts
 }
 
-export async function buildProspectWatchlist(limit = P.listLimit): Promise<ProspectWatchlist> {
+/**
+ * Returns the FULL qualifying pool per tier, ordered by raw Elo (the default and
+ * evidence-backed ordering). Deliberately unsliced: the client re-sorts for the
+ * opt-in climb view, and slicing to `listLimit` here would pre-filter by Elo —
+ * hiding exactly the low-fight-count risers that view exists to surface.
+ */
+export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
   const data = getData();
   const ratings = buildEloRatings(data);
   const pedigree = loadPedigreeStrength(data);
@@ -143,6 +150,7 @@ export async function buildProspectWatchlist(limit = P.listLimit): Promise<Prosp
       age,
       elo: Math.round(elo),
       climbPerFight: Math.round(((elo - 1500) / n) * 10) / 10,
+      shrunkClimb: (elo - 1500) / (n + P.climbShrinkK),
       ourRank: rankMap.get(fighter.fighterId) ?? null,
       lastTwo: history.slice(0, 2).map((h) => ({
         result: h.result,
@@ -166,7 +174,7 @@ export async function buildProspectWatchlist(limit = P.listLimit): Promise<Prosp
   // Raw Elo, both tiers. Held-out-backtest-defended — see RANKING_CONFIG.prospects.
   out.sort((a, b) => b.elo - a.elo);
   return {
-    prospects: out.filter((p) => p.tier === 'prospect').slice(0, limit),
-    newcomers: out.filter((p) => p.tier === 'newcomer').slice(0, limit),
+    prospects: out.filter((p) => p.tier === 'prospect'),
+    newcomers: out.filter((p) => p.tier === 'newcomer'),
   };
 }
