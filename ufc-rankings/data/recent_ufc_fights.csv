@@ -1,4 +1,16 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,kd1,kd2,str1,str2,td1,td2,sub1,sub2
+a66c074dfa6b8835,Quillan Salkilld,6f8b8d1f2f3b7fcc,Mateusz Gamrot,2026-08-08,W,L,SUB,1,Lightweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,0,0,10,3,1,0,1,2
+92120440fcb28c7e,Diego Ferreira,15a5d250b43e99c3,Billy Quarantillo,2026-08-08,W,L,U-DEC,3,Lightweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,0,0,116,73,4,1,0,0
+47dfe6ac6c9121a0,Yadier del Valle,297d71e3e51e67fc,Darren Elkins,2026-08-08,W,L,KO/TKO,1,Featherweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,1,0,5,0,0,0,0,0
+3808fc6e211485cf,Alexia Thainara,deadb348f846ea90,Amanda Lemos,2026-08-08,W,L,U-DEC,3,Women's Strawweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,0,0,81,56,2,0,0,0
+d8436984de79cc6e,Ty Miller,c9bb479dabdb48bf,Billy Ray Goff,2026-08-08,W,L,KO/TKO,3,Welterweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,2,0,133,25,0,0,0,0
+7d1e163720b62145,Steven Asplund,5559b70c45c58628,Guilherme Pat,2026-08-08,W,L,U-DEC,3,Heavyweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,2,1,66,45,0,0,1,0
+c3fd5865a09e741a,Diyar Nurgozhay,d13c8ceda8609795,Bruno Lopes,2026-08-08,W,L,KO/TKO,1,Light Heavyweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,2,0,48,14,0,1,0,0
+us:1f8cd7634e8286ff,Jose Montanha,fd041fcc21cc505d,Louie Sutherland,2026-08-08,W,L,SUB,1,Heavyweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,0,0,2,3,1,0,1,0
+a175cb5d70c753c6,Manoel Sousa,us:abde3388a589103c,Richie Miranda,2026-08-08,W,L,U-DEC,3,Lightweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,1,0,67,46,1,1,0,0
+e011a97f57726d2d,Miles Johns,17bd6cb0ff67ee5d,Gianni Vazquez,2026-08-08,W,L,KO/TKO,1,Featherweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,1,0,12,7,0,0,0,0
+2829dc258e48d9ed,Juliana Miller,6eac40c13b114758,Ravena Oliveira,2026-08-08,W,L,SUB,2,Women's Flyweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,0,0,24,7,2,0,1,0
+us:77ba5b2939c4018b,Carol Foro,us:651d209fa8c8cd83,Gigi Canuto,2026-08-08,W,L,U-DEC,3,Women's Strawweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,0,0,106,56,0,4,0,1
 84ded26cb00e17cf,Uros Medic,27dc95be9b98006d,Daniel Rodriguez,2026-08-01,W,L,KO/TKO,1,Welterweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,1,0,11,1,0,0,0,0
 0b43bf0acbd22ca3,Navajo Stirling,29a6a8a9d3847e14,Jan Blachowicz,2026-08-01,W,L,KO/TKO,1,Light Heavyweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,35,3,0,0,0,0
 07d8dcdbf698e6e0,Aleksandar Rakic,3a7dd104278b1800,Marcin Tybura,2026-08-01,W,L,U-DEC,3,Heavyweight,UFC Fight Night: Medic vs. Rodriguez,ufcstats,0,0,71,33,0,0,0,0
@@ -64,8 +76,6 @@ b62e595027ceacad,Kaan Ofli,0dc9571266788e7c,Javier Reyes,2026-06-27,W,L,SUB,1,Fe
 1dbb544d1b5ac196,Daniil Donchenko,us:feef5f8f5629e5e7,Theodor Berggren,2026-06-27,W,L,KO/TKO,2,Welterweight,UFC Fight Night: Fiziev vs. Torres,ufcstats,2,0,71,23,0,0,0,0
 99142b6b0a8bdbba,Jean Matsumoto,d29f0772d1082463,Bekzat Almakhan,2026-06-27,W,L,U-DEC,3,Bantamweight,UFC Fight Night: Fiziev vs. Torres,ufcstats,0,1,79,69,2,0,0,0
 us:e047d3b541afd4a7,Tahir Abdullayev,us:4b85abc5abbe657c,Jefferson Nascimento,2026-06-27,W,L,KO/TKO,3,Welterweight,UFC Fight Night: Fiziev vs. Torres,ufcstats,0,0,37,35,2,0,0,0
-1dbb544d1b5ac196,Daniil Donchenko,sd:Theodor-Berggren-347365,Theodor Berggren,2026-06-27,W,L,KO/TKO,2,Welterweight,UFC Fight Night 280 - Fiziev vs. Torres,sherdog,,,,,,,,
-b62e595027ceacad,Kaan Ofli,sd:Javier-Reyes-182691,Javier Reyes,2026-06-27,W,L,SUB,1,Featherweight,UFC Fight Night 280 - Fiziev vs. Torres,sherdog,,,,,,,,
 0b43bf0acbd22ca3,Navajo Stirling,4b69b3ef64951c28,Ion Cutelaba,2026-06-20,W,L,KO/TKO,2,Light Heavyweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog,,,,,,,,
 37965f5e8d73ed22,Andre Fili,aad8e24798f0a89f,Vinicius Oliveira,2026-06-20,L,W,KO/TKO,2,Featherweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog,,,,,,,,
 c9689833e730c077,Kevin Borjas,e1601c0597a7b444,Andre Lima,2026-06-20,W,L,U-DEC,3,Flyweight,UFC Fight Night 279 - Kape vs. Horiguchi 2,sherdog,,,,,,,,

@@ -1,28 +1,29 @@
 event_id,event_name,event_date,bout_order,section,is_main_event,weight_class,fighter1_ourId,fighter1_name,fighter1_sherdogId,fighter2_ourId,fighter2_name,fighter2_sherdogId,fetched_at
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,1,,1,Lightweight,6f8b8d1f2f3b7fcc,Mateusz Gamrot,,a66c074dfa6b8835,Quillan Salkilld,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,2,,0,Lightweight,92120440fcb28c7e,Diego Ferreira,,15a5d250b43e99c3,Billy Quarantillo,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,3,,0,Featherweight,297d71e3e51e67fc,Darren Elkins,,47dfe6ac6c9121a0,Yadier del Valle,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,4,,0,Featherweight,e011a97f57726d2d,Miles Johns,,,Jessie Rosas,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,5,,0,Heavyweight,fd041fcc21cc505d,Louie Sutherland,,,Jose Montanha da Silva,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,6,,0,Welterweight,d8436984de79cc6e,Ty Miller,,c9bb479dabdb48bf,Billy Ray Goff,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,7,,0,Light Heavyweight,c3fd5865a09e741a,Diyar Nurgozhay,,d13c8ceda8609795,Bruno Lopes,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,8,,0,Heavyweight,7d1e163720b62145,Steven Asplund,,5559b70c45c58628,Guilherme Pat,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,9,,0,Women's Strawweight,deadb348f846ea90,Amanda Lemos,,3808fc6e211485cf,Alexia Thainara,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,10,,0,Lightweight,a175cb5d70c753c6,Manoel Sousa,,,Richie Miranda,,2026-08-03
-ufc-fight-night-august-08-2026,UFC Fight Night - Gamrot vs. Salkilld,2026-08-08,11,,0,Women's Flyweight,2829dc258e48d9ed,Juliana Miller,,6eac40c13b114758,Ravena Oliveira,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,1,,1,Welterweight Title,78f73bfd71449931,Islam Makhachev,,302c7dcb0fec325e,Ian Machado Garry,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,2,,0,Women's Strawweight Title,1868597de911ab05,Mackenzie Dern,,bd86cff59cdab666,Gillian Robertson,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,3,,0,Middleweight,b9562bf0e19e971a,Mansur Abdul-Malik,,be354104b1b893f1,Dustin Stoltzfus,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,4,,0,Welterweight,541d80991428244f,Jeremiah Wells,,96175d750571d1d3,Myktybek Orolbai,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,5,,0,Lightweight,e411d4112ff57cb3,Jalin Turner,,488201b31f04d4b7,Kauê Fernandes,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,6,,0,Welterweight,deee560a8bc1dd80,Geoff Neal,,b64bdbe0d3e4c9aa,Chidi Njokuani,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,7,,0,Welterweight,3fd27e0b217d2b7b,Neil Magny,,98199760e1c660be,Ramiz Brahimaj,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,8,,0,Middleweight,62eb06895e1e4b0b,Donte Johnson,,cfceff9b0a52347d,Eric McConico,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,9,,0,Middleweight,7eb5ea10a1a59139,Vicente Luque,,7bea6275b1fcbfa4,Tresean Gore,,2026-08-03
-ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,10,,0,Lightweight,2361865e12089b38,Edson Barboza,,b64c3d4ac407dfce,Esteban Ribovics,,2026-08-03
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,1,,1,Bantamweight,6f151471dd180d1e,Umar Nurmagomedov,,6e8a5fe4993ba864,Song Yadong,,2026-08-03
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,2,,0,Women's Strawweight,c58c3a863045d224,Yan Xiaonan,,092a12fbdcf12ad3,Denise Gomes,,2026-08-03
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,3,,0,Bantamweight,14d7083ccbe8c09e,Aoriqileng,,74bb53e7099cb5b9,Kai Asakura,,2026-08-03
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,4,,0,Flyweight,284456a2771843a3,Sumudaerji,,245f661e52b116c7,Alex Perez,,2026-08-03
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,5,,0,Flyweight,0488ce27e1b8bb1d,Rei Tsuruya,,c9689833e730c077,Kevin Borjas,,2026-08-03
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,6,,0,Light Heavyweight,,Ce Liu,,3d3b451081ce16e9,Junior Tafa,,2026-08-03
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,1,main,1,Welterweight Title,78f73bfd71449931,Islam Makhachev,,302c7dcb0fec325e,Ian Machado Garry,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,2,main,0,Women's Strawweight Title,1868597de911ab05,Mackenzie Dern,,bd86cff59cdab666,Gillian Robertson,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,3,main,0,Middleweight,b9562bf0e19e971a,Mansur Abdul-Malik,,be354104b1b893f1,Dustin Stoltzfus,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,4,main,0,Lightweight,2361865e12089b38,Edson Barboza,,b64c3d4ac407dfce,Esteban Ribovics,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,5,prelim,0,Welterweight,b64bdbe0d3e4c9aa,Chidi Njokuani,,6633d8ac3511d67f,Joel Álvarez,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,6,prelim,0,Lightweight,e411d4112ff57cb3,Jalin Turner,,488201b31f04d4b7,Kauê Fernandes,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,7,prelim,0,Middleweight,62eb06895e1e4b0b,Donte Johnson,,cfceff9b0a52347d,Eric McConico,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,8,prelim,0,Middleweight,7eb5ea10a1a59139,Vicente Luque,,7bea6275b1fcbfa4,Tresean Gore,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,9,early,0,Light Heavyweight,5a7dee229b27e06c,Rafael Tobias,,,Lucas Fernando,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,10,early,0,Welterweight,3fd27e0b217d2b7b,Neil Magny,,98199760e1c660be,Ramiz Brahimaj,,2026-08-09
+ufc-330,UFC 330 - Makhachev vs. Garry,2026-08-15,11,early,0,Welterweight,541d80991428244f,Jeremiah Wells,,96175d750571d1d3,Myktybek Orolbai,,2026-08-09
+ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,1,main,1,Middleweight,9583d6bf13318f23,Anthony Hernandez,,2127684a702c4006,Gregory Rodrigues,,2026-08-09
+ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,2,main,0,Heavyweight,e61d510091019852,Serghei Spivac,,d04b8d5ce7a65c4f,Vitor Petrino,,2026-08-09
+ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,3,main,0,Light Heavyweight,db3f5063058ec38a,Reinier de Ridder,,900105052b1946b1,Roman Dolidze,,2026-08-09
+ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,4,main,0,Women's Strawweight,35fd53a02396b4af,Carli Judice,,,Jeisla Chaves,,2026-08-09
+ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,5,main,0,Heavyweight,3efa6683f90baf91,Kennedy Nzechukwu,,dcf805bf4b210fb9,Shamil Gaziev,,2026-08-09
+ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,6,prelim,0,Middleweight,019629d59f9a2c45,Wes Schultz,,c88287c8ff62d1e7,Jackson McVey,,2026-08-09
+ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,7,prelim,0,Lightweight,d0867cbe48a86c11,Kody Steele,,858da0d25b30d9c6,Gauge Young,,2026-08-09
+ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,8,prelim,0,Women's Strawweight,1a5943119d358e11,Shanelle Dyer,,ca846720b8878cbc,Elise Reed,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,1,main,1,Bantamweight,6f151471dd180d1e,Umar Nurmagomedov,,6e8a5fe4993ba864,Song Yadong,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,2,main,0,Women's Strawweight,c58c3a863045d224,Yan Xiaonan,,092a12fbdcf12ad3,Denise Gomes,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,3,main,0,Bantamweight,14d7083ccbe8c09e,Aoriqileng,,74bb53e7099cb5b9,Kai Asakura,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,4,main,0,Flyweight,284456a2771843a3,Sumudaerji,,245f661e52b116c7,Alex Perez,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,5,main,0,Light Heavyweight,,Ce Liu,,3d3b451081ce16e9,Junior Tafa,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,6,main,0,Flyweight,,Namsrai Batbayar,,e1601c0597a7b444,Andre Lima,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,7,prelim,0,Featherweight,0aa46064d6a157d1,Jack Jenkins,,a238e2e4c9670e90,Sean Woodson,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,8,prelim,0,Flyweight,0488ce27e1b8bb1d,Rei Tsuruya,,c9689833e730c077,Kevin Borjas,,2026-08-09
+ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,9,prelim,0,Women's Strawweight,,Xiong Jingnan,,1be2a80e36f38a46,Julia Polastri,,2026-08-09
