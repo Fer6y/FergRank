@@ -10,6 +10,45 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-10
+
+- **REFUTED: a champion-specific inactivity exemption ("the UFC spaces champions out"). No change
+  shipped; the premise fails on measurement.** New re-runnable diagnostic
+  `scripts/diagChampionCadence.ts` (champion identity per bout from `title_fights.csv`'s
+  `champion` column, interim bouts dropped, so this is historical rather than the current board).
+  **Champions do not fight less often.** 2019+ inter-fight gap entering a title defence: median
+  **6.4** mo, mean **7.1**, p90 **11.0** — against **6.0 / 7.6 / 13.1** for every non-title fight.
+  Fractionally longer by median, *shorter* by mean and at the tail, and only **2%** of champion
+  gaps clear the 18-mo steep elbow vs **4%** for everyone else. The intuition inverts the actual
+  finding: it is the **CHALLENGER** who waits (median 6.9, mean 8.7, p90 14.3) — a fighter parked
+  waiting for a title shot is the one matchmaking spacing penalises, not the belt-holder.
+  **And it costs champions almost nothing today.** Of the 11 current champions, 10 lose ≤6.1 Elo
+  to the sweep's final regression (six lose 0.0–4.4). The single material case is Tom Aspinall at
+  **−30.5** on a **24.4-month** layoff — which is the genuinely-parked case the two-slope elbow was
+  built for (the Jon Jones fix, 2026-07-06), not a scheduling artefact.
+  **Even a total exemption reorders nothing.** The champion floor fires in **2 of 11** divisions
+  (Aspinall HW, Strickland MW) — inside the health threshold `docs/ALGORITHM.md` sets. Refunding
+  Aspinall's full 30.5 still leaves him **4.5** behind Ciryl Gane; Strickland's decay is exactly
+  **0.0** (3.1 mo idle) and his 28.6-Elo deficit to Du Plessis is pure in-cage result. Same for
+  the champions sitting below #1 on raw finalRating without being floored — Gaethje (idle 1.9 mo,
+  decay 0.0, 39.5 behind Oliveira), Dern (decay −1.7, 49.0 behind Zhang) — all reach their
+  displayed slot through the **H2H leapfrog**, i.e. wins over the fighters above them, which is
+  the mechanism working, not a safety net. A first pass mis-read those as floor rescues by sorting
+  on finalRating; only the `CHAMP FLOOR` log line means the floor did the work, and the diagnostic
+  now says so in a comment so the next reader doesn't repeat the error.
+  Two further reasons it was the wrong shape even if the premise had held: the inactivity
+  regression is an **uncertainty** adjustment, not a punishment — a belt does not make a stale
+  rating more reliable, and ring rust does not check your title status; and champion identity
+  comes from official rank `"C"`, so keying Elo-core decay on it would inject the official board
+  into `eloEngine.ts`, the same firewall breach that sank the ranked-opponent move-decay refund
+  the day before.
+- **Doc correction:** the 2026-07-09 entry below asserts champions "defend ~10–14 mo apart". They
+  do not — measured median is **6.4** mo (p90 11.0). The *conclusion* drawn from it (active
+  champions never reach the steep elbow) survives and is in fact stronger than claimed; only the
+  quoted cadence was wrong.
+
+---
+
 ## 2026-08-09
 
 - **REFUTED: refunding the weight-move decay on a division-debut win over a ranked opponent.

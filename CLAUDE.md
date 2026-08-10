@@ -22,6 +22,10 @@ fighter cards. Goal: outperform the UFC's own upcoming Meta/AI rankings on trans
   code/data changes — never from calendar days passing since the bless.
 - Official-seed diagnostics: `node_modules/.bin/jiti scripts/diagOfficialImpact.ts` — who the seed
   props + the ranked-pool gap distribution. Re-run after any seed/floor tuning.
+- Champion cadence: `node_modules/.bin/jiti scripts/diagChampionCadence.ts` — champion vs
+  challenger vs everyone-else fight gaps, plus what inactivity costs each current champion and
+  who needs the floor. Run this before tuning inactivity knobs on a "champions fight less" premise
+  (measured 2026-08-10: they don't — see CHANGELOG).
 - Typecheck: `npx tsc --noEmit`. CI = typecheck → `npm test` → build → golden master.
 - Quick single-division print: `jiti scripts/sanityCheck.ts`.
 
