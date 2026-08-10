@@ -141,6 +141,28 @@ export const RANKING_CONFIG = {
     // On a detected division change, the rating regresses toward the mean by
     // this fraction before the fight at the new weight is processed.
     // rating = mean + (rating - mean) * (1 - moveDecayPenalty)
+    //
+    // BACKTESTED 2026-08-09 (research/backtest/moveDecay.ts) after the proposal
+    // to REFUND this on a division-debut win over a ranked opponent. Verdict:
+    // don't, and don't lower it either.
+    //  • Prevalence: across 828 division debuts, only 15 wins netted a rating
+    //    LOSS, and only ONE (Makhachev→WW, 2025-11-15) is decided by this knob
+    //    rather than by a long layoff. A one-case mechanism, per the
+    //    modeling-discipline gate.
+    //  • Direction: re-running the FULL sweep at 0 / .05 / .10 / .15 / .20 and
+    //    scoring the debut bouts against the de-vigged BFO close, logloss falls
+    //    MONOTONICALLY as the penalty rises (n=140: .6791 → .6730). The data
+    //    points away from a refund, not toward one.
+    //  • But it is calibration, not signal: give each arm its own temperature
+    //    and they collapse to within 0.004 logloss, with best-T falling 1.37
+    //    (penalty 0, badly over-confident) → 1.03 (penalty .20, already
+    //    calibrated). The decay is doing a shrinkage job a temperature would do.
+    //  • Underpowered either way: only 15 debut bouts have a close AND a decay
+    //    cost ≥5 Elo; resolving the observed effect at t=2 would need n≈36.
+    // So 0.10 remains a fiat value that the available data can neither justify
+    // nor refute. Re-run the script before touching it — and note that a refund
+    // gated on opponent quality would double-count elo.winQualityGate, which
+    // already prices exactly that on the win itself.
     moveDecayPenalty: 0.10,
 
     // Display mapping: raw Elo → "RankScore" shown in the UI. MONOTONIC PIECEWISE

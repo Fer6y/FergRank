@@ -10,6 +10,46 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-09
+
+- **REFUTED: refunding the weight-move decay on a division-debut win over a ranked opponent.
+  Negative result; no scoring change shipped.** Prompted by a real and correctly-observed
+  eyesore — Islam Makhachev, on a 16-fight win streak, beats Jack Della Maddalena at UFC 322 and
+  his Elo lands *lower* than before the bout. The trace decomposes it exactly: 1667.3 after
+  Moicano → **−8.5** inactivity (9.9-mo layoff, 4.9 mo past the 5-mo grace) → **−15.9** move
+  decay (10% of his 159 above the mean) → **+10.6** for the win → 1653.5, net **−13.8**. The win
+  itself is unambiguously positive; the drop is charged before the opening bell.
+  **Three independent reasons the proposed fix fails.** (1) *Prevalence*: of 828 first-entries
+  into a division, 413 were wins and only **15** netted a rating loss — and of the 3 that were
+  wins over a ≥1560 opponent, two (GSP 2017, Jon Jones 2023) are dominated by multi-year layoffs
+  and stay at −82 / −49 with the decay stripped entirely. Makhachev is the **only** case the gate
+  would rescue. (2) *It doesn't even fix the visual*: the measured counterfactual with zero decay
+  is **+1.6**, i.e. flat, not the rise the complaint wants. (3) *Firewall + double-count*: a
+  "top-15 opponent" gate would inject the official board into `eloEngine.ts`, which by design
+  knows nothing about it, and would price opponent quality a second time on top of
+  `elo.winQualityGate` (JDM at 1602 is above `winQualityFullElo`, so the win already took full
+  credit).
+- **New negative-result harness: `research/backtest/moveDecay.ts`.** Settles the knob rather than
+  the anecdote: re-runs the **full** Elo sweep at `moveDecayPenalty` ∈ {0, .05, .10, .15, .20}
+  (a counterfactual patching only the one fight would measure something else) and scores
+  division-debut bouts against the de-vigged BFO close. Result: logloss falls **monotonically as
+  the penalty rises** (n=140: .6791 → .6730; strong subset n=15: .7575 → .7078) — the data points
+  *away* from a refund. **But the gain is calibration, not information**: refit one temperature
+  per arm and they collapse to within **0.004** logloss, with best-T falling **1.37 → 1.03** —
+  the no-decay model is badly over-confident and the decay is doing the shrinkage job a
+  temperature parameter would do. Underpowered as predicted, and the binding constraint was the
+  odds join, not the fight count: the earlier "43 bouts" estimate ignored odds coverage, and the
+  actually answerable sample is **15** (resolving the observed effect at t=2 needs n≈36). Every arm is
+  far behind the market here (LL .675 vs .565) — division debuts are where the engine is weakest,
+  a much larger gap than the ~.03 the ranked+overlay model carries on general bouts. Conclusion
+  recorded in `rankingConfig.elo.moveDecayPenalty`: 0.10 stays a fiat value the data can neither
+  justify nor refute. Two bugs caught while building it, both by disbelieving the output rather
+  than by a failing check: `devig()` takes decimal ODDS and inverts internally (passing implied
+  probabilities double-inverted them → market accuracy 0.25, ECE 0.52), and the temperature table
+  printed NaN for arms evaluated before the baseline.
+
+---
+
 ## 2026-08-05
 
 - **Validation snapshot regenerated → `validation_elo_2026-08-05.txt`** (new reference; CLAUDE.md
