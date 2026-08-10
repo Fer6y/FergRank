@@ -115,7 +115,8 @@ console.log('\n=== buildGauntlet ===');
 const trace = (o: Partial<FightTrace>): FightTrace => ({
   fightId: 'f', date: '2024-01-01', opponentId: 'x', opponentName: 'Opponent',
   result: 'W', method: 'U-DEC', round: 3, weightClass: 'Lightweight', fiveRound: false,
-  ratingBefore: 1500, ratingAfter: 1510, delta: 10, opponentRating: 1500, ...o,
+  ratingBefore: 1500, ratingAfter: 1510, delta: 10, opponentRating: 1500,
+  carryInactivity: 0, carryMoveDecay: 0, ...o,
 });
 ok(buildGauntlet([trace({})], 'Hero') === null, 'fewer than 2 rated fights → null');
 ok(

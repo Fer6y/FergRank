@@ -47,6 +47,27 @@ below; leave them where they are — scripts diff against them.
   than by a failing check: `devig()` takes decimal ODDS and inverts internally (passing implied
   probabilities double-inverted them → market accuracy 0.25, ECE 0.52), and the temperature table
   printed NaN for arms evaluated before the baseline.
+- **The Gauntlet now explains the dip — `BEFORE THE BELL` (display fix, zero scoring change).**
+  The chart's biggest moves often happen BETWEEN nodes, and nothing said so: a ⚑ MOVED pennant
+  marked *that* a fighter changed weight but never that the drop was the move. The info panel now
+  carries a row decomposing the pre-bell charge by cause — for Makhachev: `BEFORE THE BELL −24.4
+  · ⏸ 9.9-mo layoff −8.5 · ⚑ new weight class −15.9 — charged before the fight, so the line dips
+  despite the +11 win`. **The non-obvious part is where the numbers come from.** `FightTrace`
+  gained `carryInactivity` / `carryMoveDecay`, written by `prepareForFight()` in the sweep itself,
+  so the display *reads the engine's own arithmetic* instead of re-deriving it — a re-derivation
+  is free to drift from the engine, a read cannot (same reasoning as `careerSos` reading
+  `opponentRating` off the trace). `monthsOut` is measured against the **full** history, not the
+  Gauntlet's rated-opponents-only subset, which would overstate the layoff whenever an unrated
+  bout sat in between and disagree with the inactivity figure beside it. A guard comment at
+  `applyBoundaryDiscount` records that re-enabling `elo.maxFightAgeYears` would need a third carry
+  bucket or the row silently under-reports. The row hides below a 1-Elo charge.
+  **Verified in the running app, not by inspection**: on Makhachev's profile the row renders the
+  numbers above, matching an independent hand-derivation of the inactivity math
+  (`0.88^(4.9/12) = 0.9491` → 1658.79 → 1642.91) to 0.1 Elo; the layoff-only node (Moicano,
+  −4.3, no weight-move part and no "despite the win" clause) and the hidden case (Moises, 4.4-mo
+  gap inside the grace → row absent) both behave correctly; zero console errors. **Golden master
+  PASSES unchanged** — the right outcome for a trace-only change. Typecheck, lint, all 5 suites
+  and build pass.
 
 ---
 

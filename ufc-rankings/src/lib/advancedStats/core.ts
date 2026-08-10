@@ -369,6 +369,12 @@ export interface GauntletPoint {
   mainEvent: boolean;      // 5-round, non-title bout → purple halo on the node
   weightClass: string;     // bout weight class (raw label, for the panel)
   divisionChange: boolean; // first fight in a NEW division vs the previous bout → move flag
+  // Elo the fighter shed BEFORE the opening bell, straight off the engine trace
+  // (both ≤ 0, 1dp). These explain the line dropping between two nodes — the
+  // reason a fighter can win and still land lower than their previous post-Elo.
+  carryInactivity: number;
+  carryMoveDecay: number;
+  monthsOut: number;       // layoff since the previous traced fight (1dp), for the panel
 }
 
 export interface Gauntlet {
@@ -396,6 +402,24 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
   const traced = history.filter((h) => h.opponentRating > 0);
   if (traced.length < 2) return null;
   const asc = [...traced].reverse();
+
+  // Layoff per fight, measured on the FULL history — not `asc`, which drops
+  // fights against unrated opponents and would overstate the gap whenever one
+  // of those sat in between. The engine charged inactivity against the real
+  // previous bout, so the displayed months must agree with it.
+  const prevFightDate = new Map<string, string>();
+  {
+    const fullAsc = [...history].reverse();
+    for (let i = 1; i < fullAsc.length; i++) {
+      prevFightDate.set(fullAsc[i].fightId, fullAsc[i - 1].date);
+    }
+  }
+  const monthsSincePrev = (h: FightTrace): number => {
+    const prev = prevFightDate.get(h.fightId);
+    if (!prev) return 0;
+    const ms = new Date(h.date).getTime() - new Date(prev).getTime();
+    return Math.max(0, Math.round((ms / (1000 * 60 * 60 * 24 * 30.44)) * 10) / 10);
+  };
 
   let cum = 0;
   let biggest: GauntletPoint | null = null;
@@ -433,6 +457,9 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
       mainEvent: h.fiveRound && !titleFight,
       weightClass: h.weightClass,
       divisionChange,
+      carryInactivity: Math.round(h.carryInactivity * 10) / 10,
+      carryMoveDecay: Math.round(h.carryMoveDecay * 10) / 10,
+      monthsOut: monthsSincePrev(h),
     };
     if (h.result === 'W' && (!biggest || ou > biggest.overUnder)) biggest = pt;
     return pt;

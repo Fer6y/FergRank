@@ -378,6 +378,8 @@ export default function GauntletChart({ gauntlet }: Props) {
             <PanelStat label="POST ELO" value={String(sel.ownElo)} />
           </div>
         </div>
+
+        <BeforeTheBell point={sel} />
       </div>
 
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-[10px]" style={{ color: 'var(--text-muted)' }}>
@@ -408,6 +410,53 @@ export default function GauntletChart({ gauntlet }: Props) {
         )}
         <span>node size = opponent level · hover a fight for detail</span>
       </div>
+    </div>
+  );
+}
+
+// The line's biggest drops often happen BETWEEN nodes, before a fight is even
+// contested: a layoff regresses the rating toward the mean, and a first-time
+// weight move regresses it again. Without this, a fighter who wins and still
+// lands below their previous post-Elo reads as "the win cost him points" — it
+// didn't; SWING is positive and this row is where the deficit actually came
+// from. Rendered only when the pre-bell charge is material (≥1 Elo).
+function BeforeTheBell({ point }: { point: GauntletPoint }) {
+  const inact = point.carryInactivity;
+  const move = point.carryMoveDecay;
+  const total = inact + move;
+  if (total > -1) return null;
+
+  const swungBack = point.delta > 0 && point.ownElo < point.ownEloBefore - total;
+
+  return (
+    <div
+      className="mt-2.5 pt-2.5 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[10px]"
+      style={{ borderTop: '1px solid var(--border)' }}
+    >
+      <span className="tracking-widest font-sans" style={{ color: 'var(--text-muted)' }}>
+        BEFORE THE BELL
+      </span>
+      <span className="font-mono" style={{ color: 'var(--accent-red-light)' }}>
+        {total.toFixed(1)}
+      </span>
+      {inact <= -0.1 && (
+        <span style={{ color: 'var(--text-secondary)' }}>
+          ⏸ {point.monthsOut}-mo layoff{' '}
+          <span className="font-mono" style={{ color: 'var(--text-muted)' }}>{inact.toFixed(1)}</span>
+        </span>
+      )}
+      {move <= -0.1 && (
+        <span style={{ color: 'var(--text-secondary)' }}>
+          <span style={{ color: 'var(--accent-gold)' }}>⚑</span> new weight class{' '}
+          <span className="font-mono" style={{ color: 'var(--text-muted)' }}>{move.toFixed(1)}</span>
+        </span>
+      )}
+      {swungBack && (
+        <span style={{ color: 'var(--text-muted)' }}>
+          — charged before the fight, so the line dips despite the{' '}
+          <span style={{ color: 'var(--accent-green)' }}>+{point.delta}</span> win
+        </span>
+      )}
     </div>
   );
 }

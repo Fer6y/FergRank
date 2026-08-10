@@ -54,6 +54,14 @@ export interface FightTrace {
   ratingAfter: number;     // immediately after
   delta: number;           // ratingAfter − ratingBefore (the per-fight Elo swing)
   opponentRating: number;  // opponent's rating at fight time (context)
+  // Elo shed BETWEEN the previous fight and the opening bell of this one, split
+  // by cause (both ≤ 0). This is the part of a career line's movement the fight
+  // itself did NOT cause: a fighter can WIN and still sit lower than they did
+  // before, because the layoff and the weight move are charged first. Recorded
+  // by the engine so the display reads the sweep's own arithmetic instead of
+  // re-deriving it (a re-derivation is free to drift; a read cannot).
+  carryInactivity: number;
+  carryMoveDecay: number;
 }
 
 export type EloHistoryMap = Map<string, FightTrace[]>;
@@ -134,19 +142,34 @@ function expectedScore(ratingA: number, ratingB: number): number {
 
 // Prepare a fighter's rating for an upcoming fight: apply inactivity regression
 // for the gap since their last fight, then a move penalty if the division changed.
-function prepareForFight(state: EloState, fightDate: Date, normWC: string | null, E: EloParams): void {
+// Returns what each step cost (both ≤ 0), for the trace — observation only.
+function prepareForFight(
+  state: EloState,
+  fightDate: Date,
+  normWC: string | null,
+  E: EloParams
+): { inactivity: number; moveDecay: number } {
+  let inactivity = 0;
+  let moveDecay = 0;
   if (state.lastFightDate) {
     const gap = monthsBetween(state.lastFightDate, fightDate);
-    if (gap > 0) state.rating = regressForInactivity(state.rating, gap, E);
+    if (gap > 0) {
+      const regressed = regressForInactivity(state.rating, gap, E);
+      inactivity = regressed - state.rating;
+      state.rating = regressed;
+    }
   }
   // Weight-class move decay — charged ONCE per division. A fighter pays the
   // "unproven at a new weight" tax only the FIRST time they enter a division;
   // moving back to a weight they've already competed in is free (they've proven
   // themselves there, and the inactivity regression already handles the gap).
   if (normWC && state.lastWeightClass && normWC !== state.lastWeightClass && !state.divisionsSeen.has(normWC)) {
-    state.rating = E.initialRating + (state.rating - E.initialRating) * (1 - E.moveDecayPenalty);
+    const decayed = E.initialRating + (state.rating - E.initialRating) * (1 - E.moveDecayPenalty);
+    moveDecay = decayed - state.rating;
+    state.rating = decayed;
   }
   if (normWC) state.divisionsSeen.add(normWC);
+  return { inactivity, moveDecay };
 }
 
 /**
@@ -207,8 +230,11 @@ function runEloSweep(
     const date = fight.eventDate!;
     const normWC = normalizeWeightClassForMove(fight.weightClass);
 
-    prepareForFight(a, date, normWC, E);
-    prepareForFight(b, date, normWC, E);
+    const carryA = prepareForFight(a, date, normWC, E);
+    const carryB = prepareForFight(b, date, normWC, E);
+    // NOTE: if the boundary discount is ever re-enabled (elo.maxFightAgeYears),
+    // it becomes a THIRD cause of between-fight drift and needs its own carry
+    // bucket below — otherwise the trace under-reports the drop.
     if (boundaryDate) {
       applyBoundaryDiscount(a, date, boundaryDate, E);
       applyBoundaryDiscount(b, date, boundaryDate, E);
@@ -266,6 +292,7 @@ function runEloSweep(
       result: toResult(sa), method: fight.method, round: fight.round,
       weightClass: fight.weightClass, fiveRound: (fight.timeFormat || '').startsWith('5 Rnd'),
       ratingBefore: aBefore, ratingAfter: a.rating, delta: deltaA, opponentRating: bBefore,
+      carryInactivity: carryA.inactivity, carryMoveDecay: carryA.moveDecay,
     });
     pushTrace(fight.fighterId2, {
       fightId: fight.fightId, date: iso,
@@ -273,6 +300,7 @@ function runEloSweep(
       result: toResult(sb), method: fight.method, round: fight.round,
       weightClass: fight.weightClass, fiveRound: (fight.timeFormat || '').startsWith('5 Rnd'),
       ratingBefore: bBefore, ratingAfter: b.rating, delta: deltaB, opponentRating: aBefore,
+      carryInactivity: carryB.inactivity, carryMoveDecay: carryB.moveDecay,
     });
 
     for (const [s, wc] of [[a, normWC], [b, normWC]] as [EloState, string | null][]) {
