@@ -12,6 +12,25 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-10
 
+- **IN-CAGE is now the DEFAULT on both Gauntlet surfaces, and the compare chart got the series
+  at all.** The entry below shipped the in-cage series as an opt-in on the PROFILE chart only —
+  two misses, both caught by the user seeing Makhachev still decline across a win: (1) the
+  compare page's `CompareGauntlet` ("SHARED ELO TRAJECTORY") is a **separate component** that
+  never got the fix — the lesson recorded here is to grep for sibling surfaces before calling a
+  visual fixed (the two chart components share the point type but no rendering code); (2) the
+  user's requirement is that the visible default never renders a win as a decline, which an
+  opt-in toggle does not satisfy. Both charts now default to `IN-CAGE` with `TRUE ELO` as the
+  opt-in view (explicit product decision, overriding the earlier default-true choice).
+  `CompareGauntlet` plots `GauntletPoint.inCageElo` through a single `val()` accessor used by
+  lines, nodes, endpoint labels, domain and hover caption so no site can disagree on the mode;
+  header relabels to `SHARED IN-CAGE TRAJECTORY`; the hover caption shows `in-cage N (Elo M)`;
+  and the idle legend line carries the compare-specific caveat — each in-cage line is offset
+  upward by that fighter's own cumulative drift, so the vertical gap between the two lines is
+  not the rating gap; the RATING cards above are the comparison to trust. Verified live on
+  Makhachev–Garry: Makhachev **16 wins, 0 node drops after a win** (last node rising), Garry
+  **9 wins, 0 drops**, toggle round-trips, profile default confirmed in-cage with ref lines
+  hidden, zero console errors. Golden master PASSES unchanged; typecheck, lint, all 5 suites
+  and build pass.
 - **The Gauntlet no longer renders a win as a decline — split legs + an opt-in IN-CAGE series.**
   Follow-up to yesterday's `BEFORE THE BELL` row, which explained the dip in prose but left the
   line itself sloping down across Makhachev's UFC 322 win. Two changes, both display-only:

@@ -64,9 +64,22 @@ export default function CompareGauntlet({ a, b }: Props) {
   const A = a.gauntlet.points;
   const B = b.gauntlet.points;
   const [hover, setHover] = useState<{ f: 'a' | 'b'; i: number } | null>(null);
+  // Same two series as the single-fighter Gauntlet, same DEFAULT (2026-08-10
+  // product decision): 'inCage' moves only on results, so a win can never render
+  // as a decline. 'true' is the opt-in actual-rating view. One honest caveat is
+  // specific to THIS chart: each in-cage line is offset upward by that fighter's
+  // own cumulative drift, so the vertical gap between the two lines understates/
+  // overstates the real rating gap — the RATING numbers in the header cards are
+  // the comparison to trust.
+  const [series, setSeries] = useState<'true' | 'inCage'>('inCage');
+  const inCage = series === 'inCage';
+  // Value of the ACTIVE series for a point — used by every plot site below so
+  // the lines, nodes, labels and hover caption can never disagree on the mode.
+  const val = (p: GauntletPoint): number => (inCage ? p.inCageElo : p.ownElo);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const geo = useMemo(() => {
+    const val = (p: GauntletPoint): number => (inCage ? p.inCageElo : p.ownElo);
     const H = 178;
     const top = 12;
     const bottom = H - 22;
@@ -86,7 +99,7 @@ export default function CompareGauntlet({ a, b }: Props) {
     const right = W - rightPad;
     const plotH = bottom - top;
 
-    const elos = allPts.map((p) => p.ownElo);
+    const elos = allPts.map(val);
     const rawMin = Math.min(...elos);
     const rawMax = Math.max(...elos);
     const pad = Math.max(25, (rawMax - rawMin) * 0.15);
@@ -109,13 +122,13 @@ export default function CompareGauntlet({ a, b }: Props) {
     const shownTicks = allTicks.filter((_, idx) => idx % tickStep === 0);
 
     const linePath = (pts: GauntletPoint[]) =>
-      pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p).toFixed(1)},${y(p.ownElo).toFixed(1)}`).join(' ');
+      pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p).toFixed(1)},${y(val(p)).toFixed(1)}`).join(' ');
 
     return {
       W, H, top, bottom, left, right, x, y, gridVals, shownTicks,
       lineA: linePath(A), lineB: linePath(B),
     };
-  }, [A, B]);
+  }, [A, B, inCage]);
 
   // Open scrolled to the right (most-recent / today) when a long career overflows.
   useEffect(() => {
@@ -128,10 +141,10 @@ export default function CompareGauntlet({ a, b }: Props) {
   const endA = A[A.length - 1];
   const endB = B[B.length - 1];
   // Nudge the two endpoint labels apart if they'd collide.
-  let labAy = y(endA.ownElo);
-  let labBy = y(endB.ownElo);
+  let labAy = y(val(endA));
+  let labBy = y(val(endB));
   if (Math.abs(labAy - labBy) < 12) {
-    const aUp = endA.ownElo >= endB.ownElo;
+    const aUp = val(endA) >= val(endB);
     labAy += aUp ? -6 : 6;
     labBy += aUp ? 6 : -6;
   }
@@ -148,12 +161,12 @@ export default function CompareGauntlet({ a, b }: Props) {
       return (
         <g key={f + i} opacity={hover && !isHover ? 0.85 : 1}>
           {p.titleFight && (
-            <circle cx={x(p)} cy={y(p.ownElo)} r={core + 3} fill="none" stroke="var(--accent-gold)" strokeWidth="1.1" opacity="0.9" />
+            <circle cx={x(p)} cy={y(val(p))} r={core + 3} fill="none" stroke="var(--accent-gold)" strokeWidth="1.1" opacity="0.9" />
           )}
           {/* fighter-identity ring */}
-          <circle cx={x(p)} cy={y(p.ownElo)} r={core + 1.4} fill="none" stroke={color} strokeWidth="1.5" />
+          <circle cx={x(p)} cy={y(val(p))} r={core + 1.4} fill="none" stroke={color} strokeWidth="1.5" />
           {/* result core + neutral separator rim */}
-          <circle cx={x(p)} cy={y(p.ownElo)} r={core} fill={resultFill(p.result)} stroke="var(--text-primary)" strokeWidth="1.1" />
+          <circle cx={x(p)} cy={y(val(p))} r={core} fill={resultFill(p.result)} stroke="var(--text-primary)" strokeWidth="1.1" />
         </g>
       );
     });
@@ -162,7 +175,7 @@ export default function CompareGauntlet({ a, b }: Props) {
     pts.map((p, i) => (
       <circle
         key={`hit-${f}-${i}`}
-        cx={x(p)} cy={y(p.ownElo)} r="12"
+        cx={x(p)} cy={y(val(p))} r="12"
         fill="transparent"
         style={{ cursor: 'pointer' }}
         onMouseEnter={() => setHover({ f, i })}
@@ -175,9 +188,28 @@ export default function CompareGauntlet({ a, b }: Props) {
 
   return (
     <div className="rounded-xl px-4 py-3" style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>
-      <div className="flex items-center justify-between gap-3 mb-1">
-        <div className="text-[10px] tracking-widest" style={{ color: 'var(--text-muted)' }}>
-          THE GAUNTLET · SHARED ELO TRAJECTORY
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 mb-1">
+        <div className="flex items-center gap-2.5">
+          <span className="text-[10px] tracking-widest" style={{ color: 'var(--text-muted)' }}>
+            THE GAUNTLET · {inCage ? 'SHARED IN-CAGE TRAJECTORY' : 'SHARED ELO TRAJECTORY'}
+          </span>
+          <span className="inline-flex rounded overflow-hidden" style={{ border: '1px solid var(--border)' }}>
+            {([['inCage', 'IN-CAGE'], ['true', 'TRUE ELO']] as const).map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setSeries(key)}
+                aria-pressed={series === key}
+                className="px-2 py-0.5 text-[9px] tracking-widest transition-colors"
+                style={{
+                  backgroundColor: series === key ? 'var(--bg-elevated)' : 'transparent',
+                  color: series === key ? 'var(--text-primary)' : 'var(--text-muted)',
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </span>
         </div>
         <div className="flex items-center gap-3 text-[10px]">
           <span className="flex items-center gap-1.5" style={{ color: 'var(--text-secondary)' }}>
@@ -195,8 +227,13 @@ export default function CompareGauntlet({ a, b }: Props) {
         {hp ? (
           <>
             <span style={{ fontWeight: 600 }}>{lastName(hoverName)}</span>
-            <span style={{ color: 'var(--text-muted)' }}> · {hp.result} vs {hp.opponentName} · {formatDate(hp.date)} · Elo {hp.ownElo}</span>
+            <span style={{ color: 'var(--text-muted)' }}>
+              {' '}· {hp.result} vs {hp.opponentName} · {formatDate(hp.date)} ·{' '}
+              {inCage ? `in-cage ${hp.inCageElo} (Elo ${hp.ownElo})` : `Elo ${hp.ownElo}`}
+            </span>
           </>
+        ) : inCage ? (
+          'IN-CAGE: results only — a win always steps up; layoff/weight-move drift excluded (the RATING cards above carry the real gap)'
         ) : (
           'Ring = fighter · fill = result (green win / red loss) · size = opponent · gold = title'
         )}

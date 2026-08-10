@@ -62,10 +62,13 @@ export default function GauntletChart({ gauntlet }: Props) {
   // hovered fight so it never goes blank (defaults to the most recent fight).
   const [hovered, setHovered] = useState<number | null>(null);
   const [panelIdx, setPanelIdx] = useState(n - 1);
-  // Which series the line plots. 'true' is the fighter's actual Elo and stays the
-  // default so the chart keeps agreeing with the hero's ELO / PEAK ELO cards.
-  // 'inCage' strips the between-fight drift — see GauntletPoint.inCageElo.
-  const [series, setSeries] = useState<'true' | 'inCage'>('true');
+  // Which series the line plots. 'inCage' (results only, drift stripped — see
+  // GauntletPoint.inCageElo) is the DEFAULT by explicit product decision
+  // (2026-08-10): a win must never render as a decline, and on the true-Elo line
+  // a post-layoff/post-move win can sit below the previous node because the
+  // charge lands before the bell. 'true' remains the opt-in view for the actual
+  // rating (the one that agrees with the hero's ELO / PEAK ELO cards).
+  const [series, setSeries] = useState<'true' | 'inCage'>('inCage');
   const inCage = series === 'inCage';
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -205,7 +208,7 @@ export default function GauntletChart({ gauntlet }: Props) {
             THE GAUNTLET · {inCage ? 'IN-CAGE TRAJECTORY' : 'CAREER ELO TRAJECTORY'}
           </span>
           <span className="inline-flex rounded overflow-hidden" style={{ border: '1px solid var(--border)' }}>
-            {([['true', 'TRUE ELO'], ['inCage', 'IN-CAGE']] as const).map(([key, label]) => (
+            {([['inCage', 'IN-CAGE'], ['true', 'TRUE ELO']] as const).map(([key, label]) => (
               <button
                 key={key}
                 type="button"
