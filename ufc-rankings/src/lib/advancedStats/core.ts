@@ -375,6 +375,14 @@ export interface GauntletPoint {
   carryInactivity: number;
   carryMoveDecay: number;
   monthsOut: number;       // layoff since the previous traced fight (1dp), for the panel
+  // IN-CAGE trajectory: the first plotted fight's pre-fight rating plus nothing
+  // but the per-fight deltas. Between-fight drift (layoff, weight move) is
+  // deliberately excluded, so this series moves ONLY on results and therefore
+  // can never fall across a win. It is NOT the fighter's rating — its endpoint
+  // sits above the real Elo by exactly the total drift, which is why the chart
+  // labels it, hides the division reference lines in that mode, and never shows
+  // it by default. Opt-in view only; feeds nothing.
+  inCageElo: number;
 }
 
 export interface Gauntlet {
@@ -422,6 +430,9 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
   };
 
   let cum = 0;
+  // Anchored at the first plotted fight's PRE-fight rating so point 0 lands on
+  // the same value in both series; they diverge from there by the drift only.
+  let inCage = asc[0].ratingBefore;
   let biggest: GauntletPoint | null = null;
   // Track the last non-null normalized division so a catchweight bout in between
   // doesn't spuriously flag a move (it normalizes to null = "no division change").
@@ -438,6 +449,7 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
     const divisionChange = normWC != null && lastNormWC != null && normWC !== lastNormWC;
     if (normWC != null) lastNormWC = normWC;
     const titleFight = isTitleFight(fighterName, h.opponentName, h.date, h.weightClass);
+    inCage += h.delta;
     const pt: GauntletPoint = {
       date: h.date.slice(0, 10),
       opponentName: h.opponentName,
@@ -460,6 +472,7 @@ export function buildGauntlet(history: FightTrace[], fighterName: string): Gaunt
       carryInactivity: Math.round(h.carryInactivity * 10) / 10,
       carryMoveDecay: Math.round(h.carryMoveDecay * 10) / 10,
       monthsOut: monthsSincePrev(h),
+      inCageElo: Math.round(inCage),
     };
     if (h.result === 'W' && (!biggest || ou > biggest.overUnder)) biggest = pt;
     return pt;

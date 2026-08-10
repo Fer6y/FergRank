@@ -12,6 +12,34 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-10
 
+- **The Gauntlet no longer renders a win as a decline — split legs + an opt-in IN-CAGE series.**
+  Follow-up to yesterday's `BEFORE THE BELL` row, which explained the dip in prose but left the
+  line itself sloping down across Makhachev's UFC 322 win. Two changes, both display-only:
+  1. **The path now routes through each fight's PRE-fight rating**, so the two causes of movement
+     are separate strokes: a sloped approach leg across the calendar gap (layoff + any weight
+     move) and a **vertical leg at the fight date** for the result, drawn in the result colour.
+     A win's delta is always positive, so the result leg can never point down. Verified in the
+     running app on Makhachev: **16 of 16 win legs rise, zero exceptions**, and the JDM leg runs
+     1643 → 1653 in green.
+  2. That alone was **not enough**, and the honest reason is geometry: at ~1 px/Elo his 7-Elo win
+     step is smaller than the 15-px node marker, so the step hides under the dot and the node
+     still sits below the previous one. The rating genuinely IS lower. So the fix is a second
+     **series**, not more styling — a `TRUE ELO | IN-CAGE` toggle on the chart header (same
+     opt-in pattern as the /prospects climb-rate view and the FilterBar's Pure Elo toggle).
+     `GauntletPoint.inCageElo` is the first plotted fight's pre-fight rating plus nothing but the
+     per-fight deltas: drift excluded, so it moves ONLY on results and renders as a staircase —
+     flat while idle, one step per fight. Measured on Makhachev: **0 node drops after a win**
+     (vs 1 on the true line), last node 39.8 vs previous 46.4 on screen, i.e. rising.
+  **Default stays TRUE ELO deliberately** — the in-cage line is not the fighter's rating (it ends
+  above the real Elo by exactly the total drift), so making it the default would put the chart in
+  open disagreement with the hero's `ELO 1647 / PEAK 1667` cards. Guards that follow from that:
+  the division reference lines (`DIV MED`, `DIVISION CHAMP`) are true-Elo values and are dropped
+  from the domain, the render AND the legend in in-cage mode — a caught bug, the legend entries
+  initially survived and described lines that were no longer drawn; the header relabels to
+  `IN-CAGE TRAJECTORY`; and the `BEFORE THE BELL` row swaps its trailing clause from "so the line
+  dips despite the +11 win" to "excluded from the in-cage line", since claiming a dip the
+  displayed line doesn't have would be exactly the error the row exists to fix.
+  Golden master PASSES unchanged; typecheck, lint, all 5 suites and build pass.
 - **REFUTED: a champion-specific inactivity exemption ("the UFC spaces champions out"). No change
   shipped; the premise fails on measurement.** New re-runnable diagnostic
   `scripts/diagChampionCadence.ts` (champion identity per bout from `title_fights.csv`'s

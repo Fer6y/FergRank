@@ -62,9 +62,22 @@ export default function GauntletChart({ gauntlet }: Props) {
   // hovered fight so it never goes blank (defaults to the most recent fight).
   const [hovered, setHovered] = useState<number | null>(null);
   const [panelIdx, setPanelIdx] = useState(n - 1);
+  // Which series the line plots. 'true' is the fighter's actual Elo and stays the
+  // default so the chart keeps agreeing with the hero's ELO / PEAK ELO cards.
+  // 'inCage' strips the between-fight drift — see GauntletPoint.inCageElo.
+  const [series, setSeries] = useState<'true' | 'inCage'>('true');
+  const inCage = series === 'inCage';
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const geometry = useMemo(() => {
+    // Post-fight and pre-fight value of the ACTIVE series. In 'inCage' the
+    // pre-fight value is just the previous point (no drift), which renders the
+    // line as a staircase: flat while idle, one step per result.
+    const after = (p: GauntletPoint) => (inCage ? p.inCageElo : p.ownElo);
+    const before = (i: number) =>
+      inCage
+        ? i > 0 ? points[i - 1].inCageElo : points[i].inCageElo - points[i].delta
+        : points[i].ownEloBefore;
     const H = 216;
     const top = 14;
     const bottom = H - 22;
@@ -87,13 +100,18 @@ export default function GauntletChart({ gauntlet }: Props) {
     const right = W - rightPad;
     const plotH = bottom - top;
 
-    // Include the division reference Elos in the domain so their lines always
-    // sit at a real height on the axis (even if the champ is above / the median
-    // below the fighter's own range) — the whole point is to see where the
-    // fighter stacks up against them.
-    const refs = [divMedianElo, champElo].filter((v): v is number => v != null);
-    const rawMin = Math.min(...points.map((p) => p.ownElo), ...refs);
-    const rawMax = Math.max(...points.map((p) => p.ownElo), ...refs);
+    // The division reference Elos join the domain so their lines always sit at a
+    // real height on the axis (even if the champ is above / the median below the
+    // fighter's own range) — the whole point is to see where the fighter stacks
+    // up. BUT they are TRUE-Elo values, so they are meaningless
+    // against the in-cage series (which is offset upward by the total drift) —
+    // dropped from both the domain and the render in that mode.
+    const refs = inCage ? [] : [divMedianElo, champElo].filter((v): v is number => v != null);
+    // Both the pre- and post-fight value are plotted (see `line` below), so the
+    // domain must cover both or a big pre-bell charge would draw outside the plot.
+    const ownValues = points.flatMap((p, i) => [after(p), before(i)]);
+    const rawMin = Math.min(...ownValues, ...refs);
+    const rawMax = Math.max(...ownValues, ...refs);
     const pad = Math.max(25, (rawMax - rawMin) * 0.15);
     const yMin = Math.floor((rawMin - pad) / 50) * 50;
     const yMax = Math.ceil((rawMax + pad) / 50) * 50;
@@ -115,13 +133,37 @@ export default function GauntletChart({ gauntlet }: Props) {
     const tickStep = Math.max(1, Math.ceil(allTicks.length / 9));
     const shownTicks = allTicks.filter((_, idx) => idx % tickStep === 0);
 
+    // The path routes through each fight's PRE-fight rating before its post-fight
+    // rating, so the two causes of movement are drawn as separate strokes: a
+    // sloped leg across the calendar gap (the layoff, plus any weight move —
+    // everything charged before the bell) and a VERTICAL leg at the fight date
+    // for the result itself. The property that matters: the result leg of a WIN
+    // can never point downward, because a win's delta is always positive. Before
+    // this, both were collapsed into one post-to-post segment and a fighter who
+    // won after a layoff or a weight move rendered as a decline.
     const line = points
-      .map((p, i) => `${i === 0 ? 'M' : 'L'}${x(i).toFixed(1)},${y(p.ownElo).toFixed(1)}`)
+      .map((p, i) =>
+        i === 0
+          ? `M${x(i).toFixed(1)},${y(after(p)).toFixed(1)}`
+          : `L${x(i).toFixed(1)},${y(before(i)).toFixed(1)} L${x(i).toFixed(1)},${y(after(p)).toFixed(1)}`
+      )
       .join(' ');
     const area = `${line} L${x(n - 1).toFixed(1)},${bottom} L${x(0).toFixed(1)},${bottom} Z`;
 
-    return { W, H, top, bottom, left, right, x, y, gridVals, shownTicks, line, area };
-  }, [points, n, divMedianElo, champElo]);
+    // The result legs, drawn in the result colour on top of the base line. Small
+    // ones tuck under the node and effectively self-hide; only real swings show.
+    // Index 0 is skipped — it has no preceding plotted fight, so its pre-fight
+    // rating carries drift from bouts the chart doesn't place.
+    const fightLegs = points.slice(1).map((p, k) => ({
+      i: k + 1,
+      key: `${p.date}-${k + 1}`,
+      yFrom: y(before(k + 1)),
+      yTo: y(after(p)),
+      result: p.result,
+    }));
+
+    return { W, H, top, bottom, left, right, x, y, gridVals, shownTicks, line, area, fightLegs, after, refs };
+  }, [points, n, divMedianElo, champElo, inCage]);
 
   // Open scrolled to the right (most-recent fights / today) when the timeline
   // is wider than the viewport (a career longer than the default window).
@@ -131,14 +173,19 @@ export default function GauntletChart({ gauntlet }: Props) {
   }, [geometry.W]);
 
   if (n < 2) return null;
-  const { W, H, top, bottom, left, right, x, y, gridVals, shownTicks, line, area } = geometry;
+  const { W, H, top, bottom, left, right, x, y, gridVals, shownTicks, line, area, fightLegs, after } = geometry;
 
-  // Brightened path through the hovered node's adjacent segments.
+  // Brightened path through the hovered node's adjacent segments — same
+  // pre-then-post routing as `line`, or the highlight would cut the corner the
+  // base path takes and read as a second, disagreeing trajectory.
   const highlightPath = (i: number): string => {
     const from = Math.max(0, i - 1);
     const to = Math.min(n - 1, i + 1);
-    let d = `M${x(from).toFixed(1)},${y(points[from].ownElo).toFixed(1)}`;
-    for (let k = from + 1; k <= to; k++) d += ` L${x(k).toFixed(1)},${y(points[k].ownElo).toFixed(1)}`;
+    let d = `M${x(from).toFixed(1)},${y(after(points[from])).toFixed(1)}`;
+    for (let k = from + 1; k <= to; k++) {
+      d += ` L${x(k).toFixed(1)},${y(points[k].ownEloBefore).toFixed(1)}`;
+      d += ` L${x(k).toFixed(1)},${y(after(points[k])).toFixed(1)}`;
+    }
     return d;
   };
 
@@ -152,9 +199,28 @@ export default function GauntletChart({ gauntlet }: Props) {
 
   return (
     <div>
-      <div className="flex items-baseline justify-between mb-1.5">
-        <div className="text-[10px] tracking-widest" style={{ color: 'var(--text-muted)' }}>
-          THE GAUNTLET · CAREER ELO TRAJECTORY
+      <div className="flex flex-wrap items-baseline justify-between gap-y-1.5 mb-1.5">
+        <div className="flex items-center gap-2.5">
+          <span className="text-[10px] tracking-widest" style={{ color: 'var(--text-muted)' }}>
+            THE GAUNTLET · {inCage ? 'IN-CAGE TRAJECTORY' : 'CAREER ELO TRAJECTORY'}
+          </span>
+          <span className="inline-flex rounded overflow-hidden" style={{ border: '1px solid var(--border)' }}>
+            {([['true', 'TRUE ELO'], ['inCage', 'IN-CAGE']] as const).map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setSeries(key)}
+                aria-pressed={series === key}
+                className="px-2 py-0.5 text-[9px] tracking-widest transition-colors"
+                style={{
+                  backgroundColor: series === key ? 'var(--bg-elevated)' : 'transparent',
+                  color: series === key ? 'var(--text-primary)' : 'var(--text-muted)',
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </span>
         </div>
         <div
           className="text-[10px] tracking-wide font-mono"
@@ -212,7 +278,7 @@ export default function GauntletChart({ gauntlet }: Props) {
               division. Labelled at the RIGHT edge (the chart opens scrolled to
               "today", so the right edge is always in view even when a long
               career overflows the scroll container). */}
-          {divMedianElo != null && (
+          {divMedianElo != null && !inCage && (
             <g opacity="0.7">
               <line
                 x1={left} y1={y(divMedianElo)} x2={right} y2={y(divMedianElo)}
@@ -226,7 +292,7 @@ export default function GauntletChart({ gauntlet }: Props) {
               </text>
             </g>
           )}
-          {champElo != null && (
+          {champElo != null && !inCage && (
             <g opacity="0.8">
               <line
                 x1={left} y1={y(champElo)} x2={right} y2={y(champElo)}
@@ -244,13 +310,24 @@ export default function GauntletChart({ gauntlet }: Props) {
           <path d={area} fill="url(#gauntlet-area)" />
           <path d={line} fill="none" stroke="var(--elo-line)" strokeWidth="1.5" opacity="0.75" />
 
+          {/* the result leg of each fight, in the result colour — this is the
+              stroke that answers "what did the FIGHT do", separate from the
+              sloped approach leg, which is the layoff/weight-move charge. */}
+          {fightLegs.map((leg) => (
+            <line
+              key={`leg-${leg.key}`}
+              x1={x(leg.i)} y1={leg.yFrom} x2={x(leg.i)} y2={leg.yTo}
+              stroke={resultColor(leg.result)} strokeWidth="2.5" strokeLinecap="round" opacity="0.9"
+            />
+          ))}
+
           {/* weight-class move flags — a gold pennant at the top with a dashed
               drop line to the node marking the first fight in a new division. */}
           {points.map((p, i) =>
             p.divisionChange ? (
               <g key={`flag-${p.date}-${i}`} opacity="0.85">
                 <line
-                  x1={x(i)} y1={top + 2} x2={x(i)} y2={y(p.ownElo)}
+                  x1={x(i)} y1={top + 2} x2={x(i)} y2={y(after(p))}
                   stroke="var(--accent-gold)" strokeWidth="1" strokeDasharray="2 3" opacity="0.45"
                 />
                 <path d={`M${x(i)},${top} l8,2.6 l-8,2.6 z`} fill="var(--accent-gold)" />
@@ -263,12 +340,12 @@ export default function GauntletChart({ gauntlet }: Props) {
             return (
               <g key={p.date + i}>
                 {p.titleFight && (
-                  <circle cx={x(i)} cy={y(p.ownElo)} r={r + 2.2} fill="none" stroke="var(--accent-gold)" strokeWidth="1.25" opacity="0.9" />
+                  <circle cx={x(i)} cy={y(after(p))} r={r + 2.2} fill="none" stroke="var(--accent-gold)" strokeWidth="1.25" opacity="0.9" />
                 )}
                 {p.mainEvent && (
-                  <circle cx={x(i)} cy={y(p.ownElo)} r={r + 2.2} fill="none" stroke="var(--accent-purple)" strokeWidth="1.25" opacity="0.9" />
+                  <circle cx={x(i)} cy={y(after(p))} r={r + 2.2} fill="none" stroke="var(--accent-purple)" strokeWidth="1.25" opacity="0.9" />
                 )}
-                <circle cx={x(i)} cy={y(p.ownElo)} r={r} fill={resultColor(p.result)} stroke="var(--bg-secondary)" strokeWidth="1" />
+                <circle cx={x(i)} cy={y(after(p))} r={r} fill={resultColor(p.result)} stroke="var(--bg-secondary)" strokeWidth="1" />
               </g>
             );
           })}
@@ -287,7 +364,7 @@ export default function GauntletChart({ gauntlet }: Props) {
           <path d={highlightPath(panelIdx)} fill="none" stroke="var(--text-primary)" strokeWidth="1.5" opacity="0.4" />
           {(points[panelIdx].titleFight || points[panelIdx].mainEvent) && (
             <circle
-              cx={x(panelIdx)} cy={y(points[panelIdx].ownElo)}
+              cx={x(panelIdx)} cy={y(after(points[panelIdx]))}
               r={NODE_R[oppTier(points[panelIdx])] * 1.6 + 3}
               fill="none"
               stroke={points[panelIdx].titleFight ? 'var(--accent-gold)' : 'var(--accent-purple)'}
@@ -295,7 +372,7 @@ export default function GauntletChart({ gauntlet }: Props) {
             />
           )}
           <circle
-            cx={x(panelIdx)} cy={y(points[panelIdx].ownElo)}
+            cx={x(panelIdx)} cy={y(after(points[panelIdx]))}
             r={NODE_R[oppTier(points[panelIdx])] * 1.6}
             fill={resultColor(points[panelIdx].result)}
             stroke="#fff" strokeWidth="1.5"
@@ -307,7 +384,7 @@ export default function GauntletChart({ gauntlet }: Props) {
         {points.map((p, i) => (
           <circle
             key={`hit-${p.date}-${i}`}
-            cx={x(i)} cy={y(p.ownElo)} r="15"
+            cx={x(i)} cy={y(after(p))} r="15"
             fill="transparent"
             style={{ cursor: 'pointer' }}
             onMouseEnter={() => activate(i)}
@@ -379,7 +456,7 @@ export default function GauntletChart({ gauntlet }: Props) {
           </div>
         </div>
 
-        <BeforeTheBell point={sel} />
+        <BeforeTheBell point={sel} inCage={inCage} />
       </div>
 
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-[10px]" style={{ color: 'var(--text-muted)' }}>
@@ -398,17 +475,34 @@ export default function GauntletChart({ gauntlet }: Props) {
         <span className="flex items-center gap-1.5" style={{ color: 'var(--accent-gold)' }}>
           ⚑ weight-class move
         </span>
-        {divMedianElo != null && (
+        {divMedianElo != null && !inCage && (
           <span className="flex items-center gap-1.5">
             <span className="w-4 border-t border-dashed" style={{ borderColor: 'var(--accent-blue)' }} /> div median
           </span>
         )}
-        {champElo != null && (
+        {champElo != null && !inCage && (
           <span className="flex items-center gap-1.5">
             <span className="w-4 border-t border-dotted" style={{ borderColor: 'var(--accent-gold)' }} /> division champ
           </span>
         )}
         <span>node size = opponent level · hover a fight for detail</span>
+        <span className="basis-full" style={{ color: 'var(--text-muted)' }}>
+          {inCage ? (
+            <>
+              <b style={{ color: 'var(--text-secondary)' }}>IN-CAGE</b> — results only: every fight
+              steps, and nothing moves between them, so a win can never read as a decline. This is
+              not the fighter&apos;s rating (it excludes layoff and weight-move decay, so it ends
+              above the real Elo) — division reference lines are hidden for that reason.
+            </>
+          ) : (
+            <>
+              The vertical step at each node is what the FIGHT did — a win always steps up. The
+              slope into it is what was charged before the bell: layoff, and a weight move on its
+              first outing. Switch to <b style={{ color: 'var(--text-secondary)' }}>IN-CAGE</b> to
+              drop that charge and see results only.
+            </>
+          )}
+        </span>
       </div>
     </div>
   );
@@ -420,13 +514,15 @@ export default function GauntletChart({ gauntlet }: Props) {
 // lands below their previous post-Elo reads as "the win cost him points" — it
 // didn't; SWING is positive and this row is where the deficit actually came
 // from. Rendered only when the pre-bell charge is material (≥1 Elo).
-function BeforeTheBell({ point }: { point: GauntletPoint }) {
+function BeforeTheBell({ point, inCage }: { point: GauntletPoint; inCage: boolean }) {
   const inact = point.carryInactivity;
   const move = point.carryMoveDecay;
   const total = inact + move;
   if (total > -1) return null;
 
-  const swungBack = point.delta > 0 && point.ownElo < point.ownEloBefore - total;
+  // Only claim the line dips when the displayed line actually dips — the in-cage
+  // series excludes this charge by construction, so there it is what's MISSING.
+  const swungBack = !inCage && point.delta > 0 && point.ownElo < point.ownEloBefore - total;
 
   return (
     <div
@@ -457,6 +553,7 @@ function BeforeTheBell({ point }: { point: GauntletPoint }) {
           <span style={{ color: 'var(--accent-green)' }}>+{point.delta}</span> win
         </span>
       )}
+      {inCage && <span style={{ color: 'var(--text-muted)' }}>— excluded from the in-cage line</span>}
     </div>
   );
 }
