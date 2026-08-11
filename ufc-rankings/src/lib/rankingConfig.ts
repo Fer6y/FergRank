@@ -553,6 +553,17 @@ export const RANKING_CONFIG = {
     // hides, shrunk enough that a single lucky debut doesn't top the list.
     climbShrinkK: 3,
 
+    // ── Ranked sort key: tested and REFUTED as a swap (2026-08-11) ──
+    // The "sort /prospects on finalRating instead of raw elo" hypothesis
+    // (pedigreeBonus never reaches the ordering) was run on the committed
+    // harness (research/prospects/sortKeyBacktest.ts, bar pre-registered in
+    // DWCS_PLAN.md): ΔAUC on the external top-15 target +0.003/−0.001
+    // (ranked) and +0.000/−0.006 (unheld), all CIs spanning 0 — despite the
+    // adjustments being live (mean |adj| ~8.5 Elo, ~80% of the cohort with a
+    // pedigree seed). The internal ρ targets improved slightly, so the ranked
+    // key is harmless but adds nothing where it counts; raw elo stays. Revisit
+    // only via a re-run of that script at a fresh horizon.
+
     // ── DWCS / record-shape terms: tested and REFUTED (2026-08-11) ──
     // The Contender Series cohort study (docs/plans/DWCS_PLAN.md, Phase E gate
     // in research/prospects/phaseEGate.ts) scored every pre-registered

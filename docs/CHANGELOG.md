@@ -12,6 +12,23 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-11
 
+- **REFUTED: sorting /prospects on finalRating instead of raw Elo. Negative result; no change
+  shipped.** The strongest untested prospect-ordering lever — `/prospects` sorts on raw `elo`, so
+  `pedigreeBonus` (the one bounded term built for thin-UFC-sample fighters, live for exactly this
+  ≤5-fight population) never reaches the ordering. Bar pre-registered in `docs/plans/DWCS_PLAN.md`
+  (addendum, written before running): ΔAUC ≥ +0.01 at both horizons vs elo@T, 90% CI excluding 0,
+  no Spearman degradation — deliberately half the Phase-E magnitude since no mechanism is added.
+  Run on the committed harness (`research/prospects/sortKeyBacktest.ts`, production composite
+  reconstructed point-in-time via `PitAdjuster.adjustmentParts`, home-division choice matching
+  `predictiveRatingAdjustment`): **ranked** (+metrics+SoS+pedigree+untested) ΔAUC **+0.003 /
+  −0.001**; **unheld** (untested hold excluded, the P4P variant) **+0.000 / −0.006** — every CI
+  spans 0. Not for lack of signal reaching the key: mean |adjustment| ~8.5 Elo and ~80% of both
+  cohorts carried a live pedigree seed. Honest nuance: the ranked key consistently IMPROVED the
+  internal continuous targets (ρ netElo 0.138→0.197 at T1, 0.092→0.124 at T2), so it is harmless —
+  it just adds nothing on the external official-top-15 target the bar keys on, consistent with the
+  climb-rate finding that early raw Elo is already the dominant breakthrough signal. Raw Elo stays;
+  breadcrumb in `rankingConfig.prospects`; revisit only by re-running the script at a fresh horizon.
+
 - **Contender Series analysis shipped — cohort dataset, committed prospect backtests, DWCS
   closing odds, `/contender-series` page. Zero scoring change: every pre-registered model-change
   candidate FAILED the bar.** Full plan + pre-registered hypotheses in `docs/plans/DWCS_PLAN.md`

@@ -61,6 +61,17 @@ export class PitAdjuster {
   // Total ranking-layer adjustment for one fighter entering a bout on asOf in
   // `division` (normalized weight class of the bout).
   adjustment(fighterId: string, asOfIso: string, division: string): number {
+    const p = this.adjustmentParts(fighterId, asOfIso, division);
+    return p.metricsBonus + p.sosNudge + p.pedigreeBonus + p.untestedPenalty;
+  }
+
+  // Component breakdown — the prospect sort-key backtest needs the untested
+  // hold separable (its "unheld" variant mirrors crossDivision.ts).
+  adjustmentParts(
+    fighterId: string,
+    asOfIso: string,
+    division: string
+  ): { metricsBonus: number; sosNudge: number; pedigreeBonus: number; untestedPenalty: number } {
     const asOf = new Date(asOfIso);
     const cfg = RANKING_CONFIG;
 
@@ -130,6 +141,6 @@ export class PitAdjuster {
 
     const untestedPenalty = untestedHoldPenalty(bestWinElo, preFightCount);
 
-    return metricsBonus + sosNudge + pedigreeBonus + untestedPenalty;
+    return { metricsBonus, sosNudge, pedigreeBonus, untestedPenalty };
   }
 }

@@ -88,6 +88,20 @@ If nothing clears (the likely outcome): a dated negative-result CHANGELOG entry 
 exact AUCs + a breadcrumb comment in `rankingConfig.preUFCPedigree`, same convention as
 the refuted climb-rate sort.
 
+## Addendum (2026-08-11, pre-registered before running): /prospects sort-key test
+
+Structural observation, not an anecdote: `/prospects` sorts on raw `elo`, so
+`pedigreeBonus` — the term built for thin-UFC-sample fighters and live for exactly the
+≤5-fight population — never reaches the ordering. Candidates, no new mechanism or knob:
+**ranked** = elo@T + PIT metrics/SoS/pedigree/untested (production composite,
+`PitAdjuster.adjustmentParts`), and **unheld** = ranked − untestedPenalty (mirroring
+`crossDivision.ts`). **Bar**: the swap ships only if ΔAUC vs elo@T ≥ **+0.01 at BOTH
+horizons** with the 90% bootstrap CI excluding 0 at both, and neither Spearman target
+degrades. Half the Phase-E magnitude on purpose — every term is already validated
+elsewhere and nothing is added to the model; the CI condition carries the rigor. Miss →
+negative result logged, raw Elo stays. Removal condition if shipped: revert on any
+future-horizon re-run where the ranked key loses to raw Elo.
+
 ## Data limits (stated up front)
 
 - Sherdog crawl is dead → `sherdog_fights.csv` is frozen at 2025-10-07; DWCS seasons
