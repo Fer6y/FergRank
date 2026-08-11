@@ -79,6 +79,7 @@ interface FighterRow {
   preDwcsWins: number | '';
   preDwcsLosses: number | '';
   preDwcsDraws: number | '';
+  preDwcsFinishes: number | ''; // KO/TKO/SUB wins among the pre-DWCS wins
   preDwcsSource: 'crosswalk' | 'cache' | 'none';
   feederOrg: string;
   feederTier: string;
@@ -243,7 +244,7 @@ async function main(): Promise<void> {
     const dwcsRecord = d ? `${w}-${l}-${d}` : `${w}-${l}`;
 
     // Pre-DWCS record + feeder attribution.
-    let preW: number | '' = '', preL: number | '' = '', preD: number | '' = '';
+    let preW: number | '' = '', preL: number | '' = '', preD: number | '' = '', preF: number | '' = '';
     let source: FighterRow['preDwcsSource'] = 'none';
     let feederOrg = '', feederTier = '';
     let feederRelFactor: number | '' = '';
@@ -255,6 +256,7 @@ async function main(): Promise<void> {
       preW = pre.filter((r) => r.result === 'win').length;
       preL = pre.filter((r) => r.result === 'loss').length;
       preD = pre.filter((r) => r.result === 'draw').length;
+      preF = pre.filter((r) => r.result === 'win' && FINISH_RE.test(r.method)).length;
 
       const preFights: PreUFCFight[] = pre.map((r) => ({
         dateMs: Date.parse(r.date),
@@ -282,6 +284,7 @@ async function main(): Promise<void> {
           preW = pre.filter((f) => f.result === 'win').length;
           preL = pre.filter((f) => f.result === 'loss').length;
           preD = pre.filter((f) => f.result === 'draw').length;
+          preF = pre.filter((f) => f.result === 'win' && FINISH_RE.test(f.method)).length;
           if (prof.birthDate) age = ageAt(prof.birthDate, firstDwcsDate);
           source = 'cache';
           cacheSourced++;
@@ -310,6 +313,7 @@ async function main(): Promise<void> {
       preDwcsWins: preW,
       preDwcsLosses: preL,
       preDwcsDraws: preD,
+      preDwcsFinishes: preF,
       preDwcsSource: source,
       feederOrg,
       feederTier,

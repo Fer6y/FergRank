@@ -12,6 +12,47 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-11
 
+- **NEW SYSTEM: the PRE-UFC RATING — a separate, calibrated scouting model for fighters who have
+  never been in the UFC.** Firewalled from Elo in both directions: reads no rating, feeds no
+  rating, and a fighter's pre-UFC score is discarded the moment they have UFC results. Powers the
+  Contender Series scout board; never the rankings. Golden master byte-identical.
+  **Fitted, not hand-tuned** (`research/dwcs/calibratePreUfc.ts`): logistic on the nine-season
+  cohort (361 entrants with full features), target = reachedTop15 (the UFC's own board),
+  validation **temporal** — fit on pre-2022 entrants, score on 2022+. Shipped weights are in
+  `rankingConfig.preUfcRating` with the fit date, held-out AUC, and the full curation table
+  beside them.
+  **Curation is the story — two of the four candidate inputs were tested and CUT.** Held-out AUC
+  by feature set: all-five 0.683 · drop-experience 0.688 · **core-3 (win rate + age + promotion)
+  0.691** · record+age 0.690 · age alone 0.674. So: *finish rate* has real univariate signal
+  (0.597) but is collinear with win rate — finishers win more — and fits NEGATIVE in every
+  multivariate model, adding nothing (0.688 vs 0.691 without it); it also fails on the
+  did-they-get-signed target (0.516 alone). *Experience volume* is BELOW random alone (0.444) and
+  only turns positive as a suppressor artifact, matching the earlier H1 refutation. Both are
+  excluded from the score; **finish rate is still displayed** as a style attribute, explicitly
+  labelled as not scored, which is the honest way to honour "use finish rate" when the data says
+  it doesn't rank. Final held-out AUC 0.691, Spearman ρ 0.283 vs settled Elo gain — modest by
+  construction, and only slightly better than age alone, which the config records as the removal
+  condition.
+  **A leak caught mid-build**: the gotContract target returned AUC 1.000 with a +87 coefficient —
+  `tierMult` is non-zero only for crosswalked fighters, and being crosswalked ≈ having reached the
+  roster, so the model was predicting the target from a proxy for itself. Flagged in the script
+  output so nobody trusts that row.
+  **Train/serve skew caught by hand-verification**: the runtime scorer first resolved promotions
+  via the engine's sparse `orgTierMatchers`, where CFFC falls to the 0.35 default — but the
+  calibration data tiered it 0.55 from `sherdog_orgs.csv`, so an identical résumé scored
+  differently in fit and in production. The scorer now reads the same dictionary. The fix's first
+  draft used loose substring matching and promptly resolved **"Road to UFC" to the key "UFC",
+  handing a regional tournament the tier-1 multiplier (1.00)** — replaced with an explicit alias
+  map. Both traps are now unit tests.
+  **Shipped surfaces**: `src/lib/preUfcRating.ts` (scorer + plain-English `explainPreUfc`),
+  `dwcsScout.ts` reduced to an adapter, a `SCOUT · PRE-UFC RATING` band per DWCS bout on
+  /upcoming (grade, 0–100 score, record/win%/finish%/age/org), and a ranked
+  **"this week's class"** board on /contender-series that hides itself outside the season.
+  New `scripts/preUfcRating.test.ts` (22 assertions: per-input monotonicity, finish-rate-never-
+  scored, missing-data-refused, score bounds, the two org traps) wired into `npm test`.
+  Verified against an independent hand-derivation of the logit→score for all ten entrants on
+  tonight's card.
+
 - **Prospect-system UI phase: provenance, DWCS-ready /upcoming, the pipeline guide.** Display-only
   end to end; golden master byte-identical.
   **Provenance** — /prospects cards now read `DWCS '23 W · TKO R1 · came in 11-0 from SFH`: the

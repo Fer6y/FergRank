@@ -93,6 +93,14 @@ export function getNextFight(fighterId: string): NextFight | undefined {
 // falls back to a flat, undivided list.
 export type CardSection = 'main' | 'prelim' | 'early';
 
+/** Raw scout columns for one Contender Series corner (data/dwcs_upcoming.csv). */
+export interface DwcsScoutRaw {
+  record: string | null;   // "8-0"
+  finishes: number | null; // KO/TKO/SUB wins
+  age: number | null;
+  org: string | null;      // feeder promotion
+}
+
 export interface UpcomingBout {
   boutOrder: number;          // 1 = main event, ascending down the card
   isMainEvent: boolean;
@@ -105,8 +113,8 @@ export interface UpcomingBout {
   // Contender Series entrants only: verified pre-UFC scouting data from the
   // hand-refreshed data/dwcs_upcoming.csv snapshot (no scrapable source exists
   // — ufc.com doesn't list DWCS cards, Tapology bot-walls, Sherdog is dead).
-  scout1?: { record: string | null; age: number | null; org: string | null };
-  scout2?: { record: string | null; age: number | null; org: string | null };
+  scout1?: DwcsScoutRaw;
+  scout2?: DwcsScoutRaw;
 }
 
 export interface UpcomingCard {
@@ -169,8 +177,9 @@ export function getUpcomingCards(): UpcomingCard[] {
       skipEmptyLines: true,
     }).data;
     const dwcsByEvent = new Map<string, UpcomingCard>();
-    const scout = (rec: string, age: string, org: string) => ({
+    const scout = (rec: string, fin: string, age: string, org: string): DwcsScoutRaw => ({
       record: rec?.trim() || null,
+      finishes: fin?.trim() ? Number(fin) : null,
       age: age?.trim() ? Number(age) : null,
       org: org?.trim() || null,
     });
@@ -192,8 +201,8 @@ export function getUpcomingCards(): UpcomingCard[] {
         fighter1Name: r.f1_name || '',
         fighter2Id: null,
         fighter2Name: r.f2_name || '',
-        scout1: scout(r.f1_record, r.f1_age, r.f1_org),
-        scout2: scout(r.f2_record, r.f2_age, r.f2_org),
+        scout1: scout(r.f1_record, r.f1_finishes, r.f1_age, r.f1_org),
+        scout2: scout(r.f2_record, r.f2_finishes, r.f2_age, r.f2_org),
       });
     }
     for (const card of dwcsByEvent.values()) {

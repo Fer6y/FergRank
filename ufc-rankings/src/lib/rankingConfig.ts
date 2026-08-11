@@ -295,6 +295,73 @@ export const RANKING_CONFIG = {
     pedigreeEdgeCoef: 0.5,
   },
 
+  // ═══ PRE-UFC RATING — a SEPARATE system from the Elo core ═══
+  //
+  // Scores a fighter who has NEVER been in the UFC, from the only signals
+  // consistently available beforehand. Completely firewalled: it reads no Elo,
+  // feeds no Elo, and a fighter's pre-UFC score is discarded the moment they
+  // have UFC results (the Elo core is strictly better once real data exists).
+  // Powers the Contender Series scout board; never the rankings.
+  //
+  // CALIBRATED, NOT HAND-TUNED (2026-08-11). Fitted by
+  // research/dwcs/calibratePreUfc.ts on the nine-season DWCS cohort (361
+  // entrants with full features), target = reachedTop15 (the UFC's own board —
+  // external to our engine). Validation is TEMPORAL: fit on pre-2022 entrants
+  // (n=224, 18 positives), score on 2022+ (n=137, 18 positives).
+  //
+  // Model curation — held-out AUC by feature set, which is why only three
+  // features ship:
+  //     all 5 features .............. 0.683
+  //     drop logFights .............. 0.688
+  //     CORE 3 (shipped) ............ 0.691   ← simplest, best
+  //     record + age only ........... 0.690
+  //     age alone ................... 0.674
+  // Single-feature held-out AUC: age 0.674, winRate 0.641, finishRate 0.597,
+  // tierMult 0.486, logFights 0.444 (BELOW random).
+  //
+  // Two features were tested and DELIBERATELY EXCLUDED — do not re-add without
+  // re-running the calibration:
+  //   • finishRate — real alone (0.597) but collinear with win rate (finishers
+  //     win more); it fits NEGATIVE in every multivariate model and adds
+  //     nothing (0.688 vs 0.691 without it). It also fails on the "did they get
+  //     signed" target (0.516 alone). It is DISPLAYED as a style attribute and
+  //     deliberately does not move the score.
+  //   • experience volume (log fights) — below-random alone, positive
+  //     coefficient only as a suppressor artifact. Matches the H1 refutation:
+  //     fight count adds nothing once win rate is known. The 13-4 veteran has
+  //     no edge over the 4-0 prospect.
+  //
+  // Held-out performance of the shipped model: AUC 0.691 on reachedTop15,
+  // Spearman ρ 0.283 vs settled Elo gain. Modest by construction — this
+  // predicts a career from a regional résumé, the hardest question in the
+  // sport, and it beats age alone (0.674) only slightly.
+  //
+  // Weights are the core-3 refit over all 361 rows. RE-RUN the calibration
+  // (and update these) after any DWCS dataset refresh; the comment block is
+  // the provenance, so keep the numbers and the fit date together.
+  // REMOVAL CONDITION: delete this system if a pre-UFC score is ever wired into
+  // finalRating, or if a re-fit's held-out AUC drops below age-alone (0.674) —
+  // at that point the composite is adding nothing over one column.
+  preUfcRating: {
+    fitDate: '2026-08-11',
+    heldOutAuc: 0.691,
+    intercept: -5.2003,
+    winRateCoef: 3.1544,   // × (wins / total fights)
+    ageCoef: 0.6424,       // × ((ageAnchor − age) / ageScale) — positive = younger better
+    tierCoef: 0.4931,      // × the feeder promotion's static tier multiplier
+    ageAnchor: 26,
+    ageScale: 4,
+    // Display curve: map the model's logit onto 0–100 across the cohort's own
+    // p05→p95 spread, so a score is read as "where this résumé sits among
+    // Contender Series entrants", not as a probability.
+    displayLogitP05: -3.4769,
+    displayLogitP95: -1.3572,
+    // Grade bands on the 0–100 display score (cohort quintile-ish, rounded).
+    gradeA: 70,
+    gradeB: 40,
+    // Below gradeB is C. Missing age or record → ungraded (never guessed).
+  },
+
   // ═══ RECENCY WINDOWS (for metrics & strength-of-schedule, NOT the Elo core) ═══
   recencyHalfLifeMonths: 15,    // 50% at 15mo, 25% at 30mo — used to weight metric/SoS samples
   recencyCutoffMonths: 48,      // Fights older than this are ignored entirely for metrics/SoS/eligibility

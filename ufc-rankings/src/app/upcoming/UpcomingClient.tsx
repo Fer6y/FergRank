@@ -328,27 +328,54 @@ function ScoutBand({ bout }: { bout: CardBout }) {
   if (!bout.scout1 && !bout.scout2) return null;
   const gradeColor = (g: string | null) =>
     g === 'A' ? 'var(--accent-green)' : g === 'B' ? 'var(--accent-gold)' : g === 'C' ? 'var(--accent-red-light)' : 'var(--text-muted)';
-  const Side = ({ name, s }: { name: string; s: NonNullable<CardBout['scout1']> }) => (
-    <div className="min-w-0">
-      <div className="flex items-center gap-2 text-[11px]">
-        <span
-          className="font-display text-sm leading-none px-1.5 py-0.5 rounded"
-          style={{ color: gradeColor(s.grade), border: `1px solid ${gradeColor(s.grade)}` }}
-          title="Scouting grade from the nine-season Contender Series cohort study"
-        >
-          {s.grade ?? '—'}
-        </span>
-        <span className="font-medium truncate" style={{ color: 'var(--text-primary)' }}>{lastName(name)}</span>
-        <span className="font-mono" style={{ color: 'var(--text-secondary)' }}>{s.record ?? '?-?'}</span>
-        {s.org && <span style={{ color: 'var(--text-muted)' }}>· {s.org}</span>}
+
+  const Side = ({ name, s }: { name: string; s: NonNullable<CardBout['scout1']> }) => {
+    const r = s.rating;
+    const color = gradeColor(r?.grade ?? null);
+    return (
+      <div className="min-w-0">
+        <div className="flex items-baseline gap-2 text-[11px]">
+          <span
+            className="font-display text-base leading-none px-1.5 py-0.5 rounded shrink-0"
+            style={{ color, border: `1px solid ${color}` }}
+            title="Pre-UFC rating grade — a separate system from Elo, fitted on nine seasons of Contender Series outcomes"
+          >
+            {r?.grade ?? '—'}
+          </span>
+          {r && (
+            <span className="font-mono text-sm" style={{ color: 'var(--text-primary)' }} title="Pre-UFC score, 0–100 against the Contender Series cohort">
+              {r.score}
+            </span>
+          )}
+          <span className="font-medium truncate" style={{ color: 'var(--text-primary)' }}>{lastName(name)}</span>
+        </div>
+        {r && (
+          <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1 font-mono text-[10px]" style={{ color: 'var(--text-secondary)' }}>
+            <span>{r.fights - Math.round(r.fights * (1 - r.winRate))}-{Math.round(r.fights * (1 - r.winRate))}</span>
+            <span title="Win rate — the record component of the score">{Math.round(r.winRate * 100)}% W</span>
+            {r.finishRate != null && (
+              <span title="Finish rate — DISPLAYED as a style read; calibration showed it does not add to the score once win rate is known" style={{ color: 'var(--accent-red-light)' }}>
+                {Math.round(r.finishRate * 100)}% FIN
+              </span>
+            )}
+            {r.age != null && <span>{r.age} yrs</span>}
+            {r.org && <span style={{ color: 'var(--text-muted)' }}>{r.org}</span>}
+          </div>
+        )}
+        <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>{s.line}</p>
       </div>
-      <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>{s.line}</p>
-    </div>
-  );
+    );
+  };
+
   return (
     <div className="border-t px-3.5 py-2.5 sm:px-4 sm:py-3" style={{ borderColor: 'var(--border)' }}>
-      <div className="text-[10px] tracking-widest uppercase mb-2" style={{ color: 'var(--accent-gold)' }}>
-        Scout · pre-UFC profile
+      <div className="flex items-baseline justify-between gap-2 mb-2">
+        <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--accent-gold)' }}>
+          Scout · pre-UFC rating
+        </span>
+        <a href="/contender-series" className="text-[10px] hover:underline" style={{ color: 'var(--text-muted)' }}>
+          how this is scored →
+        </a>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
         {bout.scout1 && <Side name={bout.fighter1.name} s={bout.scout1} />}

@@ -1,7 +1,32 @@
 import Link from 'next/link';
 import { loadDwcsAnalysis, type DwcsBucketRow } from '@/lib/loadDwcsAnalysis';
+import { getUpcomingCards } from '@/lib/loadUpcoming';
+import { scoutDwcsEntrant } from '@/lib/dwcsScout';
+import { RANKING_CONFIG } from '@/lib/rankingConfig';
 
 export const revalidate = 86400;
+
+// The live scout board: every entrant on an upcoming Contender Series card,
+// ranked by the pre-UFC rating. Empty (section hidden) when no DWCS card is
+// scheduled — the usual state outside the Aug–Oct season.
+function upcomingClass() {
+  const out: { name: string; score: number; grade: string; line: string; event: string; date: string }[] = [];
+  for (const card of getUpcomingCards()) {
+    if (!/contender series|dana.?white|dwcs/i.test(`${card.eventId ?? ''} ${card.eventName}`)) continue;
+    for (const b of card.bouts) {
+      for (const [name, raw] of [
+        [b.fighter1Name, b.scout1],
+        [b.fighter2Name, b.scout2],
+      ] as const) {
+        if (!raw) continue;
+        const s = scoutDwcsEntrant(raw);
+        if (!s.rating) continue;
+        out.push({ name, score: s.rating.score, grade: s.rating.grade, line: s.line, event: card.eventName, date: card.eventDate });
+      }
+    }
+  }
+  return out.sort((a, b) => b.score - a.score);
+}
 
 const pct = (x: number | null) => (x == null ? '—' : `${Math.round(x * 100)}%`);
 const elo = (x: number | null) => (x == null ? '—' : `${x > 0 ? '+' : ''}${x.toFixed(1)}`);
@@ -22,6 +47,8 @@ export default function ContenderSeriesPage() {
 
   const { summary, seasonTable, byResult, recordShape, tiers, topOrgs, odds, rankedGrads } = data;
   const maxRate = Math.max(...seasonTable.map((s) => s.contractRate ?? 0), 0.01);
+  const liveClass = upcomingClass();
+  const C = RANKING_CONFIG.preUfcRating;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6 space-y-5">
@@ -55,6 +82,39 @@ export default function ContenderSeriesPage() {
         we can trace (~{Math.round((362 / summary.participants) * 100)}%) — the rest count in the denominator and
         nowhere else. Method + pre-registered hypotheses: <code>docs/plans/DWCS_PLAN.md</code>.
       </div>
+
+      {/* live scout board — only during a season */}
+      {liveClass.length > 0 && (
+        <section>
+          <SectionLabel>
+            This week&rsquo;s class · ranked by pre-UFC rating — {liveClass[0].event} ({liveClass[0].date})
+          </SectionLabel>
+          <div className="rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>
+            {liveClass.map((f, i) => {
+              const color = f.grade === 'A' ? 'var(--accent-green)' : f.grade === 'B' ? 'var(--accent-gold)' : 'var(--accent-red-light)';
+              return (
+                <div key={f.name} className="flex items-start gap-3 px-3 py-2.5" style={{ borderTop: i ? '1px solid var(--border)' : 'none' }}>
+                  <span className="font-display text-lg leading-none w-6 text-right shrink-0" style={{ color: 'var(--text-muted)' }}>{i + 1}</span>
+                  <span className="font-display text-base leading-none px-1.5 py-0.5 rounded shrink-0" style={{ color, border: `1px solid ${color}` }}>{f.grade}</span>
+                  <span className="font-mono text-sm w-8 shrink-0" style={{ color: 'var(--text-primary)' }}>{f.score}</span>
+                  <div className="min-w-0">
+                    <div className="text-sm" style={{ color: 'var(--text-primary)' }}>{f.name}</div>
+                    <div className="text-[10px] leading-snug mt-0.5" style={{ color: 'var(--text-muted)' }}>{f.line}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-[11px] mt-1.5 max-w-2xl" style={{ color: 'var(--text-muted)' }}>
+            The <strong>pre-UFC rating</strong> is a separate system from our Elo — it scores fighters who have never
+            been in the UFC, from the three signals that survived calibration on nine seasons of entrants:{' '}
+            <strong>win rate, age, and the promotion they came from</strong> (fitted {C.fitDate}, held-out AUC{' '}
+            {C.heldOutAuc} against the UFC&rsquo;s own top 15). Finish rate and fight-count experience were tested and
+            excluded — both add nothing once win rate is known. A score is a placement against past entrants, not a
+            probability, and it is discarded the moment a fighter has real UFC results.
+          </p>
+        </section>
+      )}
 
       {/* H4 — the doorway */}
       <section>

@@ -1,595 +1,595 @@
-sherdogId,ourId,name,appearances,dwcsRecord,firstDwcsDate,bestDwcsResult,dwcsMethod,preDwcsWins,preDwcsLosses,preDwcsDraws,preDwcsSource,feederOrg,feederTier,feederRelFactor,ageAtDwcs,gotContract,ufcFights,ufcWins,ufcLosses,settledEloGain,eloAt1yr,eloAt2yr,reachedTop15
-Azunna-Anyanwu-68352,be7ca0896a9b24a2,Azunna Anyanwu,1,1-0,2017-07-11,finishWin,KO R2,13,4,0,crosswalk,CFFC,tier3,0.9667,35,1,1,0,1,-0.5,1485,1485,0
-Boston-Salmon-131463,bf91cbfb6ec5463a,Boston Salmon,1,1-0,2017-07-11,decisionWin,UD,5,1,0,crosswalk,RFA,tier4,0.9691,26,1,2,0,2,-3.9,,1477.4,0
-Charles-Byrd-51234,b6c17f70c2c805cf,Charles Byrd,2,2-0,2017-07-11,finishWin,SUB R1,7,4,0,crosswalk,LFC,tier4,0.9819,33,1,4,1,3,-5.6,1515.1,1469.5,0
-Greg-Rebello-12293,,Greg Rebello,2,0-2,2017-07-11,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jamie-Pickett-72595,e891217b7a2b4f16,Jamie Pickett,3,1-2,2017-07-11,finishWin,TKO R2,7,2,0,crosswalk,NLFC,tier4,,28,1,9,2,7,-49.6,,,0
-Joby-Sanchez-50239,0f7518cc5cd482fb,Joby Sanchez,2,2-0,2017-07-11,finishWin,TKO R2,8,0,0,crosswalk,XFC,tier4,0.9706,26,1,2,0,2,-3,1459.1,1449.8,0
-Kurt-Holobaugh-68751,ecdf6dcdb523bb8d,Kurt Holobaugh,1,0-0,2017-07-11,noWin,,17,3,0,crosswalk,Titan FC,tier3,0.9943,30,1,8,2,6,-32.1,1483.2,1444.4,0
-Manny-Vazquez-160015,,Manny Vazquez,1,0-1,2017-07-11,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Matt-Bessette-34374,adb29a86d181648c,Matt Bessette,1,0-0,2017-07-11,noWin,,22,7,0,crosswalk,CES MMA,tier4,0.9367,32,1,2,0,2,-1.7,1466.7,1466.7,0
-Ricky-Turcios-80671,8599d31404ff0b34,Ricky Turcios,1,0-1,2017-07-11,noWin,,8,0,0,crosswalk,Fury FC,tier4,0.9876,24,1,6,2,4,-46.7,,,0
-Alfred-Khashakyan-133919,,Alfred Khashakyan,1,0-1,2017-07-18,noWin,,,,,none,,,,,0,0,0,0,,,,0
-CJ-Hamilton-71119,,C.J. Hamilton,1,0-1,2017-07-18,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Casey-Kenney-211031,2c6080cef7de1112,Casey Kenney,2,1-1,2017-07-18,decisionWin,UD,6,0,1,crosswalk,TPF,tier4,0.9745,26,1,8,5,3,5.7,,1514.2,0
-Sean-OMalley-135099,bbcaf7b57144df14,Sean O'Malley,1,1-0,2017-07-18,finishWin,KO R1,7,0,0,crosswalk,ICF,tier4,,22,1,15,12,3,83,1520.8,1520.8,1
-Alonzo-Menifield-210501,990efe1105080c68,Alonzo Menifield,2,2-0,2017-07-25,finishWin,TKO R1,3,0,0,crosswalk,Bellator,tier2_5,0.9929,29,1,18,11,6,21.2,,1527.3,1
-Chase-Waldon-68408,,Chase Waldon,1,0-1,2017-07-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Dan-Ige-136499,217d1a9370550d41,Dan Ige,1,1-0,2017-07-25,finishWin,SUB R3,7,1,0,crosswalk,LFC,tier4,0.9819,25,1,21,11,10,4.1,1493.7,1540.6,0
-Daniel-Jolly-83243,e04431032c654b57,Daniel Jolly,1,0-1,2017-07-25,noWin,,5,0,0,crosswalk,LFC,tier4,0.9819,32,0,0,0,0,-1.2,1458.3,1458.3,0
-Geoff-Neal-72107,deee560a8bc1dd80,Geoff Neal,1,1-0,2017-07-25,finishWin,TKO R1,7,2,0,crosswalk,LFC,tier4,0.9819,26,1,14,8,6,13.4,1511,1536.5,0
-Jason-Jackson-48171,,Jason Jackson,1,0-1,2017-07-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Karl-Roberson-132605,6714baa6b0fabf58,Karl Roberson,1,1-0,2017-07-25,finishWin,KO R1,4,0,0,crosswalk,CFFC,tier3,0.9667,26,1,10,4,6,-15.3,1491.1,1496.5,0
-Kyle-Stewart-102333,d7c50bc1e2a1c4f7,Kyle Stewart,1,1-0,2017-07-25,finishWin,TKO R2,7,0,0,crosswalk,WFF,tier4,,28,1,2,0,2,-3.2,,1477.4,0
-Luis-Gomez-207041,,Luis Gomez,1,0-1,2017-07-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ryan-Spann-68057,,Ryan Spann,1,0-1,2017-07-25,noWin,,10,4,0,cache,,,,25,0,0,0,0,,,,0
-Austin-Arnett-57016,39e0e926a4ebf523,Austin Arnett,1,0-1,2017-08-01,noWin,,15,2,0,crosswalk,Thunder & Lightning,tier4,,25,1,4,1,3,-2.8,1460.6,1457,0
-Brandon-Davis-67782,0432ba12b6296c1d,Brandon Davis,1,1-0,2017-08-01,decisionWin,UD,7,3,0,crosswalk,SFC,tier4,,27,1,9,2,7,-14.7,1478,1481.7,0
-Carlos-Candelario-97453,e503c6a1065a60f9,Carlos Candelario,2,1-1,2017-08-01,decisionWin,UD,6,0,0,crosswalk,CES MMA,tier4,0.9367,26,1,2,0,2,-13,,,0
-Julian-Marquez-77743,d46685b2069b7029,Julian Marquez,1,1-0,2017-08-01,finishWin,KO R2,5,1,0,crosswalk,Combate Americas,tier4,0.9612,27,1,8,3,5,-46.1,1493.5,1493.5,0
-Phil-Hawes-130935,186b7b196c354140,Phil Hawes,2,1-1,2017-08-01,finishWin,TKO R1,4,1,0,crosswalk,PFL,tier2_5,1.0241,28,1,8,4,4,-12.9,,,0
-Ronaldo-Candido-de-Oliveira-128351,,Ronaldo Candido de Oliveira,1,0-1,2017-08-01,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Alex-Perez-12443,245f661e52b116c7,Alex Perez,1,1-0,2017-08-08,finishWin,SUB R1,17,4,0,crosswalk,TPF,tier4,0.9745,25,1,14,8,6,-2.1,1537.7,1529.7,1
-Donavon-Frelow-79087,,Donavon Frelow,1,0-1,2017-08-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jamelle-Jones-137613,,Jamelle Jones,1,0-1,2017-08-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Julio-Arce-71299,8fa232d3a73d0de7,Julio Arce,1,1-0,2017-08-08,finishWin,TKO R2,12,2,0,crosswalk,ROC,tier4,1.0281,27,1,10,6,4,2.9,1525,1517.8,0
-Kevin-Gray-120689,,Kevin Gray,1,0-1,2017-08-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mike-Rodriguez-107891,53ba0dd370c19b38,Mike Rodriguez,1,1-0,2017-08-08,finishWin,KO R1,8,2,0,crosswalk,CES MMA,tier4,0.9367,28,1,7,2,5,-11.4,1481.1,1496.6,0
-Peter-Petties-183991,,Peter Petties,1,0-1,2017-08-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ricky-Simon-111209,a0811e03ef7082c8,Ricky Simon,1,1-0,2017-08-08,decisionWin,SD,9,1,0,crosswalk,King of the Cage,tier3,1.0041,24,1,17,10,6,20.3,1524.8,1520.3,0
-Jaime-Alvarez-139887,,Jaime Alvarez,1,1-0,2017-08-15,decisionWin,UD,,,,none,,,,,0,0,0,0,,,,0
-Martin-Day-155883,9499fe7d747d0f34,Martin Day,1,0-1,2017-08-15,noWin,,5,1,0,crosswalk,Capone's Productions,tier4,,28,1,4,0,4,-10.2,,1484.3,0
-Randall-Wallace-93103,,Randall Wallace,1,0-1,2017-08-15,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Anton-Berzin-69707,,Anton Berzin,1,0-1,2017-08-22,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Benito-Lopez-122711,a4264e3d664f208f,Benito Lopez,1,1-0,2017-08-22,decisionWin,SD,7,0,0,crosswalk,King of the Cage,tier3,1.0041,23,1,4,2,2,-6.8,1509.7,1500.5,0
-JP-Buys-197069,5b7c7c83602d9b20,JP Buys,2,1-1,2017-08-22,finishWin,SUB R1,4,1,0,crosswalk,EFC,tier4,0.9607,21,1,4,0,4,-31.8,,,0
-Jordan-Espinosa-64942,27fc42f9a706f56f,Jordan Espinosa,2,2-0,2017-08-22,finishWin,SUB R1,10,5,0,crosswalk,GKO,tier4,,27,1,6,2,4,-7.5,,1488,0
-Kennedy-Nzechukwu-212289,3efa6683f90baf91,Kennedy Nzechukwu,2,2-0,2017-08-22,finishWin,TKO R1,2,0,0,crosswalk,XKO,tier4,,25,1,15,8,6,-4.5,,1488.9,0
-Mark-Cherico-56202,,Mark Cherico,1,0-1,2017-08-22,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mike-Santiago-66110,4e832c70f00c22df,Mike Santiago,1,1-0,2017-08-22,finishWin,KO R1,20,9,0,crosswalk,HFC,tier4,,28,1,3,0,3,-2.9,1440.3,1440.3,0
-Nick-Urso-52504,,Nick Urso,1,0-1,2017-08-22,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Steven-Peterson-60433,9d03eaf7a17b94a3,Steven Peterson,1,0-1,2017-08-22,noWin,,15,5,0,crosswalk,LFC,tier4,0.9819,27,1,8,3,5,-13.6,1491,1454.8,0
-Adam-Antolin-28758,,Adam Antolin,1,1-0,2017-08-29,decisionWin,SD,,,,none,,,,,0,0,0,0,,,,0
-Allen-Crowder-157353,5f7d95f165f83e3c,Allen Crowder,1,1-0,2017-08-29,finishWin,TKO R3,8,2,0,crosswalk,NLFC,tier4,,27,1,3,1,2,-2,1479.2,1473.8,0
-Bevon-Lewis-211153,8a049373a2a84299,Bevon Lewis,2,2-0,2017-08-29,finishWin,TKO R2,3,0,0,crosswalk,LFA,tier3,1.0206,26,1,4,1,3,-6.5,,1459.3,0
-DonTale-Mayes-237177,83c80f54de1b32fe,Don'Tale Mayes,3,2-1,2017-08-29,finishWin,TKO R2,3,1,0,crosswalk,LFA,tier3,1.0206,25,1,11,4,7,-53.6,,,0
-Elias-Urbina-167417,,Elias Urbina,1,0-1,2017-08-29,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jose-Flores-60457,,Jose Flores,2,0-2,2017-08-29,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Kelly-McGillVelasco-170067,,Kelly McGill-Velasco,1,0-1,2017-08-29,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Lauren-Mueller-202159,5c987d20da70c09d,Lauren Mueller,1,1-0,2017-08-29,decisionWin,UD,3,0,0,crosswalk,Gladiator Challenge,tier4,0.9825,25,1,4,1,3,-3.8,1514.6,1473.4,0
-Matt-Frevola-100247,c9d2ae98d9f6ab30,Matt Frevola,1,1-0,2017-08-29,finishWin,SUB R2,5,0,0,crosswalk,RFC,tier4,,27,1,12,5,6,-23.9,1479.3,1493,0
-Austen-Lane-249439,f7d9010e13806799,Austen Lane,2,1-1,2018-06-12,finishWin,TKO R1,4,0,0,crosswalk,CN,tier4,,30,1,6,1,5,-71.5,,,0
-Chris-Curtis-48039,9fc426aaa44255d9,Chris Curtis,1,1-0,2018-06-12,finishWin,TKO R3,18,5,0,crosswalk,CES MMA,tier4,0.9367,31,1,11,6,5,6.1,,,0
-Dashawn-Boatwright-241897,,Dashawn Boatwright,1,0-1,2018-06-12,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Greg-Hardy-271461,e7b88fa57ffb42cb,Greg Hardy,2,2-0,2018-06-12,finishWin,TKO R1,0,0,0,crosswalk,,,,29,1,9,4,5,-8,1493.1,1506.2,0
-Kevin-Holland-108999,b577c6fa8060ff5c,Kevin Holland,1,1-0,2018-06-12,decisionWin,UD,12,3,0,crosswalk,LFA,tier3,1.0206,25,1,28,16,12,20,1510,1510,0
-Sean-Lally-44100,,Sean Lally,1,0-1,2018-06-12,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Will-Santiago-Jr-65536,,Will Santiago Jr.,1,0-1,2018-06-12,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Anthony-Hernandez-86783,9583d6bf13318f23,Anthony Hernandez,1,0-0,2018-06-19,noWin,,6,0,0,crosswalk,GKO,tier4,,24,1,12,9,3,66.2,1477,1472.5,1
-Austin-Springer-41861,,Austin Springer,1,1-0,2018-06-19,finishWin,SUB R3,10,3,0,cache,,,,31,0,0,0,0,,,,0
-Dwight-Grant-68983,3411cece8b9fb184,Dwight Grant,1,1-0,2018-06-19,finishWin,KO R2,7,1,0,crosswalk,GKO,tier4,,34,1,8,3,5,-10.3,1509.9,1509.9,0
-Giga-Chikadze-213745,3739a7ad389dcac5,Giga Chikadze,1,0-1,2018-06-19,noWin,,5,1,0,crosswalk,Gladiator Challenge,tier4,0.9825,29,1,12,8,4,17.5,,1531.5,0
-Jordan-Wright-79138,9492268d8774c0a4,Jordan Wright,1,0-0,2018-06-19,noWin,,9,0,0,crosswalk,AFC,tier4,0.9964,26,1,7,2,5,-25.4,,,0
-Matt-Sayles-93675,aefa91645d63ab49,Matt Sayles,1,1-0,2018-06-19,finishWin,TKO R1,6,1,0,crosswalk,PFL,tier2_5,1.0241,24,1,4,1,3,-8.2,1494.9,1475.1,0
-Tyler-Hill-55299,,Tyler Hill,1,0-1,2018-06-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Yazan-Hajeh-83135,,Yazan Hajeh,1,0-1,2018-06-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Antonina-Shevchenko-45389,2651aa1e611abadc,Antonina Shevchenko,1,1-0,2018-06-26,finishWin,TKO R2,5,0,0,crosswalk,Phoenix Fighting Championship,tier4,,33,1,8,4,4,-6.1,1495.5,1489.4,0
-Austin-Tweedy-91337,,Austin Tweedy,1,0-1,2018-06-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jaimelene-Nievera-88009,,Jaimelene Nievera,1,0-1,2018-06-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jamall-Emmers-84139,d42c88019231799d,Jamall Emmers,1,0-1,2018-06-26,noWin,,13,3,0,crosswalk,LFA,tier3,1.0206,28,1,9,5,4,-4.9,,1484.2,0
-Jordan-Williams-70941,82b4ac7b2ab3eafb,Jordan Williams,3,1-1,2018-06-26,finishWin,KO R1,7,2,0,crosswalk,Bellator,tier2_5,0.9929,27,1,3,0,3,-11.8,,,0
-Josh-Parisian-181225,85e36eed269a8e5f,Josh Parisian,2,2-0,2018-06-26,finishWin,KO R1,6,2,0,crosswalk,LFA,tier3,1.0206,28,1,7,2,5,-36.9,,,0
-Julian-Erosa-71442,7dbe9bb9a5b973b5,Julian Erosa,1,1-0,2018-06-26,finishWin,KO R2,20,4,0,crosswalk,CS,tier4,,28,1,16,8,8,-22.1,1437.5,1437.5,0
-Te-Edwards-156303,c8304578645a0300,Te Edwards,1,1-0,2018-06-26,finishWin,KO R1,5,1,0,crosswalk,Bellator,tier2_5,0.9929,27,1,2,0,2,-2.5,1461.2,1461.2,0
-Tim-Caron-128669,,Tim Caron,1,0-0,2018-06-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Alton-Cunningham-166015,,Alton Cunningham,1,0-1,2018-07-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jalin-Turner-158269,e411d4112ff57cb3,Jalin Turner,1,1-0,2018-07-10,finishWin,TKO R1,6,3,0,crosswalk,Bellator,tier2_5,0.9929,23,1,14,8,6,17.3,1480.4,1497.4,0
-Joey-Gomez-124327,,Joey    Gomez,1,0-1,2018-07-10,noWin,,7,0,0,cache,,,,28,0,0,0,0,,,,0
-Kevin-Aguilar-57838,434c4533ee6ced38,Kevin Aguilar,1,1-0,2018-07-10,decisionWin,SD,14,1,0,crosswalk,LFA,tier3,1.0206,29,1,6,2,4,-6.1,1511.6,1474.2,0
-Max-Mustaki-79656,,Max Mustaki,1,0-1,2018-07-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Riley-Dutro-42022,,Riley Dutro,1,0-1,2018-07-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Angelo-Trevino-201359,,Angelo Trevino,1,0-1,2018-07-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Antonio-Jones-127091,,Antonio Jones,1,0-1,2018-07-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Austin-Vanderford-206919,2d0d405ad62b34b7,Austin Vanderford,1,1-0,2018-07-17,finishWin,SUB R2,4,0,0,crosswalk,VFC,tier4,0.9864,28,1,2,1,1,-9.5,,,0
-Domingo-Pilarte-48495,0cdf886f3d227f07,Domingo Pilarte,1,1-0,2018-07-17,finishWin,SUB R2,7,1,0,crosswalk,LFC,tier4,0.9819,28,1,2,0,2,-5.6,,1483,0
-Edmen-Shahbazyan-247691,f4544d57a0c93b7c,Edmen Shahbazyan,1,1-0,2018-07-17,finishWin,TKO R1,6,0,0,crosswalk,CXF,tier4,,20,1,15,9,6,9,1533,1551.9,0
-Jamie-Colleen-Miller-115211,,Jamie Colleen Miller,1,0-1,2018-07-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Maycee-Barber-253613,c9bce4b58587da90,Maycee Barber,1,1-0,2018-07-17,finishWin,TKO R3,4,0,0,crosswalk,LFA,tier3,1.0206,20,1,13,10,3,36.3,1531.1,1527.1,1
-Vince-Morales-177019,,Vince Morales,1,0-1,2018-07-17,noWin,,7,1,0,cache,,,,27,0,0,0,0,,,,0
-Canaan-Kawaihae-230231,,Canaan Kawaihae,1,0-1,2018-07-24,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Chase-Hooper-249301,61aca8157bf71afd,Chase Hooper,1,1-0,2018-07-24,decisionWin,UD,5,0,0,crosswalk,COGA,tier4,,18,1,14,9,5,3.6,,1490.5,0
-Chris-Birchler-75224,,Chris Birchler,1,0-1,2018-07-24,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jeff-Hughes-23793,93f287cc2018f186,Jeff Hughes,1,1-0,2018-07-24,finishWin,KO R1,9,1,0,crosswalk,LFA,tier3,1.0206,30,1,3,0,3,-6.7,1484.5,1466.6,0
-Jimmy-Crute-218959,a1fe00d04609986b,Jimmy Crute,1,1-0,2018-07-24,finishWin,TKO R1,7,0,0,crosswalk,HFS,tier4,1.0319,22,1,12,6,4,6.6,1530.8,1523,0
-Josh-Appelt-47983,,Josh Appelt,1,0-1,2018-07-24,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mike-Davis-202169,c089e6624556674f,Mike Davis,1,0-1,2018-07-24,noWin,,5,0,0,crosswalk,Square Ring Promotions,tier4,0.9744,25,1,8,5,3,11.4,1480.5,1493.9,0
-Sodiq-Yusuff-152359,98def16d7bb14aa9,Sodiq Yusuff,1,1-0,2018-07-24,decisionWin,UD,6,1,0,crosswalk,VFC,tier4,0.9864,25,1,10,6,4,1,1528.2,1556.5,0
-Garrett-Gross-84704,,Garrett Gross,1,0-1,2018-07-31,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ian-Heinisch-187341,f83eb8d8634c7c8b,Ian Heinisch,1,1-0,2018-07-31,finishWin,KO R1,10,1,0,crosswalk,LFA,tier3,1.0206,29,1,7,3,4,-2.4,1533.1,1516.3,0
-Jordan-Griffin-56524,1de38f7d8fb8d358,Jordan Griffin,1,1-0,2018-07-31,finishWin,SUB R1,16,5,0,crosswalk,LFA,tier3,1.0206,28,1,5,1,4,-8,1481.7,1466.6,0
-Juan-Adams-239097,920c5cc2e74aaaf6,Juan Adams,1,1-0,2018-07-31,finishWin,TKO R1,3,0,0,crosswalk,LFA,tier3,1.0206,26,1,4,1,3,-4.9,1472.4,1451.6,0
-Justin-Sumter-98983,,Justin Sumter,2,0-2,2018-07-31,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Maurice-Mitchell-37818,,Maurice Mitchell,1,0-1,2018-07-31,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mitchell-Sipe-208607,,Mitchell Sipe,1,0-1,2018-07-31,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Roosevelt-Roberts-191653,64c7119b9beb015a,Roosevelt Roberts,1,1-0,2018-07-31,finishWin,SUB R2,5,0,0,crosswalk,CXF,tier4,,24,1,9,4,5,-20.5,1505.6,1514.9,0
-Shawn-Teed-175575,,Shawn Teed,1,0-1,2018-07-31,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Bobby-Moffett-159019,ab06e184a09da577,Bobby Moffett,1,1-0,2018-08-07,finishWin,SUB R2,12,3,0,crosswalk,LFA,tier3,1.0206,28,1,2,0,2,-2.6,1482.6,1468.2,0
-Dennis-Bryant-85516,,Dennis Bryant,1,0-1,2018-08-07,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Devonte-Smith-89163,2a5d37e65372331c,Devonte Smith,1,1-0,2018-08-07,finishWin,KO R1,7,1,0,crosswalk,Iron Tiger Fight Series / Alliance MMA,tier4,,25,1,6,3,3,-4.7,1527.7,1504.1,0
-Jacob-Kilburn-238233,2983f5d00ab2638c,Jacob Kilburn,1,0-1,2018-08-07,noWin,,6,1,0,crosswalk,M-1,tier3,1.0486,23,1,2,0,2,-5.7,,1478.4,0
-Joseph-Lowry-76336,,Joseph Lowry,2,0-2,2018-08-07,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Tebaris-Gordon-260891,,Tebaris Gordon,1,0-1,2018-08-07,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Antonio-Arroyo-173979,20184f36071fdaa3,Antonio Arroyo,2,2-0,2018-08-10,finishWin,SUB R2,7,2,0,crosswalk,LFA,tier3,1.0206,29,1,3,0,3,-10.8,,1482,0
-Augusto-Sakai-87303,3e1f496aca017284,Augusto Sakai,1,1-0,2018-08-10,finishWin,TKO R2,10,1,1,crosswalk,Bellator,tier2_5,0.9929,27,1,9,5,4,-8,1518.9,1540,0
-Diego-Henrique-da-Silva-76846,,Diego Henrique da Silva,1,0-1,2018-08-10,noWin,,8,3,0,cache,,,,31,0,0,0,0,,,,0
-Gustavo-Gabriel-Silva-127725,,Gustavo Gabriel Silva,1,0-1,2018-08-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Maiara-Amanajas-dos-Santos-77091,,Maiara Amanajas dos Santos,1,0-1,2018-08-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Marcos-Conrado-Jr-234165,,Marcos Conrado Jr.,1,0-1,2018-08-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Rogerio-Bontorin-132211,1b2245155a92a358,Rogerio Bontorin,1,1-0,2018-08-10,finishWin,SUB R2,13,1,0,crosswalk,Brave CF,tier3,1.0338,26,1,5,2,3,-7.7,1510.5,1503.8,0
-Sarah-Frota-222541,511b8a19e1b7ac9f,Sarah Frota,1,1-0,2018-08-10,finishWin,KO R1,8,0,0,crosswalk,SFL,tier4,,31,1,2,0,2,-2.7,1466.3,1466.3,0
-Allan-Nascimento-87857,5138742df3096e35,Allan Nascimento,1,0-1,2018-08-11,noWin,,17,4,0,crosswalk,RIZIN,tier2_5,1.014,26,1,6,4,2,20.2,,,0
-Andre-Muniz-81800,74fd8194bb19e2bf,Andre Muniz,2,2-0,2018-08-11,finishWin,SUB R1,16,4,0,crosswalk,WOCS,tier4,,28,1,10,6,4,-0.8,,1512.6,0
-Bruno-Assis-185297,,Bruno Assis,1,0-1,2018-08-11,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Estefani-Almeida-205515,,Estefani Almeida,1,0-1,2018-08-11,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Henrique-da-Silva-175493,c9309ef7c0bb931b,Henrique da Silva,1,0-1,2018-08-11,noWin,,12,0,0,crosswalk,Arena Fight,tier4,,28,0,0,0,0,-1.7,1451.9,1451.9,0
-John-Allan-114875,b2d78c1271922be6,John Allan,1,0-1,2018-08-11,noWin,,12,4,0,crosswalk,Imortal FC,tier4,,25,1,2,0,2,-6.5,,,0
-Johnny-Walker-170203,,Johnny Walker,1,1-0,2018-08-11,decisionWin,UD,13,3,0,cache,,,,26,0,0,0,0,,,,0
-Luana-Carolina-189719,64d5a5e924312934,Luana Carolina,1,1-0,2018-08-11,decisionWin,UD,4,1,0,crosswalk,Thunder Fight,tier4,,25,1,10,6,4,-10,1509.3,1485,0
-Mabelly-Lima-187177,,Mabelly Lima,1,0-1,2018-08-11,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Maria-Oliveira-207835,09efcf1044196013,Maria Oliveira,1,0-1,2018-08-11,noWin,,10,3,0,crosswalk,RIZIN,tier2_5,1.014,21,1,4,1,3,-18.9,,,0
-Marina-Rodriguez-193977,c42bb75b660872de,Marina Rodriguez,1,1-0,2018-08-11,finishWin,TKO R1,9,0,0,crosswalk,Shooto,tier3,0.9997,31,1,15,7,6,-9,1521.3,1505,0
-Raulian-Paiva-167575,33936cc54a3063f8,Raulian Paiva,1,1-0,2018-08-11,decisionWin,SD,17,1,0,crosswalk,SMF,tier4,,22,1,7,3,4,-4.9,1464.4,1490.9,0
-Taila-Santos-143185,73dcdd41661adf51,Taila Santos,1,1-0,2018-08-11,decisionWin,UD,14,0,0,crosswalk,AFC,tier4,0.9964,25,1,7,4,3,7.3,1483.6,1500.6,0
-Vinicius-Moreira-207291,aa41f7f0d38a67de,Vinicius Moreira,1,1-0,2018-08-11,finishWin,SUB R2,8,1,0,crosswalk,SFL,tier4,,29,1,4,0,4,-11.8,1456.8,1436,0
-Alton-Meeks-292547,,Alton Meeks,1,0-1,2019-06-18,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Bill-Algeo-77441,fb02ddf6816c3234,Bill Algeo,1,0-1,2019-06-18,noWin,,12,3,0,crosswalk,ROC,tier4,1.0281,30,1,10,5,5,-13.1,,1479.5,0
-Brendan-Loughnane-44417,,Brendan Loughnane,1,1-0,2019-06-18,decisionWin,UD,16,3,0,cache,,,,29,0,0,0,0,,,,0
-Hannah-Goldy-204879,aef794c9754597d7,Hannah Goldy,1,1-0,2019-06-18,decisionWin,UD,4,0,0,crosswalk,Square Ring Promotions,tier4,0.9744,27,1,5,1,4,-24.2,1482,1482,0
-Kali-Robbins-178681,,Kali Robbins,1,0-1,2019-06-18,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Punahele-Soriano-230239,fd2553227e3641fe,Punahele Soriano,1,1-0,2019-06-18,decisionWin,UD,5,0,0,crosswalk,PFL,tier2_5,1.0241,26,1,11,7,4,10.1,1512.3,1527.5,0
-Yorgan-De-Castro-176091,dea7ffef261a8d05,Yorgan De Castro,1,1-0,2019-06-18,finishWin,TKO R1,4,0,0,crosswalk,CES MMA,tier4,0.9367,32,1,4,1,3,-7.2,1495.6,1456.7,0
-Kyle-Daukaus-83350,adc254e5ba385928,Kyle Daukaus,1,1-0,2019-06-25,decisionWin,UD,6,0,0,crosswalk,CFFC,tier3,0.9667,26,1,9,4,5,-11.6,,1480.7,0
-Michael-Lombardo-217745,,Michael Lombardo,1,0-1,2019-06-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Miguel-Baeza-231403,0c3ba783cdf08931,Miguel Baeza,1,1-0,2019-06-25,decisionWin,UD,6,0,0,crosswalk,Fight Time Promotions,tier4,,26,1,7,3,4,-14.7,1528.4,1523.8,0
-Miles-Johns-172691,e011a97f57726d2d,Miles Johns,1,1-0,2019-06-25,decisionWin,UD,8,0,0,crosswalk,LFA,tier3,1.0206,25,1,12,7,5,-9.7,1489.9,1505.9,0
-Richie-Santiago-126329,,Richie Santiago,1,0-1,2019-06-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Victor-Reyna-72745,,Victor Reyna,2,0-2,2019-06-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Antonio-Trocoli-123109,64794ca3e674f4b1,Antonio Trocoli,1,0-0,2019-07-09,noWin,,11,3,0,crosswalk,LFC,tier4,0.9819,28,1,4,0,4,-71.6,,,0
-Chris-Ocon-194123,,Chris Ocon,1,0-1,2019-07-09,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Hunter-Azure-251727,9494d3823806d705,Hunter Azure,1,1-0,2019-07-09,decisionWin,UD,6,0,0,crosswalk,LFA,tier3,1.0206,27,1,4,2,2,-2.3,1489.1,1486.4,0
-Jacob-Rosales-154819,,Jacob Rosales,2,0-2,2019-07-09,noWin,,,,,none,,,,,0,0,0,0,,,,0
-James-Wallace-55291,,James Wallace,1,0-1,2019-07-09,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Joe-Solecki-227993,97b41815ee1fcfd0,Joe Solecki,1,1-0,2019-07-09,finishWin,SUB R1,7,2,0,crosswalk,CFFC,tier3,0.9667,25,1,9,5,4,-4.1,1511.4,1536.4,0
-Jonathan-Pearce-183541,c62d07b2a13212ac,Jonathan Pearce,1,1-0,2019-07-09,finishWin,TKO R3,8,3,0,crosswalk,Bellator,tier2_5,0.9929,27,1,9,5,4,0.4,1477.2,1499.2,0
-Kenneth-Bergh-189821,,Kenneth Bergh,1,0-0,2019-07-09,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Maki-Pitolo-51049,8a0cb9e5ef6f57d0,Maki Pitolo,1,1-0,2019-07-09,finishWin,TKO R1,11,4,0,crosswalk,VFC,tier4,0.9864,28,1,6,1,5,-16.5,1495.5,1437.7,0
-Aaron-Jeffery-127631,,Aaron Jeffery,2,0-2,2019-07-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Armando-Villarreal-141205,,Armando Villarreal,1,0-1,2019-07-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Brendan-Allen-201703,58b6dee880eed3f4,Brendan Allen,1,1-0,2019-07-16,finishWin,SUB R1,11,3,0,crosswalk,LFA,tier3,1.0206,23,1,19,15,4,103.9,1548.3,1538.3,1
-Ode-Osbourne-137969,cb862700e7767b56,Ode Osbourne,1,1-0,2019-07-16,finishWin,SUB R1,7,2,0,crosswalk,Pure FC,tier4,,27,1,13,5,8,-59.5,1477.9,1493.5,0
-Ricardo-Prasel-157509,,Ricardo Prasel,1,0-1,2019-07-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Stephen-Regman-66763,,Stephen Regman,1,0-1,2019-07-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Alexander-Poppeck-99051,,Alexander Poppeck,1,0-1,2019-07-23,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Billy-Quarantillo-68076,15a5d250b43e99c3,Billy Quarantillo,1,1-0,2019-07-23,finishWin,TKO R3,11,2,0,crosswalk,King of the Cage,tier3,1.0041,30,1,12,6,6,-20.3,1529,1534.5,0
-Jamahal-Hill-280417,fa92f349c2df714c,Jamahal Hill,1,1-0,2019-07-23,finishWin,TKO R2,5,0,0,crosswalk,KOP,tier4,,28,1,10,6,4,10.4,1509.5,1504.2,1
-Kamuela-Kirk-162187,7a7707b49ee6909b,Kamuela Kirk,1,0-1,2019-07-23,noWin,,9,2,0,crosswalk,LFA,tier3,1.0206,25,1,3,1,2,-11,,1514.8,0
-Ramazan-Kuramagomedov-241397,,Ramazan Kuramagomedov,1,1-0,2019-07-23,decisionWin,SD,,,,none,,,,,0,0,0,0,,,,0
-Sean-Woodson-235563,a238e2e4c9670e90,Sean Woodson,1,1-0,2019-07-23,finishWin,KO R2,5,0,0,crosswalk,Shamrock FC,tier4,,27,1,10,7,2,20.2,1483.4,1495.7,0
-Terrance-McKinney-232591,d75d3c014f3a0d70,Terrance McKinney,1,0-1,2019-07-23,noWin,,7,1,0,crosswalk,ExciteFight,tier4,,24,1,14,8,6,-17.3,,1513.6,0
-Aalon-Cruz-103485,2212a11deddf09e9,Aalon Cruz,1,1-0,2019-07-30,finishWin,KO R3,7,2,0,crosswalk,Conflict MMA,tier4,,29,1,2,0,2,-6.2,1478.4,1461.5,0
-Aleksa-Camur-228789,7a868cb67cd37a18,Aleksa Camur,1,1-0,2019-07-30,finishWin,TKO R2,4,0,0,crosswalk,Honor FC,tier4,,23,1,4,1,3,-15.5,1511.5,1476.4,0
-Daniel-Rodriguez-145945,27dc95be9b98006d,Daniel Rodriguez,1,1-0,2019-07-30,decisionWin,UD,8,1,0,crosswalk,Combate Americas,tier4,0.9612,32,1,15,10,5,20.5,1527,1544.7,1
-Fabio-Cherant-230293,13c5e090b6868e27,Fabio Cherant,1,0-1,2019-07-30,noWin,,4,0,0,crosswalk,CES MMA,tier4,0.9367,24,1,3,0,3,-14.3,,1477.4,0
-Mariya-Agapova-206861,52626334298457ab,Mariya Agapova,1,0-1,2019-07-30,noWin,,6,0,0,crosswalk,FNG,tier4,,22,1,6,2,4,-29.6,1511,1485.9,0
-Michal-Martinek-242333,,Michal Martinek,1,0-1,2019-07-30,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Rico-Farrington-135825,,Rico Farrington,1,0-1,2019-07-30,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Rodrigo-Nascimento-97975,5de030e625a4928c,Rodrigo Nascimento,1,1-0,2019-07-30,finishWin,SUB R1,6,0,0,crosswalk,BH Fight,tier4,,26,1,7,4,3,-1.6,1512.2,1490.8,0
-Steven-Nguyen-121057,6ff3abc1052a0921,Steven Nguyen,3,2-1,2019-07-30,finishWin,TKO R2,6,0,0,crosswalk,EFC,tier4,0.9607,26,1,2,1,1,-5.3,,,0
-Tracy-Cortez-160955,f23f5caaf463e283,Tracy Cortez,1,1-0,2019-07-30,decisionWin,UD,5,1,0,crosswalk,Invicta FC,tier2_5,1.0011,25,1,9,6,3,13.6,1510.4,1528.5,1
-Darrick-Minner-92115,32b54efa17dd09e6,Darrick Minner,1,0-1,2019-08-06,noWin,,22,9,0,crosswalk,LFA,tier3,1.0206,29,1,6,2,4,-13.9,1480,1488,0
-Dwight-Joseph-106151,,Dwight Joseph,1,1-0,2019-08-06,decisionWin,UD,,,,none,,,,,0,0,0,0,,,,0
-Harvey-Park-72673,,Harvey Park,1,0-1,2019-08-06,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Herbert-Burns-152211,aae070309e2d5bd6,Herbert Burns,1,1-0,2019-08-06,finishWin,SUB R1,8,2,0,crosswalk,ONE Championship,tier2_5,0.9467,31,1,6,2,4,-35.8,1529.1,1505.5,0
-Jay-Perrin-99689,bf51dc1830ee0331,Jay Perrin,1,0-1,2019-08-06,noWin,,8,3,0,crosswalk,Cage Titans FC,tier4,,26,1,3,0,3,-19.1,,,0
-Omar-Morales-120645,0aa3f2867f59903c,Omar Morales,1,1-0,2019-08-06,finishWin,TKO R2,7,0,0,crosswalk,Bellator,tier2_5,0.9929,33,1,7,3,4,-13.1,1521.5,1512.4,0
-Taylor-Johnson-232443,,Taylor Johnson,1,0-1,2019-08-06,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Brok-Weaver-53819,4ab925019d108a41,Brok Weaver,1,1-0,2019-08-13,decisionWin,UD,13,4,0,crosswalk,Square Ring Promotions,tier4,0.9744,27,1,3,1,2,-4.2,1489.1,1468.1,0
-Devin-Smyth-224885,,Devin Smyth,1,0-1,2019-08-13,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Herdem-Alacabek-180227,,Herdem Alacabek,1,0-1,2019-08-13,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ray-Rodriguez-78078,389b2776826e2183,Ray Rodriguez,1,0-1,2019-08-13,noWin,,15,5,0,crosswalk,LFA,tier3,1.0206,31,1,2,0,2,-6,,1462.8,0
-Sarah-Alpar-82261,44852969f473e28a,Sarah Alpar,1,1-0,2019-08-13,finishWin,SUB R2,8,4,0,crosswalk,LFA,tier3,1.0206,28,1,2,0,2,-7.3,,1477.3,0
-Shanna-Young-126277,ec2c1c878d169469,Shanna Young,1,0-1,2019-08-13,noWin,,6,1,0,crosswalk,King of the Cage,tier3,1.0041,28,1,4,1,3,-12,1482.8,1482.8,0
-Tony-Gravely-210575,e3c4bca51aa2bdd4,Tony Gravely,1,1-0,2019-08-13,finishWin,TKO R3,18,5,0,crosswalk,CES MMA,tier4,0.9367,27,1,8,4,4,-5.4,1478.5,1502.7,0
-William-Knight-282383,08b1e6f4c8b49a3c,William Knight,2,2-0,2019-08-13,finishWin,TKO R3,4,0,0,crosswalk,PFC,tier4,1.0266,31,1,7,3,4,-11.2,,1496.4,0
-Desmond-Torres-251669,,Desmond Torres,1,0-1,2019-08-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jamal-Pogues-152993,085a230fc9e8aafb,Jamal Pogues,2,2-0,2019-08-20,decisionWin,UD,6,2,0,crosswalk,CCW,tier4,,23,1,4,2,2,-10.3,,,0
-Leon-Shahbazyan-158231,,Leon Shahbazyan,1,0-1,2019-08-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mallory-Martin-200771,e8537d08d84aaea2,Mallory Martin,1,1-0,2019-08-20,decisionWin,UD,4,2,0,crosswalk,Invicta FC,tier2_5,1.0011,25,1,4,1,3,-10.6,1477.3,1467.1,0
-Marcos-Brigagao-258879,,Marcos Brigagao,1,0-1,2019-08-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Micol-DiSegni-171627,,Micol DiSegni,1,0-1,2019-08-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Philip-Rowe-121067,9a1548c71a7398bf,Phil Rowe,1,1-0,2019-08-20,finishWin,TKO R3,6,2,0,crosswalk,Square Ring Promotions,tier4,0.9744,29,1,9,4,5,-12.7,,1497.2,0
-Steve-Garcia-50916,a49129adb0dad63b,Steve Garcia,1,1-0,2019-08-20,finishWin,TKO R1,9,3,0,crosswalk,Fresquez Productions,tier4,,27,1,11,8,3,42.1,1482.4,1482.4,1
-Ben-Sosoli-125617,74ddb1f1670a7b9e,Ben Sosoli,1,0-0,2019-08-27,noWin,,7,2,0,crosswalk,HFS,tier4,1.0319,29,1,1,0,1,-2.3,1477.5,1477.5,0
-Dusko-Todorovic-207339,cf44ab1ffc00f165,Dusko Todorovic,1,1-0,2019-08-27,decisionWin,UD,8,0,0,crosswalk,SBC,tier4,,25,1,11,4,7,-63,,1471.5,0
-Dustin-Joynson-98405,,Dustin Joynson,1,0-0,2019-08-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Impa-Kasanganay-310489,76de23d141fb4ab4,Impa Kasanganay,2,2-0,2019-08-27,decisionWin,UD,5,0,0,crosswalk,Square Ring Promotions,tier4,0.9744,25,1,4,2,2,-3.1,,1505.7,0
-Kailan-Hill-232313,,Kailan Hill,1,0-1,2019-08-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Peter-Barrett-79095,4b54780dc1d97640,Peter Barrett,1,1-0,2019-08-27,decisionWin,UD,10,3,0,crosswalk,Cage Titans FC,tier4,,33,1,2,0,2,-5.5,1483.2,1462,0
-Sang-Hoon-Yoo-246531,,Sang Hoon Yoo,1,0-1,2019-08-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Teddy-Ash-101379,,Teddy Ash,1,0-1,2019-08-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Dustin-Jacoby-73825,91199de65226ddd6,Dustin Jacoby,1,1-0,2020-08-04,decisionWin,UD,11,3,0,crosswalk,Bellator,tier2_5,0.9929,32,1,16,10,5,31.9,1520.4,1560.4,0
-Jerome-Rivera-139017,53e952ec79277dbd,Jerome Rivera,1,1-0,2020-08-04,decisionWin,UD,9,2,0,crosswalk,LFA,tier3,1.0206,25,1,4,0,4,-13.8,1425.5,1425.5,0
-Jordan-Leavitt-259871,12c6b847f7f28593,Jordan Leavitt,1,1-0,2020-08-04,finishWin,SUB R1,6,0,0,crosswalk,LFA,tier3,1.0206,25,1,10,6,4,-2.9,1493.7,1496.8,0
-Mikey-Gonzalez-205501,,Mikey Gonzalez,1,0-1,2020-08-04,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ronaldo-Rodriguez-266121,59fcc641cfc67b7d,Ronaldo Rodriguez,1,0-1,2020-08-04,noWin,,10,1,0,crosswalk,JFL,tier4,,21,1,3,2,1,-1.3,,,0
-Ty-Flores-86350,,Ty Flores,1,0-1,2020-08-04,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Uros-Medic-272505,84ded26cb00e17cf,Uros Medic,1,1-0,2020-08-04,finishWin,TKO R1,5,0,0,crosswalk,AFC,tier4,0.9964,27,1,11,8,3,47.2,1512.5,1504.9,1
-Adrian-Yanez-86354,f11750d4f48eb942,Adrian Yanez,1,1-0,2020-08-11,finishWin,TKO R1,10,3,0,crosswalk,LFA,tier3,1.0206,26,1,11,7,3,33,1543.5,1565.5,0
-Anthony-Adams-144983,,Anthony Adams,1,0-1,2020-08-11,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Brady-Huang-140911,,Brady Huang,1,0-1,2020-08-11,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Cory-McKenna-178347,d2f5ea74eafaebd7,Cory McKenna,1,1-0,2020-08-11,decisionWin,UD,4,1,0,crosswalk,Cage Warriors,tier3,1.0295,21,1,6,3,3,-11.3,1514.6,1507,0
-Daniel-Swain-73000,,Daniel Swain,1,0-1,2020-08-11,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Dustin-Stoltzfus-113779,be354104b1b893f1,Dustin Stoltzfus,1,1-0,2020-08-11,finishWin,TKO R1,12,1,0,crosswalk,GMC,tier4,,28,1,10,3,7,-62.4,1461.3,1455.6,0
-Joe-Pyfer-239253,154db60abecdd988,Joe Pyfer,2,1-1,2020-08-11,finishWin,TKO R2,7,1,0,crosswalk,ROC,tier4,1.0281,24,1,8,7,1,71.3,,,1
-TJ-Laramie-188479,b2fc49bb4703d084,TJ Laramie,1,1-0,2020-08-11,finishWin,TKO R1,11,3,0,crosswalk,PFC,tier4,1.0266,22,1,2,0,2,-8.8,1477.2,1465.8,0
-Vanessa-Demopoulos-118775,f8588e91351f8a39,Vanessa Demopoulos,1,0-1,2020-08-11,noWin,,5,1,0,crosswalk,LFA,tier3,1.0206,31,1,10,5,5,-27.1,,1506.1,0
-Chad-Johnson-213687,,Chad Johnson,1,0-1,2020-08-18,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Cheyanne-Vlismas-152049,02daaff72f859e6e,Cheyanne Vlismas,1,1-0,2020-08-18,decisionWin,UD,4,1,0,crosswalk,LFA,tier3,1.0206,25,1,4,2,2,-4.7,1494.9,1504.5,0
-Hilarie-Rose-205129,,Hilarie Rose,1,0-1,2020-08-18,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Louis-Cosce-282403,0f8a323857fc0cf8,Louis Cosce,1,1-0,2020-08-18,finishWin,TKO R1,6,0,0,crosswalk,Bear River FC,tier4,,24,1,2,0,2,-10.6,1478.4,1478.4,0
-Alejandro-Flores-155325,,Alejandro Flores,1,0-1,2020-08-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Anthony-Romero-221129,,Anthony Romero,1,1-0,2020-08-25,decisionWin,UD,,,,none,,,,,0,0,0,0,,,,0
-Jacob-Silva-80677,,Jacob Silva,2,0-2,2020-08-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jeff-Molina-218069,e0c4f89412167696,Jeff Molina,1,1-0,2020-08-25,decisionWin,UD,7,2,0,crosswalk,Cageside Promotions / KCFA,tier4,,23,1,3,3,0,9.3,1512.6,1533.8,0
-Jhonoven-Pati-124585,,Jhonoven Pati,1,0-1,2020-08-25,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mike-Breeden-243687,dcea68f4ed60b8fd,Mike Breeden,1,0-1,2020-08-25,noWin,,8,2,0,crosswalk,LFA,tier3,1.0206,31,1,4,1,3,-17.4,,1461.6,0
-Rafael-Alves-96651,85676ed9a7898a46,Rafael Alves,1,1-0,2020-08-25,finishWin,SUB R2,18,9,0,crosswalk,Titan FC,tier3,0.9943,29,1,4,1,3,-14.3,1483.4,1477.5,0
-Chase-Gibson-180669,,Chase Gibson,1,0-1,2020-09-01,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Cody-Brundage-281913,,Cody Brundage,1,0-1,2020-09-01,noWin,,5,0,0,cache,,,,26,0,0,0,0,,,,0
-Dennis-Buzukja-286225,,Dennis Buzukja,1,0-1,2020-09-01,noWin,,4,1,0,cache,,,,22,0,0,0,0,,,,0
-Jimmy-Flick-60460,78ebf7d241e77844,Jimmy Flick,1,1-0,2020-09-01,finishWin,SUB R3,14,5,0,crosswalk,LFA,tier3,1.0206,29,1,6,2,4,-43.2,1515.2,1515.2,0
-Jose-Johnson-238733,7aeb78dffc4f5978,Jose Johnson,2,1-1,2020-09-01,decisionWin,UD,11,5,0,crosswalk,WXC,tier4,,25,1,4,1,3,-36.4,,,0
-Melsik-Baghdasaryan-164681,7a88ea78c1ad646f,Melsik Baghdasaryan,1,1-0,2020-09-01,decisionWin,UD,4,1,0,crosswalk,LXF,tier4,,28,1,6,3,3,-25.8,1515.1,1527.2,0
-Nate-Smith-164585,,Nate Smith,1,0-1,2020-09-01,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ronnie-Lawrence-102885,a9976b0f038ad666,Ronnie Lawrence,1,1-0,2020-09-01,decisionWin,UD,5,1,0,crosswalk,Bellator,tier2_5,0.9929,28,1,3,2,1,1.9,1512.7,1506.6,0
-Tucker-Lutz-122559,dc2d95b1cce62691,Tucker Lutz,2,2-0,2020-09-01,decisionWin,UD,9,1,0,crosswalk,SF,tier4,0.9907,26,1,4,1,3,-19.6,1509.7,1492.5,0
-Al-Matavao-210483,,Al Matavao,1,0-1,2020-09-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Aliaskhab-Khizriev-209647,1581a12ff499bd32,Aliaskhab Khizriev,1,1-0,2020-09-08,finishWin,SUB R1,10,0,0,crosswalk,FNG,tier4,,30,1,1,1,0,3.8,,1515.1,0
-Drako-Rodriguez-203421,7e82a2b9326866dc,Drako Rodriguez,1,1-0,2020-09-08,finishWin,SUB R1,6,1,0,crosswalk,King of the Cage,tier3,1.0041,24,1,2,0,2,-8,1458.5,1458.5,0
-Henrique-Shiguemoto-74268,,Henrique Shiguemoto,1,0-1,2020-09-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Khadzhimurat-Bestaev-164821,,Khadzhimurat Bestaev,1,0-1,2020-09-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Leomana-Martinez-130553,16a29d115b3e37f4,Mana Martinez,1,0-1,2020-09-08,noWin,,6,1,0,crosswalk,Fury FC,tier4,0.9876,24,1,4,2,2,-6.4,1508.3,1490.4,0
-Tafon-Nchukwi-282049,360f2cc2f016e6ac,Tafon Nchukwi,1,1-0,2020-09-08,finishWin,KO R2,3,0,0,crosswalk,CFFC,tier3,0.9667,25,1,6,2,4,-21.6,1494.7,1461.3,0
-Collin-Anglin-280415,8a820786ab3bc2ea,Collin Anglin,1,1-0,2020-09-15,decisionWin,UD,7,1,0,crosswalk,WXC,tier4,,27,1,2,0,2,-9.1,1478.4,1457.9,0
-Gregory-Rodrigues-176275,2127684a702c4006,Gregory Rodrigues,1,0-1,2020-09-15,noWin,,7,2,0,crosswalk,LFA,tier3,1.0206,28,1,13,10,3,70.3,1511.2,1527.3,1
-Muhammadjon-Naimov-228381,56adb35526c59c88,Muhammad Naimov,1,0-1,2020-09-15,noWin,,5,0,0,crosswalk,Titan FC,tier3,0.9943,26,1,7,5,2,16.7,,,0
-Edson-Gomez-158229,,Edson Gomez,1,0-1,2020-11-04,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Harry-Hunsucker-239513,c89b0a7cd08a3b08,Harry Hunsucker,1,0-1,2020-11-04,noWin,,6,2,0,crosswalk,HRMMA,tier4,,31,1,3,0,3,-17.2,1477.8,1442.4,0
-Ignacio-Bahamondes-221417,1979d2ef989e7265,Ignacio Bahamondes,1,1-0,2020-11-04,finishWin,KO R2,10,3,0,crosswalk,LUX,tier4,,23,1,10,6,4,16.5,1501.7,1516.2,0
-Jared-Vanderaa-152987,9ee1b4b7ce888501,Jared Vanderaa,1,1-0,2020-11-04,finishWin,TKO R1,10,4,0,crosswalk,EFC,tier4,0.9607,28,1,7,1,6,-30.1,1469.5,1407.6,0
-Luis-Saldana-77414,9d56d022b89c876b,Luis Saldana,1,1-0,2020-11-04,finishWin,TKO R3,13,6,0,crosswalk,LFA,tier3,1.0206,29,1,4,2,1,0.5,1490.6,1501.8,0
-Vince-Murdock-119961,,Vince Murdock,1,0-1,2020-11-04,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Luana-Pinheiro-237525,0ce8ac03e1fc8da4,Luana Pinheiro,1,1-0,2020-11-10,finishWin,KO R1,7,1,0,crosswalk,Brave CF,tier3,1.0338,26,1,7,3,4,-38.6,1508.5,1517.4,0
-Natan-Levy-227411,c1913c3d6026e4d0,Natan Levy,1,1-0,2020-11-10,finishWin,SUB R3,5,0,0,crosswalk,LFA,tier3,1.0206,29,1,4,2,2,-11.5,,1490.9,0
-Nikolas-Motta-103887,e6bdebff94eddc25,Nikolas Motta,1,1-0,2020-11-10,decisionWin,UD,11,3,0,crosswalk,CFFC,tier3,0.9667,27,1,6,3,3,-13.3,,1492.3,0
-Shaheen-Santana-227431,,Shaheen Santana,1,0-1,2020-11-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Stephanie-Frausto-61109,,Stephanie Frausto,1,0-1,2020-11-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Chelsea-Hackett-319473,,Chelsea Hackett,1,0-1,2020-11-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Gloria-de-Paula-230933,2038fc2e7818a453,Gloria de Paula,1,1-0,2020-11-17,decisionWin,UD,4,2,0,crosswalk,SFT,tier4,,25,1,4,1,3,-12.5,1458.5,1455,0
-Nick-Maximov-302823,b0fc9b463c44f7ea,Nick Maximov,1,1-0,2020-11-17,decisionWin,UD,5,0,0,crosswalk,King of the Cage,tier3,1.0041,22,1,4,2,2,-5,1512.6,1484.4,0
-Oscar-Cota-105241,,Oscar Cota,1,0-1,2020-11-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Pauline-Macias-225033,,Pauline Macias,1,0-1,2020-11-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Sherrard-Blackledge-198563,,Sherrard Blackledge,1,0-1,2020-11-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Victoria-Leonardo-212725,d77d7e2d8258cc82,Victoria Leonardo,1,1-0,2020-11-17,finishWin,TKO R2,7,2,0,crosswalk,Invicta FC,tier2_5,1.0011,30,1,5,1,4,-41.9,1458.5,1472.8,0
-AJ-Fletcher-284309,1ebe45b826ab0427,AJ Fletcher,1,1-0,2021-08-31,finishWin,KO R1,8,0,0,crosswalk,AF,tier4,,24,1,4,1,3,-17.4,1465.1,1482.1,0
-Diego-Lopes-112531,bf14e890b46e0305,Diego Lopes,1,0-1,2021-08-31,noWin,,19,3,0,crosswalk,LUX,tier4,,26,1,10,7,3,80.3,,1503.2,1
-Joanderson-Brito-181115,5817d60924c7a7e0,Joanderson Brito,1,1-0,2021-08-31,decisionWin,UD,11,2,1,crosswalk,FFC,tier4,0.9802,26,1,10,7,3,55.9,1496.2,1525.7,0
-Leonardo-Damiani-239897,,Leonardo Damiani,1,0-1,2021-08-31,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Victor-Altamirano-212269,edf83b64bd3557d4,Victor Altamirano,1,1-0,2021-08-31,decisionWin,SD,9,1,0,crosswalk,LFA,tier3,1.0206,30,1,6,2,4,-29,1495.4,1488.1,0
-Bruno-Mesquita-57480,,Bruno Mesquita,1,0-1,2021-09-07,noWin,,12,3,1,cache,,,,30,0,0,0,0,,,,0
-CJ-Vergara-72117,daa8caf6878b4796,CJ Vergara,1,1-0,2021-09-07,finishWin,KO R1,8,2,1,crosswalk,Fury FC,tier4,0.9876,30,1,8,3,5,-42.9,1492.7,1494.6,0
-Chad-Anheliger-63370,07437ba38048dad7,Chad Anheliger,1,1-0,2021-09-07,decisionWin,SD,10,5,0,crosswalk,Rise FC,tier4,,34,1,5,2,3,-25,1512.2,1494.1,0
-Chidi-Njokuani-25761,b64bdbe0d3e4c9aa,Chidi Njokuani,1,1-0,2021-09-07,finishWin,TKO R3,19,7,0,crosswalk,Bellator,tier2_5,0.9929,32,1,10,5,5,-25.3,1525.3,1466.3,0
-Jose-Alday-146733,,Jose Alday,1,0-1,2021-09-07,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Josh-Quinlan-290925,c8deb768d421f009,Josh Quinlan,1,0-0,2021-09-07,noWin,,5,0,0,crosswalk,LFA,tier3,1.0206,28,1,4,1,3,-29.2,1511.1,1492.2,0
-Logan-Urban-174025,,Logan Urban,1,0-0,2021-09-07,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mario-Sousa-213265,,Mario Sousa,2,0-2,2021-09-07,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Muin-Gafurov-182325,a991252ad3712030,Muin Gafurov,1,0-1,2021-09-07,noWin,,16,3,0,crosswalk,ONE Championship,tier2_5,0.9467,25,1,5,2,3,-21.8,,1481.5,0
-Saimon-Oliveira-156991,d892963e78a574fb,Saimon Oliveira,1,1-0,2021-09-07,decisionWin,SD,17,3,0,crosswalk,Sicario MMA,tier4,,30,1,4,0,4,-61.1,1481.1,1461.9,0
-Albert-Duraev-86841,8f422d41a940e93c,Albert Duraev,1,1-0,2021-09-14,finishWin,SUB R1,13,3,0,crosswalk,ACB,tier4,,32,1,4,2,2,-8.6,1488.6,1480.6,0
-Ange-Loosa-95799,16a0eba44cd46eb9,Ange Loosa,1,0-1,2021-09-14,noWin,,7,1,0,crosswalk,Titan FC,tier3,0.9943,28,1,5,2,3,-30.9,1492.9,1504,0
-Caio-Bittencourt-78480,,Caio Bittencourt,1,0-1,2021-09-14,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Dylan-Potter-209025,,Dylan Potter,1,0-0,2021-09-14,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jack-Della-Maddalena-208155,,Jack Della Maddalena,1,1-0,2021-09-14,decisionWin,UD,9,2,0,cache,,,,25,0,0,0,0,,,,0
-Jailton-Almeida-114657,c17b1fa1d28c1eea,Jailton Almeida,1,1-0,2021-09-14,finishWin,SUB R2,13,2,0,crosswalk,Thunder Fight,tier4,,30,1,11,8,3,58.4,1543.4,1571.5,0
-Lukasz-Brzeski-132249,a0989877f644f2ab,Lukasz Brzeski,1,0-0,2021-09-14,noWin,,8,1,1,crosswalk,Babilon MMA,tier4,,29,1,7,1,6,-73.4,1484.3,1447.8,0
-Nasrudin-Nasrudinov-156463,,Nasrudin Nasrudinov,1,0-1,2021-09-14,noWin,,,,,none,,,,,0,0,0,0,,,,0
-AJ-Dobson-119943,c466cc5888c59b0e,AJ Dobson,1,1-0,2021-09-21,finishWin,SUB R1,5,0,0,crosswalk,King of the Cage,tier3,1.0041,29,1,4,1,3,-25.7,1481.6,1477,0
-Hashem-Arkhagha-74722,,Hashem Arkhagha,1,0-1,2021-09-21,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Kleydson-Rodrigues-229541,72b8ddd1d482149e,Kleydson Rodrigues,1,1-0,2021-09-21,decisionWin,UD,6,1,0,crosswalk,Jungle Fight,tier3,1.0273,25,1,4,1,3,-23.5,1482.9,1478.7,0
-Michael-Morales-268041,5561fca8c897f0bf,Michael Morales,1,1-0,2021-09-21,decisionWin,UD,11,0,0,crosswalk,EMMA,tier4,,22,1,7,7,0,97.6,1529.5,1539,1
-Nikolay-Veretennikov-186789,,Nikolay Veretennikov,1,0-1,2021-09-21,noWin,,9,3,0,cache,,,,31,0,0,0,0,,,,0
-Santo-Curatolo-266023,,Santo Curatolo,1,0-1,2021-09-21,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Theo-Rlayang-256035,,Theo Rlayang,1,0-1,2021-09-21,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Victor-Martinez-86938,c54bce0af7e7b01b,Victor Martinez,1,1-0,2021-09-21,decisionWin,UD,12,4,0,crosswalk,Fury FC,tier4,0.9876,30,1,3,0,3,-48.6,,1478.2,0
-Caio-Borralho-188043,b483569c9c54cfc6,Caio Borralho,2,2-0,2021-09-28,finishWin,TKO R1,8,1,0,crosswalk,Future MMA,tier4,,28,1,9,8,1,74.9,1526.6,1554.9,1
-Daniel-Zellhuber-238903,17dc8cabd91da5ae,Daniel Zellhuber,1,1-0,2021-09-28,decisionWin,UD,11,0,0,crosswalk,LUX,tier4,,22,1,7,3,4,-29,1481.2,1504.7,0
-Edivan-Mineiro-Santos-244213,,Edivan Mineiro Santos,1,0-1,2021-09-28,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ihor-Potieria-188721,602460be3bce1990,Ihor Potieria,1,1-0,2021-09-28,finishWin,TKO R1,17,2,0,crosswalk,WWFC,tier4,,25,1,8,2,6,-54.4,1479.7,1474.1,0
-Lucas-Almeida-191243,5adc666e571b3cb1,Lucas Almeida,1,0-1,2021-09-28,noWin,,12,0,0,crosswalk,MF,tier4,,30,1,6,2,4,-45,1514.5,1492.5,0
-Lukasz-Sudolski-124729,,Lukasz Sudolski,1,0-1,2021-09-28,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Rizvan-Kuniev-86319,16862aff18bed355,Rizvan Kuniev,2,2-0,2021-09-28,finishWin,TKO R3,9,2,1,crosswalk,EFC,tier4,0.9607,29,1,3,2,1,26.7,,,1
-Carlos-Hernandez-171603,d7974c32755e4b64,Carlos Hernandez,1,1-0,2021-10-05,decisionWin,SD,6,1,0,crosswalk,HFC,tier4,,27,1,7,3,4,-38.7,1511.3,1498.8,0
-Daniel-Barez-133743,,Daniel Barez,1,0-1,2021-10-05,noWin,,12,4,0,cache,,,,32,0,0,0,0,,,,0
-Fernie-Garcia-112047,8dfca53c3e78795e,Fernie Garcia,1,1-0,2021-10-05,finishWin,TKO R1,9,1,0,crosswalk,LFA,tier3,1.0206,29,1,4,0,4,-36.3,1480.4,1449.2,0
-Genaro-Valdez-227047,6f7956e788616622,Genaro Valdez,1,1-0,2021-10-05,finishWin,TKO R2,9,0,0,crosswalk,LUX,tier4,,29,1,3,0,3,-24.8,1476.8,1443.8,0
-Joseph-Holmes-285543,078a0c62a7f98405,Joseph Holmes,1,1-0,2021-10-05,finishWin,SUB R2,5,1,0,crosswalk,LFA,tier3,1.0206,26,1,4,1,3,-20,1493.1,1450.8,0
-Joshua-Weems-259641,,Joshua Weems,1,0-1,2021-10-05,noWin,,9,1,0,cache,,,,27,0,0,0,0,,,,0
-Patrik-White-221861,,Patrik White,1,0-1,2021-10-05,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Shonte-Barnes-261479,,Shonte Barnes,1,0-1,2021-10-05,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Chris-Duncan-74346,5d49240c45a2a624,Chris Duncan,2,1-1,2021-10-12,finishWin,KO R1,7,0,0,crosswalk,Bellator,tier2_5,0.9929,28,1,8,6,2,33,,1522.9,0
-Christian-Rodriguez-303043,a8cd76e59b7c49ab,Christian Rodriguez,1,1-0,2021-10-12,decisionWin,UD,5,0,0,crosswalk,LFA,tier3,1.0206,23,1,10,6,4,18.4,1482.8,1514.9,0
-Jake-Hadley-200597,b6e46aa39a0633e8,Jake Hadley,1,1-0,2021-10-12,finishWin,SUB R2,7,0,0,crosswalk,Cage Warriors,tier3,1.0295,25,1,7,3,4,-22.9,1481.2,1487.9,0
-Lorenzo-Hood-51117,,Lorenzo Hood,1,0-1,2021-10-12,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Martin-Buday-164475,04c3977524fb97e0,Martin Buday,1,1-0,2021-10-12,finishWin,TKO R1,8,1,0,crosswalk,Oktagon MMA,tier4,,29,1,8,7,1,32.3,1522.3,1540,0
-Mitch-Raposo-278793,018e6efa6f1415a9,Mitch Raposo,1,0-1,2021-10-12,noWin,,5,0,0,crosswalk,Cage Titans FC,tier4,,22,1,4,2,2,-4.4,,,0
-Reyes-Cortez-Jr-120303,,Reyes Cortez Jr.,2,0-2,2021-10-12,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Viacheslav-Borshchev-337895,81755efcce2cc326,Viacheslav Borshchev,1,1-0,2021-10-12,finishWin,KO R2,4,1,0,crosswalk,Titan FC,tier3,0.9943,29,1,10,3,6,-53.7,1475.2,1491.2,0
-Armen-Petrosyan-302783,5d5dc3bf943ec3f3,Armen Petrosyan,1,1-0,2021-10-19,finishWin,KO R1,5,1,0,crosswalk,Colosseum MMA,tier4,,30,1,7,3,4,-29.1,1496.5,1520.7,0
-James-Barnes-164811,,James Barnes,1,0-1,2021-10-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jesse-Murray-149445,,Jesse Murray,1,0-1,2021-10-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jonny-Parsons-65875,4eb7dddb4cd45ec1,Jonny Parsons,1,1-0,2021-10-19,decisionWin,SD,7,3,0,crosswalk,iFF,tier4,,30,1,1,1,0,5.3,,1511.8,0
-Kaloyan-Kolev-230917,,Kaloyan Kolev,1,0-1,2021-10-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Pedro-Falcao-150185,3ae417889e6fa052,Pedro Falcao,1,1-0,2021-10-19,finishWin,KO R3,14,3,0,crosswalk,Shooto,tier3,0.9997,29,1,2,0,2,-29.9,,,0
-Piera-Rodriguez-247469,904ca6578a6ca8eb,Piera Rodriguez,1,1-0,2021-10-19,decisionWin,UD,6,0,0,crosswalk,Panama Fight League,tier4,,28,1,7,5,2,10.3,1519.2,1496.9,0
-Solomon-Renfro-225631,,Solomon Renfro,1,0-1,2021-10-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Valesca-Machado-215597,,Valesca Machado,1,0-1,2021-10-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Cristian-Quinonez-164995,1fc339f153e788c3,Cristian Quinonez,1,1-0,2021-10-26,decisionWin,UD,16,3,0,crosswalk,UWC Mexico,tier4,,25,1,4,2,2,-11.4,1511.3,1489.3,0
-Gadzhi-Omargadzhiev-145315,fc5ed93b9af75353,Gadzhi Omargadzhiev,1,1-0,2021-10-26,finishWin,SUB R1,12,0,0,crosswalk,GTC,tier4,,28,1,2,0,2,-10.8,1466.4,1466.4,0
-Jansey-Silva-145207,,Jansey Silva,1,0-1,2021-10-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Javid-Basharat-222651,7192b50e701bd23e,Javid Basharat,1,1-0,2021-10-26,finishWin,SUB R3,10,0,0,crosswalk,UCMMA,tier4,1.0075,26,1,6,4,2,1,1524.8,1536.5,0
-Kolton-Englund-80680,,Kolton Englund,1,0-1,2021-10-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Manuel-Torres-297203,aef0ff28e0e41917,Manuel Torres,1,1-0,2021-10-26,finishWin,TKO R1,11,2,0,crosswalk,Club Hardcore Fighter,tier4,,26,1,7,5,2,29.9,1511,1523.7,1
-Oron-Kahlon-92631,,Oron Kahlon,1,0-1,2021-10-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Long-Xiao-233007,d11e3f2e5deb833f,Xiao Long,1,0-1,2021-10-26,noWin,,22,7,0,crosswalk,WLF,tier4,0.9923,23,1,4,1,3,-36.2,,,0
-Achilles-Estremadura-68610,,Achilles Estremadura,1,0-1,2021-11-02,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Justin-Burlinson-160189,,Justin Burlinson,1,0-1,2021-11-02,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Maheshate-Hayisaer-336819,fab54d525f0f2d9d,Maheshate,1,1-0,2021-11-02,decisionWin,UD,7,1,0,crosswalk,WLF,tier4,0.9923,21,1,6,2,4,-41.5,1514.9,1472,0
-Yohan-Lainesse-295377,d662f90d5ab81f35,Yohan Lainesse,1,1-0,2021-11-02,finishWin,KO R1,7,0,0,crosswalk,CFFC,tier3,0.9667,29,1,4,1,3,-28.4,1487.2,1467.3,0
-Acacio-dos-Santos-127365,,Acacio dos Santos,1,0-1,2022-07-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Alessandro-Costa-214613,14a2fa2dd23e71d3,Alessandro Costa,1,1-0,2022-07-26,decisionWin,SD,10,2,0,crosswalk,LUX,tier4,,26,1,8,5,3,-1.7,1494.8,1491.3,0
-Andres-Luna-Martinetti-247345,,Andres Luna Martinetti,1,0-1,2022-07-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Anton-Turkalj-234667,73edf033b8cfef8a,Anton Turkalj,1,1-0,2022-07-26,decisionWin,UD,7,0,0,crosswalk,Brave CF,tier3,1.0338,26,1,4,0,4,-43.7,1463.4,1427,0
-Osman-Diaz-156965,,Osman Diaz,1,0-1,2022-07-26,noWin,,7,1,0,cache,,,,31,0,0,0,0,,,,0
-Billy-Goff-282365,c9bb479dabdb48bf,Billy Ray Goff,1,1-0,2022-08-02,finishWin,TKO R1,7,2,0,crosswalk,CES MMA,tier4,0.9367,24,1,4,1,3,-44.9,,1493.5,0
-Charlie-Campbell-286213,5f4c5e8ccdbba00e,Charlie Campbell,1,0-1,2022-08-02,noWin,,6,1,0,crosswalk,CFFC,tier3,0.9667,27,1,3,2,1,1.3,,1527.3,0
-Connor-Matthews-84660,37f91d57ed109584,Connor Matthews,2,1-1,2022-08-02,decisionWin,UD,5,0,0,crosswalk,Cage Titans FC,tier4,,30,1,3,0,3,-55.6,,1476,0
-Francis-Marshall-282887,,Francis Marshall,1,1-0,2022-08-02,decisionWin,UD,5,0,0,cache,,,,23,0,0,0,0,,,,0
-Shannon-Ross-65792,a45448a6818f77fd,Shannon Ross,1,0-1,2022-08-02,noWin,,12,5,0,crosswalk,Eternal MMA,tier4,1.0008,33,1,3,0,3,-32.6,1455.9,1438,0
-Shimon-Smotritsky-254075,,Shimon Smotritsky,1,0-1,2022-08-02,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Vinicius-Salvador-179169,37f101d3e49473e4,Vinicius Salvador,1,1-0,2022-08-02,finishWin,TKO R2,13,4,0,crosswalk,PC,tier4,,26,1,3,0,3,-31.1,1463.9,1451,0
-Anvar-Boynazarov-382280,,Anvar Boynazarov,1,0-1,2022-08-09,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Bo-Nickal-392031,9a841327b5d824c6,Bo Nickal,2,2-0,2022-08-09,finishWin,SUB R1,1,0,0,crosswalk,iFC,tier4,,26,1,7,6,1,44.6,1525.2,1535,1
-Clayton-Carpenter-208467,,Clayton Carpenter,1,1-0,2022-08-09,decisionWin,UD,5,0,0,cache,,,,26,0,0,0,0,,,,0
-Edgar-Chairez-244721,60f31fb96a24723a,Edgar Chairez,1,0-1,2022-08-09,noWin,,8,3,0,crosswalk,Combate Americas,tier4,0.9612,26,1,6,4,2,8,1484.1,1494.8,1
-Erik-Silva-220027,acee921186a58206,Erik Silva,1,1-0,2022-08-09,finishWin,TKO R1,8,1,0,crosswalk,LUX,tier4,,35,1,3,0,3,-49,1476.5,1460.3,0
-Paulo-Renato-Jr-155523,,Paulo Renato Jr.,2,0-2,2022-08-09,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Zachary-Borrego-383740,,Zachary Borrego,1,0-1,2022-08-09,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ahmad-Sohail-Hassanzada-279733,,Ahmad Sohail Hassanzada,1,0-1,2022-08-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Claudia-Leite-283949,,Claudia Leite,1,0-1,2022-08-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Claudio-Ribeiro-249103,ccff59f4a6c0e287,Claudio Ribeiro,1,1-0,2022-08-16,finishWin,KO R1,9,2,0,crosswalk,Thunder Fight,tier4,,30,1,4,1,3,-28.9,1468.8,1450.1,0
-Hailey-Cowan-271495,ba79f6bac3682eb1,Hailey Cowan,1,1-0,2022-08-16,decisionWin,SD,6,2,0,crosswalk,LFA,tier3,1.0206,30,1,4,0,4,-69.8,1482,1482,0
-Ivan-Valenzuela-303315,,Ivan Valenzuela,1,0-1,2022-08-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jack-Cartwright-162593,,Jack Cartwright,1,0-1,2022-08-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Nazim-Sadykhov-264031,f0427fab32e0994a,Nazim Sadykhov,1,1-0,2022-08-16,finishWin,KO R3,6,1,0,crosswalk,Fury FC,tier4,0.9876,28,1,7,4,2,13.9,1526.5,1524.8,0
-Amiran-Gogoladze-250897,,Amiran Gogoladze,1,0-1,2022-08-23,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Cameron-Saaiman-317055,0eed054506a94abf,Cameron Saaiman,1,1-0,2022-08-23,finishWin,KO R3,5,0,0,crosswalk,EFC,tier4,0.9607,21,1,6,3,3,-15.8,1540.5,1498.9,0
-Darrius-Flowers-191363,f9e0aa1af1d6a50a,Darrius Flowers,1,1-0,2022-08-23,finishWin,TKO R1,11,5,1,crosswalk,LFA,tier3,1.0206,27,1,4,1,3,-32.2,1479.7,1441.8,0
-Denise-Gomes-382138,092a12fbdcf12ad3,Denise Gomes,1,1-0,2022-08-23,decisionWin,UD,5,1,0,crosswalk,SFT,tier4,,22,1,8,6,2,31.1,1516.7,1508.3,1
-Eduardo-Neves-363709,,Eduardo Neves,2,0-2,2022-08-23,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Erisson-Ferreira-226431,,Erisson Ferreira,1,0-1,2022-08-23,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jesus-Santos-Aguilar-203965,31ff758863c6ad36,Jesus Aguilar,1,1-0,2022-08-23,finishWin,SUB R3,7,1,0,crosswalk,Combate Global,tier4,,26,1,7,4,3,-8.6,1492.6,1516.4,0
-Josh-Wang-Kim-188773,,Josh Wang Kim,1,0-1,2022-08-23,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mick-Parkin-224411,a0cd4255eec2a5b8,Mick Parkin,1,1-0,2022-08-23,finishWin,SUB R1,5,0,0,crosswalk,RAC,tier4,,26,1,5,4,1,27,1513.9,1551.7,0
-Rayanne-dos-Santos-230789,cfd0252570ae2229,Rayanne dos Santos,1,0-1,2022-08-23,noWin,,11,5,0,crosswalk,BC,tier4,,27,1,3,0,3,-43,,1468.5,0
-Alex-Morgan-134879,,Alex Morgan,1,0-1,2022-08-30,noWin,,11,4,0,cache,,,,31,0,0,0,0,,,,0
-Blake-Bilder-179949,a6b28b78bf4b32a5,Blake Bilder,1,1-0,2022-08-30,finishWin,SUB R1,6,0,1,crosswalk,CFFC,tier3,0.9667,32,1,3,1,2,-15.6,1488.6,1472.1,0
-Jose-Henrique-Souza-362437,,Jose Henrique Souza,1,0-1,2022-08-30,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Maria-Silva-257311,,Maria Silva,1,0-1,2022-08-30,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Victoria-Dudakova-333829,9f310e095342e68c,Viktoriia Dudakova,1,1-0,2022-08-30,decisionWin,UD,5,0,0,crosswalk,OFC,tier4,,23,1,4,2,2,-19.6,1510.4,1499.2,0
-Yusaku-Kinoshita-382723,8c40f8d46a6995b9,Yusaku Kinoshita,1,1-0,2022-08-30,finishWin,TKO R3,5,1,0,crosswalk,Pancrase,tier3,0.9909,22,1,2,0,2,-19.8,1457.3,1457.3,0
-Gabriel-Bonfim-185083,03b527306e0b57c8,Gabriel Bonfim,1,1-0,2022-09-06,finishWin,SUB R1,12,0,0,crosswalk,LFA,tier3,1.0206,25,1,8,7,1,78.6,1530.3,1521.3,1
-Ismael-Bonfim-84528,20fbdf9a7df6c950,Ismael Bonfim,1,1-0,2022-09-06,decisionWin,UD,17,3,0,crosswalk,LFA,tier3,1.0206,26,1,6,2,4,-43.7,1495.8,1510.9,0
-Jimmy-Lawson-322177,,Jimmy Lawson,1,0-1,2022-09-06,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Karl-Williams-333575,3a626ef8b2524507,Karl Williams,1,1-0,2022-09-06,decisionWin,UD,6,1,0,crosswalk,PFL,tier2_5,1.0241,32,1,4,3,1,7.2,1518.4,1510.2,0
-Nariman-Abbasov-141581,,Nariman Abbasov,1,0-1,2022-09-06,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Nayara-Maia-248475,,Nayara Maia,1,0-1,2022-09-06,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Rodolfo-Bellato-266457,157689fad4e22542,Rodolfo Bellato,2,1-1,2022-09-06,finishWin,TKO R2,8,1,0,crosswalk,LFA,tier3,1.0206,26,1,4,2,1,7.2,,1511.5,0
-Tereza-Bleda-280807,8fbbef9a4ec1f6cb,Tereza Bleda,1,1-0,2022-09-06,decisionWin,UD,5,0,0,crosswalk,Oktagon MMA,tier4,,20,1,3,1,2,-25.8,1490.7,1490.7,0
-Trey-Waters-319103,147266d98ca2813f,Trey Waters,1,0-1,2022-09-06,noWin,,6,0,0,crosswalk,CN,tier4,,27,1,3,2,1,1.9,1514,1526.5,0
-Vitor-Petrino-255313,d04b8d5ce7a65c4f,Vitor Petrino,1,1-0,2022-09-06,finishWin,KO R2,6,0,0,crosswalk,Adventure Fighters Tournament,tier4,,25,1,9,7,2,30.8,1521.3,1522.1,0
-Allan-Begosso-196853,,Allan Begosso,1,0-1,2022-09-13,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Brandon-Lewis-230745,,Brandon Lewis,1,0-1,2022-09-13,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Bruna-Brasil-182855,90ae69e9a9137984,Bruna Brasil,1,1-0,2022-09-13,finishWin,KO R2,7,2,1,crosswalk,Shooto,tier3,0.9997,29,1,8,3,5,-41.3,1490.7,1486.3,0
-Daniel-Marcos-205313,fe96fd653f562e98,Daniel Marcos,1,1-0,2022-09-13,decisionWin,UD,12,0,0,crosswalk,300 Sparta,tier4,,29,1,6,5,1,39.5,1524.2,1536.3,0
-Farid-Basharat-222641,6268180e745a1e23,Farid Basharat,1,1-0,2022-09-13,decisionWin,UD,8,0,0,crosswalk,War of Titans,tier4,,25,1,7,7,0,75,1526.9,1540.2,1
-Ikram-Aliskerov-202763,331d3f58e32980ad,Ikram Aliskerov,1,1-0,2022-09-13,finishWin,SUB R1,12,1,0,crosswalk,Brave CF,tier3,1.0338,29,1,6,5,1,53.3,1516.7,1511.8,1
-Malik-Lewis-183193,,Malik Lewis,2,0-2,2022-09-13,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Marnic-Mann-268753,,Marnic Mann,1,0-1,2022-09-13,noWin,,5,0,0,cache,,,,29,0,0,0,0,,,,0
-Trevor-Peek-280187,122fde0994a2f457,Trevor Peek,1,1-0,2022-09-13,finishWin,TKO R2,6,0,0,crosswalk,AFS,tier4,,27,1,5,2,3,-21.6,1492.4,1470.2,0
-Brunno-Ferreira-322603,b4fb66059bd82743,Brunno Ferreira,1,1-0,2022-09-20,finishWin,TKO R1,8,0,0,crosswalk,Big Shot Fight,tier4,,29,1,10,6,4,3.1,1499.5,1524,0
-Josh-Wick-121219,,Josh Wick,1,0-1,2022-09-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Leon-Aliu-224849,,Leon Aliu,1,0-1,2022-09-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mando-Gutierrez-280393,,Mando Gutierrez,1,0-1,2022-09-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Nurullo-Aliev-274869,9c6d0c42a7a85b51,Nurullo Aliev,1,1-0,2022-09-20,finishWin,TKO R1,7,0,0,crosswalk,Samara MMA Federation,tier4,,21,1,4,4,0,44.4,1509.4,1509.4,0
-Raul-Rosas-Jr-339419,880ed8d5af0c13b1,Raul Rosas Jr.,1,1-0,2022-09-20,decisionWin,UD,5,0,0,crosswalk,UWC Mexico,tier4,,17,1,7,6,1,42.6,1505.1,1529.5,1
-Richard-Jacobi-391204,,Richard Jacobi,1,0-1,2022-09-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ashiek-Ajim-286217,,Ashiek Ajim,1,0-1,2022-09-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Donovan-Beard-310501,,Donovan Beard,1,0-1,2022-09-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Emiliano-Linares-298713,,Emiliano Linares,1,0-1,2022-09-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jack-Jenkins-228039,0aa46064d6a157d1,Jack Jenkins,1,1-0,2022-09-27,finishWin,TKO R3,9,2,0,crosswalk,Eternal MMA,tier4,1.0008,29,1,6,4,2,-5,1498.4,1509.7,0
-Joao-Elias-133165,,Joao Elias,1,0-1,2022-09-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mateus-Mendonca-336923,185ca098bbf84581,Mateus Mendonca,1,1-0,2022-09-27,finishWin,KO R1,9,0,0,crosswalk,Future MMA,tier4,,23,1,3,0,3,-29,1483.3,1449.5,0
-Rafael-Estevam-200851,070750e76792d168,Rafael Estevam,1,1-0,2022-09-27,finishWin,TKO R2,10,0,0,crosswalk,Shooto,tier3,0.9997,26,1,4,3,1,7,,1509.6,0
-Sam-Patterson-141735,949e6bb465af017b,Sam Patterson,1,1-0,2022-09-27,finishWin,SUB R2,9,1,1,crosswalk,Brave CF,tier3,1.0338,26,1,7,5,2,40.7,1478.4,1506.1,0
-Vinicius-Sacchelli-Cenci-249659,,Vinicius Sacchelli Cenci,1,0-1,2022-09-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Bogdan-Grad-156707,c15f8ac4d76af53a,Bogdan Grad,2,1-1,2023-08-08,decisionWin,SD,11,1,0,crosswalk,CFS,tier4,,27,1,4,2,2,-14.6,,1494.1,0
-Caio-Machado-247161,473d57add1655a1a,Caio Machado,1,1-0,2023-08-08,decisionWin,UD,7,1,1,crosswalk,BFL,tier4,,29,1,3,0,3,-37.4,1464.1,1451.6,0
-Cesar-Almeida-217983,600dc8df28333450,Cesar Almeida,1,1-0,2023-08-08,decisionWin,UD,3,0,0,crosswalk,Shooto,tier3,0.9997,36,1,6,3,3,-15.8,1498.4,1520.6,0
-Kevin-Borjas-245493,c9689833e730c077,Kevin Borjas,1,1-0,2023-08-08,decisionWin,UD,8,1,0,crosswalk,Inka,tier4,,25,1,6,2,4,-43.7,1460.6,1479.7,0
-Kevin-Szaflarski-202089,,Kevin Szaflarski,1,0-1,2023-08-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Lucas-Fernando-227719,,Lucas Fernando,1,0-1,2023-08-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Payton-Talbott-296553,2b3745a0444dcd17,Payton Talbott,1,1-0,2023-08-08,decisionWin,UD,5,0,0,crosswalk,Urijah Faber's A1 Combat,tier4,,24,1,6,5,1,44.5,1542,1537.9,1
-Tom-Nolan-244655,23819db9f489592d,Tom Nolan,1,1-0,2023-08-08,finishWin,KO R1,5,0,0,crosswalk,Eternal MMA,tier4,1.0008,23,1,6,5,1,39.7,1489.8,1510.5,1
-Victor-Dias-232371,,Victor Dias,1,0-1,2023-08-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-AbdulKareem-AlSelwady-115453,56ae4acb4e3f6e6b,Abdul-Kareem Al-Selwady,1,1-0,2023-08-15,decisionWin,UD,14,3,0,crosswalk,Fury FC,tier4,0.9876,28,1,2,1,1,-4.2,1477.9,1477.9,0
-Cameron-Smotherman-339497,6fe6a57990709869,Cameron Smotherman,1,0-1,2023-08-15,noWin,,8,3,0,crosswalk,Fury FC,tier4,0.9876,25,1,4,1,3,-43.5,,1475.1,0
-Charalampos-Grigoriou-236255,59d44e0872a38402,Charalampos Grigoriou,1,1-0,2023-08-15,finishWin,TKO R1,7,3,0,crosswalk,CFFC,tier3,0.9667,31,1,2,0,2,-29.7,1457.7,1457.7,0
-Eduarda-Moura-395040,f2a4a3932a91dc1e,Eduarda Moura,1,1-0,2023-08-15,finishWin,SUB R1,8,0,0,crosswalk,DF,tier4,,29,1,5,3,2,1.6,1494.2,1520.7,1
-Emrah-Sonmez-147863,,Emrah Sonmez,1,0-1,2023-08-15,noWin,,,,,none,,,,,0,0,0,0,,,,0
-George-Hardwick-155397,,George Hardwick,1,0-1,2023-08-15,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Hyder-Amil-269917,44b3eeff33faf035,Hyder Amil,1,1-0,2023-08-15,decisionWin,UD,7,0,0,crosswalk,LFA,tier3,1.0206,33,1,6,3,3,-15.4,1528.7,1521,0
-Ibo-Aslan-247071,62055b2fd8a10789,Ibo Aslan,1,1-0,2023-08-15,finishWin,TKO R1,11,1,0,crosswalk,VFN,tier4,,27,1,5,2,3,-39,1510.5,1480,0
-Janaina-Silva-284089,,Janaina Silva,1,0-1,2023-08-15,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Eli-Aronov-295271,,Eli Aronov,1,0-1,2023-08-22,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Isis-Verbeek-307003,,Isis Verbeek,1,0-1,2023-08-22,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Josefine-Lindgren-Knutsson-378677,194c30e0b6259280,Josefine Knutsson,1,1-0,2023-08-22,decisionWin,UD,4,0,0,crosswalk,FCR,tier4,,27,1,3,2,1,3,1524.2,1503.7,0
-Kaik-Brito-204891,,Kaik Brito,1,0-1,2023-08-22,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Luis-Pajuelo-287861,92c3d765853df119,Luis Pajuelo,1,1-0,2023-08-22,finishWin,TKO R1,7,1,0,crosswalk,FFC,tier4,0.9802,28,1,1,0,1,-13.2,1477.8,1477.8,0
-Oban-Elliott-247601,574a92a70255439d,Oban Elliott,1,1-0,2023-08-22,decisionWin,MD,8,2,0,crosswalk,Cage Warriors,tier3,1.0295,25,1,6,3,3,-23.3,1521.8,1515.3,0
-Robbie-Ring-303011,,Robbie Ring,1,0-1,2023-08-22,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Zachary-Reese-100903,3278a31624e0082e,Zach Reese,1,1-0,2023-08-22,finishWin,SUB R1,5,0,0,crosswalk,Fury FC,tier4,0.9876,29,1,8,4,4,-25.2,1489.5,1490.2,0
-Bolaji-Oki-276669,8973247f6808fbfd,Bolaji Oki,1,1-0,2023-08-29,finishWin,TKO R1,7,1,0,crosswalk,AFC,tier4,0.9964,27,1,5,2,3,-39.7,1511.3,1502.1,0
-Carlos-Prates-95593,,Carlos Prates,1,1-0,2023-08-29,finishWin,TKO R2,16,6,0,cache,,,,30,0,0,0,0,,,,0
-Chandler-Cole-201389,,Chandler Cole,1,0-1,2023-08-29,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Dylan-Salvador-322181,,Dylan Salvador,1,0-1,2023-08-29,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Marco-Tulio-263543,,Marco Tulio,1,1-0,2023-08-29,decisionWin,UD,9,1,0,cache,,,,28,0,0,0,0,,,,0
-Mitch-Ramirez-244107,af8e52231b4cfce5,Mitch Ramirez,1,0-1,2023-08-29,noWin,,7,0,0,crosswalk,Fierce FC,tier4,,24,1,3,0,3,-55.8,1478,1461,0
-Thomas-Petersen-287525,af733fdd68401f60,Thomas Petersen,1,1-0,2023-08-29,finishWin,SUB R2,7,1,0,crosswalk,LFA,tier3,1.0206,28,1,7,3,4,-38.5,1497.1,1485.9,0
-Yousri-Belgaroui-380449,02e16570ff7efb38,Yousri Belgaroui,2,1-1,2023-08-29,finishWin,TKO R3,5,2,0,crosswalk,UAE Warriors,tier4,,31,1,2,2,0,39.6,,,0
-Brendson-Ribeiro-210539,af48657df8015e6d,Brendson Ribeiro,1,1-0,2023-09-05,finishWin,KO R1,14,5,0,crosswalk,Shooto,tier3,0.9997,27,1,8,2,6,-67.5,1462.4,1470.6,0
-Bruno-Lopes-144007,d13c8ceda8609795,Bruno Lopes,2,1-1,2023-09-05,finishWin,TKO R2,11,0,0,crosswalk,Thunder Fight,tier4,,30,1,4,1,3,-47.4,,1493.3,0
-Chad-Hanekom-215519,,Chad Hanekom,1,0-1,2023-09-05,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Dione-Barbosa-266915,7e02c6105357be18,Dione Barbosa,1,1-0,2023-09-05,finishWin,SUB R1,5,2,0,crosswalk,LFA,tier3,1.0206,31,1,6,4,2,13.8,1494.8,1489,0
-Dylan-Budka-377018,5941bd38f1fe3952,Dylan Budka,1,1-0,2023-09-05,decisionWin,UD,6,2,0,crosswalk,LFA,tier3,1.0206,23,1,3,0,3,-49.9,1478.4,1442.8,0
-Jean-Silva-239947,fa859b94c8582c26,Jean Silva,1,1-0,2023-09-05,decisionWin,UD,10,2,0,crosswalk,Spartacus MMA,tier4,,26,1,7,6,1,65.6,1539.4,1571.9,1
-Kevin-Vallejos-391233,f82c365cb6b6a2e8,Kevin Vallejos,2,1-1,2023-09-05,finishWin,TKO R1,11,0,0,crosswalk,SFH,tier4,,21,1,4,4,0,61.3,,1525.8,1
-Rainn-Guerrero-292231,,Rainn Guerrero,1,0-1,2023-09-05,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ramon-Taveras-332055,9dd44108e3e1b102,Ramon Taveras,2,1-1,2023-09-05,finishWin,TKO R1,8,1,0,crosswalk,CN,tier4,,29,1,3,1,2,-23.8,1511.3,1492,0
-Serhiy-Sidey-220713,1f5d82279eb460df,Serhiy Sidey,1,1-0,2023-09-05,finishWin,TKO R1,9,1,0,crosswalk,BFL,tier4,,27,1,3,2,1,8.1,1483.8,1509.1,0
-AJ-Cunningham-228033,,A.J. Cunningham,1,0-1,2023-09-12,noWin,,,,,none,,,,,0,0,0,0,,,,0
-James-Llontop-191443,9ae6be6b0db58d78,James Llontop,1,1-0,2023-09-12,decisionWin,UD,13,2,0,crosswalk,FFC,tier4,0.9802,24,1,3,0,3,-42,1462.1,1446.6,0
-Jean-Matsumoto-263061,99142b6b0a8bdbba,Jean Matsumoto,1,1-0,2023-09-12,decisionWin,UD,13,0,0,crosswalk,LFA,tier3,1.0206,24,1,6,4,2,14.8,1514.7,1522.5,0
-Jhonata-Diniz-389887,460b5fa5b94b70bd,Jhonata Diniz,1,1-0,2023-09-12,finishWin,KO R1,5,0,0,crosswalk,Imortal FC,tier4,,32,1,5,3,2,-4.5,1527.9,1517.2,0
-Kasey-Tanner-160671,,Kasey Tanner,1,0-1,2023-09-12,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Dylan-Mantello-286197,,Dylan Mantello,1,0-1,2023-09-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Kaynan-Kruschewsky-152747,16b49cd67451547b,Kaynan Kruschewsky,1,1-0,2023-09-19,finishWin,SUB R1,14,1,0,crosswalk,Jungle Fight,tier3,1.0273,32,1,2,0,2,-25.3,1463.1,1463.1,0
-Stephanie-Luciano-265743,3285bd6966dffe99,Stephanie Luciano,1,0-0-1,2023-09-19,noWin,,5,1,0,crosswalk,Jungle Fight,tier3,1.0273,23,1,4,3,1,23.7,1514,1495.6,0
-Talita-Alencar-386905,,Talita Alencar,1,0-0-1,2023-09-19,noWin,,4,0,0,cache,,,,32,0,0,0,0,,,,0
-Angel-Pacheco-90675,95d8b12e5a21ed5a,Angel Pacheco,1,0-1,2023-09-26,noWin,,7,1,0,crosswalk,CFFC,tier3,0.9667,31,1,2,0,2,-30.3,1481.1,1481.1,0
-Carli-Judice-381889,35fd53a02396b4af,Carli Judice,1,0-1,2023-09-26,noWin,,3,0,0,crosswalk,Bayou FC,tier4,,24,1,4,3,1,22.1,1482.2,1511.5,0
-Danny-Barlow-336147,77f853c4d44cbe94,Danny Barlow,1,1-0,2023-09-26,finishWin,TKO R1,6,0,0,crosswalk,CFFC,tier3,0.9667,28,1,4,2,2,-16.8,1524.8,1501.6,0
-Danny-Silva-310429,07f69c437c68f468,Danny Silva,1,1-0,2023-09-26,decisionWin,UD,7,1,0,crosswalk,LFA,tier3,1.0206,26,1,4,3,1,17.4,1512.7,1502.4,0
-Ernesta-Kareckaite-319093,3c972c6d8123294c,Ernesta Kareckaite,1,1-0,2023-09-26,decisionWin,SD,4,0,1,crosswalk,HXMMA,tier4,,25,1,3,1,2,-22.6,1482,1494.5,0
-Raheam-Forest-250387,,Raheam Forest,1,0-1,2023-09-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Victor-Madrigal-40341,,Victor Madrigal,1,0-1,2023-09-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Vinicius-Oliveira-139517,aad8e24798f0a89f,Vinicius Oliveira,1,1-0,2023-09-26,finishWin,KO R1,18,3,0,crosswalk,UAE Warriors,tier4,,27,1,6,5,1,42.9,1530.3,1562.3,0
-Eduardo-Torres-190429,,Eduardo Torres,1,0-1,2023-10-03,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jose-Medina-251871,,Jose Medina,1,0-1,2023-10-03,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Magomed-Gadzhiyasulov-272659,97c47845e7f9a88b,Magomed Gadzhiyasulov,1,1-0,2023-10-03,decisionWin,UD,7,0,0,crosswalk,KFL,tier4,,29,1,2,1,1,-7.7,1509.5,1490.8,0
-Mauricio-Ruffy-192545,bd8ee82c2df0d588,Mauricio Ruffy,1,1-0,2023-10-03,finishWin,TKO R3,8,1,0,crosswalk,CFC,tier4,1.0266,27,1,6,5,1,40.5,1511.4,1512.5,1
-Murtaza-Talha-Ali-269171,,Murtaza Talha Ali,1,0-1,2023-10-03,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Raimond-Magomedaliev-191869,,Raimond Magomedaliev,1,0-1,2023-10-03,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Victor-Hugo-123631,fca2542155e4fd20,Victor Hugo,1,1-0,2023-10-03,finishWin,SUB R2,23,4,0,crosswalk,Pancrase,tier3,0.9909,30,1,2,1,1,-4.3,1512.6,1494.4,0
-Andre-Lima-201199,e1601c0597a7b444,Andre Lima,1,1-0,2023-10-10,decisionWin,UD,6,0,0,crosswalk,Spartacus MMA,tier4,,24,1,5,4,1,18.5,1534.5,1546.3,0
-Cortavious-Romious-206845,,Cortavious Romious,1,0-1,2023-10-10,noWin,,7,1,0,cache,,,,29,0,0,0,0,,,,0
-Davi-Bittencourt-263121,,Davi Bittencourt,1,0-1,2023-10-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Issa-Isakov-181953,,Issa Isakov,1,0-1,2023-10-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jair-Farias-184971,,Jair Farias,1,0-1,2023-10-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Lucas-Rocha-255729,ee66f8d0ba75975e,Lucas Rocha,1,1-0,2023-10-10,finishWin,KO R2,16,1,0,crosswalk,LFA,tier3,1.0206,23,1,2,1,1,-8.2,,1479,0
-MarQuel-Mederos-302655,bb76e767e4bf0b9a,MarQuel Mederos,1,1-0,2023-10-10,finishWin,TKO R1,7,1,0,crosswalk,Fury FC,tier4,0.9876,26,1,4,3,0,28.8,1510.4,1529.6,0
-Rickson-Thai-Zenidim-Bueno-134695,,Rickson Thai Zenidim Bueno,1,0-1,2023-10-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Torrez-Finney-379262,ac54fb7dcc875b59,Torrez Finney,3,3-0,2023-10-10,finishWin,SUB R2,6,0,0,crosswalk,AFS,tier4,,24,1,2,1,1,-9.5,,1509.1,0
-Yuri-Panferov-289931,,Yuri Panferov,1,0-1,2023-10-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-An-Tuan-Ho-307731,,An Tuan Ho,1,0-1,2024-08-13,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Ernie-Juarez-269253,,Ernie Juarez,1,0-1,2024-08-13,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jose-Delgado-307733,2f88f17add7669c5,Jose Delgado,1,1-0,2024-08-13,finishWin,KO R2,7,1,0,crosswalk,United Fight League,tier4,,26,1,5,4,1,35.6,1533.7,1535.6,0
-Loneer-Kavanagh-213249,10a96d52c89b5469,Lone'er Kavanagh,1,1-0,2024-08-13,finishWin,KO R1,6,0,0,crosswalk,Cage Warriors,tier3,1.0295,25,1,5,3,2,-3.5,1522.1,1496.5,1
-Mansur-AbdulMalik-393926,b9562bf0e19e971a,Mansur Abdul-Malik,1,1-0,2024-08-13,finishWin,TKO R2,5,0,0,crosswalk,SF,tier4,0.9907,26,1,5,3,1,10.8,1523.1,1510.8,0
-Mikheil-Sazhiniani-315835,,Mikheil Sazhiniani,1,0-1,2024-08-13,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Wesley-Schultz-338469,,Wesley Schultz,1,0-1,2024-08-13,noWin,,6,1,0,cache,,,,28,0,0,0,0,,,,0
-Billy-Brand-128455,,Billy Brand,1,0-1,2024-08-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Cameron-Rowston-239381,,Cameron Rowston,1,0-1,2024-08-20,noWin,,8,2,0,cache,,,,29,0,0,0,0,,,,0
-Cody-Haddon-286511,8a1aa5c3cd50dedf,Cody Haddon,1,1-0,2024-08-20,finishWin,SUB R1,6,1,0,crosswalk,HFS,tier4,1.0319,25,1,2,2,0,22.8,1509.7,1522.8,0
-Hugo-Cunha-227763,,Hugo Cunha,1,0-1,2024-08-20,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Andrey-Pulyaev-398399,634eda97df9caa0e,Andrey Pulyaev,1,1-0,2024-08-27,decisionWin,UD,8,2,0,crosswalk,SFC,tier4,,26,1,4,1,3,-39.5,1494.7,1460.5,0
-Liam-Anderson-299651,,Liam Anderson,1,0-1,2024-08-27,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Michael-Aswell-286497,bbad8cc98783fae1,Michael Aswell Jr.,1,0-1,2024-08-27,noWin,,9,1,0,crosswalk,Fury FC,tier4,0.9876,23,1,4,1,3,-37.6,1481.4,1462.4,0
-Austin-Bashi-362871,87bd1fc4820e6e6f,Austin Bashi,1,1-0,2024-09-03,finishWin,SUB R2,12,0,0,crosswalk,Lights Out Championship,tier4,,22,1,3,1,2,-17.3,1499.3,1482.7,0
-Dorian-Ramos-203579,,Dorian Ramos,1,0-1,2024-09-03,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Josias-Musasa-416801,ef4f913e6a99246b,Josias Musasa,1,1-0,2024-09-10,decisionWin,SD,7,0,0,crosswalk,Impact Championship,tier4,,25,1,2,0,2,-37.7,1477.4,1460,0
-Navajo-Stirling-413272,0b43bf0acbd22ca3,Navajo Stirling,1,1-0,2024-09-10,finishWin,KO R2,4,0,0,crosswalk,HFS,tier4,1.0319,26,1,6,6,0,69.9,1520.1,1569.9,1
-Otari-Tanzilovi-333455,,Otari Tanzilovi,1,0-1,2024-09-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Phillip-Latu-392424,,Phillip Latu,1,0-1,2024-09-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Taiga-Iwasaki-375260,,Taiga Iwasaki,1,0-1,2024-09-10,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Aaron-Tau-228831,,Aaron Tau,1,0-1,2024-09-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Arthur-Lopes-196611,,Arthur Lopes,1,0-1,2024-09-17,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Elijah-Smith-385324,28922ab0ce7d617b,Elijah Smith,1,1-0,2024-09-17,decisionWin,UD,6,1,0,crosswalk,Fury FC,tier4,0.9876,22,1,3,3,0,39.5,1520.5,1539.5,0
-Tallison-Teixeira-394342,395835d15985848e,Tallison Teixeira,1,1-0,2024-09-17,finishWin,KO R1,6,0,0,crosswalk,LFA,tier3,1.0206,24,1,4,2,2,-14.4,1493.4,1485.6,0
-Alexia-Thainara-287251,3808fc6e211485cf,Alexia Thainara,1,1-0,2024-09-24,decisionWin,UD,10,1,0,crosswalk,SFT,tier4,,26,1,4,4,0,49,1512,1549,1
-Cam-Teague-337869,,Cam Teague,2,0-2,2024-09-24,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Daniel-Frunza-219965,d9935a239ea022f2,Daniel Frunza,1,1-0,2024-09-24,finishWin,TKO R2,8,2,0,crosswalk,LFA,tier3,1.0206,30,1,2,0,2,-42.5,1475.5,1455.5,0
-Rose-Conceicao-211299,,Rose Conceicao,1,0-1,2024-09-24,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Vadym-Kutsyi-168917,,Vadym Kutsyi,1,0-1,2024-09-24,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Abdelah-ErRamy-333741,,Abdelah Er-Ramy,1,0-1,2024-10-01,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Alberto-Montes-257203,837d7b515e82e17f,Alberto Montes,1,1-0,2024-10-01,finishWin,SUB R2,9,1,0,crosswalk,Titan FC,tier3,0.9943,30,1,2,1,1,-10.2,,1489.8,0
-Bartosz-Szewczyk-227573,,Bartosz Szewczyk,1,0-1,2024-10-01,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Carlos-Calderon-247279,,Carlos Calderon,1,0-1,2024-10-01,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Christien-Savoie-186775,,Christien Savoie,1,0-1,2024-10-01,noWin,,,,,none,,,,,0,0,0,0,,,,0
-David-Martinez-221351,f98cac378dcfb57b,David Martinez,1,1-0,2024-10-01,decisionWin,UD,10,1,0,crosswalk,Combate Global,tier4,,26,1,3,3,0,46.7,1530.1,1546.9,1
-Diyar-Nurgozhay-274275,c3fd5865a09e741a,Diyar Nurgozhay,1,1-0,2024-10-01,finishWin,KO R2,9,0,0,crosswalk,EFC,tier4,0.9607,27,1,4,2,2,-16.9,1455.6,1483.1,0
-Jacobe-Smith-394506,ef56a8f712d971ef,Jacobe Smith,1,1-0,2024-10-01,finishWin,TKO R2,8,0,0,crosswalk,Fury FC,tier4,0.9876,28,1,3,3,0,36.4,1523.2,1536.7,0
-Xavier-Franklin-260583,,Xavier Franklin,1,0-1,2024-10-01,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Islam-Dulatov-236167,966e46aafac530c8,Islam Dulatov,1,1-0,2024-10-08,finishWin,KO R1,10,1,0,crosswalk,Sparta Championship Fighting,tier4,,26,1,1,1,0,12.3,1513.3,1513.3,0
-Lucas-Triverio-Camacho-242865,,Lucas Triverio Camacho,1,0-1,2024-10-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mario-Pinto-310173,3f143ed5d6b45e39,Mario Pinto,1,1-0,2024-10-08,finishWin,KO R1,8,0,0,crosswalk,LFL,tier4,,26,1,3,3,0,39.9,1511.4,1539.9,0
-Vanilton-Antunes-183297,,Vanilton Antunes,1,0-1,2024-10-08,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Antonio-Monteiro-152885,,Antonio Monteiro,1,0-1,2024-10-15,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Heraldo-Souza-300743,,Heraldo Souza,1,0-1,2024-10-15,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Nick-Klein-270893,28061eae5a6884c3,Nick Klein,1,1-0,2024-10-15,finishWin,SUB R1,5,1,0,crosswalk,LFA,tier3,1.0206,29,1,2,0,2,-39.1,1457.7,1457.7,0
-Yadier-Del-Valle-293141,47dfe6ac6c9121a0,Yadier del Valle,1,1-0,2024-10-15,decisionWin,UD,7,0,0,crosswalk,Fury FC,tier4,0.9876,28,1,4,3,1,23.6,1510.9,1523.6,0
-Guilherme-Uriel-402490,,Guilherme Uriel,1,0-1,2025-08-19,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Josh-Hokit-433441,d39a1677910874e9,Josh Hokit,1,1-0,2025-08-19,finishWin,TKO R2,5,0,0,crosswalk,LFA,tier3,1.0206,27,1,4,4,0,69.7,1569.7,1569.7,1
-AbdulRakhman-Yakhyaev-395509,8d4cda2a290cc491,Abdul Rakhman Yakhyaev,1,1-0,2025-08-26,finishWin,TKO R1,6,0,0,crosswalk,Ares,tier4,,24,1,3,3,0,36.1,1536.1,1536.1,0
-Alik-Lorenz-347505,,Alik Lorenz,1,0-1,2025-08-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Cristian-Perez-244701,,Cristian Perez,1,0-1,2025-08-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Darion-Abbey-255585,,Darion Abbey,1,0-1,2025-08-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Donte-Johnson-414279,62eb06895e1e4b0b,Donte Johnson,1,1-0,2025-08-26,finishWin,TKO R1,5,0,0,crosswalk,Anthony Pettis FC,tier4,,26,1,2,2,0,19.1,1519.1,1519.1,0
-Manoel-Sousa-319559,a175cb5d70c753c6,Manoel Sousa,1,1-0,2025-08-26,finishWin,TKO R3,12,1,0,crosswalk,Bellator,tier2_5,0.9929,28,1,2,2,0,24.5,1524.5,1524.5,0
-Ryan-Gandra-404139,85a165c98f003923,Ryan Gandra,1,1-0,2025-08-26,finishWin,TKO R1,7,1,0,crosswalk,LFA,tier3,1.0206,30,1,2,2,0,23.6,1523.6,1523.6,0
-Trent-Miller-382805,,Trent Miller,1,0-1,2025-08-26,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Cezary-Oleksiejczuk-171801,e180666d3423c42b,Cezary Oleksiejczuk,1,1-0,2025-09-02,finishWin,TKO R1,15,3,0,crosswalk,FEN,tier4,,25,1,1,1,0,14.7,1515.1,1515.1,0
-David-Mgoyan-417456,,David Mgoyan,1,0-1,2025-09-02,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Theo-Haig-364045,,Theo Haig,1,0-1,2025-09-02,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Tommy-McMillen-229309,006859adbc880edd,Tommy McMillen,1,1-0,2025-09-02,decisionWin,MD,8,0,0,crosswalk,Fusion Fight League,tier4,,27,1,2,2,0,29.6,1529.6,1529.6,0
-Anthony-Guarascio-414547,,Anthony Guarascio,1,0-1,2025-09-09,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Felipe-Franco-415770,dad9b43cf7480f68,Felipe Franco,1,0-1,2025-09-09,noWin,,8,0,0,crosswalk,DF,tier4,,24,1,2,1,1,0.9,1500.9,1500.9,0
-Freddy-Vidal-401852,,Freddy Vidal,1,1-0,2025-09-09,finishWin,SUB R3,,,,none,,,,,0,0,0,0,,,,0
-Lerryan-Douglas-77125,26f15079cf039c8c,Lerryan Douglas,1,1-0,2025-09-09,finishWin,KO R1,12,5,0,crosswalk,LFA,tier3,1.0206,30,1,1,1,0,14.3,1514.3,1514.3,0
-Steven-Asplund-407940,7d1e163720b62145,Steven Asplund,1,1-0,2025-09-09,finishWin,TKO R1,5,1,0,crosswalk,LFA,tier3,1.0206,27,1,3,2,1,6.4,1506.4,1506.4,0
-Hecher-Sosa-236589,205e928621a6f62d,Hecher Sosa,1,1-0,2025-09-16,decisionWin,UD,12,1,0,crosswalk,WOW,tier4,,29,1,1,1,0,11.1,1511.1,1511.1,0
-Iwo-Baraniewski-381634,f7012ef25547fc99,Iwo Baraniewski,1,1-0,2025-09-16,finishWin,KO R1,5,0,0,crosswalk,Babilon MMA,tier4,,26,1,3,3,0,32.2,1532.2,1532.2,0
-Macksom-Lee-320649,,Macksom Lee,1,0-1,2025-09-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mahamed-Aly-184187,,Mahamed Aly,1,0-1,2025-09-16,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Djani-Barbir-164755,,Djani Barbir,1,0-1,2025-09-23,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Jair-de-Oliveira-267853,,Jair de Oliveira,1,0-1,2025-09-23,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Mantas-Kondratavicius-310159,a2abca58544b6a7b,Mantas Kondratavicius,1,1-0,2025-09-23,finishWin,TKO R1,7,1,0,crosswalk,Ares,tier4,,26,1,1,1,0,8.7,1508.7,1508.7,0
-Rafael-Tobias-403663,5a7dee229b27e06c,Rafael Tobias,1,1-0,2025-09-23,finishWin,SUB R1,13,1,0,crosswalk,TKO Palmas,tier4,,22,1,1,0,1,-20.2,1479.7,1479.7,0
-Damian-Pinas-426729,c212ca8a9b232259,Damian Pinas,1,1-0,2025-09-30,finishWin,TKO R1,7,1,0,crosswalk,Shooto,tier3,0.9997,23,1,2,2,0,29.6,1529.6,1529.6,0
-Demba-Seck-386973,,Demba Seck,1,0-1,2025-09-30,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Kurtis-Campbell-302831,e25181125365fbe6,Kurtis Campbell,1,1-0,2025-09-30,finishWin,TKO R1,7,0,0,crosswalk,FCC,tier4,,23,1,1,0,1,-21.5,1478.5,1478.5,0
-Vitor-Costa-355863,,Vitor Costa,1,0-1,2025-09-30,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Imanol-Rodriguez-418935,1c33eb78bdc5df39,Imanol Rodriguez,1,1-0,2025-10-07,finishWin,TKO R1,5,0,0,crosswalk,Fury FC,tier4,0.9876,25,1,1,1,0,11,1511.1,1511.1,0
-Luke-Fernandez-376548,8b41d0ebea0c3e18,Luke Fernandez,1,1-0,2025-10-07,finishWin,TKO R1,5,0,0,crosswalk,CFFC,tier3,0.9667,30,1,1,0,1,-22.1,1477.9,1477.9,0
-Rafael-Pergentino-430613,,Rafael Pergentino,1,0-1,2025-10-07,noWin,,,,,none,,,,,0,0,0,0,,,,0
-Roque-Conceicao-Moreira-Junior-239909,,Roque Conceicao Moreira Junior,1,0-1,2025-10-07,noWin,,,,,none,,,,,0,0,0,0,,,,0
+sherdogId,ourId,name,appearances,dwcsRecord,firstDwcsDate,bestDwcsResult,dwcsMethod,preDwcsWins,preDwcsLosses,preDwcsDraws,preDwcsFinishes,preDwcsSource,feederOrg,feederTier,feederRelFactor,ageAtDwcs,gotContract,ufcFights,ufcWins,ufcLosses,settledEloGain,eloAt1yr,eloAt2yr,reachedTop15
+Azunna-Anyanwu-68352,be7ca0896a9b24a2,Azunna Anyanwu,1,1-0,2017-07-11,finishWin,KO R2,13,4,0,9,crosswalk,CFFC,tier3,0.9667,35,1,1,0,1,-0.5,1485,1485,0
+Boston-Salmon-131463,bf91cbfb6ec5463a,Boston Salmon,1,1-0,2017-07-11,decisionWin,UD,5,1,0,4,crosswalk,RFA,tier4,0.9691,26,1,2,0,2,-3.9,,1477.4,0
+Charles-Byrd-51234,b6c17f70c2c805cf,Charles Byrd,2,2-0,2017-07-11,finishWin,SUB R1,7,4,0,5,crosswalk,LFC,tier4,0.9819,33,1,4,1,3,-5.6,1515.1,1469.5,0
+Greg-Rebello-12293,,Greg Rebello,2,0-2,2017-07-11,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jamie-Pickett-72595,e891217b7a2b4f16,Jamie Pickett,3,1-2,2017-07-11,finishWin,TKO R2,7,2,0,6,crosswalk,NLFC,tier4,,28,1,9,2,7,-49.6,,,0
+Joby-Sanchez-50239,0f7518cc5cd482fb,Joby Sanchez,2,2-0,2017-07-11,finishWin,TKO R2,8,0,0,7,crosswalk,XFC,tier4,0.9706,26,1,2,0,2,-3,1459.1,1449.8,0
+Kurt-Holobaugh-68751,ecdf6dcdb523bb8d,Kurt Holobaugh,1,0-0,2017-07-11,noWin,,17,3,0,14,crosswalk,Titan FC,tier3,0.9943,30,1,8,2,6,-32.1,1483.2,1444.4,0
+Manny-Vazquez-160015,,Manny Vazquez,1,0-1,2017-07-11,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Matt-Bessette-34374,adb29a86d181648c,Matt Bessette,1,0-0,2017-07-11,noWin,,22,7,0,15,crosswalk,CES MMA,tier4,0.9367,32,1,2,0,2,-1.7,1466.7,1466.7,0
+Ricky-Turcios-80671,8599d31404ff0b34,Ricky Turcios,1,0-1,2017-07-11,noWin,,8,0,0,3,crosswalk,Fury FC,tier4,0.9876,24,1,6,2,4,-46.7,,,0
+Alfred-Khashakyan-133919,,Alfred Khashakyan,1,0-1,2017-07-18,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+CJ-Hamilton-71119,,C.J. Hamilton,1,0-1,2017-07-18,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Casey-Kenney-211031,2c6080cef7de1112,Casey Kenney,2,1-1,2017-07-18,decisionWin,UD,6,0,1,5,crosswalk,TPF,tier4,0.9745,26,1,8,5,3,5.7,,1514.2,0
+Sean-OMalley-135099,bbcaf7b57144df14,Sean O'Malley,1,1-0,2017-07-18,finishWin,KO R1,7,0,0,6,crosswalk,ICF,tier4,,22,1,15,12,3,83,1520.8,1520.8,1
+Alonzo-Menifield-210501,990efe1105080c68,Alonzo Menifield,2,2-0,2017-07-25,finishWin,TKO R1,3,0,0,3,crosswalk,Bellator,tier2_5,0.9929,29,1,18,11,6,21.2,,1527.3,1
+Chase-Waldon-68408,,Chase Waldon,1,0-1,2017-07-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Dan-Ige-136499,217d1a9370550d41,Dan Ige,1,1-0,2017-07-25,finishWin,SUB R3,7,1,0,5,crosswalk,LFC,tier4,0.9819,25,1,21,11,10,4.1,1493.7,1540.6,0
+Daniel-Jolly-83243,e04431032c654b57,Daniel Jolly,1,0-1,2017-07-25,noWin,,5,0,0,3,crosswalk,LFC,tier4,0.9819,32,0,0,0,0,-1.2,1458.3,1458.3,0
+Geoff-Neal-72107,deee560a8bc1dd80,Geoff Neal,1,1-0,2017-07-25,finishWin,TKO R1,7,2,0,5,crosswalk,LFC,tier4,0.9819,26,1,14,8,6,13.4,1511,1536.5,0
+Jason-Jackson-48171,,Jason Jackson,1,0-1,2017-07-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Karl-Roberson-132605,6714baa6b0fabf58,Karl Roberson,1,1-0,2017-07-25,finishWin,KO R1,4,0,0,3,crosswalk,CFFC,tier3,0.9667,26,1,10,4,6,-15.3,1491.1,1496.5,0
+Kyle-Stewart-102333,d7c50bc1e2a1c4f7,Kyle Stewart,1,1-0,2017-07-25,finishWin,TKO R2,7,0,0,5,crosswalk,WFF,tier4,,28,1,2,0,2,-3.2,,1477.4,0
+Luis-Gomez-207041,,Luis Gomez,1,0-1,2017-07-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ryan-Spann-68057,,Ryan Spann,1,0-1,2017-07-25,noWin,,10,4,0,9,cache,,,,25,0,0,0,0,,,,0
+Austin-Arnett-57016,39e0e926a4ebf523,Austin Arnett,1,0-1,2017-08-01,noWin,,15,2,0,12,crosswalk,Thunder & Lightning,tier4,,25,1,4,1,3,-2.8,1460.6,1457,0
+Brandon-Davis-67782,0432ba12b6296c1d,Brandon Davis,1,1-0,2017-08-01,decisionWin,UD,7,3,0,5,crosswalk,SFC,tier4,,27,1,9,2,7,-14.7,1478,1481.7,0
+Carlos-Candelario-97453,e503c6a1065a60f9,Carlos Candelario,2,1-1,2017-08-01,decisionWin,UD,6,0,0,5,crosswalk,CES MMA,tier4,0.9367,26,1,2,0,2,-13,,,0
+Julian-Marquez-77743,d46685b2069b7029,Julian Marquez,1,1-0,2017-08-01,finishWin,KO R2,5,1,0,5,crosswalk,Combate Americas,tier4,0.9612,27,1,8,3,5,-46.1,1493.5,1493.5,0
+Phil-Hawes-130935,186b7b196c354140,Phil Hawes,2,1-1,2017-08-01,finishWin,TKO R1,4,1,0,4,crosswalk,PFL,tier2_5,1.0241,28,1,8,4,4,-12.9,,,0
+Ronaldo-Candido-de-Oliveira-128351,,Ronaldo Candido de Oliveira,1,0-1,2017-08-01,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Alex-Perez-12443,245f661e52b116c7,Alex Perez,1,1-0,2017-08-08,finishWin,SUB R1,17,4,0,7,crosswalk,TPF,tier4,0.9745,25,1,14,8,6,-2.1,1537.7,1529.7,1
+Donavon-Frelow-79087,,Donavon Frelow,1,0-1,2017-08-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jamelle-Jones-137613,,Jamelle Jones,1,0-1,2017-08-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Julio-Arce-71299,8fa232d3a73d0de7,Julio Arce,1,1-0,2017-08-08,finishWin,TKO R2,12,2,0,6,crosswalk,ROC,tier4,1.0281,27,1,10,6,4,2.9,1525,1517.8,0
+Kevin-Gray-120689,,Kevin Gray,1,0-1,2017-08-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mike-Rodriguez-107891,53ba0dd370c19b38,Mike Rodriguez,1,1-0,2017-08-08,finishWin,KO R1,8,2,0,8,crosswalk,CES MMA,tier4,0.9367,28,1,7,2,5,-11.4,1481.1,1496.6,0
+Peter-Petties-183991,,Peter Petties,1,0-1,2017-08-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ricky-Simon-111209,a0811e03ef7082c8,Ricky Simon,1,1-0,2017-08-08,decisionWin,SD,9,1,0,5,crosswalk,King of the Cage,tier3,1.0041,24,1,17,10,6,20.3,1524.8,1520.3,0
+Jaime-Alvarez-139887,,Jaime Alvarez,1,1-0,2017-08-15,decisionWin,UD,,,,,none,,,,,0,0,0,0,,,,0
+Martin-Day-155883,9499fe7d747d0f34,Martin Day,1,0-1,2017-08-15,noWin,,5,1,0,3,crosswalk,Capone's Productions,tier4,,28,1,4,0,4,-10.2,,1484.3,0
+Randall-Wallace-93103,,Randall Wallace,1,0-1,2017-08-15,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Anton-Berzin-69707,,Anton Berzin,1,0-1,2017-08-22,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Benito-Lopez-122711,a4264e3d664f208f,Benito Lopez,1,1-0,2017-08-22,decisionWin,SD,7,0,0,5,crosswalk,King of the Cage,tier3,1.0041,23,1,4,2,2,-6.8,1509.7,1500.5,0
+JP-Buys-197069,5b7c7c83602d9b20,JP Buys,2,1-1,2017-08-22,finishWin,SUB R1,4,1,0,4,crosswalk,EFC,tier4,0.9607,21,1,4,0,4,-31.8,,,0
+Jordan-Espinosa-64942,27fc42f9a706f56f,Jordan Espinosa,2,2-0,2017-08-22,finishWin,SUB R1,10,5,0,7,crosswalk,GKO,tier4,,27,1,6,2,4,-7.5,,1488,0
+Kennedy-Nzechukwu-212289,3efa6683f90baf91,Kennedy Nzechukwu,2,2-0,2017-08-22,finishWin,TKO R1,2,0,0,1,crosswalk,XKO,tier4,,25,1,15,8,6,-4.5,,1488.9,0
+Mark-Cherico-56202,,Mark Cherico,1,0-1,2017-08-22,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mike-Santiago-66110,4e832c70f00c22df,Mike Santiago,1,1-0,2017-08-22,finishWin,KO R1,20,9,0,16,crosswalk,HFC,tier4,,28,1,3,0,3,-2.9,1440.3,1440.3,0
+Nick-Urso-52504,,Nick Urso,1,0-1,2017-08-22,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Steven-Peterson-60433,9d03eaf7a17b94a3,Steven Peterson,1,0-1,2017-08-22,noWin,,15,5,0,11,crosswalk,LFC,tier4,0.9819,27,1,8,3,5,-13.6,1491,1454.8,0
+Adam-Antolin-28758,,Adam Antolin,1,1-0,2017-08-29,decisionWin,SD,,,,,none,,,,,0,0,0,0,,,,0
+Allen-Crowder-157353,5f7d95f165f83e3c,Allen Crowder,1,1-0,2017-08-29,finishWin,TKO R3,8,2,0,7,crosswalk,NLFC,tier4,,27,1,3,1,2,-2,1479.2,1473.8,0
+Bevon-Lewis-211153,8a049373a2a84299,Bevon Lewis,2,2-0,2017-08-29,finishWin,TKO R2,3,0,0,1,crosswalk,LFA,tier3,1.0206,26,1,4,1,3,-6.5,,1459.3,0
+DonTale-Mayes-237177,83c80f54de1b32fe,Don'Tale Mayes,3,2-1,2017-08-29,finishWin,TKO R2,3,1,0,2,crosswalk,LFA,tier3,1.0206,25,1,11,4,7,-53.6,,,0
+Elias-Urbina-167417,,Elias Urbina,1,0-1,2017-08-29,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jose-Flores-60457,,Jose Flores,2,0-2,2017-08-29,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Kelly-McGillVelasco-170067,,Kelly McGill-Velasco,1,0-1,2017-08-29,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Lauren-Mueller-202159,5c987d20da70c09d,Lauren Mueller,1,1-0,2017-08-29,decisionWin,UD,3,0,0,1,crosswalk,Gladiator Challenge,tier4,0.9825,25,1,4,1,3,-3.8,1514.6,1473.4,0
+Matt-Frevola-100247,c9d2ae98d9f6ab30,Matt Frevola,1,1-0,2017-08-29,finishWin,SUB R2,5,0,0,3,crosswalk,RFC,tier4,,27,1,12,5,6,-23.9,1479.3,1493,0
+Austen-Lane-249439,f7d9010e13806799,Austen Lane,2,1-1,2018-06-12,finishWin,TKO R1,4,0,0,4,crosswalk,CN,tier4,,30,1,6,1,5,-71.5,,,0
+Chris-Curtis-48039,9fc426aaa44255d9,Chris Curtis,1,1-0,2018-06-12,finishWin,TKO R3,18,5,0,9,crosswalk,CES MMA,tier4,0.9367,31,1,11,6,5,6.1,,,0
+Dashawn-Boatwright-241897,,Dashawn Boatwright,1,0-1,2018-06-12,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Greg-Hardy-271461,e7b88fa57ffb42cb,Greg Hardy,2,2-0,2018-06-12,finishWin,TKO R1,0,0,0,0,crosswalk,,,,29,1,9,4,5,-8,1493.1,1506.2,0
+Kevin-Holland-108999,b577c6fa8060ff5c,Kevin Holland,1,1-0,2018-06-12,decisionWin,UD,12,3,0,12,crosswalk,LFA,tier3,1.0206,25,1,28,16,12,20,1510,1510,0
+Sean-Lally-44100,,Sean Lally,1,0-1,2018-06-12,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Will-Santiago-Jr-65536,,Will Santiago Jr.,1,0-1,2018-06-12,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Anthony-Hernandez-86783,9583d6bf13318f23,Anthony Hernandez,1,0-0,2018-06-19,noWin,,6,0,0,5,crosswalk,GKO,tier4,,24,1,12,9,3,66.2,1477,1472.5,1
+Austin-Springer-41861,,Austin Springer,1,1-0,2018-06-19,finishWin,SUB R3,10,3,0,8,cache,,,,31,0,0,0,0,,,,0
+Dwight-Grant-68983,3411cece8b9fb184,Dwight Grant,1,1-0,2018-06-19,finishWin,KO R2,7,1,0,5,crosswalk,GKO,tier4,,34,1,8,3,5,-10.3,1509.9,1509.9,0
+Giga-Chikadze-213745,3739a7ad389dcac5,Giga Chikadze,1,0-1,2018-06-19,noWin,,5,1,0,5,crosswalk,Gladiator Challenge,tier4,0.9825,29,1,12,8,4,17.5,,1531.5,0
+Jordan-Wright-79138,9492268d8774c0a4,Jordan Wright,1,0-0,2018-06-19,noWin,,9,0,0,9,crosswalk,AFC,tier4,0.9964,26,1,7,2,5,-25.4,,,0
+Matt-Sayles-93675,aefa91645d63ab49,Matt Sayles,1,1-0,2018-06-19,finishWin,TKO R1,6,1,0,5,crosswalk,PFL,tier2_5,1.0241,24,1,4,1,3,-8.2,1494.9,1475.1,0
+Tyler-Hill-55299,,Tyler Hill,1,0-1,2018-06-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Yazan-Hajeh-83135,,Yazan Hajeh,1,0-1,2018-06-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Antonina-Shevchenko-45389,2651aa1e611abadc,Antonina Shevchenko,1,1-0,2018-06-26,finishWin,TKO R2,5,0,0,1,crosswalk,Phoenix Fighting Championship,tier4,,33,1,8,4,4,-6.1,1495.5,1489.4,0
+Austin-Tweedy-91337,,Austin Tweedy,1,0-1,2018-06-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jaimelene-Nievera-88009,,Jaimelene Nievera,1,0-1,2018-06-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jamall-Emmers-84139,d42c88019231799d,Jamall Emmers,1,0-1,2018-06-26,noWin,,13,3,0,6,crosswalk,LFA,tier3,1.0206,28,1,9,5,4,-4.9,,1484.2,0
+Jordan-Williams-70941,82b4ac7b2ab3eafb,Jordan Williams,3,1-1,2018-06-26,finishWin,KO R1,7,2,0,6,crosswalk,Bellator,tier2_5,0.9929,27,1,3,0,3,-11.8,,,0
+Josh-Parisian-181225,85e36eed269a8e5f,Josh Parisian,2,2-0,2018-06-26,finishWin,KO R1,6,2,0,5,crosswalk,LFA,tier3,1.0206,28,1,7,2,5,-36.9,,,0
+Julian-Erosa-71442,7dbe9bb9a5b973b5,Julian Erosa,1,1-0,2018-06-26,finishWin,KO R2,20,4,0,18,crosswalk,CS,tier4,,28,1,16,8,8,-22.1,1437.5,1437.5,0
+Te-Edwards-156303,c8304578645a0300,Te Edwards,1,1-0,2018-06-26,finishWin,KO R1,5,1,0,5,crosswalk,Bellator,tier2_5,0.9929,27,1,2,0,2,-2.5,1461.2,1461.2,0
+Tim-Caron-128669,,Tim Caron,1,0-0,2018-06-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Alton-Cunningham-166015,,Alton Cunningham,1,0-1,2018-07-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jalin-Turner-158269,e411d4112ff57cb3,Jalin Turner,1,1-0,2018-07-10,finishWin,TKO R1,6,3,0,6,crosswalk,Bellator,tier2_5,0.9929,23,1,14,8,6,17.3,1480.4,1497.4,0
+Joey-Gomez-124327,,Joey    Gomez,1,0-1,2018-07-10,noWin,,7,0,0,6,cache,,,,28,0,0,0,0,,,,0
+Kevin-Aguilar-57838,434c4533ee6ced38,Kevin Aguilar,1,1-0,2018-07-10,decisionWin,SD,14,1,0,11,crosswalk,LFA,tier3,1.0206,29,1,6,2,4,-6.1,1511.6,1474.2,0
+Max-Mustaki-79656,,Max Mustaki,1,0-1,2018-07-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Riley-Dutro-42022,,Riley Dutro,1,0-1,2018-07-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Angelo-Trevino-201359,,Angelo Trevino,1,0-1,2018-07-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Antonio-Jones-127091,,Antonio Jones,1,0-1,2018-07-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Austin-Vanderford-206919,2d0d405ad62b34b7,Austin Vanderford,1,1-0,2018-07-17,finishWin,SUB R2,4,0,0,2,crosswalk,VFC,tier4,0.9864,28,1,2,1,1,-9.5,,,0
+Domingo-Pilarte-48495,0cdf886f3d227f07,Domingo Pilarte,1,1-0,2018-07-17,finishWin,SUB R2,7,1,0,5,crosswalk,LFC,tier4,0.9819,28,1,2,0,2,-5.6,,1483,0
+Edmen-Shahbazyan-247691,f4544d57a0c93b7c,Edmen Shahbazyan,1,1-0,2018-07-17,finishWin,TKO R1,6,0,0,6,crosswalk,CXF,tier4,,20,1,15,9,6,9,1533,1551.9,0
+Jamie-Colleen-Miller-115211,,Jamie Colleen Miller,1,0-1,2018-07-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Maycee-Barber-253613,c9bce4b58587da90,Maycee Barber,1,1-0,2018-07-17,finishWin,TKO R3,4,0,0,3,crosswalk,LFA,tier3,1.0206,20,1,13,10,3,36.3,1531.1,1527.1,1
+Vince-Morales-177019,,Vince Morales,1,0-1,2018-07-17,noWin,,7,1,0,7,cache,,,,27,0,0,0,0,,,,0
+Canaan-Kawaihae-230231,,Canaan Kawaihae,1,0-1,2018-07-24,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Chase-Hooper-249301,61aca8157bf71afd,Chase Hooper,1,1-0,2018-07-24,decisionWin,UD,5,0,0,4,crosswalk,COGA,tier4,,18,1,14,9,5,3.6,,1490.5,0
+Chris-Birchler-75224,,Chris Birchler,1,0-1,2018-07-24,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jeff-Hughes-23793,93f287cc2018f186,Jeff Hughes,1,1-0,2018-07-24,finishWin,KO R1,9,1,0,4,crosswalk,LFA,tier3,1.0206,30,1,3,0,3,-6.7,1484.5,1466.6,0
+Jimmy-Crute-218959,a1fe00d04609986b,Jimmy Crute,1,1-0,2018-07-24,finishWin,TKO R1,7,0,0,4,crosswalk,HFS,tier4,1.0319,22,1,12,6,4,6.6,1530.8,1523,0
+Josh-Appelt-47983,,Josh Appelt,1,0-1,2018-07-24,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mike-Davis-202169,c089e6624556674f,Mike Davis,1,0-1,2018-07-24,noWin,,5,0,0,5,crosswalk,Square Ring Promotions,tier4,0.9744,25,1,8,5,3,11.4,1480.5,1493.9,0
+Sodiq-Yusuff-152359,98def16d7bb14aa9,Sodiq Yusuff,1,1-0,2018-07-24,decisionWin,UD,6,1,0,4,crosswalk,VFC,tier4,0.9864,25,1,10,6,4,1,1528.2,1556.5,0
+Garrett-Gross-84704,,Garrett Gross,1,0-1,2018-07-31,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ian-Heinisch-187341,f83eb8d8634c7c8b,Ian Heinisch,1,1-0,2018-07-31,finishWin,KO R1,10,1,0,5,crosswalk,LFA,tier3,1.0206,29,1,7,3,4,-2.4,1533.1,1516.3,0
+Jordan-Griffin-56524,1de38f7d8fb8d358,Jordan Griffin,1,1-0,2018-07-31,finishWin,SUB R1,16,5,0,12,crosswalk,LFA,tier3,1.0206,28,1,5,1,4,-8,1481.7,1466.6,0
+Juan-Adams-239097,920c5cc2e74aaaf6,Juan Adams,1,1-0,2018-07-31,finishWin,TKO R1,3,0,0,3,crosswalk,LFA,tier3,1.0206,26,1,4,1,3,-4.9,1472.4,1451.6,0
+Justin-Sumter-98983,,Justin Sumter,2,0-2,2018-07-31,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Maurice-Mitchell-37818,,Maurice Mitchell,1,0-1,2018-07-31,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mitchell-Sipe-208607,,Mitchell Sipe,1,0-1,2018-07-31,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Roosevelt-Roberts-191653,64c7119b9beb015a,Roosevelt Roberts,1,1-0,2018-07-31,finishWin,SUB R2,5,0,0,5,crosswalk,CXF,tier4,,24,1,9,4,5,-20.5,1505.6,1514.9,0
+Shawn-Teed-175575,,Shawn Teed,1,0-1,2018-07-31,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Bobby-Moffett-159019,ab06e184a09da577,Bobby Moffett,1,1-0,2018-08-07,finishWin,SUB R2,12,3,0,8,crosswalk,LFA,tier3,1.0206,28,1,2,0,2,-2.6,1482.6,1468.2,0
+Dennis-Bryant-85516,,Dennis Bryant,1,0-1,2018-08-07,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Devonte-Smith-89163,2a5d37e65372331c,Devonte Smith,1,1-0,2018-08-07,finishWin,KO R1,7,1,0,7,crosswalk,Iron Tiger Fight Series / Alliance MMA,tier4,,25,1,6,3,3,-4.7,1527.7,1504.1,0
+Jacob-Kilburn-238233,2983f5d00ab2638c,Jacob Kilburn,1,0-1,2018-08-07,noWin,,6,1,0,4,crosswalk,M-1,tier3,1.0486,23,1,2,0,2,-5.7,,1478.4,0
+Joseph-Lowry-76336,,Joseph Lowry,2,0-2,2018-08-07,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Tebaris-Gordon-260891,,Tebaris Gordon,1,0-1,2018-08-07,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Antonio-Arroyo-173979,20184f36071fdaa3,Antonio Arroyo,2,2-0,2018-08-10,finishWin,SUB R2,7,2,0,7,crosswalk,LFA,tier3,1.0206,29,1,3,0,3,-10.8,,1482,0
+Augusto-Sakai-87303,3e1f496aca017284,Augusto Sakai,1,1-0,2018-08-10,finishWin,TKO R2,10,1,1,8,crosswalk,Bellator,tier2_5,0.9929,27,1,9,5,4,-8,1518.9,1540,0
+Diego-Henrique-da-Silva-76846,,Diego Henrique da Silva,1,0-1,2018-08-10,noWin,,8,3,0,8,cache,,,,31,0,0,0,0,,,,0
+Gustavo-Gabriel-Silva-127725,,Gustavo Gabriel Silva,1,0-1,2018-08-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Maiara-Amanajas-dos-Santos-77091,,Maiara Amanajas dos Santos,1,0-1,2018-08-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Marcos-Conrado-Jr-234165,,Marcos Conrado Jr.,1,0-1,2018-08-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Rogerio-Bontorin-132211,1b2245155a92a358,Rogerio Bontorin,1,1-0,2018-08-10,finishWin,SUB R2,13,1,0,12,crosswalk,Brave CF,tier3,1.0338,26,1,5,2,3,-7.7,1510.5,1503.8,0
+Sarah-Frota-222541,511b8a19e1b7ac9f,Sarah Frota,1,1-0,2018-08-10,finishWin,KO R1,8,0,0,6,crosswalk,SFL,tier4,,31,1,2,0,2,-2.7,1466.3,1466.3,0
+Allan-Nascimento-87857,5138742df3096e35,Allan Nascimento,1,0-1,2018-08-11,noWin,,17,4,0,14,crosswalk,RIZIN,tier2_5,1.014,26,1,6,4,2,20.2,,,0
+Andre-Muniz-81800,74fd8194bb19e2bf,Andre Muniz,2,2-0,2018-08-11,finishWin,SUB R1,16,4,0,15,crosswalk,WOCS,tier4,,28,1,10,6,4,-0.8,,1512.6,0
+Bruno-Assis-185297,,Bruno Assis,1,0-1,2018-08-11,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Estefani-Almeida-205515,,Estefani Almeida,1,0-1,2018-08-11,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Henrique-da-Silva-175493,c9309ef7c0bb931b,Henrique da Silva,1,0-1,2018-08-11,noWin,,12,0,0,11,crosswalk,Arena Fight,tier4,,28,0,0,0,0,-1.7,1451.9,1451.9,0
+John-Allan-114875,b2d78c1271922be6,John Allan,1,0-1,2018-08-11,noWin,,12,4,0,11,crosswalk,Imortal FC,tier4,,25,1,2,0,2,-6.5,,,0
+Johnny-Walker-170203,,Johnny Walker,1,1-0,2018-08-11,decisionWin,UD,13,3,0,13,cache,,,,26,0,0,0,0,,,,0
+Luana-Carolina-189719,64d5a5e924312934,Luana Carolina,1,1-0,2018-08-11,decisionWin,UD,4,1,0,3,crosswalk,Thunder Fight,tier4,,25,1,10,6,4,-10,1509.3,1485,0
+Mabelly-Lima-187177,,Mabelly Lima,1,0-1,2018-08-11,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Maria-Oliveira-207835,09efcf1044196013,Maria Oliveira,1,0-1,2018-08-11,noWin,,10,3,0,7,crosswalk,RIZIN,tier2_5,1.014,21,1,4,1,3,-18.9,,,0
+Marina-Rodriguez-193977,c42bb75b660872de,Marina Rodriguez,1,1-0,2018-08-11,finishWin,TKO R1,9,0,0,5,crosswalk,Shooto,tier3,0.9997,31,1,15,7,6,-9,1521.3,1505,0
+Raulian-Paiva-167575,33936cc54a3063f8,Raulian Paiva,1,1-0,2018-08-11,decisionWin,SD,17,1,0,6,crosswalk,SMF,tier4,,22,1,7,3,4,-4.9,1464.4,1490.9,0
+Taila-Santos-143185,73dcdd41661adf51,Taila Santos,1,1-0,2018-08-11,decisionWin,UD,14,0,0,12,crosswalk,AFC,tier4,0.9964,25,1,7,4,3,7.3,1483.6,1500.6,0
+Vinicius-Moreira-207291,aa41f7f0d38a67de,Vinicius Moreira,1,1-0,2018-08-11,finishWin,SUB R2,8,1,0,8,crosswalk,SFL,tier4,,29,1,4,0,4,-11.8,1456.8,1436,0
+Alton-Meeks-292547,,Alton Meeks,1,0-1,2019-06-18,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Bill-Algeo-77441,fb02ddf6816c3234,Bill Algeo,1,0-1,2019-06-18,noWin,,12,3,0,9,crosswalk,ROC,tier4,1.0281,30,1,10,5,5,-13.1,,1479.5,0
+Brendan-Loughnane-44417,,Brendan Loughnane,1,1-0,2019-06-18,decisionWin,UD,16,3,0,12,cache,,,,29,0,0,0,0,,,,0
+Hannah-Goldy-204879,aef794c9754597d7,Hannah Goldy,1,1-0,2019-06-18,decisionWin,UD,4,0,0,1,crosswalk,Square Ring Promotions,tier4,0.9744,27,1,5,1,4,-24.2,1482,1482,0
+Kali-Robbins-178681,,Kali Robbins,1,0-1,2019-06-18,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Punahele-Soriano-230239,fd2553227e3641fe,Punahele Soriano,1,1-0,2019-06-18,decisionWin,UD,5,0,0,5,crosswalk,PFL,tier2_5,1.0241,26,1,11,7,4,10.1,1512.3,1527.5,0
+Yorgan-De-Castro-176091,dea7ffef261a8d05,Yorgan De Castro,1,1-0,2019-06-18,finishWin,TKO R1,4,0,0,3,crosswalk,CES MMA,tier4,0.9367,32,1,4,1,3,-7.2,1495.6,1456.7,0
+Kyle-Daukaus-83350,adc254e5ba385928,Kyle Daukaus,1,1-0,2019-06-25,decisionWin,UD,6,0,0,6,crosswalk,CFFC,tier3,0.9667,26,1,9,4,5,-11.6,,1480.7,0
+Michael-Lombardo-217745,,Michael Lombardo,1,0-1,2019-06-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Miguel-Baeza-231403,0c3ba783cdf08931,Miguel Baeza,1,1-0,2019-06-25,decisionWin,UD,6,0,0,5,crosswalk,Fight Time Promotions,tier4,,26,1,7,3,4,-14.7,1528.4,1523.8,0
+Miles-Johns-172691,e011a97f57726d2d,Miles Johns,1,1-0,2019-06-25,decisionWin,UD,8,0,0,4,crosswalk,LFA,tier3,1.0206,25,1,12,7,5,-9.7,1489.9,1505.9,0
+Richie-Santiago-126329,,Richie Santiago,1,0-1,2019-06-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Victor-Reyna-72745,,Victor Reyna,2,0-2,2019-06-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Antonio-Trocoli-123109,64794ca3e674f4b1,Antonio Trocoli,1,0-0,2019-07-09,noWin,,11,3,0,7,crosswalk,LFC,tier4,0.9819,28,1,4,0,4,-71.6,,,0
+Chris-Ocon-194123,,Chris Ocon,1,0-1,2019-07-09,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Hunter-Azure-251727,9494d3823806d705,Hunter Azure,1,1-0,2019-07-09,decisionWin,UD,6,0,0,4,crosswalk,LFA,tier3,1.0206,27,1,4,2,2,-2.3,1489.1,1486.4,0
+Jacob-Rosales-154819,,Jacob Rosales,2,0-2,2019-07-09,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+James-Wallace-55291,,James Wallace,1,0-1,2019-07-09,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Joe-Solecki-227993,97b41815ee1fcfd0,Joe Solecki,1,1-0,2019-07-09,finishWin,SUB R1,7,2,0,6,crosswalk,CFFC,tier3,0.9667,25,1,9,5,4,-4.1,1511.4,1536.4,0
+Jonathan-Pearce-183541,c62d07b2a13212ac,Jonathan Pearce,1,1-0,2019-07-09,finishWin,TKO R3,8,3,0,7,crosswalk,Bellator,tier2_5,0.9929,27,1,9,5,4,0.4,1477.2,1499.2,0
+Kenneth-Bergh-189821,,Kenneth Bergh,1,0-0,2019-07-09,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Maki-Pitolo-51049,8a0cb9e5ef6f57d0,Maki Pitolo,1,1-0,2019-07-09,finishWin,TKO R1,11,4,0,8,crosswalk,VFC,tier4,0.9864,28,1,6,1,5,-16.5,1495.5,1437.7,0
+Aaron-Jeffery-127631,,Aaron Jeffery,2,0-2,2019-07-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Armando-Villarreal-141205,,Armando Villarreal,1,0-1,2019-07-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Brendan-Allen-201703,58b6dee880eed3f4,Brendan Allen,1,1-0,2019-07-16,finishWin,SUB R1,11,3,0,10,crosswalk,LFA,tier3,1.0206,23,1,19,15,4,103.9,1548.3,1538.3,1
+Ode-Osbourne-137969,cb862700e7767b56,Ode Osbourne,1,1-0,2019-07-16,finishWin,SUB R1,7,2,0,6,crosswalk,Pure FC,tier4,,27,1,13,5,8,-59.5,1477.9,1493.5,0
+Ricardo-Prasel-157509,,Ricardo Prasel,1,0-1,2019-07-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Stephen-Regman-66763,,Stephen Regman,1,0-1,2019-07-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Alexander-Poppeck-99051,,Alexander Poppeck,1,0-1,2019-07-23,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Billy-Quarantillo-68076,15a5d250b43e99c3,Billy Quarantillo,1,1-0,2019-07-23,finishWin,TKO R3,11,2,0,8,crosswalk,King of the Cage,tier3,1.0041,30,1,12,6,6,-20.3,1529,1534.5,0
+Jamahal-Hill-280417,fa92f349c2df714c,Jamahal Hill,1,1-0,2019-07-23,finishWin,TKO R2,5,0,0,2,crosswalk,KOP,tier4,,28,1,10,6,4,10.4,1509.5,1504.2,1
+Kamuela-Kirk-162187,7a7707b49ee6909b,Kamuela Kirk,1,0-1,2019-07-23,noWin,,9,2,0,9,crosswalk,LFA,tier3,1.0206,25,1,3,1,2,-11,,1514.8,0
+Ramazan-Kuramagomedov-241397,,Ramazan Kuramagomedov,1,1-0,2019-07-23,decisionWin,SD,,,,,none,,,,,0,0,0,0,,,,0
+Sean-Woodson-235563,a238e2e4c9670e90,Sean Woodson,1,1-0,2019-07-23,finishWin,KO R2,5,0,0,2,crosswalk,Shamrock FC,tier4,,27,1,10,7,2,20.2,1483.4,1495.7,0
+Terrance-McKinney-232591,d75d3c014f3a0d70,Terrance McKinney,1,0-1,2019-07-23,noWin,,7,1,0,7,crosswalk,ExciteFight,tier4,,24,1,14,8,6,-17.3,,1513.6,0
+Aalon-Cruz-103485,2212a11deddf09e9,Aalon Cruz,1,1-0,2019-07-30,finishWin,KO R3,7,2,0,3,crosswalk,Conflict MMA,tier4,,29,1,2,0,2,-6.2,1478.4,1461.5,0
+Aleksa-Camur-228789,7a868cb67cd37a18,Aleksa Camur,1,1-0,2019-07-30,finishWin,TKO R2,4,0,0,4,crosswalk,Honor FC,tier4,,23,1,4,1,3,-15.5,1511.5,1476.4,0
+Daniel-Rodriguez-145945,27dc95be9b98006d,Daniel Rodriguez,1,1-0,2019-07-30,decisionWin,UD,8,1,0,8,crosswalk,Combate Americas,tier4,0.9612,32,1,15,10,5,20.5,1527,1544.7,1
+Fabio-Cherant-230293,13c5e090b6868e27,Fabio Cherant,1,0-1,2019-07-30,noWin,,4,0,0,4,crosswalk,CES MMA,tier4,0.9367,24,1,3,0,3,-14.3,,1477.4,0
+Mariya-Agapova-206861,52626334298457ab,Mariya Agapova,1,0-1,2019-07-30,noWin,,6,0,0,4,crosswalk,FNG,tier4,,22,1,6,2,4,-29.6,1511,1485.9,0
+Michal-Martinek-242333,,Michal Martinek,1,0-1,2019-07-30,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Rico-Farrington-135825,,Rico Farrington,1,0-1,2019-07-30,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Rodrigo-Nascimento-97975,5de030e625a4928c,Rodrigo Nascimento,1,1-0,2019-07-30,finishWin,SUB R1,6,0,0,6,crosswalk,BH Fight,tier4,,26,1,7,4,3,-1.6,1512.2,1490.8,0
+Steven-Nguyen-121057,6ff3abc1052a0921,Steven Nguyen,3,2-1,2019-07-30,finishWin,TKO R2,6,0,0,5,crosswalk,EFC,tier4,0.9607,26,1,2,1,1,-5.3,,,0
+Tracy-Cortez-160955,f23f5caaf463e283,Tracy Cortez,1,1-0,2019-07-30,decisionWin,UD,5,1,0,2,crosswalk,Invicta FC,tier2_5,1.0011,25,1,9,6,3,13.6,1510.4,1528.5,1
+Darrick-Minner-92115,32b54efa17dd09e6,Darrick Minner,1,0-1,2019-08-06,noWin,,22,9,0,20,crosswalk,LFA,tier3,1.0206,29,1,6,2,4,-13.9,1480,1488,0
+Dwight-Joseph-106151,,Dwight Joseph,1,1-0,2019-08-06,decisionWin,UD,,,,,none,,,,,0,0,0,0,,,,0
+Harvey-Park-72673,,Harvey Park,1,0-1,2019-08-06,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Herbert-Burns-152211,aae070309e2d5bd6,Herbert Burns,1,1-0,2019-08-06,finishWin,SUB R1,8,2,0,6,crosswalk,ONE Championship,tier2_5,0.9467,31,1,6,2,4,-35.8,1529.1,1505.5,0
+Jay-Perrin-99689,bf51dc1830ee0331,Jay Perrin,1,0-1,2019-08-06,noWin,,8,3,0,5,crosswalk,Cage Titans FC,tier4,,26,1,3,0,3,-19.1,,,0
+Omar-Morales-120645,0aa3f2867f59903c,Omar Morales,1,1-0,2019-08-06,finishWin,TKO R2,7,0,0,6,crosswalk,Bellator,tier2_5,0.9929,33,1,7,3,4,-13.1,1521.5,1512.4,0
+Taylor-Johnson-232443,,Taylor Johnson,1,0-1,2019-08-06,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Brok-Weaver-53819,4ab925019d108a41,Brok Weaver,1,1-0,2019-08-13,decisionWin,UD,13,4,0,5,crosswalk,Square Ring Promotions,tier4,0.9744,27,1,3,1,2,-4.2,1489.1,1468.1,0
+Devin-Smyth-224885,,Devin Smyth,1,0-1,2019-08-13,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Herdem-Alacabek-180227,,Herdem Alacabek,1,0-1,2019-08-13,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ray-Rodriguez-78078,389b2776826e2183,Ray Rodriguez,1,0-1,2019-08-13,noWin,,15,5,0,10,crosswalk,LFA,tier3,1.0206,31,1,2,0,2,-6,,1462.8,0
+Sarah-Alpar-82261,44852969f473e28a,Sarah Alpar,1,1-0,2019-08-13,finishWin,SUB R2,8,4,0,3,crosswalk,LFA,tier3,1.0206,28,1,2,0,2,-7.3,,1477.3,0
+Shanna-Young-126277,ec2c1c878d169469,Shanna Young,1,0-1,2019-08-13,noWin,,6,1,0,4,crosswalk,King of the Cage,tier3,1.0041,28,1,4,1,3,-12,1482.8,1482.8,0
+Tony-Gravely-210575,e3c4bca51aa2bdd4,Tony Gravely,1,1-0,2019-08-13,finishWin,TKO R3,18,5,0,10,crosswalk,CES MMA,tier4,0.9367,27,1,8,4,4,-5.4,1478.5,1502.7,0
+William-Knight-282383,08b1e6f4c8b49a3c,William Knight,2,2-0,2019-08-13,finishWin,TKO R3,4,0,0,4,crosswalk,PFC,tier4,1.0266,31,1,7,3,4,-11.2,,1496.4,0
+Desmond-Torres-251669,,Desmond Torres,1,0-1,2019-08-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jamal-Pogues-152993,085a230fc9e8aafb,Jamal Pogues,2,2-0,2019-08-20,decisionWin,UD,6,2,0,5,crosswalk,CCW,tier4,,23,1,4,2,2,-10.3,,,0
+Leon-Shahbazyan-158231,,Leon Shahbazyan,1,0-1,2019-08-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mallory-Martin-200771,e8537d08d84aaea2,Mallory Martin,1,1-0,2019-08-20,decisionWin,UD,4,2,0,3,crosswalk,Invicta FC,tier2_5,1.0011,25,1,4,1,3,-10.6,1477.3,1467.1,0
+Marcos-Brigagao-258879,,Marcos Brigagao,1,0-1,2019-08-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Micol-DiSegni-171627,,Micol DiSegni,1,0-1,2019-08-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Philip-Rowe-121067,9a1548c71a7398bf,Phil Rowe,1,1-0,2019-08-20,finishWin,TKO R3,6,2,0,6,crosswalk,Square Ring Promotions,tier4,0.9744,29,1,9,4,5,-12.7,,1497.2,0
+Steve-Garcia-50916,a49129adb0dad63b,Steve Garcia,1,1-0,2019-08-20,finishWin,TKO R1,9,3,0,6,crosswalk,Fresquez Productions,tier4,,27,1,11,8,3,42.1,1482.4,1482.4,1
+Ben-Sosoli-125617,74ddb1f1670a7b9e,Ben Sosoli,1,0-0,2019-08-27,noWin,,7,2,0,6,crosswalk,HFS,tier4,1.0319,29,1,1,0,1,-2.3,1477.5,1477.5,0
+Dusko-Todorovic-207339,cf44ab1ffc00f165,Dusko Todorovic,1,1-0,2019-08-27,decisionWin,UD,8,0,0,8,crosswalk,SBC,tier4,,25,1,11,4,7,-63,,1471.5,0
+Dustin-Joynson-98405,,Dustin Joynson,1,0-0,2019-08-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Impa-Kasanganay-310489,76de23d141fb4ab4,Impa Kasanganay,2,2-0,2019-08-27,decisionWin,UD,5,0,0,2,crosswalk,Square Ring Promotions,tier4,0.9744,25,1,4,2,2,-3.1,,1505.7,0
+Kailan-Hill-232313,,Kailan Hill,1,0-1,2019-08-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Peter-Barrett-79095,4b54780dc1d97640,Peter Barrett,1,1-0,2019-08-27,decisionWin,UD,10,3,0,9,crosswalk,Cage Titans FC,tier4,,33,1,2,0,2,-5.5,1483.2,1462,0
+Sang-Hoon-Yoo-246531,,Sang Hoon Yoo,1,0-1,2019-08-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Teddy-Ash-101379,,Teddy Ash,1,0-1,2019-08-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Dustin-Jacoby-73825,91199de65226ddd6,Dustin Jacoby,1,1-0,2020-08-04,decisionWin,UD,11,3,0,9,crosswalk,Bellator,tier2_5,0.9929,32,1,16,10,5,31.9,1520.4,1560.4,0
+Jerome-Rivera-139017,53e952ec79277dbd,Jerome Rivera,1,1-0,2020-08-04,decisionWin,UD,9,2,0,7,crosswalk,LFA,tier3,1.0206,25,1,4,0,4,-13.8,1425.5,1425.5,0
+Jordan-Leavitt-259871,12c6b847f7f28593,Jordan Leavitt,1,1-0,2020-08-04,finishWin,SUB R1,6,0,0,4,crosswalk,LFA,tier3,1.0206,25,1,10,6,4,-2.9,1493.7,1496.8,0
+Mikey-Gonzalez-205501,,Mikey Gonzalez,1,0-1,2020-08-04,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ronaldo-Rodriguez-266121,59fcc641cfc67b7d,Ronaldo Rodriguez,1,0-1,2020-08-04,noWin,,10,1,0,8,crosswalk,JFL,tier4,,21,1,3,2,1,-1.3,,,0
+Ty-Flores-86350,,Ty Flores,1,0-1,2020-08-04,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Uros-Medic-272505,84ded26cb00e17cf,Uros Medic,1,1-0,2020-08-04,finishWin,TKO R1,5,0,0,5,crosswalk,AFC,tier4,0.9964,27,1,11,8,3,47.2,1512.5,1504.9,1
+Adrian-Yanez-86354,f11750d4f48eb942,Adrian Yanez,1,1-0,2020-08-11,finishWin,TKO R1,10,3,0,7,crosswalk,LFA,tier3,1.0206,26,1,11,7,3,33,1543.5,1565.5,0
+Anthony-Adams-144983,,Anthony Adams,1,0-1,2020-08-11,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Brady-Huang-140911,,Brady Huang,1,0-1,2020-08-11,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Cory-McKenna-178347,d2f5ea74eafaebd7,Cory McKenna,1,1-0,2020-08-11,decisionWin,UD,4,1,0,3,crosswalk,Cage Warriors,tier3,1.0295,21,1,6,3,3,-11.3,1514.6,1507,0
+Daniel-Swain-73000,,Daniel Swain,1,0-1,2020-08-11,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Dustin-Stoltzfus-113779,be354104b1b893f1,Dustin Stoltzfus,1,1-0,2020-08-11,finishWin,TKO R1,12,1,0,6,crosswalk,GMC,tier4,,28,1,10,3,7,-62.4,1461.3,1455.6,0
+Joe-Pyfer-239253,154db60abecdd988,Joe Pyfer,2,1-1,2020-08-11,finishWin,TKO R2,7,1,0,6,crosswalk,ROC,tier4,1.0281,23,1,8,7,1,71.3,,,1
+TJ-Laramie-188479,b2fc49bb4703d084,TJ Laramie,1,1-0,2020-08-11,finishWin,TKO R1,11,3,0,8,crosswalk,PFC,tier4,1.0266,22,1,2,0,2,-8.8,1477.2,1465.8,0
+Vanessa-Demopoulos-118775,f8588e91351f8a39,Vanessa Demopoulos,1,0-1,2020-08-11,noWin,,5,1,0,3,crosswalk,LFA,tier3,1.0206,31,1,10,5,5,-27.1,,1506.1,0
+Chad-Johnson-213687,,Chad Johnson,1,0-1,2020-08-18,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Cheyanne-Vlismas-152049,02daaff72f859e6e,Cheyanne Vlismas,1,1-0,2020-08-18,decisionWin,UD,4,1,0,1,crosswalk,LFA,tier3,1.0206,25,1,4,2,2,-4.7,1494.9,1504.5,0
+Hilarie-Rose-205129,,Hilarie Rose,1,0-1,2020-08-18,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Louis-Cosce-282403,0f8a323857fc0cf8,Louis Cosce,1,1-0,2020-08-18,finishWin,TKO R1,6,0,0,6,crosswalk,Bear River FC,tier4,,24,1,2,0,2,-10.6,1478.4,1478.4,0
+Alejandro-Flores-155325,,Alejandro Flores,1,0-1,2020-08-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Anthony-Romero-221129,,Anthony Romero,1,1-0,2020-08-25,decisionWin,UD,,,,,none,,,,,0,0,0,0,,,,0
+Jacob-Silva-80677,,Jacob Silva,2,0-2,2020-08-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jeff-Molina-218069,e0c4f89412167696,Jeff Molina,1,1-0,2020-08-25,decisionWin,UD,7,2,0,7,crosswalk,Cageside Promotions / KCFA,tier4,,23,1,3,3,0,9.3,1512.6,1533.8,0
+Jhonoven-Pati-124585,,Jhonoven Pati,1,0-1,2020-08-25,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mike-Breeden-243687,dcea68f4ed60b8fd,Mike Breeden,1,0-1,2020-08-25,noWin,,8,2,0,7,crosswalk,LFA,tier3,1.0206,31,1,4,1,3,-17.4,,1461.6,0
+Rafael-Alves-96651,85676ed9a7898a46,Rafael Alves,1,1-0,2020-08-25,finishWin,SUB R2,18,9,0,13,crosswalk,Titan FC,tier3,0.9943,29,1,4,1,3,-14.3,1483.4,1477.5,0
+Chase-Gibson-180669,,Chase Gibson,1,0-1,2020-09-01,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Cody-Brundage-281913,,Cody Brundage,1,0-1,2020-09-01,noWin,,5,0,0,4,cache,,,,26,0,0,0,0,,,,0
+Dennis-Buzukja-286225,,Dennis Buzukja,1,0-1,2020-09-01,noWin,,4,1,0,2,cache,,,,22,0,0,0,0,,,,0
+Jimmy-Flick-60460,78ebf7d241e77844,Jimmy Flick,1,1-0,2020-09-01,finishWin,SUB R3,14,5,0,12,crosswalk,LFA,tier3,1.0206,29,1,6,2,4,-43.2,1515.2,1515.2,0
+Jose-Johnson-238733,7aeb78dffc4f5978,Jose Johnson,2,1-1,2020-09-01,decisionWin,UD,11,5,0,8,crosswalk,WXC,tier4,,25,1,4,1,3,-36.4,,,0
+Melsik-Baghdasaryan-164681,7a88ea78c1ad646f,Melsik Baghdasaryan,1,1-0,2020-09-01,decisionWin,UD,4,1,0,4,crosswalk,LXF,tier4,,28,1,6,3,3,-25.8,1515.1,1527.2,0
+Nate-Smith-164585,,Nate Smith,1,0-1,2020-09-01,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ronnie-Lawrence-102885,a9976b0f038ad666,Ronnie Lawrence,1,1-0,2020-09-01,decisionWin,UD,5,1,0,3,crosswalk,Bellator,tier2_5,0.9929,28,1,3,2,1,1.9,1512.7,1506.6,0
+Tucker-Lutz-122559,dc2d95b1cce62691,Tucker Lutz,2,2-0,2020-09-01,decisionWin,UD,9,1,0,8,crosswalk,SF,tier4,0.9907,26,1,4,1,3,-19.6,1509.7,1492.5,0
+Al-Matavao-210483,,Al Matavao,1,0-1,2020-09-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Aliaskhab-Khizriev-209647,1581a12ff499bd32,Aliaskhab Khizriev,1,1-0,2020-09-08,finishWin,SUB R1,10,0,0,7,crosswalk,FNG,tier4,,30,1,1,1,0,3.8,,1515.1,0
+Drako-Rodriguez-203421,7e82a2b9326866dc,Drako Rodriguez,1,1-0,2020-09-08,finishWin,SUB R1,6,1,0,5,crosswalk,King of the Cage,tier3,1.0041,24,1,2,0,2,-8,1458.5,1458.5,0
+Henrique-Shiguemoto-74268,,Henrique Shiguemoto,1,0-1,2020-09-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Khadzhimurat-Bestaev-164821,,Khadzhimurat Bestaev,1,0-1,2020-09-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Leomana-Martinez-130553,16a29d115b3e37f4,Mana Martinez,1,0-1,2020-09-08,noWin,,6,1,0,6,crosswalk,Fury FC,tier4,0.9876,24,1,4,2,2,-6.4,1508.3,1490.4,0
+Tafon-Nchukwi-282049,360f2cc2f016e6ac,Tafon Nchukwi,1,1-0,2020-09-08,finishWin,KO R2,3,0,0,3,crosswalk,CFFC,tier3,0.9667,25,1,6,2,4,-21.6,1494.7,1461.3,0
+Collin-Anglin-280415,8a820786ab3bc2ea,Collin Anglin,1,1-0,2020-09-15,decisionWin,UD,7,1,0,5,crosswalk,WXC,tier4,,27,1,2,0,2,-9.1,1478.4,1457.9,0
+Gregory-Rodrigues-176275,2127684a702c4006,Gregory Rodrigues,1,0-1,2020-09-15,noWin,,7,2,0,6,crosswalk,LFA,tier3,1.0206,28,1,13,10,3,70.3,1511.2,1527.3,1
+Muhammadjon-Naimov-228381,56adb35526c59c88,Muhammad Naimov,1,0-1,2020-09-15,noWin,,5,0,0,4,crosswalk,Titan FC,tier3,0.9943,26,1,7,5,2,16.7,,,0
+Edson-Gomez-158229,,Edson Gomez,1,0-1,2020-11-04,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Harry-Hunsucker-239513,c89b0a7cd08a3b08,Harry Hunsucker,1,0-1,2020-11-04,noWin,,6,2,0,6,crosswalk,HRMMA,tier4,,31,1,3,0,3,-17.2,1477.8,1442.4,0
+Ignacio-Bahamondes-221417,1979d2ef989e7265,Ignacio Bahamondes,1,1-0,2020-11-04,finishWin,KO R2,10,3,0,7,crosswalk,LUX,tier4,,23,1,10,6,4,16.5,1501.7,1516.2,0
+Jared-Vanderaa-152987,9ee1b4b7ce888501,Jared Vanderaa,1,1-0,2020-11-04,finishWin,TKO R1,10,4,0,9,crosswalk,EFC,tier4,0.9607,28,1,7,1,6,-30.1,1469.5,1407.6,0
+Luis-Saldana-77414,9d56d022b89c876b,Luis Saldana,1,1-0,2020-11-04,finishWin,TKO R3,13,6,0,13,crosswalk,LFA,tier3,1.0206,29,1,4,2,1,0.5,1490.6,1501.8,0
+Vince-Murdock-119961,,Vince Murdock,1,0-1,2020-11-04,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Luana-Pinheiro-237525,0ce8ac03e1fc8da4,Luana Pinheiro,1,1-0,2020-11-10,finishWin,KO R1,7,1,0,6,crosswalk,Brave CF,tier3,1.0338,26,1,7,3,4,-38.6,1508.5,1517.4,0
+Natan-Levy-227411,c1913c3d6026e4d0,Natan Levy,1,1-0,2020-11-10,finishWin,SUB R3,5,0,0,2,crosswalk,LFA,tier3,1.0206,29,1,4,2,2,-11.5,,1490.9,0
+Nikolas-Motta-103887,e6bdebff94eddc25,Nikolas Motta,1,1-0,2020-11-10,decisionWin,UD,11,3,0,8,crosswalk,CFFC,tier3,0.9667,27,1,6,3,3,-13.3,,1492.3,0
+Shaheen-Santana-227431,,Shaheen Santana,1,0-1,2020-11-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Stephanie-Frausto-61109,,Stephanie Frausto,1,0-1,2020-11-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Chelsea-Hackett-319473,,Chelsea Hackett,1,0-1,2020-11-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Gloria-de-Paula-230933,2038fc2e7818a453,Gloria de Paula,1,1-0,2020-11-17,decisionWin,UD,4,2,0,3,crosswalk,SFT,tier4,,25,1,4,1,3,-12.5,1458.5,1455,0
+Nick-Maximov-302823,b0fc9b463c44f7ea,Nick Maximov,1,1-0,2020-11-17,decisionWin,UD,5,0,0,5,crosswalk,King of the Cage,tier3,1.0041,22,1,4,2,2,-5,1512.6,1484.4,0
+Oscar-Cota-105241,,Oscar Cota,1,0-1,2020-11-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Pauline-Macias-225033,,Pauline Macias,1,0-1,2020-11-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Sherrard-Blackledge-198563,,Sherrard Blackledge,1,0-1,2020-11-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Victoria-Leonardo-212725,d77d7e2d8258cc82,Victoria Leonardo,1,1-0,2020-11-17,finishWin,TKO R2,7,2,0,4,crosswalk,Invicta FC,tier2_5,1.0011,30,1,5,1,4,-41.9,1458.5,1472.8,0
+AJ-Fletcher-284309,1ebe45b826ab0427,AJ Fletcher,1,1-0,2021-08-31,finishWin,KO R1,8,0,0,7,crosswalk,AF,tier4,,24,1,4,1,3,-17.4,1465.1,1482.1,0
+Diego-Lopes-112531,bf14e890b46e0305,Diego Lopes,1,0-1,2021-08-31,noWin,,19,3,0,17,crosswalk,LUX,tier4,,26,1,10,7,3,80.3,,1503.2,1
+Joanderson-Brito-181115,5817d60924c7a7e0,Joanderson Brito,1,1-0,2021-08-31,decisionWin,UD,11,2,1,10,crosswalk,FFC,tier4,0.9802,26,1,10,7,3,55.9,1496.2,1525.7,0
+Leonardo-Damiani-239897,,Leonardo Damiani,1,0-1,2021-08-31,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Victor-Altamirano-212269,edf83b64bd3557d4,Victor Altamirano,1,1-0,2021-08-31,decisionWin,SD,9,1,0,5,crosswalk,LFA,tier3,1.0206,30,1,6,2,4,-29,1495.4,1488.1,0
+Bruno-Mesquita-57480,,Bruno Mesquita,1,0-1,2021-09-07,noWin,,12,3,1,8,cache,,,,30,0,0,0,0,,,,0
+CJ-Vergara-72117,daa8caf6878b4796,CJ Vergara,1,1-0,2021-09-07,finishWin,KO R1,8,2,1,5,crosswalk,Fury FC,tier4,0.9876,30,1,8,3,5,-42.9,1492.7,1494.6,0
+Chad-Anheliger-63370,07437ba38048dad7,Chad Anheliger,1,1-0,2021-09-07,decisionWin,SD,10,5,0,9,crosswalk,Rise FC,tier4,,34,1,5,2,3,-25,1512.2,1494.1,0
+Chidi-Njokuani-25761,b64bdbe0d3e4c9aa,Chidi Njokuani,1,1-0,2021-09-07,finishWin,TKO R3,19,7,0,12,crosswalk,Bellator,tier2_5,0.9929,32,1,10,5,5,-25.3,1525.3,1466.3,0
+Jose-Alday-146733,,Jose Alday,1,0-1,2021-09-07,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Josh-Quinlan-290925,c8deb768d421f009,Josh Quinlan,1,0-0,2021-09-07,noWin,,5,0,0,5,crosswalk,LFA,tier3,1.0206,28,1,4,1,3,-29.2,1511.1,1492.2,0
+Logan-Urban-174025,,Logan Urban,1,0-0,2021-09-07,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mario-Sousa-213265,,Mario Sousa,2,0-2,2021-09-07,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Muin-Gafurov-182325,a991252ad3712030,Muin Gafurov,1,0-1,2021-09-07,noWin,,16,3,0,15,crosswalk,ONE Championship,tier2_5,0.9467,25,1,5,2,3,-21.8,,1481.5,0
+Saimon-Oliveira-156991,d892963e78a574fb,Saimon Oliveira,1,1-0,2021-09-07,decisionWin,SD,17,3,0,16,crosswalk,Sicario MMA,tier4,,30,1,4,0,4,-61.1,1481.1,1461.9,0
+Albert-Duraev-86841,8f422d41a940e93c,Albert Duraev,1,1-0,2021-09-14,finishWin,SUB R1,13,3,0,11,crosswalk,ACB,tier4,,32,1,4,2,2,-8.6,1488.6,1480.6,0
+Ange-Loosa-95799,16a0eba44cd46eb9,Ange Loosa,1,0-1,2021-09-14,noWin,,7,1,0,6,crosswalk,Titan FC,tier3,0.9943,28,1,5,2,3,-30.9,1492.9,1504,0
+Caio-Bittencourt-78480,,Caio Bittencourt,1,0-1,2021-09-14,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Dylan-Potter-209025,,Dylan Potter,1,0-0,2021-09-14,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jack-Della-Maddalena-208155,,Jack Della Maddalena,1,1-0,2021-09-14,decisionWin,UD,9,2,0,9,cache,,,,25,0,0,0,0,,,,0
+Jailton-Almeida-114657,c17b1fa1d28c1eea,Jailton Almeida,1,1-0,2021-09-14,finishWin,SUB R2,13,2,0,13,crosswalk,Thunder Fight,tier4,,30,1,11,8,3,58.4,1543.4,1571.5,0
+Lukasz-Brzeski-132249,a0989877f644f2ab,Lukasz Brzeski,1,0-0,2021-09-14,noWin,,8,1,1,7,crosswalk,Babilon MMA,tier4,,29,1,7,1,6,-73.4,1484.3,1447.8,0
+Nasrudin-Nasrudinov-156463,,Nasrudin Nasrudinov,1,0-1,2021-09-14,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+AJ-Dobson-119943,c466cc5888c59b0e,AJ Dobson,1,1-0,2021-09-21,finishWin,SUB R1,5,0,0,4,crosswalk,King of the Cage,tier3,1.0041,29,1,4,1,3,-25.7,1481.6,1477,0
+Hashem-Arkhagha-74722,,Hashem Arkhagha,1,0-1,2021-09-21,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Kleydson-Rodrigues-229541,72b8ddd1d482149e,Kleydson Rodrigues,1,1-0,2021-09-21,decisionWin,UD,6,1,0,5,crosswalk,Jungle Fight,tier3,1.0273,25,1,4,1,3,-23.5,1482.9,1478.7,0
+Michael-Morales-268041,5561fca8c897f0bf,Michael Morales,1,1-0,2021-09-21,decisionWin,UD,11,0,0,10,crosswalk,EMMA,tier4,,22,1,7,7,0,97.6,1529.5,1539,1
+Nikolay-Veretennikov-186789,,Nikolay Veretennikov,1,0-1,2021-09-21,noWin,,9,3,0,7,cache,,,,31,0,0,0,0,,,,0
+Santo-Curatolo-266023,,Santo Curatolo,1,0-1,2021-09-21,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Theo-Rlayang-256035,,Theo Rlayang,1,0-1,2021-09-21,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Victor-Martinez-86938,c54bce0af7e7b01b,Victor Martinez,1,1-0,2021-09-21,decisionWin,UD,12,4,0,8,crosswalk,Fury FC,tier4,0.9876,30,1,3,0,3,-48.6,,1478.2,0
+Caio-Borralho-188043,b483569c9c54cfc6,Caio Borralho,2,2-0,2021-09-28,finishWin,TKO R1,8,1,0,6,crosswalk,Future MMA,tier4,,28,1,9,8,1,74.9,1526.6,1554.9,1
+Daniel-Zellhuber-238903,17dc8cabd91da5ae,Daniel Zellhuber,1,1-0,2021-09-28,decisionWin,UD,11,0,0,9,crosswalk,LUX,tier4,,22,1,7,3,4,-29,1481.2,1504.7,0
+Edivan-Mineiro-Santos-244213,,Edivan Mineiro Santos,1,0-1,2021-09-28,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ihor-Potieria-188721,602460be3bce1990,Ihor Potieria,1,1-0,2021-09-28,finishWin,TKO R1,17,2,0,13,crosswalk,WWFC,tier4,,25,1,8,2,6,-54.4,1479.7,1474.1,0
+Lucas-Almeida-191243,5adc666e571b3cb1,Lucas Almeida,1,0-1,2021-09-28,noWin,,12,0,0,12,crosswalk,MF,tier4,,30,1,6,2,4,-45,1514.5,1492.5,0
+Lukasz-Sudolski-124729,,Lukasz Sudolski,1,0-1,2021-09-28,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Rizvan-Kuniev-86319,16862aff18bed355,Rizvan Kuniev,2,2-0,2021-09-28,finishWin,TKO R3,9,2,1,5,crosswalk,EFC,tier4,0.9607,29,1,3,2,1,26.7,,,1
+Carlos-Hernandez-171603,d7974c32755e4b64,Carlos Hernandez,1,1-0,2021-10-05,decisionWin,SD,6,1,0,4,crosswalk,HFC,tier4,,27,1,7,3,4,-38.7,1511.3,1498.8,0
+Daniel-Barez-133743,,Daniel Barez,1,0-1,2021-10-05,noWin,,12,4,0,9,cache,,,,32,0,0,0,0,,,,0
+Fernie-Garcia-112047,8dfca53c3e78795e,Fernie Garcia,1,1-0,2021-10-05,finishWin,TKO R1,9,1,0,3,crosswalk,LFA,tier3,1.0206,29,1,4,0,4,-36.3,1480.4,1449.2,0
+Genaro-Valdez-227047,6f7956e788616622,Genaro Valdez,1,1-0,2021-10-05,finishWin,TKO R2,9,0,0,9,crosswalk,LUX,tier4,,29,1,3,0,3,-24.8,1476.8,1443.8,0
+Joseph-Holmes-285543,078a0c62a7f98405,Joseph Holmes,1,1-0,2021-10-05,finishWin,SUB R2,5,1,0,5,crosswalk,LFA,tier3,1.0206,26,1,4,1,3,-20,1493.1,1450.8,0
+Joshua-Weems-259641,,Joshua Weems,1,0-1,2021-10-05,noWin,,9,1,0,7,cache,,,,27,0,0,0,0,,,,0
+Patrik-White-221861,,Patrik White,1,0-1,2021-10-05,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Shonte-Barnes-261479,,Shonte Barnes,1,0-1,2021-10-05,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Chris-Duncan-74346,5d49240c45a2a624,Chris Duncan,2,1-1,2021-10-12,finishWin,KO R1,7,0,0,7,crosswalk,Bellator,tier2_5,0.9929,28,1,8,6,2,33,,1522.9,0
+Christian-Rodriguez-303043,a8cd76e59b7c49ab,Christian Rodriguez,1,1-0,2021-10-12,decisionWin,UD,5,0,0,5,crosswalk,LFA,tier3,1.0206,23,1,10,6,4,18.4,1482.8,1514.9,0
+Jake-Hadley-200597,b6e46aa39a0633e8,Jake Hadley,1,1-0,2021-10-12,finishWin,SUB R2,7,0,0,5,crosswalk,Cage Warriors,tier3,1.0295,25,1,7,3,4,-22.9,1481.2,1487.9,0
+Lorenzo-Hood-51117,,Lorenzo Hood,1,0-1,2021-10-12,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Martin-Buday-164475,04c3977524fb97e0,Martin Buday,1,1-0,2021-10-12,finishWin,TKO R1,8,1,0,7,crosswalk,Oktagon MMA,tier4,,29,1,8,7,1,32.3,1522.3,1540,0
+Mitch-Raposo-278793,018e6efa6f1415a9,Mitch Raposo,1,0-1,2021-10-12,noWin,,5,0,0,3,crosswalk,Cage Titans FC,tier4,,22,1,4,2,2,-4.4,,,0
+Reyes-Cortez-Jr-120303,,Reyes Cortez Jr.,2,0-2,2021-10-12,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Viacheslav-Borshchev-337895,81755efcce2cc326,Viacheslav Borshchev,1,1-0,2021-10-12,finishWin,KO R2,4,1,0,3,crosswalk,Titan FC,tier3,0.9943,29,1,10,3,6,-53.7,1475.2,1491.2,0
+Armen-Petrosyan-302783,5d5dc3bf943ec3f3,Armen Petrosyan,1,1-0,2021-10-19,finishWin,KO R1,5,1,0,5,crosswalk,Colosseum MMA,tier4,,30,1,7,3,4,-29.1,1496.5,1520.7,0
+James-Barnes-164811,,James Barnes,1,0-1,2021-10-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jesse-Murray-149445,,Jesse Murray,1,0-1,2021-10-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jonny-Parsons-65875,4eb7dddb4cd45ec1,Jonny Parsons,1,1-0,2021-10-19,decisionWin,SD,7,3,0,6,crosswalk,iFF,tier4,,30,1,1,1,0,5.3,,1511.8,0
+Kaloyan-Kolev-230917,,Kaloyan Kolev,1,0-1,2021-10-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Pedro-Falcao-150185,3ae417889e6fa052,Pedro Falcao,1,1-0,2021-10-19,finishWin,KO R3,14,3,0,9,crosswalk,Shooto,tier3,0.9997,29,1,2,0,2,-29.9,,,0
+Piera-Rodriguez-247469,904ca6578a6ca8eb,Piera Rodriguez,1,1-0,2021-10-19,decisionWin,UD,6,0,0,5,crosswalk,Panama Fight League,tier4,,28,1,7,5,2,10.3,1519.2,1496.9,0
+Solomon-Renfro-225631,,Solomon Renfro,1,0-1,2021-10-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Valesca-Machado-215597,,Valesca Machado,1,0-1,2021-10-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Cristian-Quinonez-164995,1fc339f153e788c3,Cristian Quinonez,1,1-0,2021-10-26,decisionWin,UD,16,3,0,12,crosswalk,UWC Mexico,tier4,,25,1,4,2,2,-11.4,1511.3,1489.3,0
+Gadzhi-Omargadzhiev-145315,fc5ed93b9af75353,Gadzhi Omargadzhiev,1,1-0,2021-10-26,finishWin,SUB R1,12,0,0,10,crosswalk,GTC,tier4,,28,1,2,0,2,-10.8,1466.4,1466.4,0
+Jansey-Silva-145207,,Jansey Silva,1,0-1,2021-10-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Javid-Basharat-222651,7192b50e701bd23e,Javid Basharat,1,1-0,2021-10-26,finishWin,SUB R3,10,0,0,10,crosswalk,UCMMA,tier4,1.0075,26,1,6,4,2,1,1524.8,1536.5,0
+Kolton-Englund-80680,,Kolton Englund,1,0-1,2021-10-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Manuel-Torres-297203,aef0ff28e0e41917,Manuel Torres,1,1-0,2021-10-26,finishWin,TKO R1,11,2,0,10,crosswalk,Club Hardcore Fighter,tier4,,26,1,7,5,2,29.9,1511,1523.7,1
+Oron-Kahlon-92631,,Oron Kahlon,1,0-1,2021-10-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Long-Xiao-233007,d11e3f2e5deb833f,Xiao Long,1,0-1,2021-10-26,noWin,,22,7,0,12,crosswalk,WLF,tier4,0.9923,23,1,4,1,3,-36.2,,,0
+Achilles-Estremadura-68610,,Achilles Estremadura,1,0-1,2021-11-02,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Justin-Burlinson-160189,,Justin Burlinson,1,0-1,2021-11-02,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Maheshate-Hayisaer-336819,fab54d525f0f2d9d,Maheshate,1,1-0,2021-11-02,decisionWin,UD,7,1,0,4,crosswalk,WLF,tier4,0.9923,21,1,6,2,4,-41.5,1514.9,1472,0
+Yohan-Lainesse-295377,d662f90d5ab81f35,Yohan Lainesse,1,1-0,2021-11-02,finishWin,KO R1,7,0,0,5,crosswalk,CFFC,tier3,0.9667,29,1,4,1,3,-28.4,1487.2,1467.3,0
+Acacio-dos-Santos-127365,,Acacio dos Santos,1,0-1,2022-07-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Alessandro-Costa-214613,14a2fa2dd23e71d3,Alessandro Costa,1,1-0,2022-07-26,decisionWin,SD,10,2,0,8,crosswalk,LUX,tier4,,26,1,8,5,3,-1.7,1494.8,1491.3,0
+Andres-Luna-Martinetti-247345,,Andres Luna Martinetti,1,0-1,2022-07-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Anton-Turkalj-234667,73edf033b8cfef8a,Anton Turkalj,1,1-0,2022-07-26,decisionWin,UD,7,0,0,7,crosswalk,Brave CF,tier3,1.0338,26,1,4,0,4,-43.7,1463.4,1427,0
+Osman-Diaz-156965,,Osman Diaz,1,0-1,2022-07-26,noWin,,7,1,0,7,cache,,,,31,0,0,0,0,,,,0
+Billy-Goff-282365,c9bb479dabdb48bf,Billy Ray Goff,1,1-0,2022-08-02,finishWin,TKO R1,7,2,0,5,crosswalk,CES MMA,tier4,0.9367,24,1,4,1,3,-44.9,,1493.5,0
+Charlie-Campbell-286213,5f4c5e8ccdbba00e,Charlie Campbell,1,0-1,2022-08-02,noWin,,6,1,0,4,crosswalk,CFFC,tier3,0.9667,27,1,3,2,1,1.3,,1527.3,0
+Connor-Matthews-84660,37f91d57ed109584,Connor Matthews,2,1-1,2022-08-02,decisionWin,UD,5,0,0,5,crosswalk,Cage Titans FC,tier4,,30,1,3,0,3,-55.6,,1476,0
+Francis-Marshall-282887,,Francis Marshall,1,1-0,2022-08-02,decisionWin,UD,5,0,0,4,cache,,,,23,0,0,0,0,,,,0
+Shannon-Ross-65792,a45448a6818f77fd,Shannon Ross,1,0-1,2022-08-02,noWin,,12,5,0,7,crosswalk,Eternal MMA,tier4,1.0008,33,1,3,0,3,-32.6,1455.9,1438,0
+Shimon-Smotritsky-254075,,Shimon Smotritsky,1,0-1,2022-08-02,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Vinicius-Salvador-179169,37f101d3e49473e4,Vinicius Salvador,1,1-0,2022-08-02,finishWin,TKO R2,13,4,0,13,crosswalk,PC,tier4,,26,1,3,0,3,-31.1,1463.9,1451,0
+Anvar-Boynazarov-382280,,Anvar Boynazarov,1,0-1,2022-08-09,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Bo-Nickal-392031,9a841327b5d824c6,Bo Nickal,2,2-0,2022-08-09,finishWin,SUB R1,1,0,0,1,crosswalk,iFC,tier4,,26,1,7,6,1,44.6,1525.2,1535,1
+Clayton-Carpenter-208467,,Clayton Carpenter,1,1-0,2022-08-09,decisionWin,UD,5,0,0,4,cache,,,,26,0,0,0,0,,,,0
+Edgar-Chairez-244721,60f31fb96a24723a,Edgar Chairez,1,0-1,2022-08-09,noWin,,8,3,0,8,crosswalk,Combate Americas,tier4,0.9612,26,1,6,4,2,8,1484.1,1494.8,1
+Erik-Silva-220027,acee921186a58206,Erik Silva,1,1-0,2022-08-09,finishWin,TKO R1,8,1,0,6,crosswalk,LUX,tier4,,35,1,3,0,3,-49,1476.5,1460.3,0
+Paulo-Renato-Jr-155523,,Paulo Renato Jr.,2,0-2,2022-08-09,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Zachary-Borrego-383740,,Zachary Borrego,1,0-1,2022-08-09,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ahmad-Sohail-Hassanzada-279733,,Ahmad Sohail Hassanzada,1,0-1,2022-08-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Claudia-Leite-283949,,Claudia Leite,1,0-1,2022-08-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Claudio-Ribeiro-249103,ccff59f4a6c0e287,Claudio Ribeiro,1,1-0,2022-08-16,finishWin,KO R1,9,2,0,9,crosswalk,Thunder Fight,tier4,,30,1,4,1,3,-28.9,1468.8,1450.1,0
+Hailey-Cowan-271495,ba79f6bac3682eb1,Hailey Cowan,1,1-0,2022-08-16,decisionWin,SD,6,2,0,4,crosswalk,LFA,tier3,1.0206,30,1,4,0,4,-69.8,1482,1482,0
+Ivan-Valenzuela-303315,,Ivan Valenzuela,1,0-1,2022-08-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jack-Cartwright-162593,,Jack Cartwright,1,0-1,2022-08-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Nazim-Sadykhov-264031,f0427fab32e0994a,Nazim Sadykhov,1,1-0,2022-08-16,finishWin,KO R3,6,1,0,5,crosswalk,Fury FC,tier4,0.9876,28,1,7,4,2,13.9,1526.5,1524.8,0
+Amiran-Gogoladze-250897,,Amiran Gogoladze,1,0-1,2022-08-23,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Cameron-Saaiman-317055,0eed054506a94abf,Cameron Saaiman,1,1-0,2022-08-23,finishWin,KO R3,5,0,0,4,crosswalk,EFC,tier4,0.9607,21,1,6,3,3,-15.8,1540.5,1498.9,0
+Darrius-Flowers-191363,f9e0aa1af1d6a50a,Darrius Flowers,1,1-0,2022-08-23,finishWin,TKO R1,11,5,1,8,crosswalk,LFA,tier3,1.0206,27,1,4,1,3,-32.2,1479.7,1441.8,0
+Denise-Gomes-382138,092a12fbdcf12ad3,Denise Gomes,1,1-0,2022-08-23,decisionWin,UD,5,1,0,4,crosswalk,SFT,tier4,,22,1,8,6,2,31.1,1516.7,1508.3,1
+Eduardo-Neves-363709,,Eduardo Neves,2,0-2,2022-08-23,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Erisson-Ferreira-226431,,Erisson Ferreira,1,0-1,2022-08-23,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jesus-Santos-Aguilar-203965,31ff758863c6ad36,Jesus Aguilar,1,1-0,2022-08-23,finishWin,SUB R3,7,1,0,5,crosswalk,Combate Global,tier4,,26,1,7,4,3,-8.6,1492.6,1516.4,0
+Josh-Wang-Kim-188773,,Josh Wang Kim,1,0-1,2022-08-23,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mick-Parkin-224411,a0cd4255eec2a5b8,Mick Parkin,1,1-0,2022-08-23,finishWin,SUB R1,5,0,0,5,crosswalk,RAC,tier4,,26,1,5,4,1,27,1513.9,1551.7,0
+Rayanne-dos-Santos-230789,cfd0252570ae2229,Rayanne dos Santos,1,0-1,2022-08-23,noWin,,11,5,0,9,crosswalk,BC,tier4,,27,1,3,0,3,-43,,1468.5,0
+Alex-Morgan-134879,,Alex Morgan,1,0-1,2022-08-30,noWin,,11,4,0,6,cache,,,,31,0,0,0,0,,,,0
+Blake-Bilder-179949,a6b28b78bf4b32a5,Blake Bilder,1,1-0,2022-08-30,finishWin,SUB R1,6,0,1,4,crosswalk,CFFC,tier3,0.9667,32,1,3,1,2,-15.6,1488.6,1472.1,0
+Jose-Henrique-Souza-362437,,Jose Henrique Souza,1,0-1,2022-08-30,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Maria-Silva-257311,,Maria Silva,1,0-1,2022-08-30,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Victoria-Dudakova-333829,9f310e095342e68c,Viktoriia Dudakova,1,1-0,2022-08-30,decisionWin,UD,5,0,0,5,crosswalk,OFC,tier4,,23,1,4,2,2,-19.6,1510.4,1499.2,0
+Yusaku-Kinoshita-382723,8c40f8d46a6995b9,Yusaku Kinoshita,1,1-0,2022-08-30,finishWin,TKO R3,5,1,0,5,crosswalk,Pancrase,tier3,0.9909,22,1,2,0,2,-19.8,1457.3,1457.3,0
+Gabriel-Bonfim-185083,03b527306e0b57c8,Gabriel Bonfim,1,1-0,2022-09-06,finishWin,SUB R1,12,0,0,12,crosswalk,LFA,tier3,1.0206,25,1,8,7,1,78.6,1530.3,1521.3,1
+Ismael-Bonfim-84528,20fbdf9a7df6c950,Ismael Bonfim,1,1-0,2022-09-06,decisionWin,UD,17,3,0,12,crosswalk,LFA,tier3,1.0206,26,1,6,2,4,-43.7,1495.8,1510.9,0
+Jimmy-Lawson-322177,,Jimmy Lawson,1,0-1,2022-09-06,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Karl-Williams-333575,3a626ef8b2524507,Karl Williams,1,1-0,2022-09-06,decisionWin,UD,6,1,0,3,crosswalk,PFL,tier2_5,1.0241,32,1,4,3,1,7.2,1518.4,1510.2,0
+Nariman-Abbasov-141581,,Nariman Abbasov,1,0-1,2022-09-06,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Nayara-Maia-248475,,Nayara Maia,1,0-1,2022-09-06,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Rodolfo-Bellato-266457,157689fad4e22542,Rodolfo Bellato,2,1-1,2022-09-06,finishWin,TKO R2,8,1,0,8,crosswalk,LFA,tier3,1.0206,26,1,4,2,1,7.2,,1511.5,0
+Tereza-Bleda-280807,8fbbef9a4ec1f6cb,Tereza Bleda,1,1-0,2022-09-06,decisionWin,UD,5,0,0,4,crosswalk,Oktagon MMA,tier4,,20,1,3,1,2,-25.8,1490.7,1490.7,0
+Trey-Waters-319103,147266d98ca2813f,Trey Waters,1,0-1,2022-09-06,noWin,,6,0,0,5,crosswalk,CN,tier4,,27,1,3,2,1,1.9,1514,1526.5,0
+Vitor-Petrino-255313,d04b8d5ce7a65c4f,Vitor Petrino,1,1-0,2022-09-06,finishWin,KO R2,6,0,0,5,crosswalk,Adventure Fighters Tournament,tier4,,25,1,9,7,2,30.8,1521.3,1522.1,0
+Allan-Begosso-196853,,Allan Begosso,1,0-1,2022-09-13,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Brandon-Lewis-230745,,Brandon Lewis,1,0-1,2022-09-13,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Bruna-Brasil-182855,90ae69e9a9137984,Bruna Brasil,1,1-0,2022-09-13,finishWin,KO R2,7,2,1,4,crosswalk,Shooto,tier3,0.9997,29,1,8,3,5,-41.3,1490.7,1486.3,0
+Daniel-Marcos-205313,fe96fd653f562e98,Daniel Marcos,1,1-0,2022-09-13,decisionWin,UD,12,0,0,7,crosswalk,300 Sparta,tier4,,29,1,6,5,1,39.5,1524.2,1536.3,0
+Farid-Basharat-222641,6268180e745a1e23,Farid Basharat,1,1-0,2022-09-13,decisionWin,UD,8,0,0,6,crosswalk,War of Titans,tier4,,25,1,7,7,0,75,1526.9,1540.2,1
+Ikram-Aliskerov-202763,331d3f58e32980ad,Ikram Aliskerov,1,1-0,2022-09-13,finishWin,SUB R1,12,1,0,8,crosswalk,Brave CF,tier3,1.0338,29,1,6,5,1,53.3,1516.7,1511.8,1
+Malik-Lewis-183193,,Malik Lewis,2,0-2,2022-09-13,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Marnic-Mann-268753,,Marnic Mann,1,0-1,2022-09-13,noWin,,5,0,0,4,cache,,,,29,0,0,0,0,,,,0
+Trevor-Peek-280187,122fde0994a2f457,Trevor Peek,1,1-0,2022-09-13,finishWin,TKO R2,6,0,0,6,crosswalk,AFS,tier4,,27,1,5,2,3,-21.6,1492.4,1470.2,0
+Brunno-Ferreira-322603,b4fb66059bd82743,Brunno Ferreira,1,1-0,2022-09-20,finishWin,TKO R1,8,0,0,8,crosswalk,Big Shot Fight,tier4,,29,1,10,6,4,3.1,1499.5,1524,0
+Josh-Wick-121219,,Josh Wick,1,0-1,2022-09-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Leon-Aliu-224849,,Leon Aliu,1,0-1,2022-09-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mando-Gutierrez-280393,,Mando Gutierrez,1,0-1,2022-09-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Nurullo-Aliev-274869,9c6d0c42a7a85b51,Nurullo Aliev,1,1-0,2022-09-20,finishWin,TKO R1,7,0,0,1,crosswalk,Samara MMA Federation,tier4,,21,1,4,4,0,44.4,1509.4,1509.4,0
+Raul-Rosas-Jr-339419,880ed8d5af0c13b1,Raul Rosas Jr.,1,1-0,2022-09-20,decisionWin,UD,5,0,0,5,crosswalk,UWC Mexico,tier4,,17,1,7,6,1,42.6,1505.1,1529.5,1
+Richard-Jacobi-391204,,Richard Jacobi,1,0-1,2022-09-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ashiek-Ajim-286217,,Ashiek Ajim,1,0-1,2022-09-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Donovan-Beard-310501,,Donovan Beard,1,0-1,2022-09-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Emiliano-Linares-298713,,Emiliano Linares,1,0-1,2022-09-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jack-Jenkins-228039,0aa46064d6a157d1,Jack Jenkins,1,1-0,2022-09-27,finishWin,TKO R3,9,2,0,7,crosswalk,Eternal MMA,tier4,1.0008,29,1,6,4,2,-5,1498.4,1509.7,0
+Joao-Elias-133165,,Joao Elias,1,0-1,2022-09-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mateus-Mendonca-336923,185ca098bbf84581,Mateus Mendonca,1,1-0,2022-09-27,finishWin,KO R1,9,0,0,6,crosswalk,Future MMA,tier4,,23,1,3,0,3,-29,1483.3,1449.5,0
+Rafael-Estevam-200851,070750e76792d168,Rafael Estevam,1,1-0,2022-09-27,finishWin,TKO R2,10,0,0,6,crosswalk,Shooto,tier3,0.9997,26,1,4,3,1,7,,1509.6,0
+Sam-Patterson-141735,949e6bb465af017b,Sam Patterson,1,1-0,2022-09-27,finishWin,SUB R2,9,1,1,8,crosswalk,Brave CF,tier3,1.0338,26,1,7,5,2,40.7,1478.4,1506.1,0
+Vinicius-Sacchelli-Cenci-249659,,Vinicius Sacchelli Cenci,1,0-1,2022-09-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Bogdan-Grad-156707,c15f8ac4d76af53a,Bogdan Grad,2,1-1,2023-08-08,decisionWin,SD,11,1,0,9,crosswalk,CFS,tier4,,27,1,4,2,2,-14.6,,1494.1,0
+Caio-Machado-247161,473d57add1655a1a,Caio Machado,1,1-0,2023-08-08,decisionWin,UD,7,1,1,6,crosswalk,BFL,tier4,,29,1,3,0,3,-37.4,1464.1,1451.6,0
+Cesar-Almeida-217983,600dc8df28333450,Cesar Almeida,1,1-0,2023-08-08,decisionWin,UD,3,0,0,3,crosswalk,Shooto,tier3,0.9997,36,1,6,3,3,-15.8,1498.4,1520.6,0
+Kevin-Borjas-245493,c9689833e730c077,Kevin Borjas,1,1-0,2023-08-08,decisionWin,UD,8,1,0,8,crosswalk,Inka,tier4,,25,1,6,2,4,-43.7,1460.6,1479.7,0
+Kevin-Szaflarski-202089,,Kevin Szaflarski,1,0-1,2023-08-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Lucas-Fernando-227719,,Lucas Fernando,1,0-1,2023-08-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Payton-Talbott-296553,2b3745a0444dcd17,Payton Talbott,1,1-0,2023-08-08,decisionWin,UD,5,0,0,5,crosswalk,Urijah Faber's A1 Combat,tier4,,24,1,6,5,1,44.5,1542,1537.9,1
+Tom-Nolan-244655,23819db9f489592d,Tom Nolan,1,1-0,2023-08-08,finishWin,KO R1,5,0,0,3,crosswalk,Eternal MMA,tier4,1.0008,23,1,6,5,1,39.7,1489.8,1510.5,1
+Victor-Dias-232371,,Victor Dias,1,0-1,2023-08-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+AbdulKareem-AlSelwady-115453,56ae4acb4e3f6e6b,Abdul-Kareem Al-Selwady,1,1-0,2023-08-15,decisionWin,UD,14,3,0,10,crosswalk,Fury FC,tier4,0.9876,28,1,2,1,1,-4.2,1477.9,1477.9,0
+Cameron-Smotherman-339497,6fe6a57990709869,Cameron Smotherman,1,0-1,2023-08-15,noWin,,8,3,0,5,crosswalk,Fury FC,tier4,0.9876,25,1,4,1,3,-43.5,,1475.1,0
+Charalampos-Grigoriou-236255,59d44e0872a38402,Charalampos Grigoriou,1,1-0,2023-08-15,finishWin,TKO R1,7,3,0,5,crosswalk,CFFC,tier3,0.9667,31,1,2,0,2,-29.7,1457.7,1457.7,0
+Eduarda-Moura-395040,f2a4a3932a91dc1e,Eduarda Moura,1,1-0,2023-08-15,finishWin,SUB R1,8,0,0,7,crosswalk,DF,tier4,,29,1,5,3,2,1.6,1494.2,1520.7,1
+Emrah-Sonmez-147863,,Emrah Sonmez,1,0-1,2023-08-15,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+George-Hardwick-155397,,George Hardwick,1,0-1,2023-08-15,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Hyder-Amil-269917,44b3eeff33faf035,Hyder Amil,1,1-0,2023-08-15,decisionWin,UD,7,0,0,5,crosswalk,LFA,tier3,1.0206,33,1,6,3,3,-15.4,1528.7,1521,0
+Ibo-Aslan-247071,62055b2fd8a10789,Ibo Aslan,1,1-0,2023-08-15,finishWin,TKO R1,11,1,0,11,crosswalk,VFN,tier4,,27,1,5,2,3,-39,1510.5,1480,0
+Janaina-Silva-284089,,Janaina Silva,1,0-1,2023-08-15,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Eli-Aronov-295271,,Eli Aronov,1,0-1,2023-08-22,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Isis-Verbeek-307003,,Isis Verbeek,1,0-1,2023-08-22,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Josefine-Lindgren-Knutsson-378677,194c30e0b6259280,Josefine Knutsson,1,1-0,2023-08-22,decisionWin,UD,4,0,0,1,crosswalk,FCR,tier4,,27,1,3,2,1,3,1524.2,1503.7,0
+Kaik-Brito-204891,,Kaik Brito,1,0-1,2023-08-22,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Luis-Pajuelo-287861,92c3d765853df119,Luis Pajuelo,1,1-0,2023-08-22,finishWin,TKO R1,7,1,0,6,crosswalk,FFC,tier4,0.9802,28,1,1,0,1,-13.2,1477.8,1477.8,0
+Oban-Elliott-247601,574a92a70255439d,Oban Elliott,1,1-0,2023-08-22,decisionWin,MD,8,2,0,5,crosswalk,Cage Warriors,tier3,1.0295,25,1,6,3,3,-23.3,1521.8,1515.3,0
+Robbie-Ring-303011,,Robbie Ring,1,0-1,2023-08-22,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Zachary-Reese-100903,3278a31624e0082e,Zach Reese,1,1-0,2023-08-22,finishWin,SUB R1,5,0,0,5,crosswalk,Fury FC,tier4,0.9876,29,1,8,4,4,-25.2,1489.5,1490.2,0
+Bolaji-Oki-276669,8973247f6808fbfd,Bolaji Oki,1,1-0,2023-08-29,finishWin,TKO R1,7,1,0,5,crosswalk,AFC,tier4,0.9964,27,1,5,2,3,-39.7,1511.3,1502.1,0
+Carlos-Prates-95593,,Carlos Prates,1,1-0,2023-08-29,finishWin,TKO R2,16,6,0,14,cache,,,,30,0,0,0,0,,,,0
+Chandler-Cole-201389,,Chandler Cole,1,0-1,2023-08-29,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Dylan-Salvador-322181,,Dylan Salvador,1,0-1,2023-08-29,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Marco-Tulio-263543,,Marco Tulio,1,1-0,2023-08-29,decisionWin,UD,9,1,0,7,cache,,,,28,0,0,0,0,,,,0
+Mitch-Ramirez-244107,af8e52231b4cfce5,Mitch Ramirez,1,0-1,2023-08-29,noWin,,7,0,0,6,crosswalk,Fierce FC,tier4,,24,1,3,0,3,-55.8,1478,1461,0
+Thomas-Petersen-287525,af733fdd68401f60,Thomas Petersen,1,1-0,2023-08-29,finishWin,SUB R2,7,1,0,7,crosswalk,LFA,tier3,1.0206,28,1,7,3,4,-38.5,1497.1,1485.9,0
+Yousri-Belgaroui-380449,02e16570ff7efb38,Yousri Belgaroui,2,1-1,2023-08-29,finishWin,TKO R3,5,2,0,4,crosswalk,UAE Warriors,tier4,,31,1,2,2,0,39.6,,,0
+Brendson-Ribeiro-210539,af48657df8015e6d,Brendson Ribeiro,1,1-0,2023-09-05,finishWin,KO R1,14,5,0,14,crosswalk,Shooto,tier3,0.9997,27,1,8,2,6,-67.5,1462.4,1470.6,0
+Bruno-Lopes-144007,d13c8ceda8609795,Bruno Lopes,2,1-1,2023-09-05,finishWin,TKO R2,11,0,0,9,crosswalk,Thunder Fight,tier4,,30,1,4,1,3,-47.4,,1493.3,0
+Chad-Hanekom-215519,,Chad Hanekom,1,0-1,2023-09-05,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Dione-Barbosa-266915,7e02c6105357be18,Dione Barbosa,1,1-0,2023-09-05,finishWin,SUB R1,5,2,0,2,crosswalk,LFA,tier3,1.0206,31,1,6,4,2,13.8,1494.8,1489,0
+Dylan-Budka-377018,5941bd38f1fe3952,Dylan Budka,1,1-0,2023-09-05,decisionWin,UD,6,2,0,3,crosswalk,LFA,tier3,1.0206,23,1,3,0,3,-49.9,1478.4,1442.8,0
+Jean-Silva-239947,fa859b94c8582c26,Jean Silva,1,1-0,2023-09-05,decisionWin,UD,10,2,0,10,crosswalk,Spartacus MMA,tier4,,26,1,7,6,1,65.6,1539.4,1571.9,1
+Kevin-Vallejos-391233,f82c365cb6b6a2e8,Kevin Vallejos,2,1-1,2023-09-05,finishWin,TKO R1,11,0,0,9,crosswalk,SFH,tier4,,21,1,4,4,0,61.3,,1525.8,1
+Rainn-Guerrero-292231,,Rainn Guerrero,1,0-1,2023-09-05,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ramon-Taveras-332055,9dd44108e3e1b102,Ramon Taveras,2,1-1,2023-09-05,finishWin,TKO R1,8,1,0,7,crosswalk,CN,tier4,,29,1,3,1,2,-23.8,1511.3,1492,0
+Serhiy-Sidey-220713,1f5d82279eb460df,Serhiy Sidey,1,1-0,2023-09-05,finishWin,TKO R1,9,1,0,7,crosswalk,BFL,tier4,,27,1,3,2,1,8.1,1483.8,1509.1,0
+AJ-Cunningham-228033,,A.J. Cunningham,1,0-1,2023-09-12,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+James-Llontop-191443,9ae6be6b0db58d78,James Llontop,1,1-0,2023-09-12,decisionWin,UD,13,2,0,8,crosswalk,FFC,tier4,0.9802,24,1,3,0,3,-42,1462.1,1446.6,0
+Jean-Matsumoto-263061,99142b6b0a8bdbba,Jean Matsumoto,1,1-0,2023-09-12,decisionWin,UD,13,0,0,8,crosswalk,LFA,tier3,1.0206,24,1,6,4,2,14.8,1514.7,1522.5,0
+Jhonata-Diniz-389887,460b5fa5b94b70bd,Jhonata Diniz,1,1-0,2023-09-12,finishWin,KO R1,5,0,0,5,crosswalk,Imortal FC,tier4,,32,1,5,3,2,-4.5,1527.9,1517.2,0
+Kasey-Tanner-160671,,Kasey Tanner,1,0-1,2023-09-12,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Dylan-Mantello-286197,,Dylan Mantello,1,0-1,2023-09-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Kaynan-Kruschewsky-152747,16b49cd67451547b,Kaynan Kruschewsky,1,1-0,2023-09-19,finishWin,SUB R1,14,1,0,12,crosswalk,Jungle Fight,tier3,1.0273,32,1,2,0,2,-25.3,1463.1,1463.1,0
+Stephanie-Luciano-265743,3285bd6966dffe99,Stephanie Luciano,1,0-0-1,2023-09-19,noWin,,5,1,0,2,crosswalk,Jungle Fight,tier3,1.0273,23,1,4,3,1,23.7,1514,1495.6,0
+Talita-Alencar-386905,,Talita Alencar,1,0-0-1,2023-09-19,noWin,,4,0,0,3,cache,,,,32,0,0,0,0,,,,0
+Angel-Pacheco-90675,95d8b12e5a21ed5a,Angel Pacheco,1,0-1,2023-09-26,noWin,,7,1,0,7,crosswalk,CFFC,tier3,0.9667,31,1,2,0,2,-30.3,1481.1,1481.1,0
+Carli-Judice-381889,35fd53a02396b4af,Carli Judice,1,0-1,2023-09-26,noWin,,3,0,0,3,crosswalk,Bayou FC,tier4,,24,1,4,3,1,22.1,1482.2,1511.5,0
+Danny-Barlow-336147,77f853c4d44cbe94,Danny Barlow,1,1-0,2023-09-26,finishWin,TKO R1,6,0,0,4,crosswalk,CFFC,tier3,0.9667,28,1,4,2,2,-16.8,1524.8,1501.6,0
+Danny-Silva-310429,07f69c437c68f468,Danny Silva,1,1-0,2023-09-26,decisionWin,UD,7,1,0,5,crosswalk,LFA,tier3,1.0206,26,1,4,3,1,17.4,1512.7,1502.4,0
+Ernesta-Kareckaite-319093,3c972c6d8123294c,Ernesta Kareckaite,1,1-0,2023-09-26,decisionWin,SD,4,0,1,2,crosswalk,HXMMA,tier4,,25,1,3,1,2,-22.6,1482,1494.5,0
+Raheam-Forest-250387,,Raheam Forest,1,0-1,2023-09-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Victor-Madrigal-40341,,Victor Madrigal,1,0-1,2023-09-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Vinicius-Oliveira-139517,aad8e24798f0a89f,Vinicius Oliveira,1,1-0,2023-09-26,finishWin,KO R1,18,3,0,16,crosswalk,UAE Warriors,tier4,,27,1,6,5,1,42.9,1530.3,1562.3,0
+Eduardo-Torres-190429,,Eduardo Torres,1,0-1,2023-10-03,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jose-Medina-251871,,Jose Medina,1,0-1,2023-10-03,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Magomed-Gadzhiyasulov-272659,97c47845e7f9a88b,Magomed Gadzhiyasulov,1,1-0,2023-10-03,decisionWin,UD,7,0,0,6,crosswalk,KFL,tier4,,29,1,2,1,1,-7.7,1509.5,1490.8,0
+Mauricio-Ruffy-192545,bd8ee82c2df0d588,Mauricio Ruffy,1,1-0,2023-10-03,finishWin,TKO R3,8,1,0,8,crosswalk,CFC,tier4,1.0266,27,1,6,5,1,40.5,1511.4,1512.5,1
+Murtaza-Talha-Ali-269171,,Murtaza Talha Ali,1,0-1,2023-10-03,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Raimond-Magomedaliev-191869,,Raimond Magomedaliev,1,0-1,2023-10-03,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Victor-Hugo-123631,fca2542155e4fd20,Victor Hugo,1,1-0,2023-10-03,finishWin,SUB R2,23,4,0,16,crosswalk,Pancrase,tier3,0.9909,30,1,2,1,1,-4.3,1512.6,1494.4,0
+Andre-Lima-201199,e1601c0597a7b444,Andre Lima,1,1-0,2023-10-10,decisionWin,UD,6,0,0,5,crosswalk,Spartacus MMA,tier4,,24,1,5,4,1,18.5,1534.5,1546.3,0
+Cortavious-Romious-206845,,Cortavious Romious,1,0-1,2023-10-10,noWin,,7,1,0,6,cache,,,,29,0,0,0,0,,,,0
+Davi-Bittencourt-263121,,Davi Bittencourt,1,0-1,2023-10-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Issa-Isakov-181953,,Issa Isakov,1,0-1,2023-10-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jair-Farias-184971,,Jair Farias,1,0-1,2023-10-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Lucas-Rocha-255729,ee66f8d0ba75975e,Lucas Rocha,1,1-0,2023-10-10,finishWin,KO R2,16,1,0,13,crosswalk,LFA,tier3,1.0206,23,1,2,1,1,-8.2,,1479,0
+MarQuel-Mederos-302655,bb76e767e4bf0b9a,MarQuel Mederos,1,1-0,2023-10-10,finishWin,TKO R1,7,1,0,5,crosswalk,Fury FC,tier4,0.9876,26,1,4,3,0,28.8,1510.4,1529.6,0
+Rickson-Thai-Zenidim-Bueno-134695,,Rickson Thai Zenidim Bueno,1,0-1,2023-10-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Torrez-Finney-379262,ac54fb7dcc875b59,Torrez Finney,3,3-0,2023-10-10,finishWin,SUB R2,6,0,0,5,crosswalk,AFS,tier4,,24,1,2,1,1,-9.5,,1509.1,0
+Yuri-Panferov-289931,,Yuri Panferov,1,0-1,2023-10-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+An-Tuan-Ho-307731,,An Tuan Ho,1,0-1,2024-08-13,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Ernie-Juarez-269253,,Ernie Juarez,1,0-1,2024-08-13,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jose-Delgado-307733,2f88f17add7669c5,Jose Delgado,1,1-0,2024-08-13,finishWin,KO R2,7,1,0,7,crosswalk,United Fight League,tier4,,26,1,5,4,1,35.6,1533.7,1535.6,0
+Loneer-Kavanagh-213249,10a96d52c89b5469,Lone'er Kavanagh,1,1-0,2024-08-13,finishWin,KO R1,6,0,0,4,crosswalk,Cage Warriors,tier3,1.0295,25,1,5,3,2,-3.5,1522.1,1496.5,1
+Mansur-AbdulMalik-393926,b9562bf0e19e971a,Mansur Abdul-Malik,1,1-0,2024-08-13,finishWin,TKO R2,5,0,0,5,crosswalk,SF,tier4,0.9907,26,1,5,3,1,10.8,1523.1,1510.8,0
+Mikheil-Sazhiniani-315835,,Mikheil Sazhiniani,1,0-1,2024-08-13,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Wesley-Schultz-338469,,Wesley Schultz,1,0-1,2024-08-13,noWin,,6,1,0,5,cache,,,,28,0,0,0,0,,,,0
+Billy-Brand-128455,,Billy Brand,1,0-1,2024-08-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Cameron-Rowston-239381,,Cameron Rowston,1,0-1,2024-08-20,noWin,,8,2,0,8,cache,,,,29,0,0,0,0,,,,0
+Cody-Haddon-286511,8a1aa5c3cd50dedf,Cody Haddon,1,1-0,2024-08-20,finishWin,SUB R1,6,1,0,6,crosswalk,HFS,tier4,1.0319,25,1,2,2,0,22.8,1509.7,1522.8,0
+Hugo-Cunha-227763,,Hugo Cunha,1,0-1,2024-08-20,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Andrey-Pulyaev-398399,634eda97df9caa0e,Andrey Pulyaev,1,1-0,2024-08-27,decisionWin,UD,8,2,0,7,crosswalk,SFC,tier4,,26,1,4,1,3,-39.5,1494.7,1460.5,0
+Liam-Anderson-299651,,Liam Anderson,1,0-1,2024-08-27,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Michael-Aswell-286497,bbad8cc98783fae1,Michael Aswell Jr.,1,0-1,2024-08-27,noWin,,9,1,0,5,crosswalk,Fury FC,tier4,0.9876,23,1,4,1,3,-37.6,1481.4,1462.4,0
+Austin-Bashi-362871,87bd1fc4820e6e6f,Austin Bashi,1,1-0,2024-09-03,finishWin,SUB R2,12,0,0,7,crosswalk,Lights Out Championship,tier4,,22,1,3,1,2,-17.3,1499.3,1482.7,0
+Dorian-Ramos-203579,,Dorian Ramos,1,0-1,2024-09-03,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Josias-Musasa-416801,ef4f913e6a99246b,Josias Musasa,1,1-0,2024-09-10,decisionWin,SD,7,0,0,7,crosswalk,Impact Championship,tier4,,25,1,2,0,2,-37.7,1477.4,1460,0
+Navajo-Stirling-413272,0b43bf0acbd22ca3,Navajo Stirling,1,1-0,2024-09-10,finishWin,KO R2,4,0,0,3,crosswalk,HFS,tier4,1.0319,26,1,6,6,0,69.9,1520.1,1569.9,1
+Otari-Tanzilovi-333455,,Otari Tanzilovi,1,0-1,2024-09-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Phillip-Latu-392424,,Phillip Latu,1,0-1,2024-09-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Taiga-Iwasaki-375260,,Taiga Iwasaki,1,0-1,2024-09-10,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Aaron-Tau-228831,,Aaron Tau,1,0-1,2024-09-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Arthur-Lopes-196611,,Arthur Lopes,1,0-1,2024-09-17,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Elijah-Smith-385324,28922ab0ce7d617b,Elijah Smith,1,1-0,2024-09-17,decisionWin,UD,6,1,0,5,crosswalk,Fury FC,tier4,0.9876,22,1,3,3,0,39.5,1520.5,1539.5,0
+Tallison-Teixeira-394342,395835d15985848e,Tallison Teixeira,1,1-0,2024-09-17,finishWin,KO R1,6,0,0,6,crosswalk,LFA,tier3,1.0206,24,1,4,2,2,-14.4,1493.4,1485.6,0
+Alexia-Thainara-287251,3808fc6e211485cf,Alexia Thainara,1,1-0,2024-09-24,decisionWin,UD,10,1,0,7,crosswalk,SFT,tier4,,26,1,4,4,0,49,1512,1549,1
+Cam-Teague-337869,,Cam Teague,2,0-2,2024-09-24,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Daniel-Frunza-219965,d9935a239ea022f2,Daniel Frunza,1,1-0,2024-09-24,finishWin,TKO R2,8,2,0,7,crosswalk,LFA,tier3,1.0206,30,1,2,0,2,-42.5,1475.5,1455.5,0
+Rose-Conceicao-211299,,Rose Conceicao,1,0-1,2024-09-24,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Vadym-Kutsyi-168917,,Vadym Kutsyi,1,0-1,2024-09-24,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Abdelah-ErRamy-333741,,Abdelah Er-Ramy,1,0-1,2024-10-01,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Alberto-Montes-257203,837d7b515e82e17f,Alberto Montes,1,1-0,2024-10-01,finishWin,SUB R2,9,1,0,5,crosswalk,Titan FC,tier3,0.9943,30,1,2,1,1,-10.2,,1489.8,0
+Bartosz-Szewczyk-227573,,Bartosz Szewczyk,1,0-1,2024-10-01,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Carlos-Calderon-247279,,Carlos Calderon,1,0-1,2024-10-01,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Christien-Savoie-186775,,Christien Savoie,1,0-1,2024-10-01,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+David-Martinez-221351,f98cac378dcfb57b,David Martinez,1,1-0,2024-10-01,decisionWin,UD,10,1,0,9,crosswalk,Combate Global,tier4,,26,1,3,3,0,46.7,1530.1,1546.9,1
+Diyar-Nurgozhay-274275,c3fd5865a09e741a,Diyar Nurgozhay,1,1-0,2024-10-01,finishWin,KO R2,9,0,0,7,crosswalk,EFC,tier4,0.9607,27,1,4,2,2,-16.9,1455.6,1483.1,0
+Jacobe-Smith-394506,ef56a8f712d971ef,Jacobe Smith,1,1-0,2024-10-01,finishWin,TKO R2,8,0,0,6,crosswalk,Fury FC,tier4,0.9876,28,1,3,3,0,36.4,1523.2,1536.7,0
+Xavier-Franklin-260583,,Xavier Franklin,1,0-1,2024-10-01,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Islam-Dulatov-236167,966e46aafac530c8,Islam Dulatov,1,1-0,2024-10-08,finishWin,KO R1,10,1,0,10,crosswalk,Sparta Championship Fighting,tier4,,26,1,1,1,0,12.3,1513.3,1513.3,0
+Lucas-Triverio-Camacho-242865,,Lucas Triverio Camacho,1,0-1,2024-10-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mario-Pinto-310173,3f143ed5d6b45e39,Mario Pinto,1,1-0,2024-10-08,finishWin,KO R1,8,0,0,5,crosswalk,LFL,tier4,,26,1,3,3,0,39.9,1511.4,1539.9,0
+Vanilton-Antunes-183297,,Vanilton Antunes,1,0-1,2024-10-08,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Antonio-Monteiro-152885,,Antonio Monteiro,1,0-1,2024-10-15,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Heraldo-Souza-300743,,Heraldo Souza,1,0-1,2024-10-15,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Nick-Klein-270893,28061eae5a6884c3,Nick Klein,1,1-0,2024-10-15,finishWin,SUB R1,5,1,0,4,crosswalk,LFA,tier3,1.0206,29,1,2,0,2,-39.1,1457.7,1457.7,0
+Yadier-Del-Valle-293141,47dfe6ac6c9121a0,Yadier del Valle,1,1-0,2024-10-15,decisionWin,UD,7,0,0,4,crosswalk,Fury FC,tier4,0.9876,28,1,4,3,1,23.6,1510.9,1523.6,0
+Guilherme-Uriel-402490,,Guilherme Uriel,1,0-1,2025-08-19,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Josh-Hokit-433441,d39a1677910874e9,Josh Hokit,1,1-0,2025-08-19,finishWin,TKO R2,5,0,0,5,crosswalk,LFA,tier3,1.0206,27,1,4,4,0,69.7,1569.7,1569.7,1
+AbdulRakhman-Yakhyaev-395509,8d4cda2a290cc491,Abdul Rakhman Yakhyaev,1,1-0,2025-08-26,finishWin,TKO R1,6,0,0,5,crosswalk,Ares,tier4,,24,1,3,3,0,36.1,1536.1,1536.1,0
+Alik-Lorenz-347505,,Alik Lorenz,1,0-1,2025-08-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Cristian-Perez-244701,,Cristian Perez,1,0-1,2025-08-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Darion-Abbey-255585,,Darion Abbey,1,0-1,2025-08-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Donte-Johnson-414279,62eb06895e1e4b0b,Donte Johnson,1,1-0,2025-08-26,finishWin,TKO R1,5,0,0,5,crosswalk,Anthony Pettis FC,tier4,,26,1,2,2,0,19.1,1519.1,1519.1,0
+Manoel-Sousa-319559,a175cb5d70c753c6,Manoel Sousa,1,1-0,2025-08-26,finishWin,TKO R3,12,1,0,10,crosswalk,Bellator,tier2_5,0.9929,28,1,2,2,0,24.5,1524.5,1524.5,0
+Ryan-Gandra-404139,85a165c98f003923,Ryan Gandra,1,1-0,2025-08-26,finishWin,TKO R1,7,1,0,5,crosswalk,LFA,tier3,1.0206,30,1,2,2,0,23.6,1523.6,1523.6,0
+Trent-Miller-382805,,Trent Miller,1,0-1,2025-08-26,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Cezary-Oleksiejczuk-171801,e180666d3423c42b,Cezary Oleksiejczuk,1,1-0,2025-09-02,finishWin,TKO R1,15,3,0,10,crosswalk,FEN,tier4,,25,1,1,1,0,14.7,1515.1,1515.1,0
+David-Mgoyan-417456,,David Mgoyan,1,0-1,2025-09-02,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Theo-Haig-364045,,Theo Haig,1,0-1,2025-09-02,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Tommy-McMillen-229309,006859adbc880edd,Tommy McMillen,1,1-0,2025-09-02,decisionWin,MD,8,0,0,8,crosswalk,Fusion Fight League,tier4,,27,1,2,2,0,29.6,1529.6,1529.6,0
+Anthony-Guarascio-414547,,Anthony Guarascio,1,0-1,2025-09-09,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Felipe-Franco-415770,dad9b43cf7480f68,Felipe Franco,1,0-1,2025-09-09,noWin,,8,0,0,8,crosswalk,DF,tier4,,24,1,2,1,1,0.9,1500.9,1500.9,0
+Freddy-Vidal-401852,,Freddy Vidal,1,1-0,2025-09-09,finishWin,SUB R3,,,,,none,,,,,0,0,0,0,,,,0
+Lerryan-Douglas-77125,26f15079cf039c8c,Lerryan Douglas,1,1-0,2025-09-09,finishWin,KO R1,12,5,0,9,crosswalk,LFA,tier3,1.0206,30,1,1,1,0,14.3,1514.3,1514.3,0
+Steven-Asplund-407940,7d1e163720b62145,Steven Asplund,1,1-0,2025-09-09,finishWin,TKO R1,5,1,0,4,crosswalk,LFA,tier3,1.0206,27,1,3,2,1,6.4,1506.4,1506.4,0
+Hecher-Sosa-236589,205e928621a6f62d,Hecher Sosa,1,1-0,2025-09-16,decisionWin,UD,12,1,0,8,crosswalk,WOW,tier4,,29,1,1,1,0,11.1,1511.1,1511.1,0
+Iwo-Baraniewski-381634,f7012ef25547fc99,Iwo Baraniewski,1,1-0,2025-09-16,finishWin,KO R1,5,0,0,5,crosswalk,Babilon MMA,tier4,,26,1,3,3,0,32.2,1532.2,1532.2,0
+Macksom-Lee-320649,,Macksom Lee,1,0-1,2025-09-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mahamed-Aly-184187,,Mahamed Aly,1,0-1,2025-09-16,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Djani-Barbir-164755,,Djani Barbir,1,0-1,2025-09-23,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Jair-de-Oliveira-267853,,Jair de Oliveira,1,0-1,2025-09-23,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Mantas-Kondratavicius-310159,a2abca58544b6a7b,Mantas Kondratavicius,1,1-0,2025-09-23,finishWin,TKO R1,7,1,0,7,crosswalk,Ares,tier4,,26,1,1,1,0,8.7,1508.7,1508.7,0
+Rafael-Tobias-403663,5a7dee229b27e06c,Rafael Tobias,1,1-0,2025-09-23,finishWin,SUB R1,13,1,0,10,crosswalk,TKO Palmas,tier4,,22,1,1,0,1,-20.2,1479.7,1479.7,0
+Damian-Pinas-426729,c212ca8a9b232259,Damian Pinas,1,1-0,2025-09-30,finishWin,TKO R1,7,1,0,7,crosswalk,Shooto,tier3,0.9997,23,1,2,2,0,29.6,1529.6,1529.6,0
+Demba-Seck-386973,,Demba Seck,1,0-1,2025-09-30,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Kurtis-Campbell-302831,e25181125365fbe6,Kurtis Campbell,1,1-0,2025-09-30,finishWin,TKO R1,7,0,0,5,crosswalk,FCC,tier4,,23,1,1,0,1,-21.5,1478.5,1478.5,0
+Vitor-Costa-355863,,Vitor Costa,1,0-1,2025-09-30,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Imanol-Rodriguez-418935,1c33eb78bdc5df39,Imanol Rodriguez,1,1-0,2025-10-07,finishWin,TKO R1,5,0,0,5,crosswalk,Fury FC,tier4,0.9876,25,1,1,1,0,11,1511.1,1511.1,0
+Luke-Fernandez-376548,8b41d0ebea0c3e18,Luke Fernandez,1,1-0,2025-10-07,finishWin,TKO R1,5,0,0,4,crosswalk,CFFC,tier3,0.9667,30,1,1,0,1,-22.1,1477.9,1477.9,0
+Rafael-Pergentino-430613,,Rafael Pergentino,1,0-1,2025-10-07,noWin,,,,,,none,,,,,0,0,0,0,,,,0
+Roque-Conceicao-Moreira-Junior-239909,,Roque Conceicao Moreira Junior,1,0-1,2025-10-07,noWin,,,,,,none,,,,,0,0,0,0,,,,0
