@@ -21,7 +21,7 @@ import { loadPedigreeStrength } from './pedigreeSeed';
 import { getFighterMedia } from './fighterMedia';
 import { getFighterAge } from './fighterAges';
 import { getNextFight, type NextFight } from './loadUpcoming';
-import { loadDwcsAnalysis } from './loadDwcsAnalysis';
+import { loadDwcsAnalysis, type DwcsChip } from './loadDwcsAnalysis';
 import { buildDistinctions, type Distinction } from './distinctions';
 import { RANKING_CONFIG } from './rankingConfig';
 import { ALL_DIVISIONS } from './types';
@@ -67,7 +67,7 @@ export interface ProspectEntry {
   } | null;
   // Came through the Contender Series tryout (display-only, read from the
   // static dwcs_analysis.json — same firewall class as fighterMedia).
-  dwcs: { result: 'W' | 'L' | 'D' | 'NC'; year: number } | null;
+  dwcs: DwcsChip | null;
 }
 
 // Compact method label for one-line results ("KO R2", "SUB R1", "UD").

@@ -19,6 +19,9 @@ export interface DwcsBucketRow {
 export interface DwcsChip {
   result: 'W' | 'L' | 'D' | 'NC';
   year: number;
+  method: string | null;    // compact best-win method, e.g. "KO R1"
+  cameIn: string | null;    // record ENTERING the Contender Series, e.g. "13-1"
+  feederOrg: string | null; // feeder promotion (DWCS excluded from identity by design)
 }
 
 export interface DwcsAnalysis {

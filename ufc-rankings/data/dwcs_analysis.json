@@ -445,1351 +445,2362 @@
  "chips": {
   "be7ca0896a9b24a2": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "KO R2",
+   "cameIn": "13-4",
+   "feederOrg": "CFFC"
   },
   "bf91cbfb6ec5463a": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "UD",
+   "cameIn": "5-1",
+   "feederOrg": "RFA"
   },
   "b6c17f70c2c805cf": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "SUB R1",
+   "cameIn": "7-4",
+   "feederOrg": "LFC"
   },
   "e891217b7a2b4f16": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R2",
+   "cameIn": "7-2",
+   "feederOrg": "NLFC"
   },
   "0f7518cc5cd482fb": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R2",
+   "cameIn": "8-0",
+   "feederOrg": "XFC"
   },
   "ecdf6dcdb523bb8d": {
    "result": "NC",
-   "year": 2017
+   "year": 2017,
+   "method": null,
+   "cameIn": "17-3",
+   "feederOrg": "Titan FC"
   },
   "adb29a86d181648c": {
    "result": "NC",
-   "year": 2017
+   "year": 2017,
+   "method": null,
+   "cameIn": "22-7",
+   "feederOrg": "CES MMA"
   },
   "8599d31404ff0b34": {
    "result": "L",
-   "year": 2017
+   "year": 2017,
+   "method": null,
+   "cameIn": "8-0",
+   "feederOrg": "Fury FC"
   },
   "2c6080cef7de1112": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "UD",
+   "cameIn": "6-0-1",
+   "feederOrg": "TPF"
   },
   "bbcaf7b57144df14": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "KO R1",
+   "cameIn": "7-0",
+   "feederOrg": "ICF"
   },
   "990efe1105080c68": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R1",
+   "cameIn": "3-0",
+   "feederOrg": "Bellator"
   },
   "217d1a9370550d41": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "SUB R3",
+   "cameIn": "7-1",
+   "feederOrg": "LFC"
   },
   "e04431032c654b57": {
    "result": "L",
-   "year": 2017
+   "year": 2017,
+   "method": null,
+   "cameIn": "5-0",
+   "feederOrg": "LFC"
   },
   "deee560a8bc1dd80": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R1",
+   "cameIn": "7-2",
+   "feederOrg": "LFC"
   },
   "6714baa6b0fabf58": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "KO R1",
+   "cameIn": "4-0",
+   "feederOrg": "CFFC"
   },
   "d7c50bc1e2a1c4f7": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R2",
+   "cameIn": "7-0",
+   "feederOrg": "WFF"
   },
   "39e0e926a4ebf523": {
    "result": "L",
-   "year": 2017
+   "year": 2017,
+   "method": null,
+   "cameIn": "15-2",
+   "feederOrg": "Thunder & Lightning"
   },
   "0432ba12b6296c1d": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "UD",
+   "cameIn": "7-3",
+   "feederOrg": "SFC"
   },
   "e503c6a1065a60f9": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "UD",
+   "cameIn": "6-0",
+   "feederOrg": "CES MMA"
   },
   "d46685b2069b7029": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "KO R2",
+   "cameIn": "5-1",
+   "feederOrg": "Combate Americas"
   },
   "186b7b196c354140": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R1",
+   "cameIn": "4-1",
+   "feederOrg": "PFL"
   },
   "245f661e52b116c7": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "SUB R1",
+   "cameIn": "17-4",
+   "feederOrg": "TPF"
   },
   "8fa232d3a73d0de7": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R2",
+   "cameIn": "12-2",
+   "feederOrg": "ROC"
   },
   "53ba0dd370c19b38": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "KO R1",
+   "cameIn": "8-2",
+   "feederOrg": "CES MMA"
   },
   "a0811e03ef7082c8": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "SD",
+   "cameIn": "9-1",
+   "feederOrg": "King of the Cage"
   },
   "9499fe7d747d0f34": {
    "result": "L",
-   "year": 2017
+   "year": 2017,
+   "method": null,
+   "cameIn": "5-1",
+   "feederOrg": "Capone's Productions"
   },
   "a4264e3d664f208f": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "SD",
+   "cameIn": "7-0",
+   "feederOrg": "King of the Cage"
   },
   "5b7c7c83602d9b20": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "SUB R1",
+   "cameIn": "4-1",
+   "feederOrg": "EFC"
   },
   "27fc42f9a706f56f": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "SUB R1",
+   "cameIn": "10-5",
+   "feederOrg": "GKO"
   },
   "3efa6683f90baf91": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R1",
+   "cameIn": "2-0",
+   "feederOrg": "XKO"
   },
   "4e832c70f00c22df": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "KO R1",
+   "cameIn": "20-9",
+   "feederOrg": "HFC"
   },
   "9d03eaf7a17b94a3": {
    "result": "L",
-   "year": 2017
+   "year": 2017,
+   "method": null,
+   "cameIn": "15-5",
+   "feederOrg": "LFC"
   },
   "5f7d95f165f83e3c": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R3",
+   "cameIn": "8-2",
+   "feederOrg": "NLFC"
   },
   "8a049373a2a84299": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R2",
+   "cameIn": "3-0",
+   "feederOrg": "LFA"
   },
   "83c80f54de1b32fe": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "TKO R2",
+   "cameIn": "3-1",
+   "feederOrg": "LFA"
   },
   "5c987d20da70c09d": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "UD",
+   "cameIn": "3-0",
+   "feederOrg": "Gladiator Challenge"
   },
   "c9d2ae98d9f6ab30": {
    "result": "W",
-   "year": 2017
+   "year": 2017,
+   "method": "SUB R2",
+   "cameIn": "5-0",
+   "feederOrg": "RFC"
   },
   "f7d9010e13806799": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R1",
+   "cameIn": "4-0",
+   "feederOrg": "CN"
   },
   "9fc426aaa44255d9": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R3",
+   "cameIn": "18-5",
+   "feederOrg": "CES MMA"
   },
   "e7b88fa57ffb42cb": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R1",
+   "cameIn": "0-0",
+   "feederOrg": null
   },
   "b577c6fa8060ff5c": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "UD",
+   "cameIn": "12-3",
+   "feederOrg": "LFA"
   },
   "9583d6bf13318f23": {
    "result": "NC",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "6-0",
+   "feederOrg": "GKO"
   },
   "3411cece8b9fb184": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R2",
+   "cameIn": "7-1",
+   "feederOrg": "GKO"
   },
   "3739a7ad389dcac5": {
    "result": "L",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "5-1",
+   "feederOrg": "Gladiator Challenge"
   },
   "9492268d8774c0a4": {
    "result": "NC",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "9-0",
+   "feederOrg": "AFC"
   },
   "aefa91645d63ab49": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R1",
+   "cameIn": "6-1",
+   "feederOrg": "PFL"
   },
   "2651aa1e611abadc": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R2",
+   "cameIn": "5-0",
+   "feederOrg": "Phoenix Fighting Championship"
   },
   "d42c88019231799d": {
    "result": "L",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "13-3",
+   "feederOrg": "LFA"
   },
   "82b4ac7b2ab3eafb": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R1",
+   "cameIn": "7-2",
+   "feederOrg": "Bellator"
   },
   "85e36eed269a8e5f": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R1",
+   "cameIn": "6-2",
+   "feederOrg": "LFA"
   },
   "7dbe9bb9a5b973b5": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R2",
+   "cameIn": "20-4",
+   "feederOrg": "CS"
   },
   "c8304578645a0300": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R1",
+   "cameIn": "5-1",
+   "feederOrg": "Bellator"
   },
   "e411d4112ff57cb3": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R1",
+   "cameIn": "6-3",
+   "feederOrg": "Bellator"
   },
   "434c4533ee6ced38": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SD",
+   "cameIn": "14-1",
+   "feederOrg": "LFA"
   },
   "2d0d405ad62b34b7": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R2",
+   "cameIn": "4-0",
+   "feederOrg": "VFC"
   },
   "0cdf886f3d227f07": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R2",
+   "cameIn": "7-1",
+   "feederOrg": "LFC"
   },
   "f4544d57a0c93b7c": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R1",
+   "cameIn": "6-0",
+   "feederOrg": "CXF"
   },
   "c9bce4b58587da90": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R3",
+   "cameIn": "4-0",
+   "feederOrg": "LFA"
   },
   "61aca8157bf71afd": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "COGA"
   },
   "93f287cc2018f186": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R1",
+   "cameIn": "9-1",
+   "feederOrg": "LFA"
   },
   "a1fe00d04609986b": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R1",
+   "cameIn": "7-0",
+   "feederOrg": "HFS"
   },
   "c089e6624556674f": {
    "result": "L",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "5-0",
+   "feederOrg": "Square Ring Promotions"
   },
   "98def16d7bb14aa9": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "UD",
+   "cameIn": "6-1",
+   "feederOrg": "VFC"
   },
   "f83eb8d8634c7c8b": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R1",
+   "cameIn": "10-1",
+   "feederOrg": "LFA"
   },
   "1de38f7d8fb8d358": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R1",
+   "cameIn": "16-5",
+   "feederOrg": "LFA"
   },
   "920c5cc2e74aaaf6": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R1",
+   "cameIn": "3-0",
+   "feederOrg": "LFA"
   },
   "64c7119b9beb015a": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R2",
+   "cameIn": "5-0",
+   "feederOrg": "CXF"
   },
   "ab06e184a09da577": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R2",
+   "cameIn": "12-3",
+   "feederOrg": "LFA"
   },
   "2a5d37e65372331c": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R1",
+   "cameIn": "7-1",
+   "feederOrg": "Iron Tiger Fight Series / Alliance MMA"
   },
   "2983f5d00ab2638c": {
    "result": "L",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "6-1",
+   "feederOrg": "M-1"
   },
   "20184f36071fdaa3": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R2",
+   "cameIn": "7-2",
+   "feederOrg": "LFA"
   },
   "3e1f496aca017284": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R2",
+   "cameIn": "10-1-1",
+   "feederOrg": "Bellator"
   },
   "1b2245155a92a358": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R2",
+   "cameIn": "13-1",
+   "feederOrg": "Brave CF"
   },
   "511b8a19e1b7ac9f": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "KO R1",
+   "cameIn": "8-0",
+   "feederOrg": "SFL"
   },
   "5138742df3096e35": {
    "result": "L",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "17-4",
+   "feederOrg": "RIZIN"
   },
   "74fd8194bb19e2bf": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R1",
+   "cameIn": "16-4",
+   "feederOrg": "WOCS"
   },
   "c9309ef7c0bb931b": {
    "result": "L",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "12-0",
+   "feederOrg": "Arena Fight"
   },
   "b2d78c1271922be6": {
    "result": "L",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "12-4",
+   "feederOrg": "Imortal FC"
   },
   "64d5a5e924312934": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "UD",
+   "cameIn": "4-1",
+   "feederOrg": "Thunder Fight"
   },
   "09efcf1044196013": {
    "result": "L",
-   "year": 2018
+   "year": 2018,
+   "method": null,
+   "cameIn": "10-3",
+   "feederOrg": "RIZIN"
   },
   "c42bb75b660872de": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "TKO R1",
+   "cameIn": "9-0",
+   "feederOrg": "Shooto"
   },
   "33936cc54a3063f8": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SD",
+   "cameIn": "17-1",
+   "feederOrg": "SMF"
   },
   "73dcdd41661adf51": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "UD",
+   "cameIn": "14-0",
+   "feederOrg": "AFC"
   },
   "aa41f7f0d38a67de": {
    "result": "W",
-   "year": 2018
+   "year": 2018,
+   "method": "SUB R2",
+   "cameIn": "8-1",
+   "feederOrg": "SFL"
   },
   "fb02ddf6816c3234": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "12-3",
+   "feederOrg": "ROC"
   },
   "aef794c9754597d7": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "4-0",
+   "feederOrg": "Square Ring Promotions"
   },
   "fd2553227e3641fe": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "PFL"
   },
   "dea7ffef261a8d05": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R1",
+   "cameIn": "4-0",
+   "feederOrg": "CES MMA"
   },
   "adc254e5ba385928": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "6-0",
+   "feederOrg": "CFFC"
   },
   "0c3ba783cdf08931": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "6-0",
+   "feederOrg": "Fight Time Promotions"
   },
   "e011a97f57726d2d": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "8-0",
+   "feederOrg": "LFA"
   },
   "64794ca3e674f4b1": {
    "result": "NC",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "11-3",
+   "feederOrg": "LFC"
   },
   "9494d3823806d705": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "6-0",
+   "feederOrg": "LFA"
   },
   "97b41815ee1fcfd0": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "SUB R1",
+   "cameIn": "7-2",
+   "feederOrg": "CFFC"
   },
   "c62d07b2a13212ac": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R3",
+   "cameIn": "8-3",
+   "feederOrg": "Bellator"
   },
   "8a0cb9e5ef6f57d0": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R1",
+   "cameIn": "11-4",
+   "feederOrg": "VFC"
   },
   "58b6dee880eed3f4": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "SUB R1",
+   "cameIn": "11-3",
+   "feederOrg": "LFA"
   },
   "cb862700e7767b56": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "SUB R1",
+   "cameIn": "7-2",
+   "feederOrg": "Pure FC"
   },
   "15a5d250b43e99c3": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R3",
+   "cameIn": "11-2",
+   "feederOrg": "King of the Cage"
   },
   "fa92f349c2df714c": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R2",
+   "cameIn": "5-0",
+   "feederOrg": "KOP"
   },
   "7a7707b49ee6909b": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "9-2",
+   "feederOrg": "LFA"
   },
   "a238e2e4c9670e90": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "KO R2",
+   "cameIn": "5-0",
+   "feederOrg": "Shamrock FC"
   },
   "d75d3c014f3a0d70": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "7-1",
+   "feederOrg": "ExciteFight"
   },
   "2212a11deddf09e9": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "KO R3",
+   "cameIn": "7-2",
+   "feederOrg": "Conflict MMA"
   },
   "7a868cb67cd37a18": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R2",
+   "cameIn": "4-0",
+   "feederOrg": "Honor FC"
   },
   "27dc95be9b98006d": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "8-1",
+   "feederOrg": "Combate Americas"
   },
   "13c5e090b6868e27": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "4-0",
+   "feederOrg": "CES MMA"
   },
   "52626334298457ab": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "6-0",
+   "feederOrg": "FNG"
   },
   "5de030e625a4928c": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "SUB R1",
+   "cameIn": "6-0",
+   "feederOrg": "BH Fight"
   },
   "6ff3abc1052a0921": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R2",
+   "cameIn": "6-0",
+   "feederOrg": "EFC"
   },
   "f23f5caaf463e283": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "5-1",
+   "feederOrg": "Invicta FC"
   },
   "32b54efa17dd09e6": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "22-9",
+   "feederOrg": "LFA"
   },
   "aae070309e2d5bd6": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "SUB R1",
+   "cameIn": "8-2",
+   "feederOrg": "ONE Championship"
   },
   "bf51dc1830ee0331": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "8-3",
+   "feederOrg": "Cage Titans FC"
   },
   "0aa3f2867f59903c": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R2",
+   "cameIn": "7-0",
+   "feederOrg": "Bellator"
   },
   "4ab925019d108a41": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "13-4",
+   "feederOrg": "Square Ring Promotions"
   },
   "389b2776826e2183": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "15-5",
+   "feederOrg": "LFA"
   },
   "44852969f473e28a": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "SUB R2",
+   "cameIn": "8-4",
+   "feederOrg": "LFA"
   },
   "ec2c1c878d169469": {
    "result": "L",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "6-1",
+   "feederOrg": "King of the Cage"
   },
   "e3c4bca51aa2bdd4": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R3",
+   "cameIn": "18-5",
+   "feederOrg": "CES MMA"
   },
   "08b1e6f4c8b49a3c": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R3",
+   "cameIn": "4-0",
+   "feederOrg": "PFC"
   },
   "085a230fc9e8aafb": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "6-2",
+   "feederOrg": "CCW"
   },
   "e8537d08d84aaea2": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "4-2",
+   "feederOrg": "Invicta FC"
   },
   "9a1548c71a7398bf": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R3",
+   "cameIn": "6-2",
+   "feederOrg": "Square Ring Promotions"
   },
   "a49129adb0dad63b": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "TKO R1",
+   "cameIn": "9-3",
+   "feederOrg": "Fresquez Productions"
   },
   "74ddb1f1670a7b9e": {
    "result": "NC",
-   "year": 2019
+   "year": 2019,
+   "method": null,
+   "cameIn": "7-2",
+   "feederOrg": "HFS"
   },
   "cf44ab1ffc00f165": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "8-0",
+   "feederOrg": "SBC"
   },
   "76de23d141fb4ab4": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "Square Ring Promotions"
   },
   "4b54780dc1d97640": {
    "result": "W",
-   "year": 2019
+   "year": 2019,
+   "method": "UD",
+   "cameIn": "10-3",
+   "feederOrg": "Cage Titans FC"
   },
   "91199de65226ddd6": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "11-3",
+   "feederOrg": "Bellator"
   },
   "53e952ec79277dbd": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "9-2",
+   "feederOrg": "LFA"
   },
   "12c6b847f7f28593": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "SUB R1",
+   "cameIn": "6-0",
+   "feederOrg": "LFA"
   },
   "59fcc641cfc67b7d": {
    "result": "L",
-   "year": 2020
+   "year": 2020,
+   "method": null,
+   "cameIn": "10-1",
+   "feederOrg": "JFL"
   },
   "84ded26cb00e17cf": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R1",
+   "cameIn": "5-0",
+   "feederOrg": "AFC"
   },
   "f11750d4f48eb942": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R1",
+   "cameIn": "10-3",
+   "feederOrg": "LFA"
   },
   "d2f5ea74eafaebd7": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "4-1",
+   "feederOrg": "Cage Warriors"
   },
   "be354104b1b893f1": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R1",
+   "cameIn": "12-1",
+   "feederOrg": "GMC"
   },
   "154db60abecdd988": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R2",
+   "cameIn": "7-1",
+   "feederOrg": "ROC"
   },
   "b2fc49bb4703d084": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R1",
+   "cameIn": "11-3",
+   "feederOrg": "PFC"
   },
   "f8588e91351f8a39": {
    "result": "L",
-   "year": 2020
+   "year": 2020,
+   "method": null,
+   "cameIn": "5-1",
+   "feederOrg": "LFA"
   },
   "02daaff72f859e6e": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "4-1",
+   "feederOrg": "LFA"
   },
   "0f8a323857fc0cf8": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R1",
+   "cameIn": "6-0",
+   "feederOrg": "Bear River FC"
   },
   "e0c4f89412167696": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "7-2",
+   "feederOrg": "Cageside Promotions / KCFA"
   },
   "dcea68f4ed60b8fd": {
    "result": "L",
-   "year": 2020
+   "year": 2020,
+   "method": null,
+   "cameIn": "8-2",
+   "feederOrg": "LFA"
   },
   "85676ed9a7898a46": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "SUB R2",
+   "cameIn": "18-9",
+   "feederOrg": "Titan FC"
   },
   "78ebf7d241e77844": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "SUB R3",
+   "cameIn": "14-5",
+   "feederOrg": "LFA"
   },
   "7aeb78dffc4f5978": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "11-5",
+   "feederOrg": "WXC"
   },
   "7a88ea78c1ad646f": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "4-1",
+   "feederOrg": "LXF"
   },
   "a9976b0f038ad666": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "5-1",
+   "feederOrg": "Bellator"
   },
   "dc2d95b1cce62691": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "9-1",
+   "feederOrg": "SF"
   },
   "1581a12ff499bd32": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "SUB R1",
+   "cameIn": "10-0",
+   "feederOrg": "FNG"
   },
   "7e82a2b9326866dc": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "SUB R1",
+   "cameIn": "6-1",
+   "feederOrg": "King of the Cage"
   },
   "16a29d115b3e37f4": {
    "result": "L",
-   "year": 2020
+   "year": 2020,
+   "method": null,
+   "cameIn": "6-1",
+   "feederOrg": "Fury FC"
   },
   "360f2cc2f016e6ac": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "KO R2",
+   "cameIn": "3-0",
+   "feederOrg": "CFFC"
   },
   "8a820786ab3bc2ea": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "7-1",
+   "feederOrg": "WXC"
   },
   "2127684a702c4006": {
    "result": "L",
-   "year": 2020
+   "year": 2020,
+   "method": null,
+   "cameIn": "7-2",
+   "feederOrg": "LFA"
   },
   "56adb35526c59c88": {
    "result": "L",
-   "year": 2020
+   "year": 2020,
+   "method": null,
+   "cameIn": "5-0",
+   "feederOrg": "Titan FC"
   },
   "c89b0a7cd08a3b08": {
    "result": "L",
-   "year": 2020
+   "year": 2020,
+   "method": null,
+   "cameIn": "6-2",
+   "feederOrg": "HRMMA"
   },
   "1979d2ef989e7265": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "KO R2",
+   "cameIn": "10-3",
+   "feederOrg": "LUX"
   },
   "9ee1b4b7ce888501": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R1",
+   "cameIn": "10-4",
+   "feederOrg": "EFC"
   },
   "9d56d022b89c876b": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R3",
+   "cameIn": "13-6",
+   "feederOrg": "LFA"
   },
   "0ce8ac03e1fc8da4": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "KO R1",
+   "cameIn": "7-1",
+   "feederOrg": "Brave CF"
   },
   "c1913c3d6026e4d0": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "SUB R3",
+   "cameIn": "5-0",
+   "feederOrg": "LFA"
   },
   "e6bdebff94eddc25": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "11-3",
+   "feederOrg": "CFFC"
   },
   "2038fc2e7818a453": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "4-2",
+   "feederOrg": "SFT"
   },
   "b0fc9b463c44f7ea": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "King of the Cage"
   },
   "d77d7e2d8258cc82": {
    "result": "W",
-   "year": 2020
+   "year": 2020,
+   "method": "TKO R2",
+   "cameIn": "7-2",
+   "feederOrg": "Invicta FC"
   },
   "1ebe45b826ab0427": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "KO R1",
+   "cameIn": "8-0",
+   "feederOrg": "AF"
   },
   "bf14e890b46e0305": {
    "result": "L",
-   "year": 2021
+   "year": 2021,
+   "method": null,
+   "cameIn": "19-3",
+   "feederOrg": "LUX"
   },
   "5817d60924c7a7e0": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "11-2-1",
+   "feederOrg": "FFC"
   },
   "edf83b64bd3557d4": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SD",
+   "cameIn": "9-1",
+   "feederOrg": "LFA"
   },
   "daa8caf6878b4796": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "KO R1",
+   "cameIn": "8-2-1",
+   "feederOrg": "Fury FC"
   },
   "07437ba38048dad7": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SD",
+   "cameIn": "10-5",
+   "feederOrg": "Rise FC"
   },
   "b64bdbe0d3e4c9aa": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "TKO R3",
+   "cameIn": "19-7",
+   "feederOrg": "Bellator"
   },
   "c8deb768d421f009": {
    "result": "NC",
-   "year": 2021
+   "year": 2021,
+   "method": null,
+   "cameIn": "5-0",
+   "feederOrg": "LFA"
   },
   "a991252ad3712030": {
    "result": "L",
-   "year": 2021
+   "year": 2021,
+   "method": null,
+   "cameIn": "16-3",
+   "feederOrg": "ONE Championship"
   },
   "d892963e78a574fb": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SD",
+   "cameIn": "17-3",
+   "feederOrg": "Sicario MMA"
   },
   "8f422d41a940e93c": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SUB R1",
+   "cameIn": "13-3",
+   "feederOrg": "ACB"
   },
   "16a0eba44cd46eb9": {
    "result": "L",
-   "year": 2021
+   "year": 2021,
+   "method": null,
+   "cameIn": "7-1",
+   "feederOrg": "Titan FC"
   },
   "c17b1fa1d28c1eea": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SUB R2",
+   "cameIn": "13-2",
+   "feederOrg": "Thunder Fight"
   },
   "a0989877f644f2ab": {
    "result": "NC",
-   "year": 2021
+   "year": 2021,
+   "method": null,
+   "cameIn": "8-1-1",
+   "feederOrg": "Babilon MMA"
   },
   "c466cc5888c59b0e": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SUB R1",
+   "cameIn": "5-0",
+   "feederOrg": "King of the Cage"
   },
   "72b8ddd1d482149e": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "6-1",
+   "feederOrg": "Jungle Fight"
   },
   "5561fca8c897f0bf": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "11-0",
+   "feederOrg": "EMMA"
   },
   "c54bce0af7e7b01b": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "12-4",
+   "feederOrg": "Fury FC"
   },
   "b483569c9c54cfc6": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "TKO R1",
+   "cameIn": "8-1",
+   "feederOrg": "Future MMA"
   },
   "17dc8cabd91da5ae": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "11-0",
+   "feederOrg": "LUX"
   },
   "602460be3bce1990": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "TKO R1",
+   "cameIn": "17-2",
+   "feederOrg": "WWFC"
   },
   "5adc666e571b3cb1": {
    "result": "L",
-   "year": 2021
+   "year": 2021,
+   "method": null,
+   "cameIn": "12-0",
+   "feederOrg": "MF"
   },
   "16862aff18bed355": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "TKO R3",
+   "cameIn": "9-2-1",
+   "feederOrg": "EFC"
   },
   "d7974c32755e4b64": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SD",
+   "cameIn": "6-1",
+   "feederOrg": "HFC"
   },
   "8dfca53c3e78795e": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "TKO R1",
+   "cameIn": "9-1",
+   "feederOrg": "LFA"
   },
   "6f7956e788616622": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "TKO R2",
+   "cameIn": "9-0",
+   "feederOrg": "LUX"
   },
   "078a0c62a7f98405": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SUB R2",
+   "cameIn": "5-1",
+   "feederOrg": "LFA"
   },
   "5d49240c45a2a624": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "KO R1",
+   "cameIn": "7-0",
+   "feederOrg": "Bellator"
   },
   "a8cd76e59b7c49ab": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "LFA"
   },
   "b6e46aa39a0633e8": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SUB R2",
+   "cameIn": "7-0",
+   "feederOrg": "Cage Warriors"
   },
   "04c3977524fb97e0": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "TKO R1",
+   "cameIn": "8-1",
+   "feederOrg": "Oktagon MMA"
   },
   "018e6efa6f1415a9": {
    "result": "L",
-   "year": 2021
+   "year": 2021,
+   "method": null,
+   "cameIn": "5-0",
+   "feederOrg": "Cage Titans FC"
   },
   "81755efcce2cc326": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "KO R2",
+   "cameIn": "4-1",
+   "feederOrg": "Titan FC"
   },
   "5d5dc3bf943ec3f3": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "KO R1",
+   "cameIn": "5-1",
+   "feederOrg": "Colosseum MMA"
   },
   "4eb7dddb4cd45ec1": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SD",
+   "cameIn": "7-3",
+   "feederOrg": "iFF"
   },
   "3ae417889e6fa052": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "KO R3",
+   "cameIn": "14-3",
+   "feederOrg": "Shooto"
   },
   "904ca6578a6ca8eb": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "6-0",
+   "feederOrg": "Panama Fight League"
   },
   "1fc339f153e788c3": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "16-3",
+   "feederOrg": "UWC Mexico"
   },
   "fc5ed93b9af75353": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SUB R1",
+   "cameIn": "12-0",
+   "feederOrg": "GTC"
   },
   "7192b50e701bd23e": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "SUB R3",
+   "cameIn": "10-0",
+   "feederOrg": "UCMMA"
   },
   "aef0ff28e0e41917": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "TKO R1",
+   "cameIn": "11-2",
+   "feederOrg": "Club Hardcore Fighter"
   },
   "d11e3f2e5deb833f": {
    "result": "L",
-   "year": 2021
+   "year": 2021,
+   "method": null,
+   "cameIn": "22-7",
+   "feederOrg": "WLF"
   },
   "fab54d525f0f2d9d": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "UD",
+   "cameIn": "7-1",
+   "feederOrg": "WLF"
   },
   "d662f90d5ab81f35": {
    "result": "W",
-   "year": 2021
+   "year": 2021,
+   "method": "KO R1",
+   "cameIn": "7-0",
+   "feederOrg": "CFFC"
   },
   "14a2fa2dd23e71d3": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SD",
+   "cameIn": "10-2",
+   "feederOrg": "LUX"
   },
   "73edf033b8cfef8a": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "7-0",
+   "feederOrg": "Brave CF"
   },
   "c9bb479dabdb48bf": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R1",
+   "cameIn": "7-2",
+   "feederOrg": "CES MMA"
   },
   "5f4c5e8ccdbba00e": {
    "result": "L",
-   "year": 2022
+   "year": 2022,
+   "method": null,
+   "cameIn": "6-1",
+   "feederOrg": "CFFC"
   },
   "37f91d57ed109584": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "Cage Titans FC"
   },
   "a45448a6818f77fd": {
    "result": "L",
-   "year": 2022
+   "year": 2022,
+   "method": null,
+   "cameIn": "12-5",
+   "feederOrg": "Eternal MMA"
   },
   "37f101d3e49473e4": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R2",
+   "cameIn": "13-4",
+   "feederOrg": "PC"
   },
   "9a841327b5d824c6": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SUB R1",
+   "cameIn": "1-0",
+   "feederOrg": "iFC"
   },
   "60f31fb96a24723a": {
    "result": "L",
-   "year": 2022
+   "year": 2022,
+   "method": null,
+   "cameIn": "8-3",
+   "feederOrg": "Combate Americas"
   },
   "acee921186a58206": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R1",
+   "cameIn": "8-1",
+   "feederOrg": "LUX"
   },
   "ccff59f4a6c0e287": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "KO R1",
+   "cameIn": "9-2",
+   "feederOrg": "Thunder Fight"
   },
   "ba79f6bac3682eb1": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SD",
+   "cameIn": "6-2",
+   "feederOrg": "LFA"
   },
   "f0427fab32e0994a": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "KO R3",
+   "cameIn": "6-1",
+   "feederOrg": "Fury FC"
   },
   "0eed054506a94abf": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "KO R3",
+   "cameIn": "5-0",
+   "feederOrg": "EFC"
   },
   "f9e0aa1af1d6a50a": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R1",
+   "cameIn": "11-5-1",
+   "feederOrg": "LFA"
   },
   "092a12fbdcf12ad3": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "5-1",
+   "feederOrg": "SFT"
   },
   "31ff758863c6ad36": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SUB R3",
+   "cameIn": "7-1",
+   "feederOrg": "Combate Global"
   },
   "a0cd4255eec2a5b8": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SUB R1",
+   "cameIn": "5-0",
+   "feederOrg": "RAC"
   },
   "cfd0252570ae2229": {
    "result": "L",
-   "year": 2022
+   "year": 2022,
+   "method": null,
+   "cameIn": "11-5",
+   "feederOrg": "BC"
   },
   "a6b28b78bf4b32a5": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SUB R1",
+   "cameIn": "6-0-1",
+   "feederOrg": "CFFC"
   },
   "9f310e095342e68c": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "OFC"
   },
   "8c40f8d46a6995b9": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R3",
+   "cameIn": "5-1",
+   "feederOrg": "Pancrase"
   },
   "03b527306e0b57c8": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SUB R1",
+   "cameIn": "12-0",
+   "feederOrg": "LFA"
   },
   "20fbdf9a7df6c950": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "17-3",
+   "feederOrg": "LFA"
   },
   "3a626ef8b2524507": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "6-1",
+   "feederOrg": "PFL"
   },
   "157689fad4e22542": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R2",
+   "cameIn": "8-1",
+   "feederOrg": "LFA"
   },
   "8fbbef9a4ec1f6cb": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "Oktagon MMA"
   },
   "147266d98ca2813f": {
    "result": "L",
-   "year": 2022
+   "year": 2022,
+   "method": null,
+   "cameIn": "6-0",
+   "feederOrg": "CN"
   },
   "d04b8d5ce7a65c4f": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "KO R2",
+   "cameIn": "6-0",
+   "feederOrg": "Adventure Fighters Tournament"
   },
   "90ae69e9a9137984": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "KO R2",
+   "cameIn": "7-2-1",
+   "feederOrg": "Shooto"
   },
   "fe96fd653f562e98": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "12-0",
+   "feederOrg": "300 Sparta"
   },
   "6268180e745a1e23": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "8-0",
+   "feederOrg": "War of Titans"
   },
   "331d3f58e32980ad": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SUB R1",
+   "cameIn": "12-1",
+   "feederOrg": "Brave CF"
   },
   "122fde0994a2f457": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R2",
+   "cameIn": "6-0",
+   "feederOrg": "AFS"
   },
   "b4fb66059bd82743": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R1",
+   "cameIn": "8-0",
+   "feederOrg": "Big Shot Fight"
   },
   "9c6d0c42a7a85b51": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R1",
+   "cameIn": "7-0",
+   "feederOrg": "Samara MMA Federation"
   },
   "880ed8d5af0c13b1": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "UWC Mexico"
   },
   "0aa46064d6a157d1": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R3",
+   "cameIn": "9-2",
+   "feederOrg": "Eternal MMA"
   },
   "185ca098bbf84581": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "KO R1",
+   "cameIn": "9-0",
+   "feederOrg": "Future MMA"
   },
   "070750e76792d168": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "TKO R2",
+   "cameIn": "10-0",
+   "feederOrg": "Shooto"
   },
   "949e6bb465af017b": {
    "result": "W",
-   "year": 2022
+   "year": 2022,
+   "method": "SUB R2",
+   "cameIn": "9-1-1",
+   "feederOrg": "Brave CF"
   },
   "c15f8ac4d76af53a": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SD",
+   "cameIn": "11-1",
+   "feederOrg": "CFS"
   },
   "473d57add1655a1a": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "7-1-1",
+   "feederOrg": "BFL"
   },
   "600dc8df28333450": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "3-0",
+   "feederOrg": "Shooto"
   },
   "c9689833e730c077": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "8-1",
+   "feederOrg": "Inka"
   },
   "2b3745a0444dcd17": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "5-0",
+   "feederOrg": "Urijah Faber's A1 Combat"
   },
   "23819db9f489592d": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "KO R1",
+   "cameIn": "5-0",
+   "feederOrg": "Eternal MMA"
   },
   "56ae4acb4e3f6e6b": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "14-3",
+   "feederOrg": "Fury FC"
   },
   "6fe6a57990709869": {
    "result": "L",
-   "year": 2023
+   "year": 2023,
+   "method": null,
+   "cameIn": "8-3",
+   "feederOrg": "Fury FC"
   },
   "59d44e0872a38402": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "7-3",
+   "feederOrg": "CFFC"
   },
   "f2a4a3932a91dc1e": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SUB R1",
+   "cameIn": "8-0",
+   "feederOrg": "DF"
   },
   "44b3eeff33faf035": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "7-0",
+   "feederOrg": "LFA"
   },
   "62055b2fd8a10789": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "11-1",
+   "feederOrg": "VFN"
   },
   "194c30e0b6259280": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "4-0",
+   "feederOrg": "FCR"
   },
   "92c3d765853df119": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "7-1",
+   "feederOrg": "FFC"
   },
   "574a92a70255439d": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "MD",
+   "cameIn": "8-2",
+   "feederOrg": "Cage Warriors"
   },
   "3278a31624e0082e": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SUB R1",
+   "cameIn": "5-0",
+   "feederOrg": "Fury FC"
   },
   "8973247f6808fbfd": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "7-1",
+   "feederOrg": "AFC"
   },
   "af8e52231b4cfce5": {
    "result": "L",
-   "year": 2023
+   "year": 2023,
+   "method": null,
+   "cameIn": "7-0",
+   "feederOrg": "Fierce FC"
   },
   "af733fdd68401f60": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SUB R2",
+   "cameIn": "7-1",
+   "feederOrg": "LFA"
   },
   "02e16570ff7efb38": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R3",
+   "cameIn": "5-2",
+   "feederOrg": "UAE Warriors"
   },
   "af48657df8015e6d": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "KO R1",
+   "cameIn": "14-5",
+   "feederOrg": "Shooto"
   },
   "d13c8ceda8609795": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R2",
+   "cameIn": "11-0",
+   "feederOrg": "Thunder Fight"
   },
   "7e02c6105357be18": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SUB R1",
+   "cameIn": "5-2",
+   "feederOrg": "LFA"
   },
   "5941bd38f1fe3952": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "6-2",
+   "feederOrg": "LFA"
   },
   "fa859b94c8582c26": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "10-2",
+   "feederOrg": "Spartacus MMA"
   },
   "f82c365cb6b6a2e8": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "11-0",
+   "feederOrg": "SFH"
   },
   "9dd44108e3e1b102": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "8-1",
+   "feederOrg": "CN"
   },
   "1f5d82279eb460df": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "9-1",
+   "feederOrg": "BFL"
   },
   "9ae6be6b0db58d78": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "13-2",
+   "feederOrg": "FFC"
   },
   "99142b6b0a8bdbba": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "13-0",
+   "feederOrg": "LFA"
   },
   "460b5fa5b94b70bd": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "KO R1",
+   "cameIn": "5-0",
+   "feederOrg": "Imortal FC"
   },
   "16b49cd67451547b": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SUB R1",
+   "cameIn": "14-1",
+   "feederOrg": "Jungle Fight"
   },
   "3285bd6966dffe99": {
    "result": "D",
-   "year": 2023
+   "year": 2023,
+   "method": null,
+   "cameIn": "5-1",
+   "feederOrg": "Jungle Fight"
   },
   "95d8b12e5a21ed5a": {
    "result": "L",
-   "year": 2023
+   "year": 2023,
+   "method": null,
+   "cameIn": "7-1",
+   "feederOrg": "CFFC"
   },
   "35fd53a02396b4af": {
    "result": "L",
-   "year": 2023
+   "year": 2023,
+   "method": null,
+   "cameIn": "3-0",
+   "feederOrg": "Bayou FC"
   },
   "77f853c4d44cbe94": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "6-0",
+   "feederOrg": "CFFC"
   },
   "07f69c437c68f468": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "7-1",
+   "feederOrg": "LFA"
   },
   "3c972c6d8123294c": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SD",
+   "cameIn": "4-0-1",
+   "feederOrg": "HXMMA"
   },
   "aad8e24798f0a89f": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "KO R1",
+   "cameIn": "18-3",
+   "feederOrg": "UAE Warriors"
   },
   "97c47845e7f9a88b": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "7-0",
+   "feederOrg": "KFL"
   },
   "bd8ee82c2df0d588": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R3",
+   "cameIn": "8-1",
+   "feederOrg": "CFC"
   },
   "fca2542155e4fd20": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SUB R2",
+   "cameIn": "23-4",
+   "feederOrg": "Pancrase"
   },
   "e1601c0597a7b444": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "UD",
+   "cameIn": "6-0",
+   "feederOrg": "Spartacus MMA"
   },
   "ee66f8d0ba75975e": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "KO R2",
+   "cameIn": "16-1",
+   "feederOrg": "LFA"
   },
   "bb76e767e4bf0b9a": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "TKO R1",
+   "cameIn": "7-1",
+   "feederOrg": "Fury FC"
   },
   "ac54fb7dcc875b59": {
    "result": "W",
-   "year": 2023
+   "year": 2023,
+   "method": "SUB R2",
+   "cameIn": "6-0",
+   "feederOrg": "AFS"
   },
   "2f88f17add7669c5": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "KO R2",
+   "cameIn": "7-1",
+   "feederOrg": "United Fight League"
   },
   "10a96d52c89b5469": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "KO R1",
+   "cameIn": "6-0",
+   "feederOrg": "Cage Warriors"
   },
   "b9562bf0e19e971a": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "TKO R2",
+   "cameIn": "5-0",
+   "feederOrg": "SF"
   },
   "8a1aa5c3cd50dedf": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "SUB R1",
+   "cameIn": "6-1",
+   "feederOrg": "HFS"
   },
   "634eda97df9caa0e": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "UD",
+   "cameIn": "8-2",
+   "feederOrg": "SFC"
   },
   "bbad8cc98783fae1": {
    "result": "L",
-   "year": 2024
+   "year": 2024,
+   "method": null,
+   "cameIn": "9-1",
+   "feederOrg": "Fury FC"
   },
   "87bd1fc4820e6e6f": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "SUB R2",
+   "cameIn": "12-0",
+   "feederOrg": "Lights Out Championship"
   },
   "ef4f913e6a99246b": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "SD",
+   "cameIn": "7-0",
+   "feederOrg": "Impact Championship"
   },
   "0b43bf0acbd22ca3": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "KO R2",
+   "cameIn": "4-0",
+   "feederOrg": "HFS"
   },
   "28922ab0ce7d617b": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "UD",
+   "cameIn": "6-1",
+   "feederOrg": "Fury FC"
   },
   "395835d15985848e": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "KO R1",
+   "cameIn": "6-0",
+   "feederOrg": "LFA"
   },
   "3808fc6e211485cf": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "UD",
+   "cameIn": "10-1",
+   "feederOrg": "SFT"
   },
   "d9935a239ea022f2": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "TKO R2",
+   "cameIn": "8-2",
+   "feederOrg": "LFA"
   },
   "837d7b515e82e17f": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "SUB R2",
+   "cameIn": "9-1",
+   "feederOrg": "Titan FC"
   },
   "f98cac378dcfb57b": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "UD",
+   "cameIn": "10-1",
+   "feederOrg": "Combate Global"
   },
   "c3fd5865a09e741a": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "KO R2",
+   "cameIn": "9-0",
+   "feederOrg": "EFC"
   },
   "ef56a8f712d971ef": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "TKO R2",
+   "cameIn": "8-0",
+   "feederOrg": "Fury FC"
   },
   "966e46aafac530c8": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "KO R1",
+   "cameIn": "10-1",
+   "feederOrg": "Sparta Championship Fighting"
   },
   "3f143ed5d6b45e39": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "KO R1",
+   "cameIn": "8-0",
+   "feederOrg": "LFL"
   },
   "28061eae5a6884c3": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "SUB R1",
+   "cameIn": "5-1",
+   "feederOrg": "LFA"
   },
   "47dfe6ac6c9121a0": {
    "result": "W",
-   "year": 2024
+   "year": 2024,
+   "method": "UD",
+   "cameIn": "7-0",
+   "feederOrg": "Fury FC"
   },
   "d39a1677910874e9": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R2",
+   "cameIn": "5-0",
+   "feederOrg": "LFA"
   },
   "8d4cda2a290cc491": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "6-0",
+   "feederOrg": "Ares"
   },
   "62eb06895e1e4b0b": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "5-0",
+   "feederOrg": "Anthony Pettis FC"
   },
   "a175cb5d70c753c6": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R3",
+   "cameIn": "12-1",
+   "feederOrg": "Bellator"
   },
   "85a165c98f003923": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "7-1",
+   "feederOrg": "LFA"
   },
   "e180666d3423c42b": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "15-3",
+   "feederOrg": "FEN"
   },
   "006859adbc880edd": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "MD",
+   "cameIn": "8-0",
+   "feederOrg": "Fusion Fight League"
   },
   "dad9b43cf7480f68": {
    "result": "L",
-   "year": 2025
+   "year": 2025,
+   "method": null,
+   "cameIn": "8-0",
+   "feederOrg": "DF"
   },
   "26f15079cf039c8c": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "KO R1",
+   "cameIn": "12-5",
+   "feederOrg": "LFA"
   },
   "7d1e163720b62145": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "5-1",
+   "feederOrg": "LFA"
   },
   "205e928621a6f62d": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "UD",
+   "cameIn": "12-1",
+   "feederOrg": "WOW"
   },
   "f7012ef25547fc99": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "KO R1",
+   "cameIn": "5-0",
+   "feederOrg": "Babilon MMA"
   },
   "a2abca58544b6a7b": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "7-1",
+   "feederOrg": "Ares"
   },
   "5a7dee229b27e06c": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "SUB R1",
+   "cameIn": "13-1",
+   "feederOrg": "TKO Palmas"
   },
   "c212ca8a9b232259": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "7-1",
+   "feederOrg": "Shooto"
   },
   "e25181125365fbe6": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "7-0",
+   "feederOrg": "FCC"
   },
   "1c33eb78bdc5df39": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "5-0",
+   "feederOrg": "Fury FC"
   },
   "8b41d0ebea0c3e18": {
    "result": "W",
-   "year": 2025
+   "year": 2025,
+   "method": "TKO R1",
+   "cameIn": "5-0",
+   "feederOrg": "CFFC"
   }
  }
 }

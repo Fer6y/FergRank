@@ -575,6 +575,14 @@ export default function UpcomingClient({ events }: { events: UpcomingEvent[] }) 
                   {days === 0 ? 'Tonight' : days === 1 ? 'Tomorrow' : `Next · ${days} days`}
                 </span>
               )}
+              {ev.isDwcs && (
+                <span
+                  className="absolute -top-2 right-3 font-mono text-[10px] tracking-wider uppercase px-1.5 py-px rounded-full"
+                  style={{ backgroundColor: 'var(--accent-gold)', color: '#1a1a24' }}
+                >
+                  DWCS
+                </span>
+              )}
               <div className="text-center shrink-0">
                 <div
                   className="font-display text-xl leading-none"
@@ -639,6 +647,28 @@ export default function UpcomingClient({ events }: { events: UpcomingEvent[] }) 
               <span>= title fight</span>
             </div>
           </div>
+          {event.isDwcs && (
+            <div
+              className="rounded-lg px-3 py-2 text-[11px] leading-snug"
+              style={{
+                backgroundColor: 'var(--bg-secondary)',
+                border: '1px solid var(--accent-gold)',
+                color: 'var(--text-secondary)',
+              }}
+            >
+              <span className="font-mono text-[10px] uppercase tracking-wider mr-1.5" style={{ color: 'var(--accent-gold)' }}>
+                Contender Series
+              </span>
+              A tryout, not a card: fighters here are auditioning for a UFC contract, and{' '}
+              <em>how</em> they win decides it — 98% of finish winners went on to fight in the
+              UFC, vs 89% of decision winners and 18% of losers. Most corners are outside our
+              data, so no win-probability meters are shown — a rating we don&rsquo;t have would
+              be a guess.{' '}
+              <a href="/contender-series" className="underline" style={{ color: 'var(--text-primary)' }}>
+                Nine seasons of evidence →
+              </a>
+            </div>
+          )}
           {(() => {
             // boutOrder alone can collide (missing values default to 999).
             const boutKey = (b: CardBout) => `${b.boutOrder}-${b.fighter1.name}-${b.fighter2.name}`;

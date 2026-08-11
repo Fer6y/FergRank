@@ -243,17 +243,26 @@ function ProspectCard({ p, index, sort }: { p: ProspectEntry; index: number; sor
               </>
             )}
             {p.dwcs && (
-              <span
-                className={`px-1.5 py-px rounded font-mono text-[10px] align-middle${p.preUFC ? ' ml-1.5' : ''}`}
-                style={{
-                  backgroundColor: 'var(--bg-elevated)',
-                  color: p.dwcs.result === 'W' ? 'var(--accent-gold)' : 'var(--text-muted)',
-                  border: '1px solid var(--border)',
-                }}
-                title={`Came through the Contender Series (${p.dwcs.year})`}
-              >
-                DWCS &rsquo;{String(p.dwcs.year).slice(2)} {p.dwcs.result}
-              </span>
+              <>
+                <span
+                  className={`px-1.5 py-px rounded font-mono text-[10px] align-middle${p.preUFC ? ' ml-1.5' : ''}`}
+                  style={{
+                    backgroundColor: 'var(--bg-elevated)',
+                    color: p.dwcs.result === 'W' ? 'var(--accent-gold)' : 'var(--text-muted)',
+                    border: '1px solid var(--border)',
+                  }}
+                  title={`Came through the Contender Series (${p.dwcs.year})`}
+                >
+                  DWCS &rsquo;{String(p.dwcs.year).slice(2)} {p.dwcs.result}
+                  {p.dwcs.method ? ` · ${p.dwcs.method}` : ''}
+                </span>
+                {p.dwcs.cameIn && (
+                  <span className="ml-1.5">
+                    came in <span className="font-mono">{p.dwcs.cameIn}</span>
+                    {p.dwcs.feederOrg ? ` from ${p.dwcs.feederOrg}` : ''}
+                  </span>
+                )}
+              </>
             )}
           </span>
         )}

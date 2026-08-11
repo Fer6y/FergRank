@@ -70,8 +70,16 @@ export interface UpcomingEvent {
   eventId: string | null;
   eventName: string;
   eventDate: string;
+  // Contender Series tryout card (detected by name/slug). No card is currently
+  // listed on ufc.com/events, but the parser doesn't name-filter, so DWCS cards
+  // flow through automatically once the UFC schedules a season — this flag makes
+  // the UI ready: badge + tryout context, and NO win-prob meters (most corners
+  // are regional debutants; a ~1500-flat "probability" would be fabrication).
+  isDwcs: boolean;
   bouts: CardBout[];
 }
+
+const DWCS_RE = /contender series|dana.?white|dwcs/i;
 
 interface RankInfo {
   displayRank: number | null;
@@ -222,18 +230,26 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     };
   };
 
-  return cards.map((card) => ({
-    eventId: card.eventId,
-    eventName: card.eventName,
-    eventDate: card.eventDate,
-    bouts: card.bouts.map((b) => ({
-      boutOrder: b.boutOrder,
-      isMainEvent: b.isMainEvent,
-      section: b.section,
-      weightClass: b.weightClass,
-      fighter1: enrich(b.fighter1Id, b.fighter1Name),
-      fighter2: enrich(b.fighter2Id, b.fighter2Name),
-      ...probs(b.fighter1Id, b.fighter2Id, card.eventDate),
-    })),
-  }));
+  return cards.map((card) => {
+    const isDwcs = DWCS_RE.test(`${card.eventId ?? ''} ${card.eventName}`);
+    return {
+      eventId: card.eventId,
+      eventName: card.eventName,
+      eventDate: card.eventDate,
+      isDwcs,
+      bouts: card.bouts.map((b) => ({
+        boutOrder: b.boutOrder,
+        isMainEvent: b.isMainEvent,
+        section: b.section,
+        weightClass: b.weightClass,
+        fighter1: enrich(b.fighter1Id, b.fighter1Name),
+        fighter2: enrich(b.fighter2Id, b.fighter2Name),
+        // Tryout bouts get no model probability — the corners are mostly
+        // outside our data, and Elo has nothing real to say about a debut.
+        ...(isDwcs
+          ? { prob1: null, formProb1: null, flags1: null, flags2: null }
+          : probs(b.fighter1Id, b.fighter2Id, card.eventDate)),
+      })),
+    };
+  });
 }

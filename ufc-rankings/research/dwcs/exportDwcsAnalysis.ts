@@ -28,6 +28,7 @@ interface FRow {
   dwcsRecord: string;
   firstDwcsDate: string;
   bestDwcsResult: string;
+  dwcsMethod: string;
   preDwcsWins: string;
   preDwcsLosses: string;
   preDwcsDraws: string;
@@ -188,14 +189,24 @@ function main(): void {
     .sort((a, b) => (num(b.settledEloGain) ?? 0) - (num(a.settledEloGain) ?? 0))
     .map((f) => ({ ourId: f.ourId, name: f.name, dwcsYear: Number(f.firstDwcsDate.slice(0, 4)) }));
 
-  // ── per-fighter chips for /prospects ("DWCS '23 W") ────────────────
-  const chips: Record<string, { result: 'W' | 'L' | 'D' | 'NC'; year: number }> = {};
+  // ── per-fighter chips for /prospects: "DWCS '23 W (KO R1) · came in
+  //    13-1 from LFA". method/record/feeder are nullable — render degrades. ──
+  const chips: Record<
+    string,
+    { result: 'W' | 'L' | 'D' | 'NC'; year: number; method: string | null; cameIn: string | null; feederOrg: string | null }
+  > = {};
   for (const f of fighters) {
     if (!f.ourId) continue;
     const [w, l, d] = f.dwcsRecord.split('-').map((x) => Number(x) || 0);
+    const pw = num(f.preDwcsWins);
+    const pl = num(f.preDwcsLosses);
+    const pd = num(f.preDwcsDraws) ?? 0;
     chips[f.ourId] = {
       result: w > 0 ? 'W' : l > 0 ? 'L' : d > 0 ? 'D' : 'NC',
       year: Number(f.firstDwcsDate.slice(0, 4)),
+      method: f.dwcsMethod || null,
+      cameIn: pw != null && pl != null ? (pd ? `${pw}-${pl}-${pd}` : `${pw}-${pl}`) : null,
+      feederOrg: f.feederOrg || null,
     };
   }
 

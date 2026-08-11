@@ -75,6 +75,7 @@ interface FighterRow {
   dwcsRecord: string;
   firstDwcsDate: string;
   bestDwcsResult: 'finishWin' | 'decisionWin' | 'noWin';
+  dwcsMethod: string; // compact label of the best DWCS win ("KO R1", "SUB R2", "UD"), '' if no win
   preDwcsWins: number | '';
   preDwcsLosses: number | '';
   preDwcsDraws: number | '';
@@ -175,8 +176,21 @@ async function main(): Promise<void> {
     date: string;
     result: string; // from THIS participant's perspective
     method: string;
+    round: string;
     eventName: string;
   }
+  // Sherdog method → compact label ("TKO (Punches)" R1 → "TKO R1",
+  // "Decision (Unanimous)" → "UD").
+  const compactMethod = (method: string, round: string): string => {
+    if (/^KO/i.test(method)) return `KO R${round}`;
+    if (/^TKO/i.test(method)) return `TKO R${round}`;
+    if (/^(Submission|Technical Submission)/i.test(method)) return `SUB R${round}`;
+    if (/unanimous/i.test(method)) return 'UD';
+    if (/split/i.test(method)) return 'SD';
+    if (/majority/i.test(method)) return 'MD';
+    if (/^(Decision|Technical Decision)/i.test(method)) return 'DEC';
+    return method;
+  };
   const appearances = new Map<string, DwcsAppearance[]>();
   const invert = (res: string): string =>
     res === 'win' ? 'loss' : res === 'loss' ? 'win' : res; // draw/nc symmetric
@@ -184,7 +198,7 @@ async function main(): Promise<void> {
     if (r.sherdogId) {
       let a = appearances.get(r.sherdogId);
       if (!a) appearances.set(r.sherdogId, (a = []));
-      a.push({ date: r.date, result: r.result, method: r.method, eventName: r.eventName });
+      a.push({ date: r.date, result: r.result, method: r.method, round: r.round, eventName: r.eventName });
     }
     if (r.opponentSherdogId) {
       // Skip if the opponent is a roster subject with their own row for this
@@ -195,7 +209,7 @@ async function main(): Promise<void> {
       if (!oppIsSubject) {
         let a = appearances.get(r.opponentSherdogId);
         if (!a) appearances.set(r.opponentSherdogId, (a = []));
-        a.push({ date: r.date, result: invert(r.result), method: r.method, eventName: r.eventName });
+        a.push({ date: r.date, result: invert(r.result), method: r.method, round: r.round, eventName: r.eventName });
         if (!sherdogToName.has(r.opponentSherdogId) && r.opponentName) {
           sherdogToName.set(r.opponentSherdogId, r.opponentName);
         }
@@ -212,11 +226,17 @@ async function main(): Promise<void> {
 
     let w = 0, l = 0, d = 0;
     let best: FighterRow['bestDwcsResult'] = 'noWin';
+    let dwcsMethod = '';
     for (const a of apps) {
       if (a.result === 'win') {
         w++;
-        if (FINISH_RE.test(a.method)) best = 'finishWin';
-        else if (best !== 'finishWin') best = 'decisionWin';
+        if (FINISH_RE.test(a.method)) {
+          if (best !== 'finishWin') dwcsMethod = compactMethod(a.method, a.round);
+          best = 'finishWin';
+        } else if (best !== 'finishWin') {
+          if (best !== 'decisionWin') dwcsMethod = compactMethod(a.method, a.round);
+          best = 'decisionWin';
+        }
       } else if (a.result === 'loss') l++;
       else if (a.result === 'draw') d++;
     }
@@ -286,6 +306,7 @@ async function main(): Promise<void> {
       dwcsRecord,
       firstDwcsDate,
       bestDwcsResult: best,
+      dwcsMethod,
       preDwcsWins: preW,
       preDwcsLosses: preL,
       preDwcsDraws: preD,
