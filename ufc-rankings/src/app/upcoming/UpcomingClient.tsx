@@ -320,6 +320,44 @@ function TaleOfTape({ bout }: { bout: CardBout }) {
 // spine, and the schedule-context band. Shared by the featured main event and
 // by any dense bout the user expands, so an expanded card reads identically to
 // the main event rather than as a second, divergent layout.
+// Pre-UFC scouting read for Contender Series entrants — the prospect system's
+// grading applied BEFORE a fighter has any UFC rank. Grades + evidence lines
+// come from the nine-season cohort study via dwcsScout.ts; this only renders
+// on DWCS bouts (scout fields are null everywhere else).
+function ScoutBand({ bout }: { bout: CardBout }) {
+  if (!bout.scout1 && !bout.scout2) return null;
+  const gradeColor = (g: string | null) =>
+    g === 'A' ? 'var(--accent-green)' : g === 'B' ? 'var(--accent-gold)' : g === 'C' ? 'var(--accent-red-light)' : 'var(--text-muted)';
+  const Side = ({ name, s }: { name: string; s: NonNullable<CardBout['scout1']> }) => (
+    <div className="min-w-0">
+      <div className="flex items-center gap-2 text-[11px]">
+        <span
+          className="font-display text-sm leading-none px-1.5 py-0.5 rounded"
+          style={{ color: gradeColor(s.grade), border: `1px solid ${gradeColor(s.grade)}` }}
+          title="Scouting grade from the nine-season Contender Series cohort study"
+        >
+          {s.grade ?? '—'}
+        </span>
+        <span className="font-medium truncate" style={{ color: 'var(--text-primary)' }}>{lastName(name)}</span>
+        <span className="font-mono" style={{ color: 'var(--text-secondary)' }}>{s.record ?? '?-?'}</span>
+        {s.org && <span style={{ color: 'var(--text-muted)' }}>· {s.org}</span>}
+      </div>
+      <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>{s.line}</p>
+    </div>
+  );
+  return (
+    <div className="border-t px-3.5 py-2.5 sm:px-4 sm:py-3" style={{ borderColor: 'var(--border)' }}>
+      <div className="text-[10px] tracking-widest uppercase mb-2" style={{ color: 'var(--accent-gold)' }}>
+        Scout · pre-UFC profile
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+        {bout.scout1 && <Side name={bout.fighter1.name} s={bout.scout1} />}
+        {bout.scout2 && <Side name={bout.fighter2.name} s={bout.scout2} />}
+      </div>
+    </div>
+  );
+}
+
 function BoutBody({ bout }: { bout: CardBout }) {
   return (
     <>
@@ -329,6 +367,7 @@ function BoutBody({ bout }: { bout: CardBout }) {
         <MainSide f={bout.fighter2} align="right" flags={bout.flags2} />
       </div>
       <ProbabilitySpine bout={bout} />
+      <ScoutBand bout={bout} />
       <ScheduleContextBand bout={bout} />
     </>
   );

@@ -24,6 +24,7 @@ import { shortDivision } from './divisions';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { UpcomingCard, CardSection } from './loadUpcoming';
+import { gradeDwcsEntrant, type DwcsScoutCorner, type ScoutRead } from './dwcsScout';
 
 // One enriched corner of a bout — everything the card UI needs, display-only.
 export interface CardFighter {
@@ -64,6 +65,10 @@ export interface CardBout {
   // Per-bout context flags (data/bout_flags.csv), null when the fighter is clean.
   flags1: BoutFlagSet | null;
   flags2: BoutFlagSet | null;
+  // Contender Series entrants only: the pre-UFC scouting read (record/age/org
+  // + the cohort-evidence grade from dwcsScout.ts). Null on regular UFC bouts.
+  scout1: (DwcsScoutCorner & ScoutRead) | null;
+  scout2: (DwcsScoutCorner & ScoutRead) | null;
 }
 
 export interface UpcomingEvent {
@@ -246,9 +251,14 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
         fighter2: enrich(b.fighter2Id, b.fighter2Name),
         // Tryout bouts get no model probability — the corners are mostly
         // outside our data, and Elo has nothing real to say about a debut.
+        // They DO get the pre-UFC scouting read (cohort-evidence grade).
         ...(isDwcs
-          ? { prob1: null, formProb1: null, flags1: null, flags2: null }
-          : probs(b.fighter1Id, b.fighter2Id, card.eventDate)),
+          ? {
+              prob1: null, formProb1: null, flags1: null, flags2: null,
+              scout1: b.scout1 ? { ...b.scout1, ...gradeDwcsEntrant(b.scout1) } : null,
+              scout2: b.scout2 ? { ...b.scout2, ...gradeDwcsEntrant(b.scout2) } : null,
+            }
+          : { ...probs(b.fighter1Id, b.fighter2Id, card.eventDate), scout1: null, scout2: null }),
       })),
     };
   });

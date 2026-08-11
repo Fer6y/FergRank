@@ -102,6 +102,11 @@ export interface UpcomingBout {
   fighter1Name: string;
   fighter2Id: string | null;
   fighter2Name: string;
+  // Contender Series entrants only: verified pre-UFC scouting data from the
+  // hand-refreshed data/dwcs_upcoming.csv snapshot (no scrapable source exists
+  // — ufc.com doesn't list DWCS cards, Tapology bot-walls, Sherdog is dead).
+  scout1?: { record: string | null; age: number | null; org: string | null };
+  scout2?: { record: string | null; age: number | null; org: string | null };
 }
 
 export interface UpcomingCard {
@@ -151,6 +156,50 @@ export function getUpcomingCards(): UpcomingCard[] {
       fighter2Id: (r.fighter2_ourId || '').trim() || null,
       fighter2Name: r.fighter2_name || '',
     });
+  }
+
+  // Contender Series cards ride in from their own committed snapshot —
+  // data/dwcs_upcoming.csv, hand-refreshed (see the schema comment there) —
+  // because ufc.com/events does not list DWCS events at all. Same display-only
+  // firewall as everything else here.
+  const dwcsFile = path.join(process.cwd(), 'data', 'dwcs_upcoming.csv');
+  if (fs.existsSync(dwcsFile)) {
+    const dwcsRows = Papa.parse<Record<string, string>>(fs.readFileSync(dwcsFile, 'utf-8'), {
+      header: true,
+      skipEmptyLines: true,
+    }).data;
+    const dwcsByEvent = new Map<string, UpcomingCard>();
+    const scout = (rec: string, age: string, org: string) => ({
+      record: rec?.trim() || null,
+      age: age?.trim() ? Number(age) : null,
+      org: org?.trim() || null,
+    });
+    for (const r of dwcsRows) {
+      const eventDate = r.event_date || '';
+      if (!eventDate || eventDate < today) continue;
+      const key = r.event_name || 'dwcs';
+      let card = dwcsByEvent.get(key);
+      if (!card) {
+        card = { eventId: null, eventName: key, eventDate, bouts: [] };
+        dwcsByEvent.set(key, card);
+      }
+      card.bouts.push({
+        boutOrder: Number(r.bout_order) || 999,
+        isMainEvent: r.is_main_event === '1',
+        section: 'main', // one televised block — render as a single Main Card
+        weightClass: r.weight_class || '',
+        fighter1Id: null, // regional entrants are outside our roster by definition
+        fighter1Name: r.f1_name || '',
+        fighter2Id: null,
+        fighter2Name: r.f2_name || '',
+        scout1: scout(r.f1_record, r.f1_age, r.f1_org),
+        scout2: scout(r.f2_record, r.f2_age, r.f2_org),
+      });
+    }
+    for (const card of dwcsByEvent.values()) {
+      card.bouts.sort((a, b) => a.boutOrder - b.boutOrder);
+      byEvent.set(card.eventName, card);
+    }
   }
 
   cardsCache = Array.from(byEvent.values())
