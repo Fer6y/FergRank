@@ -275,6 +275,14 @@ export const RANKING_CONFIG = {
     // where each side's strength tapers out by seedTaperUFCFights, so it only
     // informs THIN-SAMPLE bouts — exactly where core Elo is a weak estimate and
     // the market's edge on newcomers is largest. Bounded by maxAdjustmentLogit.
+    // MEASURED FLAT at scale (2026-08-11, research/backtest/newcomerRetest.ts):
+    // on 1,067 ≤5-prior bouts (17× the original 61-bout slice) the paired
+    // pedigree ablation gives t = 0.50 — no effect either way. Kept because the
+    // original 3–5-bucket motivation still leans its way (t = −0.96) and it is
+    // harmless, but do NOT tune this coefficient up expecting newcomer gains,
+    // and B.2 (a pre-UFC Elo sweep) stays shelved on this evidence. The real
+    // newcomer problem re-localized to 0–2-prior debutants (acc gap −8.5pt vs
+    // market), where the whole overlay slightly HURTS vs pure Elo.
     pedigreeEdgeCoef: 0.5,
   },
 

@@ -102,6 +102,20 @@ elsewhere and nothing is added to the model; the CI condition carries the rigor.
 negative result logged, raw Elo stays. Removal condition if shipped: revert on any
 future-horizon re-run where the ranked key loses to raw Elo.
 
+## Addendum 2 (2026-08-11, pre-registered before running): newcomer win-prob re-test
+
+The 2026-07-03 "B.1 pedigree prior is flat" verdict rested on a 61-bout newcomer slice —
+too small to distinguish "no signal" from "underpowered" (see the shelving of B.2). Re-run
+on the FULL BFO span (no card window), bucketed by the thinner fighter's prior UFC bouts
+(0–2 / 3–5 / 6+). Ablation is per-bout reconstruction from `predictFight`'s decomposition
+(full model vs full-minus-`pedigreeLogit`, clamp and confidence re-applied) — no config
+mutation. **Verdict rule**: the pedigree prior HELPS if paired per-bout Δlogloss (full −
+ablated) on the ≤5-prior slice has t ≤ −2 at n ≥ 150; otherwise it is a REAL negative
+result at respectable n — record it, keep `pedigreeEdgeCoef` as-is, and B.2 (a pre-UFC Elo
+sweep) stays shelved with the evidence upgraded from "underpowered" to "measured flat". A
+HELPS outcome licenses only a follow-up tuning proposal with its own pre-registered gate,
+not an immediate coefficient change.
+
 ## Data limits (stated up front)
 
 - Sherdog crawl is dead → `sherdog_fights.csv` is frozen at 2025-10-07; DWCS seasons

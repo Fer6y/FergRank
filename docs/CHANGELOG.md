@@ -12,6 +12,27 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-11
 
+- **RESOLVED: the "B.1 pedigree prior is flat" verdict was underpowered — now measured FLAT at
+  17× the sample. B.2 stays shelved, with upgraded evidence.** The 2026-07-03 conclusion rested
+  on a 61-bout newcomer slice; `research/backtest/newcomerRetest.ts` (verdict rule pre-registered
+  in `docs/plans/DWCS_PLAN.md` addendum 2) re-ran the ablation over the FULL BFO span — 1,534
+  odds-matched bouts, no card window — reconstructing "full model minus `pedigreeLogit`" per bout
+  from `predictFight`'s own decomposition (clamp + provisional shade re-applied; no config
+  mutation). On the ≤5-prior verdict slice (n=**1,067**, pedigree live on 826): paired Δlogloss
+  t = **0.50** vs the pre-registered t ≤ −2 — the prior does nothing, in either direction
+  (3–5 bucket t = −0.96 faintly helpful, 0–2 t = 1.17 faintly harmful; both noise).
+  `pedigreeEdgeCoef` stays at 0.5 (harmless, and the original 3–5 motivation still leans its
+  way) with a do-not-tune-this-up breadcrumb; **B.2 (a separate pre-UFC Elo sweep) stays shelved,
+  now on measurement rather than an underpowered test.**
+  **Two incidental findings worth more than the headline:** (1) the newcomer gap RE-LOCALIZED —
+  at full-span n the worst bucket vs the market is **0–2 prior fights** (acc −8.5pt, LL +0.078),
+  while 3–5 (−5.2pt) is now BETTER than established 6+ (−7.5pt); the 2026-07-03 "3–5 is the worst
+  bucket" reading was a 30-card-window artifact. (2) On 0–2 debutants the whole age/style/shade
+  overlay slightly HURTS vs pure Elo (LL 0.6688 vs 0.6650, acc 59.8% vs 60.2%) — if there is a
+  debutant fix, it is not more overlay; the candidates are the shade floor
+  (`elo.winProbShadeFloor`) or nothing. Not pursued here — any change needs its own
+  pre-registered gate.
+
 - **REFUTED: sorting /prospects on finalRating instead of raw Elo. Negative result; no change
   shipped.** The strongest untested prospect-ordering lever — `/prospects` sorts on raw `elo`, so
   `pedigreeBonus` (the one bounded term built for thin-UFC-sample fighters, live for exactly this
