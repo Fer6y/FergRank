@@ -12,6 +12,29 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-11
 
+- **Prospect-system UI phase: provenance, DWCS-ready /upcoming, the pipeline guide.** Display-only
+  end to end; golden master byte-identical.
+  **Provenance** — /prospects cards now read `DWCS '23 W · TKO R1 · came in 11-0 from SFH`: the
+  record ENTERING the tryout (strictly pre-DWCS, deliberately distinct from the pre-UFC pedigree
+  line, which also counts the DWCS bout and later regional fights). `buildDwcsDataset` gained a
+  `dwcsMethod` column; the `dwcs_analysis.json` chips map carries `method`/`cameIn`/`feederOrg`.
+  **/upcoming is DWCS-READY, not DWCS-populated** — the probe (2026-08-11) found ufcstats.com has
+  carried zero Contender Series events EVER (so the cohort dataset stays frozen; no live results
+  source exists), and ufc.com/events currently lists no DWCS cards, with old DWCS event pages
+  302ing to search. But `parseUpcomingList` doesn't name-filter, so cards flow through the moment
+  the UFC schedules a season: `UpcomingEvent.isDwcs` (name/slug regex) → gold tab badge, a tryout
+  context strip (the 98/89/18 doorway evidence, linking /contender-series), and **no win-prob
+  meters on tryout bouts** — most corners are outside our data, and a ~1500-flat "probability"
+  would be fabrication. Verified live with a synthetic DWCS card appended to the snapshot (badge,
+  strip, name-only corners all correct; UFC cards unaffected), then restored byte-identical.
+  **The pipeline guide** — collapsible 5-stage visual on /prospects (regional circuit → DWCS →
+  provisional window → watchlist → ranked 40), where every "predicts / doesn't" annotation is a
+  measured backtest result (win rate + youth predict; fight count, climb rate, and the
+  pedigree-adjusted sort key are named as refuted), with live numbers from `dwcs_analysis.json`
+  and a footer pointing at DWCS_PLAN.md. Divs + inline-SVG chevrons rather than one big SVG
+  canvas — the stages must reflow to a vertical stack on mobile, which live text in a fixed
+  viewBox can't do. Verified at desktop + mobile widths, zero console errors, build static.
+
 - **NEGATIVE (and clarifying): the debutant shade-floor test — no change ships, the overlay is
   exonerated, and a possible regime shift is flagged.** Follow-up to the re-test below; bar
   pre-registered in `docs/plans/DWCS_PLAN.md` addendum 3. `research/backtest/shadeFloorTest.ts`
