@@ -223,6 +223,15 @@ export const RANKING_CONFIG = {
     // last 10 cards, "thin" fights (a corner <5 UFC fights) hit 52% at the same
     // 55% mean confidence as established fights that hit 59% — the model was
     // equally sure of coin-flips and real edges. This hedges the coin-flips.
+    // TESTED 2026-08-11 (research/backtest/shadeFloorTest.ts, bar pre-registered
+    // in DWCS_PLAN addendum 3): a floor sweep {0.25..1.0} on 0–2-prior bouts
+    // CHOSE 0.25 on the early half (2021–2022-08) — no change ships. But the
+    // late half was monotone toward NO shade (LL 0.6610 at 0.25 → 0.6371 at
+    // 1.0), i.e. the shade helped the 2021–22 era and hurts 2023+; pooled data
+    // would have mis-picked 1.0. Possible regime shift — re-run the sweep with
+    // 2023+ as the choose half once another year of odds exists before touching
+    // this. Same run exonerated the context overlay on debutants (helps at
+    // t=−3.47 on 0–2); the shade, not the overlay, is the debutant drag.
     winProbShadeFloor: 0.25,   // a debut fighter (0 UFC bouts) still keeps 25% of the raw edge
   },
 

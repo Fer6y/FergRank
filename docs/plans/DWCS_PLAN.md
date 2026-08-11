@@ -116,6 +116,22 @@ sweep) stays shelved with the evidence upgraded from "underpowered" to "measured
 HELPS outcome licenses only a follow-up tuning proposal with its own pre-registered gate,
 not an immediate coefficient change.
 
+## Addendum 3 (2026-08-11, pre-registered before running): debutant shade-floor test
+
+Addendum 2's incidental finding: on 0–2-prior bouts the full model slightly HURTS vs
+pure un-shaded Elo, and the candidate knob is `elo.winProbShadeFloor` (0.25 — a debutant
+keeps only 25% of the raw edge; the floor binds for all ≤4-prior bouts since
+conf = max(floor, minFights/5)). Two confounded mechanisms — the overlay and the shade —
+must be separated first. **Design**: four arms per bout on the full BFO span (pure Elo /
+shade-only / overlay-only / full production), paired decomposition of the shade effect
+and the overlay effect on the 0–2 slice. Then a floor sweep over the pre-registered grid
+{0.25, 0.5, 0.75, 1.0}, floor CHOSEN on the temporally earlier half of the 0–2 bouts and
+CONFIRMED on the later half. **Bar to ship a floor change**: on the confirm half, paired
+Δlogloss vs the current 0.25 floor with t ≤ −2 on 0–2-prior, and no t ≥ +2 degradation on
+the 3–5 slice (6+ is unaffected by construction — conf is already 1 there). Miss → floor
+stays, negative result recorded. Display-only knob either way: the win-prob path never
+touches Elo or rankings.
+
 ## Data limits (stated up front)
 
 - Sherdog crawl is dead → `sherdog_fights.csv` is frozen at 2025-10-07; DWCS seasons

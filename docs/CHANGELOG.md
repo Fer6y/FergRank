@@ -12,6 +12,21 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-11
 
+- **NEGATIVE (and clarifying): the debutant shade-floor test — no change ships, the overlay is
+  exonerated, and a possible regime shift is flagged.** Follow-up to the re-test below; bar
+  pre-registered in `docs/plans/DWCS_PLAN.md` addendum 3. `research/backtest/shadeFloorTest.ts`
+  decomposes the two mechanisms the earlier full-vs-pure comparison confounded, on 1,534
+  odds-matched bouts: the **context overlay helps on every bucket including 0–2-prior**
+  (paired t = −3.47 there; −2.40 / −3.15 on 3–5 / 6+) — the "overlay hurts debutants" hint was
+  the SHADE's doing (D−C ΔLL +0.010, t = 1.85 on 0–2, directional). The floor sweep
+  {0.25, 0.5, 0.75, 1.0} then split by era: on the choose half (2021–2022-08) the current 0.25
+  wins outright, so per pre-registration **`winProbShadeFloor` stays and nothing is confirmed** —
+  but the confirm half was MONOTONE toward no shade (0.6610 → 0.6371), meaning pooled data would
+  have mis-picked 1.0 from one era's trend. Recorded as a possible regime shift with a re-test
+  condition (re-run with 2023+ as the choose half once another year of odds exists) in the config
+  comment. The temporal split earned its keep: this is exactly the in-sample trap it exists to
+  catch.
+
 - **RESOLVED: the "B.1 pedigree prior is flat" verdict was underpowered — now measured FLAT at
   17× the sample. B.2 stays shelved, with upgraded evidence.** The 2026-07-03 conclusion rested
   on a 61-bout newcomer slice; `research/backtest/newcomerRetest.ts` (verdict rule pre-registered
