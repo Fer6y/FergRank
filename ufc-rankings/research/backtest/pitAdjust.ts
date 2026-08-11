@@ -45,7 +45,9 @@ export class PitAdjuster {
     this.pedigree = RANKING_CONFIG.preUFCPedigree.seedEnabled ? loadPedigreeStrength(data) : null;
   }
 
-  private ratingAsOf(fighterId: string, asOfIso: string): number | null {
+  // Last ratingAfter strictly before asOf — THE as-of-date rating primitive.
+  // Public: the prospect/DWCS backtests read point-in-time ratings through it.
+  ratingAsOf(fighterId: string, asOfIso: string): number | null {
     const traces = this.tracesById.get(fighterId);
     if (!traces) return null;
     let last: FightTrace | null = null;

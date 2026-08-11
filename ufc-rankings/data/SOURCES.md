@@ -163,6 +163,8 @@ Originally derived from **UFC.com stats** via the `scrape_ufc_stats` project
 | `sherdog_crosswalk.csv` | Sherdog ↔ our-id map (2,240 rows) | ✅ maps Sherdog ids to our roster |
 | `sherdog_orgs.csv`, `sherdog_prospects.csv` | Sherdog | context / prospect watchlist (not wired into core) |
 | `pro_mma_fights.csv` | **Kaggle/Sherdog**, frozen ~Aug 2021 | ✅ pre-UFC pedigree seed (enabled, bounded ≤25 Elo, tapers out by 6 UFC fights) |
+| `dwcs_bouts.csv` / `dwcs_fighters.csv` | derived from `sherdog_fights.csv` by `research/dwcs/buildDwcsDataset.ts` (2026-08-11) | ✅ DWCS cohort study + `/contender-series` (display-only). 325 bouts / 594 participants, 2017–2025. Frozen with the Sherdog source; UFC-outcome columns refresh on manual re-run. See `docs/plans/DWCS_PLAN.md` for operationalizations (`gotContract` = fought-in-UFC proxy; `reachedTop15` = current snapshot only). |
+| `bfo_dwcs_odds.csv` | BestFightOdds DWCS event pages via `research/bfo/scrapeDwcs.ts` | ✅ DWCS closing-odds calibration (research + display). **Sibling of `bfo_odds.csv`, never merged into it** — the UFC backtests' matched pool must not silently change. |
 
 ---
 

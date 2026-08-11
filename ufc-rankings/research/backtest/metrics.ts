@@ -94,6 +94,57 @@ export function score(rows: Prediction[]): ScoreSet {
   };
 }
 
+// ── rank metrics (for the prospect-outcome backtests) ──
+
+// Average ranks with ties sharing the mean of their positions (1-based).
+function averageRanks(xs: number[]): number[] {
+  const order = xs.map((v, i) => [v, i] as const).sort((a, b) => a[0] - b[0]);
+  const ranks = new Array<number>(xs.length);
+  let i = 0;
+  while (i < order.length) {
+    let j = i;
+    while (j + 1 < order.length && order[j + 1][0] === order[i][0]) j++;
+    const rank = (i + j) / 2 + 1; // mean of 1-based positions i+1..j+1
+    for (let k = i; k <= j; k++) ranks[order[k][1]] = rank;
+    i = j + 1;
+  }
+  return ranks;
+}
+
+// AUC via the rank-based Mann–Whitney statistic: P(score of a random positive
+// exceeds a random negative), ties counted 0.5. Here "score" is p and the
+// positive class is won=true. NaN when either class is empty.
+export function auc(rows: Prediction[]): number {
+  const nPos = rows.filter((r) => r.won).length;
+  const nNeg = rows.length - nPos;
+  if (!nPos || !nNeg) return NaN;
+  const ranks = averageRanks(rows.map((r) => r.p));
+  let rankSumPos = 0;
+  for (let i = 0; i < rows.length; i++) if (rows[i].won) rankSumPos += ranks[i];
+  return (rankSumPos - (nPos * (nPos + 1)) / 2) / (nPos * nNeg);
+}
+
+// Spearman rank correlation: Pearson on average ranks (tie-safe, unlike the
+// 6Σd²/n(n²−1) shortcut). NaN on length mismatch, n < 2, or a constant input.
+export function spearman(xs: number[], ys: number[]): number {
+  if (xs.length !== ys.length || xs.length < 2) return NaN;
+  const rx = averageRanks(xs);
+  const ry = averageRanks(ys);
+  const n = rx.length;
+  const mx = rx.reduce((s, v) => s + v, 0) / n;
+  const my = ry.reduce((s, v) => s + v, 0) / n;
+  let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < n; i++) {
+    const dx = rx[i] - mx;
+    const dy = ry[i] - my;
+    sxy += dx * dy;
+    sxx += dx * dx;
+    syy += dy * dy;
+  }
+  if (!sxx || !syy) return NaN;
+  return sxy / Math.sqrt(sxx * syy);
+}
+
 // ── logistic helpers + IRLS fit (for the Elo/market blend) ──
 export const sigmoid = (x: number): number => 1 / (1 + Math.exp(-x));
 export const logit = (p: number): number => {

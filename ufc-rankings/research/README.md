@@ -1,8 +1,9 @@
-# `research/` — Closing Odds × Elo (firewalled research zone)
+# `research/` — firewalled research zone (odds × Elo, prospect backtests, DWCS)
 
-This folder is a **completely separate area** from the ranking product. It exists
-so betting odds can be studied retrospectively (informing future bets / past
-research) **without ever touching the Elo or the rankings**.
+This folder is a **completely separate area** from the ranking product. It began
+as the closing-odds zone and now also holds the prospect-outcome backtests
+(`prospects/`) and the Contender Series cohort study (`dwcs/`) — everything that
+studies the engine's output **without ever touching the Elo or the rankings**.
 
 ## The one rule
 
@@ -78,6 +79,20 @@ node_modules/.bin/jiti research/backtest/coverage.ts      # coverage only
 calibrated Elo matches the market on accuracy (67%) but a blend(Elo, market)
 gives Elo a *negative* weight — i.e. Elo does not beat the closing line on the
 broad sample. See `memory/project_backtest_findings.md`.
+
+## Prospect + DWCS layer (`research/prospects/`, `research/dwcs/`)
+
+The same firewall, pointed at prospect evaluation instead of betting. `prospects/`
+holds the committed two-horizon prospect backtest harness (the 2026-08-05 method,
+rebuilt as durable code); `dwcs/` holds the Contender Series cohort study —
+dataset builder (`data/dwcs_bouts.csv` + `data/dwcs_fighters.csv`), record-shape
+analysis, DWCS odds calibration (`data/bfo_dwcs_odds.csv`, a sibling of
+`bfo_odds.csv`, never merged into it), and the `data/dwcs_analysis.json` export
+behind `/contender-series`. Pre-registered hypotheses + the model-change bar live
+in `docs/plans/DWCS_PLAN.md` — read it before re-running or extending anything
+here. Point-in-time discipline is the same: predictors come from
+`FightTrace.ratingAfter` as-of-date (`PitAdjuster.ratingAsOf`), never settled
+ratings.
 
 ## Data source
 
