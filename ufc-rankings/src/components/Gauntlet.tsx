@@ -70,6 +70,9 @@ export default function GauntletChart({ gauntlet }: Props) {
   // rating (the one that agrees with the hero's ELO / PEAK ELO cards).
   const [series, setSeries] = useState<'true' | 'inCage'>('inCage');
   const inCage = series === 'inCage';
+  // Legend + mode explainer live behind an ⓘ (closed by default) so the idle
+  // chart stays clean/screenshottable — same treatment as CompareGauntlet.
+  const [showInfo, setShowInfo] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const geometry = useMemo(() => {
@@ -224,6 +227,20 @@ export default function GauntletChart({ gauntlet }: Props) {
               </button>
             ))}
           </span>
+          {/* Same clickable-"i" pattern as ScheduleContextStrip's InfoDot. */}
+          <button
+            type="button"
+            onClick={() => setShowInfo((v) => !v)}
+            aria-label="How to read this chart"
+            aria-expanded={showInfo}
+            className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full text-[9px] font-bold align-middle transition-colors"
+            style={{
+              border: '1px solid currentColor',
+              color: showInfo ? 'var(--text-primary)' : 'var(--text-muted)',
+            }}
+          >
+            i
+          </button>
         </div>
         <div
           className="text-[10px] tracking-wide font-mono"
@@ -233,6 +250,62 @@ export default function GauntletChart({ gauntlet }: Props) {
           {overSign}{totalOverperf.toFixed(1)} vs expected
         </div>
       </div>
+
+      {/* ⓘ info box — the ONLY place this chart explains itself. Carries the node
+          legend and the mode explainer that used to render always-visible below
+          the chart (moved 2026-08-11 so the idle chart is screenshot-clean). */}
+      {showInfo && (
+        <div
+          className="rounded-lg px-3 py-2 mb-2 text-[10px] leading-relaxed"
+          style={{ backgroundColor: 'var(--bg-elevated)', border: '1px solid var(--border)', color: 'var(--text-muted)' }}
+        >
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--accent-green)' }} /> win
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--accent-red-light)' }} /> loss
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full border" style={{ borderColor: 'var(--accent-gold)' }} /> title fight
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full border" style={{ borderColor: 'var(--accent-purple)' }} /> main event
+            </span>
+            <span className="flex items-center gap-1.5" style={{ color: 'var(--accent-gold)' }}>
+              ⚑ weight-class move
+            </span>
+            {divMedianElo != null && !inCage && (
+              <span className="flex items-center gap-1.5">
+                <span className="w-4 border-t border-dashed" style={{ borderColor: 'var(--accent-blue)' }} /> div median
+              </span>
+            )}
+            {champElo != null && !inCage && (
+              <span className="flex items-center gap-1.5">
+                <span className="w-4 border-t border-dotted" style={{ borderColor: 'var(--accent-gold)' }} /> division champ
+              </span>
+            )}
+            <span>node size = opponent level · hover a fight for detail</span>
+          </div>
+          <p className="mt-1">
+            {inCage ? (
+              <>
+                <b style={{ color: 'var(--text-secondary)' }}>IN-CAGE</b> — results only: every fight
+                steps, and nothing moves between them, so a win can never read as a decline. This is
+                not the fighter&apos;s rating (it excludes layoff and weight-move decay, so it ends
+                above the real Elo) — division reference lines are hidden for that reason.
+              </>
+            ) : (
+              <>
+                The vertical step at each node is what the FIGHT did — a win always steps up. The
+                slope into it is what was charged before the bell: layoff, and a weight move on its
+                first outing. Switch to <b style={{ color: 'var(--text-secondary)' }}>IN-CAGE</b> to
+                drop that charge and see results only.
+              </>
+            )}
+          </p>
+        </div>
+      )}
 
       <div ref={scrollRef} className="overflow-x-auto" style={{ scrollbarWidth: 'thin' }}>
       <svg
@@ -460,52 +533,6 @@ export default function GauntletChart({ gauntlet }: Props) {
         </div>
 
         <BeforeTheBell point={sel} inCage={inCage} />
-      </div>
-
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-[10px]" style={{ color: 'var(--text-muted)' }}>
-        <span className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--accent-green)' }} /> win
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--accent-red-light)' }} /> loss
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full border" style={{ borderColor: 'var(--accent-gold)' }} /> title fight
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full border" style={{ borderColor: 'var(--accent-purple)' }} /> main event
-        </span>
-        <span className="flex items-center gap-1.5" style={{ color: 'var(--accent-gold)' }}>
-          ⚑ weight-class move
-        </span>
-        {divMedianElo != null && !inCage && (
-          <span className="flex items-center gap-1.5">
-            <span className="w-4 border-t border-dashed" style={{ borderColor: 'var(--accent-blue)' }} /> div median
-          </span>
-        )}
-        {champElo != null && !inCage && (
-          <span className="flex items-center gap-1.5">
-            <span className="w-4 border-t border-dotted" style={{ borderColor: 'var(--accent-gold)' }} /> division champ
-          </span>
-        )}
-        <span>node size = opponent level · hover a fight for detail</span>
-        <span className="basis-full" style={{ color: 'var(--text-muted)' }}>
-          {inCage ? (
-            <>
-              <b style={{ color: 'var(--text-secondary)' }}>IN-CAGE</b> — results only: every fight
-              steps, and nothing moves between them, so a win can never read as a decline. This is
-              not the fighter&apos;s rating (it excludes layoff and weight-move decay, so it ends
-              above the real Elo) — division reference lines are hidden for that reason.
-            </>
-          ) : (
-            <>
-              The vertical step at each node is what the FIGHT did — a win always steps up. The
-              slope into it is what was charged before the bell: layoff, and a weight move on its
-              first outing. Switch to <b style={{ color: 'var(--text-secondary)' }}>IN-CAGE</b> to
-              drop that charge and see results only.
-            </>
-          )}
-        </span>
       </div>
     </div>
   );

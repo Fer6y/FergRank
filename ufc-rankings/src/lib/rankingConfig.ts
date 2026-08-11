@@ -553,6 +553,19 @@ export const RANKING_CONFIG = {
     // hides, shrunk enough that a single lucky debut doesn't top the list.
     climbShrinkK: 3,
 
+    // ── DWCS / record-shape terms: tested and REFUTED (2026-08-11) ──
+    // The Contender Series cohort study (docs/plans/DWCS_PLAN.md, Phase E gate
+    // in research/prospects/phaseEGate.ts) scored every pre-registered
+    // candidate on the committed two-horizon harness. None cleared the bar
+    // (ΔAUC ≥ +0.02 at both horizons over elo@T, 90% CI excluding 0):
+    // pre-UFC loss count +0.007/+0.013 (CIs span 0); undefeated flag
+    // +0.000/+0.023 with the coefficient FLIPPING SIGN across horizons;
+    // DWCS-passage −0.005/+0.014; DWCS-winner ~0; feeder tier/grade
+    // +0.030/+0.046 but the 2023 CI includes 0 (in-sample fits). Do not add a
+    // record-shape or DWCS term to pedigreeStrength from intuition — re-run
+    // the gate first. The descriptive findings (age dominates, finish-win
+    // ≈ guaranteed contract) live on /contender-series as display insight.
+
     // ── Prospect vs newcomer split (a DEFINITIONAL line, not a predictive one) ──
     // "≤5 UFC fights" conflates two populations: genuine prospects, and established
     // fighters importing a career (Michael Page 39/23 pre-UFC bouts, Amosov 32).

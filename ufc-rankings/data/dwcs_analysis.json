@@ -1,0 +1,1795 @@
+{
+ "summary": {
+  "generatedAt": "2026-08-11",
+  "bouts": 325,
+  "participants": 594,
+  "graduates": 335,
+  "contractRate": 0.564,
+  "gradTop15Rate": 0.107,
+  "seasons": "2017–2025"
+ },
+ "seasonTable": [
+  {
+   "season": 2017,
+   "bouts": 31,
+   "finishRate": 0.633,
+   "entrants": 59,
+   "contractRate": 0.61,
+   "top15": 3
+  },
+  {
+   "season": 2018,
+   "bouts": 45,
+   "finishRate": 0.767,
+   "entrants": 83,
+   "contractRate": 0.554,
+   "top15": 2
+  },
+  {
+   "season": 2019,
+   "bouts": 41,
+   "finishRate": 0.564,
+   "entrants": 76,
+   "contractRate": 0.592,
+   "top15": 5
+  },
+  {
+   "season": 2020,
+   "bouts": 38,
+   "finishRate": 0.605,
+   "entrants": 64,
+   "contractRate": 0.594,
+   "top15": 3
+  },
+  {
+   "season": 2021,
+   "bouts": 40,
+   "finishRate": 0.553,
+   "entrants": 75,
+   "contractRate": 0.587,
+   "top15": 5
+  },
+  {
+   "season": 2022,
+   "bouts": 42,
+   "finishRate": 0.643,
+   "entrants": 77,
+   "contractRate": 0.532,
+   "top15": 7
+  },
+  {
+   "season": 2023,
+   "bouts": 43,
+   "finishRate": 0.571,
+   "entrants": 78,
+   "contractRate": 0.59,
+   "top15": 6
+  },
+  {
+   "season": 2024,
+   "bouts": 27,
+   "finishRate": 0.704,
+   "entrants": 47,
+   "contractRate": 0.447,
+   "top15": 4
+  },
+  {
+   "season": 2025,
+   "bouts": 18,
+   "finishRate": 0.889,
+   "entrants": 35,
+   "contractRate": 0.514,
+   "top15": 1
+  }
+ ],
+ "byResult": [
+  {
+   "label": "Finish win",
+   "n": 193,
+   "contractRate": 0.984
+  },
+  {
+   "label": "Decision win",
+   "n": 103,
+   "contractRate": 0.893
+  },
+  {
+   "label": "No DWCS win",
+   "n": 298,
+   "contractRate": 0.178
+  }
+ ],
+ "recordShape": {
+  "experience": [
+   {
+    "label": "≤5 fights",
+    "n": 63,
+    "top15Rate": 0.159,
+    "meanEloGain": -2
+   },
+   {
+    "label": "6–10 fights",
+    "n": 162,
+    "top15Rate": 0.074,
+    "meanEloGain": -6.3
+   },
+   {
+    "label": "11+ fights",
+    "n": 110,
+    "top15Rate": 0.127,
+    "meanEloGain": -3.4
+   }
+  ],
+  "losses": [
+   {
+    "label": "Undefeated",
+    "n": 126,
+    "top15Rate": 0.143,
+    "meanEloGain": 0.9
+   },
+   {
+    "label": "1 loss",
+    "n": 95,
+    "top15Rate": 0.095,
+    "meanEloGain": -5.6
+   },
+   {
+    "label": "2 losses",
+    "n": 46,
+    "top15Rate": 0.087,
+    "meanEloGain": -10.9
+   },
+   {
+    "label": "3+ losses",
+    "n": 68,
+    "top15Rate": 0.074,
+    "meanEloGain": -8.8
+   }
+  ],
+  "age": [
+   {
+    "label": "Under 25",
+    "n": 69,
+    "top15Rate": 0.159,
+    "meanEloGain": 2.4
+   },
+   {
+    "label": "25–28",
+    "n": 171,
+    "top15Rate": 0.117,
+    "meanEloGain": -2
+   },
+   {
+    "label": "29+",
+    "n": 95,
+    "top15Rate": 0.053,
+    "meanEloGain": -14.1
+   }
+  ]
+ },
+ "tiers": [
+  {
+   "label": "tier2_5",
+   "n": 23,
+   "top15Rate": null,
+   "meanEloGain": null
+  },
+  {
+   "label": "tier3",
+   "n": 102,
+   "top15Rate": 0.069,
+   "meanEloGain": -8.7
+  },
+  {
+   "label": "tier4",
+   "n": 209,
+   "top15Rate": 0.129,
+   "meanEloGain": -2.8
+  }
+ ],
+ "topOrgs": [
+  {
+   "org": "LFA",
+   "n": 54,
+   "top15": 5
+  },
+  {
+   "org": "Fury FC",
+   "n": 14,
+   "top15": 0
+  },
+  {
+   "org": "CFFC",
+   "n": 13,
+   "top15": 0
+  },
+  {
+   "org": "Bellator",
+   "n": 12,
+   "top15": 1
+  },
+  {
+   "org": "CES MMA",
+   "n": 8,
+   "top15": 0
+  },
+  {
+   "org": "King of the Cage",
+   "n": 7,
+   "top15": 0
+  },
+  {
+   "org": "Shooto",
+   "n": 7,
+   "top15": 0
+  },
+  {
+   "org": "LFC",
+   "n": 6,
+   "top15": 0
+  },
+  {
+   "org": "Titan FC",
+   "n": 6,
+   "top15": 0
+  },
+  {
+   "org": "EFC",
+   "n": 6,
+   "top15": 1
+  },
+  {
+   "org": "LUX",
+   "n": 6,
+   "top15": 1
+  },
+  {
+   "org": "Square Ring Promotions",
+   "n": 5,
+   "top15": 0
+  }
+ ],
+ "odds": {
+  "n": 40,
+  "span": "2021-10-19 → 2025-09-09",
+  "accuracy": 0.65,
+  "logLoss": 0.638,
+  "ece": 0.147,
+  "favWinRate": 0.65,
+  "meanPFav": 0.714,
+  "coveredBouts": 40,
+  "totalBouts": 325
+ },
+ "rankedGrads": [
+  {
+   "ourId": "58b6dee880eed3f4",
+   "name": "Brendan Allen",
+   "dwcsYear": 2019
+  },
+  {
+   "ourId": "5561fca8c897f0bf",
+   "name": "Michael Morales",
+   "dwcsYear": 2021
+  },
+  {
+   "ourId": "bbcaf7b57144df14",
+   "name": "Sean O'Malley",
+   "dwcsYear": 2017
+  },
+  {
+   "ourId": "bf14e890b46e0305",
+   "name": "Diego Lopes",
+   "dwcsYear": 2021
+  },
+  {
+   "ourId": "03b527306e0b57c8",
+   "name": "Gabriel Bonfim",
+   "dwcsYear": 2022
+  },
+  {
+   "ourId": "6268180e745a1e23",
+   "name": "Farid Basharat",
+   "dwcsYear": 2022
+  },
+  {
+   "ourId": "b483569c9c54cfc6",
+   "name": "Caio Borralho",
+   "dwcsYear": 2021
+  },
+  {
+   "ourId": "154db60abecdd988",
+   "name": "Joe Pyfer",
+   "dwcsYear": 2020
+  },
+  {
+   "ourId": "2127684a702c4006",
+   "name": "Gregory Rodrigues",
+   "dwcsYear": 2020
+  },
+  {
+   "ourId": "0b43bf0acbd22ca3",
+   "name": "Navajo Stirling",
+   "dwcsYear": 2024
+  },
+  {
+   "ourId": "d39a1677910874e9",
+   "name": "Josh Hokit",
+   "dwcsYear": 2025
+  },
+  {
+   "ourId": "9583d6bf13318f23",
+   "name": "Anthony Hernandez",
+   "dwcsYear": 2018
+  },
+  {
+   "ourId": "fa859b94c8582c26",
+   "name": "Jean Silva",
+   "dwcsYear": 2023
+  },
+  {
+   "ourId": "f82c365cb6b6a2e8",
+   "name": "Kevin Vallejos",
+   "dwcsYear": 2023
+  },
+  {
+   "ourId": "331d3f58e32980ad",
+   "name": "Ikram Aliskerov",
+   "dwcsYear": 2022
+  },
+  {
+   "ourId": "3808fc6e211485cf",
+   "name": "Alexia Thainara",
+   "dwcsYear": 2024
+  },
+  {
+   "ourId": "84ded26cb00e17cf",
+   "name": "Uros Medic",
+   "dwcsYear": 2020
+  },
+  {
+   "ourId": "f98cac378dcfb57b",
+   "name": "David Martinez",
+   "dwcsYear": 2024
+  },
+  {
+   "ourId": "9a841327b5d824c6",
+   "name": "Bo Nickal",
+   "dwcsYear": 2022
+  },
+  {
+   "ourId": "2b3745a0444dcd17",
+   "name": "Payton Talbott",
+   "dwcsYear": 2023
+  },
+  {
+   "ourId": "880ed8d5af0c13b1",
+   "name": "Raul Rosas Jr.",
+   "dwcsYear": 2022
+  },
+  {
+   "ourId": "a49129adb0dad63b",
+   "name": "Steve Garcia",
+   "dwcsYear": 2019
+  },
+  {
+   "ourId": "bd8ee82c2df0d588",
+   "name": "Mauricio Ruffy",
+   "dwcsYear": 2023
+  },
+  {
+   "ourId": "23819db9f489592d",
+   "name": "Tom Nolan",
+   "dwcsYear": 2023
+  },
+  {
+   "ourId": "c9bce4b58587da90",
+   "name": "Maycee Barber",
+   "dwcsYear": 2018
+  },
+  {
+   "ourId": "092a12fbdcf12ad3",
+   "name": "Denise Gomes",
+   "dwcsYear": 2022
+  },
+  {
+   "ourId": "aef0ff28e0e41917",
+   "name": "Manuel Torres",
+   "dwcsYear": 2021
+  },
+  {
+   "ourId": "16862aff18bed355",
+   "name": "Rizvan Kuniev",
+   "dwcsYear": 2021
+  },
+  {
+   "ourId": "990efe1105080c68",
+   "name": "Alonzo Menifield",
+   "dwcsYear": 2017
+  },
+  {
+   "ourId": "27dc95be9b98006d",
+   "name": "Daniel Rodriguez",
+   "dwcsYear": 2019
+  },
+  {
+   "ourId": "f23f5caaf463e283",
+   "name": "Tracy Cortez",
+   "dwcsYear": 2019
+  },
+  {
+   "ourId": "fa92f349c2df714c",
+   "name": "Jamahal Hill",
+   "dwcsYear": 2019
+  },
+  {
+   "ourId": "60f31fb96a24723a",
+   "name": "Edgar Chairez",
+   "dwcsYear": 2022
+  },
+  {
+   "ourId": "f2a4a3932a91dc1e",
+   "name": "Eduarda Moura",
+   "dwcsYear": 2023
+  },
+  {
+   "ourId": "245f661e52b116c7",
+   "name": "Alex Perez",
+   "dwcsYear": 2017
+  },
+  {
+   "ourId": "10a96d52c89b5469",
+   "name": "Lone'er Kavanagh",
+   "dwcsYear": 2024
+  }
+ ],
+ "chips": {
+  "be7ca0896a9b24a2": {
+   "result": "W",
+   "year": 2017
+  },
+  "bf91cbfb6ec5463a": {
+   "result": "W",
+   "year": 2017
+  },
+  "b6c17f70c2c805cf": {
+   "result": "W",
+   "year": 2017
+  },
+  "e891217b7a2b4f16": {
+   "result": "W",
+   "year": 2017
+  },
+  "0f7518cc5cd482fb": {
+   "result": "W",
+   "year": 2017
+  },
+  "ecdf6dcdb523bb8d": {
+   "result": "NC",
+   "year": 2017
+  },
+  "adb29a86d181648c": {
+   "result": "NC",
+   "year": 2017
+  },
+  "8599d31404ff0b34": {
+   "result": "L",
+   "year": 2017
+  },
+  "2c6080cef7de1112": {
+   "result": "W",
+   "year": 2017
+  },
+  "bbcaf7b57144df14": {
+   "result": "W",
+   "year": 2017
+  },
+  "990efe1105080c68": {
+   "result": "W",
+   "year": 2017
+  },
+  "217d1a9370550d41": {
+   "result": "W",
+   "year": 2017
+  },
+  "e04431032c654b57": {
+   "result": "L",
+   "year": 2017
+  },
+  "deee560a8bc1dd80": {
+   "result": "W",
+   "year": 2017
+  },
+  "6714baa6b0fabf58": {
+   "result": "W",
+   "year": 2017
+  },
+  "d7c50bc1e2a1c4f7": {
+   "result": "W",
+   "year": 2017
+  },
+  "39e0e926a4ebf523": {
+   "result": "L",
+   "year": 2017
+  },
+  "0432ba12b6296c1d": {
+   "result": "W",
+   "year": 2017
+  },
+  "e503c6a1065a60f9": {
+   "result": "W",
+   "year": 2017
+  },
+  "d46685b2069b7029": {
+   "result": "W",
+   "year": 2017
+  },
+  "186b7b196c354140": {
+   "result": "W",
+   "year": 2017
+  },
+  "245f661e52b116c7": {
+   "result": "W",
+   "year": 2017
+  },
+  "8fa232d3a73d0de7": {
+   "result": "W",
+   "year": 2017
+  },
+  "53ba0dd370c19b38": {
+   "result": "W",
+   "year": 2017
+  },
+  "a0811e03ef7082c8": {
+   "result": "W",
+   "year": 2017
+  },
+  "9499fe7d747d0f34": {
+   "result": "L",
+   "year": 2017
+  },
+  "a4264e3d664f208f": {
+   "result": "W",
+   "year": 2017
+  },
+  "5b7c7c83602d9b20": {
+   "result": "W",
+   "year": 2017
+  },
+  "27fc42f9a706f56f": {
+   "result": "W",
+   "year": 2017
+  },
+  "3efa6683f90baf91": {
+   "result": "W",
+   "year": 2017
+  },
+  "4e832c70f00c22df": {
+   "result": "W",
+   "year": 2017
+  },
+  "9d03eaf7a17b94a3": {
+   "result": "L",
+   "year": 2017
+  },
+  "5f7d95f165f83e3c": {
+   "result": "W",
+   "year": 2017
+  },
+  "8a049373a2a84299": {
+   "result": "W",
+   "year": 2017
+  },
+  "83c80f54de1b32fe": {
+   "result": "W",
+   "year": 2017
+  },
+  "5c987d20da70c09d": {
+   "result": "W",
+   "year": 2017
+  },
+  "c9d2ae98d9f6ab30": {
+   "result": "W",
+   "year": 2017
+  },
+  "f7d9010e13806799": {
+   "result": "W",
+   "year": 2018
+  },
+  "9fc426aaa44255d9": {
+   "result": "W",
+   "year": 2018
+  },
+  "e7b88fa57ffb42cb": {
+   "result": "W",
+   "year": 2018
+  },
+  "b577c6fa8060ff5c": {
+   "result": "W",
+   "year": 2018
+  },
+  "9583d6bf13318f23": {
+   "result": "NC",
+   "year": 2018
+  },
+  "3411cece8b9fb184": {
+   "result": "W",
+   "year": 2018
+  },
+  "3739a7ad389dcac5": {
+   "result": "L",
+   "year": 2018
+  },
+  "9492268d8774c0a4": {
+   "result": "NC",
+   "year": 2018
+  },
+  "aefa91645d63ab49": {
+   "result": "W",
+   "year": 2018
+  },
+  "2651aa1e611abadc": {
+   "result": "W",
+   "year": 2018
+  },
+  "d42c88019231799d": {
+   "result": "L",
+   "year": 2018
+  },
+  "82b4ac7b2ab3eafb": {
+   "result": "W",
+   "year": 2018
+  },
+  "85e36eed269a8e5f": {
+   "result": "W",
+   "year": 2018
+  },
+  "7dbe9bb9a5b973b5": {
+   "result": "W",
+   "year": 2018
+  },
+  "c8304578645a0300": {
+   "result": "W",
+   "year": 2018
+  },
+  "e411d4112ff57cb3": {
+   "result": "W",
+   "year": 2018
+  },
+  "434c4533ee6ced38": {
+   "result": "W",
+   "year": 2018
+  },
+  "2d0d405ad62b34b7": {
+   "result": "W",
+   "year": 2018
+  },
+  "0cdf886f3d227f07": {
+   "result": "W",
+   "year": 2018
+  },
+  "f4544d57a0c93b7c": {
+   "result": "W",
+   "year": 2018
+  },
+  "c9bce4b58587da90": {
+   "result": "W",
+   "year": 2018
+  },
+  "61aca8157bf71afd": {
+   "result": "W",
+   "year": 2018
+  },
+  "93f287cc2018f186": {
+   "result": "W",
+   "year": 2018
+  },
+  "a1fe00d04609986b": {
+   "result": "W",
+   "year": 2018
+  },
+  "c089e6624556674f": {
+   "result": "L",
+   "year": 2018
+  },
+  "98def16d7bb14aa9": {
+   "result": "W",
+   "year": 2018
+  },
+  "f83eb8d8634c7c8b": {
+   "result": "W",
+   "year": 2018
+  },
+  "1de38f7d8fb8d358": {
+   "result": "W",
+   "year": 2018
+  },
+  "920c5cc2e74aaaf6": {
+   "result": "W",
+   "year": 2018
+  },
+  "64c7119b9beb015a": {
+   "result": "W",
+   "year": 2018
+  },
+  "ab06e184a09da577": {
+   "result": "W",
+   "year": 2018
+  },
+  "2a5d37e65372331c": {
+   "result": "W",
+   "year": 2018
+  },
+  "2983f5d00ab2638c": {
+   "result": "L",
+   "year": 2018
+  },
+  "20184f36071fdaa3": {
+   "result": "W",
+   "year": 2018
+  },
+  "3e1f496aca017284": {
+   "result": "W",
+   "year": 2018
+  },
+  "1b2245155a92a358": {
+   "result": "W",
+   "year": 2018
+  },
+  "511b8a19e1b7ac9f": {
+   "result": "W",
+   "year": 2018
+  },
+  "5138742df3096e35": {
+   "result": "L",
+   "year": 2018
+  },
+  "74fd8194bb19e2bf": {
+   "result": "W",
+   "year": 2018
+  },
+  "c9309ef7c0bb931b": {
+   "result": "L",
+   "year": 2018
+  },
+  "b2d78c1271922be6": {
+   "result": "L",
+   "year": 2018
+  },
+  "64d5a5e924312934": {
+   "result": "W",
+   "year": 2018
+  },
+  "09efcf1044196013": {
+   "result": "L",
+   "year": 2018
+  },
+  "c42bb75b660872de": {
+   "result": "W",
+   "year": 2018
+  },
+  "33936cc54a3063f8": {
+   "result": "W",
+   "year": 2018
+  },
+  "73dcdd41661adf51": {
+   "result": "W",
+   "year": 2018
+  },
+  "aa41f7f0d38a67de": {
+   "result": "W",
+   "year": 2018
+  },
+  "fb02ddf6816c3234": {
+   "result": "L",
+   "year": 2019
+  },
+  "aef794c9754597d7": {
+   "result": "W",
+   "year": 2019
+  },
+  "fd2553227e3641fe": {
+   "result": "W",
+   "year": 2019
+  },
+  "dea7ffef261a8d05": {
+   "result": "W",
+   "year": 2019
+  },
+  "adc254e5ba385928": {
+   "result": "W",
+   "year": 2019
+  },
+  "0c3ba783cdf08931": {
+   "result": "W",
+   "year": 2019
+  },
+  "e011a97f57726d2d": {
+   "result": "W",
+   "year": 2019
+  },
+  "64794ca3e674f4b1": {
+   "result": "NC",
+   "year": 2019
+  },
+  "9494d3823806d705": {
+   "result": "W",
+   "year": 2019
+  },
+  "97b41815ee1fcfd0": {
+   "result": "W",
+   "year": 2019
+  },
+  "c62d07b2a13212ac": {
+   "result": "W",
+   "year": 2019
+  },
+  "8a0cb9e5ef6f57d0": {
+   "result": "W",
+   "year": 2019
+  },
+  "58b6dee880eed3f4": {
+   "result": "W",
+   "year": 2019
+  },
+  "cb862700e7767b56": {
+   "result": "W",
+   "year": 2019
+  },
+  "15a5d250b43e99c3": {
+   "result": "W",
+   "year": 2019
+  },
+  "fa92f349c2df714c": {
+   "result": "W",
+   "year": 2019
+  },
+  "7a7707b49ee6909b": {
+   "result": "L",
+   "year": 2019
+  },
+  "a238e2e4c9670e90": {
+   "result": "W",
+   "year": 2019
+  },
+  "d75d3c014f3a0d70": {
+   "result": "L",
+   "year": 2019
+  },
+  "2212a11deddf09e9": {
+   "result": "W",
+   "year": 2019
+  },
+  "7a868cb67cd37a18": {
+   "result": "W",
+   "year": 2019
+  },
+  "27dc95be9b98006d": {
+   "result": "W",
+   "year": 2019
+  },
+  "13c5e090b6868e27": {
+   "result": "L",
+   "year": 2019
+  },
+  "52626334298457ab": {
+   "result": "L",
+   "year": 2019
+  },
+  "5de030e625a4928c": {
+   "result": "W",
+   "year": 2019
+  },
+  "6ff3abc1052a0921": {
+   "result": "W",
+   "year": 2019
+  },
+  "f23f5caaf463e283": {
+   "result": "W",
+   "year": 2019
+  },
+  "32b54efa17dd09e6": {
+   "result": "L",
+   "year": 2019
+  },
+  "aae070309e2d5bd6": {
+   "result": "W",
+   "year": 2019
+  },
+  "bf51dc1830ee0331": {
+   "result": "L",
+   "year": 2019
+  },
+  "0aa3f2867f59903c": {
+   "result": "W",
+   "year": 2019
+  },
+  "4ab925019d108a41": {
+   "result": "W",
+   "year": 2019
+  },
+  "389b2776826e2183": {
+   "result": "L",
+   "year": 2019
+  },
+  "44852969f473e28a": {
+   "result": "W",
+   "year": 2019
+  },
+  "ec2c1c878d169469": {
+   "result": "L",
+   "year": 2019
+  },
+  "e3c4bca51aa2bdd4": {
+   "result": "W",
+   "year": 2019
+  },
+  "08b1e6f4c8b49a3c": {
+   "result": "W",
+   "year": 2019
+  },
+  "085a230fc9e8aafb": {
+   "result": "W",
+   "year": 2019
+  },
+  "e8537d08d84aaea2": {
+   "result": "W",
+   "year": 2019
+  },
+  "9a1548c71a7398bf": {
+   "result": "W",
+   "year": 2019
+  },
+  "a49129adb0dad63b": {
+   "result": "W",
+   "year": 2019
+  },
+  "74ddb1f1670a7b9e": {
+   "result": "NC",
+   "year": 2019
+  },
+  "cf44ab1ffc00f165": {
+   "result": "W",
+   "year": 2019
+  },
+  "76de23d141fb4ab4": {
+   "result": "W",
+   "year": 2019
+  },
+  "4b54780dc1d97640": {
+   "result": "W",
+   "year": 2019
+  },
+  "91199de65226ddd6": {
+   "result": "W",
+   "year": 2020
+  },
+  "53e952ec79277dbd": {
+   "result": "W",
+   "year": 2020
+  },
+  "12c6b847f7f28593": {
+   "result": "W",
+   "year": 2020
+  },
+  "59fcc641cfc67b7d": {
+   "result": "L",
+   "year": 2020
+  },
+  "84ded26cb00e17cf": {
+   "result": "W",
+   "year": 2020
+  },
+  "f11750d4f48eb942": {
+   "result": "W",
+   "year": 2020
+  },
+  "d2f5ea74eafaebd7": {
+   "result": "W",
+   "year": 2020
+  },
+  "be354104b1b893f1": {
+   "result": "W",
+   "year": 2020
+  },
+  "154db60abecdd988": {
+   "result": "W",
+   "year": 2020
+  },
+  "b2fc49bb4703d084": {
+   "result": "W",
+   "year": 2020
+  },
+  "f8588e91351f8a39": {
+   "result": "L",
+   "year": 2020
+  },
+  "02daaff72f859e6e": {
+   "result": "W",
+   "year": 2020
+  },
+  "0f8a323857fc0cf8": {
+   "result": "W",
+   "year": 2020
+  },
+  "e0c4f89412167696": {
+   "result": "W",
+   "year": 2020
+  },
+  "dcea68f4ed60b8fd": {
+   "result": "L",
+   "year": 2020
+  },
+  "85676ed9a7898a46": {
+   "result": "W",
+   "year": 2020
+  },
+  "78ebf7d241e77844": {
+   "result": "W",
+   "year": 2020
+  },
+  "7aeb78dffc4f5978": {
+   "result": "W",
+   "year": 2020
+  },
+  "7a88ea78c1ad646f": {
+   "result": "W",
+   "year": 2020
+  },
+  "a9976b0f038ad666": {
+   "result": "W",
+   "year": 2020
+  },
+  "dc2d95b1cce62691": {
+   "result": "W",
+   "year": 2020
+  },
+  "1581a12ff499bd32": {
+   "result": "W",
+   "year": 2020
+  },
+  "7e82a2b9326866dc": {
+   "result": "W",
+   "year": 2020
+  },
+  "16a29d115b3e37f4": {
+   "result": "L",
+   "year": 2020
+  },
+  "360f2cc2f016e6ac": {
+   "result": "W",
+   "year": 2020
+  },
+  "8a820786ab3bc2ea": {
+   "result": "W",
+   "year": 2020
+  },
+  "2127684a702c4006": {
+   "result": "L",
+   "year": 2020
+  },
+  "56adb35526c59c88": {
+   "result": "L",
+   "year": 2020
+  },
+  "c89b0a7cd08a3b08": {
+   "result": "L",
+   "year": 2020
+  },
+  "1979d2ef989e7265": {
+   "result": "W",
+   "year": 2020
+  },
+  "9ee1b4b7ce888501": {
+   "result": "W",
+   "year": 2020
+  },
+  "9d56d022b89c876b": {
+   "result": "W",
+   "year": 2020
+  },
+  "0ce8ac03e1fc8da4": {
+   "result": "W",
+   "year": 2020
+  },
+  "c1913c3d6026e4d0": {
+   "result": "W",
+   "year": 2020
+  },
+  "e6bdebff94eddc25": {
+   "result": "W",
+   "year": 2020
+  },
+  "2038fc2e7818a453": {
+   "result": "W",
+   "year": 2020
+  },
+  "b0fc9b463c44f7ea": {
+   "result": "W",
+   "year": 2020
+  },
+  "d77d7e2d8258cc82": {
+   "result": "W",
+   "year": 2020
+  },
+  "1ebe45b826ab0427": {
+   "result": "W",
+   "year": 2021
+  },
+  "bf14e890b46e0305": {
+   "result": "L",
+   "year": 2021
+  },
+  "5817d60924c7a7e0": {
+   "result": "W",
+   "year": 2021
+  },
+  "edf83b64bd3557d4": {
+   "result": "W",
+   "year": 2021
+  },
+  "daa8caf6878b4796": {
+   "result": "W",
+   "year": 2021
+  },
+  "07437ba38048dad7": {
+   "result": "W",
+   "year": 2021
+  },
+  "b64bdbe0d3e4c9aa": {
+   "result": "W",
+   "year": 2021
+  },
+  "c8deb768d421f009": {
+   "result": "NC",
+   "year": 2021
+  },
+  "a991252ad3712030": {
+   "result": "L",
+   "year": 2021
+  },
+  "d892963e78a574fb": {
+   "result": "W",
+   "year": 2021
+  },
+  "8f422d41a940e93c": {
+   "result": "W",
+   "year": 2021
+  },
+  "16a0eba44cd46eb9": {
+   "result": "L",
+   "year": 2021
+  },
+  "c17b1fa1d28c1eea": {
+   "result": "W",
+   "year": 2021
+  },
+  "a0989877f644f2ab": {
+   "result": "NC",
+   "year": 2021
+  },
+  "c466cc5888c59b0e": {
+   "result": "W",
+   "year": 2021
+  },
+  "72b8ddd1d482149e": {
+   "result": "W",
+   "year": 2021
+  },
+  "5561fca8c897f0bf": {
+   "result": "W",
+   "year": 2021
+  },
+  "c54bce0af7e7b01b": {
+   "result": "W",
+   "year": 2021
+  },
+  "b483569c9c54cfc6": {
+   "result": "W",
+   "year": 2021
+  },
+  "17dc8cabd91da5ae": {
+   "result": "W",
+   "year": 2021
+  },
+  "602460be3bce1990": {
+   "result": "W",
+   "year": 2021
+  },
+  "5adc666e571b3cb1": {
+   "result": "L",
+   "year": 2021
+  },
+  "16862aff18bed355": {
+   "result": "W",
+   "year": 2021
+  },
+  "d7974c32755e4b64": {
+   "result": "W",
+   "year": 2021
+  },
+  "8dfca53c3e78795e": {
+   "result": "W",
+   "year": 2021
+  },
+  "6f7956e788616622": {
+   "result": "W",
+   "year": 2021
+  },
+  "078a0c62a7f98405": {
+   "result": "W",
+   "year": 2021
+  },
+  "5d49240c45a2a624": {
+   "result": "W",
+   "year": 2021
+  },
+  "a8cd76e59b7c49ab": {
+   "result": "W",
+   "year": 2021
+  },
+  "b6e46aa39a0633e8": {
+   "result": "W",
+   "year": 2021
+  },
+  "04c3977524fb97e0": {
+   "result": "W",
+   "year": 2021
+  },
+  "018e6efa6f1415a9": {
+   "result": "L",
+   "year": 2021
+  },
+  "81755efcce2cc326": {
+   "result": "W",
+   "year": 2021
+  },
+  "5d5dc3bf943ec3f3": {
+   "result": "W",
+   "year": 2021
+  },
+  "4eb7dddb4cd45ec1": {
+   "result": "W",
+   "year": 2021
+  },
+  "3ae417889e6fa052": {
+   "result": "W",
+   "year": 2021
+  },
+  "904ca6578a6ca8eb": {
+   "result": "W",
+   "year": 2021
+  },
+  "1fc339f153e788c3": {
+   "result": "W",
+   "year": 2021
+  },
+  "fc5ed93b9af75353": {
+   "result": "W",
+   "year": 2021
+  },
+  "7192b50e701bd23e": {
+   "result": "W",
+   "year": 2021
+  },
+  "aef0ff28e0e41917": {
+   "result": "W",
+   "year": 2021
+  },
+  "d11e3f2e5deb833f": {
+   "result": "L",
+   "year": 2021
+  },
+  "fab54d525f0f2d9d": {
+   "result": "W",
+   "year": 2021
+  },
+  "d662f90d5ab81f35": {
+   "result": "W",
+   "year": 2021
+  },
+  "14a2fa2dd23e71d3": {
+   "result": "W",
+   "year": 2022
+  },
+  "73edf033b8cfef8a": {
+   "result": "W",
+   "year": 2022
+  },
+  "c9bb479dabdb48bf": {
+   "result": "W",
+   "year": 2022
+  },
+  "5f4c5e8ccdbba00e": {
+   "result": "L",
+   "year": 2022
+  },
+  "37f91d57ed109584": {
+   "result": "W",
+   "year": 2022
+  },
+  "a45448a6818f77fd": {
+   "result": "L",
+   "year": 2022
+  },
+  "37f101d3e49473e4": {
+   "result": "W",
+   "year": 2022
+  },
+  "9a841327b5d824c6": {
+   "result": "W",
+   "year": 2022
+  },
+  "60f31fb96a24723a": {
+   "result": "L",
+   "year": 2022
+  },
+  "acee921186a58206": {
+   "result": "W",
+   "year": 2022
+  },
+  "ccff59f4a6c0e287": {
+   "result": "W",
+   "year": 2022
+  },
+  "ba79f6bac3682eb1": {
+   "result": "W",
+   "year": 2022
+  },
+  "f0427fab32e0994a": {
+   "result": "W",
+   "year": 2022
+  },
+  "0eed054506a94abf": {
+   "result": "W",
+   "year": 2022
+  },
+  "f9e0aa1af1d6a50a": {
+   "result": "W",
+   "year": 2022
+  },
+  "092a12fbdcf12ad3": {
+   "result": "W",
+   "year": 2022
+  },
+  "31ff758863c6ad36": {
+   "result": "W",
+   "year": 2022
+  },
+  "a0cd4255eec2a5b8": {
+   "result": "W",
+   "year": 2022
+  },
+  "cfd0252570ae2229": {
+   "result": "L",
+   "year": 2022
+  },
+  "a6b28b78bf4b32a5": {
+   "result": "W",
+   "year": 2022
+  },
+  "9f310e095342e68c": {
+   "result": "W",
+   "year": 2022
+  },
+  "8c40f8d46a6995b9": {
+   "result": "W",
+   "year": 2022
+  },
+  "03b527306e0b57c8": {
+   "result": "W",
+   "year": 2022
+  },
+  "20fbdf9a7df6c950": {
+   "result": "W",
+   "year": 2022
+  },
+  "3a626ef8b2524507": {
+   "result": "W",
+   "year": 2022
+  },
+  "157689fad4e22542": {
+   "result": "W",
+   "year": 2022
+  },
+  "8fbbef9a4ec1f6cb": {
+   "result": "W",
+   "year": 2022
+  },
+  "147266d98ca2813f": {
+   "result": "L",
+   "year": 2022
+  },
+  "d04b8d5ce7a65c4f": {
+   "result": "W",
+   "year": 2022
+  },
+  "90ae69e9a9137984": {
+   "result": "W",
+   "year": 2022
+  },
+  "fe96fd653f562e98": {
+   "result": "W",
+   "year": 2022
+  },
+  "6268180e745a1e23": {
+   "result": "W",
+   "year": 2022
+  },
+  "331d3f58e32980ad": {
+   "result": "W",
+   "year": 2022
+  },
+  "122fde0994a2f457": {
+   "result": "W",
+   "year": 2022
+  },
+  "b4fb66059bd82743": {
+   "result": "W",
+   "year": 2022
+  },
+  "9c6d0c42a7a85b51": {
+   "result": "W",
+   "year": 2022
+  },
+  "880ed8d5af0c13b1": {
+   "result": "W",
+   "year": 2022
+  },
+  "0aa46064d6a157d1": {
+   "result": "W",
+   "year": 2022
+  },
+  "185ca098bbf84581": {
+   "result": "W",
+   "year": 2022
+  },
+  "070750e76792d168": {
+   "result": "W",
+   "year": 2022
+  },
+  "949e6bb465af017b": {
+   "result": "W",
+   "year": 2022
+  },
+  "c15f8ac4d76af53a": {
+   "result": "W",
+   "year": 2023
+  },
+  "473d57add1655a1a": {
+   "result": "W",
+   "year": 2023
+  },
+  "600dc8df28333450": {
+   "result": "W",
+   "year": 2023
+  },
+  "c9689833e730c077": {
+   "result": "W",
+   "year": 2023
+  },
+  "2b3745a0444dcd17": {
+   "result": "W",
+   "year": 2023
+  },
+  "23819db9f489592d": {
+   "result": "W",
+   "year": 2023
+  },
+  "56ae4acb4e3f6e6b": {
+   "result": "W",
+   "year": 2023
+  },
+  "6fe6a57990709869": {
+   "result": "L",
+   "year": 2023
+  },
+  "59d44e0872a38402": {
+   "result": "W",
+   "year": 2023
+  },
+  "f2a4a3932a91dc1e": {
+   "result": "W",
+   "year": 2023
+  },
+  "44b3eeff33faf035": {
+   "result": "W",
+   "year": 2023
+  },
+  "62055b2fd8a10789": {
+   "result": "W",
+   "year": 2023
+  },
+  "194c30e0b6259280": {
+   "result": "W",
+   "year": 2023
+  },
+  "92c3d765853df119": {
+   "result": "W",
+   "year": 2023
+  },
+  "574a92a70255439d": {
+   "result": "W",
+   "year": 2023
+  },
+  "3278a31624e0082e": {
+   "result": "W",
+   "year": 2023
+  },
+  "8973247f6808fbfd": {
+   "result": "W",
+   "year": 2023
+  },
+  "af8e52231b4cfce5": {
+   "result": "L",
+   "year": 2023
+  },
+  "af733fdd68401f60": {
+   "result": "W",
+   "year": 2023
+  },
+  "02e16570ff7efb38": {
+   "result": "W",
+   "year": 2023
+  },
+  "af48657df8015e6d": {
+   "result": "W",
+   "year": 2023
+  },
+  "d13c8ceda8609795": {
+   "result": "W",
+   "year": 2023
+  },
+  "7e02c6105357be18": {
+   "result": "W",
+   "year": 2023
+  },
+  "5941bd38f1fe3952": {
+   "result": "W",
+   "year": 2023
+  },
+  "fa859b94c8582c26": {
+   "result": "W",
+   "year": 2023
+  },
+  "f82c365cb6b6a2e8": {
+   "result": "W",
+   "year": 2023
+  },
+  "9dd44108e3e1b102": {
+   "result": "W",
+   "year": 2023
+  },
+  "1f5d82279eb460df": {
+   "result": "W",
+   "year": 2023
+  },
+  "9ae6be6b0db58d78": {
+   "result": "W",
+   "year": 2023
+  },
+  "99142b6b0a8bdbba": {
+   "result": "W",
+   "year": 2023
+  },
+  "460b5fa5b94b70bd": {
+   "result": "W",
+   "year": 2023
+  },
+  "16b49cd67451547b": {
+   "result": "W",
+   "year": 2023
+  },
+  "3285bd6966dffe99": {
+   "result": "D",
+   "year": 2023
+  },
+  "95d8b12e5a21ed5a": {
+   "result": "L",
+   "year": 2023
+  },
+  "35fd53a02396b4af": {
+   "result": "L",
+   "year": 2023
+  },
+  "77f853c4d44cbe94": {
+   "result": "W",
+   "year": 2023
+  },
+  "07f69c437c68f468": {
+   "result": "W",
+   "year": 2023
+  },
+  "3c972c6d8123294c": {
+   "result": "W",
+   "year": 2023
+  },
+  "aad8e24798f0a89f": {
+   "result": "W",
+   "year": 2023
+  },
+  "97c47845e7f9a88b": {
+   "result": "W",
+   "year": 2023
+  },
+  "bd8ee82c2df0d588": {
+   "result": "W",
+   "year": 2023
+  },
+  "fca2542155e4fd20": {
+   "result": "W",
+   "year": 2023
+  },
+  "e1601c0597a7b444": {
+   "result": "W",
+   "year": 2023
+  },
+  "ee66f8d0ba75975e": {
+   "result": "W",
+   "year": 2023
+  },
+  "bb76e767e4bf0b9a": {
+   "result": "W",
+   "year": 2023
+  },
+  "ac54fb7dcc875b59": {
+   "result": "W",
+   "year": 2023
+  },
+  "2f88f17add7669c5": {
+   "result": "W",
+   "year": 2024
+  },
+  "10a96d52c89b5469": {
+   "result": "W",
+   "year": 2024
+  },
+  "b9562bf0e19e971a": {
+   "result": "W",
+   "year": 2024
+  },
+  "8a1aa5c3cd50dedf": {
+   "result": "W",
+   "year": 2024
+  },
+  "634eda97df9caa0e": {
+   "result": "W",
+   "year": 2024
+  },
+  "bbad8cc98783fae1": {
+   "result": "L",
+   "year": 2024
+  },
+  "87bd1fc4820e6e6f": {
+   "result": "W",
+   "year": 2024
+  },
+  "ef4f913e6a99246b": {
+   "result": "W",
+   "year": 2024
+  },
+  "0b43bf0acbd22ca3": {
+   "result": "W",
+   "year": 2024
+  },
+  "28922ab0ce7d617b": {
+   "result": "W",
+   "year": 2024
+  },
+  "395835d15985848e": {
+   "result": "W",
+   "year": 2024
+  },
+  "3808fc6e211485cf": {
+   "result": "W",
+   "year": 2024
+  },
+  "d9935a239ea022f2": {
+   "result": "W",
+   "year": 2024
+  },
+  "837d7b515e82e17f": {
+   "result": "W",
+   "year": 2024
+  },
+  "f98cac378dcfb57b": {
+   "result": "W",
+   "year": 2024
+  },
+  "c3fd5865a09e741a": {
+   "result": "W",
+   "year": 2024
+  },
+  "ef56a8f712d971ef": {
+   "result": "W",
+   "year": 2024
+  },
+  "966e46aafac530c8": {
+   "result": "W",
+   "year": 2024
+  },
+  "3f143ed5d6b45e39": {
+   "result": "W",
+   "year": 2024
+  },
+  "28061eae5a6884c3": {
+   "result": "W",
+   "year": 2024
+  },
+  "47dfe6ac6c9121a0": {
+   "result": "W",
+   "year": 2024
+  },
+  "d39a1677910874e9": {
+   "result": "W",
+   "year": 2025
+  },
+  "8d4cda2a290cc491": {
+   "result": "W",
+   "year": 2025
+  },
+  "62eb06895e1e4b0b": {
+   "result": "W",
+   "year": 2025
+  },
+  "a175cb5d70c753c6": {
+   "result": "W",
+   "year": 2025
+  },
+  "85a165c98f003923": {
+   "result": "W",
+   "year": 2025
+  },
+  "e180666d3423c42b": {
+   "result": "W",
+   "year": 2025
+  },
+  "006859adbc880edd": {
+   "result": "W",
+   "year": 2025
+  },
+  "dad9b43cf7480f68": {
+   "result": "L",
+   "year": 2025
+  },
+  "26f15079cf039c8c": {
+   "result": "W",
+   "year": 2025
+  },
+  "7d1e163720b62145": {
+   "result": "W",
+   "year": 2025
+  },
+  "205e928621a6f62d": {
+   "result": "W",
+   "year": 2025
+  },
+  "f7012ef25547fc99": {
+   "result": "W",
+   "year": 2025
+  },
+  "a2abca58544b6a7b": {
+   "result": "W",
+   "year": 2025
+  },
+  "5a7dee229b27e06c": {
+   "result": "W",
+   "year": 2025
+  },
+  "c212ca8a9b232259": {
+   "result": "W",
+   "year": 2025
+  },
+  "e25181125365fbe6": {
+   "result": "W",
+   "year": 2025
+  },
+  "1c33eb78bdc5df39": {
+   "result": "W",
+   "year": 2025
+  },
+  "8b41d0ebea0c3e18": {
+   "result": "W",
+   "year": 2025
+  }
+ }
+}

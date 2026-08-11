@@ -33,6 +33,9 @@ export default function SiteHeader() {
             <Link href="/prospects" style={{ color: 'var(--text-secondary)' }}>
               Prospects
             </Link>
+            <Link href="/contender-series" style={{ color: 'var(--text-secondary)' }}>
+              DWCS
+            </Link>
             <Link href="/p4p" style={{ color: 'var(--text-secondary)' }}>
               P4P
             </Link>
@@ -67,6 +70,9 @@ export default function SiteHeader() {
         </Link>
         <Link href="/prospects" style={{ color: 'var(--text-secondary)' }}>
           Prospects
+        </Link>
+        <Link href="/contender-series" style={{ color: 'var(--text-secondary)' }}>
+          DWCS
         </Link>
         <Link href="/p4p" style={{ color: 'var(--text-secondary)' }}>
           P4P

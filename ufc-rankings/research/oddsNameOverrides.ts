@@ -152,4 +152,9 @@ export const ODDS_NAME_OVERRIDES: Record<string, string> = {
   'Luis Henrique da Silva': 'Luis Henrique',    // ≠ "Henrique da Silva" (distinct fighter)
   'Alvaro Herrera': 'Alvaro Herrera Mendoza',
   'Wendell Oliveira': 'Wendell Oliveira Marques',
+
+  // ── DWCS join (bfo_dwcs_odds.csv ↔ dwcs_bouts.csv), same-human verified ──
+  'Wes Schultz': 'Wesley Schultz',
+  'Victor Hugo Madrigal': 'Victor Hugo',        // Sherdog names him "Victor Hugo"
+  'Cam Rowston': 'Cameron Rowston',
 };

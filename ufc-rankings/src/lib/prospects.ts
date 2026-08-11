@@ -21,6 +21,7 @@ import { loadPedigreeStrength } from './pedigreeSeed';
 import { getFighterMedia } from './fighterMedia';
 import { getFighterAge } from './fighterAges';
 import { getNextFight, type NextFight } from './loadUpcoming';
+import { loadDwcsAnalysis } from './loadDwcsAnalysis';
 import { buildDistinctions, type Distinction } from './distinctions';
 import { RANKING_CONFIG } from './rankingConfig';
 import { ALL_DIVISIONS } from './types';
@@ -64,6 +65,9 @@ export interface ProspectEntry {
     ufcBoundBeaten: number;       // # future-UFC fighters beaten pre-UFC (schedule quality)
     bestScalp: string | null;     // name of the best future-UFC fighter they beat pre-UFC
   } | null;
+  // Came through the Contender Series tryout (display-only, read from the
+  // static dwcs_analysis.json — same firewall class as fighterMedia).
+  dwcs: { result: 'W' | 'L' | 'D' | 'NC'; year: number } | null;
 }
 
 // Compact method label for one-line results ("KO R2", "SUB R1", "UD").
@@ -103,6 +107,7 @@ export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
   const data = getData();
   const ratings = buildEloRatings(data);
   const pedigree = loadPedigreeStrength(data);
+  const dwcsChips = loadDwcsAnalysis()?.chips ?? {};
 
   // Contender numbering shared with the rest of the app (champions excluded —
   // a reigning champion is nobody's prospect).
@@ -168,6 +173,7 @@ export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
               : null,
           }
         : null,
+      dwcs: dwcsChips[fighter.fighterId] ?? null,
     });
   }
 

@@ -10,6 +10,72 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-11
+
+- **Contender Series analysis shipped — cohort dataset, committed prospect backtests, DWCS
+  closing odds, `/contender-series` page. Zero scoring change: every pre-registered model-change
+  candidate FAILED the bar.** Full plan + pre-registered hypotheses in `docs/plans/DWCS_PLAN.md`
+  (committed before any backtest ran, per modeling-discipline). All analysis lives in
+  `research/dwcs/` + `research/prospects/` behind the firewall; golden master byte-identical
+  throughout.
+  **The dataset** (`research/dwcs/buildDwcsDataset.ts` → `data/dwcs_bouts.csv` 325 bouts /
+  `data/dwcs_fighters.csv` 594 participants, 2017–2025): exact-org match only — the loose
+  `/Contender/i` regex in the old `scripts/sherdog/dwcsCohort.ts` (now deleted) admitted 6
+  false-positive rows, all wins, which is why its result split read 309/66/9/1; the audited
+  split is **303/66/9/1**. Survivorship handled structurally: the ~257 opponents who never
+  reached the UFC are in the denominator (record fields only for the ~10% with cached Sherdog
+  profiles — measured by `coverageProbe.ts`, never imputed).
+  **Headline findings** (all display-insight, none a scoring input):
+  - **H4 confirmed, huge**: DWCS finish win → **98%** fought-in-UFC rate; decision win → 89%;
+    no win → **18%**. How you win is the doorway.
+  - **H2 leans refuted — the 4-0 kid beats the 13-4 vet**: undefeated entrants who graduate hit
+    the current top 15 at 14% with +0.9 mean settled Elo gain, vs 7–9% and −5.6 to −10.9 for
+    1/2/3+-loss entrants. The user-intuition that seasoned records should carry more signal is
+    not what the data says.
+  - **H3 supported — age dominates**: single best feature (AUC 0.630); 29+ entrants: 5% top-15,
+    −14.1 Elo. H1 refuted (experience count adds nothing beyond win rate, AUC 0.610 → 0.601).
+    H5 null re-confirmed (finish-vs-decision gap 1.7 Elo, CIs overlap — matches the 2026-07-03
+    0.9-Elo null, now without the regex bug or settled-rating leak).
+  **The committed prospect harness** (`research/prospects/harness.ts` + `runProspectBacktest.ts`)
+  rebuilds the 2026-08-05 scratchpad method as durable code. Acceptance gate passed: n=112/118
+  EXACTLY, raw Elo@T AUC 0.725/0.730 vs recorded 0.716/0.744 (drift consistent with a month of
+  data changes), and the refuted climb orderings still lose at both horizons. `metrics.ts` gained
+  tie-safe `auc` + `spearman`; `PitAdjuster.ratingAsOf` made public.
+  **Phase E — every candidate failed the pre-registered bar** (ΔAUC ≥ +0.02 at both horizons over
+  elo@T, 90% CI excluding 0; `research/prospects/phaseEGate.ts`): pre-UFC loss count +0.007/+0.013
+  (CIs span 0); undefeated flag +0.000/+0.023 with the coefficient FLIPPING SIGN across horizons;
+  DWCS-passage −0.005/+0.014; DWCS-winner ~0; feeder tier/grade (via `promotionBacktest.ts`)
+  +0.030/+0.046 — the nearest miss, but the 2023 CI includes 0 and the fits are in-sample.
+  Breadcrumb in `rankingConfig.prospects` so none of these get re-proposed from intuition.
+  **DWCS closing odds** (`research/bfo/scrapeDwcs.ts` → `data/bfo_dwcs_odds.csv`, a SIBLING of
+  `bfo_odds.csv`, never merged): BFO search enumeration + a fighter-name gap pass → 68 priced
+  bouts, **2021+ only** — 2017–2020 pages use BFO's legacy format (0 parse, same as the UFC
+  crawl's pre-2021 wall) and 2022 is absent from BFO entirely. 40 join the canonical bout list
+  (join in `joinDwcsOdds.ts`: token-sorted names catch BFO/Sherdog order flips like Long
+  Xiao/Xiao Long, ±7-day tolerance because BFO dated one 2021 card a week off Sherdog — safe on
+  an exact name-pair key; every remaining miss is a bout absent from the frozen Sherdog data,
+  incl. a misdated Nov-2021 non-DWCS China card). Market read (`oddsAnalysis.ts`, market-only by
+  design — DWCS bouts have no Elo): acc 65%, logloss 0.638, mean P(fav) 71.4% (heavier chalk than
+  UFC cards' ~66% — tryout matchmaking prices one side). **H6 directional, severely underpowered
+  (n=45, 7 positives)**: market P(win) alone AUC 0.594, but ρ(price, settled Elo gain) = **0.51**
+  and the favourite-vs-underdog winner split is stark — graduates who won as DWCS favourites: 24%
+  top-15, +9.0 Elo; as underdogs: 8%, −22.4. The market price at tryout time carries real signal
+  about UFC ceilings; not actionable at this n.
+  **UI**: `/contender-series` (offline `exportDwcsAnalysis.ts` → `data/dwcs_analysis.json` →
+  null-guarded `loadDwcsAnalysis.ts` → ISR page, the /odds pattern; odds section nullable; n<25
+  cells render "insufficient sample") + a `DWCS 'YY R` chip on /prospects cards (chips map in the
+  JSON; renders independently of the pre-UFC line so thin-pedigree grads keep it) + `DWCS` nav
+  link. Verified live: both JSON-present and JSON-absent paths, chips on exactly the right
+  fighters (Hokit '25, Vallejos '23…), zero console errors; build keeps the page static (○, 1d).
+  `loadDwcsAnalysis` is deliberately NOT module-cached — a cache pinned the first read for the
+  server-process lifetime, which would have made daily ISR revalidation serve a stale analysis
+  forever (caught live when a re-export didn't surface).
+  **Refresh**: manual — `buildDwcsDataset.ts` → (optionally `scrapeDwcs.ts`) →
+  `exportDwcsAnalysis.ts`. The bout list is frozen with the dead Sherdog source (2026+ seasons
+  invisible until a new source exists); outcome columns move with the primary data.
+
+---
+
 ## 2026-08-10
 
 - **IN-CAGE is now the DEFAULT on both Gauntlet surfaces, and the compare chart got the series

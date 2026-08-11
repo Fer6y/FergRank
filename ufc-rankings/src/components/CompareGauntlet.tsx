@@ -64,6 +64,9 @@ export default function CompareGauntlet({ a, b }: Props) {
   const A = a.gauntlet.points;
   const B = b.gauntlet.points;
   const [hover, setHover] = useState<{ f: 'a' | 'b'; i: number } | null>(null);
+  // Legend + mode caveat live behind an ⓘ (closed by default) so the idle chart
+  // stays clean/screenshottable — nothing explanatory renders unless asked for.
+  const [showInfo, setShowInfo] = useState(false);
   // Same two series as the single-fighter Gauntlet, same DEFAULT (2026-08-10
   // product decision): 'inCage' moves only on results, so a win can never render
   // as a decline. 'true' is the opt-in actual-rating view. One honest caveat is
@@ -210,6 +213,20 @@ export default function CompareGauntlet({ a, b }: Props) {
               </button>
             ))}
           </span>
+          {/* Same clickable-"i" pattern as ScheduleContextStrip's InfoDot. */}
+          <button
+            type="button"
+            onClick={() => setShowInfo((v) => !v)}
+            aria-label="How to read this chart"
+            aria-expanded={showInfo}
+            className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full text-[9px] font-bold align-middle transition-colors"
+            style={{
+              border: '1px solid currentColor',
+              color: showInfo ? 'var(--text-primary)' : 'var(--text-muted)',
+            }}
+          >
+            i
+          </button>
         </div>
         <div className="flex items-center gap-3 text-[10px]">
           <span className="flex items-center gap-1.5" style={{ color: 'var(--text-secondary)' }}>
@@ -220,6 +237,29 @@ export default function CompareGauntlet({ a, b }: Props) {
           </span>
         </div>
       </div>
+
+      {/* ⓘ info box — the ONLY place this chart explains itself. Carries the node
+          legend and the compare-specific caveat that used to sit in the idle
+          caption row (removed 2026-08-11 so the idle chart is screenshot-clean). */}
+      {showInfo && (
+        <div
+          className="rounded-lg px-3 py-2 mb-2 text-[10px] leading-relaxed"
+          style={{ backgroundColor: 'var(--bg-elevated)', border: '1px solid var(--border)', color: 'var(--text-muted)' }}
+        >
+          <p>
+            <b style={{ color: 'var(--text-secondary)' }}>Reading the nodes</b> — ring = fighter ·
+            fill = result (green win / red loss) · size = opponent level · gold ring = title fight ·
+            hover a fight for detail.
+          </p>
+          <p className="mt-1">
+            <b style={{ color: 'var(--text-secondary)' }}>IN-CAGE</b> plots results only — a win
+            always steps up; layoff/weight-move drift is excluded. Each line is offset by its own
+            drift, so the vertical gap between them is NOT the rating gap — the RATING cards above
+            carry the real one. <b style={{ color: 'var(--text-secondary)' }}>TRUE ELO</b> is the
+            actual rating, drift included.
+          </p>
+        </div>
+      )}
 
       {/* Hover caption — carries the per-fight detail (result/opponent/Elo) so the
           nodes can stay pure fighter-colour. Fixed height so the chart never jumps. */}
@@ -232,11 +272,9 @@ export default function CompareGauntlet({ a, b }: Props) {
               {inCage ? `in-cage ${hp.inCageElo} (Elo ${hp.ownElo})` : `Elo ${hp.ownElo}`}
             </span>
           </>
-        ) : inCage ? (
-          'IN-CAGE: results only — a win always steps up; layoff/weight-move drift excluded (the RATING cards above carry the real gap)'
-        ) : (
-          'Ring = fighter · fill = result (green win / red loss) · size = opponent · gold = title'
-        )}
+        ) : // idle: no caption in EITHER mode — keeps the chart clean/screenshottable;
+        // the legend + in-cage caveat live in the ⓘ info box above.
+        null}
       </div>
 
       <div ref={scrollRef} className="overflow-x-auto" style={{ scrollbarWidth: 'thin' }}>
