@@ -12,8 +12,39 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
-- **NEGATIVE: promotion strength measured from a regional Elo graph does NOT predict graduate
-  success — the crude static ladder beats it. No tier change shipped.** Prompted by a fair
+- **CORRECTED TARGET, then a second negative: grading promotions inside the PROSPECT pool.
+  The regional rating validates; the promotion ladder still can't be improved. No change
+  shipped.** The first attempt below scored promotions against graduates' UFC Elo gain, which
+  the user correctly rejected as the wrong yardstick — it asks how alumni fared against *UFC*
+  competition, a target downstream of UFC matchmaking, style and age at entry, none of which
+  is a property of the promotion. `research/dwcs/promotionStrength.ts` re-does the whole
+  measurement without any UFC outcome:
+  - **Walk-forward validation of the regional rating** (each bout scored from ratings held
+    strictly before it, 2,420 held-out regional bouts): **63.5% accuracy, logloss 0.6407,
+    ECE 0.071** against a 0.6931 coin flip. The regional Elo is REAL — it predicts regional
+    fights about as well as our UFC model predicts UFC fights. Meanwhile the current tier
+    ladder alone manages **53.9% / 0.9188** on the same bouts — worse than a coin flip on
+    logloss, i.e. it is badly miscalibrated as a predictor of who beats whom.
+  - **Pool percentile** (where an org's fighters sit among all 4,986 rated regional fighters)
+    and **cross-promotion head-to-head** (ground truth, no model): Bellator 69.4% over 206
+    cross-org bouts, PFL 66.5%/182, Shooto 58.8%/131, Cage Warriors 54.5%/55, LFA 46.7%/75,
+    CFFC 45.1%/51, Fury FC 29.4%/17. Raw H2H is confounded by opponent mix, so —
+  - **Bradley-Terry org strengths fitted on cross-org bouts**, prices the mix out, temporally
+    split: fitted **63.2% / 0.6638** vs the **crude ladder's 67.4% / 0.6536** on 242 held-out
+    bouts. The hand-made ladder wins again. Cause is structural, not modelling: the median
+    cross-promotion bout in our data is from **2010-06-20**, so a fit is trained on the
+    Pride/IFL/WEC era and tested on the modern one, and today's developmental orgs (LFA,
+    CFFC, Fury FC) are almost entirely on the test side.
+  - **The binding constraint, measured:** of the ten fighters on this week's Contender Series
+    card, **eight appear zero times** in the regional graph and two appear once. `sherdog_fights.csv`
+    holds only the pre-UFC careers of fighters who *reached* the UFC plus their opponents, so a
+    CFFC champion who never happened to share a cage with a future UFC fighter is invisible to
+    us. Personal strength of schedule for a current prospect is therefore **not computable from
+    the data we hold** — that is an acquisition problem (opponent records captured at card time,
+    or a live regional results feed), not a scoring one.
+  Table committed as `data/promotion_strength.csv` (pool percentile + cross-org record per org).
+
+- **NEGATIVE (superseded target): promotion strength vs graduates' UFC Elo gain.** Prompted by a fair
   user challenge (the pre-UFC model's promotion term is nearly inert: 0.098 logit across the
   whole ladder vs ~0.9 for win rate, so CFFC and a nothing regional score almost alike).
   Built `research/dwcs/regionalElo.ts` — one chronological Elo sweep over the **entire
