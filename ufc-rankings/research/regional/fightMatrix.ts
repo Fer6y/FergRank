@@ -89,10 +89,13 @@ function parseDate(text: string): string | null {
 // first number or colon. Canonicalisation to our tier dictionary happens later —
 // this only needs to be a stable grouping key.
 export function promotionOf(event: string): string {
-  const head = event.split(/[:\-–]/)[0].trim();
-  const m = head.match(/^([A-Za-z][A-Za-z'&.\s]*?)(?=\s*\d|$)/);
-  const raw = (m ? m[1] : head).trim();
-  return raw.replace(/\s+/g, ' ').slice(0, 40) || 'Unknown';
+  // Split only on SPACED separators — a bare hyphen is part of names like
+  // "M-1", which this was silently truncating to "M" (a key that would then
+  // collide with any other M-something promotion).
+  const head = event.split(/:|\s+[-–]\s+/)[0].trim();
+  // Drop the event number: "Fury FC 72" → "Fury FC", "M-1 Challenge 51" → "M-1 Challenge".
+  const raw = head.replace(/\s+\d+[A-Za-z]?\s*$/, '').trim();
+  return raw.replace(/\s+/g, ' ').slice(0, 40) || head || 'Unknown';
 }
 
 export function parseFmProfile(html: string): FmProfile {
@@ -118,7 +121,16 @@ export function parseFmProfile(html: string): FmProfile {
   for (let i = 0; i < rows.length - 1; i++) {
     const row = rows[i];
     // A fight row: a result cell (W/L/D/NC) + an opponent profile link.
-    const res = row.match(/<b style='color: black'>\s*(W|L|D|NC)\s*<\/b>/)?.[1] as FmFight['result'] | undefined;
+    // Anchor on the RESULT CELL's rowspan="2" — that attribute is what makes a
+    // row the first half of a fight pair. Matching the bare <b>W</b> also hit
+    // rows that merely mention a result, which paired them with the NEXT
+    // fight's date row and produced a shift-by-one duplicate of every regional
+    // bout (Makhachev read 38 fights against a 29-fight record; the duplicates
+    // carried the right dates with the wrong opponents, which is exactly the
+    // kind of corruption a row count alone would never reveal).
+    const res = row.match(
+      /<td[^>]*rowspan="2"[^>]*>\s*<b style='color: black'>\s*(W|L|D|NC)\s*<\/b>/
+    )?.[1] as FmFight['result'] | undefined;
     const opp = row.match(/href='\/fighter-profile\/([^']+?)\/(\d+)\/'/);
     if (!res || !opp) continue;
 
