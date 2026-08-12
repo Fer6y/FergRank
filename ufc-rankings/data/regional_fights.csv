@@ -1,0 +1,847 @@
+fmId,name,date,promotion,event,opponentFmId,opponentName,opponentRankAtTime,result,method
+227103,Joshua Van,2026-05-09,UFC,UFC 328 Chimaev vs. Strickland,193867,Tatsuro Taira,#3 Flyweight,W,TKO (Front Kick to the Body and Punches) Round 5
+227103,Joshua Van,2025-12-06,UFC,UFC 323 - Dvalishvili vs. Yan 2,5215,Alexandre Pantoja,#1 Flyweight,W,TKO (Arm Injury) Round 1
+227103,Joshua Van,2025-06-28,UFC,UFC 317 - Topuria vs. Oliveira,86030,Brandon Royval,#2 Flyweight,W,Decision (Unanimous) Round 3
+227103,Joshua Van,2025-06-07,UFC,UFC 316 - Dvalishvili vs. OMalley 2,104938,Bruno Silva,#31 Flyweight,W,TKO (Punches) Round 3
+227103,Joshua Van,2025-03-08,UFC,UFC 313 - Pereira vs. Ankalaev,235763,Rei Tsuruya,#27 Flyweight,W,Decision (Unanimous) Round 3
+227103,Joshua Van,2024-12-07,UFC,UFC 310: Pantoja vs. Asakura,158918,Cody Durden,#93 Bantamweight,W,Decision (Unanimous) Round 3
+227103,Joshua Van,2024-09-14,UFC,UFC 306 - Noche UFC: OMalley vs. Dvalishvili,169660,Edgar Chairez,#135 Flyweight,W,Decision (Unanimous) Round 3
+227103,Joshua Van,2024-07-13,UFC on ESPN,UFC on ESPN 59 - Namajunas vs. Cortez,176321,Charles Johnson,#26 Flyweight,L,KO (Punches) Round 3
+227103,Joshua Van,2024-01-13,UFC Fight Night,UFC Fight Night 234 - Ankalaev vs. Walker 2,116423,Felipe Bunes,#36 Flyweight,W,TKO (Punches) Round 2
+227103,Joshua Van,2023-11-11,UFC,UFC 295: Procházka vs. Pereira,179772,Kevin Borjas,#75 Flyweight,W,Decision (Unanimous) Round 3
+227103,Joshua Van,2023-06-24,UFC on ABC,UFC on ABC 5 - Emmett vs. Topuria,137080,Zhalgas Zhumagulov,#51 Flyweight,W,Decision (Split) Round 3
+227103,Joshua Van,2022-12-18,Fury FC,Fury FC 72: Van vs. McLean,127809,Cleveland Mclean,#86 Flyweight,W,Submission (Rear-Naked Choke) Round 2
+227103,Joshua Van,2022-08-14,Fury FC,Fury FC 67 - Fury Fighting Championship 67,199774,Paris Moran,#74 Flyweight,W,TKO (Punches) Round 2
+227103,Joshua Van,2022-05-15,Fury FC,Fury FC 62 - Fury Fighting Championship 62,80916,Mario Suazo,,W,Submission (Calf Slicer) Round 2
+227103,Joshua Van,2022-04-24,Fury FC,Fury FC 60 - Fury Fighting Championship 60,164598,Angelo Trujillo,,W,KO Round 1
+227103,Joshua Van,2022-02-11,Fury FC,Fury FC 57,155270,Francisco Obando,#558 Flyweight,W,TKO (Punches) Round 1
+227103,Joshua Van,2021-12-19,Fury FC,Fury FC 55,209999,Devon Jackson,,L,Submission (Rear-Naked Choke) Round 2
+227103,Joshua Van,2021-11-21,Fury FC,Fury FC 54 - Fury Fighting Championship 54,99790,Chase Eastham,,W,TKO (Punches) Round 2
+227103,Joshua Van,2021-10-17,Fury FC,Fury FC 52 - Fury Fighting Championship 52,224318,Tony Esquivel,,W,TKO (Knees to the Body) Round 2
+227103,Joshua Van,2022-05-15,Fury FC,Fury FC 62 - Fury Fighting Championship 62,199774,Paris Moran,#74 Flyweight,W,TKO (Punches) Round 2
+227103,Joshua Van,2022-04-24,Fury FC,Fury FC 60 - Fury Fighting Championship 60,80916,Mario Suazo,"Sunday, May 15th 2022",W,Submission (Calf Slicer) Round 2
+227103,Joshua Van,2021-12-19,Fury FC,Fury FC 55,155270,Francisco Obando,#558 Flyweight,W,TKO (Punches) Round 1
+227103,Joshua Van,2021-11-21,Fury FC,Fury FC 54 - Fury Fighting Championship 54,209999,Devon Jackson,"Sunday, December 19th 2021",L,Submission (Rear-Naked Choke) Round 2
+227103,Joshua Van,2021-10-17,Fury FC,Fury FC 52 - Fury Fighting Championship 52,99790,Chase Eastham,"Sunday, November 21st 2021",W,TKO (Punches) Round 2
+5215,Alexandre Pantoja,2025-12-06,UFC,UFC 323 - Dvalishvili vs. Yan 2,227103,Joshua Van,#3 Flyweight,L,TKO (Arm Injury) Round 1
+5215,Alexandre Pantoja,2025-06-28,UFC,UFC 317 - Topuria vs. Oliveira,75447,Kai Kara-France,#5 Flyweight,W,Submission (Rear-Naked Choke) Round 3
+5215,Alexandre Pantoja,2024-12-07,UFC,UFC 310: Pantoja vs. Asakura,160822,Kai Asakura,#24 Bantamweight,W,Technical Submission (Rear-Naked Choke) Round 2
+5215,Alexandre Pantoja,2024-05-04,UFC,UFC 301 - Pantoja vs. Erceg,162133,Steve Erceg,#15 Flyweight,W,Decision (Unanimous) Round 5
+5215,Alexandre Pantoja,2023-12-16,UFC,UFC 296 - Edwards vs. Covington,86030,Brandon Royval,#6 Flyweight,W,Decision (Unanimous) Round 5
+5215,Alexandre Pantoja,2023-07-08,UFC,UFC 290 - Volkanovski vs. Rodriguez,82307,Brandon Moreno,#1 Flyweight,W,Decision (Split) Round 5
+5215,Alexandre Pantoja,2022-07-30,UFC,UFC 277 - Pena vs. Nunes 2,24370,Alex Perez,,W,Submission (Neck Crank) Round 1
+5215,Alexandre Pantoja,2021-08-21,UFC Fight Night,UFC Fight Night: Cannonier vs. Gastelum,86030,Brandon Royval,#11 Flyweight,W,Submission (Rear Naked Choke) Round 2
+5215,Alexandre Pantoja,2021-02-06,UFC Fight Night,UFC Fight Night: Overeem vs. Volkov,96327,Manel Kape,#16 Bantamweight,W,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2020-07-18,UFC Fight Night,UFC Fight Night 172 - Figueiredo vs. Benav...,122916,Askar Askarov,#7 Flyweight,L,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2019-12-21,UFC Fight Night,UFC Fight Night 165 - Edgar vs. Korean Zombie,47070,Matt Schnell,#7 Flyweight,W,KO (Punches) Round 1
+5215,Alexandre Pantoja,2019-07-27,UFC,UFC 240 - Holloway vs. Edgar,101055,Deiveson Figueiredo,#5 Flyweight,L,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2019-04-13,UFC,UFC 236 - Holloway vs. Poirier,3623,Wilson Reis,#7 Flyweight,W,TKO (Punches) Round 1
+5215,Alexandre Pantoja,2018-11-17,UFC Fight Night,UFC Fight Night 140: Magny vs. Ponzinibbio,64449,Yuta Sasaki,#21 Flyweight,W,Submission (Rear Naked Choke) Round 1
+5215,Alexandre Pantoja,2018-05-19,UFC Fight Night,UFC Fight Night 129 - Maia vs. Usman,82307,Brandon Moreno,#6 Flyweight,W,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2018-01-20,UFC,UFC 220 - Miocic vs. Ngannou,58922,Dustin Ortiz,#12 Flyweight,L,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2017-07-16,UFC Fight Night,UFC Fight Night 113 - Nelson vs. Ponzinibbio,25968,Neil Seery,#37 Flyweight,W,Submission (Rear Naked Choke) Round 3
+5215,Alexandre Pantoja,2017-01-28,UFC on Fox,UFC on Fox 23 - Shevchenko vs. Pena,88460,Eric Shelton,#29 Flyweight,W,Decision (Split) Round 3
+5215,Alexandre Pantoja,2015-05-08,AXS TV Fights,AXS TV Fights - RFA vs. Legacy Superfight,24090,Damacio Page,#37 Flyweight,W,Technical Submission (Triangle Choke) Round 2
+5215,Alexandre Pantoja,2014-09-12,RFA,RFA 18 - Manzanares vs. Pantoja,52205,Matt Manzanares,#82 Flyweight,W,Submission (Rear Naked Choke) Round 2
+5215,Alexandre Pantoja,2013-12-20,Shooto,Shooto - Brazil 45,53319,Lincoln de Sa Oliveira,#76 Flyweight,W,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2013-11-01,WOCS,WOCS - Watch Out Combat Show 31,84944,Daniel Araujo,#155 Flyweight,W,Submission (Rear Naked Choke) Round 1
+5215,Alexandre Pantoja,2013-03-16,MMA Fight Show,MMA Fight Show - Summer Edition,83804,Rodrigo Favacho dos Santos,#155 Flyweight,W,Submission (Rear Naked Choke) Round 1
+5215,Alexandre Pantoja,2012-07-14,Shooto,Shooto - Brazil 32,53319,Lincoln de Sa Oliveira,#111 Flyweight,W,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2011-12-09,FA,FA - Fatality Arena Fight Night 1,57681,Sandro Gemaque de Souza,,W,KO (Punches) Round 3
+5215,Alexandre Pantoja,2010-12-22,WFC,WFC - Pretorian Trials,76065,Samuel de Souza,,W,TKO (Elbows and Punches) Round 1
+5215,Alexandre Pantoja,2010-09-17,Shooto,Shooto - Brazil 18,67797,Bruno Azevedo,#57 Flyweight,W,Submission (Rear Naked Choke) Round 1
+5215,Alexandre Pantoja,2010-06-12,Shooto,Shooto - Brazil 16,29101,Jussier Formiga,#1 Flyweight,L,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2009-12-12,WOCS,WOCS - Watch Out Combat Show 6,8349,Ralph Alves,,W,Decision (Split) Round 3
+5215,Alexandre Pantoja,2009-09-27,WOCS,WOCS - Watch Out Combat Show 5,15625,Magno Alves,,W,KO (Punches) Round 1
+5215,Alexandre Pantoja,2009-08-27,Shooto,Shooto - Brazil 13,20618,Michael William Costa,,W,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2009-05-30,Shooto,Shooto - Brazil 12,47506,Bruno Moreno,,W,TKO (Doctor Stoppage) Round 3
+5215,Alexandre Pantoja,2009-03-28,Shooto,Shooto - Brazil 11,19231,Gabriel Wolff,,W,TKO (Doctor Stoppage) Round 2
+5215,Alexandre Pantoja,2008-09-25,WOCS,WOCS - Watch Out Combat Show 2,38935,Willian Viana,#149 Featherweight,L,Decision (Split) Round 3
+5215,Alexandre Pantoja,2008-08-02,RF,RF - Rocinha Fight,26871,Peterson Maffort,,W,TKO (Punches) Round 2
+5215,Alexandre Pantoja,2007-07-21,VF,VF - Vila Fight,4060,Antonio Carlos,,W,Submission (Armbar) Round 1
+5215,Alexandre Pantoja,2022-07-30,UFC,UFC 277 - Pena vs. Nunes 2,82307,Brandon Moreno,#1 Flyweight,W,Decision (Split) Round 5
+5215,Alexandre Pantoja,2011-12-09,FA,FA - Fatality Arena Fight Night 1,53319,Lincoln de Sa Oliveira,#111 Flyweight,W,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2010-12-22,WFC,WFC - Pretorian Trials,57681,Sandro Gemaque de Souza,"Friday, December 9th 2011",W,KO (Punches) Round 3
+5215,Alexandre Pantoja,2009-12-12,WOCS,WOCS - Watch Out Combat Show 6,29101,Jussier Formiga,#1 Flyweight,L,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2009-09-27,WOCS,WOCS - Watch Out Combat Show 5,8349,Ralph Alves,"Saturday, December 12th 2009",W,Decision (Split) Round 3
+5215,Alexandre Pantoja,2009-08-27,Shooto,Shooto - Brazil 13,15625,Magno Alves,"Sunday, September 27th 2009",W,KO (Punches) Round 1
+5215,Alexandre Pantoja,2009-05-30,Shooto,Shooto - Brazil 12,20618,Michael William Costa,"Thursday, August 27th 2009",W,Decision (Unanimous) Round 3
+5215,Alexandre Pantoja,2009-03-28,Shooto,Shooto - Brazil 11,47506,Bruno Moreno,"Saturday, May 30th 2009",W,TKO (Doctor Stoppage) Round 3
+5215,Alexandre Pantoja,2008-08-02,RF,RF - Rocinha Fight,38935,Willian Viana,#149 Featherweight,L,Decision (Split) Round 3
+5215,Alexandre Pantoja,2007-07-21,VF,VF - Vila Fight,26871,Peterson Maffort,"Saturday, August 2nd 2008",W,TKO (Punches) Round 2
+96327,Manel Kape,2026-06-20,UFC Fight Night,UFC Fight Night 279 Kape vs. Horiguchi 2,65742,Kyoji Horiguchi,#4 Flyweight,W,TKO (Punches) Round 3
+96327,Manel Kape,2025-12-13,UFC Fight Night,UFC Fight Night: Royval vs. Kape,86030,Brandon Royval,#4 Flyweight,W,KO (Punches) Round 1
+96327,Manel Kape,2025-03-01,UFC Fight Night,UFC Fight Night 253 - Kape vs. Almabayev,157381,Asu Almabayev,#12 Flyweight,W,TKO (Retirement) Round 3
+96327,Manel Kape,2024-12-14,UFC on ESPN,UFC on ESPN 63 - Covington vs. Buckley,104938,Bruno Silva,#18 Flyweight,W,TKO (Body Kick and Punches) Round 3
+96327,Manel Kape,2024-07-27,UFC,UFC 304: Edwards vs. Muhammad 2,165671,Muhammad Mokaev,#8 Flyweight,L,Decision (Unanimous) Round 3
+96327,Manel Kape,2023-09-09,UFC,UFC 293: Adesanya vs. Strickland,208248,Felipe dos Santos,#84 Flyweight,W,Decision (Unanimous) Round 3
+96327,Manel Kape,2022-12-17,UFC Fight Night,UFC Fight Night: Cannonier vs. Strickland,68647,David Dvorak,#20 Flyweight,W,Decision (Unanimous) Round 3
+96327,Manel Kape,2021-12-04,UFC Fight Night,UFC Fight Night: Font vs. Aldo,137080,Zhalgas Zhumagulov,#28 Flyweight,W,TKO (Punches) Round 1
+96327,Manel Kape,2021-08-07,UFC,UFC 265 - Lewis vs. Gane,117454,Ode Osbourne,#210 Featherweight,W,KO (Flying Knee and Punches) Round 1
+96327,Manel Kape,2021-03-13,UFC Fight Night,UFC Fight Night: Edwards vs. Muhammad,70942,Matheus Nicolau,,L,Decision (Split) Round 3
+96327,Manel Kape,2021-02-06,UFC Fight Night,UFC Fight Night: Overeem vs. Volkov,5215,Alexandre Pantoja,#6 Flyweight,L,Decision (Unanimous) Round 3
+96327,Manel Kape,2019-12-31,Rizin FF,Rizin FF - Rizin 20,160822,Kai Asakura,#8 Bantamweight,W,TKO (Punches) Round 2
+96327,Manel Kape,2019-08-18,RIZIN,RIZIN 18,24006,Takeya Mizugaki,#91 Bantamweight,W,KO (Punch) Round 2
+96327,Manel Kape,2019-04-21,Rizin FF,Rizin FF - Rizin 15,98519,Seiichiro Ito,#225 Flyweight,W,TKO (Punch to the Body) Round 2
+96327,Manel Kape,2018-12-31,Rizin FF,Rizin FF - Rizin 14,64449,Yuta Sasaki,#21 Flyweight,L,Decision (Unanimous) Round 3
+96327,Manel Kape,2018-09-30,Rizin FF,Rizin FF - Rizin 13,60139,Yusaku Nakamura,#41 Flyweight,W,Technical Submission (Rear Naked Choke) Round 3
+96327,Manel Kape,2018-05-06,Rizin FF,Rizin FF - Rizin 10,160822,Kai Asakura,#239 Bantamweight,L,Decision (Split) Round 3
+96327,Manel Kape,2017-12-31,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Ban...,65742,Kyoji Horiguchi,#37 Bantamweight,L,Submission (Arm Triangle Choke) Round 3
+96327,Manel Kape,2017-12-29,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Ban...,10981,Ian McCall,,W,TKO (Doctor Stoppage) Round 1
+96327,Manel Kape,2017-10-15,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Men...,154154,Erson Yamamoto,,W,TKO (Head Kick and Punch) Round 1
+96327,Manel Kape,2015-04-27,IPC,IPC 7 - International Pro Combat 7,135230,Francisco Aspirilla,,W,TKO (Punches) Round 3
+96327,Manel Kape,2015-04-18,KOC,KOC - Knock Out Championship 8,110927,Antoine Gallinaro,#359 Bantamweight,W,Submission (Armbar) Round 4
+96327,Manel Kape,2014-12-19,Invictus,Invictus - Pro MMA League 2,114914,Miguel Valverde Pascual,,W,Submission (Rear Naked Choke) Round 3
+96327,Manel Kape,2014-11-29,AFL,AFL 2 - Ansgar Fighting League 2,115258,Daniel Barez,#299 Flyweight,W,Submission (Verbal) Round 1
+96327,Manel Kape,2014-07-27,Invictus,Invictus - Pro MMA League 1,129180,Hicham Rachid,,W,KO (Flying Knee to the Body) Round 1
+96327,Manel Kape,2014-04-05,KOC,KOC - Knock Out Championship 7,81319,Souksavanh Khampasath,#735 Featherweight,L,Submission (Rear Naked Choke) Round 3
+96327,Manel Kape,2013-07-28,CF,CF - Cage Fighters 3,69221,Marco Santos,,W,Decision (Unanimous) Round 3
+96327,Manel Kape,2013-02-03,Cage Fighters,Cage Fighters - Challengers Norte 2,111116,Ricardo Teixeira,,W,Submission (Rear-Naked Choke) Round 1
+96327,Manel Kape,2012-11-04,Cage Fighters,Cage Fighters - Challengers Norte 1,105156,Renato Ferreira,,W,TKO (Punches) Round 1
+96327,Manel Kape,2012-05-13,CF,CF - Cage Fighters 2,82318,Artur Gomes,,W,TKO (Punches) Round 1
+96327,Manel Kape,2021-03-13,UFC Fight Night,UFC Fight Night: Edwards vs. Muhammad,117454,Ode Osbourne,#210 Featherweight,W,KO (Flying Knee and Punches) Round 1
+96327,Manel Kape,2017-12-29,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Ban...,65742,Kyoji Horiguchi,#37 Bantamweight,L,Submission (Arm Triangle Choke) Round 3
+96327,Manel Kape,2017-10-15,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Men...,10981,Ian McCall,"Friday, December 29th 2017",W,TKO (Doctor Stoppage) Round 1
+96327,Manel Kape,2015-04-27,IPC,IPC 7 - International Pro Combat 7,154154,Erson Yamamoto,"Sunday, October 15th 2017",W,TKO (Head Kick and Punch) Round 1
+96327,Manel Kape,2014-12-19,Invictus,Invictus - Pro MMA League 2,110927,Antoine Gallinaro,#359 Bantamweight,W,Submission (Armbar) Round 4
+96327,Manel Kape,2014-07-27,Invictus,Invictus - Pro MMA League 1,115258,Daniel Barez,#299 Flyweight,W,Submission (Verbal) Round 1
+96327,Manel Kape,2013-07-28,CF,CF - Cage Fighters 3,81319,Souksavanh Khampasath,#735 Featherweight,L,Submission (Rear Naked Choke) Round 3
+96327,Manel Kape,2013-02-03,Cage Fighters,Cage Fighters - Challengers Norte 2,69221,Marco Santos,"Sunday, July 28th 2013",W,Decision (Unanimous) Round 3
+96327,Manel Kape,2012-11-04,Cage Fighters,Cage Fighters - Challengers Norte 1,111116,Ricardo Teixeira,"Sunday, February 3rd 2013",W,Submission (Rear-Naked Choke) Round 1
+96327,Manel Kape,2012-05-13,CF,CF - Cage Fighters 2,105156,Renato Ferreira,"Sunday, November 4th 2012",W,TKO (Punches) Round 1
+193867,Tatsuro Taira,2026-05-09,UFC,UFC 328 Chimaev vs. Strickland,227103,Joshua Van,#1 Flyweight,L,TKO (Front Kick to the Body and Punches) Round 5
+193867,Tatsuro Taira,2025-12-06,UFC,UFC 323 - Dvalishvili vs. Yan 2,82307,Brandon Moreno,#2 Flyweight,W,TKO (Punches) Round 2
+193867,Tatsuro Taira,2025-08-02,UFC on ESPN,UFC on ESPN 71 - Taira vs. Park,192259,Hyun Sung Park,#44 Flyweight,W,Submission (Face Crank) Round 2
+193867,Tatsuro Taira,2024-10-12,UFC Fight Night,UFC Fight Night 244 - Royval vs. Taira,86030,Brandon Royval,#2 Flyweight,L,Decision (Split) Round 5
+193867,Tatsuro Taira,2024-06-15,UFC Fight Night,UFC Fight Night: Perez vs. Taira,24370,Alex Perez,#59 Flyweight,W,TKO (Knee Injury) Round 2
+193867,Tatsuro Taira,2023-12-09,UFC Fight Night,UFC Fight Night 233 - Song vs. Gutierrez,134216,Carlos Hernandez,#111 Flyweight,W,TKO (Punches) Round 2
+193867,Tatsuro Taira,2023-07-08,UFC,UFC 290 - Volkanovski vs. Rodriguez,169660,Edgar Chairez,#158 Flyweight,W,Decision (Unanimous) Round 3
+193867,Tatsuro Taira,2023-02-04,UFC Fight Night,UFC Fight Night 218 - Lewis vs. Spivak,149839,Jesus Santos Aguilar,#71 Flyweight,W,Submission (Triangle Armbar) Round 1
+193867,Tatsuro Taira,2022-10-15,UFC Fight Night,UFC Fight Night: Grasso vs. Araujo,73574,C.J. Vergara,#63 Flyweight,W,Submission (Armbar) Round 2
+193867,Tatsuro Taira,2022-05-14,UFC on ESPN,UFC on ESPN 36 - Blachowicz vs. Rakic,94436,Carlos Candelario,#175 Flyweight,W,Decision (Unanimous) Round 3
+193867,Tatsuro Taira,2021-11-06,Vale Tudo Japan,Vale Tudo Japan - VTJ 2021,169161,Alfredo Muaiad,#270 Flyweight,W,Submission (Rear Naked Choke) Round 1
+193867,Tatsuro Taira,2021-07-04,Shooto,Shooto - Professional Shooto 2021 Vol. 4,89729,Ryuya Fukuda,#81 Flyweight,W,Submission (Triangle Choke) Round 1
+193867,Tatsuro Taira,2021-03-20,Shooto,Shooto - Professional Shooto 2021 Vol. 2,12860,Yoshiro Maeda,#187 Flyweight,W,Technical Submission (Rear Naked Choke) Round 1
+193867,Tatsuro Taira,2020-11-23,Shooto,Shooto 2020 Vol. 7,18026,Kiyotaka Shimizu,#164 Bantamweight,W,Decision (Unanimous) Round 3
+193867,Tatsuro Taira,2020-01-26,Shooto,Shooto 2020 1/26: in Korakuen Hall,208047,Jared Almazan,,W,TKO (Punches) Round 2
+193867,Tatsuro Taira,2019-11-03,Shooto,Shooto - The Shooto Okinawa Vol. 2,182089,Yamato Takagi,#435 Flyweight,W,TKO (Punches) Round 1
+193867,Tatsuro Taira,2019-09-22,Shooto,Shooto - Border: Season 11 - The 3rd,50744,Takahiro Kohori,#347 Flyweight,W,TKO (Punches) Round 1
+193867,Tatsuro Taira,2019-06-08,Shooto,Shooto: Gig Tokyo 27,112793,Yuto Sekiguchi,,W,Decision (Unanimous) Round 2
+193867,Tatsuro Taira,2018-11-25,Shooto,Shooto - The Shooto Okinawa Vol. 1,124059,Ryo Oyakawa,,W,Submission (Guillotine Choke) Round 1
+193867,Tatsuro Taira,2018-08-03,Shooto,"Shooto - This Is Shooto, Vol.2",189765,Yo Otake,,W,Submission (Triangle Choke) Round 1
+193867,Tatsuro Taira,2020-01-26,Shooto,Shooto 2020 1/26: in Korakuen Hall,18026,Kiyotaka Shimizu,#164 Bantamweight,W,Decision (Unanimous) Round 3
+193867,Tatsuro Taira,2019-06-08,Shooto,Shooto: Gig Tokyo 27,50744,Takahiro Kohori,#347 Flyweight,W,TKO (Punches) Round 1
+193867,Tatsuro Taira,2018-11-25,Shooto,Shooto - The Shooto Okinawa Vol. 1,112793,Yuto Sekiguchi,"Saturday, June 8th 2019",W,Decision (Unanimous) Round 2
+193867,Tatsuro Taira,2018-08-03,Shooto,"Shooto - This Is Shooto, Vol.2",124059,Ryo Oyakawa,"Sunday, November 25th 2018",W,Submission (Guillotine Choke) Round 1
+86030,Brandon Royval,2026-07-11,UFC,UFC 329: McGregor vs. Holloway 2,154434,Loneer Kavanagh,#6 Flyweight,W,Submission (Rear-Naked Choke) Round 3
+86030,Brandon Royval,2025-12-13,UFC Fight Night,UFC Fight Night: Royval vs. Kape,96327,Manel Kape,#9 Flyweight,L,KO (Punches) Round 1
+86030,Brandon Royval,2025-06-28,UFC,UFC 317 - Topuria vs. Oliveira,227103,Joshua Van,#15 Flyweight,L,Decision (Unanimous) Round 3
+86030,Brandon Royval,2024-10-12,UFC Fight Night,UFC Fight Night 244 - Royval vs. Taira,193867,Tatsuro Taira,#7 Flyweight,W,Decision (Split) Round 5
+86030,Brandon Royval,2024-02-24,UFC Fight Night,UFC Fight Night 237 - Moreno vs. Royval 2,82307,Brandon Moreno,#2 Flyweight,W,Decision (Split) Round 5
+86030,Brandon Royval,2023-12-16,UFC,UFC 296 - Edwards vs. Covington,5215,Alexandre Pantoja,#1 Flyweight,L,Decision (Unanimous) Round 5
+86030,Brandon Royval,2023-04-15,UFC on ESPN,UFC on ESPN 44 - Holloway vs. Allen,70942,Matheus Nicolau,#5 Flyweight,W,KO (Knee and Elbows) Round 1
+86030,Brandon Royval,2022-05-07,UFC,UFC 274: Oliveira vs. Gaethje,47070,Matt Schnell,#26 Flyweight,W,Submission (Guillotine Choke) Round 1
+86030,Brandon Royval,2022-01-15,UFC on ESPN,UFC on ESPN 32 - Kattar vs. Chikadze,114327,Rogerio Bontorin,#19 Flyweight,W,Decision (Split) Round 3
+86030,Brandon Royval,2021-08-21,UFC Fight Night,UFC Fight Night: Cannonier vs. Gastelum,5215,Alexandre Pantoja,#4 Flyweight,L,Submission (Rear Naked Choke) Round 2
+86030,Brandon Royval,2020-11-21,UFC,UFC 255 - Figueiredo vs. Perez,82307,Brandon Moreno,#3 Flyweight,L,TKO (Punches) Round 1
+86030,Brandon Royval,2020-09-26,UFC,UFC 253 - Adesanya vs. Costa,75447,Kai Kara-France,#14 Flyweight,W,Submission (Guillotine Choke) Round 2
+86030,Brandon Royval,2020-05-30,UFC on ESPN,UFC on ESPN 9 - Woodley vs. Burns,49560,Tim Elliott,#47 Flyweight,W,Submission (Arm Triangle Choke) Round 2
+86030,Brandon Royval,2019-11-22,LFA,LFA 79 - Royval vs. Williams,43617,Nate Williams,#131 Flyweight,W,Submission (Armbar) Round 1
+86030,Brandon Royval,2019-05-03,LFA,LFA 65 - Royval vs. Sanchez,50579,Joby Sanchez,#39 Flyweight,W,Submission (Armbar) Round 1
+86030,Brandon Royval,2018-11-09,LFA,LFA 53 - Royval vs. Kenney,153455,Casey Kenney,#109 Bantamweight,L,Decision (Unanimous) Round 5
+86030,Brandon Royval,2018-09-07,LFA,LFA 48 - Stots vs. Lilley,176321,Charles Johnson,#136 Flyweight,W,Decision (Unanimous) Round 3
+86030,Brandon Royval,2018-05-04,LFA,LFA 39 - Heinisch vs. Checco,117867,Jerome Rivera,#116 Flyweight,W,TKO (Arm Injury) Round 1
+86030,Brandon Royval,2017-09-08,LFA,LFA 22: Heinisch vs. Perez,117917,Demetrius Wilson,#441 Bantamweight,W,SUB Round 2
+86030,Brandon Royval,2017-04-21,LFA,LFA 10 - Heinisch vs. Rota,53183,Nick Urso,#159 Flyweight,L,Decision (Split) Round 3
+86030,Brandon Royval,2017-02-24,LFA,LFA 5 - Edwards vs. Townsend,143927,Rakan Adwan,#839 Bantamweight,W,Submission (Armbar) Round 1
+86030,Brandon Royval,2016-10-15,SCL,SCL 53 - SCL 53,137605,Angel Torres,,W,Submission (Triangle Choke) Round 1
+86030,Brandon Royval,2016-05-09,Combate Americas,Combate Americas 5: Road to the Championship,75335,Ricky Palacios,#543 Bantamweight,L,Decision (Unanimous) Round 3
+86030,Brandon Royval,2016-03-12,WSOF,WSOF 29 - Gaethje vs. Foster,86829,Danny Mainus,,W,KO (Knee) Round 1
+86030,Brandon Royval,2014-08-23,SCL,SCL - Mile High Mayhem,36590,Joey Welch,,W,Submission (Triangle Choke) Round 1
+86030,Brandon Royval,2012-10-19,Kick Down MMA,Kick Down MMA 104 - Boom,98537,Ben VomBaur,,L,Decision (Unanimous) Round 3
+86030,Brandon Royval,2012-08-17,Kick Down MMA,Kick Down MMA 102 - Rebels,85116,Sammy Rind,,W,TKO (Elbows) Round 1
+86030,Brandon Royval,2016-10-15,SCL,SCL 53 - SCL 53,143927,Rakan Adwan,#839 Bantamweight,W,Submission (Armbar) Round 1
+86030,Brandon Royval,2016-03-12,WSOF,WSOF 29 - Gaethje vs. Foster,75335,Ricky Palacios,#543 Bantamweight,L,Decision (Unanimous) Round 3
+86030,Brandon Royval,2014-08-23,SCL,SCL - Mile High Mayhem,86829,Danny Mainus,"Saturday, March 12th 2016",W,KO (Knee) Round 1
+86030,Brandon Royval,2012-10-19,Kick Down MMA,Kick Down MMA 104 - Boom,36590,Joey Welch,"Saturday, August 23rd 2014",W,Submission (Triangle Choke) Round 1
+86030,Brandon Royval,2012-08-17,Kick Down MMA,Kick Down MMA 102 - Rebels,98537,Ben VomBaur,"Friday, October 19th 2012",L,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2026-06-20,UFC Fight Night,UFC Fight Night 279 Kape vs. Horiguchi 2,96327,Manel Kape,#5 Flyweight,L,TKO (Punches) Round 3
+65742,Kyoji Horiguchi,2026-02-07,UFC Fight Night,UFC Fight Night 266 Bautista vs. Oliveira,51999,Amir Albazi,#14 Flyweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2025-11-22,UFC Fight Night,UFC Fight Night 265 - Tsarukyan vs. Hooker,122914,Tagir Ulanbekov,#14 Flyweight,W,Technical Submission (Rear-Naked Choke) Round 3
+65742,Kyoji Horiguchi,2024-12-31,RIZIN,RIZIN 49: Decade,114108,Nkazimulo Zulu,#74 Flyweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2024-06-09,Rizin FF,Rizin FF - Rizin 47,53360,Sergio Pettis,#9 Bantamweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2023-12-31,Rizin FF,Rizin FF - Rizin 45,158564,Makoto Takahashi,#28 Flyweight,W,Submission (Rear-Naked Choke) Round 2
+65742,Kyoji Horiguchi,2023-07-29,Bellator MMA x Rizin,Bellator MMA x Rizin 2 - Pitbull vs. de Souza,158564,Makoto Takahashi,#31 Flyweight,NC,No Contest (Accidental Eye Poke) Round 1
+65742,Kyoji Horiguchi,2022-12-31,Rizin FF,Rizin FF - Rizin 40: Bellator MMA vs. Rizin,36733,Hiromasa Ougikubo,#48 Bantamweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2022-09-25,Rizin FF,Rizin FF - Super Rizin / Rizin 38,82470,Yuto Hokamura,#218 Bantamweight,W,Technical Submission (Arm-Triangle Choke) Round 2
+65742,Kyoji Horiguchi,2022-04-23,Bellator,Bellator 279 - Cyborg vs. Blencowe 2,128857,Patrick Mix,#41 Bantamweight,L,Decision (Unanimous) Round 5
+65742,Kyoji Horiguchi,2021-12-03,Bellator,Bellator 272 - Pettis vs. Horiguchi,53360,Sergio Pettis,#14 Bantamweight,L,KO (Spinning Backfist) Round 4
+65742,Kyoji Horiguchi,2020-12-31,RIZIN,RIZIN 26,160822,Kai Asakura,#17 Bantamweight,W,KO (Punches) Round 1
+65742,Kyoji Horiguchi,2019-08-18,RIZIN,RIZIN 18,160822,Kai Asakura,#93 Bantamweight,L,KO (Punches) Round 1
+65742,Kyoji Horiguchi,2019-06-14,Bellator,Bellator 222 - MacDonald vs. Gracie,100252,Darrion Caldwell,#12 Bantamweight,W,Decision (Unanimous) Round 5
+65742,Kyoji Horiguchi,2019-04-21,Rizin FF,Rizin FF - Rizin 15,14150,Ben Nguyen,#13 Flyweight,W,KO (Punches) Round 1
+65742,Kyoji Horiguchi,2018-12-31,Rizin FF,Rizin FF - Rizin 14,100252,Darrion Caldwell,#19 Featherweight,W,Submission (Guillotine Choke) Round 3
+65742,Kyoji Horiguchi,2018-07-28,Rizin FF,Rizin FF - Rizin 11,36733,Hiromasa Ougikubo,#26 Flyweight,W,Decision (Unanimous) Round 2
+65742,Kyoji Horiguchi,2018-05-06,Rizin FF,Rizin FF - Rizin 10,10981,Ian McCall,#313 Bantamweight,W,KO (Punch) Round 1
+65742,Kyoji Horiguchi,2017-12-31,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Ban...,33160,Shintaro Ishiwatari,#19 Bantamweight,W,KO (Punches) Round 2
+65742,Kyoji Horiguchi,2017-12-31,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Ban...,96327,Manel Kape,,W,Submission (Arm Triangle Choke) Round 3
+65742,Kyoji Horiguchi,2017-12-29,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Ban...,121604,Gabriel Leite de Oliveira,#104 Bantamweight,W,TKO (Punches) Round 1
+65742,Kyoji Horiguchi,2017-07-30,Rizin Fighting World Grand Prix,Rizin Fighting World Grand Prix 2017 - Ban...,2256,Hideo Tokoro,#267 Bantamweight,W,KO (Punches) Round 1
+65742,Kyoji Horiguchi,2017-04-16,Rizin,Rizin 5 - Rizin 2017 in Yokohama: Sakura,67727,Yuki Motoya,#90 Bantamweight,W,Decision (Unanimous) Round 2
+65742,Kyoji Horiguchi,2016-11-19,UFC Fight Night,UFC Fight Night 99: Mousasi vs. Hall 2,83304,Ali Bagautinov,#7 Flyweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2016-05-08,UFC Fight Night,UFC Fight Night 87 - Overeem vs. Arlovski,25968,Neil Seery,#26 Flyweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2015-09-26,UFC Fight Night,UFC Fight Night 75 - Barnett vs. Nelson,41428,Chico Camus,#16 Flyweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2015-04-25,UFC,UFC 186 - Johnson vs. Horiguchi,45428,Demetrious Johnson,#1 Flyweight,L,Submission (Armbar) Round 5
+65742,Kyoji Horiguchi,2015-01-03,UFC,UFC 182 - Jones vs. Cormier,45128,Louis Gaudinot,#57 Flyweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2014-09-20,UFC Fight Night,UFC Fight Night - Hunt vs. Nelson,61158,Jon delos Reyes,#418 Bantamweight,W,TKO (Punches) Round 1
+65742,Kyoji Horiguchi,2014-05-10,UFC Fight Night,UFC Fight Night - Brown vs. Silva,20341,Darrell Montague,#42 Flyweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2013-10-19,UFC,UFC 166 - Velasquez vs. dos Santos 3,32048,Dustin Pague,#95 Bantamweight,W,TKO (Punches) Round 2
+65742,Kyoji Horiguchi,2013-06-22,Vale Tudo Japan,Vale Tudo Japan - VTJ 2nd,33160,Shintaro Ishiwatari,#37 Bantamweight,W,TKO (Punches) Round 5
+65742,Kyoji Horiguchi,2013-03-16,Shooto,Shooto 2nd Round 2013,36733,Hiromasa Ougikubo,#64 Bantamweight,W,Submission (Rear Naked Choke) Round 2
+65742,Kyoji Horiguchi,2012-12-24,VTJ,VTJ 2012 - Vale Tudo Japan 2012,25700,Ian Loveland,#17 Bantamweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2012-07-16,Shooto,Shooto 8th Round,25033,Manabu Inoue,#118 Bantamweight,W,Decision (Unanimous) Round 3
+65742,Kyoji Horiguchi,2012-03-10,Shooto,Shooto - 3rd Round,21553,Tetsu Suzuki,#64 Bantamweight,W,TKO (Punches) Round 1
+65742,Kyoji Horiguchi,2012-01-08,Shooto,Shooto - Survivor Tournament Final,26426,Masakatsu Ueda,#31 Bantamweight,L,Decision (Majority) Round 3
+65742,Kyoji Horiguchi,2011-09-23,Shooto,Shooto - Shootors Legacy 4,43385,Naohiro Mizuno,#177 Bantamweight,W,KO (Punches) Round 2
+65742,Kyoji Horiguchi,2011-07-18,Shooto,Shooto - Shootors Legacy 3,42520,Yuta Nezu,#204 Bantamweight,W,KO (Punch) Round 1
+65742,Kyoji Horiguchi,2011-04-29,Shooto,Shooto - Shooto Tradition 2011,14638,Takahiro Hosoi,#179 Bantamweight,W,TKO (Punches) Round 1
+65742,Kyoji Horiguchi,2010-12-18,Shooto,Shooto - The Rookie Tournament 2010 Final,3944,Seiji Akao,#166 Bantamweight,W,TKO (Punches) Round 2
+65742,Kyoji Horiguchi,2010-08-07,Shooto,Shooto - Gig Tokyo 5,51937,Keita Ishibashi,,W,TKO (Doctor Stoppage) Round 1
+65742,Kyoji Horiguchi,2010-05-09,Shooto,Shooto - Kitazawa Shooto Vol. 3,25672,Ranki Kawana,#197 Bantamweight,W,Decision (Unanimous) Round 2
+65742,Kyoji Horiguchi,2010-08-07,Shooto,Shooto - Gig Tokyo 5,3944,Seiji Akao,#166 Bantamweight,W,TKO (Punches) Round 2
+82307,Brandon Moreno,2026-02-28,UFC Fight Night,UFC Fight Night: Moreno vs. Kavanagh,154434,Loneer Kavanagh,#64 Flyweight,L,Decision (Unanimous) Round 5
+82307,Brandon Moreno,2025-12-06,UFC,UFC 323 - Dvalishvili vs. Yan 2,193867,Tatsuro Taira,#7 Flyweight,L,TKO (Punches) Round 2
+82307,Brandon Moreno,2025-03-29,UFC on ESPN,UFC on ESPN 64 - Moreno vs. Erceg,162133,Steve Erceg,#9 Flyweight,W,Decision (Unanimous) Round 5
+82307,Brandon Moreno,2024-11-02,UFC Fight Night,UFC Fight Night 246 - Moreno vs. Albazi,51999,Amir Albazi,,W,Decision (Unanimous) Round 5
+82307,Brandon Moreno,2024-02-24,UFC Fight Night,UFC Fight Night 237 - Moreno vs. Royval 2,86030,Brandon Royval,#5 Flyweight,L,Decision (Split) Round 5
+82307,Brandon Moreno,2023-07-08,UFC,UFC 290 - Volkanovski vs. Rodriguez,5215,Alexandre Pantoja,#3 Flyweight,L,Decision (Split) Round 5
+82307,Brandon Moreno,2023-01-21,UFC,UFC 283 - Teixeira vs. Hill,101055,Deiveson Figueiredo,#1 Flyweight,W,TKO (Doctor Stoppage) Round 3
+82307,Brandon Moreno,2022-07-30,UFC,UFC 277 - Pena vs. Nunes 2,75447,Kai Kara-France,#3 Flyweight,W,TKO (Body Kick and Punches) Round 3
+82307,Brandon Moreno,2022-01-22,UFC,UFC 270 - Ngannou vs. Gane,101055,Deiveson Figueiredo,#2 Flyweight,L,Decision (Unanimous) Round 5
+82307,Brandon Moreno,2021-06-12,UFC,UFC 263 - Adesanya vs. Vettori 2,101055,Deiveson Figueiredo,#1 Flyweight,W,Submission (Rear Naked Choke) Round 3
+82307,Brandon Moreno,2020-12-12,UFC,UFC 256 - Figueiredo vs. Moreno,101055,Deiveson Figueiredo,#1 Flyweight,D,Draw Round 5
+82307,Brandon Moreno,2020-11-21,UFC,UFC 255 - Figueiredo vs. Perez,86030,Brandon Royval,#8 Flyweight,W,TKO (Punches) Round 1
+82307,Brandon Moreno,2020-03-14,UFC Fight Night,UFC Fight Night 170 - Lee vs. Oliveira,29101,Jussier Formiga,#2 Flyweight,W,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2019-12-14,UFC,UFC 245 - Usman vs. Covington,75447,Kai Kara-France,#12 Flyweight,W,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2019-09-21,UFC Fight Night,UFC Fight Night 159 - Rodriguez vs. Stephens,122916,Askar Askarov,#8 Flyweight,D,Draw Round 3
+82307,Brandon Moreno,2019-06-07,LFA,LFA 69 - Perez vs. Moreno,161266,Maikel Perez,#21 Flyweight,W,TKO (Punches) Round 4
+82307,Brandon Moreno,2018-05-19,UFC Fight Night,UFC Fight Night 129 - Maia vs. Usman,5215,Alexandre Pantoja,#19 Flyweight,L,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2017-08-05,UFC Fight Night,UFC Fight Night 114 - Pettis vs. Moreno,53360,Sergio Pettis,#12 Flyweight,L,Decision (Unanimous) Round 5
+82307,Brandon Moreno,2017-04-22,UFC Fight Night,UFC Fight Night 108 - Swanson vs. Lobov,58922,Dustin Ortiz,#12 Flyweight,W,Technical Submission (Rear Naked Choke) Round 2
+82307,Brandon Moreno,2016-12-03,The Ultimate Fighter,The Ultimate Fighter 24 Finale,48706,Ryan Benoit,#52 Flyweight,W,Decision (Split) Round 3
+82307,Brandon Moreno,2016-10-01,UFC Fight Night,UFC Fight Night 96 - Lineker vs. Dodson,66107,Louis Smolka,#7 Flyweight,W,Submission (Guillotine Choke) Round 1
+82307,Brandon Moreno,2016-04-16,WFF,WFF - World Fighting Federation 27,158729,Isaac Camarillo,,W,Submission (Rear-Naked Choke) Round 1
+82307,Brandon Moreno,2015-07-25,WFF,WFF - World Fighting Federation 22,3333,Tyler Bialecki,,W,Submission (Rear-Naked Choke) Round 1
+82307,Brandon Moreno,2015-02-07,WFF,WFF - World Fighting Federation 18,54031,Matt Betzold,#313 Flyweight,W,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2014-09-20,WFF,WFF - World Fighting Federation 16,129733,C.J. Soliven,,W,Submission (Rear Naked Choke) Round 1
+82307,Brandon Moreno,2014-06-28,WFF,WFF - World Fighting Federation 14,91706,Alex Contreras,,W,Submission (Triangle Choke) Round 3
+82307,Brandon Moreno,2013-07-26,MEZ Sports,MEZ Sports - Pandemonium 9,103582,Paul Amaro,#550 Bantamweight,W,Submission (Rear Naked Choke) Round 2
+82307,Brandon Moreno,2013-03-23,MEZ Sports,MEZ Sports - Pandemonium 8,29573,Jason Carbajal,#146 Flyweight,W,TKO (Punches) Round 3
+82307,Brandon Moreno,2012-09-22,Xplode Fight Series,Xplode Fight Series - Anarchy,29935,Jesse Cruz,#246 Bantamweight,W,Decision (Split) Round 3
+82307,Brandon Moreno,2012-07-28,CITC,CITC 11 - Xtreme Couture vs. Southern Cali...,56509,Brenson Hansen,,L,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2012-05-19,Xplode Fight Series,Xplode Fight Series - Hunted,95203,Jonathan Carter,,W,Submission (Armbar) Round 1
+82307,Brandon Moreno,2012-03-03,MEZ Sports,MEZ Sports - Pandemonium 6,91616,Ron Scolesdang,,L,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2012-01-29,UWC Mexico,UWC Mexico - New Blood 1,33693,Luis Garcia,,W,Submission (Armbar) Round 1
+82307,Brandon Moreno,2011-06-25,UWC Mexico,UWC Mexico 10 - To The Edge,84294,Marco Beristain Castillo,,L,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2011-04-30,UWC Mexico,UWC Mexico 9.5 - Iguana,82308,Atiq Jihad,,W,Submission Round 1
+82307,Brandon Moreno,2024-11-02,UFC Fight Night,UFC Fight Night 246 - Moreno vs. Albazi,162133,Steve Erceg,#9 Flyweight,W,Decision (Unanimous) Round 5
+82307,Brandon Moreno,2015-07-25,WFF,WFF - World Fighting Federation 22,158729,Isaac Camarillo,"Saturday, April 16th 2016",W,Submission (Rear-Naked Choke) Round 1
+82307,Brandon Moreno,2014-09-20,WFF,WFF - World Fighting Federation 16,54031,Matt Betzold,#313 Flyweight,W,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2014-06-28,WFF,WFF - World Fighting Federation 14,129733,C.J. Soliven,"Saturday, September 20th 2014",W,Submission (Rear Naked Choke) Round 1
+82307,Brandon Moreno,2012-07-28,CITC,CITC 11 - Xtreme Couture vs. Southern Cali...,29935,Jesse Cruz,#246 Bantamweight,W,Decision (Split) Round 3
+82307,Brandon Moreno,2012-05-19,Xplode Fight Series,Xplode Fight Series - Hunted,56509,Brenson Hansen,"Saturday, July 28th 2012",L,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2012-03-03,MEZ Sports,MEZ Sports - Pandemonium 6,95203,Jonathan Carter,"Saturday, May 19th 2012",W,Submission (Armbar) Round 1
+82307,Brandon Moreno,2012-01-29,UWC Mexico,UWC Mexico - New Blood 1,91616,Ron Scolesdang,"Saturday, March 3rd 2012",L,Decision (Unanimous) Round 3
+82307,Brandon Moreno,2011-06-25,UWC Mexico,UWC Mexico 10 - To The Edge,33693,Luis Garcia,"Sunday, January 29th 2012",W,Submission (Armbar) Round 1
+82307,Brandon Moreno,2011-04-30,UWC Mexico,UWC Mexico 9.5 - Iguana,84294,Marco Beristain Castillo,"Saturday, June 25th 2011",L,Decision (Unanimous) Round 3
+154434,Loneer Kavanagh,2026-07-11,UFC,UFC 329: McGregor vs. Holloway 2,86030,Brandon Royval,#7 Flyweight,L,Submission (Rear-Naked Choke) Round 3
+154434,Loneer Kavanagh,2026-02-28,UFC Fight Night,UFC Fight Night: Moreno vs. Kavanagh,82307,Brandon Moreno,#5 Flyweight,W,Decision (Unanimous) Round 5
+154434,Loneer Kavanagh,2025-08-23,UFC Fight Night,UFC Fight Night 257 Walker vs. Zhang,176321,Charles Johnson,#22 Flyweight,L,KO (Punch) Round 2
+154434,Loneer Kavanagh,2025-03-22,UFC Fight Night,UFC Fight Night 255 - Edwards vs. Brady,208248,Felipe dos Santos,#98 Flyweight,W,Decision (Unanimous) Round 3
+154434,Loneer Kavanagh,2024-11-23,UFC Fight Night,UFC Fight Night 248 - Yan vs. Figueiredo,198304,Jose Ochoa,#134 Flyweight,W,Decision (Unanimous) Round 3
+154434,Loneer Kavanagh,2024-08-13,Dana Whites Contender Series,Dana Whites Contender Series - Contender S...,200967,An Tuan Ho,#213 Flyweight,W,KO (Punch) Round 1
+154434,Loneer Kavanagh,2024-03-30,CW,CW 169 - Cage Warriors 169: London,181849,Shawn Marcos da Silva,#98 Flyweight,W,Decision (Unanimous) Round 3
+154434,Loneer Kavanagh,2023-03-17,CW,CW 150 - Cage Warriors 150: London,245656,Davide Scarano,#346 Flyweight,W,TKO (Spinning Back Kick and Punches) Round 3
+154434,Loneer Kavanagh,2022-07-22,CW,CW 141 - Cage Warriors 141,201594,Ander Sanchez,,W,Decision (Unanimous) Round 3
+154434,Loneer Kavanagh,2022-03-18,CW,CW 134 - Cage Warriors 134,112701,Ryan Morgan,,W,KO (Punches) Round 3
+154434,Loneer Kavanagh,2019-12-14,FSC,FSC - FightStar Championship 19,54893,Danny Missin,,W,Submission (Guillotine Choke) Round 1
+154434,Loneer Kavanagh,2019-03-02,ROC,ROC 7 - Rise of Champions 7,259260,Glody Matusiwa,,W,TKO (Punches) Round 2
+154434,Loneer Kavanagh,2022-07-22,CW,CW 141 - Cage Warriors 141,245656,Davide Scarano,#346 Flyweight,W,TKO (Spinning Back Kick and Punches) Round 3
+154434,Loneer Kavanagh,2022-03-18,CW,CW 134 - Cage Warriors 134,201594,Ander Sanchez,"Friday, July 22nd 2022",W,Decision (Unanimous) Round 3
+154434,Loneer Kavanagh,2019-12-14,FSC,FSC - FightStar Championship 19,112701,Ryan Morgan,"Friday, March 18th 2022",W,KO (Punches) Round 3
+154434,Loneer Kavanagh,2019-03-02,ROC,ROC 7 - Rise of Champions 7,54893,Danny Missin,"Saturday, December 14th 2019",W,Submission (Guillotine Choke) Round 1
+155594,Ramazonbek Temirov,2026-07-25,UFC Fight Night,UFC Fight Night: Ankalaev vs. Guskov,162133,Steve Erceg,#10 Flyweight,W,KO (Punch) Round 1
+155594,Ramazonbek Temirov,2025-03-01,UFC Fight Night,UFC Fight Night 253 - Kape vs. Almabayev,176321,Charles Johnson,#17 Flyweight,W,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2024-10-12,UFC Fight Night,UFC Fight Night 244 - Royval vs. Taira,73574,C.J. Vergara,#87 Flyweight,W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2023-09-24,Rizin FF,Rizin FF - Rizin 44,99616,Takaki Soya,#241 Flyweight,W,KO (Punches) Round 1
+155594,Ramazonbek Temirov,2023-05-06,Rizin FF,Rizin FF - Rizin 42,238748,Yuta Hamamoto,#239 Flyweight,W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2022-11-25,NFC,NFC 48 Naiza Fighter Championship 48,122013,Kayck Alencar,#874 Bantamweight,W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2022-05-21,MPL,MPL 5 - Muradov Professional League 5: Mir...,180111,Argen Maratbek Uulu,#121 Flyweight,W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2022-02-27,MPL,MPL 3 - Muradov Professional League 3: Tem...,89028,Mikhail Sirbu,#282 Bantamweight,W,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2021-10-22,Muradov Professional League,Muradov Professional League 1: Mirzamatov ...,157774,Talgat Zhumagaliyev,#216 Flyweight,W,Decision Round 3
+155594,Ramazonbek Temirov,2021-09-24,Future FC,Future FC - Future MMA 13,180872,Daniel Conceicao,,W,KO (Punch) Round 1
+155594,Ramazonbek Temirov,2021-05-28,Octagon Promotion,Octagon Promotion - Octagon 19,218658,Satbek Esengeldin,,W,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2021-04-08,KMC,KMC - Kokand Mayor Cup,262483,Sultonmurod Shodavlatov,,W,Submission (Armbar) Round 1
+155594,Ramazonbek Temirov,2019-09-27,GFC,GFC 17 - Gorilla Fighting 17,157774,Talgat Zhumagaliyev,#208 Flyweight,L,Submission (Armbar) Round 2
+155594,Ramazonbek Temirov,2019-01-03,WLF,WLF - W.A.R.S. 31,176882,Jilunzhou Qiu,#1015 Bantamweight,L,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2018-05-11,WLF W.A.R.S.,WLF W.A.R.S. 24,178135,Biqie Qiu,#67 Strawweight,W,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2018-02-08,Legion Fighting Championship,Legion Fighting Championship - Universal B...,223107,Narik Tonyan,,W,Decision (Majority) Round 3
+155594,Ramazonbek Temirov,2018-01-13,WLF,WLF - W.A.R.S. 21,178249,Longlong Xie,,W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2017-12-16,WLF,WLF - W.A.R.S. 20,183959,Zhe Li,,W,TKO (Punches) Round 2
+155594,Ramazonbek Temirov,2017-12-16,WLF,WLF - W.A.R.S. 20,169350,Gexi Sanlang,#27 Strawweight,L,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2017-07-30,Legion Fighting Championship,Legion Fighting Championship - Universal B...,224151,Alexey Krutoy,,W,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2017-03-03,WLF,WLF - W.A.R.S. 11,183957,Ru Ze,,W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2016-11-26,WLF,WLF - W.A.R.S. 10,176880,Laqie Sun,,W,KO (Head Kick) Round 1
+155594,Ramazonbek Temirov,2015-12-19,EFC,EFC - Emperor Fighting Championship 10,149971,Saykhan Elmurzaev,,W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2021-09-24,Future FC,Future FC - Future MMA 13,157774,Talgat Zhumagaliyev,#216 Flyweight,W,Decision Round 3
+155594,Ramazonbek Temirov,2021-05-28,Octagon Promotion,Octagon Promotion - Octagon 19,180872,Daniel Conceicao,"Friday, September 24th 2021",W,KO (Punch) Round 1
+155594,Ramazonbek Temirov,2021-04-08,KMC,KMC - Kokand Mayor Cup,218658,Satbek Esengeldin,"Friday, May 28th 2021",W,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2018-02-08,Legion Fighting Championship,Legion Fighting Championship - Universal B...,178135,Biqie Qiu,#67 Strawweight,W,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2018-01-13,WLF,WLF - W.A.R.S. 21,223107,Narik Tonyan,"Thursday, February 8th 2018",W,Decision (Majority) Round 3
+155594,Ramazonbek Temirov,2017-12-16,WLF,WLF - W.A.R.S. 20,178249,Longlong Xie,"Saturday, January 13th 2018",W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2017-07-30,Legion Fighting Championship,Legion Fighting Championship - Universal B...,169350,Gexi Sanlang,#27 Strawweight,L,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2017-03-03,WLF,WLF - W.A.R.S. 11,224151,Alexey Krutoy,"Sunday, July 30th 2017",W,Decision (Unanimous) Round 3
+155594,Ramazonbek Temirov,2016-11-26,WLF,WLF - W.A.R.S. 10,183957,Ru Ze,"Friday, March 3rd 2017",W,TKO (Punches) Round 1
+155594,Ramazonbek Temirov,2015-12-19,EFC,EFC - Emperor Fighting Championship 10,176880,Laqie Sun,"Saturday, November 26th 2016",W,KO (Head Kick) Round 1
+75447,Kai Kara-France,2025-06-28,UFC,UFC 317 - Topuria vs. Oliveira,5215,Alexandre Pantoja,#1 Flyweight,L,Submission (Rear-Naked Choke) Round 3
+75447,Kai Kara-France,2024-08-17,UFC,UFC 305 - Du Plessis vs. Adesanya,162133,Steve Erceg,#6 Flyweight,W,TKO (Punches) Round 1
+75447,Kai Kara-France,2023-06-03,UFC on ESPN,UFC on ESPN 46 - Kara-France vs. Albazi,51999,Amir Albazi,#14 Flyweight,L,Decision (Split) Round 5
+75447,Kai Kara-France,2022-07-30,UFC,UFC 277 - Pena vs. Nunes 2,82307,Brandon Moreno,#2 Flyweight,L,TKO (Body Kick and Punches) Round 3
+75447,Kai Kara-France,2022-03-26,UFC on ESPN,UFC on ESPN 33 - Blaydes vs. Daukaus,122916,Askar Askarov,#3 Flyweight,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2021-12-11,UFC,UFC 269 - Oliveira vs. Poirier,50887,Cody Garbrandt,#11 Bantamweight,W,TKO (Punches) Round 1
+75447,Kai Kara-France,2021-03-06,UFC,UFC 259 - Blachowicz vs. Adesanya,114327,Rogerio Bontorin,#26 Flyweight,W,KO (Punches) Round 1
+75447,Kai Kara-France,2020-09-26,UFC,UFC 253 - Adesanya vs. Costa,86030,Brandon Royval,#13 Flyweight,L,Submission (Guillotine Choke) Round 2
+75447,Kai Kara-France,2020-02-22,UFC Fight Night,UFC Fight Night 168 - Felder vs. Hooker,33139,Tyson Nam,#52 Flyweight,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2019-12-14,UFC,UFC 245 - Usman vs. Covington,82307,Brandon Moreno,#10 Flyweight,L,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2019-08-31,UFC on ESPN+ 15,UFC on ESPN+ 15: Andrade vs. Zhang,124200,Mark De La Rosa,#110 Bantamweight,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2019-02-09,UFC,UFC 234 - Adesanya vs. Silva,132187,Raulian Paiva,#108 Bantamweight,W,Decision (Split) Round 3
+75447,Kai Kara-France,2018-12-01,UFC Fight Night,UFC Fight Night 142 - Dos Santos vs. Tuivasa,72582,Elias Garcia,#91 Flyweight,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2018-03-04,Glory of Heroes,Glory of Heroes - New Zealand vs. China,161947,Xiaoyu Shi,,W,Submission (Rear Naked Choke) Round 1
+75447,Kai Kara-France,2017-11-11,WLF W.A.R.S.,WLF W.A.R.S. 19,168813,Chuhayifu Huyixibai,#414 Bantamweight,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2017-05-20,WLF,WLF - W.A.R.S. 14,161807,Qileng Aori,#349 Bantamweight,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2017-04-22,WLF,WLF - W.A.R.S. 13,133085,Ze Wu,#323 Bantamweight,W,TKO (Punches) Round 1
+75447,Kai Kara-France,2017-03-31,Hex Fight Series,Hex Fight Series 8,42555,Rodolfo Marques,#440 Featherweight,W,KO (Punch) Round 3
+75447,Kai Kara-France,2016-12-29,Rizin,Rizin 3 - Rizin Fighting World Grand Prix ...,8321,Tatsumitsu Wada,#41 Flyweight,L,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2016-03-18,PXC,PXC 52,78800,Crisanto Pitpitunge,#40 Flyweight,W,TKO (Punches) Round 3
+75447,Kai Kara-France,2015-12-04,PXC,PXC - Pacific Xtreme Combat 50,80085,Josh Duenas,,W,TKO (Punches) Round 1
+75447,Kai Kara-France,2015-09-27,K,K-Oz Entertainment - Bragging Rights 7: Re...,93609,Shantaram Maharaj,#257 Flyweight,W,TKO (Punches) Round 1
+75447,Kai Kara-France,2015-06-01,MIMMA,MIMMA - Malaysian Invasion: Mixed Martial Arr,125665,Dindo Camansa,,W,KO (Punches) Round 1
+75447,Kai Kara-France,2015-05-09,PRO Fighting,PRO Fighting 10,142833,Ik Hwan Jang,,W,TKO (Punches) Round 1
+75447,Kai Kara-France,2015-01-18,Kunlun Fight,Kunlun Fight 18: Night of Cage Fighting,86262,Jumayi Ayideng,,L,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2014-10-25,MIMMA,MIMMA - Malaysian Invasion 2: Grand Finals,50550,Mark Striegl,#264 Featherweight,L,Submission (Rear Naked Choke) Round 1
+75447,Kai Kara-France,2014-05-17,AFC,AFC 9 - Australian Fighting Championship 9,3992,Gustavo Falciroli,#74 Bantamweight,L,Submission (Brabo Choke) Round 1
+75447,Kai Kara-France,2014-01-25,Kunlun Fight,Kunlun Fight 1: World Tour,124406,TieYin Wu,,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2013-12-14,AFC,AFC 7 - Australian Fighting Championship 7,3992,Gustavo Falciroli,#59 Bantamweight,NC,No Contest Round 2
+75447,Kai Kara-France,2013-10-23,World Team USA,World Team USA - Fight for Peace,124406,TieYin Wu,,W,Submission (Guillotine Choke) Round 1
+75447,Kai Kara-France,2013-09-29,BFC,BFC - Bandung Fighting Club,124405,Yudi Cahyadi,,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2013-08-04,PRO Fighting,PRO Fighting - PRO FC 8,89805,Ho Joon Kim,,W,KO (Head Kick) Round 1
+75447,Kai Kara-France,2013-04-27,Legend FC,Legend FC - Legend Fighting Championship 11,87131,Batgerel Danaa,#456 Bantamweight,L,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2012-10-13,Rage in the Cage,Rage in the Cage - MMA Fighting Championship,85772,Caleb Lally,,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2012-08-24,Legend FC,Legend FC - Legend Fighting Championship 10,89721,Sam Chan,,W,Submission (Guillotine Choke) Round 1
+75447,Kai Kara-France,2012-03-30,Legend FC,Legend FC - Legend Fighting Championship 8,73834,Agustin Delarmino,#13 Strawweight,L,KO (Punches) Round 3
+75447,Kai Kara-France,2011-12-02,The Cage,The Cage 2 - USA vs. New Zealand,24594,Chad George,#97 Bantamweight,L,KO (Punch) Round 1
+75447,Kai Kara-France,2010-11-27,SCF,SCF - Supremacy Cage Fighting 7,75448,Ray Kaitiana,,W,TKO (Punches) Round 1
+75447,Kai Kara-France,2018-03-04,Glory of Heroes,Glory of Heroes - New Zealand vs. China,72582,Elias Garcia,#91 Flyweight,W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2015-12-04,PXC,PXC - Pacific Xtreme Combat 50,78800,Crisanto Pitpitunge,#40 Flyweight,W,TKO (Punches) Round 3
+75447,Kai Kara-France,2015-06-01,MIMMA,MIMMA - Malaysian Invasion: Mixed Martial Arr,93609,Shantaram Maharaj,#257 Flyweight,W,TKO (Punches) Round 1
+75447,Kai Kara-France,2015-05-09,PRO Fighting,PRO Fighting 10,125665,Dindo Camansa,"Monday, June 1st 2015",W,KO (Punches) Round 1
+75447,Kai Kara-France,2015-01-18,Kunlun Fight,Kunlun Fight 18: Night of Cage Fighting,142833,Ik Hwan Jang,"Saturday, May 9th 2015",W,TKO (Punches) Round 1
+75447,Kai Kara-France,2014-01-25,Kunlun Fight,Kunlun Fight 1: World Tour,3992,Gustavo Falciroli,#74 Bantamweight,L,Submission (Brabo Choke) Round 1
+75447,Kai Kara-France,2013-10-23,World Team USA,World Team USA - Fight for Peace,3992,Gustavo Falciroli,#59 Bantamweight,NC,No Contest Round 2
+75447,Kai Kara-France,2013-09-29,BFC,BFC - Bandung Fighting Club,124406,TieYin Wu,"Wednesday, October 23rd 2013",W,Submission (Guillotine Choke) Round 1
+75447,Kai Kara-France,2013-08-04,PRO Fighting,PRO Fighting - PRO FC 8,124405,Yudi Cahyadi,"Sunday, September 29th 2013",W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2012-10-13,Rage in the Cage,Rage in the Cage - MMA Fighting Championship,87131,Batgerel Danaa,#456 Bantamweight,L,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2012-08-24,Legend FC,Legend FC - Legend Fighting Championship 10,85772,Caleb Lally,"Saturday, October 13th 2012",W,Decision (Unanimous) Round 3
+75447,Kai Kara-France,2010-11-27,SCF,SCF - Supremacy Cage Fighting 7,24594,Chad George,#97 Bantamweight,L,KO (Punch) Round 1
+162133,Steve Erceg,2026-07-25,UFC Fight Night,UFC Fight Night: Ankalaev vs. Guskov,155594,Ramazonbek Temirov,,L,KO (Punch) Round 1
+162133,Steve Erceg,2026-05-02,UFC Fight Night,UFC Fight Night: Della Maddalena vs. Prates,49560,Tim Elliott,#11 Flyweight,W,Decision (Unanimous) Round 3
+162133,Steve Erceg,2025-08-09,UFC on ESPN,UFC on ESPN 72 - Dolidze vs. Hernandez,117454,Ode Osbourne,#52 Flyweight,W,Decision (Unanimous) Round 3
+162133,Steve Erceg,2025-03-29,UFC on ESPN,UFC on ESPN 64 - Moreno vs. Erceg,82307,Brandon Moreno,#3 Flyweight,L,Decision (Unanimous) Round 5
+162133,Steve Erceg,2024-08-17,UFC,UFC 305 - Du Plessis vs. Adesanya,75447,Kai Kara-France,#5 Flyweight,L,TKO (Punches) Round 1
+162133,Steve Erceg,2024-05-04,UFC,UFC 301 - Pantoja vs. Erceg,5215,Alexandre Pantoja,#1 Flyweight,L,Decision (Unanimous) Round 5
+162133,Steve Erceg,2024-03-02,UFC Fight Night,UFC Fight Night 238 - Rozenstruik vs. Gaziev,47070,Matt Schnell,#34 Flyweight,W,KO (Punch) Round 2
+162133,Steve Erceg,2023-11-11,UFC,UFC 295: Procházka vs. Pereira,155102,Alessandro Costa,#57 Flyweight,W,Decision (Unanimous) Round 3
+162133,Steve Erceg,2023-06-10,UFC,UFC 289 - Nunes vs. Aldana,68647,David Dvorak,#22 Flyweight,W,Decision (Unanimous) Round 3
+162133,Steve Erceg,2023-02-11,EMMA,EMMA - Eternal MMA 73: Erceg vs. Hirai,247586,Soichiro Hirai,#477 Flyweight,W,Submission (Rear-Naked Choke) Round 1
+162133,Steve Erceg,2021-10-30,EMMA,EMMA - Eternal MMA 62,143010,Paul Loga,#298 Flyweight,W,Submission (Guillotine Choke) Round 1
+162133,Steve Erceg,2021-06-05,EMMA,EMMA - Eternal MMA 60,190369,Cody Haddon,#529 Bantamweight,W,Decision (Unanimous) Round 3
+162133,Steve Erceg,2020-03-07,EMMA,EMMA - Eternal MMA 52,67189,Shannon Ross,#84 Flyweight,W,Submission (Rear Naked Choke) Round 1
+162133,Steve Erceg,2019-09-07,Eternal MMA,Eternal MMA 47,143010,Paul Loga,,W,TKO Round 1
+162133,Steve Erceg,2019-05-25,Eternal MMA,Eternal MMA 45,81197,Tim Moore,,W,SUB Round 3
+162133,Steve Erceg,2019-03-02,Eternal MMA,Eternal MMA 41,149418,Mark Familiari,,W,SUB Round 1
+162133,Steve Erceg,2018-07-21,HFS,HFS - Hex Fight Series 15,190244,Seung Guk Choi,,W,Decision (Unanimous) Round 3
+162133,Steve Erceg,2017-09-01,Hex Fight Series,Hex Fight Series 11,130547,Sean Gauci,,L,Decision (Unanimous) Round 3
+162133,Steve Erceg,2016-02-12,CDL Promotions,CDL Promotions - CDL Super Card,118517,Ryan Robertson,,W,Submission (Guillotine Choke) Round 2
+162133,Steve Erceg,2019-09-07,Eternal MMA,Eternal MMA 47,67189,Shannon Ross,#84 Flyweight,W,Submission (Rear Naked Choke) Round 1
+162133,Steve Erceg,2019-05-25,Eternal MMA,Eternal MMA 45,143010,Paul Loga,"Saturday, September 7th 2019",W,TKO Round 1
+162133,Steve Erceg,2019-03-02,Eternal MMA,Eternal MMA 41,81197,Tim Moore,"Saturday, May 25th 2019",W,SUB Round 3
+162133,Steve Erceg,2018-07-21,HFS,HFS - Hex Fight Series 15,149418,Mark Familiari,"Saturday, March 2nd 2019",W,SUB Round 1
+162133,Steve Erceg,2017-09-01,Hex Fight Series,Hex Fight Series 11,190244,Seung Guk Choi,"Saturday, July 21st 2018",W,Decision (Unanimous) Round 3
+162133,Steve Erceg,2016-02-12,CDL Promotions,CDL Promotions - CDL Super Card,130547,Sean Gauci,"Friday, September 1st 2017",L,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2026-06-27,UFC Fight Night,UFC Fight Night: Fiziev vs. Torres,176321,Charles Johnson,#26 Flyweight,W,SUB Round 3
+157381,Asu Almabayev,2025-11-22,UFC Fight Night,UFC Fight Night 265 - Tsarukyan vs. Hooker,24370,Alex Perez,,W,Submission (Guillotine Choke) Round 3
+157381,Asu Almabayev,2025-07-26,UFC on ABC,UFC on ABC 9 - Whittaker vs. de Ridder,198304,Jose Ochoa,#43 Flyweight,W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2025-03-01,UFC Fight Night,UFC Fight Night 253 - Kape vs. Almabayev,96327,Manel Kape,#10 Flyweight,L,TKO (Retirement) Round 3
+157381,Asu Almabayev,2024-10-19,UFC Fight Night,UFC Fight Night 245 - Hernandez vs. Pereira,70942,Matheus Nicolau,#20 Flyweight,W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2024-06-15,UFC Fight Night,UFC Fight Night: Perez vs. Taira,167032,Jose Johnson,#124 Bantamweight,W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2024-03-09,UFC,UFC 299: O&#39;Malley vs. Vera 2,73574,C.J. Vergara,#74 Flyweight,W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2023-08-05,UFC on ESPN,UFC on ESPN 50 - Sandhagen vs. Font,117454,Ode Osbourne,#114 Bantamweight,W,Submission (Rear-Naked Choke) Round 2
+157381,Asu Almabayev,2022-11-26,Brave CF,Brave CF 66 - Brave Combat Federation 66,244951,Kenneth Maningat,,W,Submission (Rear-Naked Choke) Round 2
+157381,Asu Almabayev,2022-07-30,Brave CF,Brave CF 60 - Brave Combat Federation 60,38322,Zach Makovsky,,W,Decision (Split) Round 3
+157381,Asu Almabayev,2022-03-11,Brave CF,Brave CF 57 - Brave Combat Federation 57,190759,Imran Magaramov,,W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2021-12-29,NFC,NFC 36 - Naiza Fighter Championship 36,122013,Kayck Alencar,,W,KO (Punch) Round 3
+157381,Asu Almabayev,2021-08-21,Brave CF,Brave CF 53 / Octagon 22 - Brave Combat Fe...,119114,Aleksander Doskalchuk,,W,Submission (Rear-Naked Choke) Round 2
+157381,Asu Almabayev,2020-12-25,NFC,NFC 27 - Naiza Fighter Championship 27,220486,Darkhan Skakov,,W,Submission (Rear-Naked Choke) Round 1
+157381,Asu Almabayev,2019-10-19,M,M-1 Challenge 105,52255,Chris Kelades,#35 Flyweight,W,Decision (Unanimous) Round 5
+157381,Asu Almabayev,2019-03-30,M,M-1 Challenge 101 - Prikaza vs. Rakhmonov,181155,Pierre Ludet,#172 Flyweight,W,Submission (Guillotine Choke) Round 2
+157381,Asu Almabayev,2018-12-15,M,M-1 Challenge 100: Battle in Atyrau,176784,Kirill Fomenkov,#181 Flyweight,W,SUB Round 2
+157381,Asu Almabayev,2018-08-31,FNG,FNG - Fight Nights Global 88,189861,Saud Karagishov,,W,TKO (Punches) Round 2
+157381,Asu Almabayev,2018-04-29,BYE,BYE 4 - 2018 Berkut Young Eagles Grand Pri...,158772,Shamil Akhmaev,,W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2017-12-30,Alash Pride FC,Alash Pride FC,158784,Kenan Jafarli,,W,Decision (Unanimous) Round 2
+157381,Asu Almabayev,2017-09-09,ACB,ACB 69 - Young Eagles 22,173725,Ibragim Mamaev,,W,Submission (Peruvian Necktie) Round 2
+157381,Asu Almabayev,2017-04-01,Alash Pride,Alash Pride - Alash Aibary,175137,Mehman Mamedov,,L,Decision (Split) Round 3
+157381,Asu Almabayev,2017-01-28,FNG,FNG - Fight Nights Global 58,122914,Tagir Ulanbekov,#183 Flyweight,L,TKO (Submission to Punches) Round 3
+157381,Asu Almabayev,2016-04-22,EFN,EFN - Fight Nights Global 45,158723,Galamirza Aivazov,,W,Submission (Armbar) Round 1
+157381,Asu Almabayev,2016-03-03,Tech,Tech-Krep FC - Southern Front 3,157382,Oleg Edik,,W,Submission (Rear Naked Choke) Round 1
+157381,Asu Almabayev,2016-02-14,Alash Pride FC,Alash Pride FC: Selection Vol. 13,171754,Eldos Kaliev,,W,TKO Round 1
+157381,Asu Almabayev,2013-06-01,Rod Fighting,Rod Fighting - Shield and Sword 4: Russia ...,137191,Vadim Buseev,,W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2025-11-22,UFC Fight Night,UFC Fight Night 265 - Tsarukyan vs. Hooker,176321,Charles Johnson,#26 Flyweight,W,SUB Round 3
+157381,Asu Almabayev,2022-11-26,Brave CF,Brave CF 66 - Brave Combat Federation 66,117454,Ode Osbourne,#114 Bantamweight,W,Submission (Rear-Naked Choke) Round 2
+157381,Asu Almabayev,2022-07-30,Brave CF,Brave CF 60 - Brave Combat Federation 60,244951,Kenneth Maningat,"Saturday, November 26th 2022",W,Submission (Rear-Naked Choke) Round 2
+157381,Asu Almabayev,2022-03-11,Brave CF,Brave CF 57 - Brave Combat Federation 57,38322,Zach Makovsky,"Saturday, July 30th 2022",W,Decision (Split) Round 3
+157381,Asu Almabayev,2021-12-29,NFC,NFC 36 - Naiza Fighter Championship 36,190759,Imran Magaramov,"Friday, March 11th 2022",W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2021-08-21,Brave CF,Brave CF 53 / Octagon 22 - Brave Combat Fe...,122013,Kayck Alencar,"Wednesday, December 29th 2021",W,KO (Punch) Round 3
+157381,Asu Almabayev,2020-12-25,NFC,NFC 27 - Naiza Fighter Championship 27,119114,Aleksander Doskalchuk,"Saturday, August 21st 2021",W,Submission (Rear-Naked Choke) Round 2
+157381,Asu Almabayev,2018-08-31,FNG,FNG - Fight Nights Global 88,176784,Kirill Fomenkov,#181 Flyweight,W,SUB Round 2
+157381,Asu Almabayev,2018-04-29,BYE,BYE 4 - 2018 Berkut Young Eagles Grand Pri...,189861,Saud Karagishov,"Friday, August 31st 2018",W,TKO (Punches) Round 2
+157381,Asu Almabayev,2017-12-30,Alash Pride FC,Alash Pride FC,158772,Shamil Akhmaev,"Sunday, April 29th 2018",W,Decision (Unanimous) Round 3
+157381,Asu Almabayev,2017-09-09,ACB,ACB 69 - Young Eagles 22,158784,Kenan Jafarli,"Saturday, December 30th 2017",W,Decision (Unanimous) Round 2
+157381,Asu Almabayev,2017-04-01,Alash Pride,Alash Pride - Alash Aibary,173725,Ibragim Mamaev,"Saturday, September 9th 2017",W,Submission (Peruvian Necktie) Round 2
+157381,Asu Almabayev,2016-04-22,EFN,EFN - Fight Nights Global 45,122914,Tagir Ulanbekov,#183 Flyweight,L,TKO (Submission to Punches) Round 3
+157381,Asu Almabayev,2016-03-03,Tech,Tech-Krep FC - Southern Front 3,158723,Galamirza Aivazov,"Friday, April 22nd 2016",W,Submission (Armbar) Round 1
+157381,Asu Almabayev,2016-02-14,Alash Pride FC,Alash Pride FC: Selection Vol. 13,157382,Oleg Edik,"Thursday, March 3rd 2016",W,Submission (Rear Naked Choke) Round 1
+157381,Asu Almabayev,2013-06-01,Rod Fighting,Rod Fighting - Shield and Sword 4: Russia ...,171754,Eldos Kaliev,"Sunday, February 14th 2016",W,TKO Round 1
+125667,Joshua Pacio,2026-07-10,One Championship One Friday Fights,One Championship One Friday Fights 161,166588,Mansur Malachiev,#66 Bantamweight,W,Technical Submission (Rear-Naked Choke) Round 1
+125667,Joshua Pacio,2025-11-16,One Championship,One Championship - One 173,147748,Yuya Wakamatsu,#39 Bantamweight,L,TKO (Knees) Round 2
+125667,Joshua Pacio,2025-02-20,One Championship ONE,One Championship ONE 171: Qatar,135865,Jarred Brooks,#106 Bantamweight,W,TKO (Punches) Round 2
+125667,Joshua Pacio,2024-03-01,One Championship,One Championship - One 166: Qatar,135865,Jarred Brooks,#13 Flyweight,W,Disqualification (Illegal Slam) Round 1
+125667,Joshua Pacio,2023-10-06,One Championship,One Championship - One on Prime Video 15: ...,166588,Mansur Malachiev,#23 Flyweight,W,Decision (Unanimous) Round 3
+125667,Joshua Pacio,2022-12-03,One Championship,One Championship - One 164: Pacio vs. Brooks,135865,Jarred Brooks,#11 Flyweight,L,Decision (Unanimous) Round 5
+125667,Joshua Pacio,2021-09-24,One Championship,One Championship - Revolution,8316,Yosuke Saruta,#47 Flyweight,W,TKO (Punches) Round 1
+125667,Joshua Pacio,2020-01-31,One Championship,One Championship - Fire & Fury,87298,Alex Silva,#77 Flyweight,W,Decision (Split) Round 5
+125667,Joshua Pacio,2019-11-08,One Championship,One Championship - Masters of Fate,112163,Rene Catalan,#51 Flyweight,W,Submission (Arm Triangle Choke) Round 2
+125667,Joshua Pacio,2019-04-12,One Championship,One Championship - Roots of Honor,8316,Yosuke Saruta,#32 Flyweight,W,KO (Kick) Round 4
+125667,Joshua Pacio,2019-01-19,One Championship,One Championship - Eternal Glory,8316,Yosuke Saruta,#45 Flyweight,L,Decision (Split) Round 5
+125667,Joshua Pacio,2018-09-22,One Championship,One Championship - Conquest of Heroes,100972,Yoshitaka Naito,#49 Flyweight,W,Decision (Unanimous) Round 5
+125667,Joshua Pacio,2018-07-27,One Championship,One Championship - Reign of Kings,135263,Pongsiri Mitsatit,#207 Flyweight,W,Submission (Hammerlock) Round 1
+125667,Joshua Pacio,2018-01-26,One Championship,One Championship - Global Superheroes,183742,Ming Qiang Lan,,W,Submission (Rear Naked Choke) Round 1
+125667,Joshua Pacio,2017-11-10,One Championship,One Championship - Legends of the World,86227,Roy Doliguez,#300 Flyweight,W,KO (Spinning Back Fist) Round 2
+125667,Joshua Pacio,2017-08-05,One Championship,One Championship - Kings & Conquerors,101892,Hayato Suzuki,#63 Flyweight,L,Submission (Rear Naked Choke) Round 1
+125667,Joshua Pacio,2017-03-11,One Championship,One Championship - Warrior Kingdom,133080,Dejdamrong Sor Amnuaysirichoke,#216 Flyweight,W,Decision (Split) Round 3
+125667,Joshua Pacio,2016-10-07,One Championship,One Championship - State of Warriors,100972,Yoshitaka Naito,#44 Flyweight,L,Submission (Rear Naked Choke) Round 3
+125667,Joshua Pacio,2016-08-13,One Championship,One Championship 45 - Heroes of the World,138862,Kritsada Kongsrichai,,W,Submission (Rear Naked Choke) Round 1
+125667,Joshua Pacio,2016-04-15,One Championship,One Championship 40 - Global Rivals,46327,Rabin Catalan,#312 Flyweight,W,TKO (Punches) Round 2
+125667,Joshua Pacio,2016-03-26,Team Lakay Championship,Team Lakay Championship 10 - Strawberry Fe...,74823,Janito Bayot,,W,Submission (Guillotine Choke) Round 1
+125667,Joshua Pacio,2016-03-26,Team Lakay Championship,Team Lakay Championship 10 - Strawberry Fe...,152987,"Roy Menzi, Jr.",,W,Submission (Guillotine Choke) Round 3
+125667,Joshua Pacio,2016-02-27,PXC Laban,PXC Laban - Baguio 4,152979,Joco Mabute,,W,Submission (Armbar) Round 0
+125667,Joshua Pacio,2015-12-18,PXC Laban,PXC Laban - Baguio 3,124521,Ric Myler Empil,,W,TKO (Doctor Stoppage) Round 1
+125667,Joshua Pacio,2015-10-24,Spartacus MMA,Spartacus MMA - Spartacus MMA,74821,Mark Joseph Abrillo,,W,Submission (Rear Naked Choke) Round 2
+125667,Joshua Pacio,2015-08-01,Fullcon Fighting Championship,Fullcon Fighting Championship 2 - FFC 2,144478,Jordan Lobida,,W,KO (Punch) Round 1
+125667,Joshua Pacio,2015-07-11,PXC Laban,PXC Laban: Baguio 2,152984,Jonel Borbon,,W,KO (Punches) Round 0
+125667,Joshua Pacio,2015-03-21,Team Lakay Championship,Team Lakay Championship 9,144748,Ignacio Galindez,,W,Submission Round 1
+125667,Joshua Pacio,2013-12-14,TLC,TLC - Team Lakay Championship 8,125668,Denver Songaben,,W,TKO Round 1
+125667,Joshua Pacio,2018-01-26,One Championship,One Championship - Global Superheroes,135263,Pongsiri Mitsatit,#207 Flyweight,W,Submission (Hammerlock) Round 1
+125667,Joshua Pacio,2016-08-13,One Championship,One Championship 45 - Heroes of the World,100972,Yoshitaka Naito,#44 Flyweight,L,Submission (Rear Naked Choke) Round 3
+125667,Joshua Pacio,2016-03-26,Team Lakay Championship,Team Lakay Championship 10 - Strawberry Fe...,46327,Rabin Catalan,#312 Flyweight,W,TKO (Punches) Round 2
+125667,Joshua Pacio,2016-02-27,PXC Laban,PXC Laban - Baguio 4,152987,"Roy Menzi, Jr.","Saturday, March 26th 2016",W,Submission (Guillotine Choke) Round 3
+125667,Joshua Pacio,2015-12-18,PXC Laban,PXC Laban - Baguio 3,152979,Joco Mabute,"Saturday, February 27th 2016",W,Submission (Armbar) Round 0
+125667,Joshua Pacio,2015-10-24,Spartacus MMA,Spartacus MMA - Spartacus MMA,124521,Ric Myler Empil,"Friday, December 18th 2015",W,TKO (Doctor Stoppage) Round 1
+125667,Joshua Pacio,2015-08-01,Fullcon Fighting Championship,Fullcon Fighting Championship 2 - FFC 2,74821,Mark Joseph Abrillo,"Saturday, October 24th 2015",W,Submission (Rear Naked Choke) Round 2
+125667,Joshua Pacio,2015-07-11,PXC Laban,PXC Laban: Baguio 2,144478,Jordan Lobida,"Saturday, August 1st 2015",W,KO (Punch) Round 1
+125667,Joshua Pacio,2015-03-21,Team Lakay Championship,Team Lakay Championship 9,152984,Jonel Borbon,"Saturday, July 11th 2015",W,KO (Punches) Round 0
+125667,Joshua Pacio,2013-12-14,TLC,TLC - Team Lakay Championship 8,144748,Ignacio Galindez,"Saturday, March 21st 2015",W,Submission Round 1
+152705,Anatoliy Kondratyev,2026-02-06,ACA,ACA 200 Gasanov vs. Tumenov,90368,Azamat Pshukov,#17 Flyweight,W,TKO (Punches) Round 1
+152705,Anatoliy Kondratyev,2024-12-15,ACA,ACA 182 - Odilov vs. Ibragimov,138566,Azamat Kerefov,#11 Flyweight,W,KO (Punch and Elbows) Round 2
+152705,Anatoliy Kondratyev,2024-08-16,ACA,ACA 178 - Goncharov vs. Bogatyrev,148364,Imran Bukuev,#19 Flyweight,W,Decision (Unanimous) Round 3
+152705,Anatoliy Kondratyev,2024-05-17,ACA,ACA 175 - Gordeev vs. Damkovsky,101255,Ruslan Abiltarov,#76 Flyweight,W,Decision (Split) Round 3
+152705,Anatoliy Kondratyev,2023-12-24,ACA,ACA 168 - Gadzhidaudov vs. Tumenov,199844,Abdul Karim Badakhshi,#93 Flyweight,W,TKO (Punches) Round 1
+152705,Anatoliy Kondratyev,2023-09-22,ACA,ACA 163 - Kolodko vs. Mamashov,132185,Aren Akopyan,#96 Bantamweight,L,Decision (Unanimous) Round 3
+152705,Anatoliy Kondratyev,2023-03-18,AMC,AMC - Fight Nights 119,174720,Valentin Orlov,,W,TKO (Punches) Round 2
+152705,Anatoliy Kondratyev,2022-11-11,AMC,AMC - Fight Nights 116,88375,Vartan Asatryan,#73 Flyweight,L,KO (Flying Knee) Round 1
+152705,Anatoliy Kondratyev,2022-07-15,AMC Fight Nights,AMC Fight Nights 113: Vagabov vs. Barkhuda...,225971,Magerram Gasanzade,#595 Featherweight,W,Decision (Unanimous) Round 3
+152705,Anatoliy Kondratyev,2021-01-20,AMC,AMC - Fight Nights Global Magnitogorsk,200539,Moris Boleyan,#150 Flyweight,L,Submission (Triangle Choke) Round 2
+152705,Anatoliy Kondratyev,2019-07-28,GFC,GFC 15,182233,Valodia Aivazian,,W,Decision (Unanimous) Round 3
+152705,Anatoliy Kondratyev,2018-09-23,Battle on Volga,Battle on Volga 6,197179,Gasan Mamedov,,W,Submission (North South Choke) Round 1
+152705,Anatoliy Kondratyev,2017-11-04,FNG,FNG - Fight Nights Global 78,147239,Evgeniy Sulkin,,W,Technical Submission (Guillotine Choke) Round 1
+152705,Anatoliy Kondratyev,2017-04-29,Brave Combat Federation,Brave Combat Federation - Brave 6: Kazakhstan,151744,Zhuman Zhumabekov,#517 Bantamweight,W,Decision Round 3
+152705,Anatoliy Kondratyev,2016-09-04,Red City Fights,Red City Fights 6: Red City Global,138596,Nikolay Popov,,W,TKO Round 1
+152705,Anatoliy Kondratyev,2016-05-24,NNMMAF,NNMMAF - Balakhna Martial Arts Festival,221686,Karen Sargsyan,,W,Decision (Unanimous) Round 2
+152705,Anatoliy Kondratyev,2015-09-12,Red City Fights,Red City Fights 3: Battle In The Kremlin,152704,Andrey Ivanov,,L,Submission (Armbar) Round 1
+152705,Anatoliy Kondratyev,2023-03-18,AMC,AMC - Fight Nights 119,132185,Aren Akopyan,#96 Bantamweight,L,Decision (Unanimous) Round 3
+152705,Anatoliy Kondratyev,2019-07-28,GFC,GFC 15,200539,Moris Boleyan,#150 Flyweight,L,Submission (Triangle Choke) Round 2
+152705,Anatoliy Kondratyev,2018-09-23,Battle on Volga,Battle on Volga 6,182233,Valodia Aivazian,"Sunday, July 28th 2019",W,Decision (Unanimous) Round 3
+152705,Anatoliy Kondratyev,2017-11-04,FNG,FNG - Fight Nights Global 78,197179,Gasan Mamedov,"Sunday, September 23rd 2018",W,Submission (North South Choke) Round 1
+152705,Anatoliy Kondratyev,2016-09-04,Red City Fights,Red City Fights 6: Red City Global,151744,Zhuman Zhumabekov,#517 Bantamweight,W,Decision Round 3
+152705,Anatoliy Kondratyev,2016-05-24,NNMMAF,NNMMAF - Balakhna Martial Arts Festival,138596,Nikolay Popov,"Sunday, September 4th 2016",W,TKO Round 1
+152705,Anatoliy Kondratyev,2015-09-12,Red City Fights,Red City Fights 3: Battle In The Kremlin,221686,Karen Sargsyan,"Tuesday, May 24th 2016",W,Decision (Unanimous) Round 2
+49560,Tim Elliott,2026-05-02,UFC Fight Night,UFC Fight Night: Della Maddalena vs. Prates,162133,Steve Erceg,#12 Flyweight,L,Decision (Unanimous) Round 3
+49560,Tim Elliott,2025-08-16,UFC,UFC 319 - Du Plessis vs. Chimaev,160822,Kai Asakura,#14 Flyweight,W,Submission (Guillotine Choke) Round 2
+49560,Tim Elliott,2023-12-09,UFC Fight Night,UFC Fight Night 233 - Song vs. Gutierrez,161961,Su Mudaerji,#113 Flyweight,W,Technical Submission (Arm-Triangle Choke) Round 1
+49560,Tim Elliott,2023-10-21,UFC,UFC 294 - Makhachev vs. Volkanovski 2,165671,Muhammad Mokaev,#17 Flyweight,L,Submission (Arm-Triangle Choke) Round 3
+49560,Tim Elliott,2023-06-03,UFC on ESPN,UFC on ESPN 46 - Kara-France vs. Albazi,153965,Victor Altamirano,#57 Flyweight,W,Decision (Unanimous) Round 3
+49560,Tim Elliott,2022-03-05,UFC,UFC 272: Covington vs. Masvidal,122914,Tagir Ulanbekov,#26 Flyweight,W,Decision (Unanimous) Round 3
+49560,Tim Elliott,2021-10-09,UFC Fight Night,UFC Fight Night 194 - Dern vs. Rodriguez,70942,Matheus Nicolau,#6 Flyweight,L,Decision (Unanimous) Round 3
+49560,Tim Elliott,2021-03-06,UFC,UFC 259 - Blachowicz vs. Adesanya,66254,Jordan Espinosa,#34 Flyweight,W,Decision (Unanimous) Round 3
+49560,Tim Elliott,2020-07-15,UFC on ESPN,UFC on ESPN 13 - Kattar vs. Ige,48706,Ryan Benoit,#242 Bantamweight,W,Decision (Unanimous) Round 3
+49560,Tim Elliott,2020-05-30,UFC on ESPN,UFC on ESPN 9 - Woodley vs. Burns,86030,Brandon Royval,#35 Flyweight,L,Submission (Arm Triangle Choke) Round 2
+49560,Tim Elliott,2020-01-18,UFC,UFC 246 - McGregor vs. Cerrone,122916,Askar Askarov,#8 Flyweight,L,Decision (Unanimous) Round 3
+49560,Tim Elliott,2019-10-12,UFC Fight Night,UFC Fight Night 161 - Jedrzejczyk vs. Wate...,101055,Deiveson Figueiredo,#3 Flyweight,L,Submission (Guillotine Choke) Round 1
+49560,Tim Elliott,2017-12-30,UFC,UFC 219 - Cyborg vs. Holm,124200,Mark De La Rosa,#97 Bantamweight,W,Submission (Anaconda Choke) Round 2
+49560,Tim Elliott,2017-06-10,UFC Fight Night,UFC Fight Night 110 - Hunt vs. Lewis,14150,Ben Nguyen,#17 Flyweight,L,Submission (Rear Naked Choke) Round 1
+49560,Tim Elliott,2017-04-15,UFC on Fox,UFC on Fox 24 - Johnson vs. Reis,66107,Louis Smolka,#18 Flyweight,W,Decision (Unanimous) Round 3
+49560,Tim Elliott,2016-12-03,The Ultimate Fighter,The Ultimate Fighter 24 Finale,45428,Demetrious Johnson,#1 Flyweight,L,Decision (Unanimous) Round 5
+49560,Tim Elliott,2016-03-04,Titan FC,Titan FC 37: Dos Santos vs. Simon,49140,Pedro Nobre,,W,Decision (Unanimous) Round 5
+49560,Tim Elliott,2015-09-19,Titan FC,Titan FC 35 - Healy vs. Hawn,117332,Felipe Efrain,#172 Flyweight,W,Submission (Guillotine Choke) Round 2
+49560,Tim Elliott,2015-07-18,Titan FC,Titan FC 34 - Healy vs. Edwards,31763,Iliarde Santos,#34 Flyweight,W,Decision (Unanimous) Round 5
+49560,Tim Elliott,2015-02-14,UFC Fight Night,UFC Fight Night - Henderson vs. Thatch,38322,Zach Makovsky,#5 Flyweight,L,Decision (Unanimous) Round 3
+49560,Tim Elliott,2014-04-26,UFC,UFC 172 - Jones vs. Teixeira,26911,Joseph Benavidez,#2 Flyweight,L,Submission (Guillotine Choke) Round 1
+49560,Tim Elliott,2013-11-16,UFC,UFC 167 - St. Pierre vs. Hendricks,83304,Ali Bagautinov,#16 Flyweight,L,Decision (Unanimous) Round 3
+49560,Tim Elliott,2013-08-31,UFC,UFC 164 - Henderson vs. Pettis 2,45128,Louis Gaudinot,#15 Flyweight,W,Decision (Unanimous) Round 3
+49560,Tim Elliott,2012-12-15,UFC,UFC - The Ultimate Fighter 16 Finale,19661,Jared Papazian,#94 Bantamweight,W,Decision (Unanimous) Round 3
+49560,Tim Elliott,2012-05-05,UFC on Fox,UFC on Fox 3 - Diaz vs. Miller,23595,John Dodson,#22 Bantamweight,L,Decision (Unanimous) Round 3
+49560,Tim Elliott,2012-03-30,RFA,RFA 2 - Yvel vs. Alexander,14494,Josh Rave,#17 Flyweight,W,Technical Submission (Brabo Choke) Round 1
+49560,Tim Elliott,2011-12-16,RFA,RFA 1 - Elliott vs. Pulver,226,Jens Pulver,#95 Bantamweight,W,KO (Knee) Round 2
+49560,Tim Elliott,2011-05-21,Cowboy MMA,Cowboy MMA - Caged Cowboys,60932,Kashiff Solarin,,W,Submission Round 1
+49560,Tim Elliott,2011-02-26,AOWCF,AOWCF - Art of War Cage Fights,55615,John McDowell,,W,TKO (Punches) Round 1
+49560,Tim Elliott,2010-10-22,C,C3 Fights - Slammin Jammin Weekend 6,4310,Victor Dominguez,,W,Decision (Unanimous) Round 3
+49560,Tim Elliott,2010-06-25,BB,BB - Bricktown Brawl 5,32024,Cody Fuller,#153 Bantamweight,W,Submission Round 3
+49560,Tim Elliott,2010-04-02,BB,BB - Bricktown Brawl 4,35639,Michael Casteel,,W,Submission Round 1
+49560,Tim Elliott,2009-12-11,BB,BB 3 - Holiday Havoc,42311,Victor Veloquio,,W,KO Round 1
+49560,Tim Elliott,2009-08-28,BB,BB - Bricktown Brawl 2,59524,Jacky Brandon Bryant,,L,TKO Round 1
+49560,Tim Elliott,2009-06-27,HFN,HFN - Harrah Fight Night,38702,Shane Howell,,L,Submission Round 3
+49560,Tim Elliott,2009-05-08,BB,BB - Bricktown Brawl 1,49649,Jerod Spoon,,D,Draw Round 3
+49560,Tim Elliott,2011-05-21,Cowboy MMA,Cowboy MMA - Caged Cowboys,226,Jens Pulver,#95 Bantamweight,W,KO (Knee) Round 2
+49560,Tim Elliott,2011-02-26,AOWCF,AOWCF - Art of War Cage Fights,60932,Kashiff Solarin,"Saturday, May 21st 2011",W,Submission Round 1
+49560,Tim Elliott,2010-10-22,C,C3 Fights - Slammin Jammin Weekend 6,55615,John McDowell,"Saturday, February 26th 2011",W,TKO (Punches) Round 1
+49560,Tim Elliott,2010-04-02,BB,BB - Bricktown Brawl 4,32024,Cody Fuller,#153 Bantamweight,W,Submission Round 3
+49560,Tim Elliott,2009-12-11,BB,BB 3 - Holiday Havoc,35639,Michael Casteel,"Friday, April 2nd 2010",W,Submission Round 1
+49560,Tim Elliott,2009-08-28,BB,BB - Bricktown Brawl 2,42311,Victor Veloquio,"Friday, December 11th 2009",W,KO Round 1
+49560,Tim Elliott,2009-06-27,HFN,HFN - Harrah Fight Night,59524,Jacky Brandon Bryant,"Friday, August 28th 2009",L,TKO Round 1
+49560,Tim Elliott,2009-05-08,BB,BB - Bricktown Brawl 1,38702,Shane Howell,"Saturday, June 27th 2009",L,Submission Round 3
+122914,Tagir Ulanbekov,2025-11-22,UFC Fight Night,UFC Fight Night 265 - Tsarukyan vs. Hooker,65742,Kyoji Horiguchi,#5 Flyweight,L,Technical Submission (Rear-Naked Choke) Round 3
+122914,Tagir Ulanbekov,2025-06-21,UFC on ABC,UFC on ABC 8 - Hill vs. Rountree,175605,Azat Maksum,#97 Flyweight,W,Decision (Unanimous) Round 3
+122914,Tagir Ulanbekov,2025-01-18,UFC,UFC 311 - Makhachev vs. Moicano,152926,Clayton Carpenter,#40 Flyweight,W,Decision (Unanimous) Round 3
+122914,Tagir Ulanbekov,2023-12-16,UFC,UFC 296 - Edwards vs. Covington,158918,Cody Durden,#18 Flyweight,W,Submission (Face Crank) Round 2
+122914,Tagir Ulanbekov,2022-11-05,UFC Fight Night,UFC Fight Night 214 - Rodriguez vs. Lemos,127776,Nathan Maness,#58 Bantamweight,W,Submission (Guillotine Choke) Round 1
+122914,Tagir Ulanbekov,2022-03-05,UFC,UFC 272: Covington vs. Masvidal,49560,Tim Elliott,#16 Flyweight,L,Decision (Unanimous) Round 3
+122914,Tagir Ulanbekov,2021-10-30,UFC,UFC 267 - Blachowicz vs. Teixeira,89783,Allan Nascimento,#196 Bantamweight,W,Decision (Split) Round 3
+122914,Tagir Ulanbekov,2020-10-10,UFC Fight Night,UFC Fight Night: Moraes vs. Sandhagen,104938,Bruno Silva,#118 Flyweight,W,Decision (Unanimous) Round 3
+122914,Tagir Ulanbekov,2019-12-13,GFC,GFC 22 - Gorilla Fighting 22,114803,Denilson Matos,#197 Flyweight,W,Submission (Guillotine Choke) Round 2
+122914,Tagir Ulanbekov,2019-09-27,GFC,GFC 17 - Gorilla Fighting 17,117118,Denis Oliveira,#65 Flyweight,W,Submission (Rear-Naked choke) Round 2
+122914,Tagir Ulanbekov,2019-05-03,GFC,GFC - GFC 11,144502,Alexander Podlesniy,#323 Bantamweight,W,Decision (Unanimous) Round 3
+122914,Tagir Ulanbekov,2018-08-31,FNG,FNG - Fight Nights Global 88,137080,Zhalgas Zhumagulov,#20 Flyweight,L,Decision (Majority) Round 5
+122914,Tagir Ulanbekov,2017-10-08,FNG,FNG - Fight Nights Global 76,88375,Vartan Asatryan,#59 Flyweight,W,Submission (Guillotine Choke) Round 4
+122914,Tagir Ulanbekov,2017-05-19,FNG,FNG - Fight Nights Global 65,38279,Shajidul Haque,#37 Flyweight,W,Decision (Unanimous) Round 3
+122914,Tagir Ulanbekov,2017-01-28,FNG,FNG - Fight Nights Global 58,157381,Asu Almabayev,#308 Flyweight,W,TKO (Submission to Punches) Round 3
+122914,Tagir Ulanbekov,2016-11-16,EFN,EFN - Fight Nights Global 54,157777,Shyngys Kairanov,#283 Flyweight,W,Decision (Unanimous) Round 3
+122914,Tagir Ulanbekov,2016-04-23,Pride Fighting Show,Pride Fighting Show - The Stars of World MMA,68050,Alexander Nesterov,,W,Submission (Rear Naked Choke) Round 1
+122914,Tagir Ulanbekov,2015-05-30,Fight Star,Fight Star - Battle on the Volga,136266,Ivan Andrushchenko,,W,Decision Round 2
+122914,Tagir Ulanbekov,2015-02-01,Liga Kavkaz,Liga Kavkaz - Dagestan Open Combat Sambo C...,182867,Nurtilek Yerkuatuly,,W,Submission (Armbar) Round 1
+122914,Tagir Ulanbekov,2013-07-07,Kavkaz League,Kavkaz League: Grand Umakhan Battle,122915,Magomednur Aglarov,,W,Submission (Armbar) Round 1
+122914,Tagir Ulanbekov,2016-04-23,Pride Fighting Show,Pride Fighting Show - The Stars of World MMA,157777,Shyngys Kairanov,#283 Flyweight,W,Decision (Unanimous) Round 3
+122914,Tagir Ulanbekov,2015-05-30,Fight Star,Fight Star - Battle on the Volga,68050,Alexander Nesterov,"Saturday, April 23rd 2016",W,Submission (Rear Naked Choke) Round 1
+122914,Tagir Ulanbekov,2015-02-01,Liga Kavkaz,Liga Kavkaz - Dagestan Open Combat Sambo C...,136266,Ivan Andrushchenko,"Saturday, May 30th 2015",W,Decision Round 2
+122914,Tagir Ulanbekov,2013-07-07,Kavkaz League,Kavkaz League: Grand Umakhan Battle,182867,Nurtilek Yerkuatuly,"Sunday, February 1st 2015",W,Submission (Armbar) Round 1
+158564,Makoto Takahashi,2026-06-06,Rizin FF,Rizin FF - Landmark Vol. 14,36733,Hiromasa Ougikubo,#13 Flyweight,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2026-04-12,Rizin FF,Rizin FF - Landmark Vol. 13,114108,Nkazimulo Zulu,#119 Flyweight,W,Submission (Kimura) Round 1
+158564,Makoto Takahashi,2025-12-31,Rizin FF,Rizin FF - Shiwasu no Cho Tsuwamono Matsuri,177677,Hiroya Kondo,#112 Flyweight,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2025-09-28,Rizin FF,Rizin FF - Rizin 51,67727,Yuki Motoya,#69 Bantamweight,L,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2025-07-27,Rizin FF,Rizin FF - Super Rizin 4,154154,Erson Yamamoto,#521 Flyweight,W,Submission (Guillotine Choke) Round 1
+158564,Makoto Takahashi,2025-05-04,Rizin FF,Rizin FF - Otoko Matsuri,195933,Yuki Ito,#180 Bantamweight,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2024-12-31,RIZIN,RIZIN 49: Decade,134214,Jose Torres,#170 Bantamweight,L,Decision (Split) Round 3
+158564,Makoto Takahashi,2024-11-04,Deep,Deep - 122 Impact,252784,Kenta Hayashi,#136 Flyweight,W,Decision (Split) Round 3
+158564,Makoto Takahashi,2024-07-28,Rizin FF,Rizin FF - Super Rizin 3,36733,Hiromasa Ougikubo,#10 Flyweight,L,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2024-04-29,Rizin FF,Rizin FF - Rizin 46,192267,Jung Hyun Lee,#300 Flyweight,W,Submission (Arm-Triangle Choke) Round 1
+158564,Makoto Takahashi,2023-12-31,Rizin FF,Rizin FF - Rizin 45,65742,Kyoji Horiguchi,#8 Flyweight,L,Submission (Rear-Naked Choke) Round 2
+158564,Makoto Takahashi,2023-07-29,Bellator MMA x Rizin,Bellator MMA x Rizin 2 - Pitbull vs. de Souza,65742,Kyoji Horiguchi,#8 Flyweight,NC,No Contest (Accidental Eye Poke) Round 1
+158564,Makoto Takahashi,2023-04-01,Rizin FF,Rizin FF - Rizin 41,59744,Daichi Kitakata,#4 Strawweight,W,Technical Submission (Arm-Triangle Choke) Round 2
+158564,Makoto Takahashi,2022-11-10,CFFC,CFFC 114 - Cage Fury Fighting Championship...,108756,Diego Paiva,#157 Flyweight,W,Submission (Guillotine Choke) Round 4
+158564,Makoto Takahashi,2022-07-31,Rizin FF,Rizin FF - Rizin 37,2256,Hideo Tokoro,,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2022-05-08,Deep,Deep - 107 Impact,179883,Yamato Fujita,#149 Flyweight,W,Submission (Ninja Choke) Round 3
+158564,Makoto Takahashi,2021-10-23,Deep,Deep - 104 Impact,89729,Ryuya Fukuda,#135 Flyweight,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2020-08-10,Rizin FF,Rizin FF - Rizin 23,98519,Seiichiro Ito,#302 Flyweight,W,Submission (Flying Guillotine Choke) Round 2
+158564,Makoto Takahashi,2019-12-28,Bellator,Bellator 237: Fedor vs. Rampage,60139,Yusaku Nakamura,#38 Flyweight,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2019-06-29,DEEP,DEEP 90 Impact,81004,Yuya Shibata,#128 Flyweight,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2019-03-09,Deep,Deep - 88 Impact,47409,Chikara Shimabukuro,#236 Flyweight,W,Decision (Unanimous) Round 2
+158564,Makoto Takahashi,2018-10-27,Deep,Deep - 86 Impact,84643,Haruki Nakayama,#281 Flyweight,W,Decision (Unanimous) Round 2
+158564,Makoto Takahashi,2018-04-28,DEEP,DEEP 83 Impact,8321,Tatsumitsu Wada,#60 Flyweight,L,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2018-02-24,DEEP,DEEP 82 Impact,3142,Kota Ishibashi,#174 Flyweight,W,Decision (Split) Round 3
+158564,Makoto Takahashi,2017-12-24,Pancrase / Deep,Pancrase / Deep - Pancrase vs. Deep: Osaka,114760,Hiroki Yamashita,#320 Flyweight,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2017-09-16,Deep,Deep - 79 Impact,159681,Yuto Nakamori,#369 Flyweight,W,Decision (Majority) Round 2
+158564,Makoto Takahashi,2017-05-13,Deep,Deep - Cage Impact 2017,46930,Yasutaka Ishigami,#385 Flyweight,D,Draw Round 2
+158564,Makoto Takahashi,2016-12-17,Deep,Deep - Cage Impact 2016: Deep vs. WSOF-GC,103306,Takuya Maruoka,,W,Decision (Unanimous) Round 2
+158564,Makoto Takahashi,2016-08-27,Deep,Deep - 77 Impact / Jewels 13,145622,Hidemasa Soga,,W,Decision (Unanimous) Round 2
+158564,Makoto Takahashi,2016-04-24,Pancrase,Pancrase - 277,122226,Shinichi Maeno,,W,Decision (Unanimous) Round 3
+158564,Makoto Takahashi,2022-07-31,Rizin FF,Rizin FF - Rizin 37,108756,Diego Paiva,#157 Flyweight,W,Submission (Guillotine Choke) Round 4
+158564,Makoto Takahashi,2016-12-17,Deep,Deep - Cage Impact 2016: Deep vs. WSOF-GC,46930,Yasutaka Ishigami,#385 Flyweight,D,Draw Round 2
+158564,Makoto Takahashi,2016-08-27,Deep,Deep - 77 Impact / Jewels 13,103306,Takuya Maruoka,"Saturday, December 17th 2016",W,Decision (Unanimous) Round 2
+158564,Makoto Takahashi,2016-04-24,Pancrase,Pancrase - 277,145622,Hidemasa Soga,"Saturday, August 27th 2016",W,Decision (Unanimous) Round 2
+86808,Adriano Moraes,2026-05-16,Rousey vs. Carano,Rousey vs. Carano,191375,Phumi Nkuta,#47 Flyweight,W,SUB Round 3
+86808,Adriano Moraes,2025-03-23,One Championship,One Championship - One 172: Takeru vs. Rod...,147748,Yuya Wakamatsu,#60 Bantamweight,L,TKO (Punches) Round 1
+86808,Adriano Moraes,2024-11-08,One Championship,One Championship - One 169: Bangkok,144479,Danny Kingad,#141 Bantamweight,W,Submission (Guillotine Choke) Round 2
+86808,Adriano Moraes,2023-05-05,ONE Fight Night,ONE Fight Night 10: Johnson vs. Moraes 3,45428,Demetrious Johnson,#16 Bantamweight,L,Decision (Unanimous) Round 5
+86808,Adriano Moraes,2022-08-26,One Championship,One Championship - One on Prime Video 1 -...,45428,Demetrious Johnson,#37 Bantamweight,L,KO (Flying Knee) Round 4
+86808,Adriano Moraes,2022-03-26,One Championship,One Championship - One X,147748,Yuya Wakamatsu,#53 Bantamweight,W,Submission (Guillotine Choke) Round 3
+86808,Adriano Moraes,2021-04-07,One Championship,One Championship - One on TNT 1,45428,Demetrious Johnson,,W,KO (Knee) Round 2
+86808,Adriano Moraes,2019-01-25,One Championship,One Championship - Heros Ascent,78797,Geje Eustaquio,#78 Bantamweight,W,Decision (Unanimous) Round 5
+86808,Adriano Moraes,2018-06-23,One Championship,One Championship - Pinnacle of Power,78797,Geje Eustaquio,#160 Bantamweight,L,Decision (Split) Round 5
+86808,Adriano Moraes,2017-11-10,One Championship,One Championship - Legends of the World,144479,Danny Kingad,#312 Bantamweight,W,Submission (Rear Naked Choke) Round 1
+86808,Adriano Moraes,2017-08-05,One Championship,One Championship - Kings & Conquerors,90727,Kairat Akhmetov,,W,Decision (Unanimous) Round 5
+86808,Adriano Moraes,2016-08-13,One Championship,One Championship 45 - Heroes of the World,132914,Tilek Batyrov,#166 Bantamweight,W,Submission (Rear Naked Choke) Round 2
+86808,Adriano Moraes,2016-03-18,One Championship,One Championship 40 - Union of Warriors,95335,Eugene Toquero,#188 Flyweight,W,Submission (Brabo Choke) Round 1
+86808,Adriano Moraes,2015-11-21,One Championship,One Championship - Dynasty of Champions,90727,Kairat Akhmetov,#86 Flyweight,L,Decision (Split) Round 5
+86808,Adriano Moraes,2015-03-13,One Championship,One Championship 25 - Age of Champions,32849,Riku Shibuya,#138 Flyweight,W,Decision (Unanimous) Round 5
+86808,Adriano Moraes,2014-09-12,One FC,One FC 20 - Rise of the Kingdom,78797,Geje Eustaquio,#65 Flyweight,W,Submission (Guillotine Choke) Round 2
+86808,Adriano Moraes,2014-06-14,One FC,One FC 17 - Era of Champions,60100,Kosuke Suzuki,#102 Flyweight,W,Submission (Arm Triangle Choke) Round 3
+86808,Adriano Moraes,2014-03-14,One FC,One FC 14 - War of Nations,1335,Yasuhiro Urushitani,#26 Flyweight,W,Submission (Rear Naked Choke) Round 2
+86808,Adriano Moraes,2013-11-15,One FC,One FC 12 - Warrior Spirit,46392,Yusup Saadulaev,#75 Bantamweight,L,Decision (Split) Round 3
+86808,Adriano Moraes,2013-06-23,Shooto Brazil,Shooto Brazil - Shooto Brazil 40,15806,Dileno Lopes,#37 Flyweight,W,TKO (Kick to the Body) Round 3
+86808,Adriano Moraes,2013-05-17,Shooto,Shooto - Brazil 39,30715,Jose Marcos Lima Santiago Jr.,#128 Flyweight,W,Decision (Unanimous) Round 3
+86808,Adriano Moraes,2013-04-13,ORF,ORF - Octagon Rounds Fight 2,114270,Carlos Sousa Almeida,,W,Submission (Rear Naked Choke) Round 2
+86808,Adriano Moraes,2013-03-09,PMF,PMF - Pro Mix Fight 7,116280,Aldo Ariel Villalba,,W,Submission (Arm Triangle Choke) Round 1
+86808,Adriano Moraes,2012-09-21,Shooto,Shooto - Brazil 34,20618,Michael William Costa,#134 Flyweight,W,Decision (Unanimous) Round 3
+86808,Adriano Moraes,2012-07-27,EF,EF 2 - Encontro Fight 2,100401,Leonardo Moura,,W,Decision (Unanimous) Round 3
+86808,Adriano Moraes,2012-05-26,RMMA,RMMA - Rockstrike MMA,96948,Jhon Leno,,W,KO (Knee) Round 1
+86808,Adriano Moraes,2012-05-05,PC,PC - Precol Combat 7,97182,James Carvalho,,W,TKO (Elbows) Round 1
+86808,Adriano Moraes,2011-09-04,PC,PC - Precol Combat 5,86809,Ismael Bonfim,,W,Submission (Guillotine Choke) Round 1
+86808,Adriano Moraes,2021-04-07,One Championship,One Championship - One on TNT 1,147748,Yuya Wakamatsu,#53 Bantamweight,W,Submission (Guillotine Choke) Round 3
+86808,Adriano Moraes,2017-08-05,One Championship,One Championship - Kings & Conquerors,144479,Danny Kingad,#312 Bantamweight,W,Submission (Rear Naked Choke) Round 1
+86808,Adriano Moraes,2013-04-13,ORF,ORF - Octagon Rounds Fight 2,30715,Jose Marcos Lima Santiago Jr.,#128 Flyweight,W,Decision (Unanimous) Round 3
+86808,Adriano Moraes,2013-03-09,PMF,PMF - Pro Mix Fight 7,114270,Carlos Sousa Almeida,"Saturday, April 13th 2013",W,Submission (Rear Naked Choke) Round 2
+86808,Adriano Moraes,2012-07-27,EF,EF 2 - Encontro Fight 2,20618,Michael William Costa,#134 Flyweight,W,Decision (Unanimous) Round 3
+86808,Adriano Moraes,2012-05-26,RMMA,RMMA - Rockstrike MMA,100401,Leonardo Moura,"Friday, July 27th 2012",W,Decision (Unanimous) Round 3
+86808,Adriano Moraes,2012-05-05,PC,PC - Precol Combat 7,96948,Jhon Leno,"Saturday, May 26th 2012",W,KO (Knee) Round 1
+86808,Adriano Moraes,2011-09-04,PC,PC - Precol Combat 5,97182,James Carvalho,"Saturday, May 5th 2012",W,TKO (Elbows) Round 1
+24370,Alex Perez,2026-05-30,UFC Fight Night,UFC Fight Night 277 Song vs. Figueiredo,161961,Su Mudaerji,#36 Flyweight,NC,No Contest (Accidental Groin Kick) Round 2
+24370,Alex Perez,2026-01-24,UFC,UFC 324 Gaethje vs. Pimblett,176321,Charles Johnson,#19 Flyweight,W,TKO (Punches) Round 1
+24370,Alex Perez,2025-11-22,UFC Fight Night,UFC Fight Night 265 - Tsarukyan vs. Hooker,157381,Asu Almabayev,#16 Flyweight,L,Submission (Guillotine Choke) Round 3
+24370,Alex Perez,2024-06-15,UFC Fight Night,UFC Fight Night: Perez vs. Taira,193867,Tatsuro Taira,#23 Flyweight,L,TKO (Knee Injury) Round 2
+24370,Alex Perez,2024-04-27,UFC on ESPN,UFC on ESPN 55 - Nicolau vs. Perez,70942,Matheus Nicolau,#11 Flyweight,W,KO (Punch) Round 2
+24370,Alex Perez,2024-03-02,UFC Fight Night,UFC Fight Night 238 - Rozenstruik vs. Gaziev,165671,Muhammad Mokaev,#8 Flyweight,L,Decision (Unanimous) Round 3
+24370,Alex Perez,2022-07-30,UFC,UFC 277 - Pena vs. Nunes 2,5215,Alexandre Pantoja,#4 Flyweight,L,Submission (Neck Crank) Round 1
+24370,Alex Perez,2020-11-21,UFC,UFC 255 - Figueiredo vs. Perez,101055,Deiveson Figueiredo,#1 Flyweight,L,Submission (Guillotine Choke) Round 1
+24370,Alex Perez,2020-06-06,UFC,UFC 250: Nunes vs. Spencer,29101,Jussier Formiga,#5 Flyweight,W,TKO (Leg Kick) Round 1
+24370,Alex Perez,2020-01-25,UFC Fight Night,UFC Fight Night 166 - Blaydes vs. dos Santos,66254,Jordan Espinosa,#26 Flyweight,W,Technical Submission (Arm Triangle Choke) Round 1
+24370,Alex Perez,2019-03-30,UFC on ESPN,UFC on ESPN 2 - Barboza vs. Gaethje,124200,Mark De La Rosa,#84 Bantamweight,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2018-11-30,UFC,UFC - The Ultimate Fighter 28 Finale,26911,Joseph Benavidez,#5 Flyweight,L,TKO (Strikes) Round 1
+24370,Alex Perez,2018-08-04,UFC,UFC 227 - Dillashaw vs. Garbrandt 2,134214,Jose Torres,#17 Flyweight,W,KO (Punches) Round 1
+24370,Alex Perez,2018-02-24,UFC on Fox,UFC on Fox 28 - Emmett vs. Stephens,88460,Eric Shelton,#32 Flyweight,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2017-12-09,UFC Fight Night,UFC Fight Night 123 - Swanson vs. Ortega,147245,Carls John de Tomas,#556 Bantamweight,W,Submission (Anaconda Choke) Round 2
+24370,Alex Perez,2017-08-08,Dana Whites Contender Series,Dana Whites Contender Series 5,107984,Kevin Gray,#64 Flyweight,W,SUB Round 1
+24370,Alex Perez,2017-03-25,CFFC,CFFC 64 - Sayles vs. Aguilera,3333,Tyler Bialecki,,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2017-02-02,TPF,TPF 30 - Tachi Palace Fights 30,84645,Andrew Natividad,#622 Bantamweight,W,Submission (Brabo Choke) Round 1
+24370,Alex Perez,2016-12-18,KOTC,KOTC - Warranted Aggression,7056,Ralph Acosta,#376 Bantamweight,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2016-08-19,RFA,RFA 42 - Giagos vs. Estrazulas,47804,Ray Elizalde,#148 Flyweight,W,Decision (Split) Round 3
+24370,Alex Perez,2016-05-19,TPF,TPF 27 - Tachi Palace Fights 27,19661,Jared Papazian,#143 Bantamweight,L,Submission (Armbar) Round 1
+24370,Alex Perez,2015-11-19,TPF,TPF 25 - Tachi Palace Fights - 25,8922,Adam Antolin,#154 Flyweight,L,Submission (Guillotine Choke) Round 1
+24370,Alex Perez,2015-08-06,TPF,TPF 24 - Tachi Palace Fights - Summer Brawl,18110,Martin Sandoval,#224 Flyweight,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2015-02-05,TPF,TPF 22 - Champions Collide 2,37495,Anthony Figueroa,#50 Flyweight,W,Decision (Unanimous) Round 5
+24370,Alex Perez,2014-06-19,TPF,TPF 19 - Throwback Thursday,640,Del Hawkins,,W,TKO (Punches) Round 1
+24370,Alex Perez,2014-02-06,TPF,TPF 18 - Martinez vs. Culley,85952,Eloy Garza,#171 Flyweight,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2013-08-22,TPF,TPF 16 - Martinez vs. Giagos,99547,Jeff Carson,,W,Submission (Standing Guillotine) Round 1
+24370,Alex Perez,2013-03-23,MEZ Sports,MEZ Sports - Pandemonium 8,73812,Peter Baltimore,,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2012-11-15,TPF,TPF 15 - Collision Course,42016,Carlos DeSoto,,W,TKO (Punches) Round 1
+24370,Alex Perez,2012-09-07,TPF,TPF 14 - Validation,92055,Javier Galas,,W,Submission (Rear Naked Choke) Round 1
+24370,Alex Perez,2012-03-09,TPF,TPF 12 - Second Coming,62613,Edgar Diaz,,W,Submission (Kimura) Round 1
+24370,Alex Perez,2012-01-28,CA Fight Syndicate,CA Fight Syndicate - Rivalry,83758,Kevin Michel,,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2012-01-07,WFC,WFC - Bruvado Bash,30932,Jonathan MaCalolooy,,L,Decision (Unanimous) Round 3
+24370,Alex Perez,2011-12-02,TPF,TPF 11 - Redemption,62613,Edgar Diaz,,L,Submission (Guillotine Choke) Round 1
+24370,Alex Perez,2011-09-10,JW Events,JW Events - Up & Comers 6,38459,Sam Stevens-Milo,,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2011-06-24,JW Events,JW Events - Up & Comers 4,84270,Ruben Trujillo,,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2011-05-06,TPF,TPF 9 - The Contenders,58890,Jesus Castro,,W,TKO (Punches) Round 1
+24370,Alex Perez,2017-03-25,CFFC,CFFC 64 - Sayles vs. Aguilera,107984,Kevin Gray,#64 Flyweight,W,SUB Round 1
+24370,Alex Perez,2014-06-19,TPF,TPF 19 - Throwback Thursday,37495,Anthony Figueroa,#50 Flyweight,W,Decision (Unanimous) Round 5
+24370,Alex Perez,2013-08-22,TPF,TPF 16 - Martinez vs. Giagos,85952,Eloy Garza,#171 Flyweight,W,Decision (Unanimous) Round 3
+24370,Alex Perez,2013-03-23,MEZ Sports,MEZ Sports - Pandemonium 8,99547,Jeff Carson,"Thursday, August 22nd 2013",W,Submission (Standing Guillotine) Round 1
+24370,Alex Perez,2012-11-15,TPF,TPF 15 - Collision Course,73812,Peter Baltimore,"Saturday, March 23rd 2013",W,Decision (Unanimous) Round 3
+24370,Alex Perez,2012-09-07,TPF,TPF 14 - Validation,42016,Carlos DeSoto,"Thursday, November 15th 2012",W,TKO (Punches) Round 1
+24370,Alex Perez,2012-03-09,TPF,TPF 12 - Second Coming,92055,Javier Galas,"Friday, September 7th 2012",W,Submission (Rear Naked Choke) Round 1
+24370,Alex Perez,2012-01-28,CA Fight Syndicate,CA Fight Syndicate - Rivalry,62613,Edgar Diaz,"Friday, March 9th 2012",W,Submission (Kimura) Round 1
+24370,Alex Perez,2012-01-07,WFC,WFC - Bruvado Bash,83758,Kevin Michel,"Saturday, January 28th 2012",W,Decision (Unanimous) Round 3
+24370,Alex Perez,2011-12-02,TPF,TPF 11 - Redemption,30932,Jonathan MaCalolooy,"Saturday, January 7th 2012",L,Decision (Unanimous) Round 3
+24370,Alex Perez,2011-09-10,JW Events,JW Events - Up & Comers 6,62613,Edgar Diaz,"Friday, December 2nd 2011",L,Submission (Guillotine Choke) Round 1
+24370,Alex Perez,2011-06-24,JW Events,JW Events - Up & Comers 4,38459,Sam Stevens-Milo,"Saturday, September 10th 2011",W,Decision (Unanimous) Round 3
+24370,Alex Perez,2011-05-06,TPF,TPF 9 - The Contenders,84270,Ruben Trujillo,"Friday, June 24th 2011",W,Decision (Unanimous) Round 3
+233483,Marcos Degli,2026-01-23,LFA,LFA 225 Degli vs. Aguiar,240203,Luis Aguiar,#61 Flyweight,W,KO (Punch to the Body) Round 1
+233483,Marcos Degli,2025-07-11,LFA,LFA 212 - Degli vs. Severino,148668,Matheus Severino,#95 Flyweight,W,KO (Punches) Round 3
+233483,Marcos Degli,2025-02-07,LFA,LFA 201 - Conceicao vs. Silva,207758,Lincon Santos,#108 Flyweight,W,KO (Punch) Round 2
+233483,Marcos Degli,2024-07-06,LFA,LFA 187 - Brazil vs. Latin America,192325,Ignacio Fernandez,#288 Flyweight,W,TKO (Punches) Round 1
+233483,Marcos Degli,2023-11-03,LFA,LFA 171 - Neves vs. Cunha,164506,Alisson Murilo,#63 Flyweight,W,Decision (Unanimous) Round 3
+233483,Marcos Degli,2023-05-27,LFA,LFA 159 - Bellato vs. Dos Santos,176133,Hugo Paiva,#534 Featherweight,W,Submission (Rear-Naked Choke) Round 1
+233483,Marcos Degli,2023-03-11,Spartacus MMA,Spartacus MMA - Spartacus Fight Event,254280,Fernando Bonatto,#303 Flyweight,W,Submission (Rear-Naked Choke) Round 1
+233483,Marcos Degli,2022-11-13,Jungle Fight,Jungle Fight 112 - Luciano vs. Aryadne,103778,Frank Bispo,#216 Flyweight,W,KO (Elbow) Round 1
+233483,Marcos Degli,2022-08-27,Spartacus MMA,Spartacus MMA - Spartacus Fight Event 10,262312,Alexandre Rodrigues,,W,TKO (Elbows) Round 2
+233483,Marcos Degli,2022-08-13,FPM,FPM - Fight Pro MMA 2,89929,Maicon Cardoso,,W,Submission Round 2
+233483,Marcos Degli,2022-05-15,APM,APM - Arena Pride MMA 3,201964,Gabriel Fermino,,W,Submission (Armbar) Round 2
+233483,Marcos Degli,2022-04-30,Spartacus MMA,Spartacus MMA - Spartacus Fight Event 2,258102,Carlos dos Santos,,W,TKO Round 1
+233483,Marcos Degli,2022-03-06,APM,APM - Arena Pride MMA 2,208248,Felipe dos Santos,#261 Flyweight,L,Submission Round 3
+233483,Marcos Degli,2021-12-19,APM,APM - Arena Pride MMA 1,233477,Nilcelio Vieira Faria,,W,KO (Punch) Round 1
+233483,Marcos Degli,2021-10-10,TF,TF 31 - Thunder Fight 31,193681,Watson Silva de Castro,,W,TKO Round 1
+233483,Marcos Degli,2021-07-11,TF,TF 28 - Thunder Fight 28,176043,Marceu Pasin,#584 Bantamweight,L,Decision (Unanimous) Round 3
+233483,Marcos Degli,2021-05-02,Thunder Fight,Thunder Fight 26 - Copa Thunder Fight 9,178402,Davi Bittencourt,,L,Decision (Split) Round 3
+233483,Marcos Degli,2022-08-27,Spartacus MMA,Spartacus MMA - Spartacus Fight Event 10,103778,Frank Bispo,#216 Flyweight,W,KO (Elbow) Round 1
+233483,Marcos Degli,2022-08-13,FPM,FPM - Fight Pro MMA 2,262312,Alexandre Rodrigues,"Saturday, August 27th 2022",W,TKO (Elbows) Round 2
+233483,Marcos Degli,2022-05-15,APM,APM - Arena Pride MMA 3,89929,Maicon Cardoso,"Saturday, August 13th 2022",W,Submission Round 2
+233483,Marcos Degli,2022-04-30,Spartacus MMA,Spartacus MMA - Spartacus Fight Event 2,201964,Gabriel Fermino,"Sunday, May 15th 2022",W,Submission (Armbar) Round 2
+233483,Marcos Degli,2021-12-19,APM,APM - Arena Pride MMA 1,208248,Felipe dos Santos,#261 Flyweight,L,Submission Round 3
+233483,Marcos Degli,2021-10-10,TF,TF 31 - Thunder Fight 31,233477,Nilcelio Vieira Faria,"Sunday, December 19th 2021",W,KO (Punch) Round 1
+233483,Marcos Degli,2021-05-02,Thunder Fight,Thunder Fight 26 - Copa Thunder Fight 9,176043,Marceu Pasin,#584 Bantamweight,L,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2026-06-06,Rizin FF,Rizin FF - Landmark Vol. 14,158564,Makoto Takahashi,#65 Flyweight,L,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2025-12-31,Rizin FF,Rizin FF - Shiwasu no Cho Tsuwamono Matsuri,67727,Yuki Motoya,#22 Flyweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2025-09-28,Rizin FF,Rizin FF - Rizin 51,243524,Alibek Gadzhammatov,#196 Flyweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2025-07-27,Rizin FF,Rizin FF - Super Rizin 4,134214,Jose Torres,#141 Flyweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2024-07-28,Rizin FF,Rizin FF - Super Rizin 3,158564,Makoto Takahashi,#59 Flyweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2023-12-31,Rizin FF,Rizin FF - Rizin 45,23595,John Dodson,#12 Flyweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2023-07-30,Rizin FF,Rizin FF - Super Rizin 2,119516,Juan Archuleta,#23 Bantamweight,L,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2022-12-31,Rizin FF,Rizin FF - Rizin 40: Bellator MMA vs. Rizin,65742,Kyoji Horiguchi,#29 Bantamweight,L,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2022-09-25,Rizin FF,Rizin FF - Super Rizin / Rizin 38,70668,Soo Chul Kim,#251 Featherweight,L,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2021-12-31,Rizin FF,Rizin FF - Rizin 33,127472,Naoki Inoue,#52 Bantamweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2021-12-31,Rizin FF,Rizin FF - Rizin 33,160822,Kai Asakura,#37 Bantamweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2021-09-19,Rizin FF,Rizin FF - Rizin 30,36899,Takafumi Otsuka,#102 Bantamweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2021-06-13,Rizin FF,Rizin FF - Rizin 28,50119,Takeshi Kasugai,#162 Bantamweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2020-11-21,Rizin FF,Rizin FF - Rizin 25,114050,Kenta Takizawa,#100 Bantamweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2020-08-10,Rizin FF,Rizin FF - Rizin 23,160822,Kai Asakura,#18 Bantamweight,L,TKO (Knee and Soccer Kicks) Round 1
+36733,Hiromasa Ougikubo,2019-12-31,Rizin FF,Rizin FF - Rizin 20,33160,Shintaro Ishiwatari,#31 Bantamweight,W,Decision (Split) Round 3
+36733,Hiromasa Ougikubo,2019-07-28,RIZIN,RIZIN 17,67727,Yuki Motoya,#51 Bantamweight,W,Decision (Split) Round 3
+36733,Hiromasa Ougikubo,2019-05-06,Shooto,Shooto 30th Anniversary Tour at Korakuen Hall,18026,Kiyotaka Shimizu,#52 Flyweight,W,Decision (Unanimous) Round 5
+36733,Hiromasa Ougikubo,2018-07-28,Rizin FF,Rizin FF - Rizin 11,65742,Kyoji Horiguchi,#9 Bantamweight,L,Decision (Unanimous) Round 2
+36733,Hiromasa Ougikubo,2017-10-15,Shooto,Shooto - Professional Shooto 10/15,58554,Tadaaki Yamamoto,#73 Flyweight,W,Submission (Rear Naked Choke) Round 1
+36733,Hiromasa Ougikubo,2017-04-23,Shooto,Shooto,34671,Danny Martinez,#70 Flyweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2016-04-23,Mobstyles,Mobstyles: Fight and Mosh,24856,Masaaki Sugawara,#50 Flyweight,W,SUB Round 5
+36733,Hiromasa Ougikubo,2015-11-29,Shooto,Shooto - Professional Shooto 11/29,8316,Yosuke Saruta,#107 Flyweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2014-10-04,Vale Tudo Japan,Vale Tudo Japan - VTJ 6th,67363,Czar Sklavos,#19 Flyweight,W,Decision (Unanimous) Round 5
+36733,Hiromasa Ougikubo,2014-06-28,Vale Tudo Japan,Vale Tudo Japan - VTJ 5th in Osaka,34235,Kana Hyatt,#38 Flyweight,W,Submission (Rear Naked Choke) Round 1
+36733,Hiromasa Ougikubo,2014-02-23,Vale Tudo Japan,Vale Tudo Japan - VTJ 4th,50119,Takeshi Kasugai,#49 Flyweight,W,Decision (Majority) Round 3
+36733,Hiromasa Ougikubo,2013-03-16,Shooto,Shooto 2nd Round 2013,65742,Kyoji Horiguchi,#23 Bantamweight,L,Submission (Rear Naked Choke) Round 2
+36733,Hiromasa Ougikubo,2012-05-18,Shooto,Shooto - 5th Round,22154,Koetsu Okazaki,#47 Bantamweight,W,Submission (Rear Naked Choke) Round 3
+36733,Hiromasa Ougikubo,2012-01-08,Shooto,Shooto - Survivor Tournament Final,21553,Tetsu Suzuki,#64 Bantamweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2011-04-03,Shooto,Shooto - Border: Season 3 - Spring Thunder,24857,Teruyuki Matsumoto,#123 Bantamweight,W,Decision (Majority) Round 3
+36733,Hiromasa Ougikubo,2010-09-23,Shooto,Shooto - The Way of Shooto 5: Like a Tiger...,14637,So Tazawa,#133 Bantamweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2010-05-30,Shooto,Shooto - The Way of Shooto 3: Like a Tiger...,42556,Eduardo Dantas,#40 Bantamweight,L,Submission (Rear Naked Choke) Round 3
+36733,Hiromasa Ougikubo,2009-10-18,Shooto,Shooto - Gig Tokyo 3,22154,Koetsu Okazaki,,L,TKO (Punches) Round 2
+36733,Hiromasa Ougikubo,2009-03-20,Shooto,Shooto - Shooto Tradition 6,21553,Tetsu Suzuki,#30 Bantamweight,W,Decision (Unanimous) Round 3
+36733,Hiromasa Ougikubo,2008-11-29,Shooto,Shooto - Shooto Tradition 4,14637,So Tazawa,#18 Bantamweight,D,Draw Round 3
+36733,Hiromasa Ougikubo,2008-07-18,Shooto,Shooto - Shooto Tradition 2,11614,Hiroyuki Tanaka,#142 Bantamweight,W,TKO (Punches) Round 1
+36733,Hiromasa Ougikubo,2007-12-08,Shooto,Shooto - Rookie Tournament 2007 Final,35250,Yasuhiro Kanayama,,W,Submission (Rear Naked Choke) Round 2
+36733,Hiromasa Ougikubo,2007-09-22,Shooto,Shooto - Back To Our Roots 5,34977,Kazuya Tamura,#87 Bantamweight,W,Submission (Rear Naked Choke) Round 1
+36733,Hiromasa Ougikubo,2007-06-30,Shooto,Shooto 2007 - 6/30 in Kitazawa Town Hall,42519,Satoru Ota,,W,Decision (Unanimous) Round 2
+36733,Hiromasa Ougikubo,2007-03-04,Shooto,Shooto - Its Strong Being a Man,25017,Naoki Yahagi,,D,Draw Round 2
+36733,Hiromasa Ougikubo,2006-10-01,Shooto,Shooto 2006 - 10/1 in Kitazawa Town Hall,34339,Nobuhiro Hayakawa,,W,Decision (Unanimous) Round 2
+36733,Hiromasa Ougikubo,2009-10-18,Shooto,Shooto - Gig Tokyo 3,42556,Eduardo Dantas,#40 Bantamweight,L,Submission (Rear Naked Choke) Round 3
+36733,Hiromasa Ougikubo,2007-12-08,Shooto,Shooto - Rookie Tournament 2007 Final,11614,Hiroyuki Tanaka,#142 Bantamweight,W,TKO (Punches) Round 1
+36733,Hiromasa Ougikubo,2007-06-30,Shooto,Shooto 2007 - 6/30 in Kitazawa Town Hall,34977,Kazuya Tamura,#87 Bantamweight,W,Submission (Rear Naked Choke) Round 1
+36733,Hiromasa Ougikubo,2007-03-04,Shooto,Shooto - Its Strong Being a Man,42519,Satoru Ota,"Saturday, June 30th 2007",W,Decision (Unanimous) Round 2
+36733,Hiromasa Ougikubo,2006-10-01,Shooto,Shooto 2006 - 10/1 in Kitazawa Town Hall,25017,Naoki Yahagi,"Sunday, March 4th 2007",D,Draw Round 2
+109350,Joseph Morales,2025-11-08,UFC Fight Night,UFC Fight Night 264 - Bonfim vs. Brown,47070,Matt Schnell,#67 Flyweight,W,Submission (Guillotine Choke) Round 1
+109350,Joseph Morales,2025-08-16,UFC,UFC 319 - Du Plessis vs. Chimaev,220027,Alibi Idiris,#49 Flyweight,W,Submission (Triangle Choke) Round 2
+109350,Joseph Morales,2023-02-03,Urijah Faber&#39;s A1 Combat 8,Urijah Faber&#39;s A1 Combat 8: Tachi Palace,129039,Anthony Do,#236 Flyweight,W,Submission (Triangle Choke) Round 3
+109350,Joseph Morales,2022-03-04,CW,CW 133 - Cage Warriors 133,38554,Sidemar Honorio,,W,Decision (Split) Round 3
+109350,Joseph Morales,2021-08-01,CW,CW 126 - Cage Warriors 126,77591,Kevin Wirth,#242 Bantamweight,W,Decision (Unanimous) Round 3
+109350,Joseph Morales,2018-11-10,UFC Fight Night,UFC Fight Night 139 - Korean Zombie vs. Ro...,88460,Eric Shelton,#44 Flyweight,L,Decision (Split) Round 3
+109350,Joseph Morales,2018-02-03,UFC Fight Night,UFC Fight Night 125 - Machida vs. Anders,101055,Deiveson Figueiredo,#18 Flyweight,L,TKO (Punches) Round 2
+109350,Joseph Morales,2017-08-05,UFC Fight Night,UFC Fight Night 114 - Pettis vs. Moreno,85502,Roberto Sanchez,#48 Flyweight,W,Submission (Rear Naked Choke) Round 1
+109350,Joseph Morales,2017-03-25,CFFC,CFFC 64 - Sayles vs. Aguilera,39349,Sean Santella,#44 Flyweight,W,TKO (Punches) Round 2
+109350,Joseph Morales,2016-11-19,Global Knockout,Global Knockout 8,85283,Josh Paiva,#93 Flyweight,W,Decision (Unanimous) Round 5
+109350,Joseph Morales,2016-08-27,GKO,GKO 7 - Global Knockout 7,92645,Gerald Bailey,,W,Submission (Rear Naked Choke) Round 1
+109350,Joseph Morales,2016-03-26,GKO,GKO 6 - Global Knockout 6,43612,Sammy Saunders,,W,Submission (Triangle Choke) Round 1
+109350,Joseph Morales,2015-08-29,GKO,GKO 4 - Global Knockout 4,92645,Gerald Bailey,,W,Submission (Guillotine Choke) Round 1
+109350,Joseph Morales,2015-05-30,WFC,WFC 14 - Berkovic vs. Bailey,98292,Benji Gomez,,W,Submission (Rear Naked Choke) Round 2
+109350,Joseph Morales,2015-02-28,West Coast FC,West Coast FC 13: Huckaba vs. Mitchell,114080,Roque Reyes,,W,TKO (Punches) Round 1
+109350,Joseph Morales,2014-12-13,WSOF,WSOF 16 - Palhares vs. Fitch,100367,Christian Espinosa,,W,Decision (Unanimous) Round 3
+109350,Joseph Morales,2022-03-04,CW,CW 133 - Cage Warriors 133,129039,Anthony Do,#236 Flyweight,W,Submission (Triangle Choke) Round 3
+109350,Joseph Morales,2016-08-27,GKO,GKO 7 - Global Knockout 7,85283,Josh Paiva,#93 Flyweight,W,Decision (Unanimous) Round 5
+109350,Joseph Morales,2016-03-26,GKO,GKO 6 - Global Knockout 6,92645,Gerald Bailey,"Saturday, August 27th 2016",W,Submission (Rear Naked Choke) Round 1
+109350,Joseph Morales,2015-08-29,GKO,GKO 4 - Global Knockout 4,43612,Sammy Saunders,"Saturday, March 26th 2016",W,Submission (Triangle Choke) Round 1
+109350,Joseph Morales,2015-05-30,WFC,WFC 14 - Berkovic vs. Bailey,92645,Gerald Bailey,"Saturday, August 29th 2015",W,Submission (Guillotine Choke) Round 1
+109350,Joseph Morales,2015-02-28,West Coast FC,West Coast FC 13: Huckaba vs. Mitchell,98292,Benji Gomez,"Saturday, May 30th 2015",W,Submission (Rear Naked Choke) Round 2
+109350,Joseph Morales,2014-12-13,WSOF,WSOF 16 - Palhares vs. Fitch,114080,Roque Reyes,"Saturday, February 28th 2015",W,TKO (Punches) Round 1
+161956,Sung Hoon Woo,2026-07-26,BnD Black Cup,BnD Black Cup: Korea Omega vs Mongolia,176406,Takahiro Komakine,#42 Flyweight,W,Decision (Unanimous) Round 3
+161956,Sung Hoon Woo,2026-01-31,Black Combat,Black Combat 16 Exodus,266075,Sung Woong Kim,#237 Flyweight,W,Decision (Unanimous) Round 3
+161956,Sung Hoon Woo,2025-08-23,Black Combat,Black Combat 15 - Parabellum,173790,Rangel dos Santos Rebelatto,#237 Bantamweight,W,KO (Punches) Round 1
+161956,Sung Hoon Woo,2023-06-09,One Championship,One Championship - One on Prime Video 11: ...,173736,Yong Hu,#36 Flyweight,L,Decision (Split) Round 3
+161956,Sung Hoon Woo,2022-11-19,One Championship,One Championship - One 163: Akimoto vs. Pe...,147748,Yuya Wakamatsu,#68 Bantamweight,W,TKO (Elbows and Punches) Round 1
+161956,Sung Hoon Woo,2022-04-22,One Championship,One Championship - One 156,171914,Windson Ramos,,L,Decision (Unanimous) Round 3
+161956,Sung Hoon Woo,2022-02-11,One Championship,One Championship - Bad Blood,146661,Yodkaikaew Fairtex,#198 Bantamweight,W,TKO (Punches) Round 1
+161956,Sung Hoon Woo,2021-10-02,GFC,GFC 06 - Gentlemanflower Fighting Champion...,150504,Joo Hwan Kim,,W,TKO (Corner Stoppage) Round 2
+161956,Sung Hoon Woo,2020-08-01,GFC,GFC 03 - Gentlemanflower Fighting Champion...,201473,Sung Hoon Jung,,W,TKO (Punches) Round 1
+161956,Sung Hoon Woo,2020-02-22,GFC,GFC 02 - Gentlemanflower Fighting Champion...,224893,Kenshi Shimooka,,W,TKO (Punch) Round 1
+161956,Sung Hoon Woo,2019-10-27,WARDOG Cage Fight,WARDOG Cage Fight 23,158109,Kohei Harazoe,#727 Bantamweight,W,TKO Round 1
+161956,Sung Hoon Woo,2019-07-07,ZFC,ZFC 2 - Zeus Fighting Championship 2,143210,Seung Hyuk Hong,,W,Decision (Unanimous) Round 2
+161956,Sung Hoon Woo,2017-03-18,Battlefield Fighting Championships,Battlefield Fighting Championships,172066,Jun Sung Park,,W,TKO Round 1
+161956,Sung Hoon Woo,2016-08-20,WLF,WLF - E.P.I.C.: Elevation Power in Cage 7,167193,Junye Gao,,L,TKO Round 1
+161956,Sung Hoon Woo,2016-06-29,WLF,WLF - E.P.I.C.: Elevation Power in Cage 5,161957,Gedan Ni,,W,Decision (Unanimous) Round 3
+161956,Sung Hoon Woo,2016-04-23,WLF,WLF - E.P.I.C.: Elevation Power in Cage 3,161804,Jinhao He,#436 Flyweight,L,Decision Round 3
+161956,Sung Hoon Woo,2022-04-22,One Championship,One Championship - One 156,147748,Yuya Wakamatsu,#68 Bantamweight,W,TKO (Elbows and Punches) Round 1
+161956,Sung Hoon Woo,2021-10-02,GFC,GFC 06 - Gentlemanflower Fighting Champion...,146661,Yodkaikaew Fairtex,#198 Bantamweight,W,TKO (Punches) Round 1
+161956,Sung Hoon Woo,2020-08-01,GFC,GFC 03 - Gentlemanflower Fighting Champion...,150504,Joo Hwan Kim,"Saturday, October 2nd 2021",W,TKO (Corner Stoppage) Round 2
+161956,Sung Hoon Woo,2020-02-22,GFC,GFC 02 - Gentlemanflower Fighting Champion...,201473,Sung Hoon Jung,"Saturday, August 1st 2020",W,TKO (Punches) Round 1
+161956,Sung Hoon Woo,2019-07-07,ZFC,ZFC 2 - Zeus Fighting Championship 2,158109,Kohei Harazoe,#727 Bantamweight,W,TKO Round 1
+161956,Sung Hoon Woo,2017-03-18,Battlefield Fighting Championships,Battlefield Fighting Championships,143210,Seung Hyuk Hong,"Sunday, July 7th 2019",W,Decision (Unanimous) Round 2
+161956,Sung Hoon Woo,2016-08-20,WLF,WLF - E.P.I.C.: Elevation Power in Cage 7,172066,Jun Sung Park,"Saturday, March 18th 2017",W,TKO Round 1
+161956,Sung Hoon Woo,2016-06-29,WLF,WLF - E.P.I.C.: Elevation Power in Cage 5,167193,Junye Gao,"Saturday, August 20th 2016",L,TKO Round 1
+51999,Amir Albazi,2026-02-07,UFC Fight Night,UFC Fight Night 266 Bautista vs. Oliveira,65742,Kyoji Horiguchi,#4 Flyweight,L,Decision (Unanimous) Round 3
+51999,Amir Albazi,2024-11-02,UFC Fight Night,UFC Fight Night 246 - Moreno vs. Albazi,82307,Brandon Moreno,#3 Flyweight,L,Decision (Unanimous) Round 5
+51999,Amir Albazi,2023-06-03,UFC on ESPN,UFC on ESPN 46 - Kara-France vs. Albazi,75447,Kai Kara-France,#4 Flyweight,W,Decision (Split) Round 5
+51999,Amir Albazi,2022-12-17,UFC Fight Night,UFC Fight Night: Cannonier vs. Strickland,155102,Alessandro Costa,#53 Flyweight,W,KO (Punches) Round 3
+51999,Amir Albazi,2022-08-20,UFC,UFC 278 - Usman vs. Edwards 2,71080,Francisco Figueiredo,#71 Flyweight,W,Submission (Rear-Naked Choke) Round 1
+51999,Amir Albazi,2021-01-23,UFC,UFC 257: Poirier vs. McGregor 2,137080,Zhalgas Zhumagulov,#18 Flyweight,W,Decision (Unanimous) Round 3
+51999,Amir Albazi,2020-07-18,UFC Fight Night,UFC Fight Night 172 - Figueiredo vs. Benav...,102448,Malcolm Gordon,#39 Flyweight,W,Submission (Triangle Choke) Round 1
+51999,Amir Albazi,2019-11-15,Brave CF,Brave CF 29,80391,Ryan Curtis,#242 Flyweight,W,SUB Round 1
+51999,Amir Albazi,2019-04-19,Brave CF,Brave CF 23 - Pride & Honor,134214,Jose Torres,#24 Flyweight,L,Decision (Unanimous) Round 3
+51999,Amir Albazi,2018-05-25,Bellator,Bellator 200 - Carvalho vs. Mousasi,129797,Iurie Bejenari,#156 Flyweight,W,Submission (Rear Naked Choke) Round 1
+51999,Amir Albazi,2017-05-19,Bellator,Bellator 179 - Daley vs. MacDonald,79593,Jamie Powell,#293 Flyweight,W,Decision (Unanimous) Round 3
+51999,Amir Albazi,2016-12-10,FightStar Championship,FightStar Championship 8,49242,Dino Gambatesa,,W,SUB Round 1
+51999,Amir Albazi,2016-06-04,SFN,SFN 1 - Scandinavian Fight Nights,43556,Rafal Czechowski,#319 Bantamweight,W,Submission (Rear Naked Choke) Round 2
+51999,Amir Albazi,2015-09-05,UCMMA,UCMMA 44 - Ultimate Challenge MMA 44,17230,Niko Gjoka,#317 Bantamweight,W,TKO (Punches) Round 2
+51999,Amir Albazi,2015-03-19,Bitva Roku,Bitva Roku 2015,100634,Ondrej Moravec,,W,TKO (Punches) Round 1
+51999,Amir Albazi,2014-11-08,UCMMA,UCMMA 41 - Ultimate Challenge MMA 41,87086,Salih Kulucan,#690 Bantamweight,W,Submission (Kimura) Round 2
+51999,Amir Albazi,2010-10-10,SFC,SFC 3 - Showdown,61760,Ally McCrae,,W,Submission (Rear Naked Choke) Round 2
+51999,Amir Albazi,2010-09-04,WUFC,WUFC - World Ultimate Full Contact 16,72103,Bagandov Murada,,W,TKO (Punches) Round 1
+51999,Amir Albazi,2009-08-22,WUFC,WUFC - World Ultimate Full Contact 15,38917,Andre Batista,,W,TKO (Punches) Round 1
+51999,Amir Albazi,2009-08-22,WUFC,WUFC - World Ultimate Full Contact 15,52000,Pavlo Kulish,,W,Submission (Rear Naked Choke) Round 1
+51999,Amir Albazi,2016-12-10,FightStar Championship,FightStar Championship 8,79593,Jamie Powell,#293 Flyweight,W,Decision (Unanimous) Round 3
+51999,Amir Albazi,2015-03-19,Bitva Roku,Bitva Roku 2015,17230,Niko Gjoka,#317 Bantamweight,W,TKO (Punches) Round 2
+51999,Amir Albazi,2010-10-10,SFC,SFC 3 - Showdown,87086,Salih Kulucan,#690 Bantamweight,W,Submission (Kimura) Round 2
+51999,Amir Albazi,2010-09-04,WUFC,WUFC - World Ultimate Full Contact 16,61760,Ally McCrae,"Sunday, October 10th 2010",W,Submission (Rear Naked Choke) Round 2
+51999,Amir Albazi,2009-08-22,WUFC,WUFC - World Ultimate Full Contact 15,72103,Bagandov Murada,"Saturday, September 4th 2010",W,TKO (Punches) Round 1
+169660,Edgar Chairez,2026-06-06,UFC Fight Night,UFC Fight Night: Muhammad vs. Bonfim,104938,Bruno Silva,#32 Flyweight,W,Submission (Rear-Naked Choke) Round 1
+169660,Edgar Chairez,2026-02-28,UFC Fight Night,UFC Fight Night: Moreno vs. Kavanagh,116423,Felipe Bunes,#51 Flyweight,W,Decision (Split) Round 3
+169660,Edgar Chairez,2025-03-29,UFC on ESPN,UFC on ESPN 64 - Moreno vs. Erceg,73574,C.J. Vergara,#139 Flyweight,W,Submission (Face Crank) Round 1
+169660,Edgar Chairez,2024-09-14,UFC,UFC 306 - Noche UFC: OMalley vs. Dvalishvili,227103,Joshua Van,#18 Flyweight,L,Decision (Unanimous) Round 3
+169660,Edgar Chairez,2024-02-24,UFC Fight Night,UFC Fight Night 237 - Moreno vs. Royval 2,171568,Daniel Lacerda,#418 Flyweight,W,Submission (Triangle Choke) Round 1
+169660,Edgar Chairez,2023-09-16,UFC Fight Night,UFC Fight Night 227 - Grasso vs. Shevchenko 2,171568,Daniel Lacerda,#379 Flyweight,NC,No Contest (Premature Stoppage) Round 1
+169660,Edgar Chairez,2023-07-08,UFC,UFC 290 - Volkanovski vs. Rodriguez,193867,Tatsuro Taira,#19 Flyweight,L,Decision (Unanimous) Round 3
+169660,Edgar Chairez,2023-03-24,Fury FC,Fury FC 76 - Fury Fighting Championship 76...,142425,Gianni Vazquez,#161 Flyweight,W,Submission (Armbar) Round 4
+169660,Edgar Chairez,2022-11-25,UWC Mexico,UWC Mexico 40 - Sabori vs. Sanchez,56064,Roberto Guerrero,,W,Submission (Guillotine Choke) Round 1
+169660,Edgar Chairez,2022-08-09,Dana Whites Contender Series,Dana Whites Contender Series - Contender S...,152926,Clayton Carpenter,#192 Flyweight,L,Decision (Unanimous) Round 3
+169660,Edgar Chairez,2022-01-21,Naciones MMA,Naciones MMA 3 - Tijuana,98854,Ivan Hernandez,,W,TKO (Punches) Round 1
+169660,Edgar Chairez,2021-04-09,Combate Global,Combate Global - Chairez vs. Monterroso,92336,Bacillo Mefi Monterroso,,W,TKO (Body Kick and Punches) Round 2
+169660,Edgar Chairez,2020-09-04,UWC,UWC 23,149839,Jesus Santos Aguilar,#213 Flyweight,L,Submission (Guillotine Choke) Round 5
+169660,Edgar Chairez,2020-02-21,Combate,Combate 55: Mexicali,179843,David Ruiz,#718 Bantamweight,W,Submission (Rear Naked Choke) Round 2
+169660,Edgar Chairez,2019-09-20,Combate Americas,Combate Americas - Garcia vs. Gonzalez,174811,Alberto Trujillo,,L,Decision (Unanimous) Round 3
+169660,Edgar Chairez,2019-02-08,Combate,Combate 30: Mexicali,137168,Alejandro Salazar,,W,SUB Round 1
+169660,Edgar Chairez,2018-10-26,Combate Americas,Combate Americas - La Batalla de Guadalajara,198257,Axel Osuna,,L,Submission (Triangle Armbar) Round 2
+169660,Edgar Chairez,2018-05-18,Combate Americas,Combate Americas - Mexico vs. The World,126069,Alan Cantu,,W,TKO (Spinning Back Elbow and Punches) Round 1
+169660,Edgar Chairez,2017-06-30,Combate Americas,Combate Americas - Combate 15,163360,Erick Villaluz Orellano,,W,Submission (Armbar) Round 1
+169660,Edgar Chairez,2017-03-30,Combate,Combate 12,138630,Oscar Quintero,,W,SUB Round 1
+169660,Edgar Chairez,2016-12-03,WCF,WCF 8 - Warrior Championship Fighting 8,96653,Enrique Diarte,,W,KO (Flying Knee) Round 1
+169660,Edgar Chairez,2022-11-25,UWC Mexico,UWC Mexico 40 - Sabori vs. Sanchez,142425,Gianni Vazquez,#161 Flyweight,W,Submission (Armbar) Round 4
+169660,Edgar Chairez,2022-01-21,Naciones MMA,Naciones MMA 3 - Tijuana,152926,Clayton Carpenter,#192 Flyweight,L,Decision (Unanimous) Round 3
+169660,Edgar Chairez,2021-04-09,Combate Global,Combate Global - Chairez vs. Monterroso,98854,Ivan Hernandez,"Friday, January 21st 2022",W,TKO (Punches) Round 1
+169660,Edgar Chairez,2019-09-20,Combate Americas,Combate Americas - Garcia vs. Gonzalez,179843,David Ruiz,#718 Bantamweight,W,Submission (Rear Naked Choke) Round 2
+169660,Edgar Chairez,2019-02-08,Combate,Combate 30: Mexicali,174811,Alberto Trujillo,"Friday, September 20th 2019",L,Decision (Unanimous) Round 3
+169660,Edgar Chairez,2018-10-26,Combate Americas,Combate Americas - La Batalla de Guadalajara,137168,Alejandro Salazar,"Friday, February 8th 2019",W,SUB Round 1
+169660,Edgar Chairez,2018-05-18,Combate Americas,Combate Americas - Mexico vs. The World,198257,Axel Osuna,"Friday, October 26th 2018",L,Submission (Triangle Armbar) Round 2
+169660,Edgar Chairez,2017-06-30,Combate Americas,Combate Americas - Combate 15,126069,Alan Cantu,"Friday, May 18th 2018",W,TKO (Spinning Back Elbow and Punches) Round 1
+169660,Edgar Chairez,2017-03-30,Combate,Combate 12,163360,Erick Villaluz Orellano,"Friday, June 30th 2017",W,Submission (Armbar) Round 1
+169660,Edgar Chairez,2016-12-03,WCF,WCF 8 - Warrior Championship Fighting 8,138630,Oscar Quintero,"Thursday, March 30th 2017",W,SUB Round 1
