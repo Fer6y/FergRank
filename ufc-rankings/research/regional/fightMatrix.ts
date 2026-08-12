@@ -98,7 +98,18 @@ export function promotionOf(event: string): string {
 export function parseFmProfile(html: string): FmProfile {
   const name = strip(html.match(/<h1[^>]*>(.*?)<\/h1>/s)?.[1] ?? '');
   const fmId = html.match(/\/fighter-profile\/[^/]+\/(\d+)\//)?.[1] ?? '';
-  const rows = html.match(/<tr[^>]*>[\s\S]*?<\/tr>/g) ?? [];
+  // PRO FIGHTS ONLY, and only real ones: scope to the section headed "Complete
+  // Professional MMA Fight History" and stop at the next <h2>. Parsing the whole
+  // page also swept up the "Similar Fighters" and historical-ranking tables,
+  // which carry fighter links and inflated counts (Joshua Van read 24 fights
+  // against a ~19-fight pro record). Fight Matrix has no amateur section, so
+  // this bound is the pro-only guarantee as well as the correctness fix.
+  const start = html.search(/<h2>\s*Complete Professional MMA Fight History\s*<\/h2>/i);
+  if (start < 0) return { name, fmId, fights: [] };
+  const after = html.slice(start);
+  const end = after.search(/<h2>(?!\s*Complete Professional)/i);
+  const section = end > 0 ? after.slice(0, end) : after;
+  const rows = section.match(/<tr[^>]*>[\s\S]*?<\/tr>/g) ?? [];
   // A profile renders the same bout in two tables (recent + full history), so
   // every fight matches twice. Key on date+opponent and keep the first.
   const seen = new Set<string>();
