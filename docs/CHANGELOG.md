@@ -10,6 +10,41 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-12
+
+- **NEGATIVE: promotion strength measured from a regional Elo graph does NOT predict graduate
+  success — the crude static ladder beats it. No tier change shipped.** Prompted by a fair
+  user challenge (the pre-UFC model's promotion term is nearly inert: 0.098 logit across the
+  whole ladder vs ~0.9 for win rate, so CFFC and a nothing regional score almost alike).
+  Built `research/dwcs/regionalElo.ts` — one chronological Elo sweep over the **entire
+  pre-UFC fight graph**: 33,740 de-duplicated bouts, 19,734 fighters (2,229 who reached the
+  UFC, 17,505 who did not), with cross-promotion movement supplying the linkage that makes
+  pools comparable. Headline metric deliberately avoids the selection trap: **field
+  strength** = mean settled rating of the NON-graduate participants ("who you actually have
+  to beat"), since every subject in the source file is selected on having reached the UFC.
+  **Result: ρ(field strength, graduates' settled UFC Elo gain) = 0.083 vs ρ(existing static
+  tier multiplier, same) = 0.293** over 57 orgs with 8+ graduates. The measure is worse than
+  the hand-made ladder it was meant to replace, so nothing ships.
+  **Why it fails, diagnosed rather than shrugged at:** the graph is *ego-centric* — it holds
+  only fights involving future UFC fighters, so a promotion's "field" is really "people who
+  repeatedly shared a cage with future UFC talent", not that promotion's actual roster. Elo
+  is also zero-sum within a pool, so a mean only moves on sparse cross-pool results. The
+  output shows both artifacts plainly: the top of the table is small-sample noise (Affliction
+  1553 off 18 bouts — a one-off promotion that imported finished stars) and the developmental
+  orgs that matter cluster inside **3 Elo points** (LFA 1482.5, Cage Warriors 1481.8, CFFC
+  1480.5, Fury FC 1479.4) — i.e. it cannot make the exact CFFC-vs-nothing-regional distinction
+  it was built for. Table committed as `data/promotion_strength.csv` for the queued tier review.
+  **One finding worth carrying forward:** ONE Championship posts the *highest* field strength
+  of any major (1517) while grading the *worst* on graduate outcomes (relFactor 0.9467) — a
+  strong field whose graduates still underperform, which sharpens rather than settles the
+  over-tiering question in `docs/plans/PROMOTION_TIERS_REVIEW.md`.
+  **Also checked and unavailable:** regional TITLE fights, the obvious opponent-quality proxy
+  ("four CFFC title fights" vs none), are not recoverable — 119 of 37,085 rows mention "title"
+  and nearly all are event names ("Titles and Titans"), not title bouts. Sherdog marks them
+  with a belt glyph our scrape never captured.
+  New diagnostic `research/dwcs/scoreCard.ts` prints the full per-fighter logit decomposition
+  for the committed card — the fastest way to answer "why did this fighter get that grade".
+
 ## 2026-08-11
 
 - **NEW SYSTEM: the PRE-UFC RATING — a separate, calibrated scouting model for fighters who have
