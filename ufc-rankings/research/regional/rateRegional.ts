@@ -97,6 +97,20 @@ function main(): void {
     { header: true, skipEmptyLines: true }
   ).data;
 
+  // Per-profile metadata harvested from the cached pages (extractProfileMeta):
+  // the explicit Pro Debut Date turns career length from an inference into a
+  // fact. Fight Matrix carries NO birthdate — "Combat Age" is their wear
+  // metric, deliberately not treated as age anywhere.
+  const meta = new Map<string, { debut: string; proRecord: string }>();
+  const metaPath = path.join(process.cwd(), 'data', 'regional_profile_meta.csv');
+  if (fs.existsSync(metaPath)) {
+    for (const m of Papa.parse<Record<string, string>>(fs.readFileSync(metaPath, 'utf-8'), {
+      header: true, skipEmptyLines: true,
+    }).data) {
+      if (m.fmId && m.proDebutDate) meta.set(m.fmId, { debut: m.proDebutDate, proRecord: m.proRecord ?? '' });
+    }
+  }
+
   // ── de-duplicate into bouts (both corners crawled ⇒ the bout appears twice) ──
   const bouts = new Map<string, { date: string; promo: string; a: string; b: string; sa: number }>();
   const nameOf = new Map<string, string>();
@@ -182,17 +196,38 @@ function main(): void {
     console.log(`  ${nm.padEnd(20)} ${get(id).toFixed(0).padStart(5)}  p${pct(get(id)).toFixed(0).padStart(3)}  ${cnt} bouts  ${exp.toFixed(1)}y career`);
   }
 
+  // Career length: explicit pro-debut date when the profile carries one
+  // (11,466 of them do), observed-first-bout as the fallback. Report how often
+  // the two disagree in the impossible direction (debut AFTER a bout we hold)
+  // — a nonzero count there would mean bad joins, not bad dates.
+  const careerOf = (id: string): { debut: string; years: number; src: 'profile' | 'observed' } => {
+    const m = meta.get(id);
+    const obs = debut.get(id)!;
+    const d = m?.debut && m.debut <= obs ? m.debut : m?.debut && m.debut > obs ? obs : m?.debut ?? obs;
+    return { debut: d, years: yearsBetween(d, last.get(id)!), src: m?.debut ? 'profile' : 'observed' };
+  };
+  let debutConflicts = 0;
+  for (const [id] of rating) {
+    const m = meta.get(id);
+    if (m?.debut && debut.has(id) && m.debut > debut.get(id)!) debutConflicts++;
+  }
+  console.log(`\n[meta] pro-debut joined for ${[...rating.keys()].filter((id) => meta.has(id)).length}/${rating.size} fighters; ${debutConflicts} debut-after-observed conflicts (clamped to observed)`);
+
   const out = path.join(process.cwd(), 'data', 'regional_ratings.csv');
   fs.writeFileSync(out, Papa.unparse(
     [...rating.entries()]
       .filter(([id]) => (n.get(id) ?? 0) >= MIN_RATED)
       .sort((a, b) => b[1] - a[1])
-      .map(([id, v]) => ({
-        fmId: id, name: decodeEntities(nameOf.get(id) ?? ''), rating: v.toFixed(1),
-        percentile: pct(v).toFixed(1),
-        bouts: n.get(id), debut: debut.get(id), lastFight: last.get(id),
-        careerYears: yearsBetween(debut.get(id)!, last.get(id)!).toFixed(1),
-      }))
+      .map(([id, v]) => {
+        const c = careerOf(id);
+        return {
+          fmId: id, name: decodeEntities(nameOf.get(id) ?? ''), rating: v.toFixed(1),
+          percentile: pct(v).toFixed(1),
+          bouts: n.get(id), debut: c.debut, debutSource: c.src, lastFight: last.get(id),
+          careerYears: c.years.toFixed(1),
+          proRecord: meta.get(id)?.proRecord ?? '',
+        };
+      })
   ) + '\n');
   console.log(`\nwrote ${out}`);
   console.log('NOTE: age is NOT in this rating — the crawl carries no birthdates, so career');

@@ -367,13 +367,26 @@ function ScoutBand({ bout }: { bout: CardBout }) {
             walk-forward validated on regional fights. Absence is stated, never
             guessed around. */}
         {s.regional ? (
-          <p className="text-[10px] mt-1 leading-snug font-mono">
-            <span style={{ color: 'var(--accent-gold)' }}>REGIONAL ELO {s.regional.rating}</span>
-            <span style={{ color: 'var(--text-secondary)' }}>
-              {' '}· top {Math.max(1, Math.round(100 - s.regional.percentile))}% of{' '}
-              {(Math.round(s.regional.poolSize / 1000))}k rated regional fighters · {s.regional.bouts} bouts traced
-            </span>
-          </p>
+          <>
+            <p className="text-[10px] mt-1 leading-snug font-mono">
+              <span style={{ color: 'var(--accent-gold)' }}>REGIONAL ELO {s.regional.rating}</span>
+              <span style={{ color: 'var(--text-secondary)' }}>
+                {' '}· top {Math.max(1, Math.round(100 - s.regional.percentile))}% of{' '}
+                {(Math.round(s.regional.poolSize / 1000))}k rated regional fighters · {s.regional.bouts} bouts traced
+                {s.regional.careerYears != null && ` · ${s.regional.careerYears}y pro`}
+              </span>
+            </p>
+            {/* The runway verdict — the one-line read this data exists for.
+                Age is the hand-verified card age; the 28/29 cut is the cohort
+                study's measured band (29+ entrants: 5% top-15, −14.1 Elo). */}
+            {r?.age != null && s.regional.percentile >= 85 && (
+              <p className="text-[10px] mt-0.5 leading-snug" style={{ color: r.age <= 28 ? 'var(--accent-green)' : 'var(--accent-red-light)' }}>
+                {r.age <= 28
+                  ? `Elite regional form at ${r.age} — the young-stud profile the cohort's best outcomes come from.`
+                  : `Elite regional form at ${r.age} — a late surge; the cohort discounts short runways (29+: 5% reach the top 15).`}
+              </p>
+            )}
+          </>
         ) : (
           <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>
             Not in the cross-promotion graph — no regional Elo. Unrated, not zero.

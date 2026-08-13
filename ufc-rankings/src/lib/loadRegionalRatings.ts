@@ -27,6 +27,10 @@ export interface RegionalRead {
   bouts: number;
   lastFight: string;    // ISO date of latest rated bout
   poolSize: number;     // how many fighters the percentile is against
+  // Career stage from the profile's explicit Pro Debut Date (fact, not
+  // inference). NOT an age — Fight Matrix carries no birthdate; age still
+  // comes only from the hand-verified card snapshot.
+  careerYears: number | null;
 }
 
 const norm = (s: string) =>
@@ -57,6 +61,7 @@ export function getRegionalIndex(): Map<string, RegionalRead> {
       bouts: Number(r.bouts),
       lastFight: r.lastFight ?? '',
       poolSize,
+      careerYears: r.careerYears ? Number(r.careerYears) : null,
     });
   }
   for (const key of ambiguous) out.delete(key);

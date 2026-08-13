@@ -12,6 +12,28 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
+- **SHIPPED: career-stage on the regional read + the runway verdict line — and the honest
+  finding that Fight Matrix has NO ages.** The planned "extract DOB from cached profiles"
+  upgrade died on verification: profiles carry no birthdate, and the tempting "Combat Age"
+  field is FM's experimental wear metric ("dog years" from opposition quality — Joshua Van
+  reads 28 against a real age of 24), so treating it as age would be fabrication. What IS
+  real: an explicit **Pro Debut Date** on 100% of the 11,466 cached profiles.
+  `extractProfileMeta.ts` (zero network) harvests debut/proRecord/fmCombatAge →
+  `regional_profile_meta.csv`; `rateRegional.ts` joins it so `careerYears` is a fact rather
+  than a first-observed-bout inference (**0** debut-after-observed conflicts across 11,463
+  joins — the parser sanity check). Two regex traps caught by verifying against known values
+  rather than trusting fill rates: values are wrapped in `<strong>` (first pass read
+  Makhachev's debut as empty; a tag-tolerant pattern fixed it and his 2010-08-01 matches his
+  first Tsumada bout), and the same for Combat Age (0% → 31.7% filled).
+  **The scout band now carries the tell the user asked for**: `REGIONAL ELO 1622 · top 5% ·
+  8 bouts traced · 3y pro` plus a verdict line when age (hand-verified snapshot only) and
+  percentile are both known — `Elite regional form at 25 — the young-stud profile` (green) vs
+  `Elite regional form at 30 — a late surge; the cohort discounts short runways (29+: 5%
+  reach the top 15)` (red). The 28/29 cut is the DWCS cohort study's measured band, not an
+  invented threshold; the line only renders at ≥85th percentile so it never editorialises
+  mediocre form. Verified live (Hasan young-stud, Wint late-surge, Adams still honestly
+  unrated), zero console errors; golden master byte-identical; build clean.
+
 - **SHIPPED: the REGIONAL ELO on the /upcoming Contender Series scout band.** The
   cross-promotion rating built from the event-seeded Fight Matrix crawl is now live product:
   each DWCS corner shows `REGIONAL ELO 1622 · top 5% of 18k rated regional fighters · 8 bouts
