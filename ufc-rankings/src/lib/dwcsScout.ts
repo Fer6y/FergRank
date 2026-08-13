@@ -23,6 +23,11 @@ export interface ScoutRead {
   // layer where the fighter's name is known. Null = not in the regional graph —
   // rendered as exactly that, never guessed.
   regional?: import('./loadRegionalRatings').RegionalRead | null;
+  // Career arc from a VERIFIED birthdate + pro-debut date (careerStage.ts).
+  // Null when either fact is unconfirmed — never inferred from the card's
+  // hand-entered age. Display-only: the pre-registered test (2026-08-12) found
+  // debut age adds nothing over age alone, so this never enters a score.
+  stage?: import('./careerStage').CareerStage | null;
 }
 
 // Org → tier multiplier, resolved against data/sherdog_orgs.csv — the SAME

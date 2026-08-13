@@ -12,6 +12,38 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
+- **SHIPPED: the CAREER-STAGE metric + verified birthdates — and the pre-registered test says
+  it stays DISPLAY-ONLY.** Closes the "a 23-year-old is very different from a 36-year-old with
+  the same fight count" gap. `src/lib/careerStage.ts` classifies an arc from three facts —
+  chronological age (ESPN), pro-debut date (Fight Matrix profile, 100% coverage), fight count —
+  into six bands whose age cuts are the DWCS cohort's MEASURED ones, not invented.
+  **The DOB source problem is solved**: `research/regional/fetchEspnDob.ts` harvests ESPN's open
+  core API (38k MMA athletes incl. pure regionals) behind three gates — uniqueness (exactly one
+  MMA athlete id or `ambiguous`, never guess a namesake), token name-match, and the
+  career-plausibility guard (debut age 16–47). Smoke test: 20/20 found, **8/8 exact agreement
+  with our canonical UFC birthdates**. It immediately corrected two hand-entered card ages
+  (Matt Adams 30→**28**, Jon Kunneman 25→**27**), which moved Adams's pre-UFC score 8→23 —
+  birthdates beat media reports.
+  **The verdict, per the bar committed in `docs/plans/CAREER_STAGE_PLAN.md` before running**
+  (`research/regional/validateCareerStage.ts`, temporal split: fit pre-2022, score 2022+,
+  n=191 held-out / 15 positives): age-only AUC **0.738**; **+ debut age +0.000**
+  [−0.007, +0.007] — exactly the collinearity predicted in advance (debutAge = age −
+  careerYears, so with age in the model it is redundant); **+ pace +0.027** [−0.071, +0.133] —
+  beats the +0.02 threshold but the CI spans zero at 15 positives. **Neither clears, so the
+  metric never enters a score** and ships as scout-band context, like careerYears.
+  **The descriptive table is the real yield** (top-15 rate by band): blue-chip 13.2% (n=38) ·
+  raw-prospect 10.0% (n=40) · prime-build 6.1% (n=163) · seasoned 3.1% (n=191) · veteran
+  **0.0%** (n=31) · late-starter 15.8% (n=19). Two findings worth carrying: blue-chip and
+  raw-prospect share a mean age (23.3 vs 22.9) and differ only on fight count, yet outcomes
+  differ 13.2% vs 10.0% — the arc separates fighters age cannot; and *nobody 33+ has reached
+  the top 15*, while late-starters (mean age 31.7, turned pro at 29.4) post the highest rate of
+  any band on a small sample — plausibly elite athletes converting late with fresh mileage,
+  which cuts against a naive "older is worse" reading and is flagged, not smoothed over.
+  Verified live on the scout band (Hasan `PRIME BUILD · 25.1, debuted at 21.4 · 2.7 fights/yr`;
+  Wint `SEASONED · 30.9, pro since 27.6`), zero console errors, golden master byte-identical,
+  build clean. The 18,279-name harvest continues in the background; the metric already works
+  for every fighter it has confirmed.
+
 - **SHIPPED: career-stage on the regional read + the runway verdict line — and the honest
   finding that Fight Matrix has NO ages.** The planned "extract DOB from cached profiles"
   upgrade died on verification: profiles carry no birthdate, and the tempting "Combat Age"

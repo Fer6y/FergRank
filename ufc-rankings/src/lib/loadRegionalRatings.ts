@@ -28,9 +28,9 @@ export interface RegionalRead {
   lastFight: string;    // ISO date of latest rated bout
   poolSize: number;     // how many fighters the percentile is against
   // Career stage from the profile's explicit Pro Debut Date (fact, not
-  // inference). NOT an age — Fight Matrix carries no birthdate; age still
-  // comes only from the hand-verified card snapshot.
+  // inference). NOT an age — Fight Matrix carries no birthdate.
   careerYears: number | null;
+  debut: string | null;   // ISO pro-debut date, for the career-stage classifier
 }
 
 const norm = (s: string) =>
@@ -62,6 +62,7 @@ export function getRegionalIndex(): Map<string, RegionalRead> {
       lastFight: r.lastFight ?? '',
       poolSize,
       careerYears: r.careerYears ? Number(r.careerYears) : null,
+      debut: r.debut || null,
     });
   }
   for (const key of ambiguous) out.delete(key);
@@ -69,5 +70,33 @@ export function getRegionalIndex(): Map<string, RegionalRead> {
 }
 
 export function lookupRegional(index: Map<string, RegionalRead>, name: string): RegionalRead | null {
+  return index.get(norm(name)) ?? null;
+}
+
+/**
+ * Verified birthdates harvested from ESPN's core API
+ * (research/regional/fetchEspnDob.ts). Only `found` rows — every one passed a
+ * uniqueness, name-match and career-plausibility gate at harvest time, so an
+ * absent name here means "we could not confirm it", never a guess. Same
+ * no-module-cache rule as the ratings index.
+ */
+export function getDobIndex(): Map<string, string> {
+  const out = new Map<string, string>();
+  const p = path.join(process.cwd(), 'data', 'regional_dob.csv');
+  if (!fs.existsSync(p)) return out;
+  try {
+    for (const r of Papa.parse<Record<string, string>>(fs.readFileSync(p, 'utf-8'), {
+      header: true,
+      skipEmptyLines: true,
+    }).data) {
+      if (r.status === 'found' && r.dob && r.name) out.set(norm(r.name), r.dob);
+    }
+  } catch {
+    /* absent or malformed → no birthdates, callers degrade */
+  }
+  return out;
+}
+
+export function lookupDob(index: Map<string, string>, name: string): string | null {
   return index.get(norm(name)) ?? null;
 }

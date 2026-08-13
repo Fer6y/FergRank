@@ -376,6 +376,32 @@ function ScoutBand({ bout }: { bout: CardBout }) {
                 {s.regional.careerYears != null && ` · ${s.regional.careerYears}y pro`}
               </span>
             </p>
+            {/* Career arc from a VERIFIED birthdate + pro-debut date. The
+                cohort rates for each band are measured, and the band exists
+                because age alone can't separate a 30-year-old seven years into
+                the grind from a 30-year-old two fights past turning pro. */}
+            {s.stage && (
+              <p className="text-[10px] mt-0.5 leading-snug">
+                <span
+                  className="font-mono px-1 py-px rounded mr-1.5"
+                  style={{
+                    backgroundColor: 'var(--bg-elevated)',
+                    color:
+                      s.stage.band === 'blue-chip' ? 'var(--accent-green)'
+                      : s.stage.band === 'veteran' ? 'var(--accent-red-light)'
+                      : 'var(--text-secondary)',
+                    border: '1px solid var(--border)',
+                  }}
+                  title="Career stage — from a verified birthdate and pro-debut date. Display context; it did not clear the bar to affect the score."
+                >
+                  {s.stage.label.toUpperCase()}
+                </span>
+                <span style={{ color: 'var(--text-muted)' }}>
+                  {s.stage.detail}
+                  {s.stage.fightsPerYear != null && ` · ${s.stage.fightsPerYear} fights/yr`}
+                </span>
+              </p>
+            )}
             {/* The runway verdict — the one-line read this data exists for.
                 Age is the hand-verified card age; the 28/29 cut is the cohort
                 study's measured band (29+ entrants: 5% top-15, −14.1 Elo). */}

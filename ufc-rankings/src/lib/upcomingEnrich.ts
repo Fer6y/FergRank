@@ -25,7 +25,8 @@ import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { UpcomingCard, CardSection } from './loadUpcoming';
 import { scoutDwcsEntrant, type ScoutRead } from './dwcsScout';
-import { getRegionalIndex, lookupRegional } from './loadRegionalRatings';
+import { getRegionalIndex, lookupRegional, getDobIndex, lookupDob } from './loadRegionalRatings';
+import { careerStage } from './careerStage';
 
 // One enriched corner of a bout — everything the card UI needs, display-only.
 export interface CardFighter {
@@ -241,8 +242,24 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
   // when a DWCS card is actually present.
   const anyDwcs = cards.some((c) => DWCS_RE.test(`${c.eventId ?? ''} ${c.eventName}`));
   const regionalIndex = anyDwcs ? getRegionalIndex() : null;
-  const withRegional = (read: ScoutRead | null, name: string): ScoutRead | null =>
-    read ? { ...read, regional: regionalIndex ? lookupRegional(regionalIndex, name) : null } : read;
+  const dobIndex = anyDwcs ? getDobIndex() : null;
+  const withRegional = (read: ScoutRead | null, name: string): ScoutRead | null => {
+    if (!read) return read;
+    const regional = regionalIndex ? lookupRegional(regionalIndex, name) : null;
+    const dob = dobIndex ? lookupDob(dobIndex, name) : null;
+    // Career stage needs BOTH verified facts; the card's hand-entered age is
+    // never substituted for a birthdate here.
+    const stage =
+      dob && regional?.debut
+        ? careerStage({
+            dob,
+            proDebutDate: regional.debut,
+            fights: regional.bouts,
+            lastFightDate: regional.lastFight || undefined,
+          })
+        : null;
+    return { ...read, regional, stage };
+  };
 
   return cards.map((card) => {
     const isDwcs = DWCS_RE.test(`${card.eventId ?? ''} ${card.eventName}`);
