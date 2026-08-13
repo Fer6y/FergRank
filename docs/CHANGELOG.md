@@ -12,6 +12,30 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
+- **SHIPPED: the REGIONAL ELO on the /upcoming Contender Series scout band.** The
+  cross-promotion rating built from the event-seeded Fight Matrix crawl is now live product:
+  each DWCS corner shows `REGIONAL ELO 1622 · top 5% of 18k rated regional fighters · 8 bouts
+  traced`, or — equally deliberately — `Not in the cross-promotion graph — no regional Elo.
+  Unrated, not zero.` Absence is stated, never guessed around.
+  **Canonicalisation finished before shipping** (`canonPromotion` in `rateRegional.ts`): PFL ∪
+  "Professional Fighters League" (now 2,230 appearances), ACB→ACA rename folded (1,723), FNG/AMC
+  → Fight Nights (327), RCC folded (359), HTML-entity "DW&#39;s Contender Series" decoded.
+  Checked before deleting: the suspicious "BYE" promotion is REAL — Berkut Young Eagles, ACA's
+  development league — and stays.
+  **Pipeline**: `regional_ratings.csv` (18,443 fighters, percentile column) →
+  `src/lib/loadRegionalRatings.ts` (no module cache per the ISR lesson; index built once per
+  enrich pass, not per corner; 177 ambiguous duplicate names DROPPED — attaching a namesake's
+  rating is worse than none) → `ScoutRead.regional` attached in `upcomingEnrich` where the
+  name is known → rendered under the pre-UFC rating in the scout band.
+  **Validation stands**: walk-forward 63.9% / 0.6407 / ECE 0.095 on 27,783 held-out regional
+  bouts, no UFC outcome anywhere in the pipeline. Verified live in the browser (date-bumped
+  snapshot, then restored byte-identical): Hasan 1622/top-5%, Wint 1594/top-11%, Adams renders
+  the unrated line. Zero console errors; golden master byte-identical; build static.
+  **Honest limits shipped with it**: coverage is systematically thinnest for the weakest
+  circuits (Adams/Kunneman/Kropschot absent — Ohio Combat League etc. aren't on Fight Matrix),
+  so the band never converts absence into a number; the join is display-name-keyed (Fight
+  Matrix ids mean nothing to our data); ratings refresh only on a manual re-crawl + re-rate.
+
 - **CORRECTED TARGET, then a second negative: grading promotions inside the PROSPECT pool.
   The regional rating validates; the promotion ladder still can't be improved. No change
   shipped.** The first attempt below scored promotions against graduates' UFC Elo gain, which

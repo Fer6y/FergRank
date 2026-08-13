@@ -363,6 +363,22 @@ function ScoutBand({ bout }: { bout: CardBout }) {
           </div>
         )}
         <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>{s.line}</p>
+        {/* Cross-promotion regional Elo — measured from who they actually beat,
+            walk-forward validated on regional fights. Absence is stated, never
+            guessed around. */}
+        {s.regional ? (
+          <p className="text-[10px] mt-1 leading-snug font-mono">
+            <span style={{ color: 'var(--accent-gold)' }}>REGIONAL ELO {s.regional.rating}</span>
+            <span style={{ color: 'var(--text-secondary)' }}>
+              {' '}· top {Math.max(1, Math.round(100 - s.regional.percentile))}% of{' '}
+              {(Math.round(s.regional.poolSize / 1000))}k rated regional fighters · {s.regional.bouts} bouts traced
+            </span>
+          </p>
+        ) : (
+          <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>
+            Not in the cross-promotion graph — no regional Elo. Unrated, not zero.
+          </p>
+        )}
       </div>
     );
   };

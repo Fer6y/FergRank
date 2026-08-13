@@ -19,6 +19,10 @@ import type { DwcsScoutRaw } from './loadUpcoming';
 export interface ScoutRead {
   rating: PreUfcRating | null; // null = not enough verified data to score
   line: string;                // the evidence sentence shown in the UI
+  // Cross-promotion regional Elo (loadRegionalRatings), attached at the enrich
+  // layer where the fighter's name is known. Null = not in the regional graph —
+  // rendered as exactly that, never guessed.
+  regional?: import('./loadRegionalRatings').RegionalRead | null;
 }
 
 // Org → tier multiplier, resolved against data/sherdog_orgs.csv — the SAME

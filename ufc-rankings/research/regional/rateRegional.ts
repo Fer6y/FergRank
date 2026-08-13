@@ -47,17 +47,22 @@ interface Row {
 }
 
 // Fold event-name variants into one promotion key. Order matters — first match
-// wins, so specific patterns precede generic ones.
+// wins, so specific patterns precede generic ones. Verified against the actual
+// key fragmentation in the crawled table (PFL vs "Professional Fighters
+// League", HTML-entity "DW&#39;s Contender Series", ACB→ACA rename, Fight
+// Nights / FNG / AMC lineage). NOT folded on purpose: "BYE" is Berkut Young
+// Eagles — ACA's development league, real fights, its own scene.
 const CANON: [RegExp, string][] = [
+  [/^(road to ufc)/i, 'Road to UFC'],           // before /^ufc/ — a regional tournament, not the UFC
   [/^ufc/i, 'UFC'],
-  [/^(dana white|contender)/i, "Dana White's Contender Series"],
+  [/^(dana white|dw'?s contender|contender)/i, "Dana White's Contender Series"],
   [/^(cffc|cage fury)/i, 'CFFC'],
   [/^(lfa|legacy f|resurrection f|rfa)/i, 'LFA'],
   [/^fury/i, 'Fury FC'],
   [/^(bellator|bfc\b)/i, 'Bellator'],
-  [/^(pfl|world series of fighting|wsof)/i, 'PFL'],
+  [/^(pfl|professional fighters league|world series of fighting|wsof)/i, 'PFL'],
   [/^cage warriors/i, 'Cage Warriors'],
-  [/^(one championship|one fc|one:)/i, 'ONE'],
+  [/^(one championship|one fc|one:|one \d)/i, 'ONE'],
   [/^rizin/i, 'RIZIN'],
   [/^ksw/i, 'KSW'],
   [/^m-1/i, 'M-1'],
@@ -67,15 +72,18 @@ const CANON: [RegExp, string][] = [
   [/^titan/i, 'Titan FC'],
   [/^invicta/i, 'Invicta FC'],
   [/^(king of the cage|kotc)/i, 'King of the Cage'],
-  [/^(ces|classic entertainment)/i, 'CES'],
+  [/^(ces\b|classic entertainment)/i, 'CES'],
   [/^(oktagon)/i, 'Oktagon'],
   [/^(brave)/i, 'Brave CF'],
   [/^(uae warriors)/i, 'UAE Warriors'],
-  [/^(aca|absolute championship)/i, 'ACA'],
-  [/^(road to ufc)/i, 'Road to UFC'],
+  [/^(aca\b|acb\b|absolute championship)/i, 'ACA'],  // ACB renamed to ACA in 2018
+  [/^(russian cagefighting|rcc\b)/i, 'RCC'],
+  [/^(amc fight nights|amc\b|fight nights|fng\b)/i, 'Fight Nights'], // FNG → AMC Fight Nights lineage
 ];
+const decodeEntities = (s: string) =>
+  s.replace(/&#0?39;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"');
 export function canonPromotion(p: string): string {
-  const s = p.trim();
+  const s = decodeEntities(p.trim());
   for (const [re, name] of CANON) if (re.test(s)) return name;
   return s.replace(/\s+\d+.*$/, '').trim() || 'Unknown';
 }
@@ -180,7 +188,8 @@ function main(): void {
       .filter(([id]) => (n.get(id) ?? 0) >= MIN_RATED)
       .sort((a, b) => b[1] - a[1])
       .map(([id, v]) => ({
-        fmId: id, name: nameOf.get(id) ?? '', rating: v.toFixed(1),
+        fmId: id, name: decodeEntities(nameOf.get(id) ?? ''), rating: v.toFixed(1),
+        percentile: pct(v).toFixed(1),
         bouts: n.get(id), debut: debut.get(id), lastFight: last.get(id),
         careerYears: yearsBetween(debut.get(id)!, last.get(id)!).toFixed(1),
       }))

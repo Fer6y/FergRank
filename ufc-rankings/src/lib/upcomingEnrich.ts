@@ -25,6 +25,7 @@ import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { UpcomingCard, CardSection } from './loadUpcoming';
 import { scoutDwcsEntrant, type ScoutRead } from './dwcsScout';
+import { getRegionalIndex, lookupRegional } from './loadRegionalRatings';
 
 // One enriched corner of a bout — everything the card UI needs, display-only.
 export interface CardFighter {
@@ -235,6 +236,14 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     };
   };
 
+  // Regional-Elo index for DWCS scout bands — built ONCE per enrich pass (the
+  // CSV is ~1MB; per-corner reads would parse it ten times per card), and only
+  // when a DWCS card is actually present.
+  const anyDwcs = cards.some((c) => DWCS_RE.test(`${c.eventId ?? ''} ${c.eventName}`));
+  const regionalIndex = anyDwcs ? getRegionalIndex() : null;
+  const withRegional = (read: ScoutRead | null, name: string): ScoutRead | null =>
+    read ? { ...read, regional: regionalIndex ? lookupRegional(regionalIndex, name) : null } : read;
+
   return cards.map((card) => {
     const isDwcs = DWCS_RE.test(`${card.eventId ?? ''} ${card.eventName}`);
     return {
@@ -255,8 +264,8 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
         ...(isDwcs
           ? {
               prob1: null, formProb1: null, flags1: null, flags2: null,
-              scout1: b.scout1 ? scoutDwcsEntrant(b.scout1) : null,
-              scout2: b.scout2 ? scoutDwcsEntrant(b.scout2) : null,
+              scout1: b.scout1 ? withRegional(scoutDwcsEntrant(b.scout1), b.fighter1Name) : null,
+              scout2: b.scout2 ? withRegional(scoutDwcsEntrant(b.scout2), b.fighter2Name) : null,
             }
           : { ...probs(b.fighter1Id, b.fighter2Id, card.eventDate), scout1: null, scout2: null }),
       })),
