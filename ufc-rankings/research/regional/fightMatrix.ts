@@ -161,6 +161,61 @@ export function parseFmProfile(html: string): FmProfile {
   return { name, fmId, fights };
 }
 
+export interface FmEventBout {
+  fmIdA: string; nameA: string;
+  fmIdB: string; nameB: string;
+  winner: 'A' | 'B' | 'draw' | 'nc';
+  method: string;
+  round: string;
+  division: string; // from the rank chip, e.g. "LHW" ('' when unranked)
+}
+
+export interface FmEvent {
+  title: string;
+  date: string | null; // ISO
+  bouts: FmEventBout[];
+}
+
+/**
+ * Parse a Fight Matrix EVENT page: the results table renders one row per bout
+ * with a cell per corner — fighter-profile link plus a "W - Method - Round N"
+ * paragraph on each side. The date lives in the page H3
+ * ("Dana Whites Contender Series, Tuesday, June 25th 2019").
+ */
+export function parseFmEvent(html: string): FmEvent {
+  const h3 = strip(html.match(/<H3[^>]*>([\s\S]*?)<\/H3>/i)?.[1] ?? '');
+  const date = parseDate(h3);
+  const title = h3.replace(/,?\s*(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday).*$/i, '').trim();
+
+  const bouts: FmEventBout[] = [];
+  for (const row of html.match(/<tr[^>]*>[\s\S]*?<\/tr>/g) ?? []) {
+    // Two fighter links per bout row, but only the RESULT-side cell carries a
+    // "W - Method - Round N" paragraph (the loser's cell has none). Pair the
+    // single result <p> with the nearest preceding link by offset.
+    const links = [...row.matchAll(/href='\/fighter-profile\/([^']+?)\/(\d+)\/'>([^<]+)</g)];
+    if (links.length !== 2) continue;
+    const res = /<p[^>]*>\s*(W|L|D|NC)\s*-\s*([^<]*?)\s*<\/p>/.exec(row);
+    if (!res) continue;
+    const resCorner = res.index > (links[1].index ?? 0) ? 1 : 0; // which corner the <p> belongs to
+    const letter = res[1];
+    const winner: FmEventBout['winner'] =
+      letter === 'D' ? 'draw'
+      : letter === 'NC' ? 'nc'
+      : (letter === 'W') === (resCorner === 0) ? 'A' : 'B';
+    const mm = res[2].match(/^(.*?)(?:\s*-\s*Round\s*(\d+))?\s*$/s);
+    const divs = [...row.matchAll(/\[(?:#\d+|NR)\s*([A-Za-z]*)\]/g)].map((m) => m[1]);
+    bouts.push({
+      fmIdA: links[0][2], nameA: strip(links[0][3]),
+      fmIdB: links[1][2], nameB: strip(links[1][3]),
+      winner,
+      method: strip(mm?.[1] ?? res[2]).replace(/\s*-\s*$/, ''),
+      round: mm?.[2] ?? '',
+      division: divs.find(Boolean) ?? '',
+    });
+  }
+  return { title, date, bouts };
+}
+
 /** Ranking pages list deep into the regional pool — the crawl seed. */
 export function parseFmRanking(html: string): { name: string; fmId: string }[] {
   const out = new Map<string, string>();

@@ -1,6 +1,6 @@
 {
  "summary": {
-  "generatedAt": "2026-08-11",
+  "generatedAt": "2026-08-13",
   "bouts": 325,
   "participants": 594,
   "graduates": 335,
@@ -11,75 +11,84 @@
  "seasonTable": [
   {
    "season": 2017,
-   "bouts": 31,
-   "finishRate": 0.633,
+   "bouts": 40,
+   "finishRate": 0.59,
    "entrants": 59,
    "contractRate": 0.61,
-   "top15": 3
+   "top15": 3,
+   "source": "fightmatrix"
   },
   {
    "season": 2018,
-   "bouts": 45,
-   "finishRate": 0.767,
+   "bouts": 60,
+   "finishRate": 0.69,
    "entrants": 83,
    "contractRate": 0.554,
-   "top15": 2
+   "top15": 2,
+   "source": "fightmatrix"
   },
   {
    "season": 2019,
-   "bouts": 41,
-   "finishRate": 0.564,
+   "bouts": 49,
+   "finishRate": 0.489,
    "entrants": 76,
    "contractRate": 0.592,
-   "top15": 5
+   "top15": 5,
+   "source": "fightmatrix"
   },
   {
    "season": 2020,
-   "bouts": 38,
-   "finishRate": 0.605,
+   "bouts": 48,
+   "finishRate": 0.479,
    "entrants": 64,
    "contractRate": 0.594,
-   "top15": 3
+   "top15": 3,
+   "source": "fightmatrix"
   },
   {
    "season": 2021,
-   "bouts": 40,
-   "finishRate": 0.553,
+   "bouts": 50,
+   "finishRate": 0.521,
    "entrants": 75,
    "contractRate": 0.587,
-   "top15": 5
+   "top15": 5,
+   "source": "fightmatrix"
   },
   {
    "season": 2022,
-   "bouts": 42,
-   "finishRate": 0.643,
+   "bouts": 49,
+   "finishRate": 0.653,
    "entrants": 77,
    "contractRate": 0.532,
-   "top15": 7
+   "top15": 7,
+   "source": "fightmatrix"
   },
   {
    "season": 2023,
-   "bouts": 43,
-   "finishRate": 0.571,
+   "bouts": 49,
+   "finishRate": 0.542,
    "entrants": 78,
    "contractRate": 0.59,
-   "top15": 6
+   "top15": 6,
+   "source": "fightmatrix"
   },
   {
    "season": 2024,
-   "bouts": 27,
-   "finishRate": 0.704,
+   "bouts": 49,
+   "finishRate": 0.592,
    "entrants": 47,
    "contractRate": 0.447,
-   "top15": 4
+   "top15": 4,
+   "source": "fightmatrix"
   },
   {
    "season": 2025,
-   "bouts": 18,
-   "finishRate": 0.889,
+   "bouts": 51,
+   "finishRate": 0.7,
    "entrants": 35,
    "contractRate": 0.514,
-   "top15": 1
+   "top15": 1,
+   "source": "fightmatrix"
   }
  ],
  "byResult": [

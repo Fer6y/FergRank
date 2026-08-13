@@ -75,7 +75,10 @@ function main(): void {
 
   // ── season table ────────────────────────────────────────────────────
   const seasons = [...new Set(bouts.map((b) => Number(b.season)))].sort();
-  const seasonTable = seasons.map((season) => {
+  const seasonTable: {
+    season: number; bouts: number; finishRate: number | null; entrants: number | null;
+    contractRate: number | null; top15: number | null; source?: string;
+  }[] = seasons.map((season) => {
     const sb = bouts.filter((b) => Number(b.season) === season);
     const decided = sb.filter((b) => b.winnerSherdogId);
     const finishes = decided.filter((b) => /^(KO|TKO|Submission|Technical Submission)/i.test(b.method));
@@ -89,6 +92,44 @@ function main(): void {
       top15: entrants.filter((f) => f.reachedTop15 === '1').length,
     };
   });
+
+  // ── seasons past the frozen Sherdog cutoff: the Fight Matrix results feed ──
+  // (data/dwcs_bouts_fm.csv, research/dwcs/refreshDwcsResults.ts — validated at
+  // 100% winner agreement on the 304 bouts both sources hold). Bout counts and
+  // finish rates only: contract/top-15 outcomes need the UFC career join, which
+  // new-season entrants don't have yet.
+  const fmPath = path.join(process.cwd(), 'data', 'dwcs_bouts_fm.csv');
+  if (fs.existsSync(fmPath)) {
+    const fmRows = Papa.parse<Record<string, string>>(fs.readFileSync(fmPath, 'utf8'), {
+      header: true, skipEmptyLines: true,
+    }).data;
+    const bySeason = new Map<number, Record<string, string>[]>();
+    for (const r of fmRows) {
+      const s = Number(r.season);
+      if (s) bySeason.set(s, [...(bySeason.get(s) ?? []), r]);
+    }
+    for (const [season, rows] of [...bySeason.entries()].sort((a, b) => a[0] - b[0])) {
+      const decided = rows.filter((r) => r.winnerFmId);
+      const finishes = decided.filter((r) => /^(KO|TKO|Sub)/i.test(r.method));
+      const fmBouts = rows.length;
+      const fmFinish = decided.length ? r3(finishes.length / decided.length) : null;
+      const existing = seasonTable.find((s) => s.season === season);
+      if (!existing) {
+        // Season past the Sherdog cutoff (2026+): results-only row.
+        seasonTable.push({
+          season, bouts: fmBouts, finishRate: fmFinish,
+          entrants: null, contractRate: null, top15: null, source: 'fightmatrix',
+        });
+      } else if (fmBouts > existing.bouts) {
+        // Sherdog's recency tail is thin (2024: 27 vs 49 real bouts) — the feed
+        // is authoritative for bout count + finish rate; the entrant/contract
+        // columns stay Sherdog-derived (they need the UFC career join).
+        existing.bouts = fmBouts;
+        existing.finishRate = fmFinish;
+        existing.source = 'fightmatrix';
+      }
+    }
+  }
 
   // ── H4: contract rate by DWCS result (full denominator) ─────────────
   const byResult = (['finishWin', 'decisionWin', 'noWin'] as const).map((k) => {

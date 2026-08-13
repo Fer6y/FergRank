@@ -38,9 +38,12 @@ export interface DwcsAnalysis {
     season: number;
     bouts: number;
     finishRate: number | null;
-    entrants: number;
+    // Null for seasons sourced from the Fight Matrix results feed (post-Sherdog
+    // cutoff): bout results exist but UFC-career outcomes don't yet.
+    entrants: number | null;
     contractRate: number | null;
-    top15: number;
+    top15: number | null;
+    source?: string; // 'fightmatrix' for feed-sourced seasons
   }[];
   byResult: { label: string; n: number; contractRate: number | null }[];
   recordShape: {

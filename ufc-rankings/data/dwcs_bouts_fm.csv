@@ -1,0 +1,446 @@
+date,season,week,eventName,fmIdA,nameA,fmIdB,nameB,winnerFmId,method,round,division
+2017-07-11,2017,1,Dana Whites Contender Series,70328,Kurt Holobaugh,20501,Matt Bessette,,KO (Punch),1,LW
+2017-07-11,2017,1,Dana Whites Contender Series,69754,Azunna Anyanwu,24222,Greg Rebello,69754,KO (Punch),2,HW
+2017-07-11,2017,1,Dana Whites Contender Series,113997,Boston Salmon,82772,Ricky Turcios,113997,Decision (Unanimous),3,BW
+2017-07-11,2017,1,Dana Whites Contender Series,51886,Charles Byrd,74162,Jamie Pickett,51886,Technical Submission (Arm Triangle Choke),1,MW
+2017-07-11,2017,1,Dana Whites Contender Series,50579,Joby Sanchez,128618,Manny Vazquez,50579,Decision (Unanimous),3,FLW
+2017-07-18,2017,,Dana Whites Contender Series,31880,Dan Spohn,39077,Angel DeAnda,31880,SUB,1,LHW
+2017-07-18,2017,,Dana Whites Contender Series,116060,Sean OMalley,115401,Alfred Khashakyan,116060,TKO,1,BW
+2017-07-18,2017,,Dana Whites Contender Series,99741,Thanh Le,5339,Lazar Stojadinovic,99741,TKO,2,FW
+2017-07-18,2017,,Dana Whites Contender Series,65580,Sidney Outlaw,151037,Michael Cora,65580,Decision (Unanimous),3,LW
+2017-07-18,2017,,Dana Whites Contender Series,153455,Casey Kenney,72606,C.J. Hamilton,153455,Decision (Unanimous),3,FLW
+2017-07-25,2017,,Dana Whites Contender Series,114628,Karl Roberson,69660,Ryan Spann,114628,KO (Elbows),1,LHW
+2017-07-25,2017,,Dana Whites Contender Series,96821,Kyle Stewart,48359,Jason Jackson,96821,TKO (Ankle Injury),2,WW
+2017-07-25,2017,,Dana Whites Contender Series,73564,Geoff Neal,69947,Chase Waldon,73564,TKO (Punches),1,WW
+2017-07-25,2017,,Dana Whites Contender Series,153834,Alonzo Menifield,85468,Daniel Jolly,153834,TKO (Eye Injury),1,LHW
+2017-07-25,2017,,Dana Whites Contender Series,116900,Dan Ige,151553,Luis Gomez,116900,Submission (Rear Naked Choke),3,FW
+2017-08-01,2017,,Dana Whites Contender Series,79823,Julian Marquez,113786,Phil Hawes,79823,KO (Head Kick),2,LHW
+2017-08-01,2017,,Dana Whites Contender Series,144424,Kyler Phillips,118319,James Gray Jr.,144424,TKO (Elbows and Punches),1,BW
+2017-08-01,2017,,Dana Whites Contender Series,94436,Carlos Candelario,113047,Ronaldo Candido de Oliveira,94436,Decision (Unanimous),3,BW
+2017-08-01,2017,,Dana Whites Contender Series,69305,Brandon Davis,57793,Austin Arnett,69305,Decision (Unanimous),3,LW
+2017-08-01,2017,,Dana Whites Contender Series,88645,John Castaneda,135248,Cheyden Leialoha,88645,Decision (Unanimous),3,BW
+2017-08-08,2017,,Dana Whites Contender Series,99705,Mike Rodriguez,117303,Jamelle Jones,99705,TKO,1,LHW
+2017-08-08,2017,,Dana Whites Contender Series,72780,Julio Arce,140289,Peter Petties,72780,TKO,2,FW
+2017-08-08,2017,,Dana Whites Contender Series,24370,Alex Perez,107984,Kevin Gray,24370,SUB,1,BW
+2017-08-08,2017,,Dana Whites Contender Series,101352,Ricky Simon,81184,Donavon Frelow,101352,Decision (Split),3,FW
+2017-08-08,2017,,Dana Whites Contender Series,90483,Shelton Graves,95360,Everett Sims,90483,TKO,3,HW
+2017-08-15,2017,,Dana Whites Contender Series,51886,Charles Byrd,92329,Randall Wallace,51886,Submission (Rear Naked Choke),2,MW
+2017-08-15,2017,,Dana Whites Contender Series,97526,Grant Dawson,55113,Adrian Diaz,97526,Submission (Rear Naked Choke),2,FW
+2017-08-15,2017,,Dana Whites Contender Series,135170,Cameron Olson,169415,Karl Reed,135170,Decision (Unanimous),3,LHW
+2017-08-15,2017,,Dana Whites Contender Series,118435,Jaime Alvarez,126306,Martin Day,118435,Decision (Unanimous),3,FLW
+2017-08-15,2017,,Dana Whites Contender Series,103457,Jamie Colleen Miller,150491,Tiffany Masters,103457,Submission (Armbar),3,
+2017-08-22,2017,,Dana Whites Contender Series,155817,Kennedy Nzechukwu,71243,Anton Berzin,155817,Decision (Split),3,LHW
+2017-08-22,2017,,Dana Whites Contender Series,108989,Benito Lopez,61652,Steven Peterson,108989,Decision (Split),3,BW
+2017-08-22,2017,,Dana Whites Contender Series,50579,Joby Sanchez,146355,J.P. Buys,50579,TKO (Punches),2,FLW
+2017-08-22,2017,,Dana Whites Contender Series,67597,Mike Santiago,58990,Mark Cherico,67597,KO (Punches),1,LW
+2017-08-22,2017,,Dana Whites Contender Series,66254,Jordan Espinosa,53183,Nick Urso,66254,Technical Submission (Anaconda Choke),1,BW
+2017-08-29,2017,,Dana Whites Contender Series,95840,Matt Frevola,61674,Jose Flores,95840,Submission (Arm Triangle Choke),2,LW
+2017-08-29,2017,,Dana Whites Contender Series,153509,Bevon Lewis,132142,Elias Urbina,153509,TKO (Punches),2,MW
+2017-08-29,2017,,Dana Whites Contender Series,8922,Adam Antolin,153455,Casey Kenney,8922,Decision (Split),3,FLW
+2017-08-29,2017,,Dana Whites Contender Series,149565,Lauren Mueller,133525,Kelly McGill-Velasco,149565,Decision (Unanimous),3,
+2017-08-29,2017,,Dana Whites Contender Series,126965,Allen Crowder,166377,Dontale Mayes,126965,TKO (Punches and Elbows),3,HW
+2018-03-15,2018,,Cabo Bato Fights,72582,Elias Garcia,8922,Adam Antolin,72582,KO (Punches),1,BW
+2018-03-15,2018,,Cabo Bato Fights,155288,Hugo Flores,133013,Jose Luis Verdugo,155288,Decision (Unanimous),3,LW
+2018-03-15,2018,,Cabo Bato Fights,130864,Cristian Quinonez,185164,Ricardo Hernandez,130864,Submission (Rear-Naked Choke),1,BW
+2018-03-15,2018,,Cabo Bato Fights,185165,Guillermo Torres,84294,Marco Beristain Castillo,185165,Decision (Unanimous),3,BW
+2018-03-15,2018,,Cabo Bato Fights,185166,Carlos Castaneda,185167,Abraham Flores,185166,Decision (Unanimous),3,FW
+2018-06-12,2018,,Dana Whites Contender Series,153834,Alonzo Menifield,168473,Dashawn Boatwright,153834,TKO (Punches),1,LHW
+2018-06-12,2018,,Dana Whites Contender Series,48220,Chris Curtis,44113,Sean Lally,48220,TKO (Hook Kick and Punches),3,WW
+2018-06-12,2018,,Dana Whites Contender Series,182932,Greg Hardy,172155,Austen Lane,182932,TKO (Punches),1,HW
+2018-06-12,2018,,Dana Whites Contender Series,153369,Montel Jackson,74494,Rico DiSciullo,153369,TKO (Knee and Punches),3,BW
+2018-06-12,2018,,Dana Whites Contender Series,100357,Kevin Holland,66849,Will Santiago Jr.,100357,Decision (Unanimous),3,MW
+2018-06-19,2018,,Dana Whites Contender Series,92652,Matt Sayles,154444,Yazan Hajeh,92652,TKO (Punches),1,LW
+2018-06-19,2018,,Dana Whites Contender Series,88873,Anthony Hernandez,81208,Jordan Wright,,No Contest (Overturned by NSAC),1,MW
+2018-06-19,2018,,Dana Whites Contender Series,40269,Austin Springer,154715,Giga Chikadze,40269,Submission (Rear Naked Choke),3,WW
+2018-06-19,2018,,Dana Whites Contender Series,69660,Ryan Spann,81131,Emiliano Sordi,69660,Submission (Guillotine Choke),1,LHW
+2018-06-19,2018,,Dana Whites Contender Series,70609,Dwight Grant,56012,Tyler Hill,70609,KO (Punches),2,WW
+2018-06-26,2018,,Dana Whites Contender Series,46255,Antonina Shevchenko,89850,Jaimelene Nievera,46255,TKO (Knees),2,
+2018-06-26,2018,,Dana Whites Contender Series,126541,Te Edwards,91428,Austin Tweedy,126541,KO (Punch),1,LW
+2018-06-26,2018,,Dana Whites Contender Series,138880,Josh Parisian,24222,Greg Rebello,138880,KO (Spinning Backfist),1,HW
+2018-06-26,2018,,Dana Whites Contender Series,72914,Julian Erosa,86336,Jamall Emmers,72914,KO (Head Kick and Punches),2,LW
+2018-06-26,2018,,Dana Whites Contender Series,72443,Jordan Williams,112678,Tim Caron,,No Contest (Overturned by NSAC),3,MW
+2018-07-10,2018,4,Dana Whites Contender Series,58629,Kevin Aguilar,110474,Joey Gomez,58629,Decision (Split),3,FW
+2018-07-10,2018,4,Dana Whites Contender Series,153509,Bevon Lewis,131412,Alton Cunningham,153509,TKO (Knees),1,MW
+2018-07-10,2018,4,Dana Whites Contender Series,75335,Ricky Palacios,48520,Toby Misech,75335,Decision (Unanimous),3,FW
+2018-07-10,2018,4,Dana Whites Contender Series,66254,Jordan Espinosa,40477,Riley Dutro,66254,TKO (Punches),3,FLW
+2018-07-10,2018,4,Dana Whites Contender Series,127368,Jalin Turner,81749,Max Mustaki,127368,TKO (Doctor Stoppage),1,LW
+2018-07-17,2018,,Dana Whites Contender Series,174117,Maycee Barber,103457,Jamie Colleen Miller,174117,TKO (Elbows),3,
+2018-07-17,2018,,Dana Whites Contender Series,48644,Domingo Pilarte,137086,Vince Morales,48644,Technical Submission (Rear Naked Choke),2,BW
+2018-07-17,2018,,Dana Whites Contender Series,119657,Chibwikem Onyenegecha,121015,Anthony Adams,119657,Decision (Split),3,LHW
+2018-07-17,2018,,Dana Whites Contender Series,151289,Austin Vanderford,150541,Angelo Trevino,151289,Submission (Rear Naked Choke),2,WW
+2018-07-17,2018,,Dana Whites Contender Series,171163,Edmen Shahbazyan,111865,Antonio Jones,171163,TKO (Punches),1,MW
+2018-07-24,2018,,Dana Whites Contender Series,151550,Alex Munoz,60685,Nick Newell,151550,Decision (Unanimous),3,WW
+2018-07-24,2018,,Dana Whites Contender Series,157259,Jimmy Crute,77002,Chris Birchler,157259,TKO (Punches),1,LHW
+2018-07-24,2018,,Dana Whites Contender Series,124477,Sodiq Yusuff,148962,Mike Davis,124477,Decision (Unanimous),3,FW
+2018-07-24,2018,,Dana Whites Contender Series,4009,Jeff Hughes,48115,Josh Appelt,4009,TKO (Punch),1,HW
+2018-07-24,2018,,Dana Whites Contender Series,172208,Chase Hooper,162728,Canaan Kawaihae,172208,Decision (Unanimous),3,LW
+2018-07-31,2018,7,Dana Whites Contender Series,144362,Roosevelt Roberts,86864,Garrett Gross,144362,Submission (Rear Naked Choke),2,LW
+2018-07-31,2018,7,Dana Whites Contender Series,166377,Dontale Mayes,152243,Mitchell Sipe,166377,TKO (Punches),2,HW
+2018-07-31,2018,7,Dana Whites Contender Series,141872,Ian Heinisch,95136,Justin Sumter,141872,KO (Elbows),1,MW
+2018-07-31,2018,7,Dana Whites Contender Series,57310,Jordan Griffin,29937,Maurice Mitchell,57310,Submission (Rear Naked Choke),1,LW
+2018-07-31,2018,7,Dana Whites Contender Series,167144,Juan Adams,136169,Shawn Teed,167144,TKO (Punches),1,HW
+2018-08-07,2018,,Dana Whites Contender Series,182932,Greg Hardy,177155,Tebaris Gordon,182932,TKO (Punches),1,HW
+2018-08-07,2018,,Dana Whites Contender Series,91072,Devonte Smith,78225,Joseph Lowry,91072,KO (Elbows),1,LW
+2018-08-07,2018,,Dana Whites Contender Series,155817,Kennedy Nzechukwu,87639,Dennis Bryant,155817,TKO (Head Kick and Punches),1,LHW
+2018-08-07,2018,,Dana Whites Contender Series,128472,Bobby Moffett,166892,Jacob Kilburn,128472,Submission (Brabo Choke),2,FW
+2018-08-07,2018,,Dana Whites Contender Series,117452,Alex Gilpin,130927,J.R. Coughran,117452,Submission (Brabo Choke),2,FW
+2018-08-10,2018,,Dana Whites Contender Series,114327,Rogerio Bontorin,112356,Gustavo Gabriel Silva,114327,Submission (Rear Naked Choke),2,BW
+2018-08-10,2018,,Dana Whites Contender Series,159614,Mayra Bueno Silva,134946,Mayana Souza dos Santos,159614,Submission (Brabo Choke),1,
+2018-08-10,2018,,Dana Whites Contender Series,135318,Antonio Arroyo,78839,Diego Henrique da Silva,135318,Decision (Unanimous),3,MW
+2018-08-10,2018,,Dana Whites Contender Series,159046,Sarah Frota,79036,Maiara Amanajas dos Santos,159046,KO (Punches),1,
+2018-08-10,2018,,Dana Whites Contender Series,89398,Augusto Sakai,165492,Marcos Conrado Jr.,89398,TKO (Punches),2,HW
+2018-08-11,2018,,Dana Whites Contender Series,120000,Taila Santos,150708,Estefani Almeida,120000,Decision (Unanimous),3,
+2018-08-11,2018,,Dana Whites Contender Series,134658,Johnny Walker,136143,Henrique da Silva,134658,Decision (Unanimous),3,LHW
+2018-08-11,2018,,Dana Whites Contender Series,83938,Andre Muniz,140926,Bruno Assis,83938,Decision (Unanimous),3,LHW
+2018-08-11,2018,,Dana Whites Contender Series,145021,Marina Rodriguez,151843,Maria Oliveira,145021,TKO (Punches),1,
+2018-08-11,2018,,Dana Whites Contender Series,93602,Marcio Alexandre Jr.,122935,Leonardo Silva,93602,Submission (Guillotine Choke),1,MW
+2018-08-11,2018,,Dana Whites Contender Series,115322,Thiago Moises,83773,Gleidson Moraes Cutis,115322,TKO (Punches),1,LW
+2018-08-11,2018,,Dana Whites Contender Series,121620,Gisele Moreira,31089,Dayana Silva,121620,Decision (Split),3,
+2018-08-11,2018,,Dana Whites Contender Series,142966,Luana Carolina,141805,Mabelly Lima,142966,Decision (Unanimous),3,
+2018-08-11,2018,,Dana Whites Contender Series,151580,Vinicius Moreira,103170,John Allan,151580,Submission (Triangle Choke),2,LHW
+2018-08-11,2018,,Dana Whites Contender Series,132187,Raulian Paiva,89783,Allan Nascimento,132187,Decision (Split),3,BW
+2019-06-18,2019,1,Dana Whites Contender Series,162742,Punahele Soriano,74162,Jamie Pickett,162742,Decision (Unanimous),3,MW
+2019-06-18,2019,1,Dana Whites Contender Series,150294,Hannah Goldy,137608,Kali Robbins,150294,Decision (Unanimous),3,
+2019-06-18,2019,1,Dana Whites Contender Series,44424,Brendan Loughnane,79414,Bill Algeo,44424,Decision (Unanimous),3,FW
+2019-06-18,2019,1,Dana Whites Contender Series,136394,Yorgan De Castro,193358,Alton Meeks,136394,TKO (Leg Kick and Punches),1,HW
+2019-06-25,2019,2,Dana Whites Contender Series,43161,Tony Johnson,131412,Alton Cunningham,43161,Decision (Unanimous),3,LHW
+2019-06-25,2019,2,Dana Whites Contender Series,101750,Justin Gonzales,138874,Zach Zane,101750,Decision (Unanimous),3,FW
+2019-06-25,2019,2,Dana Whites Contender Series,85564,Kyle Daukaus,157769,Michael Lombardo,85564,Decision (Unanimous),3,MW
+2019-06-25,2019,2,Dana Whites Contender Series,134710,Miles Johns,111600,Richie Santiago,134710,Decision (Unanimous),3,BW
+2019-06-25,2019,2,Dana Whites Contender Series,163354,Miguel Baeza,74325,Victor Reyna,163354,Decision (Unanimous),3,WW
+2019-07-09,2019,,Dana Whites Contender Series,161598,Joe Solecki,56004,James Wallace,161598,Technical Submission (Guillotine Choke),1,LW
+2019-07-09,2019,,Dana Whites Contender Series,109169,Antonio Trocoli,142997,Kenneth Bergh,,No Contest (Overturned by NSAC),1,LHW
+2019-07-09,2019,,Dana Whites Contender Series,173161,Hunter Azure,145146,Chris Ocon,173161,Decision (Unanimous),3,BW
+2019-07-09,2019,,Dana Whites Contender Series,51547,Maki Pitolo,95136,Justin Sumter,51547,TKO (Punches),1,MW
+2019-07-09,2019,,Dana Whites Contender Series,140094,Jonathan Pearce,125803,Jacob Rosales,140094,TKO (Punch),3,LW
+2019-07-16,2019,,Dana Whites Contender Series,135318,Antonio Arroyo,68225,Stephen Regman,135318,Submission (Arm Triangle Choke),2,MW
+2019-07-16,2019,,Dana Whites Contender Series,117454,Ode Osbourne,118993,Armando Villarreal,117454,Submission (Armbar),1,FW
+2019-07-16,2019,,Dana Whites Contender Series,166377,Dontale Mayes,127676,Ricardo Prasel,166377,TKO (Punches),1,HW
+2019-07-16,2019,,Dana Whites Contender Series,130441,Kevin Syler,130246,Lance Lawrence,130441,Decision (Unanimous),3,FW
+2019-07-16,2019,,Dana Whites Contender Series,148934,Brendan Allen,112202,Aaron Jeffery,148934,Submission (Rear Naked Choke),1,MW
+2019-07-23,2019,,Dana Whites Contender Series,168564,Ramazan Kuramagomedov,72443,Jordan Williams,168564,Decision (Split),3,WW
+2019-07-23,2019,,Dana Whites Contender Series,165393,Sean Woodson,164240,Terrance McKinney,165393,KO (Flying Knee),2,LW
+2019-07-23,2019,,Dana Whites Contender Series,92331,J.J. Okanovich,171109,Christian Lohsen,92331,Decision (Unanimous),3,LW
+2019-07-23,2019,,Dana Whites Contender Series,187069,Jamahal Hill,97505,Alexander Poppeck,187069,TKO (Punches and Elbows),2,LHW
+2019-07-23,2019,,Dana Whites Contender Series,69641,Billy Quarantillo,129731,Kamuela Kirk,69641,TKO (Punches),3,FW
+2019-07-30,2019,,Dana Whites Contender Series,162327,Aleksa Camur,162775,Fabio Cherant,162327,TKO (Flying Knee and Punches),2,LHW
+2019-07-30,2019,,Dana Whites Contender Series,97466,Aalon Cruz,108168,Steven Nguyen,97466,KO (Flying Knee),3,FW
+2019-07-30,2019,,Dana Whites Contender Series,128825,Tracy Cortez,153401,Mariya Agapova,128825,Decision (Unanimous),3,
+2019-07-30,2019,,Dana Whites Contender Series,121383,Daniel Rodriguez,116382,Rico Farrington,121383,Decision (Unanimous),3,WW
+2019-07-30,2019,,Dana Whites Contender Series,94733,Rodrigo Nascimento,177653,Michal Martinek,94733,Submission (Arm Triangle Choke),1,HW
+2019-08-06,2019,,Dana Whites Contender Series,107961,Omar Morales,74252,Harvey Park,107961,TKO (Leg Kicks and Punches),2,LW
+2019-08-06,2019,,Dana Whites Contender Series,136811,Lucrezia Ria,116744,Marilia Santos,136811,Decision (Split),3,
+2019-08-06,2019,,Dana Whites Contender Series,124408,Herbert Burns,91920,Darrick Minner,124408,Submission (Triangle Armbar),1,FW
+2019-08-06,2019,,Dana Whites Contender Series,83938,Andre Muniz,163834,Taylor Johnson,83938,Submission (Rear Naked Choke),1,MW
+2019-08-06,2019,,Dana Whites Contender Series,98810,Dwight Joseph,95548,Jay Perrin,98810,Decision (Unanimous),3,FW
+2019-08-13,2019,,Dana Whites Contender Series,188024,William Knight,138847,Herdem Alacabek,188024,TKO (Punches),3,LHW
+2019-08-13,2019,,Dana Whites Contender Series,54489,Brok Weaver,160044,Devin Smyth,54489,Decision (Unanimous),3,WW
+2019-08-13,2019,,Dana Whites Contender Series,84579,Sarah Alpar,111488,Shanna Young,84579,Submission (Rear Naked Choke),2,
+2019-08-13,2019,,Dana Whites Contender Series,153141,Tony Gravely,80189,Ray Rodriguez,153141,TKO (Punches),3,BW
+2019-08-13,2019,,Dana Whites Contender Series,156470,Julius Anglickas,169415,Karl Reed,156470,Submission (Rear Naked Choke),3,LHW
+2019-08-20,2019,9,Dana Whites Contender Series,108165,Philip Rowe,127943,Leon Shahbazyan,108165,TKO (Punches),3,WW
+2019-08-20,2019,9,Dana Whites Contender Series,124780,Jamal Pogues,176019,Marcos Brigagao,124780,Decision (Unanimous),3,HW
+2019-08-20,2019,9,Dana Whites Contender Series,53335,Steve Garcia,173204,Desmond Torres,53335,TKO (Punches and Elbows),1,FW
+2019-08-20,2019,9,Dana Whites Contender Series,148469,Mallory Martin,134224,Micol DiSegni,148469,Decision (Unanimous),3,
+2019-08-20,2019,9,Dana Whites Contender Series,86613,Ricky Steele,137910,Phil Caracappa,86613,Decision (Split),3,BW
+2019-08-27,2019,,Dana Whites Contender Series,151824,Dusko Todorovic,96396,Teddy Ash,151824,Decision (Unanimous),3,MW
+2019-08-27,2019,,Dana Whites Contender Series,202248,Impa Kasanganay,163873,Kailan Hill,202248,Decision (Unanimous),3,MW
+2019-08-27,2019,,Dana Whites Contender Series,81152,Peter Barrett,178043,Sang Hoon Yoo,81152,Decision (Unanimous),3,LW
+2019-08-27,2019,,Dana Whites Contender Series,111133,Ben Sosoli,94874,Dustin Joynson,,No Contest (Eye Poke),1,HW
+2019-08-27,2019,,Dana Whites Contender Series,134583,T.J. Brown,133064,Dylan Lockard,134583,Submission (Arm Triangle Choke),3,FW
+2020-08-04,2020,1,Dana Whites Contender Series,75586,Dustin Jacoby,88418,Ty Flores,75586,Decision (Unanimous),3,HW
+2020-08-04,2020,1,Dana Whites Contender Series,183725,Uros Medic,150591,Mikey Gonzalez,183725,TKO (Punches),1,WW
+2020-08-04,2020,1,Dana Whites Contender Series,117867,Jerome Rivera,180534,Ronaldo Rodriguez,117867,Decision (Unanimous),3,FLW
+2020-08-04,2020,1,Dana Whites Contender Series,176447,Jordan Leavitt,61674,Jose Flores,176447,Submission (Arm Triangle Choke),1,LW
+2020-08-11,2020,2,Dana Whites Contender Series,102618,Dustin Stoltzfus,167228,Joe Pyfer,102618,TKO (Elbow Injury),1,MW
+2020-08-11,2020,2,Dana Whites Contender Series,88422,Adrian Yanez,118837,Brady Huang,88422,TKO (Punches),1,BW
+2020-08-11,2020,2,Dana Whites Contender Series,137505,Cory McKenna,105062,Vanessa Demopoulos,137505,Decision (Unanimous),3,
+2020-08-11,2020,2,Dana Whites Contender Series,142463,T.J. Laramie,74720,Daniel Swain,142463,TKO (Doctor Stoppage),1,FW
+2020-08-11,2020,2,Dana Whites Contender Series,202248,Impa Kasanganay,121015,Anthony Adams,202248,Decision (Unanimous),3,MW
+2020-08-18,2020,3,Dana Whites Contender Series,188038,Louis Cosce,74325,Victor Reyna,188038,TKO (Punches),1,WW
+2020-08-18,2020,3,Dana Whites Contender Series,124454,Cheyanne Vlismas,152173,Hilarie Rose,124454,Decision (Unanimous),3,
+2020-08-18,2020,3,Dana Whites Contender Series,127715,Orion Cosce,126443,Matt Dixon,127715,TKO (Punches),3,WW
+2020-08-18,2020,3,Dana Whites Contender Series,138880,Josh Parisian,156139,Chad Johnson,138880,KO (Punches),1,HW
+2020-08-18,2020,3,Dana Whites Contender Series,163661,Kenneth Cross,130441,Kevin Syler,163661,Decision (Unanimous),3,LW
+2020-08-25,2020,4,Dana Whites Contender Series,74162,Jamie Pickett,110621,Jhonoven Pati,74162,TKO (Punches),2,HW
+2020-08-25,2020,4,Dana Whites Contender Series,93985,Rafael Alves,126053,Alejandro Flores,93985,Submission (Guillotine Choke),2,LW
+2020-08-25,2020,4,Dana Whites Contender Series,156875,Jeff Molina,82778,Jacob Silva,156875,Decision (Unanimous),3,FLW
+2020-08-25,2020,4,Dana Whites Contender Series,158356,Anthony Romero,169275,Mike Breeden,158356,Decision (Unanimous),3,LW
+2020-08-25,2020,4,Dana Whites Contender Series,118473,Collin Huckbody,131794,Kyron Bowen,118473,Submission (Arm Triangle Choke),1,MW
+2020-09-01,2020,5,Dana Whites Contender Series,132893,Melsik Baghdasaryan,190266,Dennis Buzukja,132893,Decision (Unanimous),3,LW
+2020-09-01,2020,5,Dana Whites Contender Series,61677,Jimmy Flick,130770,Nate Smith,61677,Submission (Arm Triangle Choke),3,BW
+2020-09-01,2020,5,Dana Whites Contender Series,97075,Ronnie Lawrence,167032,Jose Johnson,97075,Decision (Unanimous),3,BW
+2020-09-01,2020,5,Dana Whites Contender Series,188024,William Knight,187952,Cody Brundage,188024,TKO (Elbows and Punches),1,LHW
+2020-09-01,2020,5,Dana Whites Contender Series,108890,Tucker Lutz,138692,Chase Gibson,108890,Decision (Unanimous),3,LW
+2020-09-08,2020,6,Dana Whites Contender Series,187681,Tafon Nchukwi,153565,Al Matavao,187681,KO (Head Kick),2,HW
+2020-09-08,2020,6,Dana Whites Contender Series,147678,Sherrard Blackledge,195413,Cameron Church,147678,Decision (Unanimous),3,WW
+2020-09-08,2020,6,Dana Whites Contender Series,113786,Phil Hawes,131160,Khadzhimurat Bestaev,113786,TKO (Punches),1,MW
+2020-09-08,2020,6,Dana Whites Contender Series,149667,Drako Rodriguez,113630,Leomana Martinez,149667,Technical Submission (Triangle Choke),1,BW
+2020-09-08,2020,6,Dana Whites Contender Series,152718,Aliaskhab Khizriev,76040,Henrique Shiguemoto,152718,Submission (Rear Naked Choke),1,MW
+2020-09-15,2020,7,Dana Whites Contender Series,72443,Jordan Williams,136842,Gregory Rodrigues,72443,KO (Punches),1,MW
+2020-09-15,2020,7,Dana Whites Contender Series,187070,Collin Anglin,161906,Muhammadjon Naimov,187070,Decision (Unanimous),3,FW
+2020-09-15,2020,7,Dana Whites Contender Series,157769,Michael Lombardo,80442,Korey Kuppe,157769,Decision (Unanimous),3,WW
+2020-09-15,2020,7,Dana Whites Contender Series,231517,Danyelle Wolf,168347,Taneisha Tennant,231517,Decision (Unanimous),3,
+2020-09-15,2020,7,Dana Whites Contender Series,103517,Kyle Driscoll,70923,Dinis Paiva,103517,Decision (Unanimous),3,FW
+2020-11-04,2020,8,Dana Whites Contender Series,86471,Carlos Ulberg,89777,Bruno Oliveira,86471,KO (Punches),1,
+2020-11-04,2020,8,Dana Whites Contender Series,160434,Ignacio Bahamondes,127942,Edson Gomez,160434,KO (Front Kick),2,WW
+2020-11-04,2020,8,Dana Whites Contender Series,79423,Luis Saldana,106636,Vince Murdock,79423,TKO (Punches),3,
+2020-11-04,2020,8,Dana Whites Contender Series,124784,Jared Vanderaa,167407,Harry Hunsucker,124784,TKO (Punches),1,HW
+2020-11-10,2020,9,Dana Whites Contender Series,154425,Mario Filipe de Sousa,67983,Mariusz Ksiazkiewicz,154425,Decision (Unanimous),3,MW
+2020-11-10,2020,9,Dana Whites Contender Series,161277,Natan Levy,161297,Shaheen Santana,161277,Technical Submission (Arm Triangle Choke),3,FW
+2020-11-10,2020,9,Dana Whites Contender Series,99626,Nikolas Motta,78225,Joseph Lowry,99626,Decision (Unanimous),3,LW
+2020-11-10,2020,9,Dana Whites Contender Series,166499,Luana Pinheiro,62309,Stephanie Frausto,166499,KO (Punches),1,
+2020-11-10,2020,9,Dana Whites Contender Series,193531,Danny Sabatello,151498,Taylor Moore,193531,Decision (Unanimous),3,BW
+2020-11-17,2020,10,Dana Whites Contender Series,146355,J.P. Buys,82778,Jacob Silva,146355,Technical Submission (Guillotine Choke),1,BW
+2020-11-17,2020,10,Dana Whites Contender Series,198424,Nick Maximov,98358,Oscar Cota,198424,Decision (Unanimous),3,LHW
+2020-11-17,2020,10,Dana Whites Contender Series,163303,Gloria de Paula,163130,Pauline Macias,163303,Decision (Unanimous),3,
+2020-11-17,2020,10,Dana Whites Contender Series,108890,Tucker Lutz,147678,Sherrard Blackledge,108890,Decision (Unanimous),3,LW
+2020-11-17,2020,10,Dana Whites Contender Series,154315,Victoria Leonardo,206288,Chelsea Hackett,154315,TKO (Punches),2,
+2021-08-31,2021,1,Dana Whites Contender Series,61426,Azamat Murzakanov,100282,Matheus Scheffel,61426,TKO (Punches),1,
+2021-08-31,2021,1,Dana Whites Contender Series,138765,Joanderson Brito,102023,Diego Lopes,138765,Decision (Technical Unanimous),3,FW
+2021-08-31,2021,1,Dana Whites Contender Series,153965,Victor Altamirano,94436,Carlos Candelario,153965,Decision (Split),3,FLW
+2021-08-31,2021,1,Dana Whites Contender Series,189457,A.J. Fletcher,167639,Leonardo Damiani,189457,KO (Flying Knee),1,WW
+2021-09-07,2021,2,Dana Whites Contender Series,192450,Josh Quinlan,135381,Logan Urban,,No Contest (Overturned),1,WW
+2021-09-07,2021,2,Dana Whites Contender Series,5945,Chidi Njokuani,154425,Mario Filipe de Sousa,5945,TKO (Elbows),3,MW
+2021-09-07,2021,2,Dana Whites Contender Series,126845,Saimon Oliveira,128790,Jose Alday,126845,Decision (Split),3,BW
+2021-09-07,2021,2,Dana Whites Contender Series,73574,C.J. Vergara,58274,Bruno Mesquita,73574,KO (Knee to the Body),1,FLW
+2021-09-07,2021,2,Dana Whites Contender Series,64658,Chad Anheliger,139399,Muin Gafurov,64658,Decision (Split),3,FW
+2021-09-14,2021,3,Dana Whites Contender Series,103055,Jailton Almeida,126605,Nasrudin Nasrudinov,103055,Submission (Rear-Naked Choke),2,LHW
+2021-09-14,2021,3,Dana Whites Contender Series,185248,Mo Miller,162960,Brandon Lewis,185248,Decision (Unanimous),3,BW
+2021-09-14,2021,3,Dana Whites Contender Series,88917,Albert Duraev,80589,Caio Bittencourt,88917,Submission (Neck Crank),1,
+2021-09-14,2021,3,Dana Whites Contender Series,114367,Lukasz Brzeski,152361,Dylan Potter,,No Contest (Overturned),3,HW
+2021-09-14,2021,3,Dana Whites Contender Series,151951,Jack Della Maddalena,93588,Ange Loosa,151951,Decision (Unanimous),3,WW
+2021-09-14,2021,3,Dana Whites Contender Series,202640,Jasmine Jasudavicius,180510,Julia Polastri,202640,Decision (Unanimous),3,
+2021-09-21,2021,4,Dana Whites Contender Series,106614,A.J. Dobson,76490,Hashem Arkhagha,106614,Submission (Rear Naked Choke),1,MW
+2021-09-21,2021,4,Dana Whites Contender Series,181445,Michael Morales,141461,Nikolay Veretennikov,181445,Decision (Unanimous),3,WW
+2021-09-21,2021,4,Dana Whites Contender Series,108168,Steven Nguyen,176590,Theo Rlayang,108168,Decision (Unanimous),3,FW
+2021-09-21,2021,4,Dana Whites Contender Series,162470,Kleydson Rodrigues,180643,Santo Curatolo,162470,Decision (Unanimous),3,FLW
+2021-09-21,2021,4,Dana Whites Contender Series,88997,Victor Martinez,125803,Jacob Rosales,88997,Decision (Unanimous),3,LW
+2021-09-28,2021,5,Dana Whites Contender Series,142435,Ihor Potieria,110717,Lukasz Sudolski,142435,TKO (Punches),1,LHW
+2021-09-28,2021,5,Dana Whites Contender Series,142194,Caio Borralho,112202,Aaron Jeffery,142194,Decision (Unanimous),3,MW
+2021-09-28,2021,5,Dana Whites Contender Series,167076,Daniel Zellhuber,143694,Lucas Almeida,167076,Decision (Unanimous),3,LW
+2021-09-28,2021,5,Dana Whites Contender Series,88373,Rizvan Kuniev,169549,Edivan Mineiro Santos,88373,TKO (Punches),3,HW
+2021-10-05,2021,6,Dana Whites Contender Series,81480,Mike Malott,174331,Shimon Smotritsky,81480,Submission (Guillotine Choke),1,WW
+2021-10-05,2021,6,Dana Whites Contender Series,134216,Carlos Hernandez,115258,Daniel Barez,134216,Decision (Split),3,FLW
+2021-10-05,2021,6,Dana Whites Contender Series,101804,Fernie Garcia,176378,Joshua Weems,101804,TKO (Punches),1,BW
+2021-10-05,2021,6,Dana Whites Contender Series,190065,Joseph Holmes,177431,Shonte Barnes,190065,Submission (Rear Naked Choke),2,LHW
+2021-10-05,2021,6,Dana Whites Contender Series,160989,Genaro Valdez,158737,Patrik White,160989,TKO (Punches),2,LW
+2021-10-12,2021,7,Dana Whites Contender Series,198556,Christian Rodriguez,107803,Reyes Cortez Jr.,198556,Decision (Unanimous),3,BW
+2021-10-12,2021,7,Dana Whites Contender Series,130715,Martin Buday,51715,Lorenzo Hood,130715,TKO (Knee),1,HW
+2021-10-12,2021,7,Dana Whites Contender Series,148618,Jake Hadley,186263,Mitch Raposo,148618,Submission (Rear Naked Choke),2,FLW
+2021-10-12,2021,7,Dana Whites Contender Series,214356,Viacheslav Borshchev,76108,Chris Duncan,214356,KO (Punch),2,LW
+2021-10-12,2021,7,Dana Whites Contender Series,175512,Maria Silva,187651,Kathryn Paprocki,175512,Decision (Unanimous),3,
+2021-10-19,2021,8,Dana Whites Contender Series,67413,Jonny Parsons,160358,Solomon Renfro,67413,Decision (Split),3,WW
+2021-10-19,2021,8,Dana Whites Contender Series,171002,Piera Rodriguez,155509,Valesca Machado,171002,Decision (Unanimous),3,
+2021-10-19,2021,8,Dana Whites Contender Series,142194,Caio Borralho,128962,Jesse Murray,142194,TKO (Punches),1,MW
+2021-10-19,2021,8,Dana Whites Contender Series,198468,Armen Petrosyan,163159,Kaloyan Kolev,198468,KO (Head Kick and Punches),1,LHW
+2021-10-19,2021,8,Dana Whites Contender Series,123308,Pedro Falcao,131164,James Barnes,123308,KO (Punches),3,FW
+2021-10-26,2021,9,Dana Whites Contender Series,121131,Gadzhi Omargadzhiev,121055,Jansey Silva,121131,Submission (Kneebar),1,MW
+2021-10-26,2021,9,Dana Whites Contender Series,130864,Cristian Quinonez,164316,Long Xiao,130864,Decision (Unanimous),3,BW
+2021-10-26,2021,9,Dana Whites Contender Series,159068,Javid Basharat,92125,Oron Kahlon,159068,Submission (Guillotine Choke),3,LW
+2021-10-26,2021,9,Dana Whites Contender Series,125246,Karine Silva,168814,Qihui Yan,125246,Submission (Guillotine Choke),2,
+2021-10-26,2021,9,Dana Whites Contender Series,195809,Manuel Torres,82781,Kolton Englund,195809,TKO (Punches),1,LW
+2021-10-26,2021,9,Dana Whites Contender Series,187487,Olivier Murad,163878,Bin Xie,187487,Decision (Split),3,FW
+2021-11-02,2021,10,Dana Whites Contender Series,214096,Maheshate Hayisaer,70138,Achilles Estremadura,214096,Decision (Unanimous),3,WW
+2021-11-02,2021,10,Dana Whites Contender Series,194822,Yohan Lainesse,128395,Justin Burlinson,194822,KO (Punches),1,WW
+2021-11-02,2021,10,Dana Whites Contender Series,167248,Erisson Ferreira,176882,Jilunzhou Qiu,167248,Decision (Unanimous),3,FLW
+2021-11-02,2021,10,Dana Whites Contender Series,72378,Jonas Bilharinho,162728,Canaan Kawaihae,72378,KO (Spinning Wheel Kick),3,FW
+2021-11-02,2021,10,Dana Whites Contender Series,55670,Juan Puerta,97672,Zhifa Shang,55670,Decision (Split),3,FLW
+2022-07-26,2022,1,Dana Whites Contender Series,167228,Joe Pyfer,126810,Osman Diaz,167228,TKO (Punches),2,MW
+2022-07-26,2022,1,Dana Whites Contender Series,165019,Anton Turkalj,112054,Acacio dos Santos,165019,Decision (Unanimous),3,LHW
+2022-07-26,2022,1,Dana Whites Contender Series,190266,Dennis Buzukja,160813,Kaleio Romero,190266,Decision (Unanimous),3,FW
+2022-07-26,2022,1,Dana Whites Contender Series,155102,Alessandro Costa,173020,Andres Luna Martinetti,155102,Decision (Split),3,FLW
+2022-08-02,2022,2,Dana Whites Contender Series,76108,Chris Duncan,190271,Charlie Campbell,76108,KO (Punches),1,WW
+2022-08-02,2022,2,Dana Whites Contender Series,137930,Vinicius Salvador,67189,Shannon Ross,137930,TKO (Punches),2,FW
+2022-08-02,2022,2,Dana Whites Contender Series,188241,Francis Marshall,86840,Connor Matthews,188241,Decision (Unanimous),3,FW
+2022-08-02,2022,2,Dana Whites Contender Series,144408,Waldo Cortes-Acosta,178966,Danilo Suzart,144408,TKO (Punches),1,HW
+2022-08-02,2022,2,Dana Whites Contender Series,188030,Billy Goff,174331,Shimon Smotritsky,188030,TKO (Punches),1,MW
+2022-08-09,2022,3,Dana Whites Contender Series,247572,Bo Nickal,238740,Zachary Borrego,247572,Submission (Rear-Naked Choke),1,MW
+2022-08-09,2022,3,Dana Whites Contender Series,124780,Jamal Pogues,126176,Paulo Renato Jr.,124780,Decision (Unanimous),3,HW
+2022-08-09,2022,3,Dana Whites Contender Series,157693,Erik Silva,237600,Anvar Boynazarov,157693,TKO (Elbows and Punches),1,FW
+2022-08-09,2022,3,Dana Whites Contender Series,152926,Clayton Carpenter,169660,Edgar Chairez,152926,Decision (Unanimous),3,FLW
+2022-08-09,2022,3,Dana Whites Contender Series,161861,Karolina Wojcik,168248,Sandra Lavado,161861,Decision (Unanimous),3,
+2022-08-16,2022,4,Dana Whites Contender Series,155187,Esteban Ribovics,127868,Thomas Paull,155187,KO (Punches),1,LW
+2022-08-16,2022,4,Dana Whites Contender Series,172025,Claudio Ribeiro,198721,Ivan Valenzuela,172025,KO (Punch),1,MW
+2022-08-16,2022,4,Dana Whites Contender Series,167032,Jose Johnson,129655,Jack Cartwright,167032,Decision (Unanimous),3,FW
+2022-08-16,2022,4,Dana Whites Contender Series,182944,Hailey Cowan,189265,Claudia Leite,182944,Decision (Split),3,
+2022-08-16,2022,4,Dana Whites Contender Series,178943,Nazim Sadykhov,188959,Ahmad Sohail Hassanzada,178943,KO (Punch),3,LW
+2022-08-23,2022,5,Dana Whites Contender Series,163117,Mick Parkin,226340,Eduardo Neves,163117,Submission (Rear-Naked Choke),1,HW
+2022-08-23,2022,5,Dana Whites Contender Series,143790,Darrius Flowers,172729,Amiran Gogoladze,143790,TKO (Submission to Slam),1,MW
+2022-08-23,2022,5,Dana Whites Contender Series,149839,Jesus Santos Aguilar,167248,Erisson Ferreira,149839,Submission (Guillotine Choke),3,BW
+2022-08-23,2022,5,Dana Whites Contender Series,205062,Cameron Saaiman,142590,Josh Wang Kim,205062,KO (Punch),3,BW
+2022-08-23,2022,5,Dana Whites Contender Series,237655,Denise Gomes,164980,Rayanne dos Santos,237655,Decision (Unanimous),3,
+2022-08-30,2022,6,Dana Whites Contender Series,237869,Yusaku Kinoshita,225102,Jose Henrique Souza,237869,TKO (Punches),3,WW
+2022-08-30,2022,6,Dana Whites Contender Series,191108,Sedriques Dumas,229494,Matej Penaz,191108,Submission (Guillotine Choke),1,MW
+2022-08-30,2022,6,Dana Whites Contender Series,121653,Mateusz Rebecki,139224,Rodrigo Lidio,121653,Submission (Rear-Naked Choke),1,LW
+2022-08-30,2022,6,Dana Whites Contender Series,212964,Victoria Dudakova,175512,Maria Silva,212964,Decision (Unanimous),3,
+2022-08-30,2022,6,Dana Whites Contender Series,138307,Blake Bilder,115894,Alex Morgan,138307,Submission (Rear-Naked Choke),1,FW
+2022-09-06,2022,7,Dana Whites Contender Series,174902,Vitor Petrino,180699,Rodolfo Bellato,174902,KO (Punches),2,LHW
+2022-09-06,2022,7,Dana Whites Contender Series,140968,Gabriel Bonfim,206112,Trey Waters,140968,Submission (Shoulder Choke),1,WW
+2022-09-06,2022,7,Dana Whites Contender Series,212556,Karl Williams,207322,Jimmy Lawson,212556,Decision (Unanimous),3,LHW
+2022-09-06,2022,7,Dana Whites Contender Series,86809,Ismael Bonfim,119119,Nariman Abbasov,86809,Decision (Unanimous),3,LW
+2022-09-06,2022,7,Dana Whites Contender Series,187320,Tereza Bleda,171854,Nayara Maia,187320,Decision (Unanimous),3,
+2022-09-13,2022,8,Dana Whites Contender Series,159073,Farid Basharat,147697,Allan Begosso,159073,Decision (Unanimous),3,FW
+2022-09-13,2022,8,Dana Whites Contender Series,149367,Ikram Aliskerov,154425,Mario Filipe de Sousa,149367,Submission (Kimura),1,MW
+2022-09-13,2022,8,Dana Whites Contender Series,187312,Trevor Peek,139829,Malik Lewis,187312,TKO (Punches),2,WW
+2022-09-13,2022,8,Dana Whites Contender Series,139638,Bruna Brasil,188502,Marnic Mann,139638,KO (Head Kick),2,
+2022-09-13,2022,8,Dana Whites Contender Series,150410,Daniel Marcos,162960,Brandon Lewis,150410,Decision (Unanimous),3,BW
+2022-09-20,2022,9,Dana Whites Contender Series,214006,Brunno Ferreira,160012,Leon Aliu,214006,TKO (Punches),1,MW
+2022-09-20,2022,9,Dana Whites Contender Series,215857,Raul Rosas Jr.,187081,Mando Gutierrez,215857,Decision (Unanimous),3,BW
+2022-09-20,2022,9,Dana Whites Contender Series,172155,Austen Lane,245160,Richard Jacobi,172155,TKO (Punches),1,HW
+2022-09-20,2022,9,Dana Whites Contender Series,184686,Nurullo Aliev,108276,Josh Wick,184686,TKO (Punches),1,WW
+2022-09-20,2022,9,Dana Whites Contender Series,113958,Jafel Filho,205327,Roybert Echeverria,113958,TKO (Punches),3,BW
+2022-09-27,2022,10,Dana Whites Contender Series,247572,Bo Nickal,202250,Donovan Beard,247572,Submission (Triangle Choke),1,MW
+2022-09-27,2022,10,Dana Whites Contender Series,119335,Sam Patterson,172324,Vinicius Sacchelli Cenci,119335,Submission (Rear-Naked Choke),2,LW
+2022-09-27,2022,10,Dana Whites Contender Series,161617,Jack Jenkins,197657,Emiliano Linares,161617,TKO (Punches),3,FW
+2022-09-27,2022,10,Dana Whites Contender Series,148436,Rafael Estevam,114862,Joao Elias,148436,TKO (Punches),2,FLW
+2022-09-27,2022,10,Dana Whites Contender Series,214054,Mateus Mendonca,190269,Ashiek Ajim,214054,KO (Punches),1,BW
+2023-08-08,2023,1,Dana Whites Contender Series,156838,Cesar Almeida,161454,Lucas Fernando,156838,Decision (Unanimous),3,MW
+2023-08-08,2023,1,Dana Whites Contender Series,171325,Tom Nolan,127739,Bogdan Grad,171325,KO (Punches),1,LW
+2023-08-08,2023,1,Dana Whites Contender Series,178127,Caio Machado,148931,Kevin Szaflarski,178127,Decision (Unanimous),3,HW
+2023-08-08,2023,1,Dana Whites Contender Series,195416,Payton Talbott,107803,Reyes Cortez Jr.,195416,Decision (Unanimous),3,BW
+2023-08-08,2023,1,Dana Whites Contender Series,179772,Kevin Borjas,163827,Victor Dias,179772,Decision (Unanimous),3,FLW
+2023-08-15,2023,2,Dana Whites Contender Series,103420,Abdul-Kareem Al-Selwady,126114,George Hardwick,103420,Decision (Unanimous),3,LW
+2023-08-15,2023,2,Dana Whites Contender Series,170880,Ibo Aslan,126176,Paulo Renato Jr.,170880,TKO (Punches),1,HW
+2023-08-15,2023,2,Dana Whites Contender Series,182057,Hyder Amil,122232,Emrah Sonmez,182057,Decision (Unanimous),3,FW
+2023-08-15,2023,2,Dana Whites Contender Series,247945,Eduarda Moura,189338,Janaina Silva,247945,Submission (Rear-Naked Choke),1,
+2023-08-15,2023,2,Dana Whites Contender Series,165712,Charalampos Grigoriou,214937,Cameron Smotherman,165712,TKO (Punches),1,BW
+2023-08-22,2023,3,Dana Whites Contender Series,96170,Zachary Reese,194558,Eli Aronov,96170,Submission (Armbar),1,MW
+2023-08-22,2023,3,Dana Whites Contender Series,171081,Oban Elliott,150324,Kaik Brito,171081,Decision (Majority),3,WW
+2023-08-22,2023,3,Dana Whites Contender Series,236564,Josefine Lindgren Knutsson,200683,Isis Verbeek,236564,Decision (Unanimous),3,
+2023-08-22,2023,3,Dana Whites Contender Series,190820,Luis Pajuelo,198978,Robbie Ring,190820,TKO (Knee to the Body and Punches),1,FW
+2023-08-29,2023,4,Dana Whites Contender Series,93495,Carlos Prates,169511,Mitch Ramirez,93495,TKO (Punch),2,WW
+2023-08-29,2023,4,Dana Whites Contender Series,178782,Marco Tulio,235752,Yousri Belgaroui,178782,Decision (Unanimous),3,MW
+2023-08-29,2023,4,Dana Whites Contender Series,204785,Timothy Cuamba,184092,Mateo Alejandro Vogel,204785,Decision (Unanimous),3,FW
+2023-08-29,2023,4,Dana Whites Contender Series,190733,Thomas Petersen,148634,Chandler Cole,190733,Submission (Keylock),2,HW
+2023-08-29,2023,4,Dana Whites Contender Series,185358,Bolaji Oki,207320,Dylan Salvador,185358,TKO (Punch to the Body),1,LW
+2023-09-05,2023,5,Dana Whites Contender Series,153604,Brendson Ribeiro,120356,Bruno Lopes,153604,KO (Punches),1,LHW
+2023-09-05,2023,5,Dana Whites Contender Series,158083,Serhiy Sidey,212059,Ramon Taveras,158083,TKO (Punches),1,BW
+2023-09-05,2023,5,Dana Whites Contender Series,235431,Dylan Budka,155496,Chad Hanekom,235431,Decision (Unanimous),3,MW
+2023-09-05,2023,5,Dana Whites Contender Series,167652,Jean Silva,244904,Kevin Vallejos,167652,Decision (Unanimous),3,LW
+2023-09-05,2023,5,Dana Whites Contender Series,180873,Dione Barbosa,193202,Rainn Guerrero,180873,Submission (Armbar),1,
+2023-09-12,2023,6,Dana Whites Contender Series,143900,James Llontop,139829,Malik Lewis,143900,Decision (Unanimous),3,WW
+2023-09-12,2023,6,Dana Whites Contender Series,244003,Jhonata Diniz,226340,Eduardo Neves,244003,TKO (Punches),1,HW
+2023-09-12,2023,6,Dana Whites Contender Series,108168,Steven Nguyen,161593,A.J. Cunningham,108168,TKO (Punches),2,FW
+2023-09-12,2023,6,Dana Whites Contender Series,180510,Julia Polastri,156901,Patricia Alujas,180510,Submission (Rear-Naked Choke),2,
+2023-09-12,2023,6,Dana Whites Contender Series,178340,Jean Matsumoto,128693,Kasey Tanner,178340,Decision (Unanimous),3,BW
+2023-09-19,2023,7,Dana Whites Contender Series,212443,Shamil Gaziev,191373,Greg Velasco,212443,Submission (Rear-Naked Choke),1,HW
+2023-09-19,2023,7,Dana Whites Contender Series,214947,Daniel James Allen,209405,Jacobi Jones,214947,Decision (Unanimous),3,LW
+2023-09-19,2023,7,Dana Whites Contender Series,180650,Stephanie Luciano,241160,Talita Alencar,,Draw,3,
+2023-09-19,2023,7,Dana Whites Contender Series,124645,Kaynan Kruschewsky,190281,Dylan Mantello,124645,Technical Submission (Rear-Naked Choke),1,LW
+2023-09-19,2023,7,Dana Whites Contender Series,206834,Igor Severino,137904,Jhonata Silva,206834,TKO (Punches),2,BW
+2023-09-26,2023,8,Dana Whites Contender Series,213726,Danny Barlow,172605,Raheam Forest,213726,TKO (Punches),1,WW
+2023-09-26,2023,8,Dana Whites Contender Series,247947,Mario Piazzon,149712,Alexander Soldatkin,247947,Disqualification (Illegal Knee),3,HW
+2023-09-26,2023,8,Dana Whites Contender Series,202226,Danny Silva,91165,Angel Pacheco,202226,Decision (Unanimous),3,LW
+2023-09-26,2023,8,Dana Whites Contender Series,206108,Ernesta Kareckaite,237259,Carli Judice,206108,Decision (Split),3,
+2023-09-26,2023,8,Dana Whites Contender Series,118130,Vinicius Oliveira,32681,Victor Madrigal,118130,KO (Punch),1,BW
+2023-10-03,2023,9,Dana Whites Contender Series,180699,Rodolfo Bellato,181774,Murtaza Talha Ali,180699,TKO (Punches),2,LHW
+2023-10-03,2023,9,Dana Whites Contender Series,109439,Victor Hugo,143816,Eduardo Torres,109439,Submission (Kneebar),2,LW
+2023-10-03,2023,9,Dana Whites Contender Series,185477,Magomed Gadzhiyasulov,173249,Jose Medina,185477,Decision (Unanimous),3,LHW
+2023-10-03,2023,9,Dana Whites Contender Series,144689,Mauricio Ruffy,143982,Raimond Magomedaliev,144689,TKO (Punches),3,WW
+2023-10-10,2023,10,Dana Whites Contender Series,212059,Ramon Taveras,151281,Cortavious Romious,212059,TKO (Punches),1,BW
+2023-10-10,2023,10,Dana Whites Contender Series,148599,Andre Lima,115765,Rickson Thai Zenidim Bueno,148599,Decision (Unanimous),3,FLW
+2023-10-10,2023,10,Dana Whites Contender Series,86840,Connor Matthews,140793,Jair Farias,86840,Decision (Unanimous),3,FW
+2023-10-10,2023,10,Dana Whites Contender Series,234922,Torrez Finney,191740,Yuri Panferov,234922,Submission (Rear-Naked Choke),2,MW
+2023-10-10,2023,10,Dana Whites Contender Series,198938,Marquel Mederos,139198,Issa Isakov,198938,TKO (Knee and Punches),1,LW
+2023-10-10,2023,10,Dana Whites Contender Series,177745,Lucas Rocha,178402,Davi Bittencourt,177745,KO (Knee and Punches),2,FLW
+2024-08-13,2024,1,Dana Whites Contender Series,266306,Mansur Abdul-Malik,214812,Wesley Schultz,266306,TKO (Elbows and Punches),2,MW
+2024-08-13,2024,1,Dana Whites Contender Series,141739,Rami Hamed,169344,Meng Ding,141739,Decision (Unanimous),3,WW
+2024-08-13,2024,1,Dana Whites Contender Series,120356,Bruno Lopes,204433,Mikheil Sazhiniani,120356,TKO (Punches),2,LHW
+2024-08-13,2024,1,Dana Whites Contender Series,200966,Jose Delgado,181815,Ernie Juarez,200966,KO (Knee and Punches),2,FW
+2024-08-13,2024,1,Dana Whites Contender Series,154434,Loneer Kavanagh,200967,An Tuan Ho,154434,KO (Punch),1,FLW
+2024-08-20,2024,2,Dana Whites Contender Series,187449,Andreas Gustafsson,132018,Pat Pytlik,187449,TKO (Knees),2,MW
+2024-08-20,2024,2,Dana Whites Contender Series,88373,Rizvan Kuniev,161432,Hugo Cunha,88373,TKO (Knee to the Body and Punches),1,HW
+2024-08-20,2024,2,Dana Whites Contender Series,151281,Cortavious Romious,73907,Michael Imperato,151281,Decision (Unanimous),3,LW
+2024-08-20,2024,2,Dana Whites Contender Series,234922,Torrez Finney,167495,Cameron Rowston,234922,Decision (Unanimous),3,MW
+2024-08-20,2024,2,Dana Whites Contender Series,190369,Cody Haddon,112536,Billy Brand,190369,Submission (Rear-Naked Choke),1,BW
+2024-08-27,2024,3,Dana Whites Contender Series,251112,Andrey Pulyaev,196882,Liam Anderson,251112,Decision (Unanimous),3,MW
+2024-08-27,2024,3,Dana Whites Contender Series,127739,Bogdan Grad,190382,Michael Aswell,127739,Decision (Split),3,FW
+2024-08-27,2024,3,Dana Whites Contender Series,178782,Marco Tulio,237871,Matthieu Letho Duclos,178782,TKO (Spinning Back Kick and Punches),2,MW
+2024-08-27,2024,3,Dana Whites Contender Series,185572,Malcolm Wellmaker,128270,Adam Bramhald,185572,KO (Punch),1,BW
+2024-08-27,2024,3,Dana Whites Contender Series,242453,Nick Piccininni,166638,Jack Duffy,242453,Decision (Split),3,FLW
+2024-09-03,2024,4,Dana Whites Contender Series,185137,Seok Hyeon Ko,242207,Igor Cavalcanti,185137,Decision (Unanimous),3,WW
+2024-09-03,2024,4,Dana Whites Contender Series,130572,Djorden Santos,172178,Will Currie,130572,Decision (Unanimous),3,MW
+2024-09-03,2024,4,Dana Whites Contender Series,225525,Austin Bashi,149700,Dorian Ramos,225525,Submission (Rear-Naked Choke),2,FW
+2024-09-03,2024,4,Dana Whites Contender Series,186126,Yuneisy Duben,217548,Shannon Clark,186126,KO (Punch),1,
+2024-09-03,2024,4,Dana Whites Contender Series,197493,Quillan Salkilld,208713,Gauge Young,197493,Decision (Unanimous),3,LW
+2024-09-10,2024,5,Dana Whites Contender Series,267425,Navajo Stirling,245674,Phillip Latu,267425,KO (Punch),2,LHW
+2024-09-10,2024,5,Dana Whites Contender Series,235752,Yousri Belgaroui,231935,Taiga Iwasaki,235752,TKO (Punches),3,LHW
+2024-09-10,2024,5,Dana Whites Contender Series,270527,Josias Musasa,212470,Otari Tanzilovi,270527,Decision (Split),3,BW
+2024-09-10,2024,5,Dana Whites Contender Series,148970,Nicolle Caliari,169789,Corinne Laframboise,148970,Submission (Armbar),1,
+2024-09-17,2024,6,Dana Whites Contender Series,241981,Elijah Smith,162142,Aaron Tau,241981,Decision (Unanimous),3,BW
+2024-09-17,2024,6,Dana Whites Contender Series,248719,Tallison Teixeira,146043,Arthur Lopes,248719,KO (Punches),1,HW
+2024-09-17,2024,6,Dana Whites Contender Series,161912,Benjamin Bennett,176520,Joey Hart,161912,Decision (Split),3,WW
+2024-09-17,2024,6,Dana Whites Contender Series,241276,Ateba Abega Gautier,231934,Yura Naito,241276,TKO (Punches),2,MW
+2024-09-17,2024,6,Dana Whites Contender Series,188959,Ahmad Sohail Hassanzada,190281,Dylan Mantello,188959,Technical Submission (Rear-Naked Choke),3,LW
+2024-09-24,2024,7,Dana Whites Contender Series,245055,Danylo Voievodkin,240320,Bailey Schoenfelder,245055,Submission (Rear-Naked Choke),1,HW
+2024-09-24,2024,7,Dana Whites Contender Series,157677,Daniel Frunza,132853,Vadym Kutsyi,157677,TKO (Punches),2,WW
+2024-09-24,2024,7,Dana Whites Contender Series,157057,Kevin Christian,209877,Francesco Mazzeo,157057,Submission (Triangle Armbar),2,LHW
+2024-09-24,2024,7,Dana Whites Contender Series,244904,Kevin Vallejos,214424,Cam Teague,244904,TKO (Punches),1,FW
+2024-09-24,2024,7,Dana Whites Contender Series,190657,Alexia Thainara,154820,Rose Conceicao,190657,Decision (Unanimous),3,
+2024-10-01,2024,8,Dana Whites Contender Series,184408,Diyar Nurgozhay,161868,Bartosz Szewczyk,184408,KO (Head Kick and Punches),2,LHW
+2024-10-01,2024,8,Dana Whites Contender Series,175560,Alberto Montes,171178,Carlos Calderon,175560,Submission (Anaconda Choke),2,FW
+2024-10-01,2024,8,Dana Whites Contender Series,159878,David Martinez,177005,Xavier Franklin,159878,Decision (Unanimous),3,BW
+2024-10-01,2024,8,Dana Whites Contender Series,234922,Torrez Finney,212599,Abdelah Er-Ramy,234922,TKO (Punches),1,MW
+2024-10-01,2024,8,Dana Whites Contender Series,252982,Jacobe Smith,142418,Christien Savoie,252982,TKO (Elbows),2,WW
+2024-10-08,2024,9,Dana Whites Contender Series,281714,Artem Vakhitov,279452,Islem Masraf,281714,TKO (Punches),1,HW
+2024-10-08,2024,9,Dana Whites Contender Series,247995,Kody Steele,255966,Chasen Blair,247995,TKO (Punches),2,WW
+2024-10-08,2024,9,Dana Whites Contender Series,202329,Mario Pinto,168903,Lucas Triverio Camacho,202329,KO (Punches),1,HW
+2024-10-08,2024,9,Dana Whites Contender Series,165683,Islam Dulatov,139863,Vanilton Antunes,165683,KO (Elbow),1,WW
+2024-10-08,2024,9,Dana Whites Contender Series,130547,Sean Gauci,118515,Anthony Drilich,130547,Decision (Unanimous),3,FLW
+2024-10-15,2024,10,Dana Whites Contender Series,182546,Nick Klein,197400,Heraldo Souza,182546,Submission (Rear-Naked Choke),1,LHW
+2024-10-15,2024,10,Dana Whites Contender Series,243995,Luis Gurule,242453,Nick Piccininni,243995,Decision (Split),3,FLW
+2024-10-15,2024,10,Dana Whites Contender Series,193588,Yadier Del Valle,124753,Antonio Monteiro,193588,Decision (Unanimous),3,LW
+2024-10-15,2024,10,Dana Whites Contender Series,245638,Julieta Martinez,193772,Leslie Hernandez,245638,Decision (Split),3,
+2024-10-15,2024,10,Dana Whites Contender Series,235770,Jonathan Micallef,227415,Mohamed Ado,235770,Technical Submission (Triangle Choke),1,WW
+2025-08-12,2025,,Dana Whites Contender Series,246670,Ilian Bouafia,163683,Neemias Santana,246670,Decision (Unanimous),3,LHW
+2025-08-12,2025,,Dana Whites Contender Series,224289,Ty Cole Miller,193850,Jimmy Drago,224289,Decision (Unanimous),3,WW
+2025-08-12,2025,,Dana Whites Contender Series,236104,Baisangur Susurkaev,181774,Murtaza Talha Ali,236104,KO (Front Kick to the Body),1,MW
+2025-08-12,2025,,Dana Whites Contender Series,118272,Radley da Silva,198178,George Mangos,118272,Decision (Unanimous),3,FW
+2025-08-12,2025,,Dana Whites Contender Series,191740,Yuri Panferov,272776,Christopher Ewert,191740,Decision (Unanimous),3,MW
+2025-08-19,2025,,Dana Whites Contender Series,137120,Jose Mauro Delano,223658,Manuel Exposito,137120,Decision (Unanimous),3,FW
+2025-08-19,2025,,Dana Whites Contender Series,167495,Cameron Rowston,261369,Brandon Holmes,167495,TKO (Elbow and Punches),1,MW
+2025-08-19,2025,,Dana Whites Contender Series,204129,Louis Lee Scott,283156,Kaushik Saikumar,204129,TKO (Punches),3,BW
+2025-08-19,2025,,Dana Whites Contender Series,287901,Josh Hokit,255225,Guilherme Uriel,287901,TKO (Elbows),2,HW
+2025-08-19,2025,,Dana Whites Contender Series,169673,Ramiro Jimenez,186068,Tommy Cuozzi,169673,TKO (Elbows and Punches),1,FW
+2025-08-26,2025,3,Dana Whites Contender Series,256802,Ryan Gandra,240225,Trent Miller,256802,TKO (Punches),1,MW
+2025-08-26,2025,3,Dana Whites Contender Series,169814,Marcio Barbosa,158533,Damon Wilson,169814,TKO (Punches),1,FW
+2025-08-26,2025,3,Dana Whites Contender Series,248301,Abdul-Rakhman Yakhyaev,219584,Alik Lorenz,248301,TKO (Knee to the Body and Punches),1,LHW
+2025-08-26,2025,3,Dana Whites Contender Series,207275,Manoel Sousa,169670,Cristian Perez,207275,TKO (Punches),3,LW
+2025-08-26,2025,3,Dana Whites Contender Series,278471,Donte Johnson,174917,Darion Abbey,278471,TKO (Punches),1,LHW
+2025-09-02,2025,4,Dana Whites Contender Series,171410,Jean-Paul Lebosnoyani,216487,Jack Congdon,171410,KO (Head Kick and Punch),1,WW
+2025-09-02,2025,4,Dana Whites Contender Series,134286,Cezary Oleksiejczuk,226587,Theo Haig,134286,TKO (Punches),1,MW
+2025-09-02,2025,4,Dana Whites Contender Series,108151,Mandel Nallo,150712,Samuel Silva,108151,KO (Punches),1,WW
+2025-09-02,2025,4,Dana Whites Contender Series,147812,Eduardo Henrique,200967,An Tuan Ho,147812,Decision (Unanimous),3,FLW
+2025-09-02,2025,4,Dana Whites Contender Series,162343,Tommy McMillen,270868,David Mgoyan,162343,Decision (Majority),3,FW
+2025-09-09,2025,5,Dana Whites Contender Series,262576,Steven Asplund,285589,Anthony Guarascio,262576,TKO (Punch and Elbows),1,HW
+2025-09-09,2025,5,Dana Whites Contender Series,79140,Lerryan Douglas,214424,Cam Teague,79140,KO (Punch),1,FW
+2025-09-09,2025,5,Dana Whites Contender Series,254614,Freddy Vidal,269362,Felipe Franco,254614,Submission (Rear-Naked Choke),3,LHW
+2025-09-09,2025,5,Dana Whites Contender Series,243675,Samuel Sanches,255966,Chasen Blair,243675,KO (Punches),1,LW
+2025-09-09,2025,5,Dana Whites Contender Series,287133,Carol Foro,212862,Shanelle Dyer,287133,Decision (Unanimous),3,
+2025-09-16,2025,6,Dana Whites Contender Series,165903,Hecher Sosa,206624,Macksom Lee,165903,Decision (Unanimous),3,BW
+2025-09-16,2025,6,Dana Whites Contender Series,237033,Iwo Baraniewski,140342,Mahamed Aly,237033,KO (Punches),1,LHW
+2025-09-16,2025,6,Dana Whites Contender Series,281627,Thomas Gantt,240383,Adam Livingston,281627,Submission (Guillotine Choke),1,WW
+2025-09-16,2025,6,Dana Whites Contender Series,175257,Paddy McCorry,178346,In Su Hwang,175257,Decision (Unanimous),3,LHW
+2025-09-16,2025,6,Dana Whites Contender Series,191151,Cody Chovancek,208311,Raphael Uchegbu,191151,TKO (Punches),3,BW
+2025-09-23,2025,7,Dana Whites Contender Series,202334,Mantas Kondratavicius,131232,Djani Barbir,202334,TKO (Punches),1,MW
+2025-09-23,2025,7,Dana Whites Contender Series,270873,Murtazali Magomedov,193732,Brahyam Zurcher,270873,TKO (Punches),1,FW
+2025-09-23,2025,7,Dana Whites Contender Series,277543,Jeisla Chaves,245557,Sofia Montenegro,277543,Decision (Split),3,
+2025-09-23,2025,7,Dana Whites Contender Series,140012,Javier Reyes,182783,Justice Torres,140012,TKO (Knees and Punches),1,FW
+2025-09-23,2025,7,Dana Whites Contender Series,256157,Rafael Tobias,181413,Jair de Oliveira,256157,Submission (Rear-Naked Choke),1,LHW
+2025-09-30,2025,8,Dana Whites Contender Series,281138,Damian Pinas,222269,Vitor Costa,281138,TKO (Punches),1,MW
+2025-09-30,2025,8,Dana Whites Contender Series,153246,Louis Jourdain,219875,Magno Dias,153246,Submission (Rear-Naked Choke),3,FLW
+2025-09-30,2025,8,Dana Whites Contender Series,240929,Christopher Alvidrez,182857,Eliezer Kubanza,240929,TKO (Punches),1,WW
+2025-09-30,2025,8,Dana Whites Contender Series,198507,Kurtis Campbell,241282,Demba Seck,198507,TKO (Elbows and Punches),1,FW
+2025-09-30,2025,8,Dana Whites Contender Series,212938,Rashid Vagabov,237546,Paulo da Silva,212938,Decision (Unanimous),3,FLW
+2025-10-07,2025,9,Dana Whites Contender Series,244436,Magomed Zaynukov,271744,Lucas Caldas,244436,Decision (Unanimous),3,LW
+2025-10-07,2025,9,Dana Whites Contender Series,177221,Adrian Luna Martinetti,202091,Mark Vologdin,177221,Decision (Unanimous),3,BW
+2025-10-07,2025,9,Dana Whites Contender Series,272702,Imanol Rodriguez,167660,Roque Conceicao Moreira Junior,272702,TKO (Punches),1,FLW
+2025-10-07,2025,9,Dana Whites Contender Series,175745,Luis Felipe Dias,230716,Donavon Hedrick,175745,Submission (Rear-Naked Choke),2,
+2025-10-07,2025,9,Dana Whites Contender Series,232933,Luke Fernandez,286104,Rafael Pergentino,232933,TKO (Punches),1,LHW
+2025-10-14,2025,10,Dana Whites Contender Series,241021,Levi Rodrigues,254614,Freddy Vidal,,No Contest (Overturned),1,LHW
+2025-10-14,2025,10,Dana Whites Contender Series,188467,Juan Diaz,129718,Won Il Kwon,188467,KO (Spinning Back Elbow),2,BW
+2025-10-14,2025,10,Dana Whites Contender Series,285513,Marwan Rahiki,259640,Ananias Mulumba,285513,TKO (Elbows and Punches),2,FW
+2025-10-14,2025,10,Dana Whites Contender Series,253591,Michael Oliveira,115231,Victor Valenzuela,253591,TKO (Punches),2,WW
+2025-10-14,2025,10,Dana Whites Contender Series,256488,Jovan Leka,189441,Azamat Nuftillaev,256488,Decision (Unanimous),3,HW
+2025-10-14,2025,10,Dana Whites Contender Series,214812,Wesley Schultz,168531,Mario Mingaj,214812,Submission (Kneebar),1,MW
