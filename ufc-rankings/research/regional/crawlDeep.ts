@@ -35,6 +35,14 @@ const HEAD = 'fmId,name,date,promotion,event,opponentFmId,opponentName,opponentR
 // Promotions that actually feed the Contender Series / UFC prospect pipeline.
 const FEEDER = /^(CFFC|Cage Fury|LFA|Legacy F|Fury FC|Titan|CES|Ohio Combat|OCL|Bellator|PFL|Cage Warriors|Invicta|King of the Cage|RFA|Dana White|Contender|Shooto|Pancrase|Brave|Oktagon|UAE Warriors|BRAVE|Combate|Xtreme|XFC|VFC|Victory|Prospect|APFC|Iron|Valor|Alaska|Hoosier|Caged|Fight Lite|Final Fight|A1|LFC|Bantam)/i;
 
+// Recency cutoff, derived empirically rather than guessed: 81,126 event-id →
+// year pairs read out of the cached profiles put 2018 events at a median id of
+// 206,222 and a minimum of 174,482 (2016 median 161,270; 2020 median 262,295).
+// 174,000 therefore keeps ~2018-onward. A 2009 CFFC card says nothing about
+// grading a prospect fighting tonight, and skipping those is the single
+// biggest time saving available that does NOT involve raising the request rate.
+const MIN_EVENT_ID = 174_000;
+
 const esc = (s: string) => (/[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s);
 
 function eventIdsFromCache(): { id: string; name: string; feeder: boolean }[] {
@@ -44,6 +52,7 @@ function eventIdsFromCache(): { id: string; name: string; feeder: boolean }[] {
     const h = fs.readFileSync(path.join(CACHE, f), 'utf-8');
     for (const m of h.matchAll(/href='\/event\/([^']+?)\/(\d+)\/'/g)) {
       const name = decodeURIComponent(m[1]).replace(/\+/g, ' ');
+      if (Number(m[2]) < MIN_EVENT_ID) continue; // pre-~2018: not the modern scene
       if (!seen.has(m[2])) seen.set(m[2], { id: m[2], name, feeder: FEEDER.test(name) });
     }
   }
@@ -109,10 +118,12 @@ async function main(): Promise<void> {
 
   await crawl([...roster.entries()], 'phase-A-profiles');
 
-  // ── phase B: everything else on cached cards ──
-  roster.clear();
-  await harvest(events.filter((e) => !e.feeder), 'other-events');
-  await crawl([...roster.entries()], 'phase-B-profiles');
+  // ── phase B: DROPPED ──
+  // Non-feeder cached cards are overwhelmingly UFC and major-promotion events
+  // whose fighters we already hold, so this was the largest and least valuable
+  // phase — hours of harvesting to re-discover known people. Cut deliberately;
+  // re-enable only if the rating turns out to need major-promotion depth.
+  console.log(`[phase B] skipped — ${events.filter((e) => !e.feeder).length} non-feeder events not crawled (known population)`);
 
   // ── phase C: career depth for opponents discovered earlier ──
   await crawl([...knownOpponents.entries()].filter(([id]) => !done.has(id)), 'phase-C-opponents');
