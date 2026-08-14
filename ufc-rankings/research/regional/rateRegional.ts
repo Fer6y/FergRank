@@ -24,6 +24,18 @@
 //    strictly before it. A rating that cannot beat a coin flip on held-out
 //    regional fights is not worth shipping, whatever the table looks like.
 //
+// ⚠️ DO NOT USE THE SETTLED RATING AS A PREDICTOR OF UFC OUTCOMES. The output
+// here is swept to the present day and the regional graph CONTAINS UFC fights,
+// so a fighter's rating already includes the results you would be trying to
+// predict. Measured 2026-08-12: DWCS entrants who reached the UFC top 15 carry
+// an average of 8.1 post-DWCS UFC bouts inside their rating, against 2.9 for
+// those who did not — which is why a naive "regional Elo predicts top-15"
+// test returned a spectacular held-out AUC of 0.879 against age's 0.734. That
+// number is leakage, not signal. Any predictive use needs a POINT-IN-TIME
+// rating snapshotted before the bout in question (the ratingAsOf discipline
+// used in research/backtest/pitAdjust.ts). Display use — where the rating
+// describes a fighter's standing TODAY — is unaffected and correct.
+//
 // FIREWALL: research zone. Reads the crawl CSV, writes a CSV + console. Feeds
 // no Elo, no ranking, no page.
 //

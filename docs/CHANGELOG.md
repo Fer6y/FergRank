@@ -12,6 +12,40 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
+- **DOB harvest complete (7,524 birthdates), PACE REFUTED, and a look-ahead LEAK caught
+  before it could ship.** Three results from finishing the ESPN harvest:
+  **1. The harvest + its honest limits.** 18,259 names attempted → **7,524 found**, 10,072
+  miss, 465 ambiguous (skipped by the never-guess-a-namesake gate), 161 rejected by the
+  career-plausibility guard, 37 errors. Quality: 1,689 names overlap our canonical UFC
+  birthdates at **91.3% exact** agreement — but the number that matters for an age metric is
+  **97.4%**, because of the 147 disagreements, 90 differ only on day/month *within the same
+  year* (identical age) and 13 are our own year-precision placeholders; just 44 of 1,689 would
+  yield a different age. Coverage is **systematically tiered**, the same hole the regional Elo
+  has: top-10% of the rated pool 70.6% found, falling monotonically to 28.1% in the bottom
+  quartile. ESPN indexes fighters who have been on televised cards; it does not index the
+  grassroots. The career-stage metric can therefore speak confidently about the DWCS pipeline
+  and the upper regional tier, and should stay quiet below it.
+  **2. Finishing the harvest did NOT move the career-stage verdict** — cohort unchanged at 482,
+  because the queue put DWCS names first and had already covered them all within the first 700
+  attempts. The binding constraint is **15 held-out positives**, not birthdate coverage; only
+  more DWCS seasons (now arriving via the FM results feed) will change it.
+  **3. PACE — the one open scored-term candidate — is REFUTED** (`research/regional/explorePace.ts`).
+  Its band table looked U-shaped (<1.5/yr 14.8% top-15, 1.5–2.5 6.3%, 2.5–3.5 6.8%, 3.5+ 17.4%),
+  but the two winning tails differ by four years of mean age (29.3 vs 25.3) and ρ(pace, age) =
+  −0.331 — the U is an age artifact. The decisive test: **controlling for opponent quality,
+  pace adds nothing** (age+Elo AUC 0.825 → age+Elo+pace 0.823, ΔAUC −0.002 [−0.048, +0.039]),
+  and its fitted coefficient flips negative. Pace was the third reading the script pre-listed:
+  a low-level-circuit artifact, not a development-rate signal.
+  **4. THE LEAK, caught by disbelieving a good number.** That control test threw off a
+  spectacular side result — regional Elo alone predicting top-15 at held-out **AUC 0.879** vs
+  age's 0.734 on the same 498-fighter sample. It is invalid. The regional graph contains UFC
+  fights and the rating is swept to today, so the predictor already contains the outcome:
+  measured, top-15 reachers carry **8.1 post-DWCS UFC bouts** inside their rating vs **2.9**
+  for non-reachers. A guardrail comment now sits at the top of `rateRegional.ts`; any
+  predictive use requires a point-in-time snapshot (the `pitAdjust.ts` `ratingAsOf`
+  discipline). **Display use is unaffected** — describing a fighter's standing today is exactly
+  what the settled rating is for, and that is all the scout band does with it.
+
 - **SHIPPED: the CAREER-STAGE metric + verified birthdates — and the pre-registered test says
   it stays DISPLAY-ONLY.** Closes the "a 23-year-old is very different from a 36-year-old with
   the same fight count" gap. `src/lib/careerStage.ts` classifies an arc from three facts —
