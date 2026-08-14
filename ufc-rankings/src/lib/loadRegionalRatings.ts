@@ -74,6 +74,48 @@ export function lookupRegional(index: Map<string, RegionalRead>, name: string): 
 }
 
 /**
+ * How good a fighter was WHEN THEY ARRIVED — their regional rating snapshotted
+ * immediately before their UFC debut (data/regional_arrival.csv, built by
+ * research/regional/arrivalRegional.ts).
+ *
+ * Distinct from the settled rating on purpose: once a prospect starts fighting
+ * in the UFC those bouts enter the regional graph, so the settled number stops
+ * describing the fighter who walked in. Percentile is against OTHER ARRIVALS,
+ * which is the comparison a scout wants.
+ *
+ * Keyed by OUR fighter id — a real id join, so no namesake risk.
+ */
+export interface ArrivalRead {
+  elo: number;
+  percentile: number;   // vs other UFC arrivals
+  priorBouts: number;
+  ufcDebut: string;
+}
+
+export function getArrivalIndex(): Map<string, ArrivalRead> {
+  const out = new Map<string, ArrivalRead>();
+  const p = path.join(process.cwd(), 'data', 'regional_arrival.csv');
+  if (!fs.existsSync(p)) return out;
+  try {
+    for (const r of Papa.parse<Record<string, string>>(fs.readFileSync(p, 'utf-8'), {
+      header: true,
+      skipEmptyLines: true,
+    }).data) {
+      if (!r.ourId) continue;
+      out.set(r.ourId, {
+        elo: Math.round(Number(r.arrivalElo)),
+        percentile: Number(r.arrivalPercentile),
+        priorBouts: Number(r.priorBouts),
+        ufcDebut: r.ufcDebut ?? '',
+      });
+    }
+  } catch {
+    return out;
+  }
+  return out;
+}
+
+/**
  * Verified birthdates harvested from ESPN's core API
  * (research/regional/fetchEspnDob.ts). Only `found` rows — every one passed a
  * uniqueness, name-match and career-plausibility gate at harvest time, so an

@@ -12,6 +12,34 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
+- **SHIPPED: "arrived at" — regional standing at UFC debut, on /prospects.** Closes the gap
+  the user named: the board should describe prospects *as they are when they come in*, not
+  project a five-year ceiling. A settled regional rating stops doing that the moment a
+  prospect starts fighting in the UFC (those bouts are in the regional graph), so
+  `research/regional/arrivalRegional.ts` snapshots each fighter's rating immediately BEFORE
+  their UFC debut — frozen, uncontaminated by what came after. 2,423 regional fighters matched
+  to a UFC debut, **1,382 with a usable snapshot** (3+ prior regional bouts); spread p10 1540 /
+  median 1595 / p90 1644. Percentile is against **other UFC arrivals**, which is the comparison
+  a scout wants and avoids flattering everyone against 18k regional fighters who never get near
+  the promotion. Face validity is strong — the top arrivals on record are Patricio Freire
+  (1778), Amosov, Mousasi, Prochazka, Michael Page, Barao, Kai Asakura.
+  Renders as `Arrived at 1651 regional · top 8% of UFC arrivals · 15 pro bouts first`, joined on
+  OUR fighter id (a real id join, no namesake risk). Verified live — Vallejos top 8%, Santos
+  top 12%, Hokit top 47%, 25 cards carrying the line, zero console errors; golden master
+  byte-identical, tests and build clean.
+
+- **The target was WRONG, and fixing it changed the reading.** Every prospect test in this
+  project scored against "reached the current UFC top 15" — a five-year projection nobody
+  asked for, and the reason each one came back underpowered (15 held-out positives).
+  `research/regional/validateArrivalQuality.ts` re-tests against near-term arrival quality,
+  measurable on **all 304 graduates**. Result: the point-in-time regional Elo is a **floor
+  detector, not a ceiling detector** — early-UFC win rate by regional band entering the tryout
+  runs 48.5% / 45.5% / 47.9% across the top three quartiles and **36.5% in the bottom** one.
+  The bottom quartile is clearly worse; the top three are indistinguishable. ρ(PIT Elo, UFC win
+  rate) 0.128, with age still slightly stronger (−0.169; AUC 0.592 vs 0.553). So the rating
+  usefully says who is NOT ready and says little about who is exceptional — which is exactly
+  how the UI now phrases it.
+
 - **POINT-IN-TIME regional Elo built — and it CONFIRMS the leak was the whole result.**
   `research/regional/pitRegional.ts` snapshots each DWCS entrant's regional rating from
   bouts strictly BEFORE their tryout (a pure read off the chronological sweep — the same

@@ -22,6 +22,7 @@ import { getFighterMedia } from './fighterMedia';
 import { getFighterAge } from './fighterAges';
 import { getNextFight, type NextFight } from './loadUpcoming';
 import { loadDwcsAnalysis, type DwcsChip } from './loadDwcsAnalysis';
+import { getArrivalIndex, type ArrivalRead } from './loadRegionalRatings';
 import { buildDistinctions, type Distinction } from './distinctions';
 import { RANKING_CONFIG } from './rankingConfig';
 import { ALL_DIVISIONS } from './types';
@@ -68,6 +69,9 @@ export interface ProspectEntry {
   // Came through the Contender Series tryout (display-only, read from the
   // static dwcs_analysis.json — same firewall class as fighterMedia).
   dwcs: DwcsChip | null;
+  // Regional standing at UFC debut — how good they were when they ARRIVED,
+  // frozen before their UFC bouts could change it. Display-only.
+  arrival: ArrivalRead | null;
 }
 
 // Compact method label for one-line results ("KO R2", "SUB R1", "UD").
@@ -108,6 +112,8 @@ export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
   const ratings = buildEloRatings(data);
   const pedigree = loadPedigreeStrength(data);
   const dwcsChips = loadDwcsAnalysis()?.chips ?? {};
+  // Built once per pass, not per card — the CSV is ~100KB.
+  const arrivalIndex = getArrivalIndex();
 
   // Contender numbering shared with the rest of the app (champions excluded —
   // a reigning champion is nobody's prospect).
@@ -174,6 +180,7 @@ export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
           }
         : null,
       dwcs: dwcsChips[fighter.fighterId] ?? null,
+      arrival: arrivalIndex.get(fighter.fighterId) ?? null,
     });
   }
 

@@ -266,6 +266,23 @@ function ProspectCard({ p, index, sort }: { p: ProspectEntry; index: number; sor
             )}
           </span>
         )}
+        {/* How good they were WHEN THEY ARRIVED — regional standing snapshotted
+            before their UFC debut, so their UFC results can't inflate it. The
+            cohort read is honest about its shape: this reliably flags who
+            arrived below the line, and says little about who is exceptional. */}
+        {p.arrival && (
+          <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
+            Arrived at{' '}
+            <span className="font-mono" style={{ color: 'var(--accent-gold)' }}>{p.arrival.elo}</span>
+            {' '}regional ·{' '}
+            <span style={{ color: p.arrival.percentile >= 75 ? 'var(--accent-green)' : p.arrival.percentile <= 25 ? 'var(--accent-red-light)' : 'var(--text-secondary)' }}>
+              {p.arrival.percentile >= 50
+                ? `top ${Math.max(1, Math.round(100 - p.arrival.percentile))}%`
+                : `bottom ${Math.round(p.arrival.percentile)}%`}
+            </span>
+            {' '}of UFC arrivals · {p.arrival.priorBouts} pro bouts first
+          </span>
+        )}
         {p.nextFight && (
           <span className="text-[11px]" style={{ color: 'var(--accent-red-light)' }}>
             Next: vs {p.nextFight.opponentName}
