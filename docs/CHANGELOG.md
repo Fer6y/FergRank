@@ -12,6 +12,26 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
+- **POINT-IN-TIME regional Elo built — and it CONFIRMS the leak was the whole result.**
+  `research/regional/pitRegional.ts` snapshots each DWCS entrant's regional rating from
+  bouts strictly BEFORE their tryout (a pure read off the chronological sweep — the same
+  `ratingBefore` discipline as the UFC backtests), writes
+  `data/regional_ratings_pit.csv` (614 entrants, 573 with 3+ prior bouts), and re-runs the
+  predictive test honestly on the same temporal split:
+  | predictor | held-out AUC |
+  |---|---|
+  | age only | 0.739 |
+  | **PIT regional Elo only** | **0.565** |
+  | age + PIT Elo | 0.747 |
+  Against the leaked settled-rating figure of **0.879**. So essentially the entire
+  "regional Elo is a spectacular predictor" result was hindsight: at 0.565 the PIT rating
+  is barely above a coin flip, and adds +0.008 over age — nowhere near the +0.02 bar.
+  **The honest reading**: the regional rating describes the PRESENT well (63.9% walk-forward
+  on regional fights) and forecasts a UFC breakout poorly. Those are different jobs, and the
+  scout band only ever does the first. No scored term is proposed; the display use stands.
+  `regional_ratings_pit.csv` is kept as the non-leaky artifact any future prospect model must
+  use instead of the settled file.
+
 - **DOB harvest complete (7,524 birthdates), PACE REFUTED, and a look-ahead LEAK caught
   before it could ship.** Three results from finishing the ESPN harvest:
   **1. The harvest + its honest limits.** 18,259 names attempted → **7,524 found**, 10,072
