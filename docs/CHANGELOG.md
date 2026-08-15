@@ -12,6 +12,25 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-15
 
+- **SHIPPED: /contender-series rebuilt as the CONTENDER SERIES tab — every scheduled card,
+  bout by bout, with the full form-first grades.** User ask: a top-nav tab carrying the
+  card-breakdown analysis the chat sessions were producing by hand. The nav link renames
+  DWCS → Contender Series (both desktop and the mobile scroll row), and the page now leads
+  with one section per SCHEDULED card (Week 2 + Week 3 at ship time): each bout renders both
+  corners with the current-form grade chip, basics, career-stage chip, runway verdict and the
+  PROSPECT line — followed by a cross-card "scheduled class" ranked board (rows now carry a
+  week/date tag), with the nine-season cohort evidence sections unchanged below.
+  **The load-bearing move is one shared component**: the per-corner markup was extracted to
+  `components/ScoutCorner.tsx` (no hooks — renders in the server page and the client band
+  alike) and the full read assembly to `dwcsScout.fullScoutRead()` + `buildScoutContext()`,
+  with /upcoming's enrich pass rewired through the same functions — the CompareGauntlet
+  lesson applied in advance, so the band and the tab CANNOT drift. Context built once per
+  render pass (~1MB of CSV behind it), same as the old inline path.
+  Verified live: both cards render all 10 corners each, ranked class spans both weeks with
+  Clancy 100/A+ on top, /upcoming band identical through the shared component, nav shows
+  Contender Series on both breakpoints, zero console errors. Typecheck + all 175 assertions
+  pass; golden master byte-identical (display-only end to end).
+
 - **SHIPPED: the DWCS scout band flipped FORM-FIRST — present ability leads, the ceiling
   forecast demoted to one line.** Product decision (user, twice): the board's job is "who is
   this fighter AT the tryout", not "who reaches the top 15 in five years" — and the data

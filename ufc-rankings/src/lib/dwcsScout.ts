@@ -15,6 +15,11 @@ import Papa from 'papaparse';
 import { RANKING_CONFIG } from './rankingConfig';
 import { ratePreUfc, explainPreUfc, type PreUfcRating } from './preUfcRating';
 import type { DwcsScoutRaw } from './loadUpcoming';
+import {
+  getRegionalIndex, lookupRegional, getDobIndex, lookupDob,
+  getArrivalDistribution, arrivalPercentileOf, type RegionalRead,
+} from './loadRegionalRatings';
+import { careerStage } from './careerStage';
 
 export interface ScoutRead {
   rating: PreUfcRating | null; // null = not enough verified data to score
@@ -108,6 +113,59 @@ function parseRecord(record: string | null): { wins: number; losses: number; dra
   return m
     ? { wins: parseInt(m[1], 10), losses: parseInt(m[2], 10), draws: m[3] ? parseInt(m[3], 10) : 0 }
     : null;
+}
+
+/**
+ * Shared lookup context for the FULL scout read (regional form grade + career
+ * stage). Build ONCE per render pass — the ratings CSV is ~1MB — and hand to
+ * every fullScoutRead call. Used by /upcoming's enrich pass and the
+ * /contender-series card breakdowns so the two surfaces cannot disagree.
+ */
+export interface ScoutContext {
+  regionalIndex: Map<string, RegionalRead>;
+  dobIndex: Map<string, string>;
+  arrivalDist: number[];
+}
+
+export function buildScoutContext(): ScoutContext {
+  return {
+    regionalIndex: getRegionalIndex(),
+    dobIndex: getDobIndex(),
+    arrivalDist: getArrivalDistribution(),
+  };
+}
+
+/**
+ * The complete scout read for one corner: pre-UFC rating + regional read +
+ * CURRENT-FORM grade (rating vs the UFC-arrival distribution) + career stage.
+ * Form and stage are null whenever their verified inputs are absent — stated,
+ * never guessed.
+ */
+export function fullScoutRead(ctx: ScoutContext, raw: DwcsScoutRaw, name: string): ScoutRead {
+  const read = scoutDwcsEntrant(raw);
+  const regional = lookupRegional(ctx.regionalIndex, name);
+  const arrivalPct =
+    regional && ctx.arrivalDist.length ? arrivalPercentileOf(ctx.arrivalDist, regional.rating) : null;
+  const form =
+    arrivalPct != null
+      ? {
+          grade: RANKING_CONFIG.scoutFormGrade.cuts.find((c) => arrivalPct >= c.min)?.grade ?? 'C',
+          arrivalPct: Math.round(arrivalPct),
+        }
+      : null;
+  const dob = lookupDob(ctx.dobIndex, name);
+  // Career stage needs BOTH verified facts; the card's hand-entered age is
+  // never substituted for a birthdate.
+  const stage =
+    dob && regional?.debut
+      ? careerStage({
+          dob,
+          proDebutDate: regional.debut,
+          fights: regional.bouts,
+          lastFightDate: regional.lastFight || undefined,
+        })
+      : null;
+  return { ...read, regional, form, stage };
 }
 
 export function scoutDwcsEntrant(raw: DwcsScoutRaw): ScoutRead {

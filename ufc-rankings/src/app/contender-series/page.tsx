@@ -1,26 +1,45 @@
 import Link from 'next/link';
 import { loadDwcsAnalysis, type DwcsBucketRow } from '@/lib/loadDwcsAnalysis';
-import { getUpcomingCards } from '@/lib/loadUpcoming';
-import { scoutDwcsEntrant } from '@/lib/dwcsScout';
+import { getUpcomingCards, type UpcomingBout } from '@/lib/loadUpcoming';
+import { buildScoutContext, fullScoutRead, type ScoutRead } from '@/lib/dwcsScout';
+import { ScoutCorner } from '@/components/ScoutCorner';
 import { RANKING_CONFIG } from '@/lib/rankingConfig';
 
 export const revalidate = 86400;
 
-// The live scout board: every entrant on an upcoming Contender Series card,
-// ranked by the pre-UFC rating. Empty (section hidden) when no DWCS card is
-// scheduled — the usual state outside the Aug–Oct season.
-function upcomingClass() {
+// Every SCHEDULED Contender Series card with the full per-corner scout read —
+// the same fullScoutRead the /upcoming band renders, so the two surfaces
+// cannot disagree. Empty (sections hidden) when no DWCS card is scheduled —
+// the usual state outside the Aug–Oct season.
+interface GradedBout { bout: UpcomingBout; s1: ScoutRead | null; s2: ScoutRead | null }
+interface GradedCard { eventName: string; eventDate: string; bouts: GradedBout[] }
+
+function scheduledCards(): GradedCard[] {
+  const dwcs = getUpcomingCards().filter((c) =>
+    /contender series|dana.?white|dwcs/i.test(`${c.eventId ?? ''} ${c.eventName}`),
+  );
+  if (!dwcs.length) return [];
+  const ctx = buildScoutContext(); // one context for every card — ~1MB of CSV behind it
+  return dwcs
+    .sort((a, b) => a.eventDate.localeCompare(b.eventDate))
+    .map((c) => ({
+      eventName: c.eventName,
+      eventDate: c.eventDate,
+      bouts: c.bouts.map((bout) => ({
+        bout,
+        s1: bout.scout1 ? fullScoutRead(ctx, bout.scout1, bout.fighter1Name) : null,
+        s2: bout.scout2 ? fullScoutRead(ctx, bout.scout2, bout.fighter2Name) : null,
+      })),
+    }));
+}
+
+// The cross-card class board: every graded entrant, ranked by prospect score.
+function rankedClass(cards: GradedCard[]) {
   const out: { name: string; score: number; grade: string; line: string; event: string; date: string }[] = [];
-  for (const card of getUpcomingCards()) {
-    if (!/contender series|dana.?white|dwcs/i.test(`${card.eventId ?? ''} ${card.eventName}`)) continue;
-    for (const b of card.bouts) {
-      for (const [name, raw] of [
-        [b.fighter1Name, b.scout1],
-        [b.fighter2Name, b.scout2],
-      ] as const) {
-        if (!raw) continue;
-        const s = scoutDwcsEntrant(raw);
-        if (!s.rating) continue;
+  for (const card of cards) {
+    for (const { bout, s1, s2 } of card.bouts) {
+      for (const [name, s] of [[bout.fighter1Name, s1], [bout.fighter2Name, s2]] as const) {
+        if (!s?.rating) continue;
         out.push({ name, score: s.rating.score, grade: s.rating.fineGrade, line: s.line, event: card.eventName, date: card.eventDate });
       }
     }
@@ -47,8 +66,11 @@ export default function ContenderSeriesPage() {
 
   const { summary, seasonTable, byResult, recordShape, tiers, topOrgs, odds, rankedGrads } = data;
   const maxRate = Math.max(...seasonTable.map((s) => s.contractRate ?? 0), 0.01);
-  const liveClass = upcomingClass();
+  const cards = scheduledCards();
+  const liveClass = rankedClass(cards);
   const C = RANKING_CONFIG.preUfcRating;
+  const fmtDate = (d: string) =>
+    new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6 space-y-5">
@@ -83,11 +105,34 @@ export default function ContenderSeriesPage() {
         nowhere else. Method + pre-registered hypotheses: <code>docs/plans/DWCS_PLAN.md</code>.
       </div>
 
-      {/* live scout board — only during a season */}
+      {/* scheduled cards, bout by bout — only during a season */}
+      {cards.map((card) => (
+        <section key={`${card.eventName}-${card.eventDate}`}>
+          <SectionLabel>
+            {card.eventName} · {fmtDate(card.eventDate)} · {card.bouts.length} bouts — form now, ceiling second
+          </SectionLabel>
+          <div className="rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>
+            {card.bouts.map(({ bout, s1, s2 }, i) => (
+              <div key={`${bout.fighter1Name}-${bout.fighter2Name}`} className="px-3 py-2.5 sm:px-4 sm:py-3" style={{ borderTop: i ? '1px solid var(--border)' : 'none' }}>
+                <div className="flex items-baseline gap-2 mb-1.5 text-[10px] uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>
+                  {bout.isMainEvent && <span style={{ color: 'var(--accent-gold)' }}>★ main event</span>}
+                  <span>{bout.weightClass}</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                  {s1 && <ScoutCorner label={bout.fighter1Name} s={s1} />}
+                  {s2 && <ScoutCorner label={bout.fighter2Name} s={s2} />}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      {/* the class, ranked across every scheduled card */}
       {liveClass.length > 0 && (
         <section>
           <SectionLabel>
-            This week&rsquo;s class · ranked by pre-UFC rating — {liveClass[0].event} ({liveClass[0].date})
+            The scheduled class · every graded entrant, ranked by prospect score
           </SectionLabel>
           <div className="rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>
             {liveClass.map((f, i) => {
@@ -98,7 +143,12 @@ export default function ContenderSeriesPage() {
                   <span className="font-display text-base leading-none px-1.5 py-0.5 rounded shrink-0" style={{ color, border: `1px solid ${color}` }}>{f.grade}</span>
                   <span className="font-mono text-sm w-8 shrink-0" style={{ color: 'var(--text-primary)' }}>{f.score}</span>
                   <div className="min-w-0">
-                    <div className="text-sm" style={{ color: 'var(--text-primary)' }}>{f.name}</div>
+                    <div className="text-sm" style={{ color: 'var(--text-primary)' }}>
+                      {f.name}
+                      <span className="font-mono text-[10px] ml-2" style={{ color: 'var(--text-muted)' }}>
+                        {f.event.replace(/dana white'?s contender series[ —·-]*/i, '')} · {f.date}
+                      </span>
+                    </div>
                     <div className="text-[10px] leading-snug mt-0.5" style={{ color: 'var(--text-muted)' }}>{f.line}</div>
                   </div>
                 </div>

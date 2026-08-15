@@ -24,10 +24,7 @@ import { shortDivision } from './divisions';
 import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { UpcomingCard, CardSection } from './loadUpcoming';
-import { scoutDwcsEntrant, type ScoutRead } from './dwcsScout';
-import { getRegionalIndex, lookupRegional, getDobIndex, lookupDob, getArrivalDistribution, arrivalPercentileOf } from './loadRegionalRatings';
-import { careerStage } from './careerStage';
-import { RANKING_CONFIG } from './rankingConfig';
+import { buildScoutContext, fullScoutRead, type ScoutRead } from './dwcsScout';
 
 // One enriched corner of a bout — everything the card UI needs, display-only.
 export interface CardFighter {
@@ -238,39 +235,12 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
     };
   };
 
-  // Regional-Elo index for DWCS scout bands — built ONCE per enrich pass (the
-  // CSV is ~1MB; per-corner reads would parse it ten times per card), and only
-  // when a DWCS card is actually present.
+  // Full scout context (regional index, DOB index, arrival distribution) —
+  // built ONCE per enrich pass (the ratings CSV is ~1MB), and only when a
+  // DWCS card is actually present. The read itself lives in dwcsScout.ts
+  // (fullScoutRead), shared with /contender-series so the surfaces agree.
   const anyDwcs = cards.some((c) => DWCS_RE.test(`${c.eventId ?? ''} ${c.eventName}`));
-  const regionalIndex = anyDwcs ? getRegionalIndex() : null;
-  const dobIndex = anyDwcs ? getDobIndex() : null;
-  // Arrival distribution for the form grade — built once per pass, same rule
-  // as the ratings index.
-  const arrivalDist = anyDwcs ? getArrivalDistribution() : null;
-  const formCuts = RANKING_CONFIG.scoutFormGrade.cuts;
-  const withRegional = (read: ScoutRead | null, name: string): ScoutRead | null => {
-    if (!read) return read;
-    const regional = regionalIndex ? lookupRegional(regionalIndex, name) : null;
-    const arrivalPct =
-      regional && arrivalDist?.length ? arrivalPercentileOf(arrivalDist, regional.rating) : null;
-    const form =
-      arrivalPct != null
-        ? { grade: formCuts.find((c) => arrivalPct >= c.min)?.grade ?? 'C', arrivalPct: Math.round(arrivalPct) }
-        : null;
-    const dob = dobIndex ? lookupDob(dobIndex, name) : null;
-    // Career stage needs BOTH verified facts; the card's hand-entered age is
-    // never substituted for a birthdate here.
-    const stage =
-      dob && regional?.debut
-        ? careerStage({
-            dob,
-            proDebutDate: regional.debut,
-            fights: regional.bouts,
-            lastFightDate: regional.lastFight || undefined,
-          })
-        : null;
-    return { ...read, regional, form, stage };
-  };
+  const scoutCtx = anyDwcs ? buildScoutContext() : null;
 
   return cards.map((card) => {
     const isDwcs = DWCS_RE.test(`${card.eventId ?? ''} ${card.eventName}`);
@@ -292,8 +262,8 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
         ...(isDwcs
           ? {
               prob1: null, formProb1: null, flags1: null, flags2: null,
-              scout1: b.scout1 ? withRegional(scoutDwcsEntrant(b.scout1), b.fighter1Name) : null,
-              scout2: b.scout2 ? withRegional(scoutDwcsEntrant(b.scout2), b.fighter2Name) : null,
+              scout1: b.scout1 && scoutCtx ? fullScoutRead(scoutCtx, b.scout1, b.fighter1Name) : null,
+              scout2: b.scout2 && scoutCtx ? fullScoutRead(scoutCtx, b.scout2, b.fighter2Name) : null,
             }
           : { ...probs(b.fighter1Id, b.fighter2Id, card.eventDate), scout1: null, scout2: null }),
       })),
