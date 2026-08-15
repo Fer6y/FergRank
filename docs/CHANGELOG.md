@@ -10,6 +10,40 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-15
+
+- **SHIPPED: the DWCS scout band flipped FORM-FIRST — present ability leads, the ceiling
+  forecast demoted to one line.** Product decision (user, twice): the board's job is "who is
+  this fighter AT the tryout", not "who reaches the top 15 in five years" — and the data
+  agrees, since the two jobs are answered by different instruments (the regional rating
+  describes the present at 63.9% walk-forward; the fitted pre-UFC score forecasts the ceiling
+  at AUC 0.691 and is dominated by age). Week 1 made it concrete: the present-form lens went
+  4/4 on decidable bouts while the ceiling model went 3/5 and graded two eventual contract
+  winners (Pagliarulo, Kropschot) 9th and 10th of 10. All display-only; golden master passes
+  byte-identical.
+  **The new hierarchy per corner**: (1) a CURRENT-FORM grade chip — the regional rating placed
+  against the measured distribution of ratings fighters carried INTO their UFC debuts
+  (`rankingConfig.scoutFormGrade`; the "regional Elo" number and jargon no longer render, the
+  rating is just the grade's engine), absence stated as ungraded, never guessed; (2) the
+  basics — record, FIN% (still labelled a style read), age, years pro, org, career-stage chip,
+  runway verdict; (3) a PROSPECT line — fine-grained grade plus the fitted logistic's own
+  top-15 probability (`~7% shot at the top 15`, tilde deliberate).
+  **Fine grades (A+…C-) subdivide the fitted score's existing bands** — the A-/B- floors are
+  pinned exactly to `gradeA`/`gradeB` and both letters key off the ROUNDED score, so the
+  coarse and fine letters can never disagree at a band edge (a real bug caught mid-build:
+  grade used the raw score and fineGrade the rounded one, so 69.6 graded B/A-). Both
+  invariants are now unit-tested; /contender-series renders the same fine scale so the two
+  surfaces can't diverge. Form-grade cuts above the median are deliberately coarse — the
+  validated floor-detector result (top three quartiles indistinguishable) means fine
+  distinctions up there would be fabricated precision.
+  **Verified live, not by inspection**: date-bumped the Week 1 snapshot (restored
+  byte-identical), all 10 corners render the new hierarchy, and every displayed probability
+  matches an independent hand-derivation of the logit (Wint 7.5%→~7, Hasan 16.6%→~17,
+  Kropschot 3.1%→~3). Zero console errors; typecheck + all suites pass, golden master
+  unchanged.
+
+---
+
 ## 2026-08-12
 
 - **SHIPPED: verified birthdates + the CAREER-STAGE band on /prospects.** The merged ESPN

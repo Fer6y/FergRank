@@ -47,6 +47,19 @@ check('score clamped to 0..100', monster.score <= 100 && dire.score >= 0, `${mon
 check('elite profile grades A', monster.grade === 'A');
 check('poor profile grades C', dire.grade === 'C');
 
+console.log('\n=== fine grades + top-15 probability (2026-08-15 band flip) ===');
+check('fine grade family always matches the coarse grade',
+  monster.fineGrade[0] === monster.grade && dire.fineGrade[0] === dire.grade,
+  `${monster.grade}/${monster.fineGrade} · ${dire.grade}/${dire.fineGrade}`);
+// The A-/B- floors must sit exactly on the coarse A/B boundaries — if the
+// config bands ever drift apart, a score could show e.g. "B" and "A-" at once.
+const fineFloor = (g: string) => RANKING_CONFIG.preUfcRating.fineGrades.find((b) => b.grade === g)?.min;
+check('A- floor === gradeA and B- floor === gradeB',
+  fineFloor('A-') === RANKING_CONFIG.preUfcRating.gradeA && fineFloor('B-') === RANKING_CONFIG.preUfcRating.gradeB);
+check('top-15 probability is a probability', monster.topFifteenProb > 0 && monster.topFifteenProb < 1);
+check('probability is monotone with the score', monster.topFifteenProb > dire.topFifteenProb,
+  `${monster.topFifteenProb.toFixed(3)} vs ${dire.topFifteenProb.toFixed(3)}`);
+
 console.log('\n=== org resolution: the traps that actually bit ===');
 check('"Road to UFC" is NOT tier-1', tierMultiplierForOrg('Road to UFC') < 1, String(tierMultiplierForOrg('Road to UFC')));
 check('"Cage Fury FC" resolves to CFFC tier3 (0.55)', tierMultiplierForOrg('Cage Fury FC') === 0.55, String(tierMultiplierForOrg('Cage Fury FC')));

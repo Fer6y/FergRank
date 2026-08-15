@@ -25,8 +25,9 @@ import { ALL_DIVISIONS } from './types';
 import type { RankedFighter } from './types';
 import type { UpcomingCard, CardSection } from './loadUpcoming';
 import { scoutDwcsEntrant, type ScoutRead } from './dwcsScout';
-import { getRegionalIndex, lookupRegional, getDobIndex, lookupDob } from './loadRegionalRatings';
+import { getRegionalIndex, lookupRegional, getDobIndex, lookupDob, getArrivalDistribution, arrivalPercentileOf } from './loadRegionalRatings';
 import { careerStage } from './careerStage';
+import { RANKING_CONFIG } from './rankingConfig';
 
 // One enriched corner of a bout — everything the card UI needs, display-only.
 export interface CardFighter {
@@ -243,9 +244,19 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
   const anyDwcs = cards.some((c) => DWCS_RE.test(`${c.eventId ?? ''} ${c.eventName}`));
   const regionalIndex = anyDwcs ? getRegionalIndex() : null;
   const dobIndex = anyDwcs ? getDobIndex() : null;
+  // Arrival distribution for the form grade — built once per pass, same rule
+  // as the ratings index.
+  const arrivalDist = anyDwcs ? getArrivalDistribution() : null;
+  const formCuts = RANKING_CONFIG.scoutFormGrade.cuts;
   const withRegional = (read: ScoutRead | null, name: string): ScoutRead | null => {
     if (!read) return read;
     const regional = regionalIndex ? lookupRegional(regionalIndex, name) : null;
+    const arrivalPct =
+      regional && arrivalDist?.length ? arrivalPercentileOf(arrivalDist, regional.rating) : null;
+    const form =
+      arrivalPct != null
+        ? { grade: formCuts.find((c) => arrivalPct >= c.min)?.grade ?? 'C', arrivalPct: Math.round(arrivalPct) }
+        : null;
     const dob = dobIndex ? lookupDob(dobIndex, name) : null;
     // Career stage needs BOTH verified facts; the card's hand-entered age is
     // never substituted for a birthdate here.
@@ -258,7 +269,7 @@ export async function enrichCards(cards: UpcomingCard[]): Promise<UpcomingEvent[
             lastFightDate: regional.lastFight || undefined,
           })
         : null;
-    return { ...read, regional, stage };
+    return { ...read, regional, form, stage };
   };
 
   return cards.map((card) => {

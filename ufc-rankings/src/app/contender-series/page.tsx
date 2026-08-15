@@ -21,7 +21,7 @@ function upcomingClass() {
         if (!raw) continue;
         const s = scoutDwcsEntrant(raw);
         if (!s.rating) continue;
-        out.push({ name, score: s.rating.score, grade: s.rating.grade, line: s.line, event: card.eventName, date: card.eventDate });
+        out.push({ name, score: s.rating.score, grade: s.rating.fineGrade, line: s.line, event: card.eventName, date: card.eventDate });
       }
     }
   }
@@ -91,7 +91,7 @@ export default function ContenderSeriesPage() {
           </SectionLabel>
           <div className="rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)' }}>
             {liveClass.map((f, i) => {
-              const color = f.grade === 'A' ? 'var(--accent-green)' : f.grade === 'B' ? 'var(--accent-gold)' : 'var(--accent-red-light)';
+              const color = f.grade.startsWith('A') ? 'var(--accent-green)' : f.grade.startsWith('B') ? 'var(--accent-gold)' : 'var(--accent-red-light)';
               return (
                 <div key={f.name} className="flex items-start gap-3 px-3 py-2.5" style={{ borderTop: i ? '1px solid var(--border)' : 'none' }}>
                   <span className="font-display text-lg leading-none w-6 text-right shrink-0" style={{ color: 'var(--text-muted)' }}>{i + 1}</span>

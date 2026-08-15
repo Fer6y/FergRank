@@ -35,6 +35,14 @@ export interface PreUfcRating {
   /** 0–100 placement against the Contender Series cohort's own spread. */
   score: number;
   grade: 'A' | 'B' | 'C';
+  /** Fine-grained display grade (A+ … C-); same families as `grade`. */
+  fineGrade: string;
+  /**
+   * The fitted logistic's own probability that this résumé reaches the UFC
+   * top 15 — sigmoid of the same logit the score maps. Roughly calibrated to
+   * the cohort's ~8% base rate; display with a tilde, never as a certainty.
+   */
+  topFifteenProb: number;
   winRate: number;
   finishRate: number | null; // null when wins unknown/zero — displayed only
   fights: number;
@@ -71,9 +79,14 @@ export function ratePreUfc(input: PreUfcInput): PreUfcRating | null {
   const span = CFG.displayLogitP95 - CFG.displayLogitP05;
   const score = clamp(((logit - CFG.displayLogitP05) / span) * 100, 0, 100);
 
+  const rounded = Math.round(score);
   return {
-    score: Math.round(score),
-    grade: score >= CFG.gradeA ? 'A' : score >= CFG.gradeB ? 'B' : 'C',
+    score: rounded,
+    // Both grades key off the ROUNDED score so the displayed number, the
+    // letter, and the fine letter can never disagree at a band edge.
+    grade: rounded >= CFG.gradeA ? 'A' : rounded >= CFG.gradeB ? 'B' : 'C',
+    fineGrade: CFG.fineGrades.find((b) => rounded >= b.min)?.grade ?? 'C-',
+    topFifteenProb: 1 / (1 + Math.exp(-logit)),
     winRate,
     finishRate: input.finishes != null && wins > 0 ? input.finishes / wins : null,
     fights,

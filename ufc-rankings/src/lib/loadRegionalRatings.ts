@@ -116,6 +116,31 @@ export function getArrivalIndex(): Map<string, ArrivalRead> {
 }
 
 /**
+ * The sorted distribution of arrival Elos — every rating a fighter carried
+ * into their UFC debut. Lets a CURRENT regional rating be placed against
+ * "people who make the UFC" (the scout band's form grade) instead of the 18k
+ * regional pool, whose bottom half nobody ever displays. Same
+ * no-module-cache rule: build once per enrich pass and pass it around.
+ */
+export function getArrivalDistribution(): number[] {
+  const out: number[] = [];
+  for (const a of getArrivalIndex().values()) out.push(a.elo);
+  return out.sort((x, y) => x - y);
+}
+
+/** Percentile (0–100) of `rating` within the arrival distribution. */
+export function arrivalPercentileOf(dist: number[], rating: number): number {
+  if (!dist.length) return 0;
+  let lo = 0, hi = dist.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (dist[mid] <= rating) lo = mid + 1;
+    else hi = mid;
+  }
+  return (lo / dist.length) * 100;
+}
+
+/**
  * Verified birthdates from ESPN. Reads the MERGED file — the name-search pass
  * UNION the full 38k-athlete index enumeration (research/regional/
  * mergeEspnDob.ts) — falling back to the search-only file if the merge has not

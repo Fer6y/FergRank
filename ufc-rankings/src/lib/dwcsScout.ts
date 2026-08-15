@@ -23,6 +23,12 @@ export interface ScoutRead {
   // layer where the fighter's name is known. Null = not in the regional graph —
   // rendered as exactly that, never guessed.
   regional?: import('./loadRegionalRatings').RegionalRead | null;
+  // CURRENT-FORM grade: the regional rating placed against the distribution of
+  // ratings fighters carried into their UFC debuts (rankingConfig.scoutFormGrade).
+  // The band LEADS with this — "who is he now" — with the ceiling forecast
+  // demoted to a secondary line. Null whenever `regional` is null: no graph
+  // presence, no grade, never guessed.
+  form?: { grade: string; arrivalPct: number } | null;
   // Career arc from a VERIFIED birthdate + pro-debut date (careerStage.ts).
   // Null when either fact is unconfirmed — never inferred from the card's
   // hand-entered age. Display-only: the pre-registered test (2026-08-12) found

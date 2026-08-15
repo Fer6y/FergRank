@@ -320,102 +320,108 @@ function TaleOfTape({ bout }: { bout: CardBout }) {
 // spine, and the schedule-context band. Shared by the featured main event and
 // by any dense bout the user expands, so an expanded card reads identically to
 // the main event rather than as a second, divergent layout.
-// Pre-UFC scouting read for Contender Series entrants — the prospect system's
-// grading applied BEFORE a fighter has any UFC rank. Grades + evidence lines
-// come from the nine-season cohort study via dwcsScout.ts; this only renders
-// on DWCS bouts (scout fields are null everywhere else).
+// Scouting read for Contender Series entrants — FORM FIRST (2026-08-15):
+// the headline grade answers "who is this fighter RIGHT NOW", measured from
+// cross-promotion results against the field of actual UFC arrivals; the
+// top-15 ceiling forecast (the fitted pre-UFC rating) is demoted to a
+// secondary PROSPECT line. Deliberate hierarchy — the present-form read is
+// what predicts fight night; the ceiling model predicts a five-year board.
+// Only renders on DWCS bouts (scout fields are null everywhere else).
 function ScoutBand({ bout }: { bout: CardBout }) {
   if (!bout.scout1 && !bout.scout2) return null;
-  const gradeColor = (g: string | null) =>
-    g === 'A' ? 'var(--accent-green)' : g === 'B' ? 'var(--accent-gold)' : g === 'C' ? 'var(--accent-red-light)' : 'var(--text-muted)';
+  const familyColor = (g: string | null | undefined) =>
+    !g ? 'var(--text-muted)'
+    : g[0] === 'A' ? 'var(--accent-green)'
+    : g[0] === 'B' ? 'var(--accent-gold)'
+    : 'var(--accent-red-light)';
 
   const Side = ({ name, s }: { name: string; s: NonNullable<CardBout['scout1']> }) => {
     const r = s.rating;
-    const color = gradeColor(r?.grade ?? null);
+    const form = s.form ?? null;
+    const color = familyColor(form?.grade);
+    const prob = r ? Math.round(r.topFifteenProb * 100) : null;
     return (
       <div className="min-w-0">
+        {/* CURRENT FORM — the headline. Graded vs fighters entering the UFC. */}
         <div className="flex items-baseline gap-2 text-[11px]">
           <span
             className="font-display text-base leading-none px-1.5 py-0.5 rounded shrink-0"
             style={{ color, border: `1px solid ${color}` }}
-            title="Pre-UFC rating grade — a separate system from Elo, fitted on nine seasons of Contender Series outcomes"
+            title="Current-form grade — where this fighter's level TODAY sits among fighters entering the UFC, measured from cross-promotion results (who they actually beat). Not a projection."
           >
-            {r?.grade ?? '—'}
+            {form?.grade ?? '—'}
           </span>
-          {r && (
-            <span className="font-mono text-sm" style={{ color: 'var(--text-primary)' }} title="Pre-UFC score, 0–100 against the Contender Series cohort">
-              {r.score}
-            </span>
-          )}
           <span className="font-medium truncate" style={{ color: 'var(--text-primary)' }}>{lastName(name)}</span>
+          <span className="text-[9px] tracking-widest uppercase shrink-0" style={{ color: 'var(--text-muted)' }}>form now</span>
         </div>
+        {/* The basics — record, style, age, provenance. */}
         {r && (
           <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1 font-mono text-[10px]" style={{ color: 'var(--text-secondary)' }}>
             <span>{r.fights - Math.round(r.fights * (1 - r.winRate))}-{Math.round(r.fights * (1 - r.winRate))}</span>
-            <span title="Win rate — the record component of the score">{Math.round(r.winRate * 100)}% W</span>
             {r.finishRate != null && (
-              <span title="Finish rate — DISPLAYED as a style read; calibration showed it does not add to the score once win rate is known" style={{ color: 'var(--accent-red-light)' }}>
+              <span title="Finish rate — a style read; the cohort says it doesn't predict a UFC ceiling once win rate is known" style={{ color: 'var(--accent-red-light)' }}>
                 {Math.round(r.finishRate * 100)}% FIN
               </span>
             )}
             {r.age != null && <span>{r.age} yrs</span>}
+            {s.regional?.careerYears != null && <span>{s.regional.careerYears}y pro</span>}
             {r.org && <span style={{ color: 'var(--text-muted)' }}>{r.org}</span>}
           </div>
         )}
-        <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>{s.line}</p>
-        {/* Cross-promotion regional Elo — measured from who they actually beat,
-            walk-forward validated on regional fights. Absence is stated, never
-            guessed around. */}
-        {s.regional ? (
-          <>
-            <p className="text-[10px] mt-1 leading-snug font-mono">
-              <span style={{ color: 'var(--accent-gold)' }}>REGIONAL ELO {s.regional.rating}</span>
-              <span style={{ color: 'var(--text-secondary)' }}>
-                {' '}· top {Math.max(1, Math.round(100 - s.regional.percentile))}% of{' '}
-                {(Math.round(s.regional.poolSize / 1000))}k rated regional fighters · {s.regional.bouts} bouts traced
-                {s.regional.careerYears != null && ` · ${s.regional.careerYears}y pro`}
-              </span>
-            </p>
-            {/* Career arc from a VERIFIED birthdate + pro-debut date. The
-                cohort rates for each band are measured, and the band exists
-                because age alone can't separate a 30-year-old seven years into
-                the grind from a 30-year-old two fights past turning pro. */}
-            {s.stage && (
-              <p className="text-[10px] mt-0.5 leading-snug">
-                <span
-                  className="font-mono px-1 py-px rounded mr-1.5"
-                  style={{
-                    backgroundColor: 'var(--bg-elevated)',
-                    color:
-                      s.stage.band === 'blue-chip' ? 'var(--accent-green)'
-                      : s.stage.band === 'veteran' ? 'var(--accent-red-light)'
-                      : 'var(--text-secondary)',
-                    border: '1px solid var(--border)',
-                  }}
-                  title="Career stage — from a verified birthdate and pro-debut date. Display context; it did not clear the bar to affect the score."
-                >
-                  {s.stage.label.toUpperCase()}
-                </span>
-                <span style={{ color: 'var(--text-muted)' }}>
-                  {s.stage.detail}
-                  {s.stage.fightsPerYear != null && ` · ${s.stage.fightsPerYear} fights/yr`}
-                </span>
-              </p>
-            )}
-            {/* The runway verdict — the one-line read this data exists for.
-                Age is the hand-verified card age; the 28/29 cut is the cohort
-                study's measured band (29+ entrants: 5% top-15, −14.1 Elo). */}
-            {r?.age != null && s.regional.percentile >= 85 && (
-              <p className="text-[10px] mt-0.5 leading-snug" style={{ color: r.age <= 28 ? 'var(--accent-green)' : 'var(--accent-red-light)' }}>
-                {r.age <= 28
-                  ? `Elite regional form at ${r.age} — the young-stud profile the cohort's best outcomes come from.`
-                  : `Elite regional form at ${r.age} — a late surge; the cohort discounts short runways (29+: 5% reach the top 15).`}
-              </p>
-            )}
-          </>
-        ) : (
+        {!form && (
           <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>
-            Not in the cross-promotion graph — no regional Elo. Unrated, not zero.
+            Off the graded circuit — no verified form read. Ungraded, not zero.
+          </p>
+        )}
+        {!r && (
+          <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--text-muted)' }}>{s.line}</p>
+        )}
+        {/* Career arc from a VERIFIED birthdate + pro-debut date — the read
+            age alone can't make. */}
+        {s.stage && (
+          <p className="text-[10px] mt-1 leading-snug">
+            <span
+              className="font-mono px-1 py-px rounded mr-1.5"
+              style={{
+                backgroundColor: 'var(--bg-elevated)',
+                color:
+                  s.stage.band === 'blue-chip' ? 'var(--accent-green)'
+                  : s.stage.band === 'veteran' ? 'var(--accent-red-light)'
+                  : 'var(--text-secondary)',
+                border: '1px solid var(--border)',
+              }}
+              title="Career stage — from a verified birthdate and pro-debut date. Display context; it did not clear the bar to affect any score."
+            >
+              {s.stage.label.toUpperCase()}
+            </span>
+            <span style={{ color: 'var(--text-muted)' }}>
+              {s.stage.detail}
+              {s.stage.fightsPerYear != null && ` · ${s.stage.fightsPerYear} fights/yr`}
+            </span>
+          </p>
+        )}
+        {/* The runway verdict — elite form read against the cohort's measured
+            age bands (29+ entrants: 5% top-15). */}
+        {r?.age != null && s.regional && s.regional.percentile >= 85 && (
+          <p className="text-[10px] mt-0.5 leading-snug" style={{ color: r.age <= 28 ? 'var(--accent-green)' : 'var(--accent-red-light)' }}>
+            {r.age <= 28
+              ? `Elite current form at ${r.age} — the young-stud profile the cohort's best outcomes come from.`
+              : `Elite current form at ${r.age} — a late surge; the cohort discounts short runways (29+: 5% reach the top 15).`}
+          </p>
+        )}
+        {/* PROSPECT GRADE — the ceiling forecast, deliberately second. */}
+        {r && (
+          <p className="text-[10px] mt-1.5 leading-snug">
+            <span
+              className="font-mono px-1 py-px rounded mr-1.5"
+              style={{ color: familyColor(r.fineGrade), border: `1px solid ${familyColor(r.fineGrade)}` }}
+              title={`Prospect grade — the modeled chance this résumé reaches the UFC top 15 (win rate + age + promotion, fitted on nine Contender Series seasons; score ${r.score}/100 vs the cohort). A ceiling forecast, not a read on who wins tonight.`}
+            >
+              {r.fineGrade}
+            </span>
+            <span style={{ color: 'var(--text-secondary)' }}>
+              prospect · ~{prob! < 1 ? '<1' : prob}% shot at the top 15
+            </span>
           </p>
         )}
       </div>
@@ -426,10 +432,10 @@ function ScoutBand({ bout }: { bout: CardBout }) {
     <div className="border-t px-3.5 py-2.5 sm:px-4 sm:py-3" style={{ borderColor: 'var(--border)' }}>
       <div className="flex items-baseline justify-between gap-2 mb-2">
         <span className="text-[10px] tracking-widest uppercase" style={{ color: 'var(--accent-gold)' }}>
-          Scout · pre-UFC rating
+          Scout · form now, ceiling second
         </span>
         <a href="/contender-series" className="text-[10px] hover:underline" style={{ color: 'var(--text-muted)' }}>
-          how this is scored →
+          how this is graded →
         </a>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">

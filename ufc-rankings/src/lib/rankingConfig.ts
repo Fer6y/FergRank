@@ -360,6 +360,37 @@ export const RANKING_CONFIG = {
     gradeA: 70,
     gradeB: 40,
     // Below gradeB is C. Missing age or record → ungraded (never guessed).
+    // Fine-grained display grades (A+ … C-) subdividing the same bands — the
+    // 70/40 A/B boundaries above are unchanged (A- starts exactly at gradeA,
+    // B- exactly at gradeB), so the letter FAMILY can never disagree with the
+    // coarse grade. Display bucketing only; the score is the source of truth.
+    fineGrades: [
+      { min: 90, grade: 'A+' }, { min: 80, grade: 'A' }, { min: 70, grade: 'A-' },
+      { min: 60, grade: 'B+' }, { min: 50, grade: 'B' }, { min: 40, grade: 'B-' },
+      { min: 25, grade: 'C+' }, { min: 10, grade: 'C' }, { min: 0, grade: 'C-' },
+    ] as { min: number; grade: string }[],
+  },
+
+  // ═══ DWCS SCOUT BAND: CURRENT-FORM GRADE (display-only) ═══════════════
+  // Grades a Contender Series entrant's PRESENT level — distinct from the
+  // ceiling-forecasting preUfcRating above. The underlying signal is the
+  // cross-promotion regional rating (walk-forward 63.9% on held-out regional
+  // bouts), graded against the measured distribution of ratings fighters
+  // carried INTO their UFC debuts (data/regional_arrival.csv, p10 1540 /
+  // median 1595 / p90 1644) — i.e. "does this fighter already rate like
+  // someone who makes the UFC?", in UFC-relevant units rather than raw Elo.
+  // Validated limit (2026-08-12): the rating is a FLOOR detector — bottom-
+  // quartile entrants win early UFC fights at 36.5% vs ~47% for everyone
+  // else, and the top three quartiles are indistinguishable — so grade cuts
+  // are deliberately coarse above the median. Absence from the graph renders
+  // as ungraded, never a guessed grade. Never enters any score.
+  scoutFormGrade: {
+    // Cuts on the percentile vs UFC ARRIVALS (not the 18k regional pool).
+    cuts: [
+      { min: 97, grade: 'A+' }, { min: 90, grade: 'A' }, { min: 75, grade: 'A-' },
+      { min: 60, grade: 'B+' }, { min: 40, grade: 'B' }, { min: 25, grade: 'B-' },
+      { min: 10, grade: 'C+' }, { min: 0, grade: 'C' },
+    ] as { min: number; grade: string }[],
   },
 
   // ═══ RECENCY WINDOWS (for metrics & strength-of-schedule, NOT the Elo core) ═══
