@@ -77,6 +77,10 @@ export interface ProspectEntry {
   // date, pro fight count) — the 23-with-8-fights vs 36-with-8-fights read that
   // age alone cannot make. Null when any fact is unconfirmed; never guessed.
   stage: CareerStage | null;
+  // Partial career facts for when the band can't render: pro-debut is a fact on
+  // its own (Fight Matrix), age is a fact on its own (verified DOB) — show
+  // whichever we have; the band is simply the case where we have both.
+  proCareer: { debutYear: number; years: number; bouts: number } | null;
 }
 
 // Compact method label for one-line results ("KO R2", "SUB R1", "UD").
@@ -211,6 +215,10 @@ export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
       dwcs: dwcsChips[fighter.fighterId] ?? null,
       arrival: arrivalIndex.get(fighter.fighterId) ?? null,
       stage,
+      proCareer:
+        reg?.debut && reg.careerYears != null
+          ? { debutYear: Number(reg.debut.slice(0, 4)), years: reg.careerYears, bouts: reg.bouts }
+          : null,
     });
   }
 

@@ -289,6 +289,17 @@ function ProspectCard({ p, index, sort }: { p: ProspectEntry; index: number; sor
             {p.stage.fightsPerYear != null && ` · ${p.stage.fightsPerYear} fights/yr`}
           </span>
         )}
+        {/* Debut-only fallback: the band needs a verified birthdate too, but a
+            pro-debut date is a fact worth showing on its own. */}
+        {!p.stage && p.proCareer && (
+          <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
+            <span className="font-mono text-[10px] uppercase tracking-wide" style={{ color: 'var(--text-secondary)' }}>
+              Pro since {p.proCareer.debutYear}
+            </span>
+            {' · '}{p.proCareer.years}y as a pro · {p.proCareer.bouts} bouts traced
+            {p.age == null && ' · age unverified'}
+          </span>
+        )}
         {p.arrival && (
           <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
             Arrived at{' '}

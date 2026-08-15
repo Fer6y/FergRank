@@ -83,6 +83,21 @@ async function main(): Promise<void> {
   for (const r of readCsv(path.join(process.cwd(), 'data', 'regional_ratings.csv'))) {
     if (r.name) push(r.name, r.debut ?? '', r.lastFight ?? '');
   }
+  // UFC-roster fighters with no canonical DOB — prospects outside the regional
+  // graph (never in the queue before) and older registry gaps. No debut date is
+  // attached, so the career-plausibility gate is inert for these; uniqueness
+  // and name-match still apply.
+  {
+    const covered = new Set<string>();
+    for (const r of readCsv(path.join(process.cwd(), 'data', 'canonical', 'fighter_dob.csv'))) {
+      if (r.canonical_id && r.dob) covered.add(r.canonical_id);
+    }
+    for (const r of readCsv(path.join(process.cwd(), 'data', 'Fighters_Stats.csv'))) {
+      const id = r['Fighter_Id'];
+      const nm = r['Full Name'];
+      if (id && nm && !covered.has(id)) push(nm);
+    }
+  }
   // Attach career data where the DWCS-sourced entries matched a rated fighter.
   for (const q of queue) {
     if (!q.debut) {
