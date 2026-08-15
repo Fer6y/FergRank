@@ -1,4 +1,4 @@
-Fighter DOB coverage — generated 2026-08-11
+Fighter DOB coverage — generated 2026-08-15
 Registry fighters : 2693
   with DOB        : 2414 (90%)
   from Wikidata   : 2005
