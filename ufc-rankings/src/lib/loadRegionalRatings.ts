@@ -116,22 +116,33 @@ export function getArrivalIndex(): Map<string, ArrivalRead> {
 }
 
 /**
- * Verified birthdates harvested from ESPN's core API
- * (research/regional/fetchEspnDob.ts). Only `found` rows — every one passed a
- * uniqueness, name-match and career-plausibility gate at harvest time, so an
- * absent name here means "we could not confirm it", never a guess. Same
- * no-module-cache rule as the ratings index.
+ * Verified birthdates from ESPN. Reads the MERGED file — the name-search pass
+ * UNION the full 38k-athlete index enumeration (research/regional/
+ * mergeEspnDob.ts) — falling back to the search-only file if the merge has not
+ * been run. Every row passed a uniqueness, name-match and career-plausibility
+ * gate, and the two passes agreed on all 7,544 names they both found, so an
+ * absent name here means "we could not confirm it", never a guess.
+ *
+ * Coverage where it is used: 97.1% of UFC arrivals, 92.4% of DWCS entrants.
+ * (43.9% of the full 18k regional pool — that gap is grassroots fighters no
+ * surface renders.) Same no-module-cache rule as the ratings index.
  */
 export function getDobIndex(): Map<string, string> {
   const out = new Map<string, string>();
-  const p = path.join(process.cwd(), 'data', 'regional_dob.csv');
+  const merged = path.join(process.cwd(), 'data', 'regional_dob_merged.csv');
+  const legacy = path.join(process.cwd(), 'data', 'regional_dob.csv');
+  const useMerged = fs.existsSync(merged);
+  const p = useMerged ? merged : legacy;
   if (!fs.existsSync(p)) return out;
   try {
     for (const r of Papa.parse<Record<string, string>>(fs.readFileSync(p, 'utf-8'), {
       header: true,
       skipEmptyLines: true,
     }).data) {
-      if (r.status === 'found' && r.dob && r.name) out.set(norm(r.name), r.dob);
+      // The merged file is pre-gated (no status column); the legacy file keeps
+      // every attempt, so only `found` rows are trustworthy there.
+      const ok = useMerged ? Boolean(r.dob) : r.status === 'found' && Boolean(r.dob);
+      if (ok && r.name) out.set(norm(r.name), r.dob);
     }
   } catch {
     /* absent or malformed → no birthdates, callers degrade */

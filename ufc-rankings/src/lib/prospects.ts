@@ -22,7 +22,8 @@ import { getFighterMedia } from './fighterMedia';
 import { getFighterAge } from './fighterAges';
 import { getNextFight, type NextFight } from './loadUpcoming';
 import { loadDwcsAnalysis, type DwcsChip } from './loadDwcsAnalysis';
-import { getArrivalIndex, type ArrivalRead } from './loadRegionalRatings';
+import { getArrivalIndex, getDobIndex, lookupDob, getRegionalIndex, lookupRegional, type ArrivalRead } from './loadRegionalRatings';
+import { careerStage, type CareerStage } from './careerStage';
 import { buildDistinctions, type Distinction } from './distinctions';
 import { RANKING_CONFIG } from './rankingConfig';
 import { ALL_DIVISIONS } from './types';
@@ -72,6 +73,10 @@ export interface ProspectEntry {
   // Regional standing at UFC debut — how good they were when they ARRIVED,
   // frozen before their UFC bouts could change it. Display-only.
   arrival: ArrivalRead | null;
+  // Career arc from three VERIFIED facts (ESPN birthdate, Fight Matrix pro-debut
+  // date, pro fight count) — the 23-with-8-fights vs 36-with-8-fights read that
+  // age alone cannot make. Null when any fact is unconfirmed; never guessed.
+  stage: CareerStage | null;
 }
 
 // Compact method label for one-line results ("KO R2", "SUB R1", "UD").
@@ -114,6 +119,9 @@ export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
   const dwcsChips = loadDwcsAnalysis()?.chips ?? {};
   // Built once per pass, not per card — the CSV is ~100KB.
   const arrivalIndex = getArrivalIndex();
+  // Verified-birthdate + regional-career indexes, built once per pass.
+  const dobIndex = getDobIndex();
+  const regionalIndex = getRegionalIndex();
 
   // Contender numbering shared with the rest of the app (champions excluded —
   // a reigning champion is nobody's prospect).
@@ -145,7 +153,28 @@ export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
     const elo = getElo(ratings, fighter.fighterId).rating;
     const media = getFighterMedia(fighter.fighterId);
     const ped = pedigree.get(fighter.fighterId);
-    const age = getFighterAge(fighter.fighterId)?.age ?? null;
+    // Age: our canonical UFC registry first (vetted, id-joined), then the
+    // verified ESPN birthdate as a fallback — which is what covers prospects
+    // too new to have a registry entry.
+    const verifiedDob = lookupDob(dobIndex, fighter.fullName);
+    const canonAge = getFighterAge(fighter.fighterId)?.age ?? null;
+    const age =
+      canonAge ??
+      (verifiedDob
+        ? Math.floor((now - Date.parse(verifiedDob)) / (365.25 * 86_400_000))
+        : null);
+    // Career stage needs a birthdate AND a pro-debut date; the regional index
+    // carries the debut and total pro bouts.
+    const reg = lookupRegional(regionalIndex, fighter.fullName);
+    const stage =
+      verifiedDob && reg?.debut
+        ? careerStage({
+            dob: verifiedDob,
+            proDebutDate: reg.debut,
+            fights: reg.bouts,
+            lastFightDate: reg.lastFight || undefined,
+          })
+        : null;
 
     out.push({
       fighterId: fighter.fighterId,
@@ -181,6 +210,7 @@ export async function buildProspectWatchlist(): Promise<ProspectWatchlist> {
         : null,
       dwcs: dwcsChips[fighter.fighterId] ?? null,
       arrival: arrivalIndex.get(fighter.fighterId) ?? null,
+      stage,
     });
   }
 

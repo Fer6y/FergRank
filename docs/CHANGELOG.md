@@ -12,6 +12,22 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
+- **SHIPPED: verified birthdates + the CAREER-STAGE band on /prospects.** The merged ESPN
+  file is now the app's birthdate source (`getDobIndex` reads
+  `regional_dob_merged.csv`, falling back to the search-only file), and
+  /prospects carries the arc the user asked for — the read age alone cannot make:
+  `BLUE-CHIP · 24.7 with 19 pro fights — young and already experienced · 4.2 fights/yr`
+  against `VETERAN · 39.4 years old, 14.1 years pro — past the cohort's runway · 2 fights/yr`.
+  Michael Page arrived at top 1% of all UFC arrivals AND is 39; the board now states both
+  instead of letting the résumé hide the runway. Band spread across the live watchlist:
+  2 blue-chip, 7 prime-build, 2 late-starter, 7 seasoned, 11 veteran.
+  Age resolution is layered by trust: our canonical UFC registry first (vetted, id-joined),
+  then the verified ESPN birthdate — which is what covers prospects too new to have a
+  registry entry. Career stage renders only when BOTH a birthdate and a pro-debut date are
+  confirmed; a missing fact yields no band rather than a guessed one. Verified live (28
+  arrival lines, band distribution above, zero console errors); golden master byte-identical,
+  tests and build clean.
+
 - **ESPN DOB: second access method, and the real coverage picture.** Enumerating ESPN's
   entire MMA athlete index (`research/regional/enumerateEspnDob.ts`, 38,013 athletes,
   12,473 with a birthdate, 202 errors) as an independent check on the name-search pass.

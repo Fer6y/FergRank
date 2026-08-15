@@ -270,6 +270,25 @@ function ProspectCard({ p, index, sort }: { p: ProspectEntry; index: number; sor
             before their UFC debut, so their UFC results can't inflate it. The
             cohort read is honest about its shape: this reliably flags who
             arrived below the line, and says little about who is exceptional. */}
+        {/* Career arc — the 23-with-8-fights vs 36-with-8-fights distinction
+            that age alone cannot make. Built only from verified facts. */}
+        {p.stage && (
+          <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
+            <span
+              className="font-mono text-[10px] uppercase tracking-wide"
+              style={{
+                color:
+                  p.stage.band === 'blue-chip' ? 'var(--accent-green)'
+                  : p.stage.band === 'veteran' || p.stage.band === 'late-starter' ? 'var(--accent-red-light)'
+                  : 'var(--text-secondary)',
+              }}
+            >
+              {p.stage.label}
+            </span>
+            {' · '}{p.stage.detail}
+            {p.stage.fightsPerYear != null && ` · ${p.stage.fightsPerYear} fights/yr`}
+          </span>
+        )}
         {p.arrival && (
           <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
             Arrived at{' '}
