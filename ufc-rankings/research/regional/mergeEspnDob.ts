@@ -22,6 +22,14 @@ import fs from 'fs';
 import path from 'path';
 import Papa from 'papaparse';
 
+// TOKEN-SORTED key: order-insensitive on purpose ("Nick Galanti" → "galanti
+// nick"), the same trick the BFO odds join uses to catch first/last flips
+// between sources. Keys that read "reversed" in the output are this, not a
+// bug (audited 2026-08-15: every nameKey = token-sort of its display name,
+// zero duplicates). Suffixes stay distinct tokens deliberately — the six
+// jr/sr near-pairs in the data are real father/son pairs (Kevin Ferguson =
+// Kimbo Slice b.1974 vs Kevin Ferguson Jr. b.1992), so collapsing them
+// would invent namesakes.
 const T = (s: string) =>
   s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
     .replace(/[^a-z ]/g, '').split(/\s+/).filter(Boolean).sort().join(' ');
