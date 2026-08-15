@@ -12,6 +12,27 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-12
 
+- **ESPN DOB: second access method, and the real coverage picture.** Enumerating ESPN's
+  entire MMA athlete index (`research/regional/enumerateEspnDob.ts`, 38,013 athletes,
+  12,473 with a birthdate, 202 errors) as an independent check on the name-search pass.
+  `mergeEspnDob.ts` folds them into `data/regional_dob_merged.csv` behind the same gates the
+  search pass used — namesake ambiguity dropped rather than guessed (62), career-plausibility
+  checked against the known pro-debut date (25 rejected). **Zero conflicts** between the two
+  passes on the 7,544 names both found, which is a strong cross-validation of both.
+  **The headline correction**: measured against the whole 18k regional pool the union is only
+  44.0%, and I initially read that as a disappointing ceiling. It is the wrong denominator —
+  most of that pool is grassroots fighters no surface will ever display. Against the
+  populations the product actually uses, coverage is excellent:
+  | population | DOB coverage |
+  |---|---|
+  | UFC arrivals (the /prospects "arrived at" line) | **97.1%** (1,325/1,365) |
+  | DWCS entrants (the scout band) | **92.4%** (549/594) |
+  | full rated regional pool | 43.9% |
+  So the age-dependent surfaces are effectively fully covered, and the 56% gap sits entirely
+  in fighters we never show. Two independent methods converging at ~44% on the full pool does
+  still establish that as ESPN's ceiling — going deeper needs a different source, but nothing
+  currently shipped is waiting on it.
+
 - **SHIPPED: "arrived at" — regional standing at UFC debut, on /prospects.** Closes the gap
   the user named: the board should describe prospects *as they are when they come in*, not
   project a five-year ceiling. A settled regional rating stops doing that the moment a
