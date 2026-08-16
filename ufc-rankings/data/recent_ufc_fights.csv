@@ -1,4 +1,16 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,kd1,kd2,str1,str2,td1,td2,sub1,sub2
+78f73bfd71449931,Islam Makhachev,302c7dcb0fec325e,Ian Machado Garry,2026-08-15,W,L,U-DEC,5,Welterweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,1,0,22,29,7,0,0,0
+1868597de911ab05,Mackenzie Dern,bd86cff59cdab666,Gillian Robertson,2026-08-15,W,L,U-DEC,5,Women's Strawweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,0,0,65,49,4,1,1,0
+e411d4112ff57cb3,Jalin Turner,488201b31f04d4b7,Kaue Fernandes,2026-08-15,W,L,KO/TKO,1,Lightweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,1,0,9,2,0,0,0,0
+be354104b1b893f1,Dustin Stoltzfus,b9562bf0e19e971a,Mansur Abdul-Malik,2026-08-15,W,L,SUB,2,Middleweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,0,0,43,34,2,1,1,0
+b64c3d4ac407dfce,Esteban Ribovics,2361865e12089b38,Edson Barboza,2026-08-15,W,L,KO/TKO,2,Lightweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,0,0,63,30,0,0,0,0
+b64bdbe0d3e4c9aa,Chidi Njokuani,6633d8ac3511d67f,Joel Alvarez,2026-08-15,W,L,U-DEC,3,Welterweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,0,0,155,74,0,0,0,0
+6b565d153901a9e1,Charles Johnson,us:62f3039da2f92a8c,Eduardo Chapolin,2026-08-15,W,L,SUB,3,Catch Weight,UFC 330: Makhachev vs. Machado Garry,ufcstats,0,1,66,55,0,1,1,0
+62eb06895e1e4b0b,Donte Johnson,cfceff9b0a52347d,Eric McConico,2026-08-15,W,L,KO/TKO,1,Middleweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,1,0,11,6,0,0,0,0
+7bea6275b1fcbfa4,Tresean Gore,7eb5ea10a1a59139,Vicente Luque,2026-08-15,W,L,U-DEC,3,Middleweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,0,0,65,46,0,0,1,1
+us:3df223aeaacecf3f,Lucas Fernando,5a7dee229b27e06c,Rafael Tobias,2026-08-15,W,L,KO/TKO,3,Light Heavyweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,2,0,69,13,0,1,0,0
+3fd27e0b217d2b7b,Neil Magny,98199760e1c660be,Ramiz Brahimaj,2026-08-15,W,L,KO/TKO,2,Welterweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,0,0,24,7,0,1,1,0
+541d80991428244f,Jeremiah Wells,96175d750571d1d3,Myktybek Orolbai,2026-08-15,W,L,SUB,3,Welterweight,UFC 330: Makhachev vs. Machado Garry,ufcstats,0,0,16,26,1,4,1,0
 a66c074dfa6b8835,Quillan Salkilld,6f8b8d1f2f3b7fcc,Mateusz Gamrot,2026-08-08,W,L,SUB,1,Lightweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,0,0,10,3,1,0,1,2
 92120440fcb28c7e,Diego Ferreira,15a5d250b43e99c3,Billy Quarantillo,2026-08-08,W,L,U-DEC,3,Lightweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,0,0,116,73,4,1,0,0
 47dfe6ac6c9121a0,Yadier del Valle,297d71e3e51e67fc,Darren Elkins,2026-08-08,W,L,KO/TKO,1,Featherweight,UFC Fight Night: Gamrot vs. Salkilld,ufcstats,1,0,5,0,0,0,0,0
