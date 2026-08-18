@@ -288,6 +288,18 @@ export const RANKING_CONFIG = {
     missedWeightLogit: -0.15, // missed weight — modest NET penalty (drained tends to outweigh the size edge)
     maxAdjustmentLogit: 1.1,  // cap on |age+style+flags| so no context read flips a clear Elo favourite outright
     minStyleFights: 3,        // need this many metric'd fights each side before style applies
+    // NO SKID TERM — studied 2026-08-18 (research/backtest/skidStudy.ts, plan +
+    // verdict rule pre-registered in docs/plans/SKID_STUDY_PLAN.md). Aggregate
+    // skid pricing is fine (skidders won 42.4%, we priced 41.1%); the signal is
+    // HOW the losses happened: decision-only skidders won 51.9% (we said 40.9%)
+    // vs 38.3% for finish-heavy skids. The skid+finished-fraction model was
+    // DIRECTIONAL — signs agree and strengthen across both halves (train
+    // [+0.52, −1.05] → held-out refit [+0.87, −1.65]), held-out affected LL
+    // 0.6190→0.5967 — but t=−1.43 misses the pre-registered t≤−2 at n=80.
+    // A skid×loss-quality term ("losses to elites are forgiven") REFUTED (sign
+    // flip across halves); skid flag alone flat. Do not add any skid/form term
+    // from intuition — re-run skidStudy.ts once another year of odds exists,
+    // same rule.
     // Pre-UFC pedigree PRIOR (prediction side, DISPLAY-ONLY — never touches the
     // Elo pool). Logit per unit of tapered pedigree-strength difference (A − B),
     // where each side's strength tapers out by seedTaperUFCFights, so it only

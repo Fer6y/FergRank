@@ -12,6 +12,30 @@ below; leave them where they are — scripts diff against them.
 
 ## 2026-08-18
 
+- **SKID STUDY: DIRECTIONAL, no ship — the signal is HOW the losses happened, not the skid.**
+  Follow-up to the market-gap audit's worst slice (fav on a 2+ loss streak: acc 47% vs the
+  market's 66%). Plan, exact features and the verdict rule pre-registered in
+  `docs/plans/SKID_STUDY_PLAN.md` (commit e2db5d9) BEFORE `research/backtest/skidStudy.ts` ran —
+  including the trap the plan named in advance: the two audit slices point in opposite naive
+  directions, so only an orientation-symmetrized offset-logit (production logit as fixed offset)
+  can say whether skid status carries information beyond the model. It mostly doesn't in
+  aggregate: **skidders won 42.4% and the model priced them 41.1%** (market 43.4%) — the skid
+  flag alone is flat (t −0.42) and the "market forgives losses to elites" quality term is
+  **REFUTED** by a sign flip across halves (train +0.218 → held-out −0.014). The real structure
+  is loss METHOD: **decision-only skidders won 51.9% of their next bouts while the model priced
+  them 40.9%** (market 47.3% — even the market under-prices them), against **38.3%** for
+  finish-heavy skids. The pre-registered M3 (skid + finished-fraction) is the one candidate
+  that behaves: coefficients agree and strengthen across both halves (train [+0.52, −1.05] →
+  held-out refit [+0.87, −1.65]), held-out affected-slice LL 0.6190 → 0.5967 with unaffected
+  bouts untouched — but t = −1.43 misses the pre-registered t ≤ −2 at n=80, so per the rule it
+  is **DIRECTIONAL: recorded, nothing ships**. Breadcrumb added in `rankingConfig.winProbModel`;
+  re-test by re-running the script (same rule) once another year of odds exists. Deeper
+  mechanism worth carrying: Elo scores every loss 0 — a competitive decision defeat and a
+  30-second KO are identical to the sweep — while the method column knows the difference; if
+  M3 confirms at the re-test, the candidates are a bounded overlay term or a core-level look at
+  the finish multiplier on the LOSS side (each needing its own gate + double-count audit vs
+  finish-weighted K).
+
 - **MARKET-GAP AUDIT + two shipped fixes: the provisional shade neutralized and the ESPN
   birthdates wired into `fighterAges` — together −0.016 LL/bout on 2023+ (t = −3.5), ~a quarter
   of the closing-line gap in the current regime. Both display/win-prob only; golden master
