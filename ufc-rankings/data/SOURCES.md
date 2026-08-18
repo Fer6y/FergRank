@@ -262,6 +262,18 @@ Refreshed weekly by the ingest workflow (`--fetch`, non-fatal). Runtime:
 `src/lib/fighterAges.ts`, computed-at-request age — **display + trend-read
 context only, never in the scoring path**.
 
+**ESPN fallback (2026-08-18)**: `fighterAges.ts` fills roster ids the
+canonical file misses from `data/regional_dob_merged.csv` (the verified ESPN
+harvest, §above the regional files table — uniqueness + name-match +
+career-plausibility gated at merge time, cross-validated at 97.4% same-year
+agreement on the 1,689-name canonical overlap). Token-sorted name join,
+attached ONLY when the name is unambiguous on both sides — a namesake
+collision attaches nothing. Canonical always wins. Motivation
+(`research/backtest/gapProbes.ts` probe B): 29% of odds-matched bouts ran with
+the win-prob age overlay dark and 99% of the missing fighters were already in
+the ESPN file; wiring it improved those bouts' closing-line gap at t = −2.5
+(2023+) with production coefficients, no fitting.
+
 ---
 
 ## 7. Ask-the-Analyst chat — *Anthropic API* (BUILT 2026-07-02, runtime)

@@ -246,8 +246,11 @@ belt-tracking prior, not a cage signal) — via `predictiveRating()` (`fightPred
 the two can't drift). Chosen on evidence: the closing-line bake-off
 (`research/backtest/last100.ts`) found Elo → ranked → +overlay improves monotonically, ranked +
 overlay beating raw-Elo predictions at t = −3.83 (n=500) and recovering ~47% of the logloss gap
-to the de-vigged close. Probability from the rating gap uses `elo.winProbDenominator`, shaded
-toward 0.5 for provisional fighters (`elo.winProbShadeFloor`). The bounded context overlay
+to the de-vigged close. Probability from the rating gap uses `elo.winProbDenominator`. The
+provisional shade (`elo.winProbShadeFloor` — pulls thin-sample bouts toward 0.5) is **neutralized
+at floor 1.0** since 2026-08-18: the pre-registered re-test found removal monotone-better in both
+2023+ halves (newcomer bouts are not coin flips — matchmaking creates real favourites); the knob
+stays so a regime flip can re-lower it via a two-half sweep. The bounded context overlay
 (`winProbModel`: age edge with saturation, striking/grappling/power style edges, short-notice and
 missed-weight flags, all capped by `maxAdjustmentLogit` and shrunk by `overlayShrink`) adjusts it
 without ever flipping a clear favourite. `formEloNudge` (compare/upcoming) is a separate

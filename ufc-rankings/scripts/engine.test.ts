@@ -96,11 +96,23 @@ ok(winProbability(1700, 1500) > winProbability(1600, 1500), 'monotonic in rating
 console.log('\n=== winProbConfidence / winProbabilityShaded ===');
 ok(approx(winProbConfidence(20, 20), 1), 'two established fighters → full confidence');
 ok(winProbConfidence(1, 1) >= E.winProbShadeFloor - 1e-9, 'thin sample floored, not zero');
-ok(winProbConfidence(1, 20) < 1, 'confidence driven by the THINNER corner');
+// Config-relative on purpose: the formula is max(floor, minFights/provisional).
+// At the current floor of 1.0 the shade is deliberately INERT (re-tested
+// 2026-08-18, gapProbes2.ts — monotone toward no shade in both 2023+ halves);
+// this asserts the clamp math either way, so re-lowering the floor after a
+// regime flip needs no test edit.
+ok(
+  approx(winProbConfidence(1, 20), Math.max(E.winProbShadeFloor, Math.min(1, 1 / E.provisionalFights))),
+  'confidence follows the THINNER corner, floored'
+);
 {
   const raw = winProbability(1650, 1500);
   const shaded = winProbabilityShaded(1650, 1500, 1, 1);
-  ok(Math.abs(shaded - 0.5) < Math.abs(raw - 0.5), 'thin samples pull the edge toward 0.5');
+  if (E.winProbShadeFloor < 1) {
+    ok(Math.abs(shaded - 0.5) < Math.abs(raw - 0.5), 'thin samples pull the edge toward 0.5');
+  } else {
+    ok(approx(shaded, raw), 'floor 1.0 → shade inert: thin-sample prob equals the raw prob');
+  }
   ok(approx(winProbabilityShaded(1650, 1500, 3, 5) + winProbabilityShaded(1500, 1650, 5, 3), 1), 'shaded prob stays symmetric');
 }
 

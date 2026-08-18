@@ -10,6 +10,52 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-18
+
+- **MARKET-GAP AUDIT + two shipped fixes: the provisional shade neutralized and the ESPN
+  birthdates wired into `fighterAges` — together −0.016 LL/bout on 2023+ (t = −3.5), ~a quarter
+  of the closing-line gap in the current regime. Both display/win-prob only; golden master
+  PASSES unchanged.** New diagnostics (`research/backtest/marketGapAudit.ts`,
+  `calibrationDecomp.ts`, `gapProbes.ts`, `gapProbes2.ts`) scored the production surface
+  (ranked ratings + overlay, PIT-reconstructed) against the de-vigged Shin close on all 1,544
+  odds-matched bouts: gap +0.0576 LL/bout (t 7.6), acc 60.7% vs 68.1%.
+  **The headline diagnosis**: the model under-states the favourite in nearly every slice
+  (bias −10…−24pt vs the market's ~0) — but a temperature fit came out ≈1.0 (0.96 production /
+  0.90 pure Elo, temporal split), so it is NOT a scale problem and no re-anchor of
+  `winProbDenominator` is warranted. It is an information/ordering gap: on pick disagreements
+  the market is right ~2:1, and on the third of bouts where we sit ≥15pt under the line the
+  favourite realizes 73.8% vs the market's 72.4% (we said 49.8%).
+  **Fix 1 — `winProbShadeFloor` 0.25 → 1.0 (shade inert).** The 2026-08-11 shadeFloorTest's
+  pre-registered re-test condition ("re-run with 2023+ as the choose half once another year of
+  odds exists") is now met, and the sweep is MONOTONE toward no shade in BOTH halves: choose
+  2023-01→2024-08 (n=204) LL 0.6619→0.6301, confirm 2024-09+ (n=134) 0.6557→0.6348; flat on
+  2021–22 (+0.004, t 0.5). Mechanism: UFC newcomer bouts are not coin flips — matchmaking
+  creates real favourites — so pulling thin-sample bouts toward 0.5 punished the informed side.
+  Knob + mechanism stay for a regime flip; re-lower only via a two-half sweep (pooling
+  mis-picks, per the original test). `engine.test.ts` shade assertions made config-relative.
+  **Fix 2 — ESPN merged DOBs as a `fighterAges` fallback.** 29% of odds-matched bouts ran with
+  the age overlay dark (a side missing from `canonical/fighter_dob.csv`) and that slice had the
+  audit's widest accuracy gap (55% vs 68%); 99% of the missing fighters were already in
+  `data/regional_dob_merged.csv`. The fallback is token-sorted-name-keyed, attaches only when
+  the name is unambiguous on BOTH sides, and canonical always wins. Counterfactual with
+  production coefficients (no fitting): −0.011 LL, +3.9pt acc on age-dark 2023+ bouts (t −2.5).
+  296 roster fighters gain a verified age (spot-checked: Arnold Allen 1994-01-22 ✓, Dooho Choi
+  1991-04-10 ✓). Visible correction: /prospects re-tiered 89/12 → 79/21 — fighters 32+ whose
+  unknown age silently defaulted them to "prospect" now land in NEW TO THE UFC, which is the
+  age-primary rule finally fed.
+  **After both** (marketGapAudit re-run): global gap +0.0576 → +0.0511, acc 60.7% → 62.1%, the
+  80–90% calibration bin within 0.6pt of realized (was −4.7), 2024 gap ≈ 0.000 (n=55), 2023
+  +0.065 → +0.047, 2025 +0.088 → +0.064. Verified live: Allen's profile shows 32 yrs, /upcoming
+  and /prospects render, zero console errors; typecheck, all suites, build (ISR unchanged) and
+  golden master all pass — the ranking output is untouched by construction.
+  **Trends mapped for later, each needing its own pre-registered gate** (in the audit output):
+  newcomer bouts are 61% of the whole gap even post-fix (market info we lack; arrival regional
+  Elo tested FLAT as a feature, t −0.4 — honest negative, consistent with the floor-detector
+  finding); skidding favourites (fav on 2+ L streak: our worst slice, acc 47% vs 66% — the
+  market forgives quality losses that Elo banked); division movers as underdogs (bias −18pt —
+  corroborates the moveDecay backtest's "data points away from a refund"); women's bouts and
+  12mo+ layoff dogs milder repeats of the same shape.
+
 ## 2026-08-15
 
 - **SHIPPED: /contender-series rebuilt as the CONTENDER SERIES tab — every scheduled card,

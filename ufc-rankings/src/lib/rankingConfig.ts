@@ -225,14 +225,23 @@ export const RANKING_CONFIG = {
     // equally sure of coin-flips and real edges. This hedges the coin-flips.
     // TESTED 2026-08-11 (research/backtest/shadeFloorTest.ts, bar pre-registered
     // in DWCS_PLAN addendum 3): a floor sweep {0.25..1.0} on 0–2-prior bouts
-    // CHOSE 0.25 on the early half (2021–2022-08) — no change ships. But the
-    // late half was monotone toward NO shade (LL 0.6610 at 0.25 → 0.6371 at
-    // 1.0), i.e. the shade helped the 2021–22 era and hurts 2023+; pooled data
-    // would have mis-picked 1.0. Possible regime shift — re-run the sweep with
-    // 2023+ as the choose half once another year of odds exists before touching
-    // this. Same run exonerated the context overlay on debutants (helps at
-    // t=−3.47 on 0–2); the shade, not the overlay, is the debutant drag.
-    winProbShadeFloor: 0.25,   // a debut fighter (0 UFC bouts) still keeps 25% of the raw edge
+    // CHOSE 0.25 on the early half (2021–2022-08), but the late half was
+    // monotone toward NO shade — flagged as a possible regime shift with the
+    // re-test condition "re-run with 2023+ as the choose half once another
+    // year of odds exists". Same run exonerated the context overlay on
+    // debutants (helps at t=−3.47 on 0–2); the shade, not the overlay, was
+    // the debutant drag.
+    // RE-TESTED 2026-08-18 (research/backtest/gapProbes2.ts, condition met):
+    // on shade-binding bouts the sweep is MONOTONE toward floor 1.0 in BOTH
+    // halves — choose 2023-01→2024-08 (n=204) LL 0.6619→0.6301, confirm
+    // 2024-09+ (n=134) 0.6557→0.6348 — and removal is flat on 2021–22
+    // (+0.004, t 0.5). Mechanism: UFC newcomer bouts are not coin flips
+    // (matchmaking creates real favourites), so pulling thin-sample bouts
+    // toward 0.5 punished the informed side of the prediction. Floor 1.0
+    // makes the shade INERT; the mechanism + knob stay so a regime flip can
+    // re-lower it — but only via a two-half sweep like the ones above, never
+    // from a pooled fit (the 2026-08-11 run showed pooling mis-picks).
+    winProbShadeFloor: 1.0,   // shade neutralized 2026-08-18 — see re-test above
   },
 
   // ═══ ENHANCED WIN-PROBABILITY MODEL (display only, src/lib/fightPrediction.ts) ═══
