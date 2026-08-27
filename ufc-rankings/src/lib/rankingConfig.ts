@@ -300,6 +300,15 @@ export const RANKING_CONFIG = {
     // flip across halves); skid flag alone flat. Do not add any skid/form term
     // from intuition — re-run skidStudy.ts once another year of odds exists,
     // same rule.
+    // NO TREND TERM either — studied 2026-08-27 (research/backtest/trendStudy.ts,
+    // pre-registered docs/plans/TREND_STUDY_PLAN.md): 4–6-fight strike-diff /
+    // absorption / KD-conceded trajectories are FLAT beyond the production prob
+    // (the metrics composite's LEVEL already carries what's there). The one
+    // directional survivor is recentFinished (KO/SUB losses in last 6: 3+ → won
+    // 30.7%, we priced 41.4%, market 42.1%, n=140; t=−1.26 misses the gate) —
+    // the SAME loss-method shape as the skid M3, independently constructed.
+    // Re-test the two together with skidStudy's re-run; and recency-sharpened
+    // finish rates LOSE to career rates (finishRecency.ts — a trait, not form).
     // Pre-UFC pedigree PRIOR (prediction side, DISPLAY-ONLY — never touches the
     // Elo pool). Logit per unit of tapered pedigree-strength difference (A − B),
     // where each side's strength tapers out by seedTaperUFCFights, so it only

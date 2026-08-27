@@ -10,6 +10,55 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
+## 2026-08-27
+
+- **TREND STUDY (pre-registered): 4–6 fight performance trajectories are mostly FLAT;
+  the one directional survivor is — again — how the losses happened. No scoring change.**
+  Plan, features, both offsets and the verdict rule committed in
+  `docs/plans/TREND_STUDY_PLAN.md` (commit f648ca5) BEFORE
+  `research/backtest/trendStudy.ts` ran. Question: does the *direction* of recent
+  per-fight stats (the metrics composite reads only the recency-weighted LEVEL) carry
+  information beyond the production win probability? Harness = the skidStudy
+  construction (PIT ratings + PitAdjuster + predictFight, orientation-symmetrized
+  offset-logit, fit <2024, score 2024+), 1,532 odds-matched bouts pair+date-deduped
+  (this study dedupes the BFO duplicate-slug bug; older harnesses don't).
+  **FLAT**: strike-differential trend (t −0.40; win rate runs just 47.5→50.0% across
+  quartiles and both model and market already price it), absorption trend (sign flips),
+  KDs-conceded (sign flips). The opponent-Elo-trend control (T5) confirms the strike
+  trend is noise, not a schedule artifact hiding signal.
+  **DIRECTIONAL, not shipped**: `recentFinished` — count of KO/SUB losses in the last
+  6 bouts. Sign stable and strengthening across halves (−0.064 train → −0.146 held-out
+  refit), held-out ΔLL −0.0027 but t = −1.26 vs the pre-registered t ≤ −2. The
+  descriptive cell: fighters finished 3+ times in their last 6 won **30.7%** of next
+  bouts while the model priced them **41.4%** and the market **42.1%** (n=140) — the
+  market-offset fit is also negative in both halves (−0.126/−0.099), i.e. even the
+  market may slightly under-fade the badly-finished, though far below significance.
+  **Convergence worth carrying**: this is the SAME shape as the skid study's M3
+  (2026-08-18) from an independent feature construction — loss METHOD carries signal,
+  loss/trend COUNTS don't. Elo scores every loss 0; the method column knows the
+  difference. Two directional results pointing at one mechanism, neither clearing its
+  gate alone. Re-test both together once another year of odds exists (the skid plan's
+  standing condition); a combined damage-taken read is the candidate if they confirm.
+  Hand-verified: halfTrend units + two concrete fighters traced end-to-end (Shamrock
+  2006 recentFinished=3 with the S-DEC loss correctly excluded; trend arithmetic exact).
+- **NEGATIVE (clean): recency-sharpened finish rates LOSE to career rates.**
+  `research/backtest/finishRecency.ts` (Part 2 of the same pre-registration): last-6
+  finish/finished rates vs the career rates the 2026-08-21 finish study validated,
+  same pool (n=3,902), same three constructions. Career wins everywhere:
+  finisher-vs-chin→ITD AUC 0.633 vs 0.615 (blend 0.627), KO-threat→KO 0.634 vs 0.617
+  (and last-6 loses quartile monotonicity there). **Finish propensity is a trait, not
+  a form state** — more sample beats more recent. The career-rate read stands as the
+  display-grade ITD signal; do not re-propose recency-weighting it from intuition.
+- **Market-gap audit re-run (context for the above)**: gap +0.0504 LL/bout (t 6.71,
+  n=1,552), fractionally better than 2026-08-18's +0.0511. Structure unchanged: fav
+  under-statement in every chalk band (bias −10.7 → −19.4pt vs the market's −3), worst
+  slices still skidding favourites (acc 48% vs 66%), 80%+ chalk (gap +0.121), 0–2-prior
+  newcomers (n=684, the biggest mass), 18mo+ layoffs, women's SW. Divergence table:
+  the market is right on BOTH sides of any disagreement — re-confirms 2026-08-21's
+  "the edge column is a bias readout, not a value signal".
+
+---
+
 ## 2026-08-21
 
 - **REFUTED: betting the model's disagreement with the closing line. Measured
