@@ -1,4 +1,17 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,kd1,kd2,str1,str2,td1,td2,sub1,sub2
+6e8a5fe4993ba864,Song Yadong,6f151471dd180d1e,Umar Nurmagomedov,2026-08-29,W,L,KO/TKO,2,Bantamweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,11,13,0,1,1,0
+092a12fbdcf12ad3,Denise Gomes,c58c3a863045d224,Yan Xiaonan,2026-08-29,W,L,KO/TKO,1,Women's Strawweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,18,19,0,0,0,0
+74bb53e7099cb5b9,Kai Asakura,14d7083ccbe8c09e,Aoriqileng,2026-08-29,W,L,KO/TKO,2,Bantamweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,27,14,0,0,0,0
+284456a2771843a3,Sumudaerji,245f661e52b116c7,Alex Perez,2026-08-29,W,L,U-DEC,3,Flyweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,0,0,41,10,0,4,0,0
+us:a9936818d709e2d7,Liu Ce,us:9ac4e43ed56429ed,Levi Rodrigues Jr.,2026-08-29,W,L,KO/TKO,1,Light Heavyweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,2,0,59,28,0,0,0,0
+us:5182316da3c1d891,Bilal Hasan,us:bf60dd3256801649,Nilson Rojas,2026-08-29,W,L,KO/TKO,2,Flyweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,53,33,1,0,0,0
+e1601c0597a7b444,Andre Lima,us:e1f8beeb6d2d871a,Namsrai Batbayar,2026-08-29,W,L,SUB,3,Flyweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,0,0,47,51,0,0,1,0
+0488ce27e1b8bb1d,Rei Tsuruya,c9689833e730c077,Kevin Borjas,2026-08-29,W,L,SUB,1,Flyweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,0,0,39,0,2,0,1,0
+a238e2e4c9670e90,Sean Woodson,0aa46064d6a157d1,Jack Jenkins,2026-08-29,W,L,S-DEC,3,Featherweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,0,0,58,43,0,0,0,1
+us:874cfc98877daecd,Francesco Nuzzi,d11e3f2e5deb833f,Xiao Long,2026-08-29,W,L,KO/TKO,1,Bantamweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,11,4,0,0,0,0
+us:8e4902b4a8045070,Hector Santiago,4aef3ff31f0fbef5,Lawrence Lui,2026-08-29,W,L,KO/TKO,2,Bantamweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,30,32,0,0,0,0
+1be2a80e36f38a46,Julia Polastri,us:2cdb479a0ef0ee1d,Xiong Jingnan,2026-08-29,W,L,KO/TKO,1,Women's Strawweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,16,16,0,0,0,0
+us:34d4cae19105eb68,Cam Nelson,us:e0664abaa023fd6f,Ding Meng,2026-08-29,W,L,U-DEC,3,Welterweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,0,0,41,39,4,0,0,0
 2127684a702c4006,Gregory Rodrigues,9583d6bf13318f23,Anthony Hernandez,2026-08-22,W,L,U-DEC,5,Middleweight,UFC Fight Night: Hernandez vs. Rodrigues,ufcstats,3,0,174,90,0,3,0,0
 d04b8d5ce7a65c4f,Vitor Petrino,e61d510091019852,Serghei Spivac,2026-08-22,W,L,U-DEC,3,Heavyweight,UFC Fight Night: Hernandez vs. Rodrigues,ufcstats,0,0,64,23,4,0,0,0
 db3f5063058ec38a,Reinier de Ridder,900105052b1946b1,Roman Dolidze,2026-08-22,W,L,KO/TKO,1,Light Heavyweight,UFC Fight Night: Hernandez vs. Rodrigues,ufcstats,0,0,71,1,0,0,0,0

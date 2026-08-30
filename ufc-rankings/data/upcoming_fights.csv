@@ -1,34 +1,40 @@
 event_id,event_name,event_date,bout_order,section,is_main_event,weight_class,fighter1_ourId,fighter1_name,fighter1_sherdogId,fighter2_ourId,fighter2_name,fighter2_sherdogId,fetched_at
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,1,,1,Middleweight,9583d6bf13318f23,Anthony Hernandez,,2127684a702c4006,Gregory Rodrigues,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,2,,0,Heavyweight,e61d510091019852,Serghei Spivac,,d04b8d5ce7a65c4f,Vitor Petrino,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,3,,0,Light Heavyweight,db3f5063058ec38a,Reinier de Ridder,,900105052b1946b1,Roman Dolidze,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,4,,0,Lightweight,bb76e767e4bf0b9a,MarQuel Mederos,,384b9ef43aa01a73,Mason Jones,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,5,,0,Women's Flyweight,35fd53a02396b4af,Carli Judice,,,Jeisla Chaves,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,6,,0,Heavyweight,,Terrance Chatman,,,Anthony Wint,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,7,,0,Featherweight,d42c88019231799d,Jamall Emmers,,26f15079cf039c8c,Lerryan Douglas,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,8,,0,Heavyweight,3efa6683f90baf91,Kennedy Nzechukwu,,dcf805bf4b210fb9,Shamil Gaziev,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,9,,0,Lightweight,6a5a96149763aeef,Chris Padilla,,f871be2f77817a9f,Nasrat Haqparast,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,10,,0,Featherweight,511c563e58695e67,Marcio Barbosa,,,Ryan Kuse,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,11,,0,Lightweight,858da0d25b30d9c6,Gauge Young,,,Stan Dorsainvil,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,12,,0,Middleweight,019629d59f9a2c45,Wes Schultz,,c88287c8ff62d1e7,Jackson McVey,,2026-08-16
-ufc-fight-night-august-22-2026,UFC Fight Night - Hernandez vs. Rodrigues,2026-08-22,13,,0,Women's Strawweight,1a5943119d358e11,Shanelle Dyer,,ca846720b8878cbc,Elise Reed,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,1,main,1,Bantamweight,6f151471dd180d1e,Umar Nurmagomedov,,6e8a5fe4993ba864,Song Yadong,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,2,main,0,Women's Strawweight,c58c3a863045d224,Yan Xiaonan,,092a12fbdcf12ad3,Denise Gomes,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,3,main,0,Bantamweight,14d7083ccbe8c09e,Aoriqileng,,74bb53e7099cb5b9,Kai Asakura,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,4,main,0,Flyweight,245f661e52b116c7,Alex Perez,,284456a2771843a3,Sumudaerji,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,5,main,0,Light Heavyweight,,Liu Ce,,3d3b451081ce16e9,Junior Tafa,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,6,main,0,Flyweight,,Namsrai Batbayar,,e1601c0597a7b444,Andre Lima,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,7,prelim,0,Featherweight,0aa46064d6a157d1,Jack Jenkins,,a238e2e4c9670e90,Sean Woodson,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,8,prelim,0,Flyweight,0488ce27e1b8bb1d,Rei Tsuruya,,c9689833e730c077,Kevin Borjas,,2026-08-16
-ufc-fight-night-august-29-2026,UFC Fight Night - Nurmagomedov vs. Yadong,2026-08-29,9,prelim,0,Women's Strawweight,,Xiong Jingnan,,1be2a80e36f38a46,Julia Polastri,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,1,main,1,Lightweight,fc949bd38e5955fc,Dan Hooker,,,Salahdine Parnasse,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,2,main,0,Lightweight,72d51391d67206b8,Farès Ziam,,a892819bc8e25b5a,Axel Sola,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,3,main,0,Middleweight,de9b370a0b1c44a9,Michael Venom Page,,37962e622840843a,Nursulton Ruziboev,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,4,main,0,Featherweight,07691b03bb22f0a9,Morgan Charriere,,e18ec46a5875684b,Felipe Lima,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,5,main,0,Featherweight,6654318100e87744,Losene Keita,,56adb35526c59c88,Muhammad Naimov,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,6,prelim,0,Heavyweight,3f143ed5d6b45e39,Mario Pinto,,a987d4a821166828,Ryan Spann,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,7,prelim,0,Featherweight,e25181125365fbe6,Kurtis Campbell,,122fde0994a2f457,Trevor Peek,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,8,prelim,0,Light Heavyweight,e5f3f443faf8da23,Oumar Sy,,d8a13b497377e7a9,Modestas Bukauskas,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,9,prelim,0,Featherweight,00bf0d84c07bafc5,Nathaniel Wood,,96b8d95c6822ab2b,Mairon Santos,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,10,prelim,0,Women's Bantamweight,89d577014f06908a,Nora Cornolle,,fe5b6eb764fa7cf7,Klaudia Sygula,,2026-08-16
-ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,11,prelim,0,Middleweight,,Matthieu Letho Duclos,,,Luis Felipe Dias,,2026-08-16
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,1,,1,Lightweight,fc949bd38e5955fc,Dan Hooker,,,Salahdine Parnasse,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,2,,0,Lightweight,72d51391d67206b8,Farès Ziam,,a892819bc8e25b5a,Axel Sola,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,3,,0,Middleweight,de9b370a0b1c44a9,Michael Venom Page,,37962e622840843a,Nursulton Ruziboev,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,4,,0,Welterweight,1dbb544d1b5ac196,Daniil Donchenko,,fd2553227e3641fe,Punahele Soriano,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,5,,0,Featherweight,07691b03bb22f0a9,Morgan Charriere,,e18ec46a5875684b,Felipe Lima,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,6,,0,Featherweight,6654318100e87744,Losene Keita,,56adb35526c59c88,Muhammad Naimov,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,7,,0,Heavyweight,3f143ed5d6b45e39,Mario Pinto,,a987d4a821166828,Ryan Spann,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,8,,0,Featherweight,e25181125365fbe6,Kurtis Campbell,,122fde0994a2f457,Trevor Peek,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,9,,0,Light Heavyweight,e5f3f443faf8da23,Oumar Sy,,d8a13b497377e7a9,Modestas Bukauskas,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,10,,0,Featherweight,00bf0d84c07bafc5,Nathaniel Wood,,96b8d95c6822ab2b,Mairon Santos,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,11,,0,Flyweight,,Michael Aljarouj,,,Fabia Sintes,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,12,,0,Women's Bantamweight,89d577014f06908a,Nora Cornolle,,fe5b6eb764fa7cf7,Klaudia Sygula,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,13,,0,Middleweight,,Matthieu Letho Duclos,,,Luis Felipe Dias,,2026-08-30
+ufc-fight-night-september-05-2026,UFC Fight Night - Hooker vs. Parnasse,2026-09-05,14,,0,Women's Strawweight,,Delphine Benouaich,,,Sofia Montenegro,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,1,main,1,Featherweight,fa859b94c8582c26,Jean Silva,,2f88f17add7669c5,Jose Miguel Delgado,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,2,main,0,Flyweight,37ac5668fa9f42aa,Brandon Moreno,,f7f904ccafae5749,Joseph Morales,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,3,main,0,Featherweight,006859adbc880edd,Tommy McMillen,,5a1004a74203b5f2,Marwan Rahiki,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,4,main,0,Women's Flyweight,0084e6f1dce86e4c,Manon Fiorot,,2f089bd2b4bc0145,Alexa Grasso,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,5,main,0,Heavyweight,34808451782bc5ee,Waldo Cortes Acosta,,de831203e050cdaf,Curtis Blaydes,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,6,main,0,Bantamweight,f98cac378dcfb57b,David Martinez,,217d1a9370550d41,Dan Ige,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,7,prelim,0,Flyweight,eb6e138c10bb379c,Tim Elliott,,60f31fb96a24723a,Edgar Chairez,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,8,prelim,0,Welterweight,1979d2ef989e7265,Ignacio Bahamondes,,f2154a77e666997c,Muslim Salikhov,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,9,prelim,0,Middleweight,02e16570ff7efb38,Yousri Belgaroui,,b78c2c0cb4980e9d,Djorden Santos,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,10,prelim,0,Featherweight,,Ramiro Jimenez,,,Rodrigo Vera,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,11,prelim,0,Lightweight,0c24350dc36661c6,Rafa Garcia,,38460724e5eca228,Rongzhu,,2026-08-30
+ufc-fight-night-september-12-2026,Noche UFC - Silva vs. Delgado,2026-09-12,12,prelim,0,Women's Flyweight,1fdd3b0f7c74e3b8,JJ Aldrich,,,Regina Tarin,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,1,main,1,Flyweight Title,eff3824cc383d8db,Joshua Van,,491c47c97570c365,Alexandre Pantoja,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,2,main,0,Lightweight,1c2caae133a1f406,Arman Tsarukyan,,bd8ee82c2df0d588,Mauricio Ruffy,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,3,main,0,Featherweight,fd67143f447281de,Patricio Pitbull,,a7a6034e8fa43cf3,Dooho Choi,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,4,main,0,Lightweight,f91a8fe9ad32751f,Renato Moicano,,3f3f90729e314479,Brian Ortega,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,5,main,0,Light Heavyweight,990efe1105080c68,Alonzo Menifield,,f7012ef25547fc99,Iwo Baraniewski,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,6,prelim,0,Heavyweight,,Gable Steveson,,93fc17b97f4b66d2,Sean Sharaf,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,7,prelim,0,Bantamweight,8fef39098574c923,Marlon Vera,,d05aa9da9807a6ee,Charles Jourdain,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,8,prelim,0,Heavyweight,629bc2bb71d9f224,Tai Tuivasa,,3fbed33ac7d823ae,Robelis Despaigne,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,9,prelim,0,Middleweight,f4544d57a0c93b7c,Edmen Shahbazyan,,b4fb66059bd82743,Brunno Ferreira,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,10,early,0,Featherweight,3739a7ad389dcac5,Giga Chikadze,,5817d60924c7a7e0,Joanderson Brito,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,11,early,0,Women's Flyweight,357346d53e3f2652,Casey O'Neill,,f2a4a3932a91dc1e,Eduarda Moura,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,12,early,0,Middleweight,85a165c98f003923,Ryan Gandra,,fafa67326d7c9922,Ozzy Diaz,,2026-08-30
+cryptocom-ufc-331,Crypto.com UFC 331 - Van vs. Pantoja,2026-09-19,13,early,0,Featherweight,bbad8cc98783fae1,Michael Aswell Jr.,,0340977ba43f8013,JooSang Yoo,,2026-08-30
