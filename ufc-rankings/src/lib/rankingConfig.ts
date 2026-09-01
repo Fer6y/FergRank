@@ -274,6 +274,15 @@ export const RANKING_CONFIG = {
     // and demoted others into the 40–60 band (won 68%). Shrinking pulls the
     // whole S-curve toward calibration while keeping the log-loss gain.
     // 1.0 = old behaviour; 0 = pure-Elo win % (age/style contribute nothing).
+    // REGIME-SHIFT FLAG (2026-09-01, research/backtest/mgs/t6retune.ts, plan
+    // docs/plans/MARKET_GAP_SWEEP_PLAN.md): two-half sweep — the choose half
+    // (<2024) picked the current 0.65, but the confirm half (2024+) is MONOTONE
+    // toward NO shrink (s=1.0: LL 0.6259→0.6183, t −2.20; overlay-live slice
+    // 0.6217→0.6140) — the exact shape the shade floor showed before its
+    // confirmed removal. Stays 0.65 per the pre-registered both-halves rule;
+    // do NOT pool-fit. Re-run the shrink sweep with 2024+ as the choose half
+    // once another year of odds exists. Same sweep confirmed winProbDenominator
+    // genuinely flat near 140 (confirm arms within 0.0012 LL) — no re-anchor.
     overlayShrink: 0.65,
     grapplingEdgeCoef: 0.001, // NET grappling dominance (td + CONTROL differential) — refit ~0: already priced into Elo
     strikingEdgeCoef: 0.011,  // per unit of striking edge (net landed−absorbed differential)
@@ -309,6 +318,25 @@ export const RANKING_CONFIG = {
     // the SAME loss-method shape as the skid M3, independently constructed.
     // Re-test the two together with skidStudy's re-run; and recency-sharpened
     // finish rates LOSE to career rates (finishRecency.ts — a trait, not form).
+    // MARKET-GAP SWEEP 2026-09-01 (research/backtest/mgs/, 6 candidates
+    // pre-registered in docs/plans/MARKET_GAP_SWEEP_PLAN.md, gates t ≤ −2
+    // held-out; NOTHING cleared, nothing shipped — do not re-propose these
+    // from intuition): REACH diff FLAT (train +0.021/inch → held-out ≈0; the
+    // market already prices reach); COMMON-OPPONENT net FLAT on both offsets
+    // (transitivity already inside Elo); TITLE champion edge FLAT and
+    // underpowered (held-out affected n=11 < the pre-registered 25 floor).
+    // Two DIRECTIONAL survivors, both sign-stable train→held-out:
+    // (1) SOUTHPAW-vs-orthodox +0.126→+0.199 logit, t −0.64 — southpaws won
+    // 53.3% of the 392 mixed-stance bouts vs our 50.0% price (market 52.0%);
+    // needs ~4–5× the affected sample to clear the gate.
+    // (2) CHIN/POWER career rates on the MONEYLINE, t −1.12, both coefs
+    // NEGATIVE — the finish-weighted K + metrics finish threat already
+    // OVER-credit finishers as moneyline picks, and being-finished-often
+    // underperforms our price: the third independent convergence on the
+    // loss-method/damage family (skid M3, recentFinished). Any future combined
+    // term must audit double-counts vs finishMultipliers, the disabled
+    // powerEdgeCoef, AND metricsWeights.knockdownRate/submissionThreat.
+    // Re-test alongside skidStudy's standing re-run condition.
     // Pre-UFC pedigree PRIOR (prediction side, DISPLAY-ONLY — never touches the
     // Elo pool). Logit per unit of tapered pedigree-strength difference (A − B),
     // where each side's strength tapers out by seedTaperUFCFights, so it only

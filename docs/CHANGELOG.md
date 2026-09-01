@@ -10,7 +10,60 @@ below; leave them where they are — scripts diff against them.
 
 ---
 
-## 2026-08-27
+## 2026-09-01
+
+- **MARKET-GAP SWEEP (pre-registered, multi-agent): six untested closing-line candidates
+  measured in parallel; NOTHING cleared the gate, nothing ships. Two directional survivors
+  and one regime-shift flag recorded.** Plan, candidate definitions and the verdict rule
+  (held-out affected t ≤ −2, unaffected t < +2, sign stability) committed in
+  `docs/plans/MARKET_GAP_SWEEP_PLAN.md` (commit 082d36f) BEFORE any test ran. Harness =
+  the skidStudy/trendStudy construction (PIT ratings + PitAdjuster + predictFight,
+  Shin de-vig, production-logit offset, symmetrized, fit <2024 / score 2024+,
+  pair+date dedupe → 1,532 bouts, 1,188/344 split). Each candidate ran as an independent
+  subagent writing its own script under `research/backtest/mgs/`; every result at
+  |t| ≥ 1.5 (and T2) was re-run and re-derived by an independent adversarial verifier
+  (own logistic solver, per-bout dumps, hand-traces from raw CSVs) — all upheld.
+  **Baseline re-confirmed first** (`marketGapAudit.ts` unmodified): gap +0.0504 LL/bout
+  (t 6.71, n=1,552), acc 62.1% vs the market's 68.1%; structure unchanged from
+  2026-08-27 (fav under-stated in every chalk band, 0–2-prior newcomers the biggest
+  mass, skidding favourites the worst named slice); `last100.ts` at NBOUTS=500: pick
+  disagreements market-right 70 / model-right 46.
+  **FLAT (3):** REACH differential — train +0.021/inch collapses to ≈0 on 2024+
+  (descriptive tails are real: ±4"+ reach won 54.9%/45.1%, but the market already
+  prices them closer than we do, and the residual vs the close is t 0.11).
+  COMMON-OPPONENT net record — flat on BOTH offsets (±0.2 t); folk transitivity is
+  already inside Elo's structure. TITLE/champion edge — flat and underpowered
+  (affected held-out n=11 < the pre-registered 25 floor; the one cell worth
+  remembering: champion underdogs won 50.0% vs the market's 36.8%, n=14, far too thin).
+  **DIRECTIONAL (2), recorded in `winProbModel` breadcrumbs, not shipped:**
+  (1) SOUTHPAW-vs-orthodox — sign-stable and strengthening (+0.126 train → +0.199
+  held-out refit, t −0.64): southpaws won 53.3% of 392 mixed-stance bouts, the model
+  (which reads no stance) priced 50.0%, the market 52.0%. Needs ~4–5× the affected
+  sample. (2) CHIN/POWER career rates on the MONEYLINE (the finishSignal features,
+  validated 2026-08-21 for ITD props only) — both coefficients NEGATIVE, sign-stable
+  (t −1.12): the engine already OVER-credits finishers as moneyline picks
+  (finish-weighted K + metrics finish threat), and often-finished fighters underperform
+  our price. That is the THIRD independent convergence on the loss-method/damage-taken
+  family (skid M3 2026-08-18, recentFinished 2026-08-27) from a third construction —
+  now with the sign nailed down: the value is fading damage-takers, not boosting
+  finishers. Re-test rides skidStudy's standing condition (another year of odds); any
+  combined term owes a double-count audit vs `finishMultipliers`, the disabled
+  `powerEdgeCoef`, and `metricsWeights.knockdownRate`/`submissionThreat` (verifier
+  addition).
+  **RETUNE arm (retune-before-add), FLAT with a flag:** `winProbDenominator` sweep
+  {120–160} — confirm-half surface within 0.0012 LL of the current 140, temperature ≈ 1.0
+  re-confirmed, no re-anchor. `overlayShrink` sweep {0.45–1.0} — choose half (<2024)
+  keeps the current 0.65, but the 2024+ half is MONOTONE toward NO shrink (s=1.0
+  t −2.20, overlay-live LL 0.6217→0.6140): the same regime-shift shape the shade floor
+  showed before its confirmed removal. Stays per the both-halves rule; breadcrumb at the
+  config knob with the re-test condition (re-run with 2024+ as the choose half once
+  another year of odds exists). Arm-0 of the sweep reproduced production probabilities
+  with exactly 0.0 error on all 1,532 bouts before any arm counted.
+  **The honest headline stands:** no knob setting in either grid recovers more than
+  ~0.008 of the ~0.05 LL/bout gap to the close — the gap is information/ordering
+  (newcomers, damage assessment, stance/anthropometry the market reads and we partly
+  don't), not scale. Verifier-corroborated caveat carried on all harnesses: draws enter
+  as fav-losses (inherited trendStudy behaviour, identical across paired arms).
 
 - **TREND STUDY (pre-registered): 4–6 fight performance trajectories are mostly FLAT;
   the one directional survivor is — again — how the losses happened. No scoring change.**
