@@ -1,4 +1,18 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,kd1,kd2,str1,str2,td1,td2,sub1,sub2
+us:b3cb9dfccff3be76,Salahdine Parnasse,fc949bd38e5955fc,Dan Hooker,2026-09-05,W,L,KO/TKO,1,Lightweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,1,0,12,14,0,0,0,0
+a892819bc8e25b5a,Axel Sola,72d51391d67206b8,Fares Ziam,2026-09-05,W,L,KO/TKO,1,Lightweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,1,0,9,7,0,0,0,0
+de9b370a0b1c44a9,Michael Page,37962e622840843a,Nursulton Ruziboev,2026-09-05,W,L,U-DEC,3,Middleweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,0,0,12,8,0,2,1,0
+1dbb544d1b5ac196,Daniil Donchenko,fd2553227e3641fe,Punahele Soriano,2026-09-05,W,L,U-DEC,3,Welterweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,1,0,83,15,0,4,0,1
+e25181125365fbe6,Kurtis Campbell,122fde0994a2f457,Trevor Peek,2026-09-05,W,L,SUB,3,Featherweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,0,0,44,12,13,0,1,0
+6654318100e87744,Losene Keita,56adb35526c59c88,Muhammad Naimov,2026-09-05,W,L,KO/TKO,1,Featherweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,2,0,18,4,0,0,0,0
+e18ec46a5875684b,Felipe Lima,07691b03bb22f0a9,Morgan Charriere,2026-09-05,W,L,U-DEC,3,Featherweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,0,0,112,36,2,0,0,1
+3f143ed5d6b45e39,Mario Pinto,a987d4a821166828,Ryan Spann,2026-09-05,W,L,KO/TKO,2,Heavyweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,0,0,48,13,6,0,0,1
+d8a13b497377e7a9,Modestas Bukauskas,e5f3f443faf8da23,Oumar Sy,2026-09-05,W,L,KO/TKO,2,Light Heavyweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,1,0,22,39,0,3,0,1
+us:93f9c19ae41d2a97,Pavel Andrusca,00bf0d84c07bafc5,Nathaniel Wood,2026-09-05,W,L,U-DEC,3,Featherweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,0,1,50,28,4,0,1,0
+us:9911989cf48b195d,Fabia Sintes,us:22e3458965d5d08a,Michael Aljarouj,2026-09-05,W,L,U-DEC,3,Flyweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,0,0,28,10,3,0,3,1
+89d577014f06908a,Nora Cornolle,fe5b6eb764fa7cf7,Klaudia Sygula,2026-09-05,W,L,U-DEC,3,Women's Bantamweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,0,0,34,23,4,0,1,0
+us:ec322adbabbfa6e7,Matthieu Duclos,us:33a86e839ad202d8,Luis Felipe Dias,2026-09-05,W,L,KO/TKO,1,Middleweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,1,0,18,22,0,0,0,0
+us:3138df4d117ebc12,Delphine Benouaich,us:8b1b051038354655,Sofia Montenegro,2026-09-05,W,L,SUB,2,Women's Strawweight,UFC Fight Night: Hooker vs. Parnasse,ufcstats,1,0,146,72,0,0,1,0
 6e8a5fe4993ba864,Song Yadong,6f151471dd180d1e,Umar Nurmagomedov,2026-08-29,W,L,KO/TKO,2,Bantamweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,11,13,0,1,1,0
 092a12fbdcf12ad3,Denise Gomes,c58c3a863045d224,Yan Xiaonan,2026-08-29,W,L,KO/TKO,1,Women's Strawweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,18,19,0,0,0,0
 74bb53e7099cb5b9,Kai Asakura,14d7083ccbe8c09e,Aoriqileng,2026-08-29,W,L,KO/TKO,2,Bantamweight,UFC Fight Night: Nurmagomedov vs. Song,ufcstats,1,0,27,14,0,0,0,0
