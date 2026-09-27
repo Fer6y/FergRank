@@ -1940,11 +1940,29 @@ date,event_slug,fighter1,fighter2,open1,open2,close1,close2,n_books
 2026-09-05,ufc-fight-night-4326,Luis Felipe Dias,Matthieu Duclos,,,1.9570,1.8585,6
 2026-09-05,ufc-fight-night-4326,Delphine Benouaich,Sofia Montenegro,,,1.7300,2.1350,6
 2026-09-12,ufc-glendale-4328,Jean Silva,Jose Delgado,,,1.2312,4.1500,6
-2026-09-19,ufc-331-4303,Alexandre Pantoja,Joshua van,,,1.9664,1.8167,6
-2026-09-19,ufc-331-4303,Arman Tsarukyan,Mauricio Ruffy,,,1.2804,3.7000,6
-2026-09-19,ufc-331-4303,Gable Steveson,Sean Sharaf,,,1.0699,8.7500,6
-2026-09-19,ufc-331-4303,Robelis Despaigne,Tai Tuivasa,,,1.1600,5.4000,6
-2026-09-19,ufc-331-4303,Charles Jourdain,Marlon Vera,,,1.3887,3.0250,6
-2026-09-19,ufc-331-4303,Brunno Ferreira,Edmen Shahbazyan,,,2.3100,1.6044,6
-2026-09-19,ufc-331-4303,Casey O'Neill,Eduarda Moura,,,1.5556,2.4400,6
-2026-09-19,ufc-331-4303,Giga Chikadze,Joanderson Brito,,,3.6250,1.2878,6
+2026-09-19,ufc-331-4303,Alexandre Pantoja,Joshua van,,,2.2750,1.6369,6
+2026-09-19,ufc-331-4303,Arman Tsarukyan,Mauricio Ruffy,,,1.3373,3.3250,6
+2026-09-19,ufc-331-4303,Doo Ho Choi,Patricio Freire,,,1.3774,3.0750,6
+2026-09-19,ufc-331-4303,Gable Steveson,Sean Sharaf,,,1.0450,10.5000,6
+2026-09-19,ufc-331-4303,Alonzo Menifield,Iwo Baraniewski,,,3.4000,1.3282,6
+2026-09-19,ufc-331-4303,Charles Jourdain,Marlon Vera,,,1.4826,2.6900,6
+2026-09-19,ufc-331-4303,Robelis Despaigne,Tai Tuivasa,,,1.2153,4.3750,6
+2026-09-19,ufc-331-4303,Joo Sang Yoo,Michael Aswell,,,1.5587,2.5000,6
+2026-09-19,ufc-331-4303,Ozzy Diaz,Ryan Gandra,,,4.9750,1.1836,6
+2026-09-19,ufc-331-4303,Brunno Ferreira,Edmen Shahbazyan,,,2.5250,1.5373,6
+2026-09-19,ufc-331-4303,Casey O'Neill,Eduarda Moura,,,1.4168,2.9000,6
+2026-09-19,ufc-331-4303,Giga Chikadze,Joanderson Brito,,,4.3500,1.2274,6
+2026-09-19,ufc-331-4303,Brian Ortega,Renato Moicano,,,2.5800,1.5236,1
+2026-09-19,ufc-331-4302,Alexandre Pantoja,Joshua van,,,2.2750,1.6369,6
+2026-09-19,ufc-331-4302,Arman Tsarukyan,Mauricio Ruffy,,,1.3373,3.3250,6
+2026-09-19,ufc-331-4302,Doo Ho Choi,Patricio Freire,,,1.3774,3.0750,6
+2026-09-19,ufc-331-4302,Gable Steveson,Sean Sharaf,,,1.0450,10.5000,6
+2026-09-19,ufc-331-4302,Alonzo Menifield,Iwo Baraniewski,,,3.4000,1.3282,6
+2026-09-19,ufc-331-4302,Charles Jourdain,Marlon Vera,,,1.4826,2.6900,6
+2026-09-19,ufc-331-4302,Robelis Despaigne,Tai Tuivasa,,,1.2153,4.3750,6
+2026-09-19,ufc-331-4302,Joo Sang Yoo,Michael Aswell,,,1.5587,2.5000,6
+2026-09-19,ufc-331-4302,Ozzy Diaz,Ryan Gandra,,,4.9750,1.1836,6
+2026-09-19,ufc-331-4302,Brunno Ferreira,Edmen Shahbazyan,,,2.5250,1.5373,6
+2026-09-19,ufc-331-4302,Casey O'Neill,Eduarda Moura,,,1.4168,2.9000,6
+2026-09-19,ufc-331-4302,Giga Chikadze,Joanderson Brito,,,4.3500,1.2274,6
+2026-09-19,ufc-331-4302,Brian Ortega,Renato Moicano,,,2.5800,1.5236,1

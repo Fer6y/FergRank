@@ -1,4 +1,28 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,kd1,kd2,str1,str2,td1,td2,sub1,sub2
+880ed8d5af0c13b1,Raul Rosas Jr.,b629ea51b007a50f,Raoni Barcelos,2026-09-26,W,L,KO/TKO,5,Bantamweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,113,127,1,9,0,5
+e7adbb01bdaae78c,Ailin Perez,79c76b8be6876e54,Norma Dumont,2026-09-26,W,L,U-DEC,3,Women's Bantamweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,37,46,1,1,0,0
+us:5dad1e8a516e6477,Luis Hernandez,b9b0cb0b8a752fa3,Sedriques Dumas,2026-09-26,W,L,SUB,1,Light Heavyweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,3,0,1,0,2,0
+us:130b65b53f30f33c,Ilimbek Akylbek,us:2bbdbc925f4323ac,Mahammadali Osmanli,2026-09-26,W,L,DQ,1,Bantamweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,6,6,1,0,0,0
+us:a1a91dbf41a029c4,Tina Black,us:71758ab9f337716c,Melissa Amaya,2026-09-26,W,L,KO/TKO,2,Women's Strawweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,2,0,50,22,0,0,0,0
+222714af832f4c52,Brady Hiestand,1bd08c84baf0f0e2,Rinya Nakamura,2026-09-26,W,L,SUB,2,Bantamweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,26,29,0,1,2,0
+09d3fd4e11dd462b,Rodolfo Vieira,ffc82991174b4d0d,Robert Bryczek,2026-09-26,W,L,U-DEC,3,Middleweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,24,37,2,0,0,0
+1943e071abc00467,Christian Edwards,157689fad4e22542,Rodolfo Bellato,2026-09-26,W,L,KO/TKO,3,Light Heavyweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,1,1,59,30,0,0,0,0
+db353d75993d42c3,Elves Brener,c95b1cac8dfd2ae0,Josiah Harrell,2026-09-26,W,L,KO/TKO,1,Lightweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,1,0,25,9,0,2,0,0
+960a493831029685,Montel Jackson,a0811e03ef7082c8,Ricky Simon,2026-09-26,W,L,KO/TKO,2,Bantamweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,2,0,31,13,0,2,1,0
+a47743ba4ed6cb92,Alatengheili,86a2f8b96a00ac43,John Castaneda,2026-09-26,W,L,S-DEC,3,Bantamweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,28,55,3,0,0,2
+1e3c1b3b3d096236,Yazmin Jauregui,f8588e91351f8a39,Vanessa Demopoulos,2026-09-26,W,L,KO/TKO,1,Women's Strawweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,34,7,1,0,0,0
+eff3824cc383d8db,Joshua Van,491c47c97570c365,Alexandre Pantoja,2026-09-19,W,L,U-DEC,5,Flyweight,UFC 331: Van vs. Pantoja 2,ufcstats,1,0,181,147,0,5,1,0
+1c2caae133a1f406,Arman Tsarukyan,bd8ee82c2df0d588,Mauricio Ruffy,2026-09-19,W,L,KO/TKO,1,Lightweight,UFC 331: Van vs. Pantoja 2,ufcstats,1,0,8,4,1,0,0,0
+us:98a58c26c5b1ed17,Patricio Pitbull,a7a6034e8fa43cf3,Dooho Choi,2026-09-19,W,L,KO/TKO,1,Featherweight,UFC 331: Van vs. Pantoja 2,ufcstats,1,0,38,20,0,0,0,0
+93fc17b97f4b66d2,Sean Sharaf,us:f7e856a73c96048e,Gable Steveson,2026-09-19,W,L,KO/TKO,1,Heavyweight,UFC 331: Van vs. Pantoja 2,ufcstats,1,0,3,1,0,0,0,0
+990efe1105080c68,Alonzo Menifield,f7012ef25547fc99,Iwo Baraniewski,2026-09-19,W,L,S-DEC,3,Light Heavyweight,UFC 331: Van vs. Pantoja 2,ufcstats,0,0,62,67,1,1,0,0
+8fef39098574c923,Marlon Vera,d05aa9da9807a6ee,Charles Jourdain,2026-09-19,W,L,KO/TKO,3,Bantamweight,UFC 331: Van vs. Pantoja 2,ufcstats,3,0,72,83,3,0,0,0
+3fbed33ac7d823ae,Robelis Despaigne,629bc2bb71d9f224,Tai Tuivasa,2026-09-19,W,L,S-DEC,3,Heavyweight,UFC 331: Van vs. Pantoja 2,ufcstats,0,0,30,31,2,1,0,0
+bbad8cc98783fae1,Michael Aswell Jr.,0340977ba43f8013,JooSang Yoo,2026-09-19,W,L,S-DEC,3,Featherweight,UFC 331: Van vs. Pantoja 2,ufcstats,0,0,70,46,0,1,0,0
+85a165c98f003923,Ryan Gandra,fafa67326d7c9922,Ozzy Diaz,2026-09-19,W,L,KO/TKO,1,Middleweight,UFC 331: Van vs. Pantoja 2,ufcstats,1,0,16,3,0,0,0,0
+f4544d57a0c93b7c,Edmen Shahbazyan,b4fb66059bd82743,Brunno Ferreira,2026-09-19,W,L,U-DEC,3,Middleweight,UFC 331: Van vs. Pantoja 2,ufcstats,1,0,61,32,1,0,0,0
+357346d53e3f2652,Casey O'Neill,f2a4a3932a91dc1e,Eduarda Moura,2026-09-19,W,L,SUB,1,Women's Flyweight,UFC 331: Van vs. Pantoja 2,ufcstats,0,0,1,3,0,0,1,1
+5817d60924c7a7e0,Joanderson Brito,3739a7ad389dcac5,Giga Chikadze,2026-09-19,W,L,KO/TKO,1,Featherweight,UFC 331: Van vs. Pantoja 2,ufcstats,0,0,20,7,0,0,0,0
 fa859b94c8582c26,Jean Silva,2f88f17add7669c5,Jose Delgado,2026-09-12,W,L,SUB,3,Featherweight,Noche UFC: Silva vs. Delgado,ufcstats,1,0,39,40,1,0,1,0
 37ac5668fa9f42aa,Brandon Moreno,f7f904ccafae5749,Joseph Morales,2026-09-12,W,L,S-DEC,3,Flyweight,Noche UFC: Silva vs. Delgado,ufcstats,0,0,67,71,2,1,0,0
 006859adbc880edd,Tommy McMillen,5a1004a74203b5f2,Marwan Rahiki,2026-09-12,W,L,U-DEC,3,Featherweight,Noche UFC: Silva vs. Delgado,ufcstats,1,1,89,79,5,1,3,0
