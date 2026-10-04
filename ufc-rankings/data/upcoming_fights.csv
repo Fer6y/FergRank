@@ -1,28 +1,35 @@
 event_id,event_name,event_date,bout_order,section,is_main_event,weight_class,fighter1_ourId,fighter1_name,fighter1_sherdogId,fighter2_ourId,fighter2_name,fighter2_sherdogId,fetched_at
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,1,main,1,Women's Flyweight Title,a47925a4d8ea3a25,Natalia Silva,,58cfe90363989b8f,Wang Cong,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,2,main,0,Bantamweight,087d5e2b3912bfd6,Deiveson Figueiredo,,2b3745a0444dcd17,Payton Talbott,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,3,main,0,Lightweight,70838bdc207b5308,King Green,,b64c3d4ac407dfce,Esteban Ribovics,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,4,main,0,Welterweight,,Roberto Soldic,,b9f1b98324b5733d,Khaos Williams,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,5,main,0,Middleweight,ea2b6837d31cc55d,Ateba Gautier,,87802dddb1e85813,Roman Kopylov,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,6,prelim,0,Flyweight,1c33eb78bdc5df39,Imanol Rodriguez,,201260e3416bc322,Alden Coria,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,7,prelim,0,Middleweight,c212ca8a9b232259,Damian Pinas,,634eda97df9caa0e,Andrey Pulyaev,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,8,prelim,0,Bantamweight,3a70cd0ddb52f7f7,Marcus McGhee,,debbb42b88fca431,Benardo Sopaj,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,9,prelim,0,Heavyweight,,Anthony Wint,,,Lucas Armand,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,10,early,0,Heavyweight,f52a77241dedd0fd,Johnny Walker,,a0cd4255eec2a5b8,Mick Parkin,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,11,early,0,Lightweight,9bb425f4d50a87eb,Rafael Dos Anjos,,708c9a266a7807ba,Alexander Hernandez,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,12,early,0,Middleweight,e51574999ccf6b8f,Marvin Vettori,,3a0f7fd1dbd0ce0b,Ismail Naurdiev,,2026-09-27
-ufc-332,UFC 332 - Silva vs. Cong,2026-10-03,13,early,0,Welterweight,a7ed9d9e59972d38,Court McGee,,9c88a670ebba5427,Eric Nolan,,2026-09-27
-ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,1,main,1,Middleweight,58b6dee880eed3f4,Brendan Allen,,ba40e07b06503a8c,Christian Leroy Duncan,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,1,main,1,Welterweight,9af1cc34b9b919f0,Joaquin Buckley,,b1cff96c18589464,Mike Malott,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,2,main,0,Women's Flyweight,aaa797b5b8da777b,Erin Blanchfield,,8652f0cd3584afd1,Jasmine Jasudavicius,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,3,main,0,Lightweight,14969e972edf065c,Kyle Nelson,,,Cristian Perez Gonzalez,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,4,main,0,Middleweight,f9f4bfae4f5773bb,Marc-Andre Barriault,,adc254e5ba385928,Kyle Daukaus,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,5,main,0,Bantamweight,,Louis Jourdain,,501823539d83d4eb,Timmy Cuamba,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,6,main,0,Lightweight,968f595eff08ecaa,Mandel Nallo,,01de2cb017a2285d,Nate Landwehr,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,7,prelim,0,Heavyweight,b1ef5cbd50ee7312,Tanner Boser,,460b5fa5b94b70bd,Jhonata Diniz,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,8,prelim,0,Middleweight,3428d93a94413bec,Julien Leblanc,,bcfa27125bcecc19,Gilbert Urbina,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,9,prelim,0,Heavyweight,,Javad Mahjoub,,fd041fcc21cc505d,Louie Sutherland,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,10,prelim,0,Women's Flyweight,9dffb743981ffe24,Jamey-Lyn Horth,,c9317300533eb973,Katlyn Cerminara,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,11,prelim,0,Bantamweight,07437ba38048dad7,Chad Anheliger,,af39dff621338816,Steven Koslow,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,12,prelim,0,Women's Bantamweight,d2bf67f8a51c9545,Melissa Croden,,4068eabd52a7fa93,Chelsea Chandler,,2026-09-27
-ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,13,prelim,0,Bantamweight,,Cody Chovancek,,b93b710e2308d189,SuYoung You,,2026-09-27
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,1,main,1,Middleweight,58b6dee880eed3f4,Brendan Allen,,ba40e07b06503a8c,Christian Leroy Duncan,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,2,main,0,Lightweight,1ec908c218b0c556,Matheus Camilo,,f00ed05472a7e699,Jai Herbert,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,3,main,0,Women's Strawweight,b0959ad762762a12,Loopy Godinez,,987a31b24ac333ea,Ketlen Souza,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,4,main,0,Featherweight,37965f5e8d73ed22,Andre Fili,,62c22d8f8fd6a0fc,Kai Kamaka III,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,5,main,0,Light Heavyweight,98007087a1199703,Julius Walker,,cbb08748dd6bbe66,Gerald Meerschaert,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,6,main,0,Bantamweight,d4d40a862922e25b,Malcolm Wellmaker,,,Otari Tanzilovi,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,7,prelim,0,Lightweight,505fe82b2d6baf48,Francisco Prado,,20fbdf9a7df6c950,Ismael Bonfim,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,8,prelim,0,Welterweight,e3116e06ecdcad09,Niko Price,,,Leon Shahbazyan,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,9,prelim,0,Light Heavyweight,dad9b43cf7480f68,Felipe Franco,,af48657df8015e6d,Brendson Ribeiro,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,10,prelim,0,Heavyweight,36d7983b38d6c225,Allen Frye Jr.,,,RJ Harris,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,11,prelim,0,Women's Bantamweight,17614fce44112efa,Alice Pereira,,d2806a494d582f8d,Daria Zhelezniakova,,2026-10-04
+ufc-fight-night-october-10-2026,UFC Fight Night - Allen vs. Duncan,2026-10-10,12,prelim,0,Women's Flyweight,3c972c6d8123294c,Ernesta Kareckaitė,,8f8896b8e9a60609,Melissa Gatto,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,1,main,1,Welterweight,9af1cc34b9b919f0,Joaquin Buckley,,b1cff96c18589464,Mike Malott,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,2,main,0,Women's Flyweight,aaa797b5b8da777b,Erin Blanchfield,,8652f0cd3584afd1,Jasmine Jasudavicius,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,3,main,0,Lightweight,14969e972edf065c,Kyle Nelson,,,Cristian Perez Gonzalez,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,4,main,0,Middleweight,f9f4bfae4f5773bb,Marc-Andre Barriault,,adc254e5ba385928,Kyle Daukaus,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,5,main,0,Bantamweight,,Louis Jourdain,,501823539d83d4eb,Timmy Cuamba,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,6,main,0,Lightweight,968f595eff08ecaa,Mandel Nallo,,01de2cb017a2285d,Nate Landwehr,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,7,prelim,0,Heavyweight,b1ef5cbd50ee7312,Tanner Boser,,460b5fa5b94b70bd,Jhonata Diniz,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,8,prelim,0,Middleweight,3428d93a94413bec,Julien Leblanc,,bcfa27125bcecc19,Gilbert Urbina,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,9,prelim,0,Heavyweight,,Javad Mahjoub,,fd041fcc21cc505d,Louie Sutherland,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,10,prelim,0,Women's Flyweight,9dffb743981ffe24,Jamey-Lyn Horth,,c9317300533eb973,Katlyn Cerminara,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,11,prelim,0,Bantamweight,07437ba38048dad7,Chad Anheliger,,af39dff621338816,Steven Koslow,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,12,prelim,0,Women's Bantamweight,d2bf67f8a51c9545,Melissa Croden,,4068eabd52a7fa93,Chelsea Chandler,,2026-10-04
+ufc-fight-night-october-17-2026,UFC Fight Night - Buckley vs. Malott,2026-10-17,13,prelim,0,Bantamweight,,Cody Chovancek,,b93b710e2308d189,SuYoung You,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,1,main,1,Featherweight Title,00ccd78f83230b09,Alexander Volkanovski,,eb764bb66e7f3030,Movsar Evloev,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,2,main,0,Bantamweight Title,e5c5bf33b9961606,Petr Yan,,5ea45965dcdfe486,Merab Dvalishvili,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,3,main,0,Flyweight,10a96d52c89b5469,Lone'er Kavanagh,,fea9efc9272d4900,Ramazan Temirov,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,4,main,0,Heavyweight,65960493f529fc58,Alexander Volkov,,16862aff18bed355,Rizvan Kuniev,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,5,main,0,Featherweight,7b2ab75a34942757,Arnold Allen,,c91e400809d7f272,Aaron Pico,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,6,prelim,0,Light Heavyweight,75591a46f79bc859,Azamat Murzakanov,,ae7ec1ba7a87231d,Dominick Reyes,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,7,prelim,0,Light Heavyweight,9dd8a4f62f227cb4,Nikita Krylov,,8d4cda2a290cc491,Abdul Rakhman Yakhyaev,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,8,prelim,0,Middleweight,1be0a07a75aba8b6,Abus Magomedov,,458a79c22325eee8,Cam Rowston,,2026-10-04
+ufc-333,UFC 333 - Volkanovski vs. Evloev,2026-10-24,9,prelim,0,Lightweight,4baf4a920856545f,Grant Dawson,,9c6d0c42a7a85b51,Nurullo Aliev,,2026-10-04

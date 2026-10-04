@@ -1,4 +1,18 @@
 fighter1_ourId,fighter1_name,fighter2_ourId,fighter2_name,date,result1,result2,method,round,weightClass,eventName,source,kd1,kd2,str1,str2,td1,td2,sub1,sub2
+a47925a4d8ea3a25,Natalia Silva,58cfe90363989b8f,Wang Cong,2026-10-03,W,L,U-DEC,5,Women's Flyweight,UFC 332: Silva vs. Wang,ufcstats,1,0,109,98,3,0,0,0
+2b3745a0444dcd17,Payton Talbott,087d5e2b3912bfd6,Deiveson Figueiredo,2026-10-03,W,L,KO/TKO,1,Bantamweight,UFC 332: Silva vs. Wang,ufcstats,2,0,25,5,0,0,0,0
+b64c3d4ac407dfce,Esteban Ribovics,70838bdc207b5308,King Green,2026-10-03,W,L,KO/TKO,1,Lightweight,UFC 332: Silva vs. Wang,ufcstats,3,0,35,27,0,0,0,0
+us:5a229cbd9cdd28ca,Roberto Soldic,b9f1b98324b5733d,Khaos Williams,2026-10-03,W,L,U-DEC,3,Welterweight,UFC 332: Silva vs. Wang,ufcstats,0,0,94,27,3,0,0,0
+87802dddb1e85813,Roman Kopylov,ea2b6837d31cc55d,Ateba Gautier,2026-10-03,W,L,KO/TKO,1,Middleweight,UFC 332: Silva vs. Wang,ufcstats,1,0,19,7,0,0,0,0
+1c33eb78bdc5df39,Imanol Rodriguez,201260e3416bc322,Alden Coria,2026-10-03,W,L,KO/TKO,1,Flyweight,UFC 332: Silva vs. Wang,ufcstats,1,0,20,4,1,0,0,0
+c212ca8a9b232259,Damian Pinas,634eda97df9caa0e,Andrey Pulyaev,2026-10-03,W,L,KO/TKO,1,Middleweight,UFC 332: Silva vs. Wang,ufcstats,1,0,5,4,0,0,0,0
+3a70cd0ddb52f7f7,Marcus McGhee,us:4419acb81e6f0ea4,Anthony Romero,2026-10-03,W,L,KO/TKO,1,Featherweight,UFC 332: Silva vs. Wang,ufcstats,2,0,34,13,0,1,0,0
+us:b34976c022b24568,Anthony Wint,us:20e04625a5395a06,Lucas Armand,2026-10-03,W,L,KO/TKO,1,Heavyweight,UFC 332: Silva vs. Wang,ufcstats,1,0,12,1,0,0,0,0
+f52a77241dedd0fd,Johnny Walker,a0cd4255eec2a5b8,Mick Parkin,2026-10-03,W,L,KO/TKO,1,Heavyweight,UFC 332: Silva vs. Wang,ufcstats,1,0,23,11,0,0,0,0
+ef56a8f712d971ef,Jacobe Smith,us:6c39d016053601ee,Bruce Whitehead,2026-10-03,W,L,KO/TKO,1,Welterweight,UFC 332: Silva vs. Wang,ufcstats,0,0,11,4,1,0,0,0
+708c9a266a7807ba,Alexander Hernandez,9bb425f4d50a87eb,Rafael Dos Anjos,2026-10-03,W,L,KO/TKO,2,Lightweight,UFC 332: Silva vs. Wang,ufcstats,2,0,36,26,0,0,0,0
+3a0f7fd1dbd0ce0b,Ismail Naurdiev,e51574999ccf6b8f,Marvin Vettori,2026-10-03,W,L,U-DEC,3,Middleweight,UFC 332: Silva vs. Wang,ufcstats,0,0,74,76,3,0,1,0
+9c88a670ebba5427,Eric Nolan,a7ed9d9e59972d38,Court McGee,2026-10-03,W,L,KO/TKO,3,Welterweight,UFC 332: Silva vs. Wang,ufcstats,1,0,121,98,0,0,0,0
 880ed8d5af0c13b1,Raul Rosas Jr.,b629ea51b007a50f,Raoni Barcelos,2026-09-26,W,L,KO/TKO,5,Bantamweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,113,127,1,9,0,5
 e7adbb01bdaae78c,Ailin Perez,79c76b8be6876e54,Norma Dumont,2026-09-26,W,L,U-DEC,3,Women's Bantamweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,37,46,1,1,0,0
 us:5dad1e8a516e6477,Luis Hernandez,b9b0cb0b8a752fa3,Sedriques Dumas,2026-09-26,W,L,SUB,1,Light Heavyweight,UFC Fight Night: Rosas Jr. vs. Barcelos,ufcstats,0,0,3,0,1,0,2,0
